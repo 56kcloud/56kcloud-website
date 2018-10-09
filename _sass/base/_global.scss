@@ -1,3 +1,6 @@
+
+$main: #1a222c;
+
 * {
     margin: 0;
     padding: 0;
@@ -188,3 +191,48 @@ img[align=right] {
         font-size: 0.8em;
     }
 }
+
+#particles-js {
+  background: $main;
+  display: flex;
+  vertical-align: bottom;
+  width: 100%;
+  min-height: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  .particles-js-canvas-el {
+    width:100% !important;
+    height:25% !important;
+    position:absolute !important;
+  }
+}
+
+@media screen and (min-width: 400px) {
+#particles-js {
+.particles-js-canvas-el {
+
+     height:15% !important;
+
+}}
+
+}
+@media screen and (min-width: 738px) {
+#particles-js {
+.particles-js-canvas-el {
+
+     height:20% !important;
+
+}}
+
+}
+@media screen and (min-width: 1000px) {
+#particles-js {
+.particles-js-canvas-el {
+
+     height:25% !important;
+
+}}
+
+}
+

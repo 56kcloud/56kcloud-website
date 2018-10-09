@@ -1,15 +1,17 @@
 ---
 layout: default
 ---
-<div id="particle-js">
+
 <div class="home">
   {% if site.theme_settings.header_text %}
+  <div id="particles-js">
   <div id="main" class="call-out"
   style="background-image: url('{{ site.baseurl }}/{{ site.theme_settings.header_text_feature_image }}')">
     {{ site.theme_settings.header_text }}
   </div>
+  </div>
+
   {% endif %}
-</div>
 
   <div class="posts">
     {% for post in paginator.posts %}
