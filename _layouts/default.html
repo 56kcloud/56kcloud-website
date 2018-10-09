@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html>
-  {% include head.html %}
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
   <body>
-    {% include navbar.html %}
-    <div class="content">
-      {{ content }}
+
+    {%- include header.html -%}
+
+    <div class="py-5">
+      <div class="container page-content">
+          {{ content }}
+      </div>
     </div>
-    {% include footer.html %}
+
+    {%- include footer.html -%}
+
+        <script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+   <script src="assets/javascript/app.js" ></script>
+
   </body>
+
 </html>

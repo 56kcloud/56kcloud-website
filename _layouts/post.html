@@ -1,41 +1,53 @@
 ---
 layout: default
 ---
-<article {% if page.feature-img %}class="feature-image"{% endif %}>
-  <header id="main" style="background-image: url('{{ site.baseurl }}/{{ page.feature-img }}')">
-    <h1 id="{{ page.title | cgi_escape }}" class="title">{{ page.title }}</h1>
-    <p class="meta">
-    {{ page.date | date: "%B %-d, %Y" }}
-    {% if page.author %} - {{ page.author }}{% endif %}
-    </p>
-  </header>
-  <section class="post-content">
-  {% if page.bootstrap %}
-  <div class="bootstrap-iso">
-  {% endif %}
-    {{ content }}
-  {% if page.bootstrap %}
-  </div>
-  {% endif %}
-  </section>
-  
-  <!-- Social media shares -->
-  {% include share_buttons.html %}
-   
-   <!-- Tag list -->
-  {% capture tag_list %}{{ page.tags | join: "|"}}{% endcapture %}
-  {% include tags_list.html tags=tag_list %}
-    
+<article>
+
+
+<div class="row">
+    <!-- Post Content Column -->
+        <div class="col-lg-12">
+            <!-- Title -->
+            <h1 class="mt-4">{{ page.title | escape }}</h1>
+            <!-- Author -->
+            <p class="lead">
+                by &nbsp;
+               {% assign author = site.team-members | where: 'short_name', page.author | first %}
+                {% if author %}
+                  <a href="{{ author.url }}">{{ author.name }}</a>
+                {% endif %}
+            </p>
+            <hr>
+            <!-- Date/Time -->
+            <p>{%- assign date_format = "%b %-d, %Y" -%}{{ page.date | date: date_format }}</p>
+            <hr>
+            <!-- Preview Image -->
+            <img class="img-fluid rounded" src="{{ page.preview-image }}" alt="">
+            <hr>
+            <!-- Post Content -->
+            <p class="lead"> {{ content }}</p>
+        </div>
+    </div>
 </article>
+<!--   <blockquote class="blockquote">
+            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <footer class="blockquote-footer">Someone famous in
+              <cite title="Source Title">Source Title</cite>
+            </footer>
+          </blockquote> -->
 
-<!-- Disqus -->
-{% if site.theme_settings.disqus_shortname %}
-<div class="comments">
-  {% include disqus.html %}
-</div>
-{% endif %}
-
-<!-- Post navigation -->
-{% if site.theme_settings.post_navigation %}
-  {% include post_nav.html %}
-{% endif %}
+       <!--   <header>
+              <h1>{{ page.title | escape }}</h1>
+              <p class="text-muted">
+                  <time datetime="{{ page.date | date_to_xmlschema }}">
+                      {%- assign date_format = "%b %-d, %Y" -%}
+                      {{ page.date | date: date_format }}
+                  </time>
+                  {%- if page.author -%}
+                  • {{ page.author }}
+                  {%- endif -%}
+              </p>
+          </header>
+          <section>
+              {{ content }}
+          </section> -->

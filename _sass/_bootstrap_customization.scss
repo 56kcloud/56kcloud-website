@@ -1,0 +1,78 @@
+// This is the place to place Bootstrap-related CSS customizations.
+// As example you can start by importing the _bootswatch.scss file from one of the
+// theme provided by https://bootswatch.com .
+
+.logo{
+
+    width:70%
+
+}
+
+.navbar-brand {
+
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+
+}
+
+.home-section{
+
+    margin-bottom: 8vh;
+
+}
+
+@mixin background-cover {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#particles-js {
+    margin-top:-100px;
+    position:absolute;
+    vertical-align: bottom;
+    width: 100%;
+    height:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index:20 !important;
+
+    .particles-js-canvas-el {
+        position:relative !important;
+        z-index:20 !important;
+        width: 100% !important;
+
+
+    }
+}
+
+/*
+@media screen and (min-width: 400px) {
+#particles-js {
+.particles-js-canvas-el {
+
+     height:15% !important;
+
+}}
+
+}
+@media screen and (min-width: 738px) {
+#particles-js {
+.particles-js-canvas-el {
+
+     height:20% !important;
+
+}}
+
+}
+@media screen and (min-width: 1000px) {
+#particles-js {
+.particles-js-canvas-el {
+
+     height:25% !important;
+
+        }
+    }
+}*/
