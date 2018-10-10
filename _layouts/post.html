@@ -11,7 +11,11 @@ layout: default
             <h1 class="mt-4">{{ page.title | escape }}</h1>
             <!-- Author -->
             <p class="lead">
+                {% if page.lang == "en"%}
                 by &nbsp;
+                {% else if page.lang == "fr"%}
+                par &nbsp;
+                {% endif %}
                {% assign author = site.team-members | where: 'short_name', page.author | first %}
                 {% if author %}
                   <a href="{{ site.baseurl }}{{ author.url }}">{{ author.name }}</a>

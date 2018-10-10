@@ -4,6 +4,6 @@ name: Jean-Pierre Gehrig
 position: Dev
 avatar : /assets/img/team/jp.jpg
 rank : "1"
-lang : en
+lang : fr
 ---
-JP is JP, who knew ?
+JP est JP, qui l'eut cru  ?

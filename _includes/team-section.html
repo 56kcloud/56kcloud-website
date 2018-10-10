@@ -1,7 +1,7 @@
     <h2 class="text-center mb-5">Our Team</h2>
 
     <div class="row">
-          {% assign sorted = (site.team-members | sort 'rank') | reverse  %}
+          {% assign sorted = (site.team-members | sort 'rank') | reverse | where:"lang", page.lang  %}
          {% for team-member in sorted  %}
         <div class="col-lg-3 col-sm-6 text-center mb-4 responsive-image">
           <img class="rounded-circle img-fluid d-block mx-auto" src="{{ site.baseurl }}{{ team-member.avatar }}" alt="">

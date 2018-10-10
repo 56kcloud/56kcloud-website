@@ -4,6 +4,6 @@ name: John Ingram
 position: Dev
 avatar : /assets/img/team/john.jpg
 rank : "2"
-lang : en
+lang : fr
 ---
-John is John, who knew ?
+John est John, qui l'eut cru  ?

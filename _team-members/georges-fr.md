@@ -4,6 +4,6 @@ name: Georges Roduit
 position: Dev
 avatar : /assets/img/team/georges.jpg
 rank : "3"
-lang : en
+lang : fr
 ---
-Georges is Georges, who knew ?
+Georges est Georges, qui l'eut cru  ?

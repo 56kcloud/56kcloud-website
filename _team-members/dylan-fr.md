@@ -4,6 +4,6 @@ name: Dylan Thompson
 position: Dev
 avatar : /assets/img/team/dylan.jpeg
 rank : "4"
-lang : en
+lang : fr
 ---
-Dylan is Dylan, who knew ?
+Dylan est Dylan, qui l'eut cru  ?
