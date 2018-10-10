@@ -15,8 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: edeltech
 email: ""
-description: >- # this means to ignore newlines until "baseurl:"
-  A Bootstrap 4 start up project for Jekyll and Github Pages
+
 baseurl: "/edeltech" # the subpath of your site, e.g. /blog
 url: "https://edeltech.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
@@ -30,7 +29,16 @@ defaults:
     layout: "team-member"
 
 
-repository: "nicolas-van/bootstrap-4-github-pages"
+#traduction configuration :
+
+index:
+  en:
+  fr: accueil
+
+desc:
+  en: We develop quality applications for desktop, embedded and mobile platforms.
+  fr: Nous développons des applications de qualité pour les plates-formes de bureau, embarquées et mobiles.
+
 
 collections:
   team-members:
