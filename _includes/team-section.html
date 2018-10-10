@@ -4,9 +4,9 @@
           {% assign sorted = (site.team-members | sort 'rank') | reverse  %}
          {% for team-member in sorted  %}
         <div class="col-lg-3 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="{{ team-member.avatar }}" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="{{ site.baseurl }}{{ team-member.avatar }}" alt="">
           <h3>
-              <a href="{{ team-member.url }}">{{ team-member.short_name }}</a><br>
+              <a href="{{ site.baseurl }}{{ team-member.url }}">{{ team-member.short_name }}</a><br>
                 <small>{{ team-member.position }}</small>
           </h3>
           <p>{{ team-member.content | markdownify }}</p>
