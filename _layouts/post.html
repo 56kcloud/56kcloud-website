@@ -14,7 +14,7 @@ layout: default
                 by &nbsp;
                {% assign author = site.team-members | where: 'short_name', page.author | first %}
                 {% if author %}
-                  <a href="{{ author.url | relative_url  }}">{{ author.name }}</a>
+                  <a href="{{ site.baseurl }}{{ author.url }}">{{ author.name }}</a>
                 {% endif %}
             </p>
             <hr>
