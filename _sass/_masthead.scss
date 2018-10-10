@@ -1,7 +1,7 @@
 header.masthead {
   position: relative;
   background-color: $gray-800;
-  background: url('/assets/img/header-img.jpg') no-repeat center center;
+  background: url('img/header-img.jpg') no-repeat center center;
   @include background-cover;
   padding-top: 5rem;
   padding-bottom: 5rem;
