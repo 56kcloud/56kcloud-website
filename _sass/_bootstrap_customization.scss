@@ -2,10 +2,19 @@
 // As example you can start by importing the _bootswatch.scss file from one of the
 // theme provided by https://bootswatch.com .
 
-.logo{
 
-    width:70%
 
+@media screen and(max-width: 500px) {
+
+    .responsive-image img {
+        max-width: 50%;
+    }
+
+}
+
+.logo {
+
+    width: 70%
 }
 
 .navbar-brand {
@@ -15,7 +24,7 @@
 
 }
 
-.home-section{
+.home-section {
 
     margin-bottom: 8vh;
 
@@ -29,19 +38,24 @@
 }
 
 #particles-js {
-    margin-top:-100px;
-    position:absolute;
+    margin-top: -100px;
+    position: absolute;
     vertical-align: bottom;
     width: 100%;
-    height:100%;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    z-index:20 !important;
+    z-index: 20 !important;
+    @media (max-width: 768px) {
+
+           margin-top: -80px;
+
+    }
 
     .particles-js-canvas-el {
-        position:relative !important;
-        z-index:20 !important;
+        position: relative !important;
+        z-index: 20 !important;
         width: 100% !important;
 
 
