@@ -1,5 +1,5 @@
-    <h2 class="text-center mb-5">Our Team</h2>
-
+    <h2 id="team" class="text-center ">{{ site.team[page.lang] }}</h2>
+    <hr class=" pb-8">
     <div class="row">
           {% assign sorted = (site.team-members | sort 'rank') | reverse | where:"lang", page.lang  %}
          {% for team-member in sorted  %}

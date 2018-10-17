@@ -1,8 +1,6 @@
-<h2 class="text-center mb-5">About us</h2>
-    <h2>lorem ipsum</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fuga voluptatibus saepe voluptatem culpa adipisci doloremque officia optio praesentium, laudantium consequatur incidunt reprehenderit necessitatibus quidem autem id? Sequi quo, commodi?
-    </p>
-    <h2>lorem ipsum</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fuga voluptatibus saepe voluptatem culpa adipisci doloremque officia optio praesentium, laudantium consequatur incidunt reprehenderit necessitatibus quidem autem id? Sequi quo, commodi?
-    </p>
-
+<h2 id="about" class="text-center ">{{ site.about[page.lang] }}</h2>
+<hr class="pb-8">
+    <h3 class="mb-4">{{ site.desc1-title[page.lang] }}</h3>
+    <p class="mb-5">{{ site.desc1-content[page.lang] }} </p>
+    <h3 class="mb-4">{{ site.desc2-title[page.lang] }}</h3>
+    <p>{{ site.desc2-content[page.lang] }} </p>

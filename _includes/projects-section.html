@@ -1,44 +1,40 @@
-
-<h2 class="text-center mb-5">Projects</h2>
+<h2 id="projects" class="text-light text-center">{{ site.projects[page.lang] }}</h2>
+<hr class="pb-8 hr-high">
 <div class="row text-center">
-
-       <div class="col-lg-4 col-md-6 mb-4">
-         <div class="card">
-           <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-           <div class="card-body">
-             <h4 class="card-title">Project 1</h4>
-             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-           </div>
-           <div class="card-footer">
-             <a href="#" class="btn btn-primary">Find Out More!</a>
-           </div>
-         </div>
-       </div>
-
-       <div class="col-lg-4 col-md-6 mb-4">
-         <div class="card">
-           <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-           <div class="card-body">
-             <h4 class="card-title">Project 2</h4>
-             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-           </div>
-           <div class="card-footer">
-             <a href="#" class="btn btn-primary">Find Out More!</a>
-           </div>
-         </div>
-       </div>
-
-       <div class="col-lg-4 col-md-6 mb-4">
-         <div class="card">
-           <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-           <div class="card-body">
-             <h4 class="card-title">Project 3</h4>
-             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-           </div>
-           <div class="card-footer">
-             <a href="#" class="btn btn-primary">Find Out More!</a>
-           </div>
-         </div>
-       </div>
-
-     </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card">
+            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+            <div class="card-body">
+                <h3 class="card-title">{{ site.project-title-1[page.lang] }}</h3>
+                <p class="card-text">{{ site.project-desc-1[page.lang] }}</p>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="btn btn-primary">{{ site.project-button[page.lang] }}</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card">
+            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+            <div class="card-body">
+                <h3 class="card-title">{{ site.project-title-2[page.lang] }} </h3>
+                <p class="card-text">{{ site.project-desc-2[page.lang] }}</p>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary">{{ site.project-button[page.lang] }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card">
+            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+            <div class="card-body">
+                <h3 class="card-title">{{ site.project-title-2[page.lang] }} </h3>
+                <p class="card-text">{{ site.project-desc-3[page.lang] }}</p>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary">{{ site.project-button[page.lang] }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<h2 id="contact" class="text-light text-center ">{{ site.contact[page.lang] }}</h2>
+<hr class="pb-8 hr-high">
+<form method="POST" action="https://formspree.io/dylan.thompson@edeltech.ch">
+    <div class="form-group">
+        <label class="text-light" for="exampleInputEmail1">{{ site.mail[page.lang] }}</label>
+        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+    </div>
+    <div class="form-group">
+        <label class="text-light" for="messageInput">Message</label>
+        <textarea name="message" class="form-control" id="messageInput" rows="3" placeholder=""></textarea>
+    </div>
+        <div class="col-lg-12 text-center">
+            <button type="submit" class="btn btn-primary text-center">{{ site.send[page.lang] }}</button>
+        <div>
+</form>

@@ -15,9 +15,12 @@
 # in the templates via {{ site.myvariable }}.
 title: edeltech
 email: ""
+description : We develop quality applications for desktop, embedded and mobile platforms.
+facebook: https://www.facebook.com/edeltech/
+logo: /assets/img/logo-edeltech.png
 
 baseurl: "/edeltech" # the subpath of your site, e.g. /blog
-url: "https://edeltech.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://edeltech.github.io/edeltech" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 github_username:  dyt200
 
@@ -33,21 +36,97 @@ defaults:
 
 index:
   en:
-  fr: accueil
+  fr: fr
 
 desc:
   en: We develop quality applications for desktop, embedded and mobile platforms.
   fr: Nous développons des applications de qualité pour les plates-formes de bureau, embarquées et mobiles.
+about:
+  en: About us
+  fr: À Propos
+projects:
+  en: Projects
+  fr: Projets
+team:
+  en: Team
+  fr: Team
+desc1-title:
+  en: Description title 1
+  fr: Titre de la description 1
+desc1-content:
+  en: Content of the first description Content of the first description Content of the first description Content of the first description Content of the first description Content of the first description
+  fr: Contenu de la première description Contenu de la première description Contenu de la première description Contenu de la première description Contenu de la première description Contenu de la première description
+desc2-title:
+  en: Description title 2
+  fr: Titre de la description 2
+desc2-content:
+  en: Content of the second description Content of the second description Content of the second description Content of the second description Content of the second description Content of the second description
+  fr: Contenu de la seconde description  Contenu de la seconde description  Contenu de la seconde description Contenu de la seconde description  Contenu de la seconde description  Contenu de la seconde description
+
+project-title-1:
+  en: Project 1
+  fr: Projet 1
+project-title-2:
+  en: Project 2
+  fr: Projet 2
+project-title-3:
+  en: Project 3
+  fr: Projet 3
+
+project-desc-1:
+  en: Content of the second description Content of the second description Content of the second description
+  fr: Contenu de la seconde description  Contenu de la seconde description  Contenu de la seconde description
+project-desc-2:
+  en: Content of the second description Content of the second description Content of the second description
+  fr: Contenu de la seconde description  Contenu de la seconde description  Contenu de la seconde description
+project-desc-3:
+  en: Content of the second description Content of the second description Content of the second description
+  fr: Contenu de la seconde description  Contenu de la seconde description  Contenu de la seconde description
+
+project-button:
+  en: Find Out More !
+  fr: En savoir plus
+
+
+posts-title:
+  en: Posts
+  fr: Articles
+
+posts-title-home:
+  en : Some of our blog posts
+  fr : Quelques-uns de nos articles
+
+view-post:
+  en : +
+  fr : +
+
+arr:
+  en: All Rights Reserved
+  fr: Tous droits réservés
+
+contact:
+  en: Any questions ?
+  fr: Des questions ?
+
+mail:
+  en: Email adress
+  fr: Adresse mail
+send:
+  en: Send
+  fr: Envoyer
+
 
 
 collections:
   team-members:
       output: true
 
+
 # Build settings
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 # A list of the pages to display in the navigation bar
 header_pages:

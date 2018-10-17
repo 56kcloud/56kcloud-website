@@ -2,7 +2,69 @@
 // As example you can start by importing the _bootswatch.scss file from one of the
 // theme provided by https://bootswatch.com .
 
+.container { width: 100%; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; }
+@media (min-width: 576px) { .container { max-width: 540px; } }
+@media (min-width: 768px) {.container {max-width: 640px; } }
+@media (min-width: 992px) { .container { max-width: 800px; } }
+@media (min-width: 1080px) { .container { max-width: 960px; } }
 
+
+.hr-high{
+
+       border-top: 1px solid rgba(255, 255, 255, 0.5);
+
+}
+
+
+.pb-8{
+
+    padding-bottom: 4rem;
+
+}
+
+.highlight {
+
+background-image: url("img/connectwork.png");
+    height: 120%;
+    margin-bottom: 4vw;
+    padding-top: 4vw;
+
+}
+
+.mb-10 {
+
+    margin-bottom: 5em;
+
+}
+
+
+hr {
+    margin-bottom: 1rem;
+    border: 0;
+    width: 60%;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+
+h2 {
+
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-weight: 400;
+
+}
+
+h3 {
+
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    font-weight: bold;
+
+
+}
 
 @media screen and(max-width: 500px) {
 
@@ -26,7 +88,8 @@
 
 .home-section {
 
-    margin-bottom: 8vh;
+    margin-bottom: 15vh;
+
 
 }
 
@@ -47,46 +110,18 @@
     background-size: cover;
     background-attachment: fixed;
     z-index: 20 !important;
-    @media (max-width: 768px) {
 
-           margin-top: -80px;
-
-    }
 
     .particles-js-canvas-el {
         position: relative !important;
         z-index: 20 !important;
         width: 100% !important;
+        margin-top: -60px;
 
+        @media (max-width: 768px) {
 
-    }
-}
-
-/*
-@media screen and (min-width: 400px) {
-#particles-js {
-.particles-js-canvas-el {
-
-     height:15% !important;
-
-}}
-
-}
-@media screen and (min-width: 738px) {
-#particles-js {
-.particles-js-canvas-el {
-
-     height:20% !important;
-
-}}
-
-}
-@media screen and (min-width: 1000px) {
-#particles-js {
-.particles-js-canvas-el {
-
-     height:25% !important;
-
+            margin-top: 20px;
         }
     }
-}*/
+}
+

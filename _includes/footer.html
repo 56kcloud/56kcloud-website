@@ -11,22 +11,15 @@
             {%- if site.author -%}
               {{ site.author | escape }}
             {%- else -%}
-             ©&nbsp;{{ site.title | escape }}&nbsp;{{ site.time | date: '%Y' }} All Rights Reserved.
+             ©&nbsp;{{ site.title | escape }}&nbsp;{{ site.time | date: '%Y' }} {{ site.arr[page.lang] }}
             {%- endif -%}
           </li>
-          {%- if site.email -%}
-            <li>
-              <a href="mailto:{{ site.email }}">
-                {{ site.email }}
-              </a>
-            </li>
-          {%- endif -%}
         </ul>
       </div>
   </div>
    <div class="row text-center">
       <div class="col-sm">
-        <p>{{- site.description | escape -}}</p>
+        <p>{{- site.desc[page.lang] | escape -}}</p>
       </div>
 
     </div>

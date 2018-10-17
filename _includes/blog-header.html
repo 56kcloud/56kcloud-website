@@ -17,18 +17,10 @@
                 </li>
                 {%- endif -%}
                 {% endfor -%}
-
-                <li class="nav-item">
-                    {% if page.lang == "en"%}
-                    <a class="nav-link" href="{{ site.baseurl }}/fr">FR</a>
-                    {% else%}
-                    <a class="nav-link" href="{{ site.baseurl }}/index">EN</a>
-                    {% endif %}
-                </li>
             </ul>
-            <ul class="navbar-nav ml-auto">
+            <!--<ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">{{ site.about[page.lang] }}</a>
+                    <a class="nav-link" href="{{ site.baseurl }}/">{{ site.about[page.lang] }}</a>
                 </li>
                  <li class="nav-item">
                     <a class="nav-link" href="#projects">{{ site.projects[page.lang] }}</a>
@@ -36,24 +28,12 @@
                   <li class="nav-item">
                     <a class="nav-link" href="#team">{{ site.team[page.lang] }}</a>
                 </li>
-                   <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>
                 <li class="nav-item">
 
                     <a class="nav-link" href="{{ site.baseurl }}/blog">Blog</a>
                 </li>
-            </ul>
+            </ul>-->
         </div>
     </div>
 </nav>
-<header class="masthead text-white text-center">
-    <div id="particles-js"> </div>
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-9 mx-auto">
-                <h1 class="">{{ site.desc[page.lang] }}</h1>
-            </div>
-</header>
 </div>

@@ -1,9 +1,9 @@
----
-layout: default
----
+{%- include head.html -%}
+<body>
+    {%- include blog-header.html -%}
+
+<div class="container">
 <article>
-
-
 <div class="row">
     <!-- Post Content Column -->
         <div class="col-lg-12">
@@ -11,47 +11,25 @@ layout: default
             <h1 class="mt-4">{{ page.title | escape }}</h1>
             <!-- Author -->
             <p class="lead">
-                {% if page.lang == "en"%}
-                by &nbsp;
-                {% else if page.lang == "fr"%}
-                par &nbsp;
-                {% endif %}
                {% assign author = site.team-members | where: 'short_name', page.author | first %}
                 {% if author %}
-                  <a href="{{ site.baseurl }}{{ author.url }}">{{ author.name }}</a>
+                  <span >{{ author.name }}</span>
                 {% endif %}
             </p>
-            <hr>
+            <hr style="width: 100%">
             <!-- Date/Time -->
-            <p>{%- assign date_format = "%b %-d, %Y" -%}{{ page.date | date: date_format }}</p>
-            <hr>
+            <p>{%- assign date_format = "%d.%m.%Y" -%}{{ page.date | date: date_format }}</p>
+            <hr style="width: 100%">
             <!-- Preview Image -->
             <img class="img-fluid rounded" src="{{ page.preview-image }}" alt="">
-            <hr>
+            <hr  style="width: 100%">
             <!-- Post Content -->
             <p class="lead"> {{ content }}</p>
         </div>
     </div>
 </article>
-<!--   <blockquote class="blockquote">
-            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in
-              <cite title="Source Title">Source Title</cite>
-            </footer>
-          </blockquote> -->
+</div>
 
-       <!--   <header>
-              <h1>{{ page.title | escape }}</h1>
-              <p class="text-muted">
-                  <time datetime="{{ page.date | date_to_xmlschema }}">
-                      {%- assign date_format = "%b %-d, %Y" -%}
-                      {{ page.date | date: date_format }}
-                  </time>
-                  {%- if page.author -%}
-                  • {{ page.author }}
-                  {%- endif -%}
-              </p>
-          </header>
-          <section>
-              {{ content }}
-          </section> -->
+   {%- include footer.html -%}
+</body>
+</html>

@@ -2,24 +2,26 @@
 
 <html lang="{{ page.lang }}">
 {%- include head.html -%}
-
 <body>
     {%- include header.html -%}
     <div class="py-5">
-        <div class="container page-content">
+        <div class="page-content">
             {{ content }}
         </div>
     </div>
     {%- include footer.html -%}
     <script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="{{ site.baseurl }}/assets/javascript/app.js"></script>
-<!--    <script>
-    var lang = navigator.language || navigator.userLanguage;
-    if (lang.indexOf('fr') == 0)
-        window.location = '/fr/';
-    else
-        window.location = '/en/';
-    </script> -->
-</body>
+    <script>
+   $("a[href^='#']").click(function(e) {
+    e.preventDefault();
 
+    var position = $($(this).attr("href")).offset().top - 150;
+
+    $("body, html").animate({
+        scrollTop: position
+    } , 500, 'swing', );
+});
+    </script>
+</body>
 </html>
