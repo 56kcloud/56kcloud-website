@@ -18,7 +18,7 @@ layout: default
     <section class="container home-section">
         {%- include team-section.html -%}
     </section>
-   <div class="highlight">
+   <div class="highlight highlight-contact">
      <section class="container home-section">
             {%- include contact-section.html -%}
         </section>
@@ -27,7 +27,7 @@ layout: default
     {%- if site.posts.size > 0 -%}
     <h2 class="text-center">{{ page.list_title | default: site.posts-title-home[page.lang] }}</h2>
     <hr class="pb-8">
-    {% assign sorted = site.posts | reverse | where:"lang", page.lang %}
+    {% assign sorted = site.posts | reverse%}
     {%- for post in sorted -%}
     <div class="row">
         <div class="col-md-6">
@@ -39,7 +39,7 @@ layout: default
             <h3>{{ post.title | escape }}</h3>
             <p><span class="text-muted"> {%- assign date_format = "%d.%m.%Y" -%}{{ post.date | date: date_format }}</span></p>
             <p>{{ post.excerpt }}</p>
-            <a class="btn btn-primary" href="{{ post.url | relative_url }}">{{site.view-post[page.lang] }}</a>
+            <a class="btn btn-primary btn-post" href="{{ post.url | relative_url }}">{{site.view-post[page.lang] }}</a>
         </div>
     </div>
      <hr class="mt-5 mb-5">

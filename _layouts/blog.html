@@ -18,7 +18,7 @@
           <h3>{{ post.title | escape }}</h3>
           <h4><span class="text-muted"> {%- assign date_format = "%d.%m.%Y" -%}{{ post.date | date: date_format }}</span></h4>
           <p>{{ post.excerpt }}</p>
-          <a class="btn btn-primary" href="{{ post.url | relative_url }}">View Post</a>
+          <a class="btn btn-primary btn-post float-right" href="{{ post.url | relative_url }}">View Post</a>
         </div>
       </div>
     <hr class="mt-5 mb-5">

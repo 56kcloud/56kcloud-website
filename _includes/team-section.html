@@ -5,10 +5,10 @@
          {% for team-member in sorted  %}
         <div class="col-lg-3 col-sm-6 text-center mb-4 responsive-image">
           <img class="rounded-circle img-fluid d-block mx-auto" src="{{ site.baseurl }}{{ team-member.avatar }}" alt="">
-          <h3>
+          <h4>
               <a href="{{ site.baseurl }}{{ team-member.url }}">{{ team-member.short_name }}</a><br>
                 <small>{{ team-member.position }}</small>
-          </h3>
+          </h4>
           <!-- <p>{{ team-member.content | markdownify }}</p> -->
         </div>
           {% endfor %}

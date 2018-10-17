@@ -45,7 +45,7 @@ layout: default
                 <h3>{{ post.title | escape }}</h3>
                 <p><span class="text-muted"> {%- assign date_format = " %d.%m.%Y" -%}{{ post.date | date: date_format }}</span></p>
                 <p>{{ post.excerpt }}</p>
-                <a class="btn btn-primary" href="{{ post.url | relative_url }}">{{site.view-post[page.lang] }}</a>
+                <a class="btn btn-primary btn-post" href="{{ post.url | relative_url }}">{{site.view-post[page.lang] }}</a>
             </div>
         </div>
         <hr>

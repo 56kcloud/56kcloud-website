@@ -2,6 +2,13 @@
 // As example you can start by importing the _bootswatch.scss file from one of the
 // theme provided by https://bootswatch.com .
 
+
+.btn-post{
+
+    border-radius: 1.3rem;
+
+}
+
 .container { width: 100%; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; }
 @media (min-width: 576px) { .container { max-width: 540px; } }
 @media (min-width: 768px) {.container {max-width: 640px; } }
@@ -24,16 +31,33 @@
 
 .highlight {
 
-background-image: url("img/connectwork.png");
+  /*  background: -webkit-linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.9)),-webkit-linear-gradient(transparent, rgba(0, 0, 255, 0.3)),url("img/system-bg.jpg");
+    background: -o-linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.9)),-o-linear-gradient(transparent, rgba(0, 0, 255, 0.3)),url("img/system-bg.jpg");
+    background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.9)),linear-gradient(transparent, rgba(0, 0, 255, 0.3)),url("img/system-bg.jpg");
+*/
+//background-image: url("img/neurons-bg.jpg"), linear-gradient(#ffffff, #ffffff);
+    background: #314d65 ;
     height: 120%;
     margin-bottom: 4vw;
     padding-top: 4vw;
 
 }
 
+.highlight-contact {
+
+background: #314d65 ;
+
+}
+
 .mb-10 {
 
     margin-bottom: 5em;
+
+}
+
+.mt-10 {
+
+    margin-top: 5em;
 
 }
 
