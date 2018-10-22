@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" rel="author" href="{{ site.baseurl }}/{{ site.index[page.lang] }}">
-        <img class="logo" src="{{ site.baseurl }}/assets/img/logo-edeltech.png" alt=""/>
-    </a>
+        <div class="navbar-brand js-scroll-trigger" rel="author" onclick="goBack()" href="{{ site.baseurl }}/{{ site.index[page.lang] }}">
+            <img class="logo" src="{{ site.baseurl }}/assets/img/logo-edeltech.png" alt=""/>
+        </div>
         {%- assign page_paths = site.header_pages -%}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

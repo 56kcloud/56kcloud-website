@@ -1,9 +1,51 @@
+
 {%- include head.html -%}
 <body>
-    {%- include blog-header.html -%}
 
+    <meta content="{{ site.title }}" property="og:site_name">
+    {% if page.title %}
+      <meta content="{{ page.title }}" property="og:title">
+    {% else %}
+      <meta content="{{ site.title }}" property="og:title">
+    {% endif %}
+    {% if page.title %}
+      <meta content="article" property="og:type">
+    {% else %}
+      <meta content="website" property="og:type">
+    {% endif %}
+
+    {% if page.description %}
+      <meta content="{{ page.description }}" property="og:description">
+    {% else %}
+      <meta content="{{ site.description }}" property="og:description">
+    {% endif %}
+
+    {% if page.url %}
+      <meta content="{{ site.url }}{{ page.url | relative_url }}" property="og:url">
+    {% endif %}
+
+    {% if page.date %}
+      <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
+    {% endif %}
+
+    {% if page.preview-image %}
+      <meta content="{{ page.preview-image }}" property="og:image">
+    {% else %}
+      <meta content="{{ site.baseurl }}/assets/img/logo-edeltech.png" property="og:image">
+    {% endif %}
+    {% if page.tags %}
+      {% for tag in page.tags %}
+      <meta content="{{ tag }}" property="article:tag">
+      {% endfor %}
+    {% endif %}
+
+
+    {%- include blog-header.html -%}
+  <div style="bottom:30;right:30;position: fixed;z-index: 20;cursor: pointer;" id="shareBtn">
+    <img width="50px" src="{{ site.baseurl }}/assets/img/share.png" alt="">
+  </div>
 <div class="container">
-<article>
+<article class="mb-5">
 <div class="row">
     <!-- Post Content Column -->
         <div class="col-lg-12">
@@ -27,8 +69,34 @@
             <p class="lead"> {{ content }}</p>
         </div>
     </div>
+
 </article>
+
+{% if page.comments %}
+    <div id="disqus_thread"></div>
+        <script>
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://edeltech.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endif %}
+
 </div>
+
 
    {%- include footer.html -%}
 </body>
