@@ -45,8 +45,8 @@ about:
   en: About us
   fr: À Propos
 projects:
-  en: Projects
-  fr: Projets
+  en: what we do
+  fr: nos domaines d'expertise
 team:
   en: Team
   fr: Team
@@ -64,29 +64,24 @@ desc2-content:
   fr: Contenu de la seconde description  Contenu de la seconde description  Contenu de la seconde description Contenu de la seconde description  Contenu de la seconde description  Contenu de la seconde description
 
 project-title-1:
-  en: Project 1
-  fr: Projet 1
+  en: Front-end
+  fr: Front-end
 project-title-2:
-  en: Project 2
-  fr: Projet 2
+  en: Back-end
+  fr: Back-end
 project-title-3:
-  en: Project 3
-  fr: Projet 3
+  en: Middle-ware
+  fr: Middle-ware
 
 project-desc-1:
-  en: Content of the second description Content of the second description Content of the second description
-  fr: Contenu de la seconde description  Contenu de la seconde description  Contenu de la seconde description
+  en: desc1 en
+  fr: desc1 fr
 project-desc-2:
-  en: Content of the second description Content of the second description Content of the second description
-  fr: Contenu de la seconde description  Contenu de la seconde description  Contenu de la seconde description
+  en: desc2 en
+  fr: desc2 fr
 project-desc-3:
-  en: Content of the second description Content of the second description Content of the second description
-  fr: Contenu de la seconde description  Contenu de la seconde description  Contenu de la seconde description
-
-project-button:
-  en: Find Out More !
-  fr: En savoir plus
-
+  en: desc3 en
+  fr: desc3 fr
 
 posts-title:
   en: Posts
@@ -107,14 +102,12 @@ arr:
 contact:
   en: Any questions ?
   fr: Des questions ?
-
-mail:
-  en: Email adress
-  fr: Adresse mail
-send:
-  en: Send
-  fr: Envoyer
-
+contactText:
+  en: Send us a message
+  fr: Envoyez-nous un un message
+contactSubject:
+  en: Contact request via edeltech.ch
+  fr: Demande de contact via edeltech.ch
 
 
 collections:
