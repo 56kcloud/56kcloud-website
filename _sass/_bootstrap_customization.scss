@@ -3,21 +3,16 @@
 // theme provided by https://bootswatch.com .
 
 .navLang {
-
     width: 100px
 }
 
 .navLang-item {
-
     display: inline-block;
-
 }
 
 
 .btn-post {
-
     border-radius: 1.3rem;
-
 }
 
 .container {
@@ -52,22 +47,15 @@
     }
 }
 
-
 .hr-high {
-
     border-top: 1px solid rgba(255, 255, 255, 0.5);
-
 }
 
-
 .pb-8 {
-
     padding-bottom: 4rem;
-
 }
 
 .highlight {
-
     /*  background: -webkit-linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.9)),-webkit-linear-gradient(transparent, rgba(0, 0, 255, 0.3)),url("img/system-bg.jpg");
     background: -o-linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.9)),-o-linear-gradient(transparent, rgba(0, 0, 255, 0.3)),url("img/system-bg.jpg");
     background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.9)),linear-gradient(transparent, rgba(0, 0, 255, 0.3)),url("img/system-bg.jpg");
@@ -77,25 +65,18 @@
     height: 120%;
     margin-bottom: 4vw;
     padding-top: 4vw;
-
 }
 
 .highlight-contact {
-
     background: #314d65;
-
 }
 
 .mb-10 {
-
     margin-bottom: 5em;
-
 }
 
 .mt-10 {
-
     margin-top: 5em;
-
 }
 
 
@@ -108,23 +89,18 @@ hr {
 
 
 h2 {
-
     font-family: 'Raleway', sans-serif;
     letter-spacing: 4px;
     text-transform: uppercase;
     font-size: 1.3em;
     font-weight: 400;
-
 }
 
 h3 {
-
     font-family: 'Raleway', sans-serif;
     text-transform: uppercase;
     font-size: 1.1em;
     font-weight: bold;
-
-
 }
 
 @media screen and(max-width: 500px) {
@@ -134,23 +110,17 @@ h3 {
     }
 
     a.navbar-brand.js-scroll-trigger {
-
         width: 100px;
         margin-right: 0.1em !important;
-
     }
 
     .navLang {
-
         width:100px;
     }
 
     #projects,#team,#contact,#blog{
-
         margin-top: 1em;
-
     }
-
 }
 
 
@@ -161,44 +131,31 @@ h3 {
     }
 
     a.navbar-brand.js-scroll-trigger {
-
         width: 80px;
         margin-right: 0em !important;
-
     }
 
     .navLang {
-
         width:100px;
     }
-
-
 }
 
 a.navbar-brand.js-scroll-trigger {
-
     width: 150px;
     margin-right: 2em;
-
 }
 
 .logo {
-
     width: 100%
 }
 
 .navbar-brand {
-
     padding-top: 0rem !important;
     padding-bottom: 0rem !important;
-
 }
 
 .home-section {
-
     margin-bottom: 15vh;
-
-
 }
 
 @mixin background-cover {
