@@ -7,7 +7,7 @@
   2. Create new file
   3. The way you name the file is very important, so please follow these guidelines :
       1. First, start with the date with this format : YYYY-MM-DD
-      2. add -
+      2. Add -
       3. Then put the title of your blog post as is (Spaces included)
       4. Add .md 
       5. It should look like this : 2018-12-19-Awsome example.md
@@ -26,7 +26,7 @@
 
 ## Dev guide :
 
-  1. Create a jekyll environement : `virtualen jekyll-ENV`
+  1. Create a jekyll environement : `virtualenv jekyll-ENV`
   2. `source bin/activate`
   3. `brew install ruby`
   4. `sudo gem install bundler jekyll`
