@@ -15,10 +15,10 @@
       1. Start by : ----
       2. layout: post
       3. author: < Your name >
-      4. thumbnail: "<Thumbnail image link>"
-      5. preview-image: "<Preview image link>"
-      6. lang: <en or fr>
-      7. comments: <true or false>
+      4. thumbnail: "< Thumbnail image link >"
+      5. preview-image: "< Preview image link >"
+      6. lang: < en or fr >
+      7. comments: < true or false >
       8. End with ---
   5. Insert the text 
   6. Commit to master to view the changes (It may take a few minutes)
