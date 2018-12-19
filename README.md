@@ -24,5 +24,13 @@
   6. Commit to master to view the changes (It may take a few minutes)
 
 
+## Dev guide :
 
+  1. Create a jekyll environement : `virtualen jekyll-ENV`
+  2. `source bin/activate`
+  3. `brew install ruby`
+  4. `sudo gem install bundler jekyll`
+  5. clone this repo in the jekyll environement
+  6. cd in repo
+  7. `bundle exec jekyll serve`
 
