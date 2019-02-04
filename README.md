@@ -1,36 +1,46 @@
 
-# Edeltech Website
+The edeltech.ch Website
+===
 
-## Create a Blog post :
-  
-  1. Go to https://github.com/edeltech/edeltech/tree/master/_posts
-  2. Create new file
-  3. The way you name the file is very important, so please follow these guidelines :
-      1. First, start with the date with this format : YYYY-MM-DD
-      2. Add -
-      3. Then put the title of your blog post as is (Spaces included)
-      4. Add .md 
-      5. It should look like this : 2018-12-19-Awsome example.md
-  4. The document must contain at the top these elements to be proprely displayed:
-      1. Start by : ----
-      2. layout: post
-      3. author: < Your name >
-      4. thumbnail: "< Thumbnail image link >"
-      5. preview-image: "< Preview image link >"
-      6. lang: < en or fr >
-      7. comments: < true or false >
-      8. End with ---
-  5. Insert the text 
-  6. Commit to master to view the changes (It may take a few minutes)
+This is the source code of the [Edeltech website](http://www.edeltech.ch).
+
+## Local development
+
+### Install RVM, with latest ruby
+
+    $ curl -sSL https://get.rvm.io | bash -s stable --ruby
+    $ source ~/.rvm/scripts/rvm
+
+### Install dependencies
+
+    $ bundle install
 
 
-## Dev guide :
+### Launch the Jekyll development server
 
-  1. Create a jekyll environement : `virtualenv jekyll-ENV`
-  2. `source bin/activate`
-  3. `brew install ruby`
-  4. `sudo gem install bundler jekyll`
-  5. clone this repo in the jekyll environement
-  6. cd in repo
-  7. `bundle exec jekyll serve`
+    $ bundle exec jekyll serve
 
+
+## Add a blog post
+
+To add a new blog post, create a new markdown file in the `_posts` folder. The filename structure is very important, use: `YYYY-MM-DD-my-post-title.md`
+
+### File header
+
+Jekyll expects to find some values in the header of the post file, here is an example:
+
+    ---
+    layout: post
+    author: <your name>
+    thumbnail: "<thumbnail image url>"
+    preview-image: "<preview image url>"
+    lang: <en or fr>
+    comments: <true or false>
+    ---
+
+### Content
+
+Write the content of your blog post using standard markdown syntax.
+
+
+Save, push, wait a few minutes, enjoy!
