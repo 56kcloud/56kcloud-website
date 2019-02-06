@@ -11,7 +11,7 @@
             {%- if site.author -%}
               {{ site.author | escape }}
             {%- else -%}
-             ©&nbsp;{{ site.title | escape }}&nbsp;{{ site.time | date: '%Y' }} {{ site.arr[page.lang] }}
+             ©&nbsp;{{ site.time | date: '%Y' }}&nbsp;{{ site.title | escape }}
             {%- endif -%}
           </li>
         </ul>
@@ -31,6 +31,8 @@ function goBack() {
     window.history.back();
 }
 </script>
+
+{% comment %}
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -59,3 +61,4 @@ document.getElementById('shareBtn').onclick = function() {
     }, function(response){});
 };
 </script>
+{% endcomment %}

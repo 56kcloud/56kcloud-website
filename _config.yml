@@ -13,16 +13,17 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: edeltech
-email: ""
+
+title: Edeltech
+email: "info@edeltech.ch"
 description : We develop quality applications for desktop, embedded and mobile platforms.
 facebook: https://www.facebook.com/edeltech/
 logo: /assets/img/logo-edeltech.png
 
-baseurl: "/edeltech" # the subpath of your site, e.g. /blog
-url: "https://edeltech.github.io/edeltech" # the base hostname & protocol for your site, e.g. http://example.com
-#twitter_username: jekyllrb
-github_username:  dyt200
+baseurl: ""                    # the subpath of your site, e.g. /blog
+url: "https://www.edeltech.ch"  # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: edeltech121
+github_username:  edeltech
 
 defaults:
 - scope:
@@ -32,36 +33,25 @@ defaults:
     layout: "team-member"
 
 
-#traduction configuration :
+# Translations
 
-index:
-  en:
-  fr: fr
-
-desc:
+tagline:
   en: We develop quality applications for desktop, embedded and mobile platforms.
   fr: Nous développons des applications de qualité pour les plates-formes de bureau, embarquées et mobiles.
+
+intro:
+  en: We are a small but sharp software development team located in the Swiss Alps. This website is in the works... stay tuned!
+  fr: We are a small but sharp software development team located in the swiss alps. This website is in the works... stay tuned!
+
 about:
-  en: About us
-  fr: À Propos
+  en: Pure Source Code
+  fr: Pure Source Code
 projects:
-  en: what we do
+  en: What we do
   fr: nos domaines d'expertise
 team:
   en: Team
   fr: Team
-desc1-title:
-  en: Description title 1
-  fr: Titre de la description 1
-desc1-content:
-  en: Content of the first description Content of the first description Content of the first description Content of the first description Content of the first description Content of the first description
-  fr: Contenu de la première description Contenu de la première description Contenu de la première description Contenu de la première description Contenu de la première description Contenu de la première description
-desc2-title:
-  en: Description title 2
-  fr: Titre de la description 2
-desc2-content:
-  en: Content of the second description Content of the second description Content of the second description Content of the second description Content of the second description Content of the second description
-  fr: Contenu de la seconde description  Contenu de la seconde description  Contenu de la seconde description Contenu de la seconde description  Contenu de la seconde description  Contenu de la seconde description
 
 project-title-1:
   en: Front-end
@@ -95,15 +85,11 @@ view-post:
   en : +
   fr : +
 
-arr:
-  en: All Rights Reserved
-  fr: Tous droits réservés
-
 contact:
-  en: Any questions ?
+  en: Projects?
   fr: Des questions ?
 contactText:
-  en: Send us a message
+  en: Drop us an email
   fr: Envoyez-nous un un message
 contactSubject:
   en: Contact request via edeltech.ch

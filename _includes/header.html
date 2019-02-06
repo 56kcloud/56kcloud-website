@@ -3,6 +3,8 @@
         <a class="navbar-brand js-scroll-trigger" rel="author" href="{{ site.baseurl }}/{{ site.index[page.lang] }}">
             <img class="logo" src="{{ site.baseurl }}/assets/img/logo-edeltech.png" alt=""/>
         </a>
+
+        {% comment %}
         <div class="navLang" >
             {% if page.lang == 'en'%}
             <div class="navLang-item">
@@ -26,6 +28,8 @@
             </div>
             {%- endif -%}
         </div>
+        {% endcomment %}
+
         {%- assign page_paths = site.header_pages -%}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -41,6 +45,8 @@
                 {%- endif -%}
                 {% endfor -%}
             </ul>
+
+            {% comment %}
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#about">{{ site.about[page.lang] }}</a>
@@ -58,16 +64,21 @@
                     <a class="nav-link" href="{{ site.baseurl }}/blog">Blog</a>
                 </li>
             </ul>
+            {% endcomment %}
+
         </div>
     </div>
 </nav>
+
 <header class="masthead text-white text-center">
     <div id="particles-js"> </div>
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
             <div class="col-xl-9 mx-auto">
-                <h1 class="">{{ site.desc[page.lang] }}</h1>
+                <h1 class="">{{ site.tagline[page.lang] }}</h1>
             </div>
+        </div>
+    </div>
 </header>
-</div>
+
