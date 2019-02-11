@@ -1,24 +1,12 @@
 {%- include head.html -%}
 <body>
-    {%- include blog-header.html -%}
+    {%- include nav.html -%}
     <div class="mt-5 container">
     {%- if site.posts.size > 0 -%}
         <h2 class="text-center">{{ page.list_title | default: "Blog" }}</h2>
         <hr class="pb-5">
         {%- for post in site.posts -%}
-            <div class="row">
-                <div class="col-md-6">
-                    <a href="#">
-                        <img class="img-fluid rounded mb-5 mb-md-0" src="{{ post.thumbnail }}" alt="">
-                    </a>
-                </div>
-                <div class="col-md-6">
-                    <h3>{{ post.title | escape }}</h3>
-                    <p><span class="text-muted"> {%- assign date_format = "%d.%m.%Y" -%}{{ post.date | date: date_format }}</span></p>
-                    <p>{{ post.excerpt }}</p>
-                    <a class="btn btn-primary btn-post" href="{{ post.url | relative_url }}">{{site.view-post[page.lang] }}</a>
-                </div>
-            </div>
+            {%- include post-excerpt.html -%}
             <hr class="mt-5 mb-5">
         {%- endfor -%}
     {%- endif -%}
