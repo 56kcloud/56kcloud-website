@@ -6,11 +6,6 @@ This is the source code of the [Edeltech website](http://www.edeltech.ch).
 
 ## Local development
 
-### Install RVM, with latest ruby
-
-    $ curl -sSL https://get.rvm.io | bash -s stable --ruby
-    $ source ~/.rvm/scripts/rvm
-
 ### Install dependencies
 
     $ bundle install

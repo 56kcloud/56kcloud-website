@@ -1,0 +1,17 @@
+---
+layout: page
+title: About us
+permalink: /about-us/
+---
+
+<h1>About us</h1>
+<ul>
+  {% for member in site.team %}
+    <li>
+    <h2><a href="{{ member.url }}">{{ member.name }}</a></h2>
+      <h2>{{ member.name }}</h2>
+      <h3>{{ member.position }}</h3>
+      <p>{{ member.content | markdownify }}</p>
+    </li>
+  {% endfor %}
+</ul>

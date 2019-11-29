@@ -16,12 +16,12 @@
 
 title: Edeltech
 email: "info@edeltech.ch"
-description : We develop quality applications for desktop, embedded and mobile platforms.
+description: We develop quality applications for desktop, embedded and mobile platforms.
 facebook: https://www.facebook.com/edeltech/
 logo: /assets/img/logo-edeltech.png
 
-baseurl: ""                    # the subpath of your site, e.g. /blog
-url: "https://www.edeltech.ch"  # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: ""
+url: "https://www.edeltech.ch"
 twitter_username: edeltech121
 github_username:  edeltech
 
@@ -32,90 +32,20 @@ defaults:
   values:
     layout: "team-member"
 
-
-# Translations
-
-tagline:
-  en: We develop quality applications for desktop, embedded and mobile platforms.
-  fr: Nous développons des applications de qualité pour les plates-formes de bureau, embarquées et mobiles.
-
-intro:
-  en: We are a small but sharp software development team located in the Swiss Alps. This website is in the works... Stay tuned!
-  fr: We are a small but sharp software development team located in the swiss alps. This website is in the works... Stay tuned!
-
-about:
-  en: Pure Source Code
-  fr: Pure Source Code
-projects:
-  en: What we do
-  fr: nos domaines d'expertise
-team:
-  en: Team
-  fr: Team
-
-project-title-1:
-  en: Front-end
-  fr: Front-end
-project-title-2:
-  en: Back-end
-  fr: Back-end
-project-title-3:
-  en: Middle-ware
-  fr: Middle-ware
-
-project-desc-1:
-  en: desc1 en
-  fr: desc1 fr
-project-desc-2:
-  en: desc2 en
-  fr: desc2 fr
-project-desc-3:
-  en: desc3 en
-  fr: desc3 fr
-
-posts-title:
-  en: Posts
-  fr: Articles
-
-posts-title-home:
-  en : Some of our blog posts
-  fr : Quelques-uns de nos articles
-
-view-post:
-  en : +
-  fr : +
-
-contact:
-  en: Projects?
-  fr: Des questions ?
-contactText:
-  en: Drop us an email
-  fr: Envoyez-nous un un message
-contactSubject:
-  en: Contact request via edeltech.ch
-  fr: Demande de contact via edeltech.ch
-
-
 collections:
-  team-members:
+  team:
       output: true
 
-
-# Build settings
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
 
-# A list of the pages to display in the navigation bar
-header_pages:
+include:
+  - _pages
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
   - update_boostrap.sh
-
