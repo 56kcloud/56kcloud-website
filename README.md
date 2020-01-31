@@ -8,7 +8,7 @@ This is the source code of the [Edeltech website](http://www.edeltech.ch).
 
 ### Install dependencies
 
-    $ bundle install
+    $ bundle install --path vendor/bundle
 
 
 ### Launch the Jekyll development server
