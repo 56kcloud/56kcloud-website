@@ -1,9 +1,13 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
+# Add a comment to make this file sass-y.
+# Change this file for any custom CSS.
 ---
 
-@import "variables";
-@import "bootstrap/bootstrap";
-@import "syntax-highlighting";
-@import "bootstrap-4-jekyll/bootstrap-4-jekyll";
-@import "bootstrap_customization";
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+    "variables",
+    "bootstrap/bootstrap",
+	"syntax",
+    "bootstrap-4-jekyll/bootstrap-4-jekyll",
+    "bootstrap_customization"
+;

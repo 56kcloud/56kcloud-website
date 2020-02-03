@@ -1,5 +1,6 @@
 {%- include head.html -%}
 <body>
+
     <meta content="{{ site.title }}" property="og:site_name">
     {% if page.title %}
       <meta content="{{ page.title }}" property="og:title">
@@ -31,6 +32,7 @@
     {% else %}
       <meta content="{{ site.baseurl }}/assets/img/logo-edeltech.png" property="og:image">
     {% endif %}
+
     {% if page.tags %}
       {% for tag in page.tags %}
       <meta content="{{ tag }}" property="article:tag">
@@ -38,58 +40,79 @@
     {% endif %}
 
     {%- include nav.html -%}
-  <div style="bottom:30;right:30;position: fixed;z-index: 20;cursor: pointer;" id="shareBtn">
-    <img width="50px" src="{{ site.baseurl }}/assets/img/facebook.png" alt="">
-  </div>
+
 <div class="container">
-<article class="mb-5">
-<div class="row">
-    <!-- Post Content Column -->
-        <div class="col-lg-12">
-            <!-- Title -->
-            <h1 class="mt-4">{{ page.title | escape }}</h1>
-            <!-- Author -->
-            <p class="lead">
-               {% assign author = site.team-members | where: 'short_name', page.author | first %}
-                {% if author %}
-                  <span >{{ author.name }}</span>
-                {% endif %}
-            </p>
-            <hr style="width: 100%">
-            <!-- Date/Time -->
-            <p>{%- assign date_format = "%d.%m.%Y" -%}{{ page.date | date: date_format }}</p>
-            <hr style="width: 100%">
-            <!-- Preview Image -->
-            <img class="img-fluid rounded" src="{{ page.preview-image }}" alt="">
-            <hr  style="width: 100%">
-            <!-- Post Content -->
-            <p class="lead"> {{ content }}</p>
+    <div class="row mt-5">
+
+        <div class="col-md-8 offset-md-2">
+
+            <!-- Post Title -->
+            <h1 class="posttitle">{{ page.title }}</h1>
+            <!-- End Post Title -->
+
+            {% assign author = site.authors[page.author] %}
+
+            <!-- Author Box -->
+            <div class="card-footer bg-white">
+                <div class="wrapfooter">
+                    {% if author %}
+                    <span class="meta-footer-thumb">
+                        {% if author.avatar %}
+                        <img class="author-thumb" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}">
+                        {% else %}
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
+                        {% endif %}
+                    </span>
+                    <span class="author-meta">
+                        <span class="post-name"><a target="_blank" href="{{ author.web }}">{{ author.display_name }}</a></span><br/>
+                        {% endif %}
+                        <span class="post-date">{{ page.date | date_to_string }}</span>
+                    </span>
+                </div>
+            </div>
+
         </div>
+
+        <!-- Post Featured Image -->
+        {% if page.image %}
+        <figure class="figure my-4">
+        <img class="img-fluid" src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" alt="{{ page.title }}">
+            {% if page.caption %}
+            <figcaption class="figure-caption text-center">{{ page.caption }}</figcaption>
+            {% endif %}
+        </figure>
+        {% endif %}
+        <!-- End Featured Image -->
+
+
+
+
+
+
+
+        <!-- Post -->
+        <div class="col-md-8 offset-md-2">
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                {% if page.toc %}
+                    {% if page.beforetoc %}
+                        <p><em>{{page.beforetoc}}</em></p>
+                    {% endif %}
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        {% include toc.html html=content %}
+                    </div>
+                {% endif %}
+                <!-- End Toc -->
+                {{content}}
+            </div>
+
+        </div>
+        <!-- End Post -->
+
     </div>
-</article>
-
-{% if page.comments %}
-<div id="disqus_thread"></div>
-    <script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://edeltech.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-    </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-{% endif %}
-
 </div>
 
 {%- include footer.html -%}

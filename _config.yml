@@ -25,16 +25,15 @@ url: "https://www.edeltech.ch"
 twitter_username: edeltech121
 github_username:  edeltech
 
-defaults:
-- scope:
-    path: ""
-    type: "team-members"
-  values:
-    layout: "team-member"
-
-collections:
-  team:
-      output: true
+authors:
+  jpgehrig:
+    name: Jean-Pierre Gehrig
+    display_name: jpgehrig
+    avatar: assets/img/team/jpgehrig.jpg
+    email: jp.gehrig@edeltech.ch
+    web: https://www.edeltech.ch
+    twitter: https://twitter.com/jpgehrig
+    description: "This is JP."
 
 plugins:
   - jekyll-feed
