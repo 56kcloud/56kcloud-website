@@ -9,11 +9,11 @@ caption: "A Saint Bernard (confidence: 99.6%), Barry Foundation, Martigny, Switz
 
 I am working on a project which involves analysing images with TensorFlow machine learning models. The images are uploaded in batches by a mobile application. It looks like a good opportunity to build a serverless appplication on [AWS Lambda](https://aws.amazon.com/lambda/) using the [Serverless Framework](https://www.serverless.com/)
 
-One thing to keep in mind when creating services deployed to AWS Lambda is that a deployment package cannot exceed 50MB. The TensorFlow Python package alone weighs more than 700MB (close to 200MB zipped). Fortunately, I don't need the full package, I won't do any training, just inference. This is what TensorFlow Lite is for: inference on devices with limited resources, such as mobile and IoT devices... and Lambda functions? Let's give it a try.
+One thing to keep in mind when creating services deployed to AWS Lambda is that a deployment package cannot exceed 50MB. The TensorFlow Python package alone weighs more than 700MB (close to 200MB zipped). Fortunately, I don't need the full package, I won't do any training, just inference. This is what TensorFlow Lite is for: inference on devices with limited resources, such as mobile and IoT devices... and Lambda functions?
 
 Let's fast forward to the approach which worked out and forget about the numerous failed attempts.
 
-The official [TensorFlow Lite interpreter Python runtime](https://www.tensorflow.org/lite/guide/python#install_just_the_tensorflow_lite_interpreter) doesn't run on the Python AWS Lambda environment out of the box. The trick is to build the runtime in a `lambci/lambda` Docker container. With this, the final size of the Lambda deployment package of this image classification example is just under 25MB.
+The official [TensorFlow Lite interpreter Python runtime](https://www.tensorflow.org/lite/guide/python#install_just_the_tensorflow_lite_interpreter) doesn't run on the AWS Lambda environment out of the box. The trick is to build the runtime in a `lambci/lambda` Docker container. With this, the final size of the Lambda deployment package for the example below is just under 25MB.
 
 ## Getting started
 
@@ -21,15 +21,15 @@ I am on a MacBook Pro with OS X 10.15.5 and use [HomeBrew](https://brew.sh/) to 
 
 Install Python 3.7.
 
-	$ brew install python
+    $ brew install python
 
 Install Node.
 
-	$ brew install node
+    $ brew install node
 
 Install the Serverless Framework CLI.
 
-	$ npm install -g serverless
+    $ npm install -g serverless
 
 Finally, make sure you have [Docker](https://docs.docker.com/get-docker/) running.
 
@@ -37,11 +37,11 @@ Finally, make sure you have [Docker](https://docs.docker.com/get-docker/) runnin
 
 Create a new project using the Serverless Framework CLI.
 
-	$ mkdir tensorflow-lite-on-aws-lambda
-	$ cd tensorflow-lite-on-aws-lambda
-	$ sls create --template aws-python3
+    $ mkdir tensorflow-lite-on-aws-lambda
+    $ cd tensorflow-lite-on-aws-lambda
+    $ sls create --template aws-python3
 
-This will create two files: `serverless.yaml` and `handler.py`. Make sure you the `provider` specified in your  `serverless.yml` is `python3.7`.
+This will create two files: `serverless.yaml` and `handler.py`. Make sure the `provider` specified in your  `serverless.yml` is `python3.7`.
 
 ```yml
 provider:
@@ -51,18 +51,18 @@ provider:
 
 ### AWS account setup
 
-In case you don't have an AWS account and valid credentials installed on your machine, it's time to do so. Follow [this guide](https://www.serverless.com/framework/docs/providers/aws/guide/credentials/) and come back when you are done.
+In case you don't have an AWS account and valid credentials installed on your machine, it's time to fix this. Follow [this guide](https://www.serverless.com/framework/docs/providers/aws/guide/credentials/) and come back when you are done.
 
 #### Test your setup
 
 You should now be able to deploy and invoke the `hello` function created by the `aws-python3` template:
 
-	$ sls deploy
-	$ sls invoke -f hello
-	{
-	    "statusCode": 200,
-	    "body": "{\"message\": \"Go Serverless v1.0! Your function executed successfully!\", \"input\": {}}"
-	}
+    $ sls deploy
+    $ sls invoke -f hello
+    {
+        "statusCode": 200,
+        "body": "{\"message\": \"Go Serverless v1.0! Your function executed successfully!\", \"input\": {}}"
+    }
 
 Let's remove it, we won't need it anymore. It was just a test.
 
@@ -72,29 +72,29 @@ Let's remove it, we won't need it anymore. It was just a test.
 
 Start a bash session in a `lambci/lambda:build-python3.7` Docker container.
 
-	$ docker run -it -v $PWD:/app lambci/lambda:build-python3.7 bash
+    $ docker run -it -v $PWD:/app lambci/lambda:build-python3.7 bash
 
-> I mount the current working directory (`$PWD`) to `/app` on the Docker container so I will be able to copy the result of the build back to my filesystem.
+> I mount the current working directory (`$PWD`) to `/app` on the Docker container to copy the result of the build back to my filesystem.
 
 Clone TensorFlow from the official GitHub repository.
 
-	# git clone https://github.com/tensorflow/tensorflow.git
+    # git clone https://github.com/tensorflow/tensorflow.git
     # cd tensorflow
 
 Install dependencies required to build TensorFlow.
 
-	# pip install numpy pybind11
+    # pip install numpy pybind11
 
 Build the TensorFlow Lite runtime.
 
-	# sh tensorflow/lite/tools/pip_package/build_pip_package.sh
+    # sh tensorflow/lite/tools/pip_package/build_pip_package.sh
 
 > This will build a [python wheel](https://pythonwheels.com/). It should take only a few minutes.
 
 Copy the TensorFlow Lite runtime Python wheel out of the docker container so it can be packaged by the Serverless Framework when building the service.
 
-	# mkdir /app/wheels
-	# cp tensorflow/lite/tools/pip_package/gen/tflite_pip/python3/dist/tflite_runtime-2.4.0-cp37-cp37m-linux_x86_64.whl /app/wheels/
+    # mkdir /app/wheels
+    # cp tensorflow/lite/tools/pip_package/gen/tflite_pip/python3/dist/tflite_runtime-2.4.0-cp37-cp37m-linux_x86_64.whl /app/wheels/
 
 Done. Exit the docker container.
 
@@ -118,7 +118,7 @@ https://dl.google.com/coral/python/tflite_runtime-2.1.0.post1-cp37-cp37m-macosx_
 
 Now we need to instruct the Serverless Framework to bundle our Python dependencies when packaging the service. We'll use the `serverless-python-requirements` plugin for this.
 
-	$ sls plugin install -n serverless-python-requirements
+    $ sls plugin install -n serverless-python-requirements
 
 Add the following lines to the `serverless.yml` file. (The `plugins:` part may already be present)
 
@@ -132,11 +132,11 @@ custom:
     dockerRunCmdExtraArgs: ["-v", "${env:PWD}/wheels:/wheels"]
 ```
 
-> The `dockerRunCmdExtraArgs` mounts our `wheels` directory containing the TensorFlow Lite runtime we just built into the `/wheels` directory of the Docker container the Serverless Framework spins up to create the deployment package.
+> The `dockerRunCmdExtraArgs` mounts our `wheels` directory containing the TensorFlow Lite runtime we just built into the `/wheels` directory of the Docker container started by the Serverless Framework to create the deployment package.
 
 Let's try to package the service, just to check everything is in place.
 
-	$ sls package
+    $ sls package
 
 ## Creating the image classifier
 
@@ -144,8 +144,8 @@ The interesting part starts now! Navigate to the [TensorFlow Hub](https://www.te
 
 Unzip the archive and copy/rename the files to the `tensorflow-lite-on-aws-lambda` directory:
 
-	$ cp ~/Downloads/mobilenet_v1_1.0_224_quant_and_labels/mobilenet_v1_1.0_224_quant.tflite  model.tflite
-	$ cp ~/Downloads/mobilenet_v1_1.0_224_quant_and_labels/labels_mobilenet_quant_v1_224.txt labels.txt
+    $ cp ~/Downloads/mobilenet_v1_1.0_224_quant_and_labels/mobilenet_v1_1.0_224_quant.tflite  model.tflite
+    $ cp ~/Downloads/mobilenet_v1_1.0_224_quant_and_labels/labels_mobilenet_quant_v1_224.txt labels.txt
 
 It's time to write the Python code that will classify the input image using the model. Replace the content of the generated `handler.py` file with this *experimental* code.
 
@@ -214,17 +214,17 @@ You will need an image to test. **Suggestion:** Download Barry from the top of t
 
 Before we deploy to AWS Lambda, we should test our code locally. Set up a Python3 virtual environment and install our Python dependencies.
 
-	$ python3 -m venv .venv
-	$ source .venv/bin/activate
-	$ pip install -r requirements.txt
+    $ python3 -m venv .venv
+    $ source .venv/bin/activate
+    $ pip install -r requirements.txt
 
 Invoke the `predict` function locally with:
 
-	$ sls invoke local -f predict
-	{
-	    "statusCode": 200,
-	    "body": "{\"label\": \"Saint Bernard\", \"score\": 0.99609375}"
-	}
+    $ sls invoke local -f predict
+    {
+        "statusCode": 200,
+        "body": "{\"label\": \"Saint Bernard\", \"score\": 0.99609375}"
+    }
 
 Awesome! We have a confidence of 99.6% that the dog is a **Saint Bernard**! (NB: prediction confirmed by my kids)
 
@@ -245,12 +245,12 @@ package:
 
 Deploy the service and invoke the function deployed in the AWS cloud.
 
-	$ sls deploy
-	$ sls invoke local -f predict
-	{
-	    "statusCode": 200,
-	    "body": "{\"label\": \"Saint Bernard\", \"score\": 0.99609375}"
-	}
+    $ sls deploy
+    $ sls invoke local -f predict
+    {
+        "statusCode": 200,
+        "body": "{\"label\": \"Saint Bernard\", \"score\": 0.99609375}"
+    }
 
 Voilà! We just created a serverless TensorFlow Lite image classifier running on AWS Lambda.
 
