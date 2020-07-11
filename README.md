@@ -26,11 +26,11 @@ Jekyll expects to find some values in the header of the post file, here is an ex
 
     ---
     layout: post
-    title:  "How to deploy TensorFlow Lite models on AWS Lambda"
+    title:  How to deploy TensorFlow Lite models on AWS Lambda
     author: jpgehrig
     categories: [TensorFlow, Machine-Learning, Serverless]
     image: assets/img/posts/beautiful-day-in-anzere.jpg
-    caption: Beautiful day in Anzere by jpgehrig
+    caption: A beautiful day in Anzere
     ---
 
 ### Content
