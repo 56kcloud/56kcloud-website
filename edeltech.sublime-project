@@ -1,13 +1,6 @@
 {
-	"folders":
-	[
-		{
-			"path": ".",
-            "folder_exclude_patterns": ["_site", "node_modules"],
-		}
-	],
-    "settings":
+	"settings":
     {
-        "tab_size": 4
+        "tab_size": 2
     }
 }
