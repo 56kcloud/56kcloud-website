@@ -1,41 +1,34 @@
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-The edeltech.ch Website
-===
+## Getting Started
 
-This is the source code of the [Edeltech website](http://www.edeltech.ch).
+First, run the development server:
 
-## Local development
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-### Install dependencies
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-    $ bundle install --path vendor/bundle
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-### Launch the Jekyll development server
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-    $ bundle exec jekyll serve
+## Learn More
 
+To learn more about Next.js, take a look at the following resources:
 
-## Add a blog post
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-To add a new blog post, create a new markdown file in the `_posts` folder. The filename structure is very important, use: `YYYY-MM-DD-my-post-title.md`
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-### File header
+## Deploy on Vercel
 
-Jekyll expects to find some values in the header of the post file, here is an example:
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-    ---
-    layout: post
-    title:  How to deploy TensorFlow Lite models on AWS Lambda
-    author: jpgehrig
-    categories: [TensorFlow, Machine-Learning, Serverless]
-    image: assets/img/posts/beautiful-day-in-anzere.jpg
-    caption: A beautiful day in Anzere
-    ---
-
-### Content
-
-Write the content of your blog post using standard markdown syntax.
-
-
-Save, push, wait a few minutes, enjoy!
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
