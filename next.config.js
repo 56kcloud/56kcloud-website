@@ -1,3 +1,5 @@
 const isProd = process.env.NODE_ENV === "production";
 
-export const assetPrefix = isProd ? "https://www.edeltech.ch/" : "";
+module.exports = {
+  assetPrefix: isProd ? "https://www.edeltech.ch/" : "",
+};
