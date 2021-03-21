@@ -13,13 +13,14 @@ jobs:
       - name: Install and Build 🔧
         uses: actions/setup-node@v2
         with:
-          node-version: "15.x"
+          node-version: '15.x'
 
       - run: npm install
       - run: npm run build
       - run: npm run export
 
       - run: echo "www.edeltech.ch" > out/CNAME
+      - run: touch out/.nojekyll
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
