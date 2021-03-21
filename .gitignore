@@ -1,7 +1,5 @@
-_site
-vendor
-.bundle/config
-.sass-cache
-.jekyll-metadata
+out
+.next
+node_modules
 .DS_Store
 *.sublime-workspace
