@@ -19,6 +19,8 @@ jobs:
       - run: npm run build
       - run: npm run export
 
+      - run: echo "www.edeltech.ch" > out/CNAME
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
