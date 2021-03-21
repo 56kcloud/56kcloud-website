@@ -28,7 +28,7 @@ export default function Blog({
             From the blog
           </h2>
           <p className="max-w-2xl mx-auto mt-3 text-xl text-gray-500 sm:mt-4">
-            Developers real-world experience.
+            Developer life, tips and tricks.
           </p>
         </div>
         {allPostsData.map(({ id, title, excerpt, author, date, image }) => (
@@ -45,7 +45,7 @@ export default function Blog({
                   </div>
                   <div className="flex flex-col justify-between flex-1 p-6 bg-white">
                     <div className="flex-1">
-                      <p className="text-sm font-medium text-indigo-600">
+                      <p className="text-sm font-medium text-blue-600">
                         Article
                       </p>
                       <div className="block mt-2">
