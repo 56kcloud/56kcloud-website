@@ -14,7 +14,7 @@ export default function Nav() {
 
   return (
     <>
-      <div className="py-2 bg-blue-700">
+      <div className="py-2 bg-blue-900 border border-b-2 border-blue-900 bg-opacity-20">
         <nav
           className="relative flex items-center justify-between px-4 mx-auto max-w-7xl sm:px-6"
           aria-label="Global"

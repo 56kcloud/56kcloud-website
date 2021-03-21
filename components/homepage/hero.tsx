@@ -1,31 +1,19 @@
-export default function Nav() {
+export default function Hero() {
   return (
-    <div className="pt-10 bg-blue-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
-      <div className="mx-auto max-w-7xl lg:px-8">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-8">
-          <div className="max-w-md px-4 mx-auto sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
-            <div className="lg:py-24">
-              <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
-                <span className="block">We build cloud</span>
-                <span className="block text-blue-400">
-                  centric applications
-                </span>
-              </h1>
-              <p className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                Edeltech provides application development services to clients
-                who want smarter solutions to their business problems.
-              </p>
-            </div>
-          </div>
-          <div className="pb-8 mt-12 lg:relative">
-            <div className="max-w-md px-4 mx-auto sm:max-w-xl sm:px-6 lg:max-w-none lg:px-0">
-              <img
-                className="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                src="images/teamwork.png"
-                alt="Teamwork"
-              />
-            </div>
-          </div>
+    <div className="pt-10 sm:pt-16 lg:pt-8 lg:pb-10 lg:overflow-hidden">
+      <div className="max-w-6xl px-4 mx-auto">
+        <div className="pt-32 pb-8 lg:pt-48">
+          <h1 className="mt-4 text-5xl font-extrabold tracking-tight text-white sm:mt-5 sm:text-6xl lg:mt-6">
+            <span className="block">
+              We build <span className="underline">applications</span>
+            </span>
+            <span className="block text-blue-400 ">for the cloud.</span>
+          </h1>
+          <p className="mt-3 text-base text-gray-100 sm:mt-5 sm:text-2xl lg:text-2xl">
+            Your team of passionate enginners ready to develop your next{" "}
+            <span className="underline">web, mobile or desktop</span>{" "}
+            applications.
+          </p>
         </div>
       </div>
     </div>
