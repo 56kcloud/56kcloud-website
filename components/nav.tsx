@@ -1,6 +1,17 @@
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Nav() {
+  const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
+
+  const showMobileMenu = () => {
+    setMobileMenuVisible(true);
+  };
+
+  const hideMobileMenu = () => {
+    setMobileMenuVisible(false);
+  };
+
   return (
     <>
       <div className="bg-blue-700 py-2">
@@ -23,6 +34,7 @@ export default function Nav() {
                   type="button"
                   className="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white"
                   aria-expanded="false"
+                  onClick={showMobileMenu}
                 >
                   <span className="sr-only">Open main menu</span>
                   {/* Heroicon name: outline/menu */}
@@ -71,7 +83,11 @@ export default function Nav() {
         From: "opacity-100 scale-100"
         To: "opacity-0 scale-95"
         */}
-      <div className="absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden">
+      <div
+        className={`${
+          mobileMenuVisible ? "" : "hidden"
+        } absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden`}
+      >
         <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
           <div className="px-5 pt-4 flex items-center justify-between">
             <div>
@@ -85,6 +101,7 @@ export default function Nav() {
               <button
                 type="button"
                 className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+                onClick={hideMobileMenu}
               >
                 <span className="sr-only">Close menu</span>
                 {/*} Heroicon name: outline/x */}

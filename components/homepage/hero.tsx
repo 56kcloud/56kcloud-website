@@ -17,12 +17,12 @@ export default function Nav() {
               </p>
             </div>
           </div>
-          <div className="mt-12 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
-            <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
+          <div className="mt-12 pb-8 lg:relative">
+            <div className="mx-auto max-w-md px-4 sm:max-w-xl sm:px-6 lg:max-w-none lg:px-0">
               <img
                 className="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
                 src="images/teamwork.png"
-                alt=""
+                alt="Teamwork"
               />
             </div>
           </div>
