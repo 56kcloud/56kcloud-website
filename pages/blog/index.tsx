@@ -22,28 +22,28 @@ export default function Blog({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className="max-w-7xl mx-auto pt-8">
+      <section className="pt-8 mx-auto max-w-7xl">
         <div className="text-center">
-          <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             From the blog
           </h2>
-          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+          <p className="max-w-2xl mx-auto mt-3 text-xl text-gray-500 sm:mt-4">
             Developers real-world experience.
           </p>
         </div>
         {allPostsData.map(({ id, title, excerpt, author, date, image }) => (
           <Link href={`/blog/${encodeURIComponent(id)}`} key={id}>
             <a>
-              <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-1 lg:max-w-2xl">
-                <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+              <div className="grid max-w-lg gap-5 mx-auto mt-12 lg:grid-cols-1 lg:max-w-2xl">
+                <div className="flex flex-col overflow-hidden rounded-lg shadow-lg">
                   <div className="flex-shrink-0">
                     <img
-                      className="h-96 w-full object-cover"
+                      className="object-cover w-full h-96"
                       src={image}
                       alt=""
                     />
                   </div>
-                  <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+                  <div className="flex flex-col justify-between flex-1 p-6 bg-white">
                     <div className="flex-1">
                       <p className="text-sm font-medium text-indigo-600">
                         Article

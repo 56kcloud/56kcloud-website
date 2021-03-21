@@ -1,10 +1,10 @@
-import Head from 'next/head';
-import { GetStaticProps, GetStaticPaths } from 'next';
+import Head from "next/head";
+import { GetStaticProps, GetStaticPaths } from "next";
 
-import Layout from '../../components/layout';
-import Date from '../../components/date';
+import Layout from "../../components/layout";
+import Date from "../../components/date";
 
-import { getAllPostIds, getPostData } from '../../lib/posts';
+import { getAllPostIds, getPostData } from "../../lib/posts";
 
 export default function Post({
   postData,
@@ -20,20 +20,20 @@ export default function Post({
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <article className="relative py-16 bg-white overflow-hidden">
+      <article className="relative py-16 overflow-hidden bg-white">
         <div className="relative px-4 sm:px-6 lg:px-8">
-          <div className="text-lg max-w-prose mx-auto">
+          <div className="mx-auto text-lg max-w-prose">
             <h1>
-              <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+              <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">
                 {postData.title}
               </span>
             </h1>
-            <div className="text-center text-sm mt-3">
+            <div className="mt-3 text-sm text-center">
               <Date dateString={postData.date} />
             </div>
           </div>
           <div
-            className="mt-6 prose prose-blue prose-lg text-gray-500 mx-auto"
+            className="mx-auto mt-6 prose prose-lg text-gray-500 prose-blue"
             dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
           ></div>
         </div>

@@ -14,9 +14,9 @@ export default function Nav() {
 
   return (
     <>
-      <div className="bg-blue-700 py-2">
+      <div className="py-2 bg-blue-700">
         <nav
-          className="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6"
+          className="relative flex items-center justify-between px-4 mx-auto max-w-7xl sm:px-6"
           aria-label="Global"
         >
           <div className="flex items-center flex-1">
@@ -24,22 +24,22 @@ export default function Nav() {
               <a href="/">
                 <span className="sr-only">Workflow</span>
                 <img
-                  className="h-10 w-auto sm:h-16"
+                  className="w-auto h-10 sm:h-16"
                   src="/images/edeltech-flower.svg"
                   alt="Edeltech"
                 />
               </a>
-              <div className="-mr-2 flex items-center md:hidden">
+              <div className="flex items-center -mr-2 md:hidden">
                 <button
                   type="button"
-                  className="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white"
+                  className="inline-flex items-center justify-center p-2 text-gray-400 bg-gray-900 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white"
                   aria-expanded="false"
                   onClick={showMobileMenu}
                 >
                   <span className="sr-only">Open main menu</span>
                   {/* Heroicon name: outline/menu */}
                   <svg
-                    className="h-6 w-6"
+                    className="w-6 h-6"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -88,11 +88,11 @@ export default function Nav() {
           mobileMenuVisible ? "" : "hidden"
         } absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden`}
       >
-        <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-          <div className="px-5 pt-4 flex items-center justify-between">
+        <div className="overflow-hidden bg-white rounded-lg shadow-md ring-1 ring-black ring-opacity-5">
+          <div className="flex items-center justify-between px-5 pt-4">
             <div>
               <img
-                className="h-10 w-auto sm:h-16"
+                className="w-auto h-10 sm:h-16"
                 src="/images/edeltech-flower.svg"
                 alt="Edeltech"
               />
@@ -100,13 +100,13 @@ export default function Nav() {
             <div className="-mr-2">
               <button
                 type="button"
-                className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+                className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600"
                 onClick={hideMobileMenu}
               >
                 <span className="sr-only">Close menu</span>
                 {/*} Heroicon name: outline/x */}
                 <svg
-                  className="h-6 w-6"
+                  className="w-6 h-6"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -127,13 +127,13 @@ export default function Nav() {
             <div className="px-2 space-y-1">
               <a
                 href="/"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+                className="block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50"
               >
                 Home
               </a>
               <a
                 href="/blog"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+                className="block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50"
               >
                 Blog
               </a>
