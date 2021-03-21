@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Layout, { siteTitle } from "../../components/layout";
+import Layout from "../../components/layout";
 import { getSortedPostsData } from "../../lib/posts";
 import Link from "next/link";
 import Date from "../../components/date";
@@ -20,7 +20,7 @@ export default function Blog({
   return (
     <Layout>
       <Head>
-        <title>{siteTitle}</title>
+        <title>Edeltech - Blog</title>
       </Head>
       <section className="pt-8 mx-auto max-w-7xl">
         <div className="text-center">
