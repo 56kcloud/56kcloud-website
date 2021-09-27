@@ -10,7 +10,7 @@ export default function Hero() {
             <span className="block text-blue-400 ">for the cloud.</span>
           </h1>
           <p className="mt-3 text-base text-gray-100 sm:mt-5 sm:text-2xl lg:text-2xl">
-            We're a team of passionate enginners ready to develop your next{" "}
+            We're a team of passionate engineers ready to develop your next{" "}
             <span className="underline">web, mobile or desktop</span>{" "}
             applications.
           </p>

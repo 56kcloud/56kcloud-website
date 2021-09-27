@@ -1,6 +1,4 @@
-This is the source of the [edeltech.ch](https://www.edeltech.ch) website.
-
-It is Next.js (static-only) website, built by GitHub Actions and hosted on GitHub pages.
+This is the source of the [edeltech.ch](https://www.edeltech.ch) website, a Next.js (static-only) website, built by GitHub Actions and hosted on GitHub pages.
 
 ## Getting Started
 

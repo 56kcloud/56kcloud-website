@@ -16,7 +16,7 @@ export default class MyDocument extends Document {
           <title>{siteTitle}</title>
           <meta
             name="description"
-            content="We're a team of passionate enginners ready to develop your next web, mobile or desktop applications."
+            content="We're a team of passionate engineers ready to develop your next web, mobile or desktop applications."
           />
           <meta name="og:title" content={siteTitle} />
           <meta name="twitter:card" content="summary_large_image" />
