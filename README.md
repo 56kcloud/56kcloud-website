@@ -2,7 +2,7 @@ This is the source of the [edeltech.ch](https://www.edeltech.ch) website, a Next
 
 ## Getting Started
 
-Make sure you have Node v15 or better. Earlier versions were not tested.
+Make sure you have Node v16 or better. Earlier versions were not tested.
 
 Then, install the dependencies:
 
