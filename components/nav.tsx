@@ -62,10 +62,14 @@ export default function Nav() {
                   Home
                 </a>
               </Link>
-
               <Link href="/blog">
                 <a className="text-base font-medium text-white hover:text-gray-300">
                   Blog
+                </a>
+              </Link>
+              <Link href="/about">
+                <a className="text-base font-medium text-white hover:text-gray-300">
+                  About
                 </a>
               </Link>
             </div>
@@ -136,6 +140,12 @@ export default function Nav() {
                 className="block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50"
               >
                 Blog
+              </a>
+              <a
+                href="/about"
+                className="block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50"
+              >
+                About
               </a>
             </div>
           </div>
