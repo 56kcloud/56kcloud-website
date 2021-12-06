@@ -26,10 +26,10 @@ export const team = [
   {
     name: "Sandro Pereira",
     role: "Software Enginner",
-    image: null,
+    image: "/images/team/sandro.jpg",
     bio: "Sandro is frontend developer working with us from Portugal with his cat Whiskas. He has already a few Javascript frameworks under his belt (these things keep coming). Currently he primarily uses Next.js for new projects with a Cypress test suite.",
     twitterUrl: null,
-    linkedinUrl: "https://www.linkedin.com/in/sandro-pereira-3502ab139/",
+    linkedinUrl: "https://www.linkedin.com/in/sandro-pereira-53085a227/",
   },
   {
     name: "Dylan Thompson",
