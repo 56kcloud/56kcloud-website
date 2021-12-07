@@ -2,7 +2,6 @@ import Nav from "../components/nav";
 import Hero from "../components/homepage/hero";
 import Logos from "../components/homepage/logos";
 import Feature from "../components/homepage/feature";
-import Contact from "../components/homepage/contact";
 
 export default function Home() {
   return (
@@ -34,7 +33,6 @@ export default function Home() {
             body="Improve your business by applying Machine Learning techniques to gain insight and optimize your product. Edeltech helps you prepare your data, train models and deploy them so that you and your customers can benefit from them."
             imageUrl="/images/ai.png"
           />
-          <Contact />
         </main>
       </div>
     </div>

@@ -34,7 +34,7 @@ export default function Blog({
         {allPostsData.map(({ id, title, excerpt, author, date, image }) => (
           <Link href={`/blog/${encodeURIComponent(id)}`} key={id}>
             <a>
-              <div className="grid max-w-lg gap-5 mx-auto mt-12 lg:grid-cols-1 lg:max-w-2xl">
+              <div className="grid max-w-lg gap-5 mx-auto my-12 lg:grid-cols-1 lg:max-w-2xl">
                 <div className="flex flex-col overflow-hidden rounded-lg shadow-lg">
                   <div className="flex-shrink-0">
                     <img
