@@ -11,8 +11,12 @@ export default function Post({
   postData,
 }: {
   postData: {
+    id: string;
     title: string;
+    excerpt: string;
+    author: string;
     date: string;
+    image: string;
     contentHtml: string;
   };
 }) {
@@ -51,6 +55,8 @@ export default function Post({
               </span>
             </h1>
             <div className="mt-3 text-sm text-center">
+              {postData.author}
+              <br />
               <Date dateString={postData.date} />
             </div>
           </div>
