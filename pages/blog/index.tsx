@@ -20,7 +20,7 @@ export default function Blog({
   return (
     <Layout>
       <Head>
-        <title>Edeltech - Blog</title>
+        <title>Edeltech | Blog</title>
       </Head>
       <section className="pt-8 mx-auto max-w-7xl">
         <div className="text-center">

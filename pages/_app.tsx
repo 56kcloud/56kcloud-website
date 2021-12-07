@@ -14,7 +14,6 @@ export default function App({ Component, pageProps }) {
           content="We're a team of passionate engineers ready to develop your next web, mobile or desktop applications."
         />
         <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Component {...pageProps} />
     </>

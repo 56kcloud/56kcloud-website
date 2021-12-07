@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { GetStaticProps, GetStaticPaths } from "next";
 
 import Layout from "../../components/layout";
@@ -15,10 +16,31 @@ export default function Post({
     contentHtml: string;
   };
 }) {
+  const router = useRouter();
   return (
     <Layout>
       <Head>
-        <title>{postData.title}</title>
+        <title>{"Edeltech | " + postData.title}</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={postData.title} />
+        <meta property="og:description" content={postData.excerpt} />
+        <meta
+          property="og:image"
+          content={"https://www.edeltech.ch" + postData.image}
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="edeltech.ch" />
+        <meta
+          property="twitter:url"
+          content={"https://www.edeltech.ch" + router.asPath}
+        />
+        <meta name="twitter:title" content={postData.title} />
+        <meta name="twitter:description" content={postData.excerpt} />
+        <meta
+          name="twitter:image"
+          content={"https://www.edeltech.ch" + postData.image}
+        />
       </Head>
       <article className="relative py-16 overflow-hidden bg-white">
         <div className="relative px-4 sm:px-6 lg:px-8">

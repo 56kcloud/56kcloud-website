@@ -8,7 +8,7 @@ export default function About({ people }) {
   return (
     <Layout>
       <Head>
-        <title>Edeltech - About</title>
+        <title>Edeltech | About</title>
       </Head>
       <Team title="Team" description="Meet the team." people={people} />
     </Layout>
