@@ -19,6 +19,7 @@
     "remark-html": "^15.0.0"
   },
   "devDependencies": {
+    "@headlessui/react": "^1.4.2",
     "@tailwindcss/aspect-ratio": "^0.3.0",
     "@tailwindcss/typography": "^0.4.1",
     "@types/node": "^16.11.10",
