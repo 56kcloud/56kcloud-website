@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const navigation = {
   main: [
     { name: "About", href: "/about" },
@@ -49,12 +51,14 @@ export default function Footer() {
         >
           {navigation.main.map((item) => (
             <div key={item.name} className="px-5 py-2">
-              <a
-                href={item.href}
-                className="text-gray-100 text-base font-semibold uppercase"
-              >
-                {item.name}
-              </a>
+              <Link href={item.href}>
+                <a
+                  href={item.href}
+                  className="text-gray-100 text-base font-semibold uppercase"
+                >
+                  {item.name}
+                </a>
+              </Link>
             </div>
           ))}
         </nav>
