@@ -1,4 +1,4 @@
-export default function Team({ title, description, people }) {
+export default function Team({ people }) {
   return (
     <div className="bg-white">
       <div className="mx-auto px-4 py-12 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
@@ -8,7 +8,8 @@ export default function Team({ title, description, people }) {
               The Team
             </h2>
             <p className="text-gray-500 text-xl">
-              We are a team of passionate software enginners. We work together everyday, mostly in the office, but also remote.
+              We are a team of passionate software enginners. We work together
+              everyday, mostly in the office, but also remote.
             </p>
           </div>
           <div className="lg:col-span-2">
@@ -30,7 +31,9 @@ export default function Team({ title, description, people }) {
                       <div className="space-y-4">
                         <div className="text-xl font-semibold leading-6 space-y-1">
                           <h3>{person.name}</h3>
-                          <p className="text-blue-600 text-lg font-medium">{person.role}</p>
+                          <p className="text-blue-600 text-lg font-medium">
+                            {person.role}
+                          </p>
                         </div>
                         <div className="text-lg">
                           <p className="text-gray-500">{person.bio}</p>
