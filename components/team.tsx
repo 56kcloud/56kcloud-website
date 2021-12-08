@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Team({ people }) {
   return (
     <div className="bg-blue-900">
@@ -20,11 +22,12 @@ export default function Team({ people }) {
               {people.map((person) => (
                 <li key={person.name} className="sm:py-8">
                   <div className="space-y-4 sm:grid sm:gap-6 sm:grid-cols-3 sm:items-start sm:space-y-0">
-                    <div className="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
-                      <img
+                    <div className="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4 relative">
+                      <Image
                         className="rounded-lg shadow-lg object-cover"
                         src={person.image}
-                        alt=""
+                        layout="fill"
+                        objectFit="cover"
                       />
                     </div>
                     <div className="sm:col-span-2">
