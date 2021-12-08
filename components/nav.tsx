@@ -1,21 +1,22 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/router";
 
 import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
-
-const navigation = [
-  { name: "Home", href: "/", current: true },
-  { name: "Blog", href: "/blog", current: false },
-  { name: "About", href: "/about", current: false },
-];
+import { Disclosure } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Nav() {
+  const router = useRouter();
+  const navigation = [
+    { name: "Home", href: "/", current: router.pathname == "/" },
+    { name: "Blog", href: "/blog", current: router.pathname == "/blog" },
+    { name: "About", href: "/about", current: router.pathname == "/about" },
+  ];
+
   return (
     <Disclosure as="nav" className="z-10 bg-blue-900">
       {({ open }) => (
@@ -49,19 +50,19 @@ export default function Nav() {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current
-                            ? "bg-blue-900 text-white"
-                            : "text-blue-300 hover:bg-blue-700 hover:text-white",
-                          "text-md px-3 py-2 font-medium rounded-md uppercase"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
-                      >
-                        {item.name}
-                      </a>
+                      <Link key={item.name} href={item.href}>
+                        <a
+                          className={classNames(
+                            item.current
+                              ? "bg-blue-900 text-white"
+                              : "text-blue-300 hover:bg-blue-700 hover:text-white",
+                            "text-md px-3 py-2 font-medium rounded-md uppercase"
+                          )}
+                          aria-current={item.current ? "page" : undefined}
+                        >
+                          {item.name}
+                        </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -72,19 +73,20 @@ export default function Nav() {
           <Disclosure.Panel className="sm:hidden">
             <div className="pb-3 pt-2 px-2 space-y-1">
               {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current
-                      ? "bg-blue-900 text-white"
-                      : "text-blue-300 hover:bg-blue-700 hover:text-white",
-                    "block px-3 py-2 text-base font-medium rounded-md"
-                  )}
-                  aria-current={item.current ? "page" : undefined}
-                >
-                  {item.name}
+                <Disclosure.Button key={item.name} as={Fragment}>
+                  <Link key={item.name} href={item.href}>
+                    <a
+                      className={classNames(
+                        item.current
+                          ? "bg-blue-900 text-white"
+                          : "text-blue-300 hover:bg-blue-700 hover:text-white",
+                        "block px-3 py-2 text-base font-medium rounded-md"
+                      )}
+                      aria-current={item.current ? "page" : undefined}
+                    >
+                      {item.name}
+                    </a>
+                  </Link>
                 </Disclosure.Button>
               ))}
             </div>
