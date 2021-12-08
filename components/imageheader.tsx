@@ -1,13 +1,16 @@
+import Nav from "./nav";
+
 export default function ImageHeader({ title, tagline, image }) {
   return (
-    <div className="relative bg-blue-800">
+    <div className="relative">
       <div className="absolute inset-0">
         <img className="w-full h-full object-cover" src={image} alt="" />
         <div
-          className="absolute inset-0 bg-blue-500 mix-blend-multiply"
+          className="absolute inset-0 bg-blue-400 mix-blend-multiply"
           aria-hidden="true"
         />
       </div>
+      <Nav />
       <div className="relative mx-auto px-4 py-24 max-w-7xl sm:px-6 sm:py-32 lg:px-8">
         <h1 className="text-white text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
           {title}

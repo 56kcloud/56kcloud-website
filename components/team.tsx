@@ -1,13 +1,13 @@
 export default function Team({ people }) {
   return (
-    <div className="bg-white">
+    <div className="bg-blue-900">
       <div className="mx-auto px-4 py-12 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
         <div className="space-y-12 lg:grid lg:gap-8 lg:grid-cols-3 lg:space-y-0">
           <div className="space-y-5 sm:space-y-4">
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+            <h2 className="text-white text-3xl font-extrabold tracking-tight sm:text-4xl">
               The Team
             </h2>
-            <p className="text-gray-500 text-xl">
+            <p className="text-blue-200 text-xl">
               We are a team of passionate software enginners. We work together
               everyday, mostly in the office, but also remote.
             </p>
@@ -29,14 +29,14 @@ export default function Team({ people }) {
                     </div>
                     <div className="sm:col-span-2">
                       <div className="space-y-4">
-                        <div className="text-xl font-semibold leading-6 space-y-1">
+                        <div className="text-blue-50 text-xl font-semibold leading-6 space-y-1">
                           <h3>{person.name}</h3>
-                          <p className="text-blue-600 text-lg font-medium">
+                          <p className="text-blue-200 text-lg font-medium">
                             {person.role}
                           </p>
                         </div>
                         <div className="text-lg">
-                          <p className="text-gray-500">{person.bio}</p>
+                          <p className="text-blue-50">{person.bio}</p>
                         </div>
                         <ul role="list" className="flex space-x-5">
                           {person.twitterUrl && (

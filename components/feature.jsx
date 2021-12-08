@@ -3,13 +3,10 @@ export default function Feature({
   body,
   imageUrl,
   reverse = false,
-  altBackground = false,
 }) {
   return (
     <section
-      className={`py-16 ${
-        altBackground ? "bg-blue-800" : "bg-blue-900"
-      } overflow-hidden lg:py-8`}
+      className="py-16 bg-blue-900 overflow-hidden lg:py-8"
     >
       <div className="relative mx-auto px-4 max-w-xl sm:px-6 lg:px-8 lg:max-w-7xl">
         <div className="relative">
