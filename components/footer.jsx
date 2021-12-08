@@ -1,5 +1,5 @@
 const navigation = {
-  company: [
+  main: [
     { name: "About", href: "/about" },
     { name: "Blog", href: "/blog" },
   ],
@@ -41,72 +41,27 @@ const navigation = {
 export default function Footer() {
   let year = new Date().getFullYear();
   return (
-    <footer className="bg-blue-800" aria-labelledby="footer-heading">
-      <h2 id="footer-heading" className="sr-only">
-        Footer
-      </h2>
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <div className="xl:grid xl:grid-cols-2 xl:gap-8">
-          <div className="space-y-8 xl:col-span-1">
-            <p className="text-gray-200 text-base">
-              A team of passionate engineers ready to develop your next web,
-              mobile or desktop applications.
-            </p>
-            <div className="flex space-x-6">
-              {navigation.social.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-200 hover:text-gray-500"
-                >
-                  <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-6 w-6" aria-hidden="true" />
-                </a>
-              ))}
+    <footer className="bg-blue-900">
+      <div className="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+        <nav className="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+          {navigation.main.map((item) => (
+            <div key={item.name} className="px-5 py-2">
+              <a href={item.href} className="text-base text-gray-100">
+                {item.name}
+              </a>
             </div>
-          </div>
-          <div className="mt-12 grid grid-cols-1 gap-8 xl:mt-0 xl:col-span-1">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                  Address
-                </h3>
-                <dl className="mt-2 text-base text-gray-200">
-                  <div className="mt-1 space-y-1">
-                    <dt className="sr-only">Address</dt>
-                    <dd>Edeltech Sarl</dd>
-                    <dd>Chemin St-Hubert 5</dd>
-                    <dd>1950 Sion</dd>
-                    <dd>Switzerland</dd>
-                  </div>
-                </dl>
-              </div>
-              <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                  Company
-                </h3>
-                <ul role="list" className="mt-1 space-y-1">
-                  {navigation.company.map((item) => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-base text-gray-200 hover:text-gray-900"
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+          ))}
+        </nav>
+        <div className="mt-8 flex justify-center space-x-6">
+          {navigation.social.map((item) => (
+            <a key={item.name} href={item.href} className="text-gray-100">
+              <span className="sr-only">{item.name}</span>
+              <item.icon className="h-6 w-6" aria-hidden="true" />
+            </a>
+          ))}
         </div>
-        <div className="mt-12 border-t border-gray-200 pt-8">
-          <p className="text-base text-gray-300 xl:text-center">
-            &copy; {year} Edeltech, Ltd. All rights reserved.
-          </p>
-        </div>
+        <p className="mt-8 text-center text-base text-gray-400">&copy; {year} Edeltech, Ltd. All rights reserved.</p>
       </div>
     </footer>
-  );
+  )
 }

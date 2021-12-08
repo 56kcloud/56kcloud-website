@@ -46,22 +46,22 @@ export default function Post({
           content={"https://www.edeltech.ch" + postData.image}
         />
       </Head>
-      <article className="relative py-16 overflow-hidden bg-white">
+      <article className="relative py-16 bg-white overflow-hidden">
         <div className="relative px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto text-lg max-w-prose">
+          <div className="mx-auto max-w-prose text-lg">
             <h1>
-              <span className="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl">
+              <span className="block mt-2 text-center text-gray-900 text-3xl font-extrabold tracking-tight leading-8 sm:text-4xl">
                 {postData.title}
               </span>
             </h1>
-            <div className="mt-3 text-sm text-center">
+            <div className="mt-3 text-center text-sm">
               {postData.author}
               <br />
               <Date dateString={postData.date} />
             </div>
           </div>
           <div
-            className="mx-auto mt-6 prose prose-lg text-gray-500 prose-blue"
+            className="prose prose-lg prose-blue mt-6 mx-auto text-gray-500"
             dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
           ></div>
         </div>
