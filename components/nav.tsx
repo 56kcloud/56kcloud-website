@@ -58,17 +58,17 @@ export default function Nav() {
             </div>
             <div className="hidden space-x-8 md:flex md:ml-10">
               <Link href="/">
-                <a className="hover:text-gray-300 text-white text-base font-medium">
+                <a className="hover:text-gray-300 text-white text-base font-medium uppercase">
                   Home
                 </a>
               </Link>
               <Link href="/blog">
-                <a className="hover:text-gray-300 text-white text-base font-medium">
+                <a className="hover:text-gray-300 text-white text-base font-medium uppercase">
                   Blog
                 </a>
               </Link>
               <Link href="/about">
-                <a className="hover:text-gray-300 text-white text-base font-medium">
+                <a className="hover:text-gray-300 text-white text-base font-medium uppercase">
                   About
                 </a>
               </Link>
@@ -131,19 +131,19 @@ export default function Nav() {
             <div className="px-2 space-y-1">
               <a
                 href="/"
-                className="block px-3 py-2 text-gray-900 text-base font-medium hover:bg-gray-50 rounded-md"
+                className="block px-3 py-2 text-blue-900 text-base font-medium hover:bg-gray-50 rounded-md uppercase"
               >
                 Home
               </a>
               <a
                 href="/blog"
-                className="block px-3 py-2 text-gray-900 text-base font-medium hover:bg-gray-50 rounded-md"
+                className="block px-3 py-2 text-blue-900 text-base font-medium hover:bg-gray-50 rounded-md uppercase"
               >
                 Blog
               </a>
               <a
                 href="/about"
-                className="block px-3 py-2 text-gray-900 text-base font-medium hover:bg-gray-50 rounded-md"
+                className="block px-3 py-2 text-blue-900 text-base font-medium hover:bg-gray-50 rounded-md uppercase"
               >
                 About
               </a>

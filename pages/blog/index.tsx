@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Layout from "../../components/layout";
+import Contact from "../../components/contact";
+import Date from "../../components/date";
 import { getSortedPostsData } from "../../lib/posts";
 import Link from "next/link";
-import Date from "../../components/date";
 import { GetStaticProps } from "next";
 
 export default function Blog({
@@ -64,6 +65,7 @@ export default function Blog({
           </Link>
         ))}
       </section>
+      <Contact />
     </Layout>
   );
 }
