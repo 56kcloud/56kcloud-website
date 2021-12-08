@@ -8,7 +8,7 @@ export default function Home() {
     <div className="min-h-screen">
       <div className="relative overflow-hidden">
         <header
-          className="bg-blue-900 bg-center bg-cover lg:pb-14"
+          className="bg-blue-900 bg-cover bg-center lg:pb-14"
           style={{ backgroundImage: "url(images/matterhorn-by-night.jpg)" }}
         >
           <Nav />
