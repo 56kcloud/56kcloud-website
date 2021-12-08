@@ -1,13 +1,6 @@
-export default function Feature({
-  title,
-  body,
-  imageUrl,
-  reverse = false,
-}) {
+export default function Feature({ title, body, imageUrl, reverse = false }) {
   return (
-    <section
-      className="py-16 bg-blue-900 overflow-hidden lg:py-8"
-    >
+    <section className="py-16 bg-blue-900 overflow-hidden lg:py-8">
       <div className="relative mx-auto px-4 max-w-xl sm:px-6 lg:px-8 lg:max-w-7xl">
         <div className="relative">
           <div className="lg:grid lg:gap-8 lg:grid-flow-row-dense lg:grid-cols-2 lg:items-center">

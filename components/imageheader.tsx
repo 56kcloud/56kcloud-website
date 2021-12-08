@@ -15,7 +15,9 @@ export default function ImageHeader({ title, tagline, image }) {
         <h1 className="text-white text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
           {title}
         </h1>
-        <p className="mt-6 max-w-4xl text-blue-50 font-medium tracking-wide text-2xl">{tagline}</p>
+        <p className="mt-6 max-w-4xl text-blue-50 text-2xl font-medium tracking-wide">
+          {tagline}
+        </p>
       </div>
     </div>
   );
