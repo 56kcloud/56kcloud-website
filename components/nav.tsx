@@ -1,156 +1,92 @@
 import Link from "next/link";
 import { useState } from "react";
 
+import { Fragment } from 'react'
+import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+
+const navigation = [
+  { name: 'Home', href: '/', current: true },
+  { name: 'Blog', href: '/blog', current: false },
+  { name: 'About', href: '/about', current: false },
+]
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
 export default function Nav() {
-  const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
-
-  const showMobileMenu = () => {
-    setMobileMenuVisible(true);
-  };
-
-  const hideMobileMenu = () => {
-    setMobileMenuVisible(false);
-  };
-
   return (
-    <>
-      <div className="py-2 bg-blue-900 bg-opacity-20 border border-b-2 border-blue-900">
-        <nav
-          className="relative flex items-center justify-between mx-auto px-4 max-w-7xl sm:px-6"
-          aria-label="Global"
-        >
-          <div className="flex flex-1 items-center">
-            <div className="flex items-center justify-between w-full md:w-auto">
-              <a href="/">
-                <span className="sr-only">Workflow</span>
-                <img
-                  className="w-auto h-10 sm:h-16"
-                  src="/images/edeltech-flower.svg"
-                  alt="Edeltech"
-                />
-              </a>
-              <div className="flex items-center -mr-2 md:hidden">
-                <button
-                  type="button"
-                  className="focus-ring-inset inline-flex items-center justify-center p-2 text-gray-400 hover:bg-gray-800 bg-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-white"
-                  aria-expanded="false"
-                  onClick={showMobileMenu}
-                >
+    <Disclosure as="nav" className="bg-blue-900 z-10">
+      {({ open }) => (
+        <>
+          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div className="relative flex items-center justify-between h-16">
+              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                {/* Mobile menu button*/}
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-blue-200 hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
-                  {/* Heroicon name: outline/menu */}
-                  <svg
-                    className="w-6 h-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                </button>
+                  {open ? (
+                    <XIcon className="block h-6 w-6" aria-hidden="true" />
+                  ) : (
+                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                  )}
+                </Disclosure.Button>
+              </div>
+              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                <div className="flex-shrink-0 flex items-center">
+                  <img
+                    className="block lg:hidden h-8 w-auto"
+                    src="/images/edeltech-flower.svg"
+                    alt="Workflow"
+                  />
+                  <img
+                    className="hidden lg:block h-8 w-auto"
+                    src="/images/edeltech-flower.svg"
+                    alt="Workflow"
+                  />
+                </div>
+                <div className="hidden sm:block sm:ml-6">
+                  <div className="flex space-x-4">
+                    {navigation.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className={classNames(
+                          item.current ? 'bg-blue-900 text-white' : 'text-blue-300 hover:bg-blue-700 hover:text-white',
+                          'px-3 py-2 rounded-md text-md font-medium uppercase'
+                        )}
+                        aria-current={item.current ? 'page' : undefined}
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="hidden space-x-8 md:flex md:ml-10">
-              <Link href="/">
-                <a className="hover:text-gray-300 text-white text-base font-medium uppercase">
-                  Home
-                </a>
-              </Link>
-              <Link href="/blog">
-                <a className="hover:text-gray-300 text-white text-base font-medium uppercase">
-                  Blog
-                </a>
-              </Link>
-              <Link href="/about">
-                <a className="hover:text-gray-300 text-white text-base font-medium uppercase">
-                  About
-                </a>
-              </Link>
-            </div>
           </div>
-        </nav>
-      </div>
 
-      {/*
-        Mobile menu, show/hide based on menu open state.
-
-        Entering: "duration-150 ease-out"
-        From: "opacity-0 scale-95"
-        To: "opacity-100 scale-100"
-        Leaving: "duration-100 ease-in"
-        From: "opacity-100 scale-100"
-        To: "opacity-0 scale-95"
-        */}
-      <div
-        className={`${
-          mobileMenuVisible ? "" : "hidden"
-        } absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden`}
-      >
-        <div className="bg-white rounded-lg shadow-md overflow-hidden ring-1 ring-black ring-opacity-5">
-          <div className="flex items-center justify-between pt-4 px-5">
-            <div>
-              <img
-                className="w-auto h-10 sm:h-16"
-                src="/images/edeltech-flower.svg"
-                alt="Edeltech"
-              />
-            </div>
-            <div className="-mr-2">
-              <button
-                type="button"
-                className="inline-flex items-center justify-center p-2 text-gray-400 hover:bg-gray-100 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600"
-                onClick={hideMobileMenu}
-              >
-                <span className="sr-only">Close menu</span>
-                {/*} Heroicon name: outline/x */}
-                <svg
-                  className="w-6 h-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
+          <Disclosure.Panel className="sm:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navigation.map((item) => (
+                <Disclosure.Button
+                  key={item.name}
+                  as="a"
+                  href={item.href}
+                  className={classNames(
+                    item.current ? 'bg-blue-900 text-white' : 'text-blue-300 hover:bg-blue-700 hover:text-white',
+                    'block px-3 py-2 rounded-md text-base font-medium'
+                  )}
+                  aria-current={item.current ? 'page' : undefined}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
+                  {item.name}
+                </Disclosure.Button>
+              ))}
             </div>
-          </div>
-          <div className="pb-6 pt-5">
-            <div className="px-2 space-y-1">
-              <a
-                href="/"
-                className="block px-3 py-2 text-blue-900 text-base font-medium hover:bg-gray-50 rounded-md uppercase"
-              >
-                Home
-              </a>
-              <a
-                href="/blog"
-                className="block px-3 py-2 text-blue-900 text-base font-medium hover:bg-gray-50 rounded-md uppercase"
-              >
-                Blog
-              </a>
-              <a
-                href="/about"
-                className="block px-3 py-2 text-blue-900 text-base font-medium hover:bg-gray-50 rounded-md uppercase"
-              >
-                About
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+          </Disclosure.Panel>
+        </>
+      )}
+    </Disclosure>
+  )
 }

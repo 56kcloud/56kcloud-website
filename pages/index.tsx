@@ -1,4 +1,5 @@
-import ImageHeader from "../components/imageheader";
+import Nav from "../components/nav";
+import Hero from "../components/hero";
 import Logos from "../components/logos";
 import Feature from "../components/feature";
 import Contact from "../components/contact";
@@ -6,11 +7,14 @@ import Contact from "../components/contact";
 export default function Home() {
   return (
     <>
-      <ImageHeader
-        title="We build <software />"
-        tagline="A team of passionate engineers ready to develop your next web, mobile or desktop applications."
-        image="/images/matterhorn-by-night.jpg"
-      />
+      <header>
+        <Nav />
+        <Hero
+          title="We build <software />"
+          tagline="A team of passionate engineers ready to develop your next web, mobile or desktop applications."
+          image="/images/matterhorn-by-night.jpg"
+        />
+      </header>
       <main>
         <Feature
           title="Your app, cross-platform"
