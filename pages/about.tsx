@@ -3,6 +3,7 @@ import Nav from "../components/nav";
 import Hero from "../components/hero";
 import Team from "../components/team";
 import Contact from "../components/contact";
+import Map from "../components/map";
 
 import { team } from "../data/team";
 import { GetStaticProps } from "next";
@@ -25,6 +26,7 @@ export default function About() {
       </header>
       <main>
         <Team people={team} />
+        <Map />
         <Contact />
       </main>
     </>

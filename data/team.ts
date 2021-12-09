@@ -47,7 +47,4 @@ export const team = [
     twitterUrl: null,
     linkedinUrl: null,
   },
-  {
-    name: "Yolan"
-  }
 ];
