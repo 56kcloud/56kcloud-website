@@ -20,18 +20,18 @@ export default function Map() {
                         <span className="block text-white xl:inline">Address</span>
                     </h1>
                     <p className="mt-3 max-w-md mx-auto text-lg text-gray-300 sm:text-xl md:mt-5 md:max-w-3xl">
-                        Chemin Saint-Hubert 5, 1950 Sion
+                        Chemin Saint-Hubert 5, 1950 Sion, Switzerland
                     </p>
                 </div>
             </div>
             <div className="relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full mb-4">
-                <WrappedMap googleMapURL={"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDldOPAyM3eJNmrrnuINF8_o1KAloNY1-E"} 
+                <WrappedMap googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDldOPAyM3eJNmrrnuINF8_o1KAloNY1-E`} 
                     loadingElement={<div style={{height: "100%"}} />}
                     containerElement={<div style={{height: "100%"}} />}
                     mapElement={<div style={{height: "100%"}} />}
                 />
             </div>
-        </div>      
+        </div>    
     );
   }
   
