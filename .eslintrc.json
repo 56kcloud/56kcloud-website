@@ -1,0 +1,21 @@
+{
+    "env": {
+      "browser": true
+    },
+    "extends": ["standard"],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": ["@typescript-eslint"],
+    "rules": {
+      "no-console": "error",
+      "camelcase": "off",
+      "indent": ["error", 2],
+      "linebreak-style": ["error", "unix"],
+      "quotes": ["error", "single"],
+      "semi": ["error", "never"],
+      "jsx-quotes":["error", "prefer-single"]
+    }
+  }
