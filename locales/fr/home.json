@@ -1,0 +1,14 @@
+{
+  "title": "Nous construisons <software />",
+  "tagline": "Une équipe d'ingénieurs passionnés prêts à développer vos prochaines applications web, mobiles ou desktop.",
+  "feature1Title": "Votre application, cross-platform",
+  "feature1Body": "Plus rapides, moins chères et plus simples, les applications multiplateformes vous permettent d'atteindre vos utilisateurs, sur leur plateforme, en utilisant une seule base de code. Edeltech utilise le framework Qt pour créer des applications mobiles et de bureau modernes et réactives.",
+  "feature2Title": "Accélérez votre migration vers le Cloud",
+  "feature2Body": "Migrez n'importe quelle charge de travail - application, site Web, base de données, stockage, serveur physique ou virtuel ou un centre de données entier - depuis un environnement sur site, une installation d'hébergement ou un autre cloud public vers AWS. Edeltech peut vous aider à définir l'intégralité de votre infrastructure en tant que code et à automatiser le déploiement en créant un pipeline CI/CD qui correspond à vos besoins.",
+  "feature3Title": "Tirez parti du Machine Learning",
+  "feature3Body": "Améliorez votre entreprise en appliquant des techniques d'apprentissage automatique pour mieux comprendre et optimiser votre produit. Edeltech vous aide à préparer vos données, à former des modèles et à les déployer afin que vous et vos clients puissiez en bénéficier.",
+  "contactSubtitle": "Améliorez votre entreprise en appliquant des techniques d'apprentissage automatique pour mieux comprendre et optimiser votre produit. Edeltech vous aide à préparer vos données, à former des modèles et à les déployer afin que vous et vos clients puissiez en bénéficier.",
+  "contactTitle": "Nous sommes là pour vous aider",
+  "contactBody": "Contactez-nous pour votre projet. Nous sommes toujours disponibles pour discuter de nouvelles collaborations. Nous parlons anglais, français et schwizertitsch.",
+  "contactButton": "Entrer en contact"
+}

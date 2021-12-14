@@ -1,0 +1,14 @@
+{
+  "title": "We build <software />",
+  "tagline": "A team of passionate engineers ready to develop your next web, mobile or desktop applications.",
+  "feature1Title": "Your app, cross-platform",
+  "feature1Body": "Faster, cheaper and simpler, cross-platform applications allow you to reach your users, on their plaftorm, using a single codebase. Edeltech uses the Qt framework to build modern and responsive mobile and desktop applications.",
+  "feature2Title": "Accelerate your Cloud migration",
+  "feature2Body": "Migrate any workload - application, website, database, storage, physical or virtual server, or an entire data center - from an on-premises environment, hosting facility, or other public cloud to AWS. Edeltech can help you define your entire infrastructure as code and automate the deployment by creating a CI/CD pipeline that fits your needs.",
+  "feature3Title": "Leverage Machine Learning",
+  "feature3Body": "Improve your business by applying Machine Learning techniques to gain insight and optimize your product. Edeltech helps you prepare your data, train models and deploy them so that you and your customers can benefit from them.",
+  "contactSubtitle": "Improve your business by applying Machine Learning techniques to gain insight and optimize your product. Edeltech helps you prepare your data, train models and deploy them so that you and your customers can benefit from them.",
+  "contactTitle": "We’re here to help",
+  "contactBody": "Contact us about your project. We are always available to discuss new collaborations. We speak english, french and Schwizertitsch.",
+  "contactButton": "Get in touch"
+}

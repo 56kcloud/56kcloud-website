@@ -1,0 +1,23 @@
+{
+  "locales": [
+    "en",
+    "fr"
+  ],
+  "defaultLocale": "en",
+  "pages": {
+    "*": [
+      "common",
+      "contact"
+    ],
+    "/": [
+      "home"
+    ],
+    "/about": [
+      "team",
+      "about"
+    ],
+    "/blog": [
+      "blog"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "title": "The Team",
+  "subTitle": "We are a team of passionate software enginners. We work together everyday, mostly in the office, but also remote.",
+  "founderAndPrincipalProg": "Founder and Principal Programmer",
+  "leadProgrammer": "Lead Programmer",
+  "seniorProgrammer": "Senior Programmer",
+  "softwareEnginner": "Software Enginner",
+  "juniorSoftwareEnginner": "Junior Software Enginner",
+  "JPBio": "JP started his career in electronics and embedded systems designing PCBs and C algorithms running on early Digital Signal Processors. Then, he co-founded Cinetis SA in 2005, a film scanning company where he created the first film-to-cloud platform. JP founded Edeltech in 2012 to spend more time on engineering. During the week-ends, JP tries to keep up with his skier & mountain biker kids.",
+  "JohnBio": "John studied Mechanical Engineering at EPFL, where he earned his Master of Science degree in 2014. After graduating and spending some time abroad, he decided to switch career paths and joined Edeltech as a Software Developer in 2016. John specialises in cross-platform mobile development but also lends a hand in backend development and AWS Cloud Infrastructure deployment. In his spare time he enjoys flying around the Alps as a private pilot.",
+  "GeorgesBio": "Georges is a Programmer who is not afraid to get his hands dirty while trying out new things. He works primarily on backend projects, implementing APIs and services using the Django framework. He strives to test and document all of his code. Outside of his work he enjoys astrophotography and fondue chinoise.",
+  "SandroBio": "Sandro is frontend developer working with us from Portugal with his cat Whiskas. He has already a few Javascript frameworks under his belt (these things keep coming). Currently he primarily uses Next.js for new projects with a Cypress test suite.",
+  "DylanBio": "Dylan studied software engineering at the University of Applied Science in Sierre. He is a Full Stack web developer with a strong focus on Infrastructure-as-Code and automation in general. In his personal life, Dylan enjoys downhill mountain biking. 🙈",
+  "BastienBio": "Bastien is studying software engineering at EPTM in Sion. His first project involves the development of a desktop video capture application. When he's not studying, Bastien scanvenges the alps for crystals."
+}

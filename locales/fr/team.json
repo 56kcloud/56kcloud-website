@@ -1,0 +1,15 @@
+{
+  "title": "L'équipe",
+  "subTitle": "Nous sommes une équipe d'ingénieurs logiciels passionnés. Nous travaillons ensemble tous les jours, principalement au bureau, mais aussi à distance.",
+  "founderAndPrincipalProg": "Fondateur et programmeur principal",
+  "leadProgrammer": "Programmeur principal",
+  "seniorProgrammer": "Programmeur senior",
+  "softwareEnginner": "Ingénieur logiciel",
+  "juniorSoftwareEnginner": "Ingénieur logiciel junior",
+  "JPBio": "JP a commencé sa carrière dans l'électronique et les systèmes embarqués en concevant des PCB et des algorithmes C fonctionnant sur les premiers processeurs de signaux numériques. Puis, il a co-fondé Cinetis SA en 2005, une société de numérisation de films où il a créé la première plate-forme film-to-cloud. JP a fondé Edeltech en 2012 pour consacrer plus de temps à l'ingénierie. Le week-end, JP essaie de suivre le rythme de ses enfants skieurs et vététistes.",
+  "JohnBio": "John a étudié l'ingénierie mécanique à l'EPFL, où il a obtenu son Master of Science en 2014. Après avoir obtenu son diplôme et passé du temps à l'étranger, il a décidé de changer de carrière et a rejoint Edeltech en tant que développeur de logiciels en 2016. John est spécialisé dans le développement mobile multiplateforme. mais donne également un coup de main dans le développement backend et le déploiement de l'infrastructure cloud AWS. Dans ses temps libres, il aime voler dans les Alpes en tant que pilote privé.",
+  "GeorgesBio": "Georges est un programmeur qui n'a pas peur de se salir les mains en essayant de nouvelles choses. Il travaille principalement sur des projets backend, mettant en œuvre des API et des services en utilisant le framework Django. Il s'efforce de tester et de documenter tout son code. En dehors de son travail, il aime l'astrophotographie et la fondue chinoise.",
+  "SandroBio": "Sandro est un développeur front-end qui travaille avec nous depuis le Portugal avec son chat Whiskas. Il a déjà quelques frameworks Javascript à son actif (ces choses continuent d'arriver). Actuellement, il utilise principalement Next.js pour de nouveaux projets avec une suite de tests Cypress.",
+  "DylanBio": "Dylan a étudié le génie logiciel à l'Université des sciences appliquées de Sierre. Il est un développeur Web Full Stack avec un accent particulier sur l'Infrastructure-as-Code et l'automatisation en général. Dans sa vie personnelle, Dylan aime faire du VTT de descente. 🙈",
+  "BastienBio": "Bastien étudie le génie logiciel à l'EPTM de Sion. Son premier projet porte sur le développement d'une application de capture vidéo de bureau. Quand il n'étudie pas, Bastien scrute les Alpes à la recherche de cristaux."
+}

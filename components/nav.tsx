@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-
 import { Fragment } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import useTranslation from 'next-translate/useTranslation'
 
 function classNames (...classes) {
   return classes.filter(Boolean).join(' ')
@@ -11,10 +11,11 @@ function classNames (...classes) {
 
 export default function Nav () {
   const router = useRouter()
+  const { t } = useTranslation('common')
   const navigation = [
-    { name: 'Home', href: '/', current: router.pathname === '/' },
-    { name: 'Blog', href: '/blog', current: router.pathname === '/blog' },
-    { name: 'About', href: '/about', current: router.pathname === '/about' }
+    { name: t('home'), href: '/', current: router.pathname === '/' },
+    { name: t('blog'), href: '/blog', current: router.pathname === '/blog' },
+    { name: t('about'), href: '/about', current: router.pathname === '/about' }
   ]
 
   return (

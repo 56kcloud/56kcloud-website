@@ -1,15 +1,17 @@
+import useTranslation from 'next-translate/useTranslation'
+
 export default function Team ({ people }) {
+  const { t } = useTranslation('team')
   return (
     <div className='bg-blue-900'>
-      <div className='mx-auto px-4 py-12 max-w-7xl sm:px-6 lg:px-8 lg:py-24'>
+      <div className='px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8 lg:py-24'>
         <div className='space-y-12 lg:grid lg:gap-8 lg:grid-cols-3 lg:space-y-0'>
           <div className='space-y-5 sm:space-y-4'>
-            <h2 className='text-white text-3xl font-extrabold tracking-tight sm:text-4xl'>
-              The Team
+            <h2 className='text-3xl font-extrabold tracking-tight text-white sm:text-4xl'>
+              {t('title')}
             </h2>
-            <p className='text-blue-200 text-xl'>
-              We are a team of passionate software enginners. We work together
-              everyday, mostly in the office, but also remote.
+            <p className='text-xl text-blue-200'>
+              {t('subTitle')}
             </p>
           </div>
           <div className='lg:col-span-2'>
@@ -22,21 +24,21 @@ export default function Team ({ people }) {
                   <div className='space-y-4 sm:grid sm:gap-6 sm:grid-cols-3 sm:items-start sm:space-y-0'>
                     <div className='aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4'>
                       <img
-                        className='rounded-lg shadow-lg object-cover'
+                        className='object-cover rounded-lg shadow-lg'
                         src={person.image}
                         alt=''
                       />
                     </div>
                     <div className='sm:col-span-2'>
                       <div className='space-y-4'>
-                        <div className='text-blue-50 text-xl font-semibold leading-6 space-y-1'>
+                        <div className='space-y-1 text-xl font-semibold leading-6 text-blue-50'>
                           <h3>{person.name}</h3>
-                          <p className='text-blue-200 text-lg font-medium'>
-                            {person.role}
+                          <p className='text-lg font-medium text-blue-200'>
+                            {t(person.role)}
                           </p>
                         </div>
                         <div className='text-lg'>
-                          <p className='text-blue-50'>{person.bio}</p>
+                          <p className='text-blue-50'>{t(person.bio)}</p>
                         </div>
                         <ul role='list' className='flex space-x-5'>
                           {person.twitterUrl && (

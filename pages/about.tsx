@@ -4,10 +4,11 @@ import Hero from '../components/hero'
 import Team from '../components/team'
 import Contact from '../components/contact'
 import Map from '../components/map'
-
 import { team } from '../data/team'
+import useTranslation from 'next-translate/useTranslation'
 
 export default function About () {
+  const { t } = useTranslation('about')
   return (
     <>
       <header>
@@ -16,10 +17,8 @@ export default function About () {
         </Head>
         <Nav />
         <Hero
-          title='About Edeltech'
-          tagline='We are located in Sion, the capital of the canton of Valais at
-          the heart of the Swiss alps. Our office is at walking distance from the
-          train station and the Valais campus of EPFL.'
+          title={t('title')}
+          tagline={t('tagline')}
           image='/images/sion.jpg'
         />
       </header>
