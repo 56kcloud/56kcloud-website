@@ -1,14 +1,14 @@
 export default function Feature ({ title, body, imageUrl, reverse = false }) {
   return (
-    <section className='py-16 bg-blue-900 overflow-hidden lg:py-8'>
-      <div className='relative mx-auto px-4 max-w-xl sm:px-6 lg:px-8 lg:max-w-7xl'>
+    <section className='py-16 overflow-hidden lg:py-8'>
+      <div className='relative max-w-xl px-4 mx-auto sm:px-6 lg:px-8 lg:max-w-7xl'>
         <div className='relative'>
           <div className='lg:grid lg:gap-8 lg:grid-flow-row-dense lg:grid-cols-2 lg:items-center'>
             <div className={reverse ? 'lg:col-start-1' : 'lg:col-start-2'}>
-              <h3 className='text-gray-50 text-2xl font-extrabold tracking-tight sm:text-3xl'>
+              <h3 className='text-2xl font-extrabold tracking-tight text-gray-50 sm:text-3xl'>
                 {title}
               </h3>
-              <p className='mt-3 text-gray-200 text-lg'>{body}</p>
+              <p className='mt-3 text-lg text-gray-200'>{body}</p>
             </div>
 
             <div
