@@ -15,7 +15,7 @@ export default function Team ({ people }) {
           <div className='lg:col-span-2'>
             <ul
               role='list'
-              className='space-y-12 sm:-mt-8 sm:divide-gray-200 sm:divide-y sm:space-y-0 lg:gap-x-8 lg:space-y-0'
+              className='space-y-12 sm:-mt-8 sm:divide-gray-600 sm:divide-y sm:space-y-0 lg:gap-x-8 lg:space-y-0'
             >
               {people.map((person) => (
                 <li key={person.name} className='sm:py-8'>
