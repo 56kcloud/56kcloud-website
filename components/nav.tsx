@@ -13,13 +13,12 @@ export default function Nav () {
   const router = useRouter()
   const { t } = useTranslation('common')
   const navigation = [
-    { name: t('home'), href: '/', current: router.pathname === '/' },
     { name: t('blog'), href: '/blog', current: router.pathname === '/blog' },
     { name: t('about'), href: '/about', current: router.pathname === '/about' }
   ]
 
   return (
-    <Disclosure as='nav' className='z-10 bg-blue-900'>
+    <Disclosure as='nav' className='fixed z-10 w-full bg-blue-900 bg-opacity-40 backdrop-filter backdrop-blur'>
       {({ open }) => (
         <>
           <div className='px-2 mx-auto max-w-7xl sm:px-6 lg:px-8'>
@@ -39,16 +38,15 @@ export default function Nav () {
               </div>
               <div className='flex items-center justify-center flex-1 sm:items-stretch sm:justify-start'>
                 <div className='flex items-center flex-shrink-0'>
-                  <img
-                    className='block w-auto h-8 lg:hidden'
-                    src='/images/edeltech-flower.svg'
-                    alt='Workflow'
-                  />
-                  <img
-                    className='hidden w-auto h-8 lg:block'
-                    src='/images/edeltech-flower.svg'
-                    alt='Workflow'
-                  />
+                  <Link href={'/'}>
+                    <a>
+                      <img
+                        className='block w-auto h-10'
+                        src='/images/edeltech-flower.svg'
+                        alt='Workflow'
+                      />
+                    </a>
+                  </Link>
                 </div>
                 <div className='hidden sm:block sm:ml-6'>
                   <div className='flex space-x-4'>
@@ -57,9 +55,9 @@ export default function Nav () {
                         <a
                           className={classNames(
                             item.current
-                              ? 'bg-blue-900 text-white'
-                              : 'text-blue-300 hover:bg-blue-700 hover:text-white',
-                            'text-md px-3 py-2 font-medium rounded-md uppercase'
+                              ? 'bg-transparent text-white'
+                              : 'text-blue-300',
+                            'text-md px-3 py-2 font-medium rounded-md uppercase hover:bg-blue-700 hover:text-white'
                           )}
                           aria-current={item.current ? 'page' : undefined}
                         >
@@ -72,7 +70,6 @@ export default function Nav () {
               </div>
             </div>
           </div>
-
           <Disclosure.Panel className='sm:hidden'>
             <div className='px-2 pt-2 pb-3 space-y-1'>
               {navigation.map((item) => (
@@ -81,9 +78,9 @@ export default function Nav () {
                     <a
                       className={classNames(
                         item.current
-                          ? 'bg-blue-900 text-white'
+                          ? 'bg-transparent text-white'
                           : 'text-blue-300 hover:bg-blue-700 hover:text-white',
-                        'block px-3 py-2 text-base font-medium rounded-md'
+                        'block px-3 py-2 text-base font-medium rounded-md uppercase'
                       )}
                       aria-current={item.current ? 'page' : undefined}
                     >

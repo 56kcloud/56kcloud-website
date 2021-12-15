@@ -1,4 +1,7 @@
 {
   "title": "From the blog",
-  "subtitle": "Developer life, tips and tricks."
+  "subtitle": "Developer life, tips and tricks.",
+  "emptyKind": "Article",
+  "emptyTitle": "There is no articles in the current language.",
+  "emptyBody": "You can change the language to <1>{{language}}</1> to find some interessing articles."
 }

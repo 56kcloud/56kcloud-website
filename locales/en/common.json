@@ -1,6 +1,7 @@
 {
-  "home": "home",
-  "blog": "blog",
-  "about": "à propos",
-  "copyright": "All rights reserved."
+  "home": "Home",
+  "blog": "Blog",
+  "about": "About",
+  "copyright": "All rights reserved.",
+  "english": "english"
 }

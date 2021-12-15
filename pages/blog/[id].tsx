@@ -24,44 +24,43 @@ export default function Post ({
   return (
     <Layout>
       <Head>
-        <title>{'Edeltech | ' + postData.title}</title>
+        <title>Edeltech | {postData.title}</title>
         <meta property='og:type' content='website' />
         <meta property='og:title' content={postData.title} />
         <meta property='og:description' content={postData.excerpt} />
         <meta
           property='og:image'
-          content={'https://www.edeltech.ch' + postData.image}
+          content={`https://www.edeltech.ch${postData.image}`}
         />
-
         <meta name='twitter:card' content='summary_large_image' />
         <meta property='twitter:domain' content='edeltech.ch' />
         <meta
           property='twitter:url'
-          content={'https://www.edeltech.ch' + router.asPath}
+          content={`https://www.edeltech.ch${router.asPath}`}
         />
         <meta name='twitter:title' content={postData.title} />
         <meta name='twitter:description' content={postData.excerpt} />
         <meta
           name='twitter:image'
-          content={'https://www.edeltech.ch' + postData.image}
+          content={`https://www.edeltech.ch${postData.image}`}
         />
       </Head>
-      <article className='relative py-16 overflow-hidden bg-white'>
+      <article className='relative py-16 overflow-hidden pt-28'>
         <div className='relative px-4 sm:px-6 lg:px-8'>
           <div className='mx-auto text-lg max-w-prose'>
             <h1>
-              <span className='block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl'>
+              <span className='block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-white sm:text-4xl'>
                 {postData.title}
               </span>
             </h1>
-            <div className='mt-3 text-sm text-center'>
+            <div className='mt-3 text-sm text-center text-blue-300'>
               {postData.author}
               <br />
               <Date dateString={postData.date} />
             </div>
           </div>
           <div
-            className='mx-auto mt-6 prose prose-lg text-gray-500 prose-blue'
+            className='mx-auto mt-6 prose prose-lg text-white prose-blue'
             dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
           ></div>
         </div>

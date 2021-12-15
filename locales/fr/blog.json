@@ -1,4 +1,7 @@
 {
   "title": "Le blog",
-  "subtitle": "Vie de développeur, trucs et astuces."
+  "subtitle": "Vie de développeur, trucs et astuces.",
+  "emptyKind": "Article",
+  "emptyTitle": "Il n'y a pas d'articles dans la langue actuelle.",
+  "emptyBody": "Vous pouvez changer la langue en <1>{{language}}</1> pour y lire des articles intéressants."
 }

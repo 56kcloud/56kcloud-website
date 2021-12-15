@@ -1,8 +1,16 @@
 import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
+import setLanguage from 'next-translate/setLanguage'
+import { useRouter } from 'next/router'
+
+function classNames (...classes) {
+  return classes.filter(Boolean).join(' ')
+}
 
 export default function Footer () {
+  const router = useRouter()
   const { t } = useTranslation('common')
+  const languages = ['en', 'fr']
   const navigation = {
     main: [
       { name: t('about'), href: '/about' },
@@ -46,24 +54,7 @@ export default function Footer () {
   return (
     <footer className='bg-blue-900'>
       <div className='px-4 py-12 mx-auto overflow-hidden max-w-7xl sm:px-6 lg:px-8'>
-        <nav
-          className='flex flex-wrap justify-center -mx-5 -my-2'
-          aria-label='Footer'
-        >
-          {navigation.main.map((item) => (
-            <div key={item.name} className='px-5 py-2'>
-              <Link href={item.href}>
-                <a
-                  href={item.href}
-                  className='text-base font-semibold text-gray-100 uppercase'
-                >
-                  {item.name}
-                </a>
-              </Link>
-            </div>
-          ))}
-        </nav>
-        <div className='flex justify-center mt-8 space-x-6'>
+        <div className='flex justify-center mb-4 space-x-6'>
           {navigation.social.map((item) => (
             <a key={item.name} href={item.href} className='text-gray-100'>
               <span className='sr-only'>{item.name}</span>
@@ -71,7 +62,19 @@ export default function Footer () {
             </a>
           ))}
         </div>
-        <p className='mt-8 text-base text-center text-gray-400'>
+        <div className='flex justify-center'>
+          <div className='flex w-32 p-1 space-x-2 bg-white rounded-lg bg-opacity-10'>
+            {languages.map((language) => (
+              <button key={language} className={classNames(router.locale.includes(language) &&
+                'bg-white',
+              'flex justify-center p-2 text-xs rounded-md w-14')}
+              onClick={async () => await setLanguage(language)}>
+                <img src={`/images/languages/${language}.png`} alt={language} className='w-5' />
+              </button>
+            ))}
+          </div>
+        </div>
+        <p className='mt-4 text-base text-center text-gray-400'>
           &copy; {year} Edeltech, Ltd. {t('copyright')}
         </p>
       </div>

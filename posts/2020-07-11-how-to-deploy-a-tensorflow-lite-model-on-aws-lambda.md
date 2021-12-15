@@ -3,6 +3,8 @@ title: How to deploy a TensorFlow Lite model on AWS Lambda
 excerpt: In this post, we present a cost-effective and surpisingly easy method for running a TensorFlow machine learning model on AWS Lambda.
 date: "2020-07-11"
 author: Jean-Pierre Gehrig
+authorAvatar: "/images/team/jp.jpg"
+language: en
 image: "/images/posts/barry.jpg"
 caption: "A Saint Bernard (confidence: 99.6%), Barry Foundation, Martigny, Switzerland."
 ---

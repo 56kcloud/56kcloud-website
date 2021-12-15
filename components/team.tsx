@@ -1,4 +1,5 @@
 import useTranslation from 'next-translate/useTranslation'
+import { slugify } from '../lib/utilities'
 
 export default function Team ({ people }) {
   const { t } = useTranslation('team')
@@ -20,7 +21,7 @@ export default function Team ({ people }) {
               className='space-y-12 sm:-mt-8 sm:divide-gray-600 sm:divide-y sm:space-y-0 lg:gap-x-8 lg:space-y-0'
             >
               {people.map((person) => (
-                <li key={person.name} className='sm:py-8'>
+                <li key={person.name} id={slugify(person.name)} className='sm:py-8'>
                   <div className='space-y-4 sm:grid sm:gap-6 sm:grid-cols-3 sm:items-start sm:space-y-0'>
                     <div className='aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4'>
                       <img
