@@ -25,7 +25,7 @@ export const team = [
   },
   {
     name: 'Sandro Pereira',
-    role: 'Software Enginner',
+    role: 'Software engineer',
     image: '/images/team/sandro.jpg',
     bio: 'Sandro is frontend developer working with us from Portugal with his cat Whiskas. He has already a few Javascript frameworks under his belt (these things keep coming). Currently he primarily uses Next.js for new projects with a Cypress test suite.',
     twitterUrl: null,
@@ -33,7 +33,7 @@ export const team = [
   },
   {
     name: 'Dylan Thompson',
-    role: 'Software Enginner',
+    role: 'Software engineer',
     image: '/images/team/dylan.jpg',
     bio: 'Dylan studied software engineering at the University of Applied Science in Sierre. He is a Full Stack web developer with a strong focus on Infrastructure-as-Code and automation in general. In his personal life, Dylan enjoys downhill mountain biking. 🙈',
     twitterUrl: null,
@@ -41,7 +41,7 @@ export const team = [
   },
   {
     name: 'Bastien Andrey',
-    role: 'Junior Software Enginner',
+    role: 'Junior Software engineer',
     image: '/images/team/bastien.jpg',
     bio: 'Bastien is studying software engineering at EPTM in Sion. His first project involves the development of a desktop video capture application. When he\'s not studying, Bastien scanvenges the alps for crystals.',
     twitterUrl: null,

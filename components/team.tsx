@@ -8,7 +8,7 @@ export default function Team ({ people }) {
               The Team
             </h2>
             <p className='text-blue-200 text-xl'>
-              We are a team of passionate software enginners. We work together
+              We are a team of passionate software engineers. We work together
               everyday, mostly in the office, but also remote.
             </p>
           </div>
