@@ -157,9 +157,6 @@ You can verify that the image builds fine by running:
 
 Just like we did earlier, let's deploy and invoke our `hello` function.
 
-```yml
-
-Deploy the service and invoke the function deployed in the AWS cloud.
 
     $ sls deploy
     $ sls invoke -f hello
@@ -167,7 +164,7 @@ Deploy the service and invoke the function deployed in the AWS cloud.
         "statusCode": 200,
         "body": "{\"label\": \"Saint Bernard\", \"score\": 0.99609375}"
     }
-```
+
 
 Awesome! We have a confidence of 99.6% that the dog is a **Saint Bernard**! (NB: prediction confirmed by my kids)
 
