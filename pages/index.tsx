@@ -9,9 +9,9 @@ export default function Home () {
       <header>
         <Nav />
         <Hero
-          title='We build <software />'
-          tagline='A team of passionate engineers ready to develop your next web, mobile or desktop applications.'
-          image='/images/matterhorn-by-night.jpg'
+          title=''
+          tagline=''
+          image='/images/hero-background.png'
         />
       </header>
       <main>

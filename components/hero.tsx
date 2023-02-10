@@ -1,18 +1,12 @@
 export default function Hero ({ title, tagline, image }) {
   return (
     <div className='relative'>
-      <div className='absolute inset-0'>
-        <img className='w-full h-full object-cover' src={image} alt='' />
-        <div
-          className='absolute inset-0 bg-blue-400 mix-blend-multiply'
-          aria-hidden='true'
-        />
-      </div>
-      <div className='relative mx-auto px-4 py-24 max-w-7xl sm:px-6 sm:py-32 lg:px-8'>
-        <h1 className='text-white text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl'>
+      <img className='object-cover w-full h-full' src={image} alt='' />
+      <div className='relative px-4 py-24 mx-auto max-w-7xl sm:px-6 sm:py-32 lg:px-8'>
+        <h1 className='text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl'>
           {title}
         </h1>
-        <p className='mt-6 max-w-4xl text-blue-50 text-2xl font-medium tracking-wide'>
+        <p className='max-w-4xl mt-6 text-2xl font-medium tracking-wide text-blue-50'>
           {tagline}
         </p>
       </div>
