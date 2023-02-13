@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import classNames from '../utils/classes'
 
-export default function Card ({ image, icon, title, description, alignment }) {
+export default function Card ({ image, icon, title, description, alignment = 'left', className = '' }) {
   return (
     <div className='w-full mx-auto mb-28 max-w-7xl last:mb-0'>
       <div className={classNames(
         alignment === 'left' ? '-ml-16' : 'ml-16',
-        'flex w-full bg-blue-medium px-28 py-28')}>
+        'flex w-full bg-blue-medium px-28 py-28', className)}>
         <div className='w-9/12'>
           <div className='w-3/5 -mt-[25%]'>
             <img src={image} alt={`${title} icon`} />

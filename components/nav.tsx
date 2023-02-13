@@ -20,9 +20,9 @@ export default function Nav () {
     <Disclosure as='nav' className='z-10'>
       {({ open }) => (
         <>
-          <div className='fixed top-0 z-50 min-w-full px-2 mx-auto mt-10 sm:px-6 lg:px-32'>
+          <div className='absolute top-0 left-0 z-50 min-w-full px-8 mx-auto mt-10 lg:px-32'>
             <div className='relative flex items-center'>
-              <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'>
+              <div className='absolute inset-y-0 right-0 flex items-center sm:hidden'>
                 {/* Mobile menu button */}
                 <Disclosure.Button className='inline-flex items-center justify-center p-2 text-blue-200 rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'>
                   <span className='sr-only'>Open main menu</span>
@@ -35,15 +35,10 @@ export default function Nav () {
                     )}
                 </Disclosure.Button>
               </div>
-              <div className='flex items-center justify-center flex-1 sm:items-stretch sm:justify-between'>
+              <div className='flex items-center justify-between flex-1'>
                 <div className='flex items-center flex-shrink-0'>
                   <img
-                    className='block w-auto h-8 lg:hidden'
-                    src='/images/56k-logo.svg'
-                    alt='Workflow'
-                  />
-                  <img
-                    className='hidden w-auto h-20 lg:block'
+                    className='w-auto h-20'
                     src='/images/56k-logo.svg'
                     alt='Workflow'
                   />
