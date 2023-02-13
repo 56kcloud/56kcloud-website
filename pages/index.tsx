@@ -9,7 +9,7 @@ import Companies from '../components/companies'
 export default function Home () {
   return (
     <>
-      <header>
+      <header className='overflow-hidden'>
         <Nav />
         <Hero
           titleLine1="Let's Start"

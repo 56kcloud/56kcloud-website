@@ -20,9 +20,9 @@ export default function Nav () {
     <Disclosure as='nav' className='z-10'>
       {({ open }) => (
         <>
-          <div className='absolute top-0 left-0 z-50 min-w-full px-8 mx-auto mt-10 lg:px-32'>
+          <div className='absolute top-0 left-0 z-50 min-w-full px-6 mx-auto mt-4 lg:mt-10 lg:px-12 xl:px-32'>
             <div className='relative flex items-center'>
-              <div className='absolute inset-y-0 right-0 flex items-center sm:hidden'>
+              <div className='absolute inset-y-0 right-0 flex items-center lg:hidden'>
                 {/* Mobile menu button */}
                 <Disclosure.Button className='inline-flex items-center justify-center p-2 text-blue-200 rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'>
                   <span className='sr-only'>Open main menu</span>
@@ -38,12 +38,12 @@ export default function Nav () {
               <div className='flex items-center justify-between flex-1'>
                 <div className='flex items-center flex-shrink-0'>
                   <img
-                    className='w-auto h-20'
+                    className='w-auto h-16 lg:h-20'
                     src='/images/56k-logo.svg'
                     alt='Workflow'
                   />
                 </div>
-                <div className='hidden sm:flex sm:items-center'>
+                <div className='hidden lg:flex lg:items-center'>
                   <div className='flex space-x-4'>
                     {navigation.map((item) => (
                       <Link key={item.name} href={item.href}>
@@ -62,13 +62,13 @@ export default function Nav () {
                       </Link>
                     ))}
                   </div>
-                  <NavButton />
+                  <NavButton>Contact Us</NavButton>
                 </div>
               </div>
             </div>
           </div>
 
-          <Disclosure.Panel className='sm:hidden'>
+          <Disclosure.Panel className='md:hidden'>
             <div className='px-2 pt-2 pb-3 space-y-1'>
               {navigation.map((item) => (
                 <Disclosure.Button key={item.name} as={Fragment}>
