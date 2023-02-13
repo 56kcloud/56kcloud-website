@@ -4,6 +4,7 @@ import Intro from '../components/intro'
 import DarkServices from '../components/dark-services'
 import BackgroundImage from '../components/background-image'
 import LightServices from '../components/light-services'
+import Companies from '../components/companies'
 
 export default function Home () {
   return (
@@ -22,6 +23,7 @@ export default function Home () {
         <DarkServices />
         <BackgroundImage />
         <LightServices />
+        <Companies />
       </main>
     </>
   )
