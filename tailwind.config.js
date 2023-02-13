@@ -13,12 +13,19 @@ module.exports = {
           600: '#204583',
           700: '#1a3a6d',
           800: '#152e57',
-          900: '#112647'
+          900: '#112647',
+          lighter: '#f3f7f9',
+          light: '#addcec',
+          medium: '#14216c',
+          dark: '#101a56'
+        },
+        orange: {
+          medium: '#e7755f'
         }
       },
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
-        workSans: ['Work Sans', 'sans-serif']
+        chap: ['Chap', 'sans-serif'],
+        graphik: ['Graphik', 'sans-serif']
       }
     }
   },

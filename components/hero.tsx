@@ -1,15 +1,14 @@
-export default function Hero ({ title, tagline, image }) {
+export default function Hero ({ titleLine1, titleLine2, titleLine3, image }) {
   return (
     <div className='relative'>
-      <img className='object-cover w-full h-full' src={image} alt='' />
-      <div className='relative px-4 py-24 mx-auto max-w-7xl sm:px-6 sm:py-32 lg:px-8'>
-        <h1 className='text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl'>
-          {title}
+      <div className='absolute z-50 left-1/2 bottom-[calc(40%+2.5rem)]'>
+        <h1 className='text-[calc(32px+4vw)] font-semibold font-chap text-blue-dark leading-none'>
+          <div>{titleLine1}</div>
+          <div className='relative left-[12.5%]'>{titleLine2}</div>
+          <div className='relative left-[50%]'>{titleLine3}</div>
         </h1>
-        <p className='max-w-4xl mt-6 text-2xl font-medium tracking-wide text-blue-50'>
-          {tagline}
-        </p>
       </div>
+      <img className='object-cover w-full h-full' src={image} alt='' />
     </div>
   )
 }

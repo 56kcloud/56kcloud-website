@@ -1,5 +1,7 @@
 import Nav from '../components/nav'
 import Hero from '../components/hero'
+import Intro from '../components/intro'
+import Services from '../components/services'
 import Feature from '../components/feature'
 import Contact from '../components/contact'
 
@@ -9,12 +11,15 @@ export default function Home () {
       <header>
         <Nav />
         <Hero
-          title=''
-          tagline=''
+          titleLine1="Let's Start"
+          titleLine2='your Cloud'
+          titleLine3='Journey'
           image='/images/hero-background.png'
         />
       </header>
       <main>
+        <Intro />
+        <Services />
         <Feature
           title='Your app, cross-platform'
           body='Faster, cheaper and simpler, cross-platform applications allow you to reach your users, on their plaftorm, using a single codebase. Edeltech uses the Qt framework to build modern and responsive mobile and desktop applications.'

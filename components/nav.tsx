@@ -5,11 +5,8 @@ import { Fragment } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
-import Button from './nav-button'
-
-function classNames (...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+import classNames from '../utils/classes'
+import NavButton from './nav-button'
 
 export default function Nav () {
   const router = useRouter()
@@ -23,7 +20,7 @@ export default function Nav () {
     <Disclosure as='nav' className='z-10'>
       {({ open }) => (
         <>
-          <div className='fixed z-50 min-w-full px-2 mx-auto mt-10 sm:px-6 lg:px-32'>
+          <div className='fixed top-0 z-50 min-w-full px-2 mx-auto mt-10 sm:px-6 lg:px-32'>
             <div className='relative flex items-center'>
               <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'>
                 {/* Mobile menu button */}
@@ -61,7 +58,7 @@ export default function Nav () {
                             //   ? 'bg-blue-900 text-white'
                             //   : 'text-blue-300 hover:bg-blue-700 hover:text-white',
                             // 'text-md px-3 py-2 font-medium rounded-md uppercase'
-                            'text-blue-900 text-md px-3 py-2 rounded-md font-poppins'
+                            'text-blue-dark text-md px-3 py-2 rounded-md font-graphik font-medium'
                           )}
                           aria-current={item.current ? 'page' : undefined}
                         >
@@ -70,7 +67,7 @@ export default function Nav () {
                       </Link>
                     ))}
                   </div>
-                  <Button />
+                  <NavButton />
                 </div>
               </div>
             </div>
