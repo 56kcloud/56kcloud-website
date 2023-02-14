@@ -3,7 +3,7 @@ import Card from './card'
 
 export default function lightServices () {
   return (
-    <div className='section-padding bg-blue-lighter'>
+    <section className='section-padding bg-blue-lighter'>
       {lightCards.map((card) => (
         <Card
           number={card.number}
@@ -15,6 +15,6 @@ export default function lightServices () {
           className='bg-white text-blue-dark'
         />
       ))}
-    </div>
+    </section>
   )
 }

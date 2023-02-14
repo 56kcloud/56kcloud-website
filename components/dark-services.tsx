@@ -3,7 +3,7 @@ import Card from './card'
 
 export default function DarkServices () {
   return (
-    <div className='section-padding bg-blue-dark'>
+    <section className='section-padding bg-blue-dark'>
       {darkCards.map((card) => (
         <Card
           number={card.number}
@@ -14,6 +14,6 @@ export default function DarkServices () {
           alignment={card.alignment}
         />
       ))}
-    </div>
+    </section>
   )
 }

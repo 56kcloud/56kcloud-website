@@ -5,6 +5,7 @@ import DarkServices from '../components/dark-services'
 import BackgroundImage from '../components/background-image'
 import LightServices from '../components/light-services'
 import Companies from '../components/companies'
+import Footer from '../components/footer'
 
 export default function Home () {
   return (
@@ -21,10 +22,16 @@ export default function Home () {
       <main>
         <Intro />
         <DarkServices />
-        <BackgroundImage />
+        <BackgroundImage
+          image='/images/buro-background.png'
+          title='Buro background'
+        />
         <LightServices />
         <Companies />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   )
 }

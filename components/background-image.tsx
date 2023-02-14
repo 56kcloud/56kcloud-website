@@ -1,7 +1,7 @@
-export default function BackgroundImage () {
+export default function BackgroundImage ({ image, title }) {
   return (
     <div className='bg-blue-lighter'>
-      <img src='/images/buro.png' alt='' />
+      <img src={image} alt={title} className='w-full' />
     </div>
   )
 }

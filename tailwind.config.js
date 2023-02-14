@@ -21,6 +21,9 @@ module.exports = {
         },
         orange: {
           medium: '#e7755f'
+        },
+        grey: {
+          medium: '#636e8e'
         }
       },
       fontFamily: {

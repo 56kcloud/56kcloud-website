@@ -40,7 +40,7 @@ export default function Nav () {
                   <img
                     className='w-auto h-16 lg:h-20'
                     src='/images/56k-logo.svg'
-                    alt='Workflow'
+                    alt='56k logo'
                   />
                 </div>
                 <div className='hidden lg:flex lg:items-center'>
