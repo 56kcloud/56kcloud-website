@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import BackgroundImage from './background-image'
 
 export default function Footer () {
@@ -14,62 +15,62 @@ export default function Footer () {
               accelerate their development practices through DevOps and Agile
               transformation.
             </h3>
-            <a href='/' className='block w-1/4'>
+            <Link href='/' className='block w-1/4'>
               <img
                 src='/images/56k-logo.svg'
                 alt='56k logo'
                 className='w-auto h-16'
               />
-            </a>
+            </Link>
             <div className='flex w-1/2'>
               <ul className='flex flex-wrap flex-1'>
                 <li className='w-1/2 mb-2'>
-                  <a
+                  <Link
                     href='#'
                     className='text-base font-medium text-blue-900 font-graphik'
                   >
                     Services
-                  </a>
+                  </Link>
                 </li>
                 <li className='w-1/2 mb-2'>
-                  <a
+                  <Link
                     href='#'
                     className='text-base font-medium text-blue-900 font-graphik'
                   >
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li className='w-1/2 mb-2'>
-                  <a
+                  <Link
                     href='#'
                     className='text-base font-medium text-blue-900 font-graphik'
                   >
                     Blog
-                  </a>
+                  </Link>
                 </li>
                 <li className='w-1/2 mb-2'>
-                  <a
+                  <Link
                     href='#'
                     className='text-base font-medium text-blue-900 font-graphik'
                   >
                     Training
-                  </a>
+                  </Link>
                 </li>
                 <li className='w-1/2 mb-2'>
-                  <a
+                  <Link
                     href='#'
                     className='text-base font-medium text-blue-900 font-graphik'
                   >
                     Partners
-                  </a>
+                  </Link>
                 </li>
                 <li className='w-1/2 mb-2'>
-                  <a
+                  <Link
                     href='#'
                     className='text-base font-medium text-blue-900 font-graphik'
                   >
                     Contact Us
-                  </a>
+                  </Link>
                 </li>
               </ul>
               <p className='w-1/3 text-base font-light font-graphik text-grey-medium'>
@@ -84,22 +85,22 @@ export default function Footer () {
               <div className='flex-1'>
                 <ul className='flex list-none gap-x-16'>
                   <li>
-                    <a href='https://twitter.com/56kcloud'>
+                    <Link href='https://twitter.com/56kcloud'>
                       <img
                         src='/images/twitter-icon.svg'
                         alt='Twitter logo'
                         className='w-auto h-4'
                       />
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href='https://www.linkedin.com/company/56kcloud'>
+                    <Link href='https://www.linkedin.com/company/56kcloud'>
                       <img
                         src='/images/linkedin-icon.svg'
                         alt='Linkedin logo'
                         className='w-auto h-4'
                       />
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -113,9 +114,9 @@ export default function Footer () {
                 <span className='text-base font-light font-graphik text-grey-medium'>
                   Design by
                 </span>
-                <a href='https://studiovoila.com/' className='w-16 -translate-y-[2px]'>
+                <Link href='https://studiovoila.com/' className='w-16 -translate-y-[2px]'>
                   <img src='/images/voila-logo.png' alt='Voila logo' />
-                </a>
+                </Link>
               </span>
             </p>
           </div>

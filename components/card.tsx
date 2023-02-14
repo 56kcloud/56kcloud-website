@@ -33,7 +33,7 @@ export default function Card ({
         </div>
         <div className='w-5/12 text-white md:w-3/12 '>
           <div className='w-12 h-auto'>
-            <Image src={icon} width='100%' height='100%' objectFit='contain' />
+            <img src={icon} />
           </div>
           <h3
             className={classNames(

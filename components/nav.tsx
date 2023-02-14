@@ -47,7 +47,7 @@ export default function Nav () {
                   <div className='flex space-x-4'>
                     {navigation.map((item) => (
                       <Link key={item.name} href={item.href}>
-                        <a
+                        <div
                           className={classNames(
                             // item.current
                             //   ? 'bg-blue-900 text-white'
@@ -58,7 +58,7 @@ export default function Nav () {
                           aria-current={item.current ? 'page' : undefined}
                         >
                           {item.name}
-                        </a>
+                        </div>
                       </Link>
                     ))}
                   </div>
@@ -73,7 +73,7 @@ export default function Nav () {
               {navigation.map((item) => (
                 <Disclosure.Button key={item.name} as={Fragment}>
                   <Link key={item.name} href={item.href}>
-                    <a
+                    <div
                       className={classNames(
                         item.current
                           ? 'bg-blue-900 text-white'
@@ -83,7 +83,7 @@ export default function Nav () {
                       aria-current={item.current ? 'page' : undefined}
                     >
                       {item.name}
-                    </a>
+                    </div>
                   </Link>
                 </Disclosure.Button>
               ))}
