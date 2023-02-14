@@ -1,9 +1,16 @@
 export default function Intro () {
   return (
-    <section className='px-6 py-14 md:py-24 sm:px-14 lg:px-24 xl:px-36 bg-blue-dark'>
-      <div className='flex flex-col max-w-6xl mx-auto gap-y-8 md:flex-row'>
-        <p className='text-white w-full md:w-[42%] mr-auto text-base font-graphik font-light'>It's important to get the entire team on board and headed in the right direction on the same cloud journey. We align customers in their cloud-native story.</p>
-        <h2 className='text-white w-full md:w-[52%] text-[calc(20px+1.6vw)] font-chap font-medium leading-tight'>56K.Cloud was founded to share our vision of the cloud with our partners and customers.</h2>
+    <section className='section-padding bg-blue-dark'>
+      <div className='flex flex-col mx-auto max-w-7xl md:flex-row'>
+        <p className='mr-auto mb-8 font-graphik text-base font-light text-white md:w-5/12 md:max-w-[240px] lg:max-w-xs xl:text-lg'>
+          It's important to get the entire team on board and headed in the right
+          direction on the same cloud journey. We align customers in their
+          cloud-native story.
+        </p>
+        <h2 className='font-chap text-4xl font-medium leading-tight text-white md:w-7/12 xl:text-[52px]'>
+          56K.Cloud was founded to share our vision of the cloud with our
+          partners and customers.
+        </h2>
       </div>
     </section>
   )

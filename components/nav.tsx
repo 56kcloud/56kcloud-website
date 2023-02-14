@@ -24,7 +24,7 @@ export default function Nav () {
             <div className='relative flex items-center'>
               <div className='absolute inset-y-0 right-0 flex items-center lg:hidden'>
                 {/* Mobile menu button */}
-                <Disclosure.Button className='inline-flex items-center justify-center p-2 text-blue-200 rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'>
+                <Disclosure.Button className='inline-flex items-center justify-center p-2 text-blue-200 rounded-md hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'>
                   <span className='sr-only'>Open main menu</span>
                   {open
                     ? (
@@ -53,7 +53,7 @@ export default function Nav () {
                             //   ? 'bg-blue-900 text-white'
                             //   : 'text-blue-300 hover:bg-blue-700 hover:text-white',
                             // 'text-md px-3 py-2 font-medium rounded-md uppercase'
-                            'text-blue-dark text-md px-3 py-2 rounded-md font-graphik font-medium'
+                            'text-md rounded-md px-3 py-2 font-graphik font-medium text-blue-dark'
                           )}
                           aria-current={item.current ? 'page' : undefined}
                         >
@@ -78,7 +78,7 @@ export default function Nav () {
                         item.current
                           ? 'bg-blue-900 text-white'
                           : 'text-blue-300 hover:bg-blue-700 hover:text-white',
-                        'block px-3 py-2 text-base font-medium rounded-md'
+                        'block rounded-md px-3 py-2 text-base font-medium'
                       )}
                       aria-current={item.current ? 'page' : undefined}
                     >

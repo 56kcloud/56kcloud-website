@@ -1,25 +1,56 @@
 import Image from 'next/image'
 import classNames from '../utils/classes'
 
-export default function Card ({ image, icon, title, description, alignment = 'left', className = '' }) {
+export default function Card ({
+  number,
+  image,
+  icon,
+  title,
+  description,
+  alignment = 'left',
+  className = ''
+}) {
   return (
     <div className='w-full mx-auto mb-28 max-w-7xl last:mb-0'>
-      <div className={classNames(
-        alignment === 'left' ? '-ml-16' : 'ml-16',
-        'flex w-full bg-blue-medium px-28 py-28', className)}>
-        <div className='w-9/12'>
-          <div className='w-3/5 -mt-[25%]'>
-            <img src={image} alt={`${title} icon`} />
+      <div
+        className={classNames(
+          alignment === 'left' ? 'xl:-ml-16' : 'xl:ml-16',
+          'relative flex w-full flex-col bg-blue-medium p-8 md:flex-row md:px-16 md:py-28 xl:px-28',
+          className
+        )}
+      >
+        <div className='absolute right-10 top-10'>
+          <span
+            className={classNames('font-chap text-base text-white', className)}
+          >
+            {number}
+          </span>
+        </div>
+        <div className='flex justify-center w-full md:block md:w-9/12'>
+          <div className='-mt-[10%] w-3/5 md:-mt-[25%]'>
+            <img src={image} alt={title} />
           </div>
         </div>
-        <div className='w-3/12 text-white'>
+        <div className='w-5/12 text-white md:w-3/12 '>
           <div className='w-12 h-auto'>
             <Image src={icon} width='100%' height='100%' objectFit='contain' />
           </div>
-          <h3 className={classNames(
-            alignment === 'left' ? 'text-orange-medium' : 'text-blue-light',
-            'text-[28px] mt-2 mb-1 font-chap font-medium')}>{title}</h3>
-          <p className='text-base font-light font-graphik'>{description}</p>
+          <h3
+            className={classNames(
+              alignment === 'left' ? 'text-orange-medium' : 'text-blue-light',
+              'mt-2 mb-1 font-chap text-[28px] font-medium'
+            )}
+          >
+            {title}
+          </h3>
+          <p
+            className={classNames(
+              'font-graphik text-base font-light',
+              className
+            )}
+          >
+            {description}
+          </p>
         </div>
       </div>
     </div>

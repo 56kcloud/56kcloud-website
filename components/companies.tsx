@@ -3,15 +3,28 @@ import classNames from '../utils/classes'
 
 export default function Companies () {
   return (
-    <section className='py-24 px-36 bg-blue-lighter'>
-      <h2 className='text-center font-chap text-blue-dark font-medium text-[calc(20px+0.75vw)] mb-14'>These companies already trust us</h2>
-      <div className='flex flex-wrap justify-center gap-x-10'>
+    <section className='section-padding bg-blue-lighter'>
+      <h2 className='mb-14 text-center font-chap text-[calc(20px+0.75vw)] font-medium text-blue-dark'>
+        These companies already trust us
+      </h2>
+      <div className='flex flex-wrap justify-center'>
         {companies.map((companie) => (
-          <div key={companie.name} className={(classNames(
-            companie.position === 'low' ? 'translate-y-4' : '-translate-y-4',
-            'flex items-center justify-center w-32 h-32 bg-white rounded-full shadow-[0_30px_80px_0_rgba(201,218,218,0.25)]'))}>
-            <img src={companie.logo} alt={companie.name} className='w-12' />
-          </div>
+          <li className='m-6 list-none'>
+            <div
+              className={classNames(
+                companie.position === 'high'
+                  ? 'translate-y-[15%]'
+                  : '-translate-y-[15%]',
+                'flex h-20 w-20 translate-y-[15%] items-center justify-center rounded-full bg-white lg:h-28 lg:w-28'
+              )}
+            >
+              <img
+                src={companie.logo}
+                alt={companie.name}
+                className='w-8 lg:w-12'
+              />
+            </div>
+          </li>
         ))}
       </div>
     </section>

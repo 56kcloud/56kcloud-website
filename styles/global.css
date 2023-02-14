@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* Typography */
 @font-face {
   font-family: 'Graphik';
   font-style: light;
@@ -57,5 +59,10 @@
   font-weight: 700;
   src: url('/fonts/Chap-Bold.woff') format('woff');
 }
-  
-  
+
+/* Classes */
+@layer base {
+  .section-padding {
+    @apply px-8 py-14 xl:py-24 xl:px-36
+  }
+}
