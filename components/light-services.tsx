@@ -12,7 +12,7 @@ export default function lightServices () {
           title={card.title}
           description={card.description}
           alignment={card.alignment}
-          className='bg-white text-blue-dark'
+          theme = 'light'
         />
       ))}
     </section>

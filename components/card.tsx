@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import classNames from '../utils/classes'
 
 export default function Card ({
@@ -8,20 +7,20 @@ export default function Card ({
   title,
   description,
   alignment = 'left',
-  className = ''
+  theme = 'dark'
 }) {
   return (
     <div className='w-full mx-auto mb-28 max-w-7xl last:mb-0'>
       <div
         className={classNames(
           alignment === 'left' ? 'xl:-ml-16' : 'xl:ml-16',
-          'relative flex w-full flex-col bg-blue-medium p-8 md:flex-row md:px-16 md:py-28 xl:px-28',
-          className
+          theme === 'dark' ? 'bg-blue-medium text-white' : 'bg-white text-blue-dark',
+          'relative flex w-full flex-col p-8 md:flex-row md:px-16 md:py-28 xl:px-28'
         )}
       >
         <div className='absolute right-10 top-10'>
           <span
-            className={classNames('font-chap text-base text-white', className)}
+            className={classNames('font-chap text-base')}
           >
             {number}
           </span>
@@ -31,7 +30,7 @@ export default function Card ({
             <img src={image} alt={title} />
           </div>
         </div>
-        <div className='w-5/12 text-white md:w-3/12 '>
+        <div className='w-5/12 md:w-3/12 '>
           <div className='w-12 h-auto'>
             <img src={icon} />
           </div>
@@ -45,8 +44,7 @@ export default function Card ({
           </h3>
           <p
             className={classNames(
-              'font-graphik text-base font-light',
-              className
+              'font-graphik text-base font-light'
             )}
           >
             {description}
