@@ -1,15 +1,14 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-
-import { Fragment } from 'react'
-import { Disclosure } from '@headlessui/react'
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
-
 import classNames from '../utils/classes'
+import { Disclosure } from '@headlessui/react'
+import { XIcon } from '@heroicons/react/outline'
 import NavButton from './nav-button'
+import { Fragment } from 'react'
 
 export default function Nav () {
   const router = useRouter()
+
   const navigation = [
     { name: 'Home', href: '/', current: router.pathname === '/' },
     { name: 'Blog', href: '/blog', current: router.pathname === '/blog' },
@@ -24,14 +23,14 @@ export default function Nav () {
             <div className='relative flex items-center'>
               <div className='absolute inset-y-0 right-0 flex items-center lg:hidden'>
                 {/* Mobile menu button */}
-                <Disclosure.Button className='inline-flex items-center justify-center p-2 text-blue-200 rounded-md hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'>
+                <Disclosure.Button>
                   <span className='sr-only'>Open main menu</span>
                   {open
                     ? (
                       <XIcon className='block w-6 h-6' aria-hidden='true' />
                     )
                     : (
-                      <MenuIcon className='block w-6 h-6' aria-hidden='true' />
+                      <NavButton image='/images/menu.svg' alt='Menu icon'>Menu</NavButton>
                     )}
                 </Disclosure.Button>
               </div>
@@ -62,7 +61,7 @@ export default function Nav () {
                       </Link>
                     ))}
                   </div>
-                  <NavButton>Contact Us</NavButton>
+                  <NavButton image='/images/pencil.svg' alt='Pencil icon' >Contact Us</NavButton>
                 </div>
               </div>
             </div>

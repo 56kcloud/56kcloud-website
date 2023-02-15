@@ -1,10 +1,15 @@
-export default function NavButton ({ children }) {
+import Image from 'next/image'
+
+export default function NavButton ({ children, image, alt }) {
   return (
     <button
       type='button'
-      className='inline-flex items-center px-6 py-3 ml-8 text-sm font-medium tracking-widest uppercase border border-transparent rounded-md shadow-sm bg-blue-light font-graphik text-blue-dark hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+      className='inline-flex items-center px-6 py-3 ml-8 text-sm font-medium tracking-widest uppercase border border-transparent rounded-md shadow-sm bg-blue-light font-graphik text-blue-dark'
     >
-      {children}
+      <div className='flex items-center gap-x-4'>
+        <span>{children}</span>
+        <Image src={image} alt={alt} width={14} height={14} className='-translate-y-0.5' />
+      </div>
     </button>
   )
 }
