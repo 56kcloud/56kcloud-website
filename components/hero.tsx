@@ -10,10 +10,7 @@ export default function Hero ({ titleLine1, titleLine2, titleLine3, image }) {
           <div className='relative left-[50%]'>{titleLine3}</div>
         </h1>
       </div>
-      <BackgroundImage
-        image='/images/train-background.png'
-        title='Train background'
-      />
+      <BackgroundImage image='/images/train-background.png' title='Train background' />
     </div>
   )
 }

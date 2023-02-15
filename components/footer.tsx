@@ -18,10 +18,10 @@ export default function Footer () {
   ]
 
   return (
-    <section className='relative h-screen bg-blue-dark'>
-      <div className='absolute top-0 right-0 z-50 w-10/12 sm:top-40'>
-        <div className='py-10 bg-white md:py-16'>
-          <div className='flex flex-wrap justify-between px-10 overflow-hidden text-base font-light font-graphik text-blue-dark md:px-16'>
+    <section className="bg-[url('/images/landscape-background.png')] bg-no-repeat bg-cover relative bg-blue-lighter h-[1000px]">
+      <div className='absolute bottom-0 right-0 z-50 p-8 md:p-0 md:w-10/12'>
+        <div className='py-8 bg-white md:py-16'>
+          <div className='flex flex-wrap justify-between px-8 overflow-hidden text-base font-light font-graphik text-blue-dark md:px-16'>
             <h3 className='mb-10 w-full font-chap text-[calc(20px+0.75vw)] font-medium leading-[1.1] lg:w-2/3 2xl:w-1/2 lg:mb-16'>
               56K.Cloud is a professional services, training and technology company focusing on cloud product acceleration, through cloud-native migration, security, developer tooling and community. We enable customers to build on public cloud technologies and accelerate their development practices through DevOps and Agile transformation.
             </h3>
@@ -68,7 +68,6 @@ export default function Footer () {
           </div>
         </div>
       </div>
-      <BackgroundImage image='/images/landscape-background.png' title='Landscape background' />
     </section>
   )
 }
