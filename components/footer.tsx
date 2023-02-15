@@ -3,11 +3,11 @@ import BackgroundImage from './background-image'
 
 export default function Footer () {
   return (
-    <section className='relative'>
-      <div className='absolute bottom-0 right-0 z-50 pl-80'>
+    <section className='relative h-screen bg-blue-dark'>
+      <div className='absolute right-0 z-50 w-10/12 top-40'>
         <div className='py-16 mx-auto bg-white'>
-          <div className='flex flex-wrap justify-between pl-16'>
-            <h3 className='mb-16 w-1/2 font-chap text-[calc(20px+0.75vw)] font-medium leading-[1.1] text-blue-dark'>
+          <div className='flex flex-wrap justify-between px-16'>
+            <h3 className='mb-10 lg:mb-16 w-full lg:w-1/2 font-chap text-[calc(20px+0.75vw)] font-medium leading-[1.1] text-blue-dark'>
               56K.Cloud is a professional services, training and technology
               company focusing on cloud product acceleration, through
               cloud-native migration, security, developer tooling and community.
@@ -15,15 +15,15 @@ export default function Footer () {
               accelerate their development practices through DevOps and Agile
               transformation.
             </h3>
-            <Link href='/' className='block w-1/4'>
+            <Link href='/' className='hidden lg:block lg:w-1/4'>
               <img
                 src='/images/56k-logo.svg'
                 alt='56k logo'
                 className='w-auto h-16'
               />
             </Link>
-            <div className='flex w-1/2'>
-              <ul className='flex flex-wrap flex-1'>
+            <div className='flex-col w-full lg:flex-row lg:w-1/2'>
+              <ul className='flex flex-wrap flex-1 mb-10 lg:mb-0'>
                 <li className='w-1/2 mb-2'>
                   <Link
                     href='#'
