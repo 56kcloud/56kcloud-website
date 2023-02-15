@@ -1,119 +1,65 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import BackgroundImage from './background-image'
 
 export default function Footer () {
+  const links = [
+    { href: '#', title: 'Services' },
+    { href: '#', title: 'About' },
+    { href: '#', title: 'Blog' },
+    { href: '#', title: 'Training' },
+    { href: '#', title: 'Partners' },
+    { href: '#', title: 'Contact Us' }
+  ]
+
+  const socialNetworksIcons = [
+    { href: 'https://twitter.com/56kcloud', src: '/images/twitter-icon.svg', alt: 'Twitter logo' },
+    { href: 'https://www.linkedin.com/company/56kcloud', src: '/images/linkedin-icon.svg', alt: 'Linkedin logo' }
+  ]
+
   return (
     <section className='relative h-screen bg-blue-dark'>
-      <div className='absolute right-0 z-50 w-10/12 top-40'>
-        <div className='py-16 mx-auto bg-white'>
-          <div className='flex flex-wrap justify-between px-16'>
-            <h3 className='mb-10 lg:mb-16 w-full lg:w-1/2 font-chap text-[calc(20px+0.75vw)] font-medium leading-[1.1] text-blue-dark'>
-              56K.Cloud is a professional services, training and technology
-              company focusing on cloud product acceleration, through
-              cloud-native migration, security, developer tooling and community.
-              We enable customers to build on public cloud technologies and
-              accelerate their development practices through DevOps and Agile
-              transformation.
+      <div className='absolute top-0 right-0 z-50 w-10/12 sm:top-40'>
+        <div className='py-10 bg-white md:py-16'>
+          <div className='flex flex-wrap justify-between px-10 overflow-hidden text-base font-light font-graphik text-blue-dark md:px-16'>
+            <h3 className='mb-10 w-full font-chap text-[calc(20px+0.75vw)] font-medium leading-[1.1] lg:w-2/3 2xl:w-1/2 lg:mb-16'>
+              56K.Cloud is a professional services, training and technology company focusing on cloud product acceleration, through cloud-native migration, security, developer tooling and community. We enable customers to build on public cloud technologies and accelerate their development practices through DevOps and Agile transformation.
             </h3>
             <Link href='/' className='hidden lg:block lg:w-1/4'>
-              <img
-                src='/images/56k-logo.svg'
-                alt='56k logo'
-                className='w-auto h-16'
-              />
+              <Image src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
             </Link>
-            <div className='flex-col w-full lg:flex-row lg:w-1/2'>
-              <ul className='flex flex-wrap flex-1 mb-10 lg:mb-0'>
-                <li className='w-1/2 mb-2'>
-                  <Link
-                    href='#'
-                    className='text-base font-medium text-blue-900 font-graphik'
-                  >
-                    Services
-                  </Link>
-                </li>
-                <li className='w-1/2 mb-2'>
-                  <Link
-                    href='#'
-                    className='text-base font-medium text-blue-900 font-graphik'
-                  >
-                    About
-                  </Link>
-                </li>
-                <li className='w-1/2 mb-2'>
-                  <Link
-                    href='#'
-                    className='text-base font-medium text-blue-900 font-graphik'
-                  >
-                    Blog
-                  </Link>
-                </li>
-                <li className='w-1/2 mb-2'>
-                  <Link
-                    href='#'
-                    className='text-base font-medium text-blue-900 font-graphik'
-                  >
-                    Training
-                  </Link>
-                </li>
-                <li className='w-1/2 mb-2'>
-                  <Link
-                    href='#'
-                    className='text-base font-medium text-blue-900 font-graphik'
-                  >
-                    Partners
-                  </Link>
-                </li>
-                <li className='w-1/2 mb-2'>
-                  <Link
-                    href='#'
-                    className='text-base font-medium text-blue-900 font-graphik'
-                  >
-                    Contact Us
-                  </Link>
-                </li>
+            <div className='flex flex-col flex-wrap md:flex-row lg:w-2/3 2xl:w-1/2'>
+              <ul className='flex flex-wrap mb-10 font-medium lg:w-2/3 lg:mb-0'>
+                {links.map((link) => (
+                  <li className='w-1/2 mb-2'>
+                    <Link href={link.href}>{link.title}</Link>
+                  </li>
+                ))}
               </ul>
-              <p className='w-1/3 text-base font-light font-graphik text-grey-medium'>
-                56K.Cloud GmbH <br />
-                Technoparkstrasse 2 <br />
-                8406 Winterthur <br />
-                Switzerland
+              <p className='text-grey-medium lg:w-1/3'>
+                56K.Cloud GmbH<br /> Technoparkstrasse 2<br /> 8406 Winterthur<br /> Switzerland
               </p>
             </div>
             <hr className='border-top-[1px] my-10 w-full border-slate-300' />
-            <div className='flex w-1/2'>
-              <div className='flex-1'>
-                <ul className='flex list-none gap-x-16'>
-                  <li>
-                    <Link href='https://twitter.com/56kcloud'>
-                      <img
-                        src='/images/twitter-icon.svg'
-                        alt='Twitter logo'
-                        className='w-auto h-4'
-                      />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href='https://www.linkedin.com/company/56kcloud'>
-                      <img
-                        src='/images/linkedin-icon.svg'
-                        alt='Linkedin logo'
-                        className='w-auto h-4'
-                      />
-                    </Link>
-                  </li>
+            <div className='flex flex-col w-full mb-10 md:flex-row lg:w-1/2 lg:mb-0'>
+              <div className='w-2/5 lg:w-2/3'>
+                <ul className='flex mb-10 list-none gap-x-16 md:mb-0'>
+                  {socialNetworksIcons.map((icon) => (
+                    <li>
+                      <Link href={icon.href}>
+                        <Image src={icon.src} alt={icon.alt} width={18} height={18} />
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
-              <p className='w-1/3 text-base font-light whitespace-pre font-graphik text-grey-medium'>
-                Copyright (c) 2023, 56K.Cloud GmbH <br />
-                all rights reserved
+              <p className='w-1/3 whitespace-pre text-grey-medium'>
+                Copyright (c) 2023, 56K.Cloud GmbH<br /> all rights reserved
               </p>
             </div>
-            <p className='w-1/4'>
+            <p className='w-full lg:w-1/4'>
               <span className='flex items-center gap-x-3'>
-                <span className='text-base font-light font-graphik text-grey-medium'>
-                  Design by
-                </span>
+                <span className='text-grey-medium'>Design by</span>
                 <Link href='https://studiovoila.com/' className='w-16 -translate-y-[2px]'>
                   <img src='/images/voila-logo.png' alt='Voila logo' />
                 </Link>
@@ -122,10 +68,7 @@ export default function Footer () {
           </div>
         </div>
       </div>
-      <BackgroundImage
-        image='/images/landscape-background.png'
-        title='Landscape background'
-      />
+      <BackgroundImage image='/images/landscape-background.png' title='Landscape background' />
     </section>
   )
 }
