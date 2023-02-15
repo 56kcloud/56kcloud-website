@@ -1,37 +1,30 @@
 export const companies = [
   {
     name: 'amazon',
-    logo: '/images/amazon-logo.png',
-    position: 'low'
+    logo: '/images/amazon-logo.png'
   },
   {
     name: 'dockers',
-    logo: '/images/dockers-logo.png',
-    position: 'high'
+    logo: '/images/dockers-logo.png'
   },
   {
     name: 'exoscale',
-    logo: '/images/exoscale-logo.png',
-    position: 'low'
+    logo: '/images/exoscale-logo.png'
   },
   {
     name: 'gruntworks',
-    logo: '/images/gruntworks-logo.png',
-    position: 'high'
+    logo: '/images/gruntworks-logo.png'
   },
   {
     name: 'medispend',
-    logo: '/images/medispend-logo.png',
-    position: 'low'
+    logo: '/images/medispend-logo.png'
   },
   {
     name: 'sml',
-    logo: '/images/sml-logo.png',
-    position: 'high'
+    logo: '/images/sml-logo.png'
   },
   {
     name: 'swisscom',
-    logo: '/images/swisscom-logo.png',
-    position: 'low'
+    logo: '/images/swisscom-logo.png'
   }
 ]

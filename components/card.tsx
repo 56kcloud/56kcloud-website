@@ -1,6 +1,5 @@
-// import Image from 'next/image'
-import Image from 'next/image'
 import classNames from '../utils/classes'
+import Image from 'next/image'
 
 export default function Card ({ number, image, icon, title, description, alignment = 'left', theme = 'dark' }) {
   return (
@@ -8,16 +7,16 @@ export default function Card ({ number, image, icon, title, description, alignme
       <div className={classNames(
         alignment === 'left' ? 'xl:mr-16' : 'xl:ml-16',
         theme === 'dark' ? 'bg-blue-medium text-white' : 'bg-white text-blue-dark',
-        'relative flex flex-col md:flex-row')}>
+        'relative font-graphik font-light flex flex-col md:flex-row')}>
         <div className='absolute right-10 top-10'>
-          <span className='font-chap'>{number}</span>
+          <span className='font-medium font-chap'>{number}</span>
         </div>
-        <div className='w-2/3 px-24 -mb-12'>
-          <div className='relative w-full -translate-y-12 h-96 md:h-full'>
-            <Image src={image} alt='' fill className='object-contain'/>
+        <div className='px-8 md:px-24 md:w-2/3'>
+          <div className='relative -translate-y-6 h-60 md:-translate-y-16 lg:-translate-y-12 md:h-96'>
+            <Image src={image} alt={title} fill className='object-contain'/>
           </div>
         </div>
-        <div className='flex-col items-center w-full px-8 py-16 md:w-1/3'>
+        <div className='p-8 pt-0 md:p-16 md:w-1/3 md:pr-8 md:pl-0 lg:py-28 2xl:pr-36'>
           <div className='w-12 h-auto'>
             <img src={icon} />
           </div>
@@ -26,7 +25,7 @@ export default function Card ({ number, image, icon, title, description, alignme
             'mt-2 mb-1 font-chap text-[28px] font-medium')}>
             {title}
           </h3>
-          <p className='font-light font-graphik'>{description}</p>
+          <p>{description}</p>
         </div>
       </div>
     </div>
