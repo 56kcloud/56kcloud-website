@@ -8,7 +8,7 @@ export default function Card ({ number, image, icon, title, description, alignme
         alignment === 'left' ? 'xl:mr-16' : 'xl:ml-16',
         theme === 'dark' ? 'bg-blue-medium text-white' : 'bg-white text-blue-dark',
         'relative font-graphik font-light flex flex-col md:flex-row')}>
-        <div className='absolute right-10 top-10'>
+        <div className='absolute right-4 top-3 sm:right-10 sm:top-10'>
           <span className='font-medium font-chap'>{number}</span>
         </div>
         <div className='px-8 md:px-24 md:w-2/3'>
