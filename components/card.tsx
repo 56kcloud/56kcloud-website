@@ -25,7 +25,7 @@ export default function Card ({ number, image, icon, title, description, alignme
             'mt-2 mb-1 font-chap text-[28px] font-medium')}>
             {title}
           </h3>
-          <p>{description}</p>
+          <p className='w-full sm:w-2/3 md:w-full'>{description}</p>
         </div>
       </div>
     </div>
