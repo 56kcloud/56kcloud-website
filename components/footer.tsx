@@ -12,8 +12,8 @@ export default function Footer () {
   ]
 
   const socialNetworksIcons = [
-    { href: 'https://twitter.com/56kcloud', src: '/images/twitter-icon.svg', alt: 'Twitter logo' },
-    { href: 'https://www.linkedin.com/company/56kcloud', src: '/images/linkedin-icon.svg', alt: 'Linkedin logo' }
+    { href: 'https://twitter.com/56kcloud', src: '/images/twitter-icon.svg', alt: 'Twitter logo', title: 'twitter' },
+    { href: 'https://www.linkedin.com/company/56kcloud', src: '/images/linkedin-icon.svg', alt: 'Linkedin logo', title: 'linkedin' }
   ]
 
   return (
@@ -30,7 +30,7 @@ export default function Footer () {
             <div className='flex flex-col flex-wrap md:flex-row lg:w-2/3 2xl:w-1/2'>
               <ul className='flex flex-wrap mb-10 font-medium lg:w-2/3 lg:mb-0'>
                 {links.map((link) => (
-                  <li className='w-1/2 mb-2'>
+                  <li key={link.title} className='w-1/2 mb-2'>
                     <Link href={link.href}>{link.title}</Link>
                   </li>
                 ))}
@@ -44,7 +44,7 @@ export default function Footer () {
               <div className='w-2/5 lg:w-2/3'>
                 <ul className='flex mb-10 list-none gap-x-16 md:mb-0'>
                   {socialNetworksIcons.map((icon) => (
-                    <li>
+                    <li key={icon.title}>
                       <Link href={icon.href}>
                         <Image src={icon.src} alt={icon.alt} width={18} height={18} />
                       </Link>

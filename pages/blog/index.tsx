@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Layout from '../../components/layout'
-import { getSortedPostsData } from '../../lib/posts'
 import Link from 'next/link'
 import { GetStaticProps } from 'next'
+import { getSortedPostsData } from '../../lib/posts'
 
 export default function Blog ({
   allPostsData
@@ -19,7 +19,7 @@ export default function Blog ({
   return (
     <Layout>
       <Head>
-        <title>Edeltech | Blog</title>
+        <title>56K.Cloud | Blog</title>
       </Head>
       <section className='pt-8 mx-auto max-w-7xl'>
         <div className='text-center'>
