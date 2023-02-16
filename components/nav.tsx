@@ -1,10 +1,9 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import classNames from '../utils/classes'
-import { Disclosure } from '@headlessui/react'
+import { Disclosure, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import Image from 'next/image'
-import { Fragment } from 'react'
 
 import NavButton from './nav-button'
 
@@ -27,7 +26,7 @@ export default function Nav () {
                 {/* Mobile menu button */}
                 {open
                   ? (
-                    <XIcon className='block w-6 h-6' aria-hidden='true' />
+                    <NavButton image='/images/menu.svg' alt='Menu icon'>Menu</NavButton>
                   )
                   : (
                     <NavButton image='/images/menu.svg' alt='Menu icon'>Menu</NavButton>
@@ -66,28 +65,23 @@ export default function Nav () {
             </div>
           </div>
 
-          <Disclosure.Panel className='z-50 w-full h-screen lg:hidden'>
-            {/* <div className='px-2 pt-2 pb-3 space-y-1'> */}
+          <Disclosure.Panel className='absolute z-50 w-full h-screen lg:hidden'>
             <div className='bg-white flex flex-col flex-wrap ml-auto pt-8 px-16 w-[90%] h-full'>
               <div className='mb-auto'>
-                <Link href='/'>
+                <Link href='/' className='inline-block'>
                   <Image src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
                 </Link>
               </div>
               <div className='mb-auto'>
                 {navigation.map((item) => (
-                  <Disclosure.Button key={item.name} as={Fragment}>
-                    <Link key={item.name} href={item.href}>
-                      <div className='block px-3 py-2 text-base font-medium rounded-md'>
-                        {item.name}
-                      </div>
-                    </Link>
-                  </Disclosure.Button>
+                  <Link key={item.name} href={item.href} className='block mb-4 text-2xl font-medium font-graphik text-blue-dark'>
+                    {item.name}
+                  </Link>
                 ))}
               </div>
-              <div>
+              <div className='py-12 text-center border-t'>
+                <NavButton image='/images/pencil.svg' alt='Pencil icon'>Contact Us</NavButton>
               </div>
-              <NavButton image='/images/pencil.svg' alt='Pencil icon' >Contact Us</NavButton>
             </div>
           </Disclosure.Panel>
         </>
