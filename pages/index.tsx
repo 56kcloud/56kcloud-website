@@ -10,7 +10,7 @@ import Footer from '../components/footer'
 export default function Home () {
   return (
     <>
-      <header className='overflow-hidden'>
+      <header className=''>
         <Nav />
         <Hero
           titleLine1="Let's Start"

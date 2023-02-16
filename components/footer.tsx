@@ -25,7 +25,7 @@ export default function Footer () {
               56K.Cloud is a professional services, training and technology company focusing on cloud product acceleration, through cloud-native migration, security, developer tooling and community. We enable customers to build on public cloud technologies and accelerate their development practices through DevOps and Agile transformation.
             </h3>
             <Link href='/' className='hidden lg:block lg:w-1/4'>
-              <Image src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
+              <Image src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} className='pointer-events-none' />
             </Link>
             <div className='flex flex-col flex-wrap md:flex-row lg:w-2/3 2xl:w-1/2'>
               <ul className='flex flex-wrap mb-10 font-medium lg:w-2/3 lg:mb-0'>
