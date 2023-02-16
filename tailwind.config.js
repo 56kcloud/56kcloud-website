@@ -30,6 +30,13 @@ module.exports = {
         chap: ['Chap', 'sans-serif'],
         graphik: ['Graphik', 'sans-serif']
       }
+      // fontSize: {
+      //   'xs-responsive-title': 'calc(20px+0.75vw)',
+      //   'sm-responsive-title': 'calc(22px+3vw)',
+      //   'md-responsive-title': 'calc(24px+4vw)',
+      //   'lg-responsive-title': 'calc(28px+4vw)',
+      //   'xl-responsive-title': 'calc(32px+4vw)'
+      // }
     }
   },
   variants: {},

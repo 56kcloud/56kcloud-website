@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 import { Dialog, Transition } from '@headlessui/react'
 import Link from 'next/link'
-import classNames from '../utils/classes'
 import Image from 'next/image'
 
+import Img from './img'
 import NavButton from './nav-button'
 import { Fragment, useState } from 'react'
 
@@ -35,12 +35,12 @@ export default function Nav () {
                 <div className='bg-white flex flex-col flex-wrap ml-auto pt-8 px-16 w-[90%] h-full'>
                   <div className='absolute left-10 top-10'>
                     <button onClick={() => setSidebarOpen(false)}>
-                      <Image src='/images/plus-white.png' alt='Plus icon' width={50} height={50} />
+                      <Img src='/images/plus-white.png' alt='Plus icon' width={50} height={50} />
                     </button>
                   </div>
                   <div className='mb-auto'>
                     <Link href='/' className='inline-block'>
-                      <Image src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
+                      <Img src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
                     </Link>
                   </div>
                   <div className='mb-auto'>
@@ -74,13 +74,8 @@ export default function Nav () {
               <div className='flex space-x-4'>
                 {navigation.map((item) => (
                   <Link key={item.name} href={item.href}>
-                    <div className={classNames(
-                      // item.current
-                      //   ? 'bg-blue-900 text-white'
-                      //   : 'text-blue-300 hover:bg-blue-700 hover:text-white',
-                      'px-3 font-graphik font-medium text-blue-dark'
-                    )}
-                    aria-current={item.current ? 'page' : undefined}
+                    <div className='px-3 font-medium font-graphik text-blue-dark'
+                      aria-current={item.current ? 'page' : undefined}
                     >
                       {item.name}
                     </div>
