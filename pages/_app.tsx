@@ -1,7 +1,6 @@
 import 'tailwindcss/tailwind.css'
 import '../styles/global.css'
 import Head from 'next/head'
-// import Footer from '../components/footer'
 
 export const siteTitle = 'Edeltech'
 
@@ -18,7 +17,6 @@ export default function App ({ Component, pageProps }) {
         <meta name='og:title' content={siteTitle} />
       </Head>
       <Component {...pageProps} />
-      {/* <Footer /> */}
     </>
   )
 }

@@ -17,7 +17,7 @@ export default function Footer () {
   ]
 
   return (
-    <section className="bg-[url('/images/landscape-background.png')] bg-no-repeat bg-cover relative bg-blue-lighter h-[1000px]">
+    <section className="bg-[url('/images/landscape-background.png')] bg-no-repeat bg-cover relative bg-blue-lighter h-[1000px] sm:h-[850px]">
       <div className='absolute bottom-0 right-0 z-50 p-8 md:p-0 md:w-10/12'>
         <div className='py-8 bg-white md:py-16'>
           <div className='flex flex-wrap justify-between px-8 overflow-hidden text-base font-light font-graphik text-blue-dark md:px-16'>

@@ -63,6 +63,6 @@
 /* Classes */
 @layer base {
   .section-padding {
-    @apply px-8 py-14 xl:py-24 xl:px-36
+    @apply px-8 py-[72px] xl:py-24 xl:px-36
   }
 }
