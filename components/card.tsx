@@ -1,5 +1,4 @@
 import classNames from '../utils/classes'
-import Image from 'next/image'
 
 import { CardProps, CardPropsImpl } from '../models/Card.model'
 import Img from './img'
@@ -18,7 +17,7 @@ export default function Card (props: CardPropsImpl) {
         </div>
         <div className='px-8 md:px-24 md:w-2/3'>
           <div className='relative -translate-y-6 h-60 md:-translate-y-16 lg:-translate-y-12 md:h-96'>
-            <Image src={cardProps.image} alt={cardProps.title} fill className='object-contain'/>
+            <Img src={cardProps.image} alt={cardProps.title} fill className='object-contain'/>
           </div>
         </div>
         <div className='p-8 pt-0 md:p-16 md:w-1/3 md:pr-8 md:pl-0 lg:py-28 2xl:pr-36'>

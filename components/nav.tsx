@@ -67,7 +67,7 @@ export default function Nav () {
           <div className='flex justify-between'>
             <div>
               <Link href='/'>
-                <Image className='w-auto h-16 lg:h-20' src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
+                <Img className='w-auto h-16 lg:h-20' src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
               </Link>
             </div>
             <div className='hidden lg:flex lg:items-center'>
