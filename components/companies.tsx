@@ -5,7 +5,7 @@ import { companies } from '../data/companies'
 export default function Companies () {
   return (
     <section className='bg-blue-lighter section-padding' >
-      <h2 className='mb-14 text-center font-chap text-[calc(20px+0.75vw)] font-medium text-blue-dark'>These companies already trust us</h2>
+      <h2 className='font-medium text-center mb-14 xs-responsive-title font-chap text-blue-dark'>These companies already trust us</h2>
       <div className='flex flex-wrap justify-center'>
         {companies.map((companie) => (
           <li key={companie.name} className='m-6 list-none'>

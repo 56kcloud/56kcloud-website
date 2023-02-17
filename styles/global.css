@@ -65,4 +65,24 @@
   .section-padding {
     @apply px-8 py-[72px] xl:py-24 xl:px-36
   }
+
+  .xs-responsive-title {
+    @apply text-[calc(20px+0.75vw)]
+  }
+  
+  .sm-responsive-title {
+    @apply text-[calc(22px+3vw)]
+  }
+
+  .md-responsive-title {
+    @apply text-[calc(24px+4vw)]
+  }
+
+  .lg-responsive-title {
+    @apply text-[calc(28px+4vw)]
+  }
+
+  .xl-responsive-title {
+    @apply text-[calc(32px+4vw)]
+  }
 }

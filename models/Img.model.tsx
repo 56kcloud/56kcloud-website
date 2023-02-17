@@ -1,20 +1,17 @@
-export type ImgPropsImpl = {
-  src: string,
-  alt: string,
-  width: number,
-  height: number,
-}
-
-export class ImgProps {
+export type ImgBase = {
   src: string
   alt: string
+  className?: string
+}
+
+type ImgFill = ImgBase & {
+  fill: true
+}
+
+type ImgDimensionValues = ImgBase & {
+  fill: false
   width: number
   height: number
-
-  constructor (props: ImgPropsImpl) {
-    this.src = props.src
-    this.alt = props.alt
-    this.width = props.width
-    this.height = props.height
-  }
 }
+
+export type ImgPropsImpl = ImgDimensionValues | ImgFill
