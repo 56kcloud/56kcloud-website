@@ -1,9 +1,8 @@
 import Head from 'next/head'
 import Layout from '../../components/layout'
-import Contact from '../../components/contact'
-import { getSortedPostsData } from '../../lib/posts'
 import Link from 'next/link'
 import { GetStaticProps } from 'next'
+import { getSortedPostsData } from '../../lib/posts'
 
 export default function Blog ({
   allPostsData
@@ -20,7 +19,7 @@ export default function Blog ({
   return (
     <Layout>
       <Head>
-        <title>Edeltech | Blog</title>
+        <title>56K.Cloud | Blog</title>
       </Head>
       <section className='pt-8 mx-auto max-w-7xl'>
         <div className='text-center'>
@@ -33,7 +32,7 @@ export default function Blog ({
         </div>
         {allPostsData.map(({ id, title, excerpt, author, date, image }) => (
           <Link href={`/blog/${encodeURIComponent(id)}`} key={id}>
-            <a>
+            <Link href=''>
               <div className='grid max-w-lg gap-5 mx-auto my-12 lg:grid-cols-1 lg:max-w-2xl'>
                 <div className='flex flex-col overflow-hidden rounded-lg shadow-lg'>
                   <div className='flex-shrink-0'>
@@ -60,11 +59,10 @@ export default function Blog ({
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
           </Link>
         ))}
       </section>
-      <Contact />
     </Layout>
   )
 }

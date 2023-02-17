@@ -1,21 +1,16 @@
-export default function Hero ({ title, tagline, image }) {
+import BackgroundImage from './background-image'
+
+export default function Hero ({ titleLine1, titleLine2, titleLine3, image }) {
   return (
-    <div className='relative'>
-      <div className='absolute inset-0'>
-        <img className='w-full h-full object-cover' src={image} alt='' />
-        <div
-          className='absolute inset-0 bg-blue-400 mix-blend-multiply'
-          aria-hidden='true'
-        />
-      </div>
-      <div className='relative mx-auto px-4 py-24 max-w-7xl sm:px-6 sm:py-32 lg:px-8'>
-        <h1 className='text-white text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl'>
-          {title}
+    <div className='relative pt-24 bg-blue-lighter sm:pt-0 sm:bg-transparent'>
+      <div className='absolute left-[41%] bottom-[40%] z-10 sm:bottom-[43%] sm:left-[46%] md:bottom-[44%] md:left-[48%] lg:left-1/2 xl:bottom-[45%]'>
+        <h1 className='font-semibold leading-none font-chap sm-responsive-title text-blue-dark sm:md-responsive-title md:lg-responsive-title lg:xl-responsive-title'>
+          <div>{titleLine1}</div>
+          <div className='relative left-[12.5%]'>{titleLine2}</div>
+          <div className='relative left-[50%]'>{titleLine3}</div>
         </h1>
-        <p className='mt-6 max-w-4xl text-blue-50 text-2xl font-medium tracking-wide'>
-          {tagline}
-        </p>
       </div>
+      <BackgroundImage image='/images/train-background.png' title='Train background' />
     </div>
   )
 }

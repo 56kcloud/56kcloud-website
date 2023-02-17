@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Typography */
+@font-face {
+  font-family: 'Graphik';
+  font-style: light;
+  font-weight: 300;
+  src: url('/fonts/Graphik-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Graphik';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Graphik-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Graphik';
+  font-style: medium;
+  font-weight: 500;
+  src: url('/fonts/Graphik-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Graphik';
+  font-style: semibold;
+  font-weight: 600;
+  src: url('/fonts/Graphik-Semibold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Chap';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Chap-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Chap';
+  font-style: medium;
+  font-weight: 500;
+  src: url('/fonts/Chap-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Chap';
+  font-style: semibold;
+  font-weight: 600;
+  src: url('/fonts/Chap-Semibold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Chap';
+  font-style: bold;
+  font-weight: 700;
+  src: url('/fonts/Chap-Bold.woff') format('woff');
+}
+
+/* Classes */
+@layer base {
+  .section-padding {
+    @apply px-8 py-[72px] xl:py-24 xl:px-36
+  }
+
+  .xs-responsive-title {
+    @apply text-[calc(20px+0.75vw)]
+  }
+  
+  .sm-responsive-title {
+    @apply text-[calc(22px+3vw)]
+  }
+
+  .md-responsive-title {
+    @apply text-[calc(24px+4vw)]
+  }
+
+  .lg-responsive-title {
+    @apply text-[calc(28px+4vw)]
+  }
+
+  .xl-responsive-title {
+    @apply text-[calc(32px+4vw)]
+  }
+}

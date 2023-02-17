@@ -1,16 +1,15 @@
-import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { Dialog, Transition } from '@headlessui/react'
+import Link from 'next/link'
 
-import { Fragment } from 'react'
-import { Disclosure } from '@headlessui/react'
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
-
-function classNames (...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+import Img from './img'
+import NavButton from './nav-button'
+import { Fragment, useState } from 'react'
 
 export default function Nav () {
+  const [sidebarOpen, setSidebarOpen] = useState(false)
   const router = useRouter()
+
   const navigation = [
     { name: 'Home', href: '/', current: router.pathname === '/' },
     { name: 'Blog', href: '/blog', current: router.pathname === '/blog' },
@@ -18,83 +17,75 @@ export default function Nav () {
   ]
 
   return (
-    <Disclosure as='nav' className='z-10 bg-blue-900'>
-      {({ open }) => (
-        <>
-          <div className='px-2 mx-auto max-w-7xl sm:px-6 lg:px-8'>
-            <div className='relative flex items-center justify-between h-16'>
-              <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'>
-                {/* Mobile menu button */}
-                <Disclosure.Button className='inline-flex items-center justify-center p-2 text-blue-200 rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'>
-                  <span className='sr-only'>Open main menu</span>
-                  {open
-                    ? (
-                      <XIcon className='block w-6 h-6' aria-hidden='true' />
-                    )
-                    : (
-                      <MenuIcon className='block w-6 h-6' aria-hidden='true' />
-                    )}
-                </Disclosure.Button>
-              </div>
-              <div className='flex items-center justify-center flex-1 sm:items-stretch sm:justify-start'>
-                <div className='flex items-center flex-shrink-0'>
-                  <img
-                    className='block w-auto h-8 lg:hidden'
-                    src='/images/edeltech-flower.svg'
-                    alt='Workflow'
-                  />
-                  <img
-                    className='hidden w-auto h-8 lg:block'
-                    src='/images/edeltech-flower.svg'
-                    alt='Workflow'
-                  />
-                </div>
-                <div className='hidden sm:block sm:ml-6'>
-                  <div className='flex space-x-4'>
+    <div>
+      <Transition.Root show={sidebarOpen}>
+        <Dialog as='div' className='relative z-50 lg:hidden' onClose={setSidebarOpen}>
+          <div className='fixed inset-0 z-50'>
+            <Transition.Child
+              as={Fragment}
+              enter='transition ease-in-out duration-300 transform'
+              enterFrom='translate-x-full'
+              enterTo='-translate-x-0'
+              leave='transition ease-in-out duration-300 transform'
+              leaveFrom='-translate-x-0'
+              leaveTo='translate-x-full'
+            >
+              <Dialog.Panel className='w-full h-screen bg-black/10 backdrop-blur-lg lg:hidden'>
+                <div className='bg-white flex flex-col flex-wrap ml-auto pt-8 px-16 w-[90%] h-full'>
+                  <div className='absolute left-[7%] top-10'>
+                    <button onClick={() => setSidebarOpen(false)}>
+                      <Img src='/images/plus-white.png' alt='Plus icon' width={50} height={50} />
+                    </button>
+                  </div>
+                  <div className='mb-auto'>
+                    <Link href='/' className='inline-block'>
+                      <Img src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
+                    </Link>
+                  </div>
+                  <div className='mb-auto'>
                     {navigation.map((item) => (
-                      <Link key={item.name} href={item.href}>
-                        <a
-                          className={classNames(
-                            item.current
-                              ? 'bg-blue-900 text-white'
-                              : 'text-blue-300 hover:bg-blue-700 hover:text-white',
-                            'text-md px-3 py-2 font-medium rounded-md uppercase'
-                          )}
-                          aria-current={item.current ? 'page' : undefined}
-                        >
-                          {item.name}
-                        </a>
+                      <Link key={item.name} href={item.href} className='block mb-4 text-2xl font-medium font-graphik text-blue-dark'>
+                        {item.name}
                       </Link>
                     ))}
                   </div>
+                  <div className='py-12 text-center border-t'>
+                    <NavButton image='/images/pencil.svg' alt='Pencil icon' setOpen={setSidebarOpen}>Contact Us</NavButton>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </Dialog.Panel>
+            </Transition.Child>
           </div>
-
-          <Disclosure.Panel className='sm:hidden'>
-            <div className='px-2 pt-2 pb-3 space-y-1'>
-              {navigation.map((item) => (
-                <Disclosure.Button key={item.name} as={Fragment}>
+        </Dialog>
+      </Transition.Root>
+      <div className='absolute top-0 left-0 z-50 min-w-full px-6 mx-auto mt-4 lg:mt-10 lg:px-12 xl:px-32'>
+        <div className='relative'>
+          <div className='absolute inset-y-0 right-0 flex items-center lg:hidden'>
+            <NavButton image='/images/menu.svg' alt='Menu icon' setOpen={setSidebarOpen}>Menu</NavButton>
+          </div>
+          <div className='flex justify-between'>
+            <div>
+              <Link href='/'>
+                <Img className='w-auto h-16 lg:h-20' src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
+              </Link>
+            </div>
+            <div className='hidden lg:flex lg:items-center'>
+              <div className='flex space-x-4'>
+                {navigation.map((item) => (
                   <Link key={item.name} href={item.href}>
-                    <a
-                      className={classNames(
-                        item.current
-                          ? 'bg-blue-900 text-white'
-                          : 'text-blue-300 hover:bg-blue-700 hover:text-white',
-                        'block px-3 py-2 text-base font-medium rounded-md'
-                      )}
+                    <div className='px-3 font-medium font-graphik text-blue-dark'
                       aria-current={item.current ? 'page' : undefined}
                     >
                       {item.name}
-                    </a>
+                    </div>
                   </Link>
-                </Disclosure.Button>
-              ))}
+                ))}
+              </div>
+              <NavButton image='/images/pencil.svg' alt='Pencil icon' setOpen={setSidebarOpen}>Contact Us</NavButton>
             </div>
-          </Disclosure.Panel>
-        </>
-      )}
-    </Disclosure>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
