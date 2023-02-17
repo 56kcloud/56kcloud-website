@@ -40,13 +40,13 @@ export default function Footer () {
                   ))}
                 </ul>
                 <p className='text-grey-medium lg:w-1/3'>
-                56K.Cloud GmbH<br /> Technoparkstrasse 2<br /> 8406 Winterthur<br /> Switzerland
+                56K.Cloud SA<br /> Chemin Saint-Hubert 5<br /> 1950 Sion<br /> Switzerland
                 </p>
               </div>
               <hr className='border-top-[1px] my-10 w-full border-slate-300' />
               <div className='flex flex-col w-full mb-10 md:flex-row lg:w-1/2 lg:mb-0'>
                 <div className='w-2/5 lg:w-2/3'>
-                  <ul className='flex mb-10 list-none gap-x-16 md:mb-0'>
+                  <ul className='flex items-center mb-10 list-none gap-x-16 md:mb-0'>
                     {socialNetworksIcons.map((icon) => (
                       <li key={icon.title}>
                         <Link href={icon.href}>
@@ -57,13 +57,13 @@ export default function Footer () {
                   </ul>
                 </div>
                 <p className='w-1/3 whitespace-pre text-grey-medium'>
-                Copyright (c) 2023, 56K.Cloud GmbH<br /> all rights reserved
+                Copyright (c) 2023, 56K.Cloud SA <br />all rights reserved
                 </p>
               </div>
               <p className='w-full lg:w-1/4'>
                 <span className='flex items-center gap-x-3'>
                   <span className='text-grey-medium'>Design by</span>
-                  <Link href='https://studiovoila.com/' className='w-16 -translate-y-[2px]'>
+                  <Link href='https://studiovoila.com/' target='_blank' rel='noopener noreferrer' className='w-16 -translate-y-[2px]'>
                     <Img src='/images/voila-logo.png' alt='Voila logo' width={100} height={100} />
                   </Link>
                 </span>

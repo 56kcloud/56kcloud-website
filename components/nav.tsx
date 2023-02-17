@@ -11,7 +11,7 @@ export default function Nav () {
   const router = useRouter()
 
   const navigation = [
-    { name: 'Home', href: '/', current: router.pathname === '/' },
+    { name: 'Services', href: '/services', current: router.pathname === '/services' },
     { name: 'Blog', href: '/blog', current: router.pathname === '/blog' },
     { name: 'About', href: '/about', current: router.pathname === '/about' }
   ]
