@@ -20,7 +20,7 @@ export default function Nav () {
   return (
     <div>
       <Transition.Root show={sidebarOpen}>
-        <Dialog as='div' className='relative z-50 md:hidden' onClose={setSidebarOpen}>
+        <Dialog as='div' className='relative z-50 lg:hidden' onClose={setSidebarOpen}>
           <div className='fixed inset-0 z-50'>
             <Transition.Child
               as={Fragment}
