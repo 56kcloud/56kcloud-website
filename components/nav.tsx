@@ -33,7 +33,7 @@ export default function Nav () {
             >
               <Dialog.Panel className='w-full h-screen bg-black/10 backdrop-blur-lg lg:hidden'>
                 <div className='bg-white flex flex-col flex-wrap ml-auto pt-8 px-16 w-[90%] h-full'>
-                  <div className='absolute left-10 top-10'>
+                  <div className='absolute left-[7%] top-10'>
                     <button onClick={() => setSidebarOpen(false)}>
                       <Img src='/images/plus-white.png' alt='Plus icon' width={50} height={50} />
                     </button>
