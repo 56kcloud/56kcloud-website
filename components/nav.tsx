@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import { Dialog, Transition } from '@headlessui/react'
 import Link from 'next/link'
-import Image from 'next/image'
 
 import Img from './img'
 import NavButton from './nav-button'
