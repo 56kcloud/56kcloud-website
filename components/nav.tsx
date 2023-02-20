@@ -1,12 +1,13 @@
+import { Fragment, useState } from 'react'
 import { useRouter } from 'next/router'
 import { Dialog, Transition } from '@headlessui/react'
 import Link from 'next/link'
 
 import Img from './img'
 import NavButton from './nav-button'
-import { Fragment, useState } from 'react'
+import classNames from '../utils/classes'
 
-export default function Nav () {
+export default function Nav ({ position }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const router = useRouter()
 
@@ -58,7 +59,9 @@ export default function Nav () {
           </div>
         </Dialog>
       </Transition.Root>
-      <div className='absolute top-0 left-0 z-50 min-w-full px-6 mx-auto mt-4 lg:mt-10 lg:px-12 xl:px-32'>
+      <div className={classNames(
+        position === 'relative' ? 'relative' : 'absolute',
+        'top-0 left-0 z-50 min-w-full max-w-[100rem] px-6 mx-auto mt-4 lg:mt-10 lg:px-12 xl:px-32')}>
         <div className='relative'>
           <div className='absolute inset-y-0 right-0 flex items-center lg:hidden'>
             <NavButton image='/images/menu.svg' alt='Menu icon' setOpen={setSidebarOpen}>Menu</NavButton>

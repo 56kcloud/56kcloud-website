@@ -66,6 +66,10 @@
     @apply px-8 py-[72px] xl:py-24 xl:px-36
   }
 
+  .title {
+    @apply font-chap text-blue-dark
+  }
+
   .xs-responsive-title {
     @apply text-[calc(20px+0.75vw)]
   }
@@ -84,5 +88,9 @@
 
   .xl-responsive-title {
     @apply text-[calc(32px+4vw)]
+  }
+
+  .orange-surtitle {
+    @apply mb-8 text-orange-light font-graphik font-semibold tracking-wide flex items-center after:content-[''] after:bg-black after:block after:h-[1px] after:ml-6 after:mr-6 after:w-24 after:opacity-10
   }
 }

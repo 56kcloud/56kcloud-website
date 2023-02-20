@@ -23,11 +23,11 @@ export default function Footer () {
         <div className='absolute bottom-0 right-0 z-50 p-8 md:p-0 md:w-10/12'>
           <div className='py-8 bg-white md:py-16'>
             <div className='flex flex-wrap justify-between px-8 overflow-hidden text-base font-light font-graphik text-blue-dark md:px-16'>
-              <h3 className='mb-10 w-full font-chap text-[calc(20px+0.75vw)] font-medium leading-[1.1] lg:w-2/3 2xl:w-1/2 lg:mb-16'>
+              <p className='font-chap text-blue-dark mb-10 w-full xs-responsive-title font-medium leading-[1.1] lg:w-2/3 2xl:w-1/2 lg:mb-16'>
               56K.Cloud is a professional services, training and technology company focusing on cloud product acceleration,
               through cloud-native migration, security, developer tooling and community. We enable customers to build on public
               cloud technologies and accelerate their development practices through DevOps and Agile transformation.
-              </h3>
+              </p>
               <Link href='/' className='hidden lg:block lg:w-1/4'>
                 <Img src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
               </Link>

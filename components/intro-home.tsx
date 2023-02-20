@@ -1,4 +1,4 @@
-export default function Intro () {
+export default function IntroHome () {
   return (
     <section className='section-padding bg-blue-dark'>
       <div className='flex flex-col mx-auto max-w-7xl md:flex-row'>
