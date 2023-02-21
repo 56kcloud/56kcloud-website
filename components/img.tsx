@@ -10,7 +10,7 @@ export default function Img (props: ImgPropsImpl) {
     <Image
       src={props.src}
       alt={props.alt}
-      className={classNames(imgProps.className || '', 'pointer-events-none max-w-full h-auto')}
+      className={classNames(imgProps.className || '', 'pointer-events-none')}
       {...imgProps.specificHTMLProps}
     />
   )
