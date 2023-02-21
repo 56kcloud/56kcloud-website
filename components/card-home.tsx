@@ -3,7 +3,7 @@ import classNames from '../utils/classes'
 import { CardProps, CardPropsImpl } from '../models/Card.model'
 import Img from './img'
 
-export default function Card (props: CardPropsImpl) {
+export default function CardHome (props: CardPropsImpl) {
   const cardProps = new CardProps(props)
   const alignment = cardProps.alignment === 'left' ? 'xl:mr-16' : 'xl:ml-16'
   const backgroundColor = cardProps.theme === 'dark' ? 'bg-blue-medium text-white' : 'bg-white text-blue-dark'

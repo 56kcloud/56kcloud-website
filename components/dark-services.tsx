@@ -1,11 +1,11 @@
 import { darkCards } from '../data/dark-cards'
-import Card from './card'
+import CardHome from './card-home'
 
 export default function DarkServices () {
   return (
     <section className='section-padding bg-blue-dark'>
       {darkCards.map((card) => (
-        <Card
+        <CardHome
           key={card.title}
           number={card.number}
           image={card.image}

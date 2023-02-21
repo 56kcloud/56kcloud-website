@@ -1,11 +1,11 @@
 import { lightCards } from '../data/light-cards'
-import Card from './card'
+import CardHome from './card-home'
 
 export default function lightServices () {
   return (
     <section className='section-padding bg-blue-lighter'>
       {lightCards.map((card) => (
-        <Card
+        <CardHome
           key={card.title}
           number={card.number}
           image={card.image}

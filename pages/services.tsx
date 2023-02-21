@@ -5,6 +5,7 @@ import BackgroundImage from '../components/background-image'
 import IntroPage from '../components/intro-page'
 import DescriptionPage from '../components/description-page'
 import { servicesInclude } from '../data/services-include'
+import DarkProducts from '../components/dark-products'
 
 export default function services () {
   return (
@@ -27,14 +28,13 @@ export default function services () {
           />
         </div>
       </section>
-      <section className='section-padding'>
-        <DescriptionPage
-          surtitle='What do our services programs include:'
-          text='We have learned that a lot of our customers have the same needs and requirements. Therefore, we build services that bring more value for less money to our customers. These provide ready-to-use components, while still allowing the adaption to each specific customer and team. These services include:'
-          data={servicesInclude}
-        />
-      </section>
+      <DescriptionPage
+        surtitle='What do our services programs include:'
+        text='We have learned that a lot of our customers have the same needs and requirements. Therefore, we build services that bring more value for less money to our customers. These provide ready-to-use components, while still allowing the adaption to each specific customer and team. These services include:'
+        data={servicesInclude}
+      />
       <BackgroundImage image='/images/mountain-background.png' title='People standing in front of the mountain' className='-mt-[50rem]' />
+      <DarkProducts />
     </Layout>
   )
 }
