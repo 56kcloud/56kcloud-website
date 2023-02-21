@@ -5,7 +5,7 @@ export default function Layout ({ children }: { children: React.ReactNode }) {
   return (
     <div className='bg-blue-lighter'>
       <header className='overflow-hidden'>
-        <Nav position='absolute' />
+        <Nav />
       </header>
       <main>{children}</main>
     </div>

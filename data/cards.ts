@@ -1,4 +1,4 @@
-export const productCards = [
+export const cards = [
   {
     icon: '/images/cloud-white.svg',
     title: 'Cloud Readiness Assessment',

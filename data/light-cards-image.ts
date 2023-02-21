@@ -1,4 +1,4 @@
-export const lightCards = [
+export const lightCardsImage = [
   {
     number: '04',
     image: '/images/devops.png',

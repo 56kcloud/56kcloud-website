@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base */
+html,
+body {
+  @apply font-graphik text-blue-medium text-base leading-normal font-light
+}
 
 /* Typography */
 @font-face {
@@ -67,7 +72,7 @@
   }
 
   .title {
-    @apply font-chap text-blue-dark
+    @apply font-chap font-medium
   }
 
   .xs-responsive-title {

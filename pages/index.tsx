@@ -1,9 +1,9 @@
 import Nav from '../components/nav'
 import Hero from '../components/hero'
 import IntroHome from '../components/intro-home'
-import DarkServices from '../components/dark-services'
+import DarkCardsImage from '../components/dark-cards-image'
 import BackgroundImage from '../components/background-image'
-import LightServices from '../components/light-services'
+import LightCardsImage from '../components/light-cards-image'
 import Companies from '../components/companies'
 import Footer from '../components/footer'
 
@@ -21,13 +21,13 @@ export default function Home () {
       </header>
       <main>
         <IntroHome />
-        <DarkServices />
+        <DarkCardsImage />
         <BackgroundImage
           image='/images/buro-background.png'
           title='Buro background'
           className='bg-blue-lighter'
         />
-        <LightServices />
+        <LightCardsImage />
         <Companies />
       </main>
       <footer>

@@ -5,9 +5,8 @@ import Link from 'next/link'
 
 import Img from './img'
 import NavButton from './nav-button'
-import classNames from '../utils/classes'
 
-export default function Nav ({ position }) {
+export default function Nav () {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const router = useRouter()
 
@@ -59,32 +58,32 @@ export default function Nav ({ position }) {
           </div>
         </Dialog>
       </Transition.Root>
-      <div className={classNames(
-        position === 'relative' ? 'relative' : 'absolute',
-        'top-0 left-0 z-50 min-w-full max-w-[100rem] px-6 mx-auto mt-4 lg:mt-10 lg:px-12 xl:px-32')}>
+      <div className='absolute top-0 left-0 z-50 min-w-full max-w-[100rem] px-6 mx-auto mt-4 lg:mt-10 lg:px-12 xl:px-32'>
         <div className='relative'>
-          <div className='absolute inset-y-0 right-0 flex items-center lg:hidden'>
-            <NavButton image='/images/menu.svg' alt='Menu icon' setOpen={setSidebarOpen}>Menu</NavButton>
-          </div>
-          <div className='flex justify-between'>
-            <div>
-              <Link href='/'>
-                <Img className='w-auto h-16 lg:h-20' src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
-              </Link>
+          <div className='max-w-[100rem] mx-auto'>
+            <div className='absolute inset-y-0 right-0 flex items-center lg:hidden'>
+              <NavButton image='/images/menu.svg' alt='Menu icon' setOpen={setSidebarOpen}>Menu</NavButton>
             </div>
-            <div className='hidden lg:flex lg:items-center'>
-              <div className='flex space-x-4'>
-                {navigation.map((item) => (
-                  <Link key={item.name} href={item.href}>
-                    <div className='px-3 font-medium font-graphik text-blue-dark'
-                      aria-current={item.current ? 'page' : undefined}
-                    >
-                      {item.name}
-                    </div>
-                  </Link>
-                ))}
+            <div className='flex justify-between'>
+              <div>
+                <Link href='/'>
+                  <Img className='w-auto h-16 lg:h-20' src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
+                </Link>
               </div>
-              <NavButton image='/images/pencil.svg' alt='Pencil icon' setOpen={setSidebarOpen}>Contact Us</NavButton>
+              <div className='hidden lg:flex lg:items-center'>
+                <div className='flex space-x-4'>
+                  {navigation.map((item) => (
+                    <Link key={item.name} href={item.href}>
+                      <div className='px-3 font-medium'
+                        aria-current={item.current ? 'page' : undefined}
+                      >
+                        {item.name}
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+                <NavButton image='/images/pencil.svg' alt='Pencil icon' setOpen={setSidebarOpen}>Contact Us</NavButton>
+              </div>
             </div>
           </div>
         </div>

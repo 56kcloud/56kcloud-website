@@ -1,4 +1,4 @@
-export const darkCards = [
+export const darkCardsImage = [
   {
     number: '01',
     image: '/images/automation.png',
