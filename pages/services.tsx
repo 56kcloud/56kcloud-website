@@ -6,6 +6,8 @@ import IntroPage from '../components/intro-page'
 import DescriptionPage from '../components/description-page'
 import { servicesInclude } from '../data/services-include'
 import DarkProducts from '../components/dark-products'
+import Contact from '../components/contact'
+import Footer from '../components/footer'
 
 export default function services () {
   return (
@@ -35,6 +37,9 @@ export default function services () {
       />
       <BackgroundImage image='/images/mountain-background.png' title='People standing in front of the mountain' className='-mt-[50rem]' />
       <DarkProducts />
+      <BackgroundImage image='/images/division.png' title='Plants divider' className='-mt-64' />
+      <Contact />
+      <Footer />
     </Layout>
   )
 }
