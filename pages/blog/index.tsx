@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout from '../../components/layout'
+import Layout from '../../components/organisms/layout'
 import Link from 'next/link'
 import { GetStaticProps } from 'next'
 import { getSortedPostsData } from '../../lib/posts'

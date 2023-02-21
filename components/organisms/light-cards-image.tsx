@@ -1,5 +1,5 @@
-import { lightCardsImage } from '../data/light-cards-image'
-import CardImage from './card-image'
+import { lightCardsImage } from '../../data/light-cards-image'
+import CardImage from '../molecules/card-image'
 
 export default function lightServices () {
   return (

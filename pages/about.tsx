@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Nav from '../components/nav'
+import Nav from '../components/molecules/nav'
 
 export default function About () {
   return (

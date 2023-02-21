@@ -1,4 +1,4 @@
-import BackgroundImage from './background-image'
+import BackgroundImage from '../atoms/background-image'
 
 export default function Hero ({ titleLine1, titleLine2, titleLine3, image }) {
   return (

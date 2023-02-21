@@ -1,6 +1,6 @@
-import { CardProps, CardPropsImpl } from '../models/Card.model'
-import classNames from '../utils/classes'
-import Img from './img'
+import { CardProps, CardPropsImpl } from '../../models/Card.model'
+import classNames from '../../utils/classes'
+import Img from '../atoms/img'
 
 export default function CardImage (props: CardPropsImpl) {
   const cardProps = new CardProps(props)

@@ -1,5 +1,5 @@
-import { darkCardsImage } from '../data/dark-cards-image'
-import CardImage from './card-image'
+import { darkCardsImage } from '../../data/dark-cards-image'
+import CardImage from '../molecules/card-image'
 
 export default function DarkCardsImage () {
   return (

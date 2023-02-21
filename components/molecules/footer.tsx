@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import Img from './img'
+import Img from '../atoms/img'
 
 export default function Footer () {
   const links = [

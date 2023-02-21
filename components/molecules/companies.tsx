@@ -1,6 +1,5 @@
-import Img from './img'
-
-import { companies } from '../data/companies'
+import { companies } from '../../data/companies'
+import Img from '../atoms/img'
 
 export default function Companies () {
   return (

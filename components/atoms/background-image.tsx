@@ -1,4 +1,4 @@
-import classNames from '../utils/classes'
+import classNames from '../../utils/classes'
 import Img from './img'
 
 export default function BackgroundImage ({ image, title, className = '' }) {

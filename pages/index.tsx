@@ -1,11 +1,11 @@
-import Nav from '../components/nav'
-import Hero from '../components/hero'
-import IntroHome from '../components/intro-home'
-import DarkCardsImage from '../components/dark-cards-image'
-import BackgroundImage from '../components/background-image'
-import LightCardsImage from '../components/light-cards-image'
-import Companies from '../components/companies'
-import Footer from '../components/footer'
+import Nav from '../components/molecules/nav'
+import Hero from '../components/molecules/hero'
+import IntroHome from '../components/molecules/intro-home'
+import DarkCardsImage from '../components/organisms/dark-cards-image'
+import BackgroundImage from '../components/atoms/background-image'
+import LightCardsImage from '../components/organisms/light-cards-image'
+import Companies from '../components/molecules/companies'
+import Footer from '../components/molecules/footer'
 
 export default function Home () {
   return (

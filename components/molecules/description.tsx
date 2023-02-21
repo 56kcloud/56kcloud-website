@@ -1,4 +1,4 @@
-import Img from './img'
+import Img from '../atoms/img'
 
 export default function Description ({ surtitle, text, data }) {
   return (

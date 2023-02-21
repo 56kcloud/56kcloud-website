@@ -1,13 +1,13 @@
 import Head from 'next/head'
 
-import Layout from '../components/layout'
-import BackgroundImage from '../components/background-image'
-import Intro from '../components/intro'
-import Description from '../components/description'
+import Layout from '../components/organisms/layout'
+import BackgroundImage from '../components/atoms/background-image'
+import Intro from '../components/molecules/intro'
+import Description from '../components/molecules/description'
 import { servicesInclude } from '../data/services-include'
-import Cards from '../components/cards'
-import Contact from '../components/contact'
-import Footer from '../components/footer'
+import Cards from '../components/organisms/cards'
+import Contact from '../components/atoms/contact'
+import Footer from '../components/molecules/footer'
 
 export default function services () {
   return (

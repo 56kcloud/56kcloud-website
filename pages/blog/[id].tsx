@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { GetStaticProps, GetStaticPaths } from 'next'
 
-import Layout from '../../components/layout'
+import Layout from '../../components/organisms/layout'
 import Date from '../../components/date'
 
 import { getAllPostIds, getPostData } from '../../lib/posts'

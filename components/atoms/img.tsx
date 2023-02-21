@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import classNames from '../utils/classes'
 
-import { ImgProps, ImgPropsImpl } from '../models/Img.model'
+import { ImgProps, ImgPropsImpl } from '../../models/Img.model'
+import classNames from '../../utils/classes'
 
 export default function Img (props: ImgPropsImpl) {
   const imgProps = new ImgProps(props)

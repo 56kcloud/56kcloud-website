@@ -1,5 +1,5 @@
-import { cards } from '../data/cards'
-import Card from './card'
+import { cards } from '../../data/cards'
+import Card from '../molecules/card'
 
 export default function Cards () {
   return (

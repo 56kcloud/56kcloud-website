@@ -3,8 +3,8 @@ import { useRouter } from 'next/router'
 import { Dialog, Transition } from '@headlessui/react'
 import Link from 'next/link'
 
-import Img from './img'
-import NavButton from './nav-button'
+import Img from '../atoms/img'
+import NavButton from '../atoms/nav-button'
 
 export default function Nav () {
   const [sidebarOpen, setSidebarOpen] = useState(false)

@@ -1,4 +1,4 @@
-import Img from './img'
+import Img from '../atoms/img'
 
 export default function Card ({ icon, title, list }) {
   return (
