@@ -38,7 +38,7 @@ export default function Nav () {
                   </div>
                   <div className='mb-auto'>
                     <Link href='/' className='inline-block'>
-                      <Img src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
+                      <Img className='w-auto h-7' src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
                     </Link>
                   </div>
                   <div className='mb-auto'>
