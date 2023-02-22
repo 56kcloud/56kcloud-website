@@ -1,5 +1,5 @@
 import { companies } from '../../data/companies'
-import Img from '../atoms/img'
+import Icon from '../atoms/icon'
 
 export default function Companies () {
   return (
@@ -8,11 +8,7 @@ export default function Companies () {
       <div className='flex flex-wrap justify-center'>
         {companies.map((companie) => (
           <li key={companie.name} className='m-6 list-none'>
-            <div className='flex items-center justify-center w-20 h-20 bg-white rounded-full lg:h-24 lg:w-24'>
-              <div className='w-8 lg:w-12'>
-                <Img src={companie.logo} alt={companie.name} width={100} height={100} />
-              </div>
-            </div>
+            <Icon image={companie.logo} title={companie.logo} className='w-20 h-20 p-5 bg-white lg:w-24 lg:h-24' />
           </li>
         ))}
       </div>
