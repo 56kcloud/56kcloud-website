@@ -11,6 +11,7 @@ export default function Nav () {
 
   const navigation = [
     { name: 'Services', href: '/services', current: router.pathname === '/services' },
+    { name: 'Partners', href: '/partners', current: router.pathname === '/partners' },
     { name: 'Blog', href: '/blog', current: router.pathname === '/blog' },
     { name: 'About', href: '/about', current: router.pathname === '/about' }
   ]
@@ -73,8 +74,8 @@ export default function Nav () {
                     width={100} height={100} />
                 </Link>
               </div>
-              <div className='hidden lg:flex lg:items-center'>
-                <div className='flex space-x-4'>
+              <div className='hidden lg:flex lg:items-center lg:justify-between gap-x-10'>
+                <div className='flex space-x-10'>
                   {navigation.map((item) => (
                     <Link key={item.name} href={item.href}>
                       <div className='px-3 font-medium'

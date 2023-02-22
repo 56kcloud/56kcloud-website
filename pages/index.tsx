@@ -7,7 +7,7 @@ import BackgroundImage from '../components/atoms/background-image'
 import Companies from '../components/molecules/companies'
 import Footer from '../components/molecules/footer'
 
-export default function Home () {
+export default function HomePage () {
   return (
     <>
       <header className='overflow-hidden'>

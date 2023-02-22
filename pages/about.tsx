@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Nav from '../components/molecules/nav'
 
-export default function About () {
+export default function AboutPage () {
   return (
     <>
       <header>
