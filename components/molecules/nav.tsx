@@ -50,7 +50,7 @@ export default function Nav () {
                     ))}
                   </div>
                   <div className='py-12 text-center border-t'>
-                    <NavButton image='/images/pencil.svg' alt='Pencil icon' setOpen={setSidebarOpen}>Contact Us</NavButton>
+                    <NavButton src='/images/pencil.svg' alt='Pencil icon' setOpen={setSidebarOpen}>Contact Us</NavButton>
                   </div>
                 </div>
               </Dialog.Panel>
@@ -62,7 +62,7 @@ export default function Nav () {
         <div className='relative'>
           <div className='max-w-[100rem] mx-auto'>
             <div className='absolute inset-y-0 right-0 flex items-center lg:hidden'>
-              <NavButton image='/images/menu.svg' alt='Menu icon' setOpen={setSidebarOpen}>Menu</NavButton>
+              <NavButton src='/images/menu.svg' alt='Menu icon' setOpen={setSidebarOpen}>Menu</NavButton>
             </div>
             <div className='flex justify-between'>
               <div>
@@ -82,7 +82,7 @@ export default function Nav () {
                     </Link>
                   ))}
                 </div>
-                <NavButton image='/images/pencil.svg' alt='Pencil icon' setOpen={setSidebarOpen}>Contact Us</NavButton>
+                <NavButton src='/images/pencil.svg' alt='Pencil icon' setOpen={setSidebarOpen}>Contact Us</NavButton>
               </div>
             </div>
           </div>

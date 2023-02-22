@@ -1,4 +1,4 @@
-import Img from '../atoms/img'
+import Icon from '../atoms/icon'
 
 export default function Description ({ surtitle, text, data }) {
   return (
@@ -11,10 +11,8 @@ export default function Description ({ surtitle, text, data }) {
         <div className='w-full mb-16 lg:w-1/2'>
           <ul className='flex flex-col'>
             {data.map((item, id: number) => (
-              <li key={id} className='flex gap-x-4 mb-7'>
-                <span className='flex items-center justify-center w-8 h-8 p-2 bg-white rounded-full shadow-md'>
-                  <Img src='/images/check.svg' alt='Check icon' width={100} height={100} />
-                </span>
+              <li key={id} className='flex items-center gap-x-4 mb-7'>
+                <Icon src='/images/check.svg' alt='Check icon' className='w-8 h-8 p-2 bg-white shadow-md' />
                 <span className='xl:text-lg'>{item.description}</span>
               </li>
             )) }

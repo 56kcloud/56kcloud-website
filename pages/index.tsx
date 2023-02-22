@@ -23,8 +23,8 @@ export default function Home () {
         <IntroHome />
         <DarkCardsImage />
         <BackgroundImage
-          image='/images/buro-background.png'
-          title='Buro background'
+          src='/images/buro-background.png'
+          alt='Buro background'
           className='bg-blue-lighter'
         />
         <LightCardsImage />

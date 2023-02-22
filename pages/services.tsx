@@ -19,8 +19,8 @@ export default function services () {
         <div className='max-w-6xl mx-auto mt-12 sm:mt-0'>
           <div className='max-w-5xl mx-auto'>
             <BackgroundImage
-              image='/images/people-group.png'
-              title='Group of people background'
+              src='/images/people-group.png'
+              alt='Group of people background'
             />
           </div>
           <Intro
@@ -35,9 +35,9 @@ export default function services () {
         text='We have learned that a lot of our customers have the same needs and requirements. Therefore, we build services that bring more value for less money to our customers. These provide ready-to-use components, while still allowing the adaption to each specific customer and team. These services include:'
         data={servicesInclude}
       />
-      <BackgroundImage image='/images/mountain-background.png' title='People standing in front of the mountain' className='-mt-[10rem] sm:-mt-[15rem] md:-mt-[17rem] lg:-mt-[30rem] xl:-mt-[40rem] 2xl:-mt-[50rem]' />
+      <BackgroundImage src='/images/mountain-background.png' alt='People standing in front of the mountain' className='-mt-[10rem] sm:-mt-[15rem] md:-mt-[17rem] lg:-mt-[30rem] xl:-mt-[40rem] 2xl:-mt-[50rem]' />
       <Cards />
-      <BackgroundImage image='/images/division.png' title='Plants divider' className='-mt-40 xl:-mt-64' />
+      <BackgroundImage src='/images/division.png' alt='Plants divider' className='-mt-40 xl:-mt-64' />
       <Contact />
       <Footer />
     </Layout>
