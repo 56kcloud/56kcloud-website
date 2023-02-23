@@ -63,7 +63,8 @@ export default function Footer () {
               <p className='w-full lg:w-1/4'>
                 <span className='flex items-center gap-x-3'>
                   <span className='text-grey-medium'>Design by</span>
-                  <Link href='https://studiovoila.com/' target='_blank' rel='noopener noreferrer' className='w-16 -translate-y-[2px]'>
+                  <Link href='https://studiovoila.com/' target='_blank' rel='noopener noreferrer'
+                    className='w-16 -translate-y-[2px]'>
                     <Img src='/images/voila-logo.png' alt='Voila logo' width={100} height={100} />
                   </Link>
                 </span>

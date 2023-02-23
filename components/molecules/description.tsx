@@ -1,6 +1,6 @@
 import Icon from '../atoms/icon'
 
-export default function Description ({ surtitle, text, data }) {
+export default function Description ({ surtitle, text, services }) {
   return (
     <section className='px-8 pb-[72px] pt-6 xl:section-padding'>
       <div className='relative max-w-6xl mx-auto'>
@@ -10,10 +10,10 @@ export default function Description ({ surtitle, text, data }) {
         </div>
         <div className='w-full mb-16 lg:w-1/2'>
           <ul className='flex flex-col'>
-            {data.map((item, id: number) => (
-              <li key={id} className='flex items-center gap-x-4 mb-7'>
+            {services.map((service, idx: number) => (
+              <li key={idx} className='flex items-center gap-x-4 mb-7'>
                 <Icon src='/images/check.svg' alt='Check icon' className='w-8 h-8 p-2 bg-white shadow-md' />
-                <span className='xl:text-lg'>{item.description}</span>
+                <span className='xl:text-lg'>{service.description}</span>
               </li>
             )) }
           </ul>

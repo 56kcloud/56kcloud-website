@@ -44,13 +44,15 @@ export default function Nav () {
                   </div>
                   <div className='mb-auto'>
                     {navigation.map((item) => (
-                      <Link key={item.name} href={item.href} className='block mb-4 text-2xl font-medium font-graphik text-blue-dark'>
+                      <Link key={item.name} href={item.href}
+                        className='block mb-4 text-2xl font-medium font-graphik text-blue-dark'>
                         {item.name}
                       </Link>
                     ))}
                   </div>
                   <div className='py-12 text-center border-t'>
-                    <NavButton src='/images/pencil.svg' alt='Pencil icon' setOpen={setSidebarOpen}>Contact Us</NavButton>
+                    <NavButton src='/images/pencil.svg' alt='Pencil icon'
+                      setOpen={setSidebarOpen}>Contact Us</NavButton>
                   </div>
                 </div>
               </Dialog.Panel>
@@ -58,7 +60,8 @@ export default function Nav () {
           </div>
         </Dialog>
       </Transition.Root>
-      <div className='absolute top-0 left-0 z-50 min-w-full max-w-[100rem] px-6 mx-auto mt-4 lg:mt-10 lg:px-12 xl:px-32'>
+      <div className='absolute top-0 left-0 z-50 min-w-full max-w-[100rem]
+        px-6 mx-auto mt-4 lg:mt-10 lg:px-12 xl:px-32'>
         <div className='relative'>
           <div className='max-w-[100rem] mx-auto'>
             <div className='absolute inset-y-0 right-0 flex items-center lg:hidden'>
@@ -67,7 +70,8 @@ export default function Nav () {
             <div className='flex justify-between'>
               <div>
                 <Link href='/'>
-                  <Img className='w-auto h-16 lg:h-20' src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
+                  <Img className='w-auto h-16 lg:h-20' src='/images/56k-logo.svg' alt='56k logo'
+                    width={100} height={100} />
                 </Link>
               </div>
               <div className='hidden lg:flex lg:items-center'>

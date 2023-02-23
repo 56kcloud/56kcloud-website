@@ -16,6 +16,8 @@
       "linebreak-style": ["error", "unix"],
       "quotes": ["error", "single"],
       "semi": ["error", "never"],
-      "jsx-quotes":["error", "prefer-single"]
+      "jsx-quotes":["error", "prefer-single"],
+      "max-len": ["error", { "code": 120 }],
+      "no-multi-str": "off"
     }
   }

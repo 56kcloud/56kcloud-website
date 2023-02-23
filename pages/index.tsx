@@ -1,9 +1,9 @@
 import Nav from '../components/molecules/nav'
 import Hero from '../components/molecules/hero'
 import IntroHome from '../components/molecules/intro-home'
-import DarkCardsImage from '../components/organisms/dark-cards-image'
+import CardsImage from '../components/organisms/cards-image'
+import { darkCardsImage, lightCardsImage } from '../data/cards-image'
 import BackgroundImage from '../components/atoms/background-image'
-import LightCardsImage from '../components/organisms/light-cards-image'
 import Companies from '../components/molecules/companies'
 import Footer from '../components/molecules/footer'
 
@@ -21,13 +21,13 @@ export default function Home () {
       </header>
       <main>
         <IntroHome />
-        <DarkCardsImage />
+        <CardsImage cards={darkCardsImage} theme='dark' />
         <BackgroundImage
           src='/images/buro-background.png'
           alt='Buro background'
           className='bg-blue-lighter'
         />
-        <LightCardsImage />
+        <CardsImage cards={lightCardsImage} />
         <Companies />
       </main>
       <footer>

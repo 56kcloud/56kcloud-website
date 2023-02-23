@@ -1,4 +1,4 @@
-export const servicesInclude = [
+export const services = [
   {
     description: 'Learning about the Cloud and it\'s best practices'
   },
