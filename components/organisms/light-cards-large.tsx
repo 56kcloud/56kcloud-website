@@ -1,10 +1,9 @@
-import { lightCardsLarge } from '../../data/light-cards-large'
 import CardLarge from '../molecules/card-large'
 
-export default function LightCardsLarge () {
+export default function LightCardsLarge ({ data }) {
   return (
     <section className='section-padding bg-blue-lighter'>
-      {lightCardsLarge.map((cardImage) => (
+      {data.map((cardImage) => (
         <CardLarge
           key={cardImage.title}
           number={cardImage.number}

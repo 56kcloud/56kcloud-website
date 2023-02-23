@@ -7,7 +7,6 @@ import { details } from '../data/details'
 import { detailsCards } from '../data/details-cards'
 import DetailsCardsWrapper from '../components/organisms/details-cards-wrapper'
 import Contact from '../components/atoms/contact'
-import Footer from '../components/molecules/footer'
 
 export default function ServicesPage () {
   return (
@@ -45,7 +44,6 @@ export default function ServicesPage () {
       <BackgroundImage src='/images/division.png' alt='Plants divider' className='-mt-40 xl:-mt-64'
         width={0} height={0} />
       <Contact />
-      <Footer />
     </Layout>
   )
 }

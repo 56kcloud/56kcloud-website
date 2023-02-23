@@ -1,10 +1,11 @@
 import Head from 'next/head'
 
+import Layout from '../components/organisms/layout'
 import Surtitle from '../components/atoms/surtitle'
 import CardsSmall from '../components/organisms/cards-small'
 import BackgroundImage from '../components/atoms/background-image'
-
-import Layout from '../components/organisms/layout'
+import LightCardsLarge from '../components/organisms/light-cards-large'
+import { lightCardsLargePartners } from '../data/light-cards-large'
 
 export default function PartnersPage () {
   return (
@@ -26,7 +27,8 @@ export default function PartnersPage () {
           <CardsSmall />
         </div>
       </section>
-      <BackgroundImage src='/images/divider-dark.png' alt='Plants divider' className='-mt-96' />
+      <BackgroundImage src='/images/divider-dark.png' alt='Plants divider' className='mb-28 -mt-96' />
+      <LightCardsLarge data={lightCardsLargePartners} />
     </Layout>
   )
 }
