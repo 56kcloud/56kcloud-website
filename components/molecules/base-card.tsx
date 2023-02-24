@@ -4,8 +4,8 @@ import classNames from '../../utils/classes'
 
 export default function BaseCard ({ number, icon, title, className }: Card) {
   return (
-    <div className='z-10 w-1/4 border-r border-gray-100 border-solid last:border-r-0'>
-      <div className='relative flex flex-col bg-white p-7 min-h-[25rem]'>
+    <div className='z-10 border-b border-gray-100 border-solid sm:border-r last:border-r-0'>
+      <div className='relative flex flex-col bg-white p-7 min-h-[15rem] sm:min-h-[25rem]'>
         <div className='absolute right-4 top-3 sm:right-10 sm:top-10'>
           <span className='title'>{number}</span>
         </div>
