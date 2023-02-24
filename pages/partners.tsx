@@ -4,8 +4,6 @@ import Layout from '../components/organisms/layout'
 import Surtitle from '../components/atoms/surtitle'
 import CardsSmall from '../components/organisms/cards-small'
 import BackgroundImage from '../components/atoms/background-image'
-import LightCardsLarge from '../components/organisms/light-cards-large'
-import { lightCardsLargePartners } from '../data/light-cards-large'
 
 export default function PartnersPage () {
   return (
@@ -28,7 +26,6 @@ export default function PartnersPage () {
         </div>
       </section>
       <BackgroundImage src='/images/divider-dark.png' alt='Plants divider' className='mb-28 -mt-96' />
-      <LightCardsLarge data={lightCardsLargePartners} />
     </Layout>
   )
 }
