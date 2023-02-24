@@ -19,7 +19,7 @@ export default function IllustrationCardWrapper ({ cards, theme = 'dark' }: Illu
           title={card.title}
           description={card.description}
           alignment={card.alignment}
-          theme='light' />
+          theme={card.theme} />
       ))}
     </section>
   )

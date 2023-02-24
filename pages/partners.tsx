@@ -4,6 +4,8 @@ import Surtitle from '../components/atoms/surtitle'
 import BaseCardsWrapper from '../components/organisms/base-cards-wrapper'
 import { baseCards } from '../data/base-cards'
 import BackgroundImage from '../components/atoms/background-image'
+import IllustrationCardWrapper from '../components/organisms/illustration-cards-wrapper'
+import { lightIllustrationCardsPartners } from '../data/illustration-cards'
 
 export default function PartnersPage () {
   return (
@@ -30,6 +32,9 @@ export default function PartnersPage () {
       </section>
       <BackgroundImage src='/images/divider-dark.png' alt='Plants divider' width={1920} height={0}
         className='mb-28 -mt-96' />
+      <section>
+        <IllustrationCardWrapper cards={lightIllustrationCardsPartners} theme='light' />
+      </section>
     </Layout>
   )
 }
