@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Layout from '../components/organisms/layout'
+import MediumTitleIntro from '../components/molecules/medium-title-intro'
 import Surtitle from '../components/atoms/surtitle'
 import BaseCardsWrapper from '../components/organisms/base-cards-wrapper'
 import { baseCards } from '../data/base-cards'
@@ -15,12 +16,8 @@ export default function PartnersPage () {
       </Head>
       <section className=
         "bg-[url('/images/cloud-background.png')] px-8 pt-56 bg-no-repeat bg-[length:100%] xl:px-36 bg-bottom bg-white">
-        <div className='max-w-6xl xl:mx-auto'>
-          <h2 className='mb-16 font-semibold title sm-responsive-title'>On a Journey together</h2>
-          <p className='sm:w-5/12 xl:text-lg'>
-            We partner to enabled effective and successful projects together for customers.
-          </p>
-        </div>
+        <MediumTitleIntro title='On a Journey together'
+          textColLeft='We partner to enabled effective and successful projects together for customers.' />
       </section>
       <section className='section-padding'>
         <div className='mx-auto max-w-7xl'>

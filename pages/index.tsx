@@ -1,6 +1,6 @@
 import Nav from '../components/molecules/nav'
 import Hero from '../components/molecules/hero'
-import IntroHome from '../components/molecules/intro-home'
+import SmallTitleIntro from '../components/molecules/small-title-intro'
 import IllustrationCardsWrapper from '../components/organisms/illustration-cards-wrapper'
 import { darkIllustrationCardsHome, lightIllustrationCardsHome } from '../data/illustration-cards'
 import BackgroundImage from '../components/atoms/background-image'
@@ -15,7 +15,9 @@ export default function HomePage () {
         <Hero titleLine1="Let's Start" titleLine2='your Cloud' titleLine3='Journey' />
       </header>
       <main>
-        <IntroHome />
+        <SmallTitleIntro text="It's important to get the entire team on board and headed in the right direction on the
+          same cloud journey. We align customers in their cloud-native story."
+        title='56K.Cloud was founded to share our vision of the cloud with our partners and customers.' />
         <IllustrationCardsWrapper cards={darkIllustrationCardsHome} />
         <BackgroundImage src='/images/buro-background.png' alt='Buro background' width={1920} height={0}
           className='bg-blue-lighter' />

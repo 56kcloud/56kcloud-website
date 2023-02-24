@@ -6,7 +6,7 @@ type IntroPrps = {
   text: string
 }
 
-export default function Intro ({ surtitle, title, text }: IntroPrps) {
+export default function LargeTitleIntro ({ surtitle, title, text }: IntroPrps) {
   return (
     <div className='lg:-mt-12'>
       <Surtitle text={surtitle} />

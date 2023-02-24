@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Layout from '../components/organisms/layout'
 import BackgroundImage from '../components/atoms/background-image'
-import Intro from '../components/molecules/intro'
+import LargeTitleIntro from '../components/molecules/large-title-intro'
 import Description from '../components/molecules/description'
 import { details } from '../data/details'
 import { detailsCards } from '../data/details-cards'
@@ -20,7 +20,7 @@ export default function ServicesPage () {
             <BackgroundImage src='/images/people-group.png' alt='Group of people background' width={1920} height={0}
             />
           </div>
-          <Intro
+          <LargeTitleIntro
             surtitle='About our programs in:'
             title='Assessment, Migration & Acceleration'
             text='Over the years, we have accumulated a huge amount of knowledge on how to migrate on to the public

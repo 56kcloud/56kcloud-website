@@ -12,8 +12,8 @@ export default function Nav () {
   const navigation = [
     { name: 'Services', href: '/services', current: router.pathname === '/services' },
     { name: 'Partners', href: '/partners', current: router.pathname === '/partners' },
-    { name: 'Blog', href: '/blog', current: router.pathname === '/blog' },
-    { name: 'About', href: '/about', current: router.pathname === '/about' }
+    { name: 'About', href: '/about', current: router.pathname === '/about' },
+    { name: 'Blog', href: '/blog', current: router.pathname === '/blog' }
   ]
 
   return (
