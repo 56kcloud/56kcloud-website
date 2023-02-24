@@ -50,7 +50,8 @@ export default function Post ({
         <div className='relative px-4 sm:px-6 lg:px-8'>
           <div className='mx-auto text-lg max-w-prose'>
             <h1>
-              <span className='block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl'>
+              <span className=
+                'block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl'>
                 {postData.title}
               </span>
             </h1>
