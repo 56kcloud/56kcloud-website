@@ -61,7 +61,7 @@ export default function Nav () {
         </Dialog>
       </Transition.Root>
       <div className=
-        'absolute top-0 left-0 z-50 min-w-full max-w-[100rem] px-6 mx-auto mt-4 lg:mt-10 lg:px-12 xl:px-32'>
+        'absolute top-0 left-0 z-50 min-w-full max-w-[100rem] px-6 mx-auto mt-8 lg:mt-12 lg:px-12 xl:px-32'>
         <div className='relative'>
           <div className='max-w-[100rem] mx-auto'>
             <div className='absolute inset-y-0 right-0 flex items-center lg:hidden'>
@@ -70,8 +70,8 @@ export default function Nav () {
             <div className='flex justify-between'>
               <div>
                 <Link href='/'>
-                  <Img className='w-auto h-16 lg:h-20' src='/images/56k-logo.svg' alt='56k logo'
-                    width={100} height={100} />
+                  <Img className='w-auto h-7 lg:h-10' src='/images/56k-logo.svg' alt='56k logo'
+                    width={0} height={0} />
                 </Link>
               </div>
               <div className='hidden lg:flex lg:items-center lg:justify-between gap-x-10'>

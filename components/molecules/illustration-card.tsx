@@ -21,7 +21,7 @@ export default function IllustrationCard (props: CardPropsImpl) {
           </div>
         </div>
         <div className='p-8 pt-0 md:p-16 md:w-1/3 md:pr-8 md:pl-0 lg:py-28 2xl:pr-36'>
-          <Icon src={cardProps.icon} alt={cardProps.title} width={0} height={0}
+          <Icon src={cardProps.icon} alt={cardProps.title} width={100} height={0}
             className={classNames(cardProps.alignment === 'right'
               ? 'bg-blue-light'
               : 'bg-orange-medium', 'w-12 h-12 p-3')} />

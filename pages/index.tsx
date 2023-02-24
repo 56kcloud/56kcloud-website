@@ -17,7 +17,7 @@ export default function HomePage () {
       <main>
         <IntroHome />
         <IllustrationCardsWrapper cards={darkIllustrationCards} />
-        <BackgroundImage src='/images/buro-background.png' alt='Buro background' width={0} height={0}
+        <BackgroundImage src='/images/buro-background.png' alt='Buro background' width={1920} height={0}
           className='bg-blue-lighter' />
         <IllustrationCardsWrapper cards={lightIllustrationCards} theme='light' />
         <Companies />

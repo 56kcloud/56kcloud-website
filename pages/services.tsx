@@ -17,7 +17,7 @@ export default function ServicesPage () {
       <section className='px-8 pb-12 xl:px-36'>
         <div className='max-w-6xl mx-auto mt-12 sm:mt-0'>
           <div className='max-w-5xl mx-auto'>
-            <BackgroundImage src='/images/people-group.png' alt='Group of people background' width={0} height={0}
+            <BackgroundImage src='/images/people-group.png' alt='Group of people background' width={1920} height={0}
             />
           </div>
           <Intro
@@ -39,10 +39,10 @@ export default function ServicesPage () {
       />
       <BackgroundImage src='/images/mountain-background.png' alt='People standing in front of the mountain'
         className='-mt-[10rem] sm:-mt-[15rem] md:-mt-[17rem] lg:-mt-[30rem] xl:-mt-[40rem] 2xl:-mt-[50rem]'
-        width={0} height={0} />
+        width={1920} height={0} />
       <DetailsCardsWrapper cards={detailsCards} />
       <BackgroundImage src='/images/division.png' alt='Plants divider' className='-mt-40 xl:-mt-64'
-        width={0} height={0} />
+        width={1920} height={0} />
       <Contact />
     </Layout>
   )

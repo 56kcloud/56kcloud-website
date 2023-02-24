@@ -1,4 +1,11 @@
-export const cardsSmallPartners = [
+export type Card = {
+  number: string
+  icon: string
+  title: string
+  className: string
+}
+
+export const baseCards: Array<Card> = [
   {
     number: '01',
     icon: '/images/cloud-icon.png',
