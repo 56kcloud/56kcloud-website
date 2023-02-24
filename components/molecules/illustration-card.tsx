@@ -1,9 +1,9 @@
 import { CardProps, CardPropsImpl } from '../../models/Card.model'
 import classNames from '../../utils/classes'
-import Icon from '../atoms/icon'
 import Img from '../atoms/img'
+import Icon from '../atoms/icon'
 
-export default function CardImage (props: CardPropsImpl) {
+export default function IllustrationCard (props: CardPropsImpl) {
   const cardProps = new CardProps(props)
   const alignment = cardProps.alignment === 'left' ? 'xl:mr-16' : 'xl:ml-16'
   const backgroundColor = cardProps.theme === 'dark' ? 'bg-blue-medium text-white' : 'bg-white'
@@ -21,9 +21,10 @@ export default function CardImage (props: CardPropsImpl) {
           </div>
         </div>
         <div className='p-8 pt-0 md:p-16 md:w-1/3 md:pr-8 md:pl-0 lg:py-28 2xl:pr-36'>
-          <Icon src={cardProps.icon} alt={cardProps.title}
-            className={classNames(
-              cardProps.alignment === 'right' ? 'bg-blue-light' : 'bg-orange-medium', 'w-12 h-12 p-3')} />
+          <Icon src={cardProps.icon} alt={cardProps.title} width={0} height={0}
+            className={classNames(cardProps.alignment === 'right'
+              ? 'bg-blue-light'
+              : 'bg-orange-medium', 'w-12 h-12 p-3')} />
           <h3 className={classNames(
             cardProps.alignment === 'left' ? 'text-orange-medium' : 'text-blue-light',
             'mt-4 mb-3 title text-[28px] leading-none')}>

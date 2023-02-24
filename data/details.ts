@@ -1,4 +1,8 @@
-export const services = [
+export type Detail = {
+  description: string
+}
+
+export const details: Array<Detail> = [
   {
     description: 'Learning about the Cloud and it\'s best practices'
   },

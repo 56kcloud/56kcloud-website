@@ -2,7 +2,6 @@ import { Fragment, useState } from 'react'
 import { useRouter } from 'next/router'
 import { Dialog, Transition } from '@headlessui/react'
 import Link from 'next/link'
-
 import Img from '../atoms/img'
 import NavButton from '../atoms/nav-button'
 
@@ -60,8 +59,8 @@ export default function Nav () {
           </div>
         </Dialog>
       </Transition.Root>
-      <div className='absolute top-0 left-0 z-50 min-w-full max-w-[100rem]
-        px-6 mx-auto mt-4 lg:mt-10 lg:px-12 xl:px-32'>
+      <div className=
+        'absolute top-0 left-0 z-50 min-w-full max-w-[100rem] px-6 mx-auto mt-4 lg:mt-10 lg:px-12 xl:px-32'>
         <div className='relative'>
           <div className='max-w-[100rem] mx-auto'>
             <div className='absolute inset-y-0 right-0 flex items-center lg:hidden'>

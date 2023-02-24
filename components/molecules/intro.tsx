@@ -1,4 +1,10 @@
-export default function Intro ({ surtitle, title, text }) {
+type IntroPrps = {
+  surtitle: string
+  title: string
+  text: string
+}
+
+export default function Intro ({ surtitle, title, text }: IntroPrps) {
   return (
     <div className='lg:-mt-12'>
       <span className='orange-surtitle'>{surtitle}</span>

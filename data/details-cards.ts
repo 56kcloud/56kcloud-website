@@ -1,10 +1,10 @@
 export type Card = {
-  icon: string,
-  title: string,
+  icon: string
+  title: string
   list: Array<string>
 }
 
-export const cardsList: Array<Card> = [
+export const detailsCards: Array<Card> = [
   {
     icon: '/images/cloud-white.svg',
     title: 'Cloud Readiness Assessment',

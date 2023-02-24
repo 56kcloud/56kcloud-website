@@ -1,10 +1,18 @@
-import classNames from '../../utils/classes'
 import Img from './img'
 
-export default function BackgroundImage ({ src, alt, className = '' }) {
+type BackgroundImageProps = {
+  src: string
+  alt: string
+  width: number
+  height: number
+  fill?: boolean
+  className?: string
+}
+
+export default function BackgroundImage ({ src, alt, width, height, fill = false, className }: BackgroundImageProps) {
   return (
-    <div className={classNames('w-full pointer-events-none', className)}>
-      <Img src={src} alt={alt} width={1920} height={100} className='w-full' />
+    <div className={className}>
+      <Img src={src} alt={alt} width={width} height={height} fill={fill} className='w-full h-auto' />
     </div>
   )
 }
