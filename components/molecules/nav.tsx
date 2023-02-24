@@ -64,7 +64,7 @@ export default function Nav () {
         'absolute top-0 left-0 z-50 min-w-full max-w-[100rem] px-6 mx-auto mt-8 lg:mt-12 lg:px-12 xl:px-32'>
         <div className='relative'>
           <div className='max-w-[100rem] mx-auto'>
-            <div className='absolute inset-y-0 right-0 flex items-center lg:hidden'>
+            <div className='absolute inset-y-0 right-0 flex items-center xl:hidden'>
               <NavButton src='/images/menu.svg' alt='Menu icon' setOpen={setSidebarOpen}>Menu</NavButton>
             </div>
             <div className='flex justify-between'>
@@ -74,8 +74,8 @@ export default function Nav () {
                     width={0} height={0} />
                 </Link>
               </div>
-              <div className='hidden lg:flex lg:items-center lg:justify-between gap-x-10'>
-                <div className='flex space-x-10'>
+              <div className='hidden xl:flex xl:items-center xl:justify-between gap-x-16'>
+                <div className='flex space-x-14'>
                   {navigation.map((item) => (
                     <Link key={item.name} href={item.href}>
                       <div className='px-3 font-medium'
