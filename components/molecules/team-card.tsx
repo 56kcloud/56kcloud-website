@@ -3,7 +3,7 @@ import Img from '../atoms/img'
 
 export default function TeamCard ({ firstName, lastName, role, image }: Card) {
   return (
-    <div className='relative flex flex-col p-6 text-white bg-blue-medium'>
+    <div className='relative flex flex-col p-6 mb-8 text-white sm:mb-0 bg-blue-medium'>
       <p className='font-normal text-right'>{role}</p>
       <div className='w-2/3 mx-auto my-[10%]'>
         <Img src={image} alt={`${firstName} ${lastName}`} width={100} height={0} className='w-full rounded-full' />
