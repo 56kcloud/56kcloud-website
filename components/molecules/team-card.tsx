@@ -5,7 +5,7 @@ export default function TeamCard ({ firstName, lastName, role, image }: Card) {
   return (
     <div className='relative flex flex-col p-6 text-white bg-blue-medium'>
       <p className='font-normal text-right'>{role}</p>
-      <div className='w-2/3 mx-auto my-10'>
+      <div className='w-2/3 mx-auto my-[10%]'>
         <Img src={image} alt={`${firstName} ${lastName}`} width={100} height={0} className='w-full rounded-full' />
       </div>
       <h3 className='text-2xl title'>{firstName} <br /> {lastName}</h3>
