@@ -4,15 +4,23 @@ import { Dialog, Transition } from '@headlessui/react'
 import Link from 'next/link'
 import Img from '../atoms/img'
 import NavButton from '../atoms/nav-button'
+import classNames from '../../utils/classes'
 
 export default function Nav () {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const router = useRouter()
 
   const navigation = [
-    { name: 'Services', href: '/services', current: router.pathname === '/services' },
-    { name: 'Blog', href: '/blog', current: router.pathname === '/blog' },
-    { name: 'About', href: '/about', current: router.pathname === '/about' }
+    { name: 'Services', href: '/services' },
+    { name: 'Training', href: '/training' },
+    { name: 'Partners', href: '/partners' },
+    { name: 'About', href: '/about' },
+    {
+      name: 'Blog',
+      href: 'https://blog.56k.cloud/',
+      target: '_blank',
+      rel: 'noopener noreferrer'
+    }
   ]
 
   return (
@@ -38,12 +46,12 @@ export default function Nav () {
                   </div>
                   <div className='mb-auto'>
                     <Link href='/' className='inline-block'>
-                      <Img src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
+                      <Img className='w-auto h-7' src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
                     </Link>
                   </div>
                   <div className='mb-auto'>
                     {navigation.map((item) => (
-                      <Link key={item.name} href={item.href}
+                      <Link key={item.name} href={item.href} target={item.target} rel={item.rel}
                         className='block mb-4 text-2xl font-medium font-graphik text-blue-dark'>
                         {item.name}
                       </Link>
@@ -60,25 +68,28 @@ export default function Nav () {
         </Dialog>
       </Transition.Root>
       <div className=
-        'absolute top-0 left-0 z-50 min-w-full max-w-[100rem] px-6 mx-auto mt-4 lg:mt-10 lg:px-12 xl:px-32'>
+        'absolute top-0 left-0 z-50 min-w-full max-w-[100rem] px-6 mx-auto mt-8 lg:mt-12 lg:px-12 xl:px-32'>
         <div className='relative'>
           <div className='max-w-[100rem] mx-auto'>
-            <div className='absolute inset-y-0 right-0 flex items-center lg:hidden'>
+            <div className='absolute inset-y-0 right-0 flex items-center xl:hidden'>
               <NavButton src='/images/menu.svg' alt='Menu icon' setOpen={setSidebarOpen}>Menu</NavButton>
             </div>
             <div className='flex justify-between'>
               <div>
                 <Link href='/'>
-                  <Img className='w-auto h-16 lg:h-20' src='/images/56k-logo.svg' alt='56k logo'
-                    width={100} height={100} />
+                  <Img className='w-auto h-7 lg:h-10' src='/images/56k-logo.svg' alt='56k logo'
+                    width={0} height={0} />
                 </Link>
               </div>
-              <div className='hidden lg:flex lg:items-center'>
-                <div className='flex space-x-4'>
+              <div className='hidden xl:flex xl:items-center xl:justify-between gap-x-24'>
+                <div className='flex space-x-14'>
                   {navigation.map((item) => (
-                    <Link key={item.name} href={item.href}>
-                      <div className='px-3 font-medium'
-                        aria-current={item.current ? 'page' : undefined}
+                    <Link key={item.name} href={item.href} target={item.target} rel={item.rel} className='relative'>
+                      <div className={classNames(router.pathname === item.href
+                        ? 'after:content-[\'\'] after:absolute after:left-0 after:bottom-0 after:bg-blue-light \
+                          after:h-[3px] after:w-full'
+                        : '', 'font-medium')}
+                      aria-current={item.href === router.pathname ? 'page' : undefined}
                       >
                         {item.name}
                       </div>

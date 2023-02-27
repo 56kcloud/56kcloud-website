@@ -1,4 +1,5 @@
 import { Detail } from '../../data/details'
+import Surtitle from '../atoms/surtitle'
 import Icon from '../atoms/icon'
 
 type DescriptionProps = {
@@ -12,7 +13,7 @@ export default function Description ({ surtitle, text, details }: DescriptionPro
     <section className='px-8 pb-[72px] pt-6 xl:section-padding'>
       <div className='relative max-w-6xl mx-auto'>
         <div className='w-full mb-16 xl:w-3/5'>
-          <span className='orange-surtitle'>{surtitle}</span>
+          <Surtitle text={surtitle} />
           <p className='text-blue-dark text-[calc(20px+1vw)] title leading-tight'>{text}</p>
         </div>
         <div className='w-full mb-16 lg:w-1/2'>
