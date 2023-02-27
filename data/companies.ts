@@ -1,4 +1,9 @@
-export const companies = [
+export type Company = {
+  name: string
+  logo: string
+}
+
+export const companies: Array<Company> = [
   {
     name: 'amazon',
     logo: '/images/amazon-logo.png'

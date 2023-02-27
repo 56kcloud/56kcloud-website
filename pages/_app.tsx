@@ -1,7 +1,7 @@
 import '../styles/global.css'
 import Head from 'next/head'
 
-export const siteTitle = 'Edeltech'
+export const siteTitle = '56k.Cloud'
 
 export default function App ({ Component, pageProps }) {
   return (

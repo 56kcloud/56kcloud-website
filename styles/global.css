@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base */
+html,
+body {
+  @apply font-graphik text-blue-medium text-base leading-normal font-light
+}
 
 /* Typography */
 @font-face {
@@ -64,6 +69,10 @@
 @layer base {
   .section-padding {
     @apply px-8 py-[72px] xl:py-24 xl:px-36
+  }
+
+  .title {
+    @apply font-chap font-medium
   }
 
   .xs-responsive-title {

@@ -16,10 +16,12 @@ module.exports = {
           900: '#112647',
           lighter: '#f3f7f9',
           light: '#addcec',
-          medium: '#14216c',
+          medium: '#1f2c73',
           dark: '#101a56'
         },
         orange: {
+          lighter: '#f7a758',
+          light: '#f89673',
           medium: '#e7755f'
         },
         grey: {
@@ -29,6 +31,10 @@ module.exports = {
       fontFamily: {
         chap: ['Chap', 'sans-serif'],
         graphik: ['Graphik', 'sans-serif']
+      },
+      backgroundImage: {
+        'medium-title-background': 'url(\'/images/cloud-background.png\')',
+        'footer-background': 'url(\'/images/landscape-background.png\')'
       }
     }
   },
