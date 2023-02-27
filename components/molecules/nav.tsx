@@ -11,9 +11,16 @@ export default function Nav () {
 
   const navigation = [
     { name: 'Services', href: '/services', current: router.pathname === '/services' },
+    { name: 'Training', href: '/training', current: router.pathname === '/training' },
     { name: 'Partners', href: '/partners', current: router.pathname === '/partners' },
     { name: 'About', href: '/about', current: router.pathname === '/about' },
-    { name: 'Blog', href: '/blog', current: router.pathname === '/blog' }
+    {
+      name: 'Blog',
+      href: 'https://blog.56k.cloud/',
+      current: router.pathname === 'https://blog.56k.cloud/',
+      target: '_blank',
+      rel: 'noopener noreferrer'
+    }
   ]
 
   return (
@@ -44,7 +51,7 @@ export default function Nav () {
                   </div>
                   <div className='mb-auto'>
                     {navigation.map((item) => (
-                      <Link key={item.name} href={item.href}
+                      <Link key={item.name} href={item.href} target={item.target} rel={item.rel}
                         className='block mb-4 text-2xl font-medium font-graphik text-blue-dark'>
                         {item.name}
                       </Link>
@@ -77,7 +84,7 @@ export default function Nav () {
               <div className='hidden xl:flex xl:items-center xl:justify-between gap-x-16'>
                 <div className='flex space-x-14'>
                   {navigation.map((item) => (
-                    <Link key={item.name} href={item.href}>
+                    <Link key={item.name} href={item.href} target={item.target} rel={item.rel}>
                       <div className='px-3 font-medium'
                         aria-current={item.current ? 'page' : undefined}
                       >

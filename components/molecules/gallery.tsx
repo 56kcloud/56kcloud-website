@@ -14,24 +14,24 @@ export default function Gallery () {
             </div>
             <div className='flex items-end justify-end pt-[4%]'>
               <div className='relative w-full h-[300px] sm:h-[406px] md:h-[480px] xl:h-[600px]'>
-                <Img src='/images/gallery-02.jpeg' alt='Building' fill className='object-cover' />
+                <Img src='/images/gallery-02.jpeg' alt='Window' fill className='object-cover' />
               </div>
             </div>
           </div>
           <div className='w-[49%]'>
             <div>
               <div className='relative w-full h-[300px] sm:h-[480px] md:h-[580px] xl:h-[700px]'>
-                <Img src='/images/gallery-03.jpeg' alt='Building' fill className='object-cover' />
+                <Img src='/images/gallery-03.jpeg' alt='Darragh' fill className='object-cover' />
               </div>
             </div>
             <div className='pt-[4%]'>
               <div className='relative w-full h-[300px] sm:h-[500px] md:h-[730px] xl:h-[850px]'>
-                <Img src='/images/gallery-04.jpeg' alt='Building' fill className='object-cover' />
+                <Img src='/images/gallery-04.jpeg' alt='Jean-Pierre' fill className='object-cover' />
               </div>
             </div>
             <div className='hidden lg:flex items-start justify-end pt-[4%]'>
               <div className='relative w-1/2 h-28 sm:h-44 md:h-60 xl:h-80'>
-                <Img src='/images/gallery-05.jpeg' alt='Building' fill className='object-cover' />
+                <Img src='/images/gallery-05.jpeg' alt='Meeting' fill className='object-cover' />
               </div>
             </div>
           </div>

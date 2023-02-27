@@ -25,7 +25,7 @@ export default function HomePage () {
         <Companies />
       </main>
       <footer>
-        <Footer />
+        <Footer version='illustration' />
       </footer>
     </>
   )

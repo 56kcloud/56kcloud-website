@@ -2,7 +2,7 @@ export type Detail = {
   description: string
 }
 
-export const details: Array<Detail> = [
+export const detailsServices: Array<Detail> = [
   {
     description: 'Learning about the Cloud and it\'s best practices'
   },
@@ -17,5 +17,23 @@ export const details: Array<Detail> = [
   },
   {
     description: 'Learning backwards approach to enable the team'
+  }
+]
+
+export const detailsTraining: Array<Detail> = [
+  {
+    description: '30 days of Slack support after the course concludes*'
+  },
+  {
+    description: 'Additional Ressources and Labs'
+  },
+  {
+    description: 'Welcome email/checklist'
+  },
+  {
+    description: 'One scheduled follow-up call'
+  },
+  {
+    description: 'Training content made available via Git'
   }
 ]
