@@ -4,7 +4,7 @@ export type Card = {
   list: Array<string>
 }
 
-export const detailsCards: Array<Card> = [
+export const detailsCardsServices: Array<Card> = [
   {
     icon: '/images/cloud-white.svg',
     title: 'Cloud Readiness Assessment',
@@ -54,6 +54,60 @@ export const detailsCards: Array<Card> = [
       'Onboarding support across a one-week program',
       'Limited investment is required to get started, giving you more time to focus on product development!',
       'Technology Stack: Docker Containers, ECS, ALB'
+    ]
+  }
+]
+
+export const detailsCardsTraining: Array<Card> = [
+  {
+    icon: '/images/wheel.svg',
+    title: 'Kubernetes Training',
+    list: [
+      'Kubernetes Overview (Architecture and concepts)',
+      'Install a Local Development Environment',
+      'Kubectl CLI overview',
+      'Kubernetes Pods',
+      'Deployment (Scaling, labeling, health checks)',
+      'Kubernetes logging, monitoring, and securing containers',
+      'Custom content (Typically, one “hello world” use case application) Kubernetes on AWS'
+    ]
+  },
+  {
+    icon: '/images/whale.svg',
+    title: 'Docker Training',
+    list: [
+      'Introduction to Docker, Kubernetes, and Cloud-Native',
+      'Docker Overview',
+      'Docker CLI Overview',
+      'Web apps and Docker',
+      'Write Dockerfiles',
+      'Build a monitoring stack',
+      'Deploy apps to Swarm',
+      'Create a Docker Build pipeline',
+      'Docker Swarm & Kubernetes',
+      'Sponsor Labs'
+    ]
+  },
+  {
+    icon: '/images/cloud-white.svg',
+    title: 'Cloud-Native Introduction',
+    list: [
+      'Cloud-Native Overview',
+      'Modern application Concepts',
+      'CNCF Landscape',
+      'Native tooling in the cloud',
+      'Your Cloud-Native Journey'
+    ]
+  },
+  {
+    icon: '/images/infinity.svg',
+    title: 'DevOps Training',
+    list: [
+      'Cloud-Native Tooling',
+      'CI/CD Pipelines',
+      'Infrastructure Automation',
+      'Cloud Platform Services',
+      'Best Practices'
     ]
   }
 ]

@@ -4,16 +4,23 @@ import { Dialog, Transition } from '@headlessui/react'
 import Link from 'next/link'
 import Img from '../atoms/img'
 import NavButton from '../atoms/nav-button'
+import classNames from '../../utils/classes'
 
 export default function Nav () {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const router = useRouter()
 
   const navigation = [
-    { name: 'Services', href: '/services', current: router.pathname === '/services' },
-    { name: 'Partners', href: '/partners', current: router.pathname === '/partners' },
-    { name: 'Blog', href: '/blog', current: router.pathname === '/blog' },
-    { name: 'About', href: '/about', current: router.pathname === '/about' }
+    { name: 'Services', href: '/services' },
+    { name: 'Training', href: '/training' },
+    { name: 'Partners', href: '/partners' },
+    { name: 'About', href: '/about' },
+    {
+      name: 'Blog',
+      href: 'https://blog.56k.cloud/',
+      target: '_blank',
+      rel: 'noopener noreferrer'
+    }
   ]
 
   return (
@@ -44,7 +51,7 @@ export default function Nav () {
                   </div>
                   <div className='mb-auto'>
                     {navigation.map((item) => (
-                      <Link key={item.name} href={item.href}
+                      <Link key={item.name} href={item.href} target={item.target} rel={item.rel}
                         className='block mb-4 text-2xl font-medium font-graphik text-blue-dark'>
                         {item.name}
                       </Link>
@@ -74,12 +81,15 @@ export default function Nav () {
                     width={0} height={0} />
                 </Link>
               </div>
-              <div className='hidden xl:flex xl:items-center xl:justify-between gap-x-16'>
+              <div className='hidden xl:flex xl:items-center xl:justify-between gap-x-24'>
                 <div className='flex space-x-14'>
                   {navigation.map((item) => (
-                    <Link key={item.name} href={item.href}>
-                      <div className='px-3 font-medium'
-                        aria-current={item.current ? 'page' : undefined}
+                    <Link key={item.name} href={item.href} target={item.target} rel={item.rel} className='relative'>
+                      <div className={classNames(router.pathname === item.href
+                        ? 'after:content-[\'\'] after:absolute after:left-0 after:bottom-0 after:bg-blue-light \
+                          after:h-[3px] after:w-full'
+                        : '', 'font-medium')}
+                      aria-current={item.href === router.pathname ? 'page' : undefined}
                       >
                         {item.name}
                       </div>

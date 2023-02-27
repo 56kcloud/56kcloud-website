@@ -1,17 +1,27 @@
+import Surtitle from '../atoms/surtitle'
 import { Card } from '../../data/base-cards'
 import BaseCard from '../molecules/base-card'
 
 type BaseCardsWrapperProps = {
   cards: Array<Card>
+  text: string
+  className?: string
 }
 
-export default function BaseCardsWrapper ({ cards }: BaseCardsWrapperProps) {
+export default function BaseCardsWrapper ({ cards, text, className }: BaseCardsWrapperProps) {
   return (
-    <div className='grid sm:grid-cols-2 xl:grid-cols-4'>
-      {cards?.map((card) => (
-        <BaseCard key={card.title} number={card.number} icon={card.icon} title={card.title}
-          className={card.className} />
-      ))}
-    </div>
+    <section className='section-padding'>
+      <div className='mx-auto max-w-7xl'>
+        <div className='mb-10 md:mb-12 lg:mb-16 xl:px-36'>
+          <Surtitle text={text} className={className} />
+        </div>
+        <div className='grid sm:grid-cols-2 xl:grid-cols-4'>
+          {cards?.map((card) => (
+            <BaseCard key={card.title} number={card.number} icon={card.icon} title={card.title}
+              className={card.className} />
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }

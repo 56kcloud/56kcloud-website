@@ -31,6 +31,10 @@ module.exports = {
       fontFamily: {
         chap: ['Chap', 'sans-serif'],
         graphik: ['Graphik', 'sans-serif']
+      },
+      backgroundImage: {
+        'medium-title-background': 'url(\'/images/cloud-background.png\')',
+        'footer-background': 'url(\'/images/landscape-background.png\')'
       }
     }
   },
