@@ -24,9 +24,7 @@ export default function HomePage () {
         <IllustrationCardsWrapper cards={lightIllustrationCardsHome} theme='light' />
         <Companies />
       </main>
-      <footer>
-        <Footer version='illustration' />
-      </footer>
+      <Footer version='illustration' />
     </>
   )
 }

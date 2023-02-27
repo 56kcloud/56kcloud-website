@@ -8,12 +8,12 @@ type FooterProps = {
 
 export default function Footer ({ version = 'illustration' }: FooterProps) {
   const links = [
-    { href: '#', title: 'Services' },
-    { href: '#', title: 'About' },
-    { href: '#', title: 'Blog' },
-    { href: '#', title: 'Training' },
-    { href: '#', title: 'Partners' },
-    { href: '#', title: 'Contact Us' }
+    { href: '/services', title: 'Services' },
+    { href: '/training', title: 'Training' },
+    { href: '/partners', title: 'Partners' },
+    { href: '/about', title: 'About' },
+    { href: 'https://blog.56k.cloud/', title: 'Blog', target: '_blank', rel: 'noopener noreferrer' },
+    { href: '/', title: 'Contact Us' }
   ]
 
   const socialNetworksIcons = [
@@ -21,13 +21,17 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
       href: 'https://twitter.com/56kcloud',
       src: '/images/twitter-icon.svg',
       alt: 'Twitter logo',
-      title: 'twitter'
+      title: 'twitter',
+      target: '_blank',
+      rel: 'noopener noreferrer'
     },
     {
       href: 'https://www.linkedin.com/company/56kcloud',
       src: '/images/linkedin-icon.svg',
       alt: 'Linkedin logo',
-      title: 'linkedin'
+      title: 'linkedin',
+      target: '_blank',
+      rel: 'noopener noreferrer'
     }
   ]
 
@@ -52,7 +56,7 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
               <ul className='flex flex-wrap mb-10 font-medium lg:w-2/3 lg:mb-0'>
                 {links.map((link) => (
                   <li key={link.title} className='w-1/2 mb-2'>
-                    <Link href={link.href}>{link.title}</Link>
+                    <Link href={link.href} target={link.target} rel={link.rel}>{link.title}</Link>
                   </li>
                 ))}
               </ul>
@@ -66,7 +70,7 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
                 <ul className='flex items-center mb-10 list-none gap-x-16 md:mb-0'>
                   {socialNetworksIcons.map((icon) => (
                     <li key={icon.title}>
-                      <Link href={icon.href}>
+                      <Link href={icon.href} target={icon.target} rel={icon.rel} >
                         <Img src={icon.src} alt={icon.alt} width={18} height={18} />
                       </Link>
                     </li>

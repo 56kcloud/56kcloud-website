@@ -8,7 +8,7 @@ type TeamCardsWrapperProps = {
 
 export default function TeamCardsWrapper ({ cards }: TeamCardsWrapperProps) {
   return (
-    <section className='section-padding bg-blue-dark'>
+    <section className='section-padding bg-blue-dark -mt-[1px]'>
       <div className='sm:grid grid-cols-1 sm:gap-10 mx-auto sm:grid-cols-2 lg:grid-cols-3 \
         max-w-7xl'>
         {cards.map((card) => (
