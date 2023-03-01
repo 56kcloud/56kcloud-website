@@ -5,6 +5,7 @@
     "*": ["nav", "footer"],
     "/": ["home", "companies"],
     "/services": ["services", "contact"],
-    "/training": ["training"]
+    "/training": ["training"],
+    "/partners": ["partners"]
   }
 }
