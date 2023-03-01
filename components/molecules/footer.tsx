@@ -50,7 +50,7 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
               {t('text')}
             </p>
             <Link href='/' className='hidden lg:block lg:w-1/4'>
-              <Img src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
+              <Img src='/images/56k-logo.svg' alt={t('altLogo56k')} width={100} height={100} />
             </Link>
             <div className='flex flex-col flex-wrap md:flex-row lg:w-2/3 2xl:w-1/2'>
               <ul className='flex flex-wrap mb-10 font-medium lg:w-2/3 lg:mb-0'>
@@ -86,7 +86,7 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
                 <span className='text-grey-medium'>{t('designBy')}</span>
                 <Link href='https://studiovoila.com/' target='_blank' rel='noopener noreferrer'
                   className='w-16 -translate-y-[2px]'>
-                  <Img src='/images/voila-logo.png' alt='Voila logo' width={100} height={0} />
+                  <Img src='/images/voila-logo.png' alt={t('altLogoVoila')} width={100} height={0} />
                 </Link>
               </span>
             </p>
