@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation'
 import Nav from '../components/molecules/nav'
 import Hero from '../components/molecules/hero'
 import SmallTitleIntro from '../components/molecules/small-title-intro'
@@ -8,18 +9,19 @@ import Companies from '../components/molecules/companies'
 import Footer from '../components/molecules/footer'
 
 export default function HomePage () {
+  const { t } = useTranslation('home')
+
   return (
     <>
       <header className='overflow-hidden'>
         <Nav />
-        <Hero titleLine1="Let's Start" titleLine2='your Cloud' titleLine3='Journey' />
+        <Hero titleLine1={t('titleLine1')} titleLine2={t('titleLine2')} titleLine3={t('titleLine3')} />
       </header>
       <main>
-        <SmallTitleIntro text="It's important to get the entire team on board and headed in the right direction on the
-          same cloud journey. We align customers in their cloud-native story."
-        title='56K.Cloud was founded to share our vision of the cloud with our partners and customers.' />
+        <SmallTitleIntro text={t('text')}
+          title={t('title')} />
         <IllustrationCardsWrapper cards={darkIllustrationCardsHome} />
-        <BackgroundImage src='/images/buro-background.png' alt='Buro background' width={1920} height={0}
+        <BackgroundImage src='/images/buro-background.png' alt={t('alt')} width={1920} height={0}
           className='bg-blue-lighter' />
         <IllustrationCardsWrapper cards={lightIllustrationCardsHome} theme='light' />
         <Companies />
