@@ -1,0 +1,15 @@
+{
+  "altLogoNav": "56k logo",
+  "navItem1": "Services",
+  "navItem1Href": "/services",
+  "navItem2": "Training",
+  "navItem2Href": "/training",
+  "navItem3": "Partners",
+  "navItem3Href": "/partners",
+  "navItem4": "About",
+  "navItem4Href": "/about",
+  "navButton": "Contact Us",
+  "altButtonNav": "Pencil icon",
+  "altIconMenuButton": "Menu icon",
+  "altIconNavResponsive": "Plus icon"
+}

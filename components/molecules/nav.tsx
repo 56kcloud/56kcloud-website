@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation'
 import { Fragment, useState } from 'react'
 import { useRouter } from 'next/router'
 import { Dialog, Transition } from '@headlessui/react'
@@ -9,12 +10,13 @@ import classNames from '../../utils/classes'
 export default function Nav () {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const router = useRouter()
+  const { t } = useTranslation('nav')
 
   const navigation = [
-    { name: 'Services', href: '/services' },
-    { name: 'Training', href: '/training' },
-    { name: 'Partners', href: '/partners' },
-    { name: 'About', href: '/about' },
+    { name: t('navItem1'), href: t('navItem1Href') },
+    { name: t('navItem2'), href: t('navItem2Href') },
+    { name: t('navItem3'), href: t('navItem3Href') },
+    { name: t('navItem4'), href: t('navItem4Href') },
     {
       name: 'Blog',
       href: 'https://blog.56k.cloud/',
@@ -41,12 +43,13 @@ export default function Nav () {
                 <div className='bg-white flex flex-col flex-wrap ml-auto pt-8 px-16 w-[90%] h-full'>
                   <div className='absolute left-[7%] top-10'>
                     <button onClick={() => setSidebarOpen(false)}>
-                      <Img src='/images/plus-white.png' alt='Plus icon' width={50} height={50} />
+                      <Img src='/images/plus-white.png' alt={t('altIconNavResponsive')} width={50} height={50} />
                     </button>
                   </div>
                   <div className='mb-auto'>
                     <Link href='/' className='inline-block'>
-                      <Img className='w-auto h-7' src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
+                      <Img className='w-auto h-7' src='/images/56k-logo.svg' alt={t('altLogoNav')}
+                        width={100} height={100} />
                     </Link>
                   </div>
                   <div className='mb-auto'>
@@ -58,8 +61,8 @@ export default function Nav () {
                     ))}
                   </div>
                   <div className='py-12 text-center border-t'>
-                    <NavButton src='/images/pencil.svg' alt='Pencil icon'
-                      setOpen={setSidebarOpen}>Contact Us</NavButton>
+                    <NavButton src='/images/pencil.svg' alt={t('altButtonNav')} setOpen={setSidebarOpen}>
+                      {t('navButton')}</NavButton>
                   </div>
                 </div>
               </Dialog.Panel>
@@ -72,12 +75,12 @@ export default function Nav () {
         <div className='relative'>
           <div className='max-w-[100rem] mx-auto'>
             <div className='absolute inset-y-0 right-0 flex items-center xl:hidden'>
-              <NavButton src='/images/menu.svg' alt='Menu icon' setOpen={setSidebarOpen}>Menu</NavButton>
+              <NavButton src='/images/menu.svg' alt={t('altIconMenuButton')} setOpen={setSidebarOpen}>Menu</NavButton>
             </div>
             <div className='flex justify-between'>
               <div>
                 <Link href='/'>
-                  <Img className='w-auto h-7 lg:h-10' src='/images/56k-logo.svg' alt='56k logo'
+                  <Img className='w-auto h-7 lg:h-10' src='/images/56k-logo.svg' alt={t('altLogoNav')}
                     width={0} height={0} />
                 </Link>
               </div>
@@ -96,7 +99,8 @@ export default function Nav () {
                     </Link>
                   ))}
                 </div>
-                <NavButton src='/images/pencil.svg' alt='Pencil icon' setOpen={setSidebarOpen}>Contact Us</NavButton>
+                <NavButton src='/images/pencil.svg' alt={t('altButtonNav')} setOpen={setSidebarOpen}>
+                  {t('navButton')}</NavButton>
               </div>
             </div>
           </div>
