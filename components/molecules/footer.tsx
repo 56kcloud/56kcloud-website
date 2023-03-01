@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation'
 import classNames from '../../utils/classes'
 import Link from 'next/link'
 import Img from '../atoms/img'
@@ -7,20 +8,22 @@ type FooterProps = {
 }
 
 export default function Footer ({ version = 'illustration' }: FooterProps) {
+  const { t } = useTranslation('footer')
+
   const links = [
-    { href: '/services', title: 'Services' },
-    { href: '/training', title: 'Training' },
-    { href: '/partners', title: 'Partners' },
-    { href: '/about', title: 'About' },
+    { href: t('link1Href'), title: t('link1') },
+    { href: t('link2Href'), title: t('link2') },
+    { href: t('link3Href'), title: t('link3') },
+    { href: '/about', title: t('link4') },
     { href: 'https://blog.56k.cloud/', title: 'Blog', target: '_blank', rel: 'noopener noreferrer' },
-    { href: '/', title: 'Contact Us' }
+    { href: '/', title: t('link6') }
   ]
 
   const socialNetworksIcons = [
     {
       href: 'https://twitter.com/56kcloud',
       src: '/images/twitter-icon.svg',
-      alt: 'Twitter logo',
+      alt: t('altIconTwitter'),
       title: 'twitter',
       target: '_blank',
       rel: 'noopener noreferrer'
@@ -28,7 +31,7 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
     {
       href: 'https://www.linkedin.com/company/56kcloud',
       src: '/images/linkedin-icon.svg',
-      alt: 'Linkedin logo',
+      alt: t('altIconLinkedin'),
       title: 'linkedin',
       target: '_blank',
       rel: 'noopener noreferrer'
@@ -44,10 +47,7 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
         <div className='py-8 bg-white md:py-16'>
           <div className='flex flex-wrap justify-between px-8 overflow-hidden md:px-16'>
             <p className='title mb-10 w-full xs-responsive-title leading-[1.1] lg:w-2/3 2xl:w-1/2 lg:mb-16'>
-                56K.Cloud is a professional services, training and technology company focusing on cloud product
-                acceleration, through cloud-native migration, security, developer tooling and community. We enable
-                customers to build on public cloud technologies and accelerate their development practices through
-                DevOps and Agile transformation.
+              {t('text')}
             </p>
             <Link href='/' className='hidden lg:block lg:w-1/4'>
               <Img src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
@@ -61,7 +61,7 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
                 ))}
               </ul>
               <p className='text-grey-medium lg:w-1/3'>
-                56K.Cloud SA<br /> Chemin Saint-Hubert 5<br /> 1950 Sion<br /> Switzerland
+                56K.Cloud SA<br /> Chemin Saint-Hubert 5<br /> 1950 Sion<br /> {t('address')}
               </p>
             </div>
             <hr className='border-top-[1px] my-10 w-full border-slate-300' />
@@ -78,12 +78,12 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
                 </ul>
               </div>
               <p className='w-1/3 whitespace-pre text-grey-medium'>
-                  Copyright (c) 2023, 56K.Cloud SA <br />all rights reserved
+                &copy; 56K.Cloud SA 2023 <br />{t('rightsReserved')}
               </p>
             </div>
             <p className='w-full lg:w-1/4'>
               <span className='flex items-center gap-x-3'>
-                <span className='text-grey-medium'>Design by</span>
+                <span className='text-grey-medium'>{t('designBy')}</span>
                 <Link href='https://studiovoila.com/' target='_blank' rel='noopener noreferrer'
                   className='w-16 -translate-y-[2px]'>
                   <Img src='/images/voila-logo.png' alt='Voila logo' width={100} height={0} />
