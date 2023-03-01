@@ -4,6 +4,7 @@
   "pages": {
     "*": ["nav", "footer"],
     "/": ["home", "companies"],
-    "/services": ["services", "contact"]
+    "/services": ["services", "contact"],
+    "/training": ["training"]
   }
 }
