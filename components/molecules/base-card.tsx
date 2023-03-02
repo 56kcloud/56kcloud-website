@@ -1,8 +1,14 @@
-import { Card } from '../../data/base-cards'
 import Icon from '../atoms/icon'
 import classNames from '../../utils/classes'
 
-export default function BaseCard ({ number, icon, title, className }: Card) {
+export type BaseCardProps = {
+  number: string
+  icon: string
+  title: string
+  className: string
+}
+
+export default function BaseCard ({ number, icon, title, className }: BaseCardProps) {
   return (
     <div className='z-10 border-b border-gray-100 border-solid sm:border-r last:border-r-0'>
       <div className='relative flex flex-col bg-white p-7 min-h-[15rem] sm:min-h-[25rem]'>

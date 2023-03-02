@@ -1,5 +1,11 @@
-import { Card } from '../../data/team-cards'
 import Img from '../atoms/img'
+
+export type Card = {
+  firstName: string
+  lastName: string
+  role: string
+  image: string
+}
 
 export default function TeamCard ({ firstName, lastName, role, image }: Card) {
   return (

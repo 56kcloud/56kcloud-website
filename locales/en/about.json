@@ -3,7 +3,58 @@
   "introTitle": "56K.Cloud was founded to share our vision of the cloud with our partners and customers",
   "introTextColLeft": "56K.Cloud was founded after realizing that the customer's journey to the cloud was not been fully addressed.",
   "introTextColRight": "We pride ourselves on being Technology Native and not being locked into vendor technologies, but instead providing the best cloud solution for our customers.",
+  "altImage1": "Building",
+  "altImage2": "Window",
+  "altImage5": "Meeting",
+  "epigraphSurtitle": "Vision Statement",
+  "epigraphText": "We created a vision statement which is clear, short, and timeless. Every project gains the benefits of previous projects and experience. Innovation via Automation.",
   "cardsWrapperSurtitle": "Our focus",
+  "focus": [
+    {
+      "number": "01",
+      "icon": "/images/automation-icon.png",
+      "title": "Automation both Infrastructure & Applications",
+      "className": "bg-orange-medium"
+    },
+    {
+      "number": "02",
+      "icon": "/images/devops-icon.png",
+      "title": "DevOps Services",
+      "className": "bg-orange-lighter"
+    },
+    {
+      "number": "03",
+      "icon": "/images/cloud-icon.png",
+      "title": "Cloud",
+      "className": "bg-blue-light"
+    },
+    {
+      "number": "04",
+      "icon": "/images/monitoring-icon.png",
+      "title": "Monitoring & Security",
+      "className": "bg-orange-medium"
+    }
+  ],
+  "team": [
+    {
+      "firstName": "Darragh",
+      "lastName": "Grealish",
+      "role": "Site Reliability Engineer & Managing Partner",
+      "image": "/images/darragh.jpeg"
+    },
+    {
+      "firstName": "Jochen",
+      "lastName": "Zehnder",
+      "role": "Site Reliability Engineer & Managing Partner",
+      "image": "/images/jochen.jpeg"
+    },
+    {
+      "firstName": "Jean-Pierre",
+      "lastName": "Gehrig",
+      "role": "Principal Programmer & Managing Partner",
+      "image": "/images/jean-pierre.jpeg"
+    }
+  ],
   "teamTitle": "Part of the Team?",
   "teamText1": "Do you share the same vision and values? We'd love to hear from you.",
   "teamText2": "Contact us",

@@ -1,7 +1,7 @@
-import DetailsCard from '../molecules/details-card'
+import DetailsCard, { DetailsCardProps } from '../molecules/details-card'
 
 type DetailsCardsWrapperProps = {
-  cards: Array<{ icon: string; title: string; items: Array<string> }>
+  cards: Array<DetailsCardProps>
 }
 
 export default function DetailsCardsWrapper ({ cards }: DetailsCardsWrapperProps) {

@@ -1,7 +1,6 @@
+import TeamCard, { Card } from '../molecules/team-card'
 import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link'
-import { Card } from '../../data/team-cards'
-import TeamCard from '../molecules/team-card'
 
 type TeamCardsWrapperProps = {
   cards: Array<Card>
