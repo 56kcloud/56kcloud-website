@@ -3,5 +3,32 @@
   "introTitle": "Voyageons ensemble",
   "introText": "Nous nous associons pour mettre en place des projets efficaces et réussis pour nos clients.",
   "cardsWrapperSurtitle": "Partenaires clés",
-  "altDivider": "Plantes"
+  "altDivider": "Plantes",
+  "partners": [
+    {
+      "number": "01",
+      "image": "/images/automation.png",
+      "icon": "/images/cloud-icon.png",
+      "title": "AWS - Amazon Web Services",
+      "description": "En tant que partenaire avancé, dans le domaine de la transformation de l'Edge, de l'IoT et du Cloud.",
+      "theme": "light"
+    },
+    {
+      "number": "02",
+      "image": "/images/automation.png",
+      "icon": "/images/docker-icon.png",
+      "title": "Docker",
+      "description": "Permettre la conteneurisation et l'outillage des développeurs à son meilleur.",
+      "alignment": "right",
+      "theme": "light"
+    },
+    {
+      "number": "03",
+      "image": "/images/automation.png",
+      "icon": "/images/devops-icon.png",
+      "title": "ARM",
+      "description": "Dans le domaine du Cloud et des systèmes embarqués (IoT), nous travaillons avec des architectures de CPU de pointe qui augmentent les performances et réduisent les besoins en énergie. En nous associant à ARM, les clients de 56K.Cloud ont accès à des experts clés et à des relations dans le secteur.",
+      "theme": "light"
+    }
+  ]
 }
