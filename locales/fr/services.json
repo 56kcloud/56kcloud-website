@@ -5,6 +5,65 @@
   "introText": "Au fil des ans, nous avons accumulé une grande quantité de connaissances sur la façon de migrer vers le cloud public et d'exploiter la charge de travail de manière sécurisée et évolutive. Nous avons constaté de nombreux points communs à tous les projets et à tous les secteurs. Nous avons rassemblé ces connaissances pour aider nos clients à aller plus vite et à tirer parti des milliers d'heures que nous avons passées dans le nuage.",
   "descriptionSurtitle": "Que comprennent nos programmes de services",
   "descriptionText": "Nous avons appris qu'un grand nombre de nos clients ont les mêmes besoins et exigences. Par conséquent, nous construisons des services qui apportent plus de valeur à nos clients pour moins d'argent. Ces services fournissent des composants prêts à l'emploi, tout en permettant l'adaptation à chaque client et équipe spécifique. Ces services comprennent:",
+  "details": [
+    "Apprendre à connaître le cloud et ses meilleures pratiques",
+    "Connaissances accumulées sur le cloud dans des paquets prêts à l'emploi",
+    "Composants d'infrastructure en tant que code (IaC) personnalisables",
+    "Accès à des experts pour guider l'équipe dans son parcours",
+    "Une approche d'apprentissage à rebours pour permettre à l'équipe de se perfectionner"
+  ],
   "altMainIllustration": "Personnes se tenant devant la montagne",
-  "altDivider": "Plantes"
+  "features": [
+    {
+      "icon": "/images/cloud-white.svg",
+      "title": "Évaluation de la préparation au cloud",
+      "items": [
+        "Introduction au Cloud-Native",
+        "Comprendre le paysage de vos applications",
+        "Apprendre à connaître votre processus",
+        "Apprendre à connaître l'équipe et ses capacités",
+        "Résumer le statu quo",
+        "Recommandations pour les prochaines étapes"
+      ]
+    },
+    {
+      "icon": "/images/infinity.svg",
+      "title": "ISV to SaaS - Programme d'habilitation",
+      "items": [
+        "Programme structuré de voyage dans le cloud soulignant les avantages de la modernisation des ISV sur AWS Cloud",
+        "Atelier de découverte de 2 jours",
+        "Développer une feuille de route Cloud go-to actionnable",
+        "Vérifications régulières pour soutenir l'équipe (via Slack et appels Teams/Zoom)",
+        "Canal Slack et/ou teams partagé pour une collaboration accélérée",
+        "Consultez notre page d'accueil pour le programme"
+      ]
+    },
+    {
+      "icon": "/images/cloud-white.svg",
+      "title": "Architecture de référence du cloud",
+      "items": [
+        "Meilleures pratiques et automatisation de l'onboarding vers le cloud public",
+        "Mise en œuvre d'une architecture de référence de cloud sécurisé à l'aide d'AWS",
+        "Un déploiement géré pour démarrer rapidement à travers le développement et la production",
+        "Une base de code maintenable d'automatisation de l'infrastructure déployée sur AWS Cloud",
+        "Construire sur Hashicorp Terraform ou AWS CDK (Cloud Development Kit)",
+        "Accès 56K Cloud Slack* pour l'onboarding et le support*",
+        "Pile technologique: Terraform, Terragrunt, AWS, actions Gitlab/Github, CDK*",
+        "En option: Prise en charge de plus de trois comptes /w accès à la base de code*",
+        "En option: Paquets de conformité et de sécurité pour atteindre CIS et HIPPA", "En option: Paquets de conformité et de sécurité pour atteindre CIS et HIPPA"
+      ]
+    },
+    {
+      "icon": "/images/cloud-white.svg",
+      "title": "Application Web simple",
+      "items": [
+        "Démarrer avec les services de cloud public AWS en quelques heures et non en quelques semaines!",
+        "Une configuration prête à l'emploi qui peut être étendue et mise à l'échelle avec votre application au fil du temps",
+        "Des blocs de construction fondamentaux pour soutenir une petite équipe de développement",
+        "Assistance à l'intégration dans le cadre d'un programme d'une semaine",
+        "Un investissement limité est nécessaire pour démarrer, ce qui vous laisse plus de temps pour vous concentrer sur le développement du produit!",
+        "Pile technologique: Conteneurs Docker, ECS, ALB", "Technology Stack : Docker Containers, ECS, ALB"
+      ]
+    }
+  ]
 }

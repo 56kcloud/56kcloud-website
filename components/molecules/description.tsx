@@ -1,11 +1,10 @@
-import { Detail } from '../../data/details'
 import Surtitle from '../atoms/surtitle'
 import Icon from '../atoms/icon'
 
 type DescriptionProps = {
   surtitle: string
   text: string
-  details: Array<Detail>
+  details: Array<string>
 }
 
 export default function Description ({ surtitle, text, details }: DescriptionProps) {
@@ -22,9 +21,9 @@ export default function Description ({ surtitle, text, details }: DescriptionPro
               <li key={idx} className='flex items-center gap-x-4 mb-7'>
                 <Icon src='/images/check.svg' alt='Check icon' width={0} height={0}
                   className='w-8 h-8 p-2 bg-white shadow-md' />
-                <span className='xl:text-lg'>{detail.description}</span>
+                <span className='xl:text-lg'>{detail}</span>
               </li>
-            )) }
+            ))}
           </ul>
         </div>
       </div>

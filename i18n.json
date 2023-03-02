@@ -2,10 +2,11 @@
   "locales": ["en", "fr", "de"],
   "defaultLocale": "en",
   "pages": {
-    "*": ["nav", "footer"],
-    "/": ["home", "companies"],
-    "/services": ["services", "contact"],
+    "*": ["common", "nav", "footer"],
+    "/": ["home"],
+    "/services": ["services", "cards"],
     "/training": ["training"],
-    "/partners": ["partners"]
+    "/partners": ["partners"],
+    "/about": ["about"]
   }
 }

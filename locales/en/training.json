@@ -5,6 +5,66 @@
   "introText": "Our training concept is simple. Hands-on, real-world examples, customized to your specific environment (Cloud, application, and business cases). 56K.Cloud works very closely with our partners to deliver the best solutions. The 56K.Cloud team brings years of experience to the training presenting both the best practices as well as how it works in production.",
   "descriptionSurtitle": "What does our training include",
   "descriptionText": "Not only do we provide training but we also offer pre-training calls and after-training support. We host special training events in the Swiss Alps where we can take advantage of the great outdoors, while immersed in the different training topics.",
+  "details": [
+    "30 days of Slack support after the course concludes*",
+    "Additional Ressources and Labs",
+    "Welcome email/checklist",
+    "One scheduled follow-up call",
+    "Training content made available via Git"
+  ],
   "altMainIllustration": "People standing in front of the mountain",
+  "features": [
+    {
+      "icon": "/images/wheel.svg",
+      "title": "Kubernetes Training",
+      "items": [
+        "Kubernetes Overview (Architecture and concepts)",
+        "Install a Local Development Environment",
+        "Kubectl CLI overview",
+        "Kubernetes Pods",
+        "Deployment (Scaling, labeling, health checks)",
+        "Kubernetes logging, monitoring, and securing containers",
+        "Custom content (Typically, one “hello world” use case application) Kubernetes on AWS"
+      ]
+    },
+    {
+      "icon": "/images/whale.svg",
+      "title": "Docker Training",
+      "items": [
+        "Introduction to Docker, Kubernetes, and Cloud-Native",
+        "Docker Overview",
+        "Docker CLI Overview",
+        "Web apps and Docker",
+        "Write Dockerfiles",
+        "Build a monitoring stack",
+        "Deploy apps to Swarm",
+        "Create a Docker Build pipeline",
+        "Docker Swarm & Kubernetes",
+        "Sponsor Labs"
+      ]
+    },
+    {
+      "icon": "/images/cloud-white.svg",
+      "title": "Cloud-Native Introduction",
+      "items": [
+        "Cloud-Native Overview",
+        "Modern application Concepts",
+        "CNCF Landscape",
+        "Native tooling in the cloud",
+        "Your Cloud-Native Journey"
+      ]
+    },
+    {
+      "icon": "/images/infinity.svg",
+      "title": "DevOps Training",
+      "items": [
+        "Cloud-Native Tooling",
+        "CI/CD Pipelines",
+        "Infrastructure Automation",
+        "Cloud Platform Services",
+        "Best Practices"
+      ]
+    }
+  ],
   "altDivider": "Plants"
 }

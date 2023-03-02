@@ -20,7 +20,7 @@ export default function PartnersPage () {
         </Head>
         <MediumTitleIntro title={t('introTitle')}
           textColLeft={t('introText')} />
-        <BaseCardsWrapper cards={baseCardsPartners} text={t('introSurtitle')} className='after:w-64' />
+        <BaseCardsWrapper cards={baseCardsPartners} text={t('cardsWrapperSurtitle')} className='after:w-64' />
         <BackgroundImage src='/images/divider-dark.png' alt={t('altDivider')} width={1920} height={0}
           className='-mt-[7rem] mb-16 md:mb-28 sm:-mt-36 md:-mt-44 lg:-mt-56 xl:-mt-72 2xl:-mt-96' />
         <IllustrationCardWrapper cards={lightIllustrationCardsPartners} theme='light' />

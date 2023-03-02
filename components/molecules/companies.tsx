@@ -3,11 +3,11 @@ import { companies } from '../../data/companies'
 import Icon from '../atoms/icon'
 
 export default function Companies () {
-  const { t } = useTranslation('companies')
+  const { t } = useTranslation('home')
 
   return (
     <section className='bg-blue-lighter section-padding' >
-      <h2 className='text-center title mb-14 xs-responsive-title'>{t('title')}</h2>
+      <h2 className='text-center title mb-14 xs-responsive-title'>{t('companiesTitle')}</h2>
       <div className='flex flex-wrap justify-center'>
         {companies.map((company) => (
           <li key={company.name} className='m-6 list-none'>
