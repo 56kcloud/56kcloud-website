@@ -1,13 +1,13 @@
 import Img from '../atoms/img'
 
-export type Card = {
+export type TeamCardProps = {
   firstName: string
   lastName: string
   role: string
   image: string
 }
 
-export default function TeamCard ({ firstName, lastName, role, image }: Card) {
+export default function TeamCard ({ firstName, lastName, role, image }: TeamCardProps) {
   return (
     <div className='relative flex flex-col p-6 mb-8 text-white sm:mb-0 bg-blue-medium'>
       <p className='font-normal text-right'>{role}</p>

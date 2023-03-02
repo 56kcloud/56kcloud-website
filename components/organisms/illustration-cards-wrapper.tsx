@@ -1,9 +1,9 @@
-import { Card } from '../../data/illustration-cards'
+import { CardPropsImpl } from '../../models/Card.model'
 import classNames from '../../utils/classes'
 import IllustrationCard from '../molecules/illustration-card'
 
 type IllustrationCardsWrapperProps = {
-  cards: Array<Card>
+  cards: Array<CardPropsImpl>
   theme?: 'dark' | 'light'
 }
 

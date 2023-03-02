@@ -1,9 +1,9 @@
-import TeamCard, { Card } from '../molecules/team-card'
+import TeamCard, { TeamCardProps } from '../molecules/team-card'
 import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link'
 
 type TeamCardsWrapperProps = {
-  cards: Array<Card>
+  cards: Array<TeamCardProps>
 }
 
 export default function TeamCardsWrapper ({ cards }: TeamCardsWrapperProps) {

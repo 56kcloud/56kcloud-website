@@ -1,6 +1,6 @@
 import useTranslation from 'next-translate/useTranslation'
 import { BaseCardProps } from '../components/molecules/base-card'
-import { Card } from '../components/molecules/team-card'
+import { TeamCardProps } from '../components/molecules/team-card'
 import Head from 'next/head'
 import Layout from '../components/organisms/layout'
 import MediumTitleIntro from '../components/molecules/medium-title-intro'
@@ -13,7 +13,7 @@ import Footer from '../components/molecules/footer'
 export default function AboutPage () {
   const { t } = useTranslation('about')
   const cardsBase: Array<BaseCardProps> = t('about:focus', { count: 4 }, { returnObjects: true })
-  const cardsTeam: Array<Card> = t('about:team', { count: 3 }, { returnObjects: true })
+  const cardsTeam: Array<TeamCardProps> = t('about:team', { count: 3 }, { returnObjects: true })
 
   return (
     <>
