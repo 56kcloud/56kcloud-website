@@ -6,6 +6,7 @@ import Link from 'next/link'
 import Img from '../atoms/img'
 import NavButton from '../atoms/nav-button'
 import classNames from '../../utils/classes'
+import NavSelect from '../atoms/nav-dropdown'
 
 export default function Nav () {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -13,10 +14,10 @@ export default function Nav () {
   const { t } = useTranslation('nav')
 
   const navigation = [
-    { name: t('navItem1'), href: t('navItem1Href') },
-    { name: t('navItem2'), href: t('navItem2Href') },
-    { name: t('navItem3'), href: t('navItem3Href') },
-    { name: t('navItem4'), href: t('navItem4Href') },
+    { name: t('navItem1'), href: '/services' },
+    { name: t('navItem2'), href: '/training' },
+    { name: t('navItem3'), href: '/partners' },
+    { name: t('navItem4'), href: '/about' },
     {
       name: 'Blog',
       href: 'https://blog.56k.cloud/',
@@ -85,7 +86,7 @@ export default function Nav () {
                 </Link>
               </div>
               <div className='hidden xl:flex xl:items-center xl:justify-between gap-x-24'>
-                <div className='flex space-x-14'>
+                <div className='flex items-center space-x-14'>
                   {navigation.map((item) => (
                     <Link key={item.name} href={item.href} target={item.target} rel={item.rel} className='relative'>
                       <div className={classNames(router.pathname === item.href
@@ -98,6 +99,7 @@ export default function Nav () {
                       </div>
                     </Link>
                   ))}
+                  <NavSelect />
                 </div>
                 <NavButton src='/images/pencil.svg' alt={t('altButtonNav')} setOpen={setSidebarOpen}>
                   {t('navButton')}</NavButton>
