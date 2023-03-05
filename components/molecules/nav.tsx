@@ -26,6 +26,10 @@ export default function Nav () {
     }
   ]
 
+  const sidebarToggle = () => {
+    setSidebarOpen(false)
+  }
+
   return (
     <div>
       <Transition.Root show={sidebarOpen}>
@@ -43,19 +47,19 @@ export default function Nav () {
               <Dialog.Panel className='w-full h-screen bg-black/10 backdrop-blur-lg lg:hidden'>
                 <div className='bg-white flex flex-col flex-wrap ml-auto pt-8 px-16 w-[90%] h-full'>
                   <div className='absolute left-[7%] top-10'>
-                    <button onClick={() => setSidebarOpen(false)}>
+                    <button onClick={sidebarToggle}>
                       <Img src='/images/plus-white.png' alt={t('altIconNavResponsive')} width={50} height={50} />
                     </button>
                   </div>
                   <div className='mb-auto'>
-                    <Link href='/' className='inline-block'>
+                    <Link href='/' className='inline-block' onClick={sidebarToggle}>
                       <Img className='w-auto h-7' src='/images/56k-logo.svg' alt={t('altLogoNav')}
                         width={100} height={100} />
                     </Link>
                   </div>
                   <div className='mb-auto'>
                     {navigation.map((item) => (
-                      <Link key={item.name} href={item.href} target={item.target} rel={item.rel}
+                      <Link key={item.name} href={item.href} target={item.target} rel={item.rel} onClick={sidebarToggle}
                         className='block mb-4 text-2xl font-medium font-graphik text-blue-dark'>
                         {item.name}
                       </Link>
