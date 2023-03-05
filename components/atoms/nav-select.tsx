@@ -4,7 +4,7 @@ import { ChevronDownIcon } from '@heroicons/react/outline'
 import classNames from '../../utils/classes'
 import { useRouter } from 'next/router'
 
-export default function Example () {
+export default function NavSelect () {
   const router = useRouter()
   const [selected, setSelected] = useState(router.locale)
 
@@ -14,7 +14,7 @@ export default function Example () {
   )
 
   useEffect(() => {
-    selected !== router.locale && router.push('/', '/', { locale: selected })
+    selected !== router.locale && router.push(`/${router.pathname}`, `/${router.pathname}`, { locale: selected })
   }, [selected]
   )
 
@@ -31,7 +31,8 @@ export default function Example () {
           leaveFrom='opacity-100'
           leaveTo='opacity-0'
         >
-          <Listbox.Options className='absolute w-full py-1 mt-3 text-base rounded-md ring-1 ring-blue-medium'>
+          <Listbox.Options className='absolute -left-[2px] w-full py-1 mt-3 text-base rounded-md ring-1
+          ring-blue-medium'>
             {router.locales.map((language, idx) => (
               <Listbox.Option key={idx} className='flex items-center justify-center uppercase cursor-pointer h-9'
                 value={language}

@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Img from '../atoms/img'
 import NavButton from '../atoms/nav-button'
 import classNames from '../../utils/classes'
-import NavSelect from '../atoms/nav-dropdown'
+import NavSelect from '../atoms/nav-select'
 
 export default function Nav () {
   const [sidebarOpen, setSidebarOpen] = useState(false)
