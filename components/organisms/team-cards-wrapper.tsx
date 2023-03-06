@@ -18,7 +18,7 @@ export default function TeamCardsWrapper ({ cards }: TeamCardsWrapperProps) {
             role={card.role} image={card.image} />
         ))}
         <div className='flex flex-col items-center justify-center col-start-2 col-end-3 p-8 text-center text-white'>
-          <h2 className='mb-6 text-4xl leading-tight md:text-5xl title'>{t('teamTitle')}</h2>
+          <h2 className='mb-6 text-[36px] md:text-[48px] title'>{t('teamTitle')}</h2>
           <p className='text-lg'>{t('teamText1')}
             <Link href='#' className='font-normal text-orange-medium'> {t('teamText2')}</Link>{t('teamText3')}</p>
         </div>

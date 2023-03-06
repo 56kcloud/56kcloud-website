@@ -13,7 +13,7 @@ export default function Description ({ surtitle, text, details }: DescriptionPro
       <div className='relative max-w-6xl mx-auto'>
         <div className='w-full mb-16 xl:w-3/5'>
           <Surtitle text={surtitle} />
-          <p className='text-blue-dark text-[calc(20px+1vw)] title leading-tight'>{text}</p>
+          <p className='text-blue-dark text-[calc(20px+1vw)] title'>{text}</p>
         </div>
         <div className='w-full mb-16 lg:w-1/2'>
           <ul className='flex flex-col'>
