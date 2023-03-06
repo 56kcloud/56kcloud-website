@@ -22,7 +22,7 @@ export default function NavSelect () {
     <Listbox value={selected} onChange={setSelected}>
       <div className='relative'>
         <Listbox.Button className='flex items-center justify-between w-12'>
-          <span className='font-medium uppercase'>{selected}</span>
+          <span className='font-medium uppercase xl:text-sm 2xl:text-base'>{selected}</span>
           <ChevronDownIcon className='w-5 h-5 text-blue-medium' aria-hidden='true' />
         </Listbox.Button>
         <Transition
@@ -31,7 +31,7 @@ export default function NavSelect () {
           leaveFrom='opacity-100'
           leaveTo='opacity-0'
         >
-          <Listbox.Options className='absolute -left-[2px] w-full py-1 mt-3 text-base rounded-md ring-1
+          <Listbox.Options className='absolute -left-[2px] w-full py-1 mt-3 xl:text-sm 2xl:text-base rounded-md ring-1
           ring-blue-medium'>
             {router.locales.map((language, idx) => (
               <Listbox.Option key={idx} className='flex items-center justify-center uppercase cursor-pointer h-9'

@@ -33,7 +33,7 @@ export default function Nav () {
   return (
     <div>
       <Transition.Root show={sidebarOpen}>
-        <Dialog as='div' className='relative z-50 lg:hidden' onClose={setSidebarOpen}>
+        <Dialog as='div' className='relative z-50 xl:hidden' onClose={setSidebarOpen}>
           <div className='fixed inset-0 z-50'>
             <Transition.Child
               as={Fragment}
@@ -44,7 +44,7 @@ export default function Nav () {
               leaveFrom='-translate-x-0'
               leaveTo='translate-x-full'
             >
-              <Dialog.Panel className='w-full h-screen bg-black/10 backdrop-blur-lg lg:hidden'>
+              <Dialog.Panel className='w-full h-screen bg-black/10 backdrop-blur-lg xl:hidden'>
                 <div className='bg-white flex flex-col flex-wrap ml-auto pt-8 px-16 w-[90%] h-full'>
                   <div className='absolute left-[7%] top-10'>
                     <button onClick={sidebarToggle}>
@@ -56,7 +56,9 @@ export default function Nav () {
                       <Img className='w-auto h-7' src='/images/56k-logo.svg' alt={t('altLogoNav')}
                         width={100} height={100} />
                     </Link>
-                    <NavSelect />
+                    <div className='translate-y-[3px]'>
+                      <NavSelect />
+                    </div>
                   </div>
                   <div className='mb-auto'>
                     {navigation.map((item) => (
@@ -90,14 +92,14 @@ export default function Nav () {
                     width={0} height={0} />
                 </Link>
               </div>
-              <div className='hidden xl:flex xl:items-center xl:justify-between gap-x-24'>
-                <div className='flex items-center space-x-14'>
+              <div className='hidden xl:flex xl:items-center xl:justify-between gap-x-12 2xl:gap-x-16'>
+                <div className='flex items-center space-x-12 2xl:space-x-14'>
                   {navigation.map((item) => (
                     <Link key={item.name} href={item.href} target={item.target} rel={item.rel} className='relative'>
                       <div className={classNames(router.pathname === item.href
                         ? 'after:content-[\'\'] after:absolute after:left-0 after:bottom-0 after:bg-blue-light \
                           after:h-[3px] after:w-full'
-                        : '', 'font-medium')}
+                        : '', 'font-medium text-sm 2xl:text-base')}
                       aria-current={item.href === router.pathname ? 'page' : undefined}
                       >
                         {item.name}
