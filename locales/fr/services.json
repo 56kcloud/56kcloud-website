@@ -50,7 +50,8 @@
         "Accès 56K Cloud Slack* pour l'onboarding et le support*",
         "Pile technologique: Terraform, Terragrunt, AWS, actions Gitlab/Github, CDK*",
         "En option: Prise en charge de plus de trois comptes /w accès à la base de code*",
-        "En option: Paquets de conformité et de sécurité pour atteindre CIS et HIPPA", "En option: Paquets de conformité et de sécurité pour atteindre CIS et HIPPA"
+        "En option: Paquets de conformité et de sécurité pour atteindre CIS et HIPPA",
+        "En option: Paquets de conformité et de sécurité pour atteindre CIS et HIPPA"
       ]
     },
     {
@@ -62,8 +63,10 @@
         "Des blocs de construction fondamentaux pour soutenir une petite équipe de développement",
         "Assistance à l'intégration dans le cadre d'un programme d'une semaine",
         "Un investissement limité est nécessaire pour démarrer, ce qui vous laisse plus de temps pour vous concentrer sur le développement du produit!",
-        "Pile technologique: Conteneurs Docker, ECS, ALB", "Technology Stack : Docker Containers, ECS, ALB"
+        "Pile technologique: Conteneurs Docker, ECS, ALB",
+        "Technology Stack : Docker Containers, ECS, ALB"
       ]
     }
-  ]
+  ],
+  "altDivider": "Plantes"
 }
