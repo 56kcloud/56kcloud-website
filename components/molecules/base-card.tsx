@@ -17,7 +17,7 @@ export default function BaseCard ({ number, icon, title, className }: BaseCardPr
         </div>
         <Icon src={icon} alt={title} width={100} height={0} className={classNames('w-12 h-12 p-3', className)} />
         <div className='mt-auto min-h-[7rem]'>
-          <h3 className='text-2xl font-medium title'>{title}</h3>
+          <h3 className='text-[24px] font-medium title'>{title}</h3>
         </div>
       </div>
     </div>

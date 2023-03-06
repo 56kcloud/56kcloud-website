@@ -42,7 +42,7 @@ export default function Gallery () {
         <div className='lg:absolute lg:bottom-52 xl:left-[10%]'>
           <div className='lg:w-[450px]'>
             <Surtitle text={t('epigraphSurtitle')} />
-            <h3 className='text-2xl md:text-3xl lg:text-4xl xl:text-[42px] leading-[1.1] title'>{t('epigraphText')}
+            <h3 className='text-[24px] md:text-[30px] lg:text-[36px] xl:text-[42px] title'>{t('epigraphText')}
             </h3>
           </div>
         </div>

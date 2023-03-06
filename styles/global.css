@@ -5,7 +5,7 @@
 /* Base */
 html,
 body {
-  @apply font-graphik text-blue-medium text-base leading-normal font-light
+  @apply font-graphik text-blue-medium text-base font-light
 }
 
 /* Typography */
@@ -72,7 +72,7 @@ body {
   }
 
   .title {
-    @apply font-chap font-medium
+    @apply font-chap font-medium leading-[1.15]
   }
 
   .xs-responsive-title {
