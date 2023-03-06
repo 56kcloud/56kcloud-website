@@ -1,3 +1,60 @@
 {
-  "titleLine1": "Beginnen wir"
+  "titleLine1": "Beginnen wir",
+  "titleLine2": "Ihre Cloud",
+  "titleLine3": "Reise",
+  "text": "Es ist wichtig, dass das gesamte Team an Bord ist und auf der gleichen Cloud-Reise in die richtige Richtung geht. Wir unterstützen die Kunden bei ihrer Cloud-Native-Geschichte.",
+  "title": "56K.Cloud wurde gegründet, um unsere Vision der Cloud mit unseren Partnern und Kunden zu teilen.",
+  "darkServices": [
+    {
+      "number": "01",
+      "image": "/images/automation.png",
+      "icon": "/images/automation-icon.png",
+      "title": "Automatisierung",
+      "description": "End-to-End-Automatisierung Ihrer Infrastruktur und Anwendungen, die reproduzierbare und versionskontrollierte Umgebungen ermöglicht."
+    },
+    {
+      "number": "02",
+      "image": "/images/cloud.png",
+      "icon": "/images/cloud-icon.png",
+      "title": "Cloud",
+      "description": "Nutzen Sie die Best Practice der Cloud-Architektur in Kombination mit Automatisierung, um maximale Leistung zu erzielen und gleichzeitig Ihre monatlichen Cloud-Kosten zu senken.",
+      "alignment": "right"
+    },
+    {
+      "number": "03",
+      "image": "/images/dockers.png",
+      "icon": "/images/automation-icon.png",
+      "title": "Docker und Kubernetes",
+      "description": "Containerisieren Sie Anwendungen oder setzen Sie einen Container-Orchestrator wie Docker Swarm oder Kubernetes ein und integrieren Sie ihn in Ihren DevOps-Workflow."
+    }
+  ],
+  "alt": "Buro Illustration",
+  "lightServices": [
+    {
+      "number": "04",
+      "image": "/images/devops.png",
+      "icon": "/images/devops-icon.png",
+      "title": "DevOps Services",
+      "description": "Von Infrastructure as Code bis zum Aufbau von CI/CD-Pipelines unterstützen wir Ihr Unternehmen mit den neuesten DevOps-Tools und Best Practices.",
+      "theme": "light"
+    },
+    {
+      "number": "05",
+      "image": "/images/monitoring.png",
+      "icon": "/images/monitoring-icon.png",
+      "title": "Überwachung und Sicherheit",
+      "description": "Eine unserer Leidenschaften ist die Überwachung. Wir haben maßgeschneiderte Überwachungsinstrumente entwickelt, die Sie über Ihre Geschäftsentscheidungen und Ihre Infrastruktur auf dem Laufenden halten.",
+      "alignment": "right",
+      "theme": "light"
+    },
+    {
+      "number": "06",
+      "image": "/images/training.png",
+      "icon": "/images/training-icon.png",
+      "title": "Ausbildung",
+      "description": "Das Schulungsprogramm von 56K.Cloud bietet praktische Schulungen anhand von realen Beispielen und Anwendungsfällen. Unser Schulungsprogramm deckt die Bereiche Cloud, Container und DevOps ab.",
+      "theme": "light"
+    }
+  ],
+  "companiesTitle": "Diese Unternehmen vertrauen uns bereits"
 }
