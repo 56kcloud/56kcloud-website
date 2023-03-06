@@ -14,7 +14,7 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
     { href: t('link1Href'), title: t('link1') },
     { href: t('link2Href'), title: t('link2') },
     { href: t('link3Href'), title: t('link3') },
-    { href: '/about', title: t('link4') },
+    { href: t('link4Href'), title: t('link4') },
     { href: 'https://blog.56k.cloud/', title: 'Blog', target: '_blank', rel: 'noopener noreferrer' },
     { href: '/', title: t('link6') }
   ]
