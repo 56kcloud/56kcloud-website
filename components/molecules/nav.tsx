@@ -51,11 +51,12 @@ export default function Nav () {
                       <Img src='/images/plus-white.png' alt={t('altIconNavResponsive')} width={50} height={50} />
                     </button>
                   </div>
-                  <div className='mb-auto'>
+                  <div className='flex items-center justify-between mb-auto'>
                     <Link href='/' className='inline-block' onClick={sidebarToggle}>
                       <Img className='w-auto h-7' src='/images/56k-logo.svg' alt={t('altLogoNav')}
                         width={100} height={100} />
                     </Link>
+                    <NavSelect />
                   </div>
                   <div className='mb-auto'>
                     {navigation.map((item) => (
