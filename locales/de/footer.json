@@ -1,3 +1,16 @@
 {
-  "linkContactUs": "Kontakt Uns"
+  "linkContactUs": "Kontakt Uns",
+  "text": "56K.Cloud ist ein professionelles Dienstleistungs-, Schulungs- und Technologieunternehmen, das sich auf die Beschleunigung von Cloud-Produkten durch Cloud-Native-Migration, Sicherheit, Entwickler-Tooling und Community konzentriert. Wir ermöglichen es Kunden, auf Public-Cloud-Technologien aufzubauen und ihre Entwicklungspraktiken durch DevOps und agile Transformation zu beschleunigen.",
+  "altLogo56k": "56k Logo",
+  "link1": "Services",
+  "link2": "Ausbildung",
+  "link3": "Partner",
+  "link4": "Über uns",
+  "link6": "Uns kontaktieren",
+  "countryNameAddress": "Schweiz",
+  "altIconTwitter": "Twitter Logo",
+  "altIconLinkedin": "Linkedin Logo",
+  "rightsReserved": "Alle Rechte vorbehalten",
+  "designBy": "Entwurf von",
+  "altLogoVoila": "Voila Logo"
 }
