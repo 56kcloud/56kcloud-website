@@ -1,0 +1,70 @@
+{
+  "tab": "Ausbildung",
+  "introSurtitle": "Über unser",
+  "introTitle": "Ausbildung",
+  "introText": "Unser Schulungskonzept ist einfach. Praktische Beispiele aus der Praxis, angepasst an Ihre spezifische Umgebung (Cloud, Anwendung und Geschäftsfälle). 56K.Cloud arbeitet sehr eng mit unseren Partnern zusammen, um die besten Lösungen zu liefern. Das 56K.Cloud-Team bringt jahrelange Erfahrung in die Schulungen ein, indem es sowohl die besten Praktiken als auch die Funktionsweise in der Produktion vorstellt.",
+  "descriptionSurtitle": "Was beinhaltet unsere Ausbildung?",
+  "descriptionText": "Wir bieten nicht nur Schulungen an, sondern auch Gespräche vor der Schulung und Unterstützung nach der Schulung. Wir veranstalten spezielle Schulungsveranstaltungen in den Schweizer Alpen, wo wir die Vorteile der Natur nutzen können, während wir in die verschiedenen Schulungsthemen eintauchen.",
+  "details": [
+    "30 Tage Slack-Support nach Abschluss des Kurses*",
+    "Zusätzliche Ressourcen und Laboratorien",
+    "Willkommens-E-Mail/Checkliste",
+    "Ein geplanter Folgeanruf",
+    "Schulungsinhalte werden über Git zur Verfügung gestellt"
+  ],
+  "altMainIllustration": "Menschen vor dem Berg stehend",
+  "features": [
+    {
+      "icon": "/images/wheel.svg",
+      "title": "Kubernetes Ausbildung",
+      "items": [
+        "Kubernetes Übersicht (Architektur und Konzepte)",
+        "Eine lokale Entwicklungsumgebung installieren",
+        "Kubectl CLI Übersicht",
+        "Kubernetes Pods",
+        "Bereitstellung (Skalierung, Kennzeichnung, Zustandsprüfungen)",
+        "Kubernetes Protokollierung, Überwachung und Sicherung von Containern",
+        "Benutzerdefinierte Inhalte (typischerweise eine “Hallo Welt“ Anwendung) Kubernetes auf AWS"
+      ]
+    },
+    {
+      "icon": "/images/whale.svg",
+      "title": "Docker Ausbildung",
+      "items": [
+        "Einführung in Docker, Kubernetes und Cloud-Native",
+        "Docker Übersicht",
+        "Docker CLI Übersicht",
+        "Webanwendungen und Docker",
+        "Dockerdateien schreiben",
+        "Einen Überwachungsstapel aufbauen",
+        "Anwendungen in Swarm bereitstellen",
+        "Eine Docker Build-Pipeline erstellen",
+        "Docker Swarm und Kubernetes",
+        "Labs sponsern"
+      ]
+    },
+    {
+      "icon": "/images/cloud-white.svg",
+      "title": "Cloud-Native Einführung",
+      "items": [
+        "Cloud-Native Überblick",
+        "Moderne Anwendungskonzepte",
+        "CNCF Landschaft",
+        "Native Werkzeuge in der Cloud",
+        "Ihre Cloud-Native Reise"
+      ]
+    },
+    {
+      "icon": "/images/infinity.svg",
+      "title": "DevOps Ausbildung",
+      "items": [
+        "Cloud-Native Werkzeuge",
+        "CI/CD Pipelines",
+        "Infrastruktur Automatisierung",
+        "Cloud Plattform Dienste",
+        "Best Practices"
+      ]
+    }
+  ],
+  "altDivider": "Pflanzen"
+}
