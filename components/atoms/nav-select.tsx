@@ -14,7 +14,7 @@ export default function NavSelect () {
   )
 
   useEffect(() => {
-    selected !== router.locale && router.push(`/${router.pathname}`, `/${router.pathname}`, { locale: selected })
+    selected !== router.locale && router.push(`${router.pathname}`, `${router.pathname}`, { locale: selected })
   }, [selected]
   )
 
