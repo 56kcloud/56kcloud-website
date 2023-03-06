@@ -1,0 +1,62 @@
+{
+  "tab": "Über uns",
+  "introTitle": "56K.Cloud wurde gegründet, um unsere Vision der Cloud mit unseren Partnern und Kunden zu teilen",
+  "introTextColLeft": "56K.Cloud wurde gegründet, nachdem wir festgestellt hatten, dass der Weg des Kunden in die Cloud nicht vollständig berücksichtigt wurde.",
+  "introTextColRight": "Wir sind stolz darauf, technologieorientiert zu sein und uns nicht auf Anbietertechnologien festzulegen, sondern die beste Cloud-Lösung für unsere Kunden anzubieten.",
+  "altImage1": "Gebäude",
+  "altImage2": "Fenster",
+  "altImage5": "Treffen",
+  "epigraphSurtitle": "Vision Erklärung",
+  "epigraphText": "Wir haben eine Vision entwickelt, die klar, kurz und zeitlos ist. Jedes Projekt profitiert von den Vorteilen früherer Projekte und Erfahrungen. Innovation durch Automatisierung.",
+  "cardsWrapperSurtitle": "Unser Schwerpunkt",
+  "focus": [
+    {
+      "number": "01",
+      "icon": "/images/automation-icon.png",
+      "title": "Automatisierung von Infrastruktur und Anwendungen",
+      "className": "bg-orange-medium"
+    },
+    {
+      "number": "02",
+      "icon": "/images/devops-icon.png",
+      "title": "DevOps Services",
+      "className": "bg-orange-lighter"
+    },
+    {
+      "number": "03",
+      "icon": "/images/cloud-icon.png",
+      "title": "Cloud",
+      "className": "bg-blue-light"
+    },
+    {
+      "number": "04",
+      "icon": "/images/monitoring-icon.png",
+      "title": "Überwachung und Sicherheit",
+      "className": "bg-orange-medium"
+    }
+  ],
+  "team": [
+    {
+      "firstName": "Darragh",
+      "lastName": "Grealish",
+      "role": "Ingenieur für Standortzuverlässigkeit und Geschäftsführender Partner",
+      "image": "/images/darragh.jpeg"
+    },
+    {
+      "firstName": "Jochen",
+      "lastName": "Zehnder",
+      "role": "Ingenieur für Standortzuverlässigkeit und Geschäftsführender Partner",
+      "image": "/images/jochen.jpeg"
+    },
+    {
+      "firstName": "Jean-Pierre",
+      "lastName": "Gehrig",
+      "role": "Hauptprogrammierer und Geschäftsführender Partner",
+      "image": "/images/jean-pierre.jpeg"
+    }
+  ],
+  "teamTitle": "Teil des Teams?",
+  "teamText1": "Teilen Sie dieselbe Vision und dieselben Werte? Wir würden uns freuen, von Ihnen zu hören.",
+  "teamText2": "Uns kontaktieren",
+  "teamText3": ", wir würden uns freuen, mit Ihnen einen Kaffee zu trinken."
+}
