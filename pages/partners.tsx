@@ -24,7 +24,7 @@ export default function PartnersPage () {
         <BaseCardsWrapper cards={baseCardsPartners} text={t('cardsWrapperSurtitle')} className='after:w-64' />
         <BackgroundImage src='/images/divider-dark.png' alt={t('altDivider')} width={1920} height={0}
           className='-mt-[7rem] mb-16 md:mb-28 sm:-mt-36 md:-mt-44 lg:-mt-56 xl:-mt-72 2xl:-mt-96' />
-        <IllustrationCardWrapper cards={illustrationCards} theme='light' />
+        <IllustrationCardWrapper title='Services' theme='light' cards={illustrationCards} />
       </Layout>
       <footer>
         <Footer version='illustration' />

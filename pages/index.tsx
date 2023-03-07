@@ -22,10 +22,10 @@ export default function HomePage () {
       <main>
         <SmallTitleIntro text={t('text')}
           title={t('title')} />
-        <IllustrationCardsWrapper cards={darkIllustrationCards} theme='dark' />
+        <IllustrationCardsWrapper theme='dark' title='Services' cards={darkIllustrationCards} />
         <BackgroundImage src='/images/buro-background.png' alt={t('alt')} width={1920} height={0}
           className='bg-blue-lighter' />
-        <IllustrationCardsWrapper cards={lightIllustrationCards} theme='light' />
+        <IllustrationCardsWrapper theme='light' title='Services' cards={lightIllustrationCards} />
         <Companies />
       </main>
       <Footer version='illustration' />
