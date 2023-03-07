@@ -3,15 +3,15 @@ import DetailsCard, { DetailsCardProps } from '../molecules/details-card'
 
 type DetailsCardsWrapperProps = {
   title: string
-  styleText?: string
+  styleTitle?: string
   cards: Array<DetailsCardProps>
 }
 
-export default function DetailsCardsWrapper ({ title, cards, styleText }
+export default function DetailsCardsWrapper ({ title, cards, styleTitle }
   : DetailsCardsWrapperProps) {
   return (
     <section className='relative bg-blue-dark section-padding'>
-      <VerticalTitle title={title} styleCard='detailsCard' classNameText={styleText} />
+      <VerticalTitle title={title} styleCard='detailsCard' classNameText={styleTitle} />
       <div className='mx-auto max-w-7xl'>
         <div className='grid gap-16 md:grid-cols-2'>
           {cards.map((card) => (
