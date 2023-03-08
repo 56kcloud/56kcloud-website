@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { Dialog, Transition } from '@headlessui/react'
 import Link from 'next/link'
 import Img from '../atoms/img'
-import NavButton from '../atoms/nav-button'
+import Button from '../atoms/button'
 import classNames from '../../utils/classes'
 import NavSelect from '../atoms/nav-select'
 import Modal from './modal'
@@ -75,8 +75,8 @@ export default function Nav () {
                     ))}
                   </div>
                   <div className='py-12 text-center border-t'>
-                    <NavButton src='/images/pencil.svg' alt={t('altButtonNav')} setOpen={setSidebarOpen}>
-                      {t('navButton')}</NavButton>
+                    <Button src='/images/pencil.svg' alt={t('altButtonNav')} icon={true} setOpen={openModal}>
+                      {t('navButton')}</Button>
                   </div>
                 </div>
               </Dialog.Panel>
@@ -89,7 +89,9 @@ export default function Nav () {
         <div className='relative'>
           <div className='max-w-[100rem] mx-auto'>
             <div className='absolute inset-y-0 right-0 flex items-center xl:hidden'>
-              <NavButton src='/images/menu.svg' alt={t('altIconMenuButton')} setOpen={setSidebarOpen}>Menu</NavButton>
+              <Button src='/images/menu.svg' alt={t('altIconMenuButton')} icon={true} setOpen={setSidebarOpen}>
+                Menu
+              </Button>
             </div>
             <div className='flex justify-between'>
               <div>
@@ -114,8 +116,8 @@ export default function Nav () {
                   ))}
                   <NavSelect />
                 </div>
-                <NavButton src='/images/pencil.svg' alt={t('altButtonNav')} onClick={openModal}>
-                  {t('navButton')}</NavButton>
+                <Button src='/images/pencil.svg' alt={t('altButtonNav')} setOpen={openModal} icon={true}>
+                  {t('navButton')}</Button>
               </div>
             </div>
           </div>

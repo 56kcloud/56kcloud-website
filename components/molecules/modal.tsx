@@ -1,7 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import Img from '../atoms/img'
-import NavButton from '../atoms/nav-button'
+import Button from '../atoms/button'
 
 export default function Modal ({ isOpen, setIsOpen }) {
   function closeModal () {
@@ -34,24 +34,28 @@ export default function Modal ({ isOpen, setIsOpen }) {
               leaveFrom='opacity-100 scale-100'
               leaveTo='opacity-0 scale-95'
             >
-              <Dialog.Panel className='relative w-full max-w-md p-8 text-left top-10 align-middle pt-52 \
-                transition-all transform bg-white shadow-xl rounded-2xl'>
+              <Dialog.Panel className='relative w-full max-w-xs sm:max-w-md p-6 sm:p-8 text-left top-10 align-middle \
+                 pt-40 sm:pt-52 transition-all transform bg-white shadow-xl rounded-2xl'>
                 <div>
+                  <button onClick={closeModal}
+                    className='absolute -top-20 sm:-top-24 translate-x-[50%] right-0 translate-y-[100%]'>
+                    <Img src='/images/plus-white.png' alt='' width={50} height={50} />
+                  </button>
                   <Img src='/images/modal.png' alt='Group of people' width={1920} height={0}
-                    className='absolute -top-20' />
+                    className='absolute -top-14 sm:-top-20 left-2' />
                 </div>
                 <Dialog.Title
                   as='h3'
-                  className='text-4xl font-semibold text-center text-blue-medium title'
+                  className='text-3xl font-semibold text-center sm:text-4xl text-blue-medium title'
                 >
                     Let's talk
                 </Dialog.Title>
                 <div className='mt-2'>
-                  <p className='text-lg font-normal text-center font-graphik text-blue-medium'>
+                  <p className='text-base font-normal text-center sm:text-lg font-graphik text-blue-medium'>
                     Find out how 56K.Cloud can benefit you!
                   </p>
                 </div>
-                <form className='text-base mt-9 placeholder:text-base font-graphik '>
+                <form className='mt-6 text-sm sm:text-base sm:mt-9 placeholder:text-base font-graphik '>
                   <input type='text' className='block w-full p-3 mb-4 border border-gray-300 rounded-lg \
                    placeholder:text-blue-medium' placeholder='Your Name' />
                   <input type='email' className='block w-full p-3 mb-4 border border-gray-300 rounded-lg \
@@ -60,7 +64,7 @@ export default function Modal ({ isOpen, setIsOpen }) {
                    placeholder:text-blue-medium min-h-[7rem]' placeholder='Your Message...' />
                 </form>
                 <div className='flex justify-center mt-6'>
-                  <NavButton onClick={closeModal}>Let's talk</NavButton>
+                  <Button setOpen={closeModal}>Let's talk</Button>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
