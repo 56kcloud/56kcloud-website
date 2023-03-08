@@ -27,7 +27,7 @@ export default function TeamCardsWrapper ({ cards }: TeamCardsWrapperProps) {
         <div className='flex flex-col items-center justify-center col-start-2 col-end-3 p-8 text-center text-white'>
           <h2 className='mb-6 text-4xl leading-tight md:text-5xl title'>{t('teamTitle')}</h2>
           <p className='text-lg'>{t('teamText1')}
-            <Button style='linkContact' setOpen={openModal}> {t('teamText2')}</Button>{t('teamText3')}
+            <Button style='linkContact' setOpen={openModal}>{t('teamText2')}</Button>{t('teamText3')}
           </p>
         </div>
       </div>

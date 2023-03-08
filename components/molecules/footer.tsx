@@ -66,7 +66,7 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
                     <Link href={link.href} target={link.target} rel={link.rel}>{link.title}</Link>
                   </li>
                 ))}
-                <Button style='linkFooter' setOpen={openModal}>Contact Us</Button>
+                <Button style='linkFooter' setOpen={openModal}>{t('linkContactUs')}</Button>
               </ul>
               <p className='text-grey-medium lg:w-1/3'>
                 56K.Cloud SA<br /> Chemin Saint-Hubert 5<br /> 1950 Sion<br /> {t('address')}
