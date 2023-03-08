@@ -7,9 +7,11 @@ import Img from '../atoms/img'
 import NavButton from '../atoms/nav-button'
 import classNames from '../../utils/classes'
 import NavSelect from '../atoms/nav-select'
+import Modal from './modal'
 
 export default function Nav () {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
   const { t } = useTranslation('nav')
 
@@ -28,6 +30,10 @@ export default function Nav () {
 
   const sidebarToggle = () => {
     setSidebarOpen(false)
+  }
+
+  function openModal () {
+    setIsOpen(true)
   }
 
   return (
@@ -108,13 +114,14 @@ export default function Nav () {
                   ))}
                   <NavSelect />
                 </div>
-                <NavButton src='/images/pencil.svg' alt={t('altButtonNav')} setOpen={setSidebarOpen}>
+                <NavButton src='/images/pencil.svg' alt={t('altButtonNav')} onClick={openModal}>
                   {t('navButton')}</NavButton>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   )
 }
