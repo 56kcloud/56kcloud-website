@@ -20,7 +20,7 @@ export default function Modal ({ isOpen, setIsOpen }) {
           leaveFrom='opacity-100'
           leaveTo='opacity-0'
         >
-          <div className='fixed inset-0 bg-white bg-opacity-50' />
+          <div className='fixed inset-0 bg-white bg-opacity-80' />
         </Transition.Child>
 
         <div className='fixed inset-0 overflow-y-auto'>
@@ -38,7 +38,7 @@ export default function Modal ({ isOpen, setIsOpen }) {
                  pt-40 sm:pt-52 transition-all transform bg-white shadow-xl rounded-2xl'>
                 <div>
                   <button onClick={closeModal}
-                    className='absolute -top-20 sm:-top-24 translate-x-[50%] right-0 translate-y-[100%]'>
+                    className='absolute -top-20 translate-x-[50%] right-0 translate-y-[100%]'>
                     <Img src='/images/plus-white.png' alt='' width={50} height={50} />
                   </button>
                   <Img src='/images/modal.png' alt='Group of people' width={1920} height={0}

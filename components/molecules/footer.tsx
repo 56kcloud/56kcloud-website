@@ -1,13 +1,17 @@
+import { useState } from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import classNames from '../../utils/classes'
 import Link from 'next/link'
 import Img from '../atoms/img'
+import Button from '../atoms/button'
+import Modal from './modal'
 
 type FooterProps = {
   version: 'illustration' | 'blue'
 }
 
 export default function Footer ({ version = 'illustration' }: FooterProps) {
+  const [isOpen, setIsOpen] = useState(false)
   const { t } = useTranslation('footer')
 
   const links = [
@@ -15,8 +19,7 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
     { href: t('link2Href'), title: t('link2') },
     { href: t('link3Href'), title: t('link3') },
     { href: '/about', title: t('link4') },
-    { href: 'https://blog.56k.cloud/', title: 'Blog', target: '_blank', rel: 'noopener noreferrer' },
-    { href: '/', title: t('link6') }
+    { href: 'https://blog.56k.cloud/', title: 'Blog', target: '_blank', rel: 'noopener noreferrer' }
   ]
 
   const socialNetworksIcons = [
@@ -37,6 +40,10 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
       rel: 'noopener noreferrer'
     }
   ]
+
+  function openModal () {
+    setIsOpen(true)
+  }
 
   return (
     <footer className={classNames(
@@ -59,6 +66,7 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
                     <Link href={link.href} target={link.target} rel={link.rel}>{link.title}</Link>
                   </li>
                 ))}
+                <Button style='linkFooter' setOpen={openModal}>Contact Us</Button>
               </ul>
               <p className='text-grey-medium lg:w-1/3'>
                 56K.Cloud SA<br /> Chemin Saint-Hubert 5<br /> 1950 Sion<br /> {t('address')}
@@ -93,6 +101,7 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
           </div>
         </div>
       </div>
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
     </footer>
   )
 }
