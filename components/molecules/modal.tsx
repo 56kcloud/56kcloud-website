@@ -1,11 +1,13 @@
+import useTranslation from 'next-translate/useTranslation'
+import { useForm } from 'react-hook-form'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import Img from '../atoms/img'
-import useTranslation from 'next-translate/useTranslation'
 import Button from '../atoms/button'
 
 export default function Modal ({ isOpen, setIsOpen }) {
   const { t } = useTranslation('modal')
+  const { register, handleSubmit } = useForm<{name: string, email: string, text: string }>()
 
   function closeModal () {
     setIsOpen(false)
@@ -58,13 +60,15 @@ export default function Modal ({ isOpen, setIsOpen }) {
                     {t('text')}
                   </p>
                 </div>
-                <form className='mt-6 text-sm sm:text-base sm:mt-9 placeholder:text-base font-graphik '>
-                  <input type='text' className='block w-full p-3 mb-4 border border-gray-300 rounded-lg \
-                   placeholder:text-blue-medium' placeholder={t('inputName')} />
-                  <input type='email' className='block w-full p-3 mb-4 border border-gray-300 rounded-lg \
-                   placeholder:text-blue-medium' placeholder={t('inputEmail')} />
-                  <input className='block w-full p-3 mb-4 border border-gray-300 rounded-lg \
-                   placeholder:text-blue-medium min-h-[7rem]' placeholder={t('inputMessage')} />
+                <form onSubmit={handleSubmit()}
+                  className='mt-6 text-sm sm:text-base sm:mt-9 placeholder:text-base font-graphik '>
+                  <input {...register('name')} placeholder={t('inputName')}
+                    className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium' />
+                  <input {...register('email')} placeholder={t('inputEmail')}
+                    className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium' />
+                  <input {...register('text')} placeholder={t('inputMessage')}
+                    className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium \
+                    min-h-[7rem]' />
                 </form>
                 <div className='flex justify-center mt-6'>
                   <Button setOpen={closeModal}>{t('button')}</Button>
