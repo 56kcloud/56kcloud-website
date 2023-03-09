@@ -1,5 +1,5 @@
 {
-  "companyDescription": "56K.Cloud est une société de services professionnels, de formation et de technologie qui se concentre sur l'accélération des produits cloud, par le biais de la migration cloud-native, de la sécurité, de l'outillage des développeurs et de la communauté. Nous permettons à nos clients de s'appuyer sur les technologies du cloud public et d'accélérer leurs pratiques de développement grâce à la transformation DevOps et Agile.",  
+  "companyDescription": "56K.Cloud est une société de services professionnels, de formation et de technologie qui se concentre sur l'accélération des produits cloud, par le biais de la migration cloud-native, de la sécurité, de l'outillage des développeurs et de la communauté. Nous permettons à nos clients de s'appuyer sur les technologies du cloud public et d'accélérer leurs pratiques de développement grâce à la transformation DevOps et Agile.",
   "altLogo56k": "Logo 56k",
   "link1": "Services",
   "link1Href": "/services",
@@ -9,7 +9,7 @@
   "link3Href": "/partenaires",
   "link4": "À propos",
   "link6": "Nous contacter",
-  "address": "Suisse",
+  "countryNameAddress": "Suisse",
   "altIconTwitter": "Logo Twitter",
   "altIconLinkedin": "Logo Linkedin",
   "rightsReserved": "Tous droits réservés",

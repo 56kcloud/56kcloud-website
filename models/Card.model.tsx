@@ -4,7 +4,7 @@ export type CardPropsImpl = {
   icon: string,
   title: string,
   description: string,
-  alignment: string,
+  alignment?: string,
   theme?: string
 }
 
@@ -14,7 +14,7 @@ export class CardProps {
   icon: string
   title: string
   description: string
-  alignment: string
+  alignment?: string
   theme?: string
 
   constructor (props: CardPropsImpl) {

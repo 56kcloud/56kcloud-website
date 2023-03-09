@@ -2,12 +2,13 @@ import useTranslation from 'next-translate/useTranslation'
 import classNames from '../../utils/classes'
 import Link from 'next/link'
 import Img from '../atoms/img'
+import Icon, { IconProps } from '../atoms/icon'
 
 type FooterProps = {
-  version: 'illustration' | 'blue'
+  backgroundStyle: 'illustration' | 'blue'
 }
 
-export default function Footer ({ version = 'illustration' }: FooterProps) {
+export default function Footer ({ backgroundStyle = 'illustration' }: FooterProps) {
   const { t } = useTranslation('footer')
 
   const links = [
@@ -19,28 +20,22 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
     { href: '/', title: t('link6') }
   ]
 
-  const socialNetworksIcons = [
+  const socialNetworksIcons: Array<IconProps> = [
     {
-      href: 'https://twitter.com/56kcloud',
+      iconLink: 'https://twitter.com/56kcloud',
       src: '/images/twitter-icon.svg',
-      alt: t('altIconTwitter'),
-      title: 'twitter',
-      target: '_blank',
-      rel: 'noopener noreferrer'
+      alt: t('altIconTwitter')
     },
     {
-      href: 'https://www.linkedin.com/company/56kcloud',
+      iconLink: 'https://www.linkedin.com/company/56kcloud',
       src: '/images/linkedin-icon.svg',
-      alt: t('altIconLinkedin'),
-      title: 'linkedin',
-      target: '_blank',
-      rel: 'noopener noreferrer'
+      alt: t('altIconLinkedin')
     }
   ]
 
   return (
     <footer className={classNames(
-      version === 'illustration'
+      backgroundStyle === 'illustration'
         ? 'bg-footer-background bg-no-repeat bg-cover bg-blue-lighter'
         : 'bg-blue-dark', 'relative h-[1000px] sm:h-[850px]')}>
       <div className='absolute bottom-0 right-0 z-50 p-8 md:p-0 md:w-10/12'>
@@ -61,17 +56,17 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
                 ))}
               </ul>
               <p className='text-grey-medium lg:w-1/3'>
-                56K.Cloud SA<br /> Chemin Saint-Hubert 5<br /> 1950 Sion<br /> {t('address')}
+                56K.Cloud SA<br /> Chemin Saint-Hubert 5<br /> 1950 Sion<br /> {t('countryNameAddress')}
               </p>
             </div>
             <hr className='border-top-[1px] my-10 w-full border-slate-300' />
             <div className='flex flex-col w-full mb-10 md:flex-row lg:w-1/2 lg:mb-0'>
               <div className='w-2/5 lg:w-2/3'>
                 <ul className='flex items-center mb-10 list-none gap-x-16 md:mb-0'>
-                  {socialNetworksIcons.map((icon) => (
-                    <li key={icon.title}>
-                      <Link href={icon.href} target={icon.target} rel={icon.rel} >
-                        <Img src={icon.src} alt={icon.alt} width={18} height={18} />
+                  {socialNetworksIcons.map((icon, idx) => (
+                    <li key={idx} className='w-4'>
+                      <Link href={icon.iconLink} target='_blank' rel='noopener noreferrer'>
+                        <Icon src={icon.src} alt={icon.alt} width={100} height={100} />
                       </Link>
                     </li>
                   ))}

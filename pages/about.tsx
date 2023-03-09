@@ -12,8 +12,8 @@ import Footer from '../components/molecules/footer'
 
 export default function AboutPage () {
   const { t } = useTranslation('about')
-  const cardsBase: Array<BaseCardProps> = t('about:focus', { count: 4 }, { returnObjects: true })
-  const cardsTeam: Array<TeamCardProps> = t('about:team', { count: 3 }, { returnObjects: true })
+  const cardsBase: Array<BaseCardProps> = t('about:focus', { returnObjects: true })
+  const cardsTeam: Array<TeamCardProps> = t('about:team', { returnObjects: true })
 
   return (
     <>
@@ -31,7 +31,7 @@ export default function AboutPage () {
         <TeamCardsWrapper cards={cardsTeam} />
       </Layout>
       <footer>
-        <Footer version='blue' />
+        <Footer backgroundStyle='blue' />
       </footer>
     </>
   )
