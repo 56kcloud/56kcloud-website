@@ -8,7 +8,6 @@ import Gallery from '../components/molecules/gallery'
 import BaseCardsWrapper from '../components/organisms/base-cards-wrapper'
 import BackgroundImage from '../components/atoms/background-image'
 import TeamCardsWrapper from '../components/organisms/team-cards-wrapper'
-import Footer from '../components/molecules/footer'
 
 export default function AboutPage () {
   const { t } = useTranslation('about')
@@ -16,23 +15,22 @@ export default function AboutPage () {
   const cardsTeam: Array<TeamCardProps> = t('about:team', { count: 3 }, { returnObjects: true })
 
   return (
-    <>
-      <Layout>
-        <Head>
-          <title>Edeltech | {t('tab')}</title>
-        </Head>
-        <MediumTitleIntro title={t('introTitle')}
-          textColLeft={t('introTextColLeft')}
-          textColRight={t('introTextColRight')} />
-        <Gallery />
-        <BaseCardsWrapper cards={cardsBase} text={t('cardsWrapperSurtitle')} className='after:w-64' />
-        <BackgroundImage src='/images/divider-dark.png' alt='Plants divider' width={1920} height={0}
-          className='-mt-[7rem] sm:-mt-36 md:-mt-44 lg:-mt-56 xl:-mt-72 2xl:-mt-96' />
-        <TeamCardsWrapper cards={cardsTeam} />
-      </Layout>
-      <footer>
-        <Footer version='blue' />
-      </footer>
-    </>
+    <Layout>
+      {({ toggleIsOpen }) => (
+        <>
+          <Head>
+            <title>Edeltech | {t('tab')}</title>
+          </Head>
+          <MediumTitleIntro title={t('introTitle')}
+            textColLeft={t('introTextColLeft')}
+            textColRight={t('introTextColRight')} />
+          <Gallery />
+          <BaseCardsWrapper cards={cardsBase} text={t('cardsWrapperSurtitle')} className='after:w-64' />
+          <BackgroundImage src='/images/divider-dark.png' alt='Plants divider' width={1920} height={0}
+            className='-mt-[7rem] sm:-mt-36 md:-mt-44 lg:-mt-56 xl:-mt-72 2xl:-mt-96' />
+          <TeamCardsWrapper toggleContactModal={toggleIsOpen} cards={cardsTeam} />
+        </>
+      )}
+    </Layout>
   )
 }
