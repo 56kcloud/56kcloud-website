@@ -46,7 +46,7 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
   }
 
   return (
-    <footer className={classNames(
+    <div className={classNames(
       version === 'illustration'
         ? 'bg-footer-background bg-no-repeat bg-cover bg-blue-lighter'
         : 'bg-blue-dark', 'relative h-[1000px] sm:h-[850px]')}>
@@ -102,6 +102,6 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
         </div>
       </div>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
-    </footer>
+    </div>
   )
 }

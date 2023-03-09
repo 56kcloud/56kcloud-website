@@ -7,7 +7,6 @@ import LargeTitleIntro from '../components/molecules/large-title-intro'
 import Description from '../components/molecules/description'
 import DetailsCardsWrapper from '../components/organisms/details-cards-wrapper'
 import Contact from '../components/atoms/contact'
-import Footer from '../components/molecules/footer'
 
 export default function TrainingPage () {
   const { t } = useTranslation('training')
@@ -34,7 +33,6 @@ export default function TrainingPage () {
       <BackgroundImage src='/images/divider-light.png' alt={t('altDivider')} className='-mt-40 xl:-mt-64'
         width={1920} height={0} />
       <Contact />
-      <Footer version='illustration' />
     </Layout>
   )
 }
