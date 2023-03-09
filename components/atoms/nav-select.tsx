@@ -10,13 +10,11 @@ export default function NavSelect () {
 
   useEffect(() => {
     setSelected(router.locale)
-  }, [router]
-  )
+  }, [router])
 
   useEffect(() => {
     selected !== router.locale && router.push(`/${router.pathname}`, `/${router.pathname}`, { locale: selected })
-  }, [selected]
-  )
+  }, [selected])
 
   return (
     <Listbox value={selected} onChange={setSelected}>
@@ -39,13 +37,7 @@ export default function NavSelect () {
               >
                 {({ selected }) => (
                   <>
-                    <div
-                      className={classNames(
-                        selected ? 'font-medium' : 'font-normal'
-                      )}
-                    >
-                      {language}
-                    </div>
+                    <div className={classNames(selected ? 'font-medium' : 'font-normal')}>{language}</div>
                   </>
                 )}
               </Listbox.Option>

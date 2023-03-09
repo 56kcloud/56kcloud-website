@@ -11,9 +11,9 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
   const { t } = useTranslation('footer')
 
   const links = [
-    { href: t('link1Href'), title: t('link1') },
-    { href: t('link2Href'), title: t('link2') },
-    { href: t('link3Href'), title: t('link3') },
+    { href: '/services', title: t('link1') },
+    { href: '/training', title: t('link2') },
+    { href: '/partners', title: t('link3') },
     { href: '/about', title: t('link4') },
     { href: 'https://blog.56k.cloud/', title: 'Blog', target: '_blank', rel: 'noopener noreferrer' },
     { href: '/', title: t('link6') }
@@ -47,7 +47,7 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
         <div className='py-8 bg-white md:py-16'>
           <div className='flex flex-wrap justify-between px-8 overflow-hidden md:px-16'>
             <p className='title mb-10 w-full xs-responsive-title leading-[1.1] lg:w-2/3 2xl:w-1/2 lg:mb-16'>
-              {t('text')}
+              {t('companyDescription')}
             </p>
             <Link href='/' className='hidden lg:block lg:w-1/4'>
               <Img src='/images/56k-logo.svg' alt={t('altLogo56k')} width={100} height={100} />

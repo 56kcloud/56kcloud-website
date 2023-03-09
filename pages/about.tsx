@@ -19,7 +19,7 @@ export default function AboutPage () {
     <>
       <Layout>
         <Head>
-          <title>Edeltech | {t('tab')}</title>
+          <title>56K.Cloud | {t('tab')}</title>
         </Head>
         <MediumTitleIntro title={t('introTitle')}
           textColLeft={t('introTextColLeft')}
