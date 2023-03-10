@@ -1,54 +1,50 @@
+import { Translate } from 'next-translate'
 import { CardPropsImpl } from '../models/Card.model'
 
-export function getDarkIllustrationCardsHome (t) {
+export function getDarkIllustrationCardsHome (t: Translate) {
   const darkIllustrationCardsHome: Array<CardPropsImpl> = [
     {
       number: '01',
       image: '/images/automation.png',
       icon: '/images/automation-icon.png',
-      title: 'Automation',
-      description: 'End-to-End automation of your infrastructure and applications which enables reproducible \
-      and version-controlled environments.'
+      title: t('titleCard1'),
+      description: t('descriptionCard1')
     },
     {
       number: '02',
       image: '/images/cloud.png',
       icon: '/images/cloud-icon.png',
       title: 'Cloud',
-      description: 'Leverage the Cloud Architecture best practice in combination with Automation to deliver \
-        maximum performance while reducing your Cloud monthly costs.',
+      description: t('descriptionCard2'),
       alignment: 'right'
     },
     {
       number: '03',
       image: '/images/dockers.png',
       icon: '/images/automation-icon.png',
-      title: 'Docker & Kubernetes',
-      description: 'Containerize Applications or Deploy a Container Orchestrator such as Docker Swarm or Kubernetes \
-        and integrate it into your DevOps workflow.'
+      title: t('titleCard3'),
+      description: t('descriptionCard3')
     }
   ]
   return darkIllustrationCardsHome
 }
 
-export function getLightIllustrationCardsHome (t) {
+export function getLightIllustrationCardsHome (t: Translate) {
   const lightIllustrationCardsHome: Array<CardPropsImpl> = [
     {
       number: '04',
       image: '/images/devops.png',
       icon: '/images/devops-icon.png',
       title: 'DevOps services',
-      description: 'Infrastructure as Code to building CI/CD pipelines we enable your company with the latest DevOps \
-        tools and best practices.',
+      description: t('descriptionCard4'),
       theme: 'light'
     },
     {
       number: '05',
       image: '/images/monitoring.png',
       icon: '/images/monitoring-icon.png',
-      title: 'Monitoring & security',
-      description: 'One of our passions is monitoring. We have developed custom monitoring tools to keep you informed \
-        about your business decisions and infrastructure.',
+      title: t('titleCard5'),
+      description: t('descriptionCard5'),
       alignment: 'right',
       theme: 'light'
     },
@@ -56,22 +52,22 @@ export function getLightIllustrationCardsHome (t) {
       number: '06',
       image: '/images/training.png',
       icon: '/images/training-icon.png',
-      title: 'Training',
-      description: '56K.Cloud’s training program provides hands-on training using real-world examples and use-cases. \ Our Training program covers Cloud, Containers, and DevOps.',
+      title: t('titleCard6'),
+      description: t('descriptionCard6'),
       theme: 'light'
     }
   ]
   return lightIllustrationCardsHome
 }
 
-export function getLightIllustrationsCardsPartners (t) {
+export function getLightIllustrationsCardsPartners (t: Translate) {
   const lightIllustrationCardsPartners: Array<CardPropsImpl> = [
     {
       number: '01',
       image: '/images/automation.png',
       icon: '/images/cloud-icon.png',
       title: 'AWS - Amazon Web Services',
-      description: 'As Advanced Partner, in Edge, IoT and Cloud Transformation.',
+      description: t('descriptionCard1'),
       theme: 'light'
     },
     {
@@ -79,7 +75,7 @@ export function getLightIllustrationsCardsPartners (t) {
       image: '/images/automation.png',
       icon: '/images/docker-icon.png',
       title: 'Docker',
-      description: 'Enabling Containerisation and Developer tooling at it\'s best.',
+      description: t('descriptionCard2'),
       alignment: 'right',
       theme: 'light'
     },
@@ -88,9 +84,7 @@ export function getLightIllustrationsCardsPartners (t) {
       image: '/images/automation.png',
       icon: '/images/devops-icon.png',
       title: 'ARM',
-      description: 'Across Cloud and Embedded Systems (IoT) we work with leading CPU architecture that increase \
-      performance and reduce energy requirements, Partnering with ARM enable\'s 56K.Cloud customers to access key \
-      experts and industry relationships.',
+      description: t('descriptionCard3'),
       theme: 'light'
     }
   ]

@@ -1,67 +1,68 @@
+import { Translate } from 'next-translate'
 import { DetailsCardProps } from '../components/molecules/details-card'
 
-export function getListDetailsServices (t) {
+export function getListDetailsServices (t: Translate) {
   const listDetails: Array<string> = [
-    'Learning about the Cloud and it/\'s best practices',
-    'Accumulated cloud knowledge in ready to use packages',
-    'Customizable Infrastructure as Code (IaC) components',
-    'Access to experts to guide the team on their journey',
-    'Learning backwards approach to enable the team'
+    t('listDetail1'),
+    t('listDetail2'),
+    t('listDetail3'),
+    t('listDetail4'),
+    t('listDetail5')
   ]
   return listDetails
 }
 
-export function getDetailsCardsServices (t) {
+export function getDetailsCardsServices (t: Translate) {
   const detailsCards: Array<DetailsCardProps> = [
     {
       icon: '/images/cloud-white.svg',
-      title: 'Cloud Readiness Assessment',
+      title: t('titleCard1'),
       items: [
-        'Cloud-Native Introduction',
-        'Understanding your application landscape',
-        'Learning about your process',
-        'Getting to know the team and their capabilities',
-        'Summarizing the status quo',
-        'Recommendations for the next steps'
+        t('detail1Card1'),
+        t('detail2Card1'),
+        t('detail3Card1'),
+        t('detail4Card1'),
+        t('detail5Card1'),
+        t('detail6Card1')
       ]
     },
     {
       icon: '/images/infinity.svg',
-      title: 'ISV to SaaS - Enablement Program',
+      title: t('titleCard2'),
       items: [
-        'Structured Cloud Journey program outlining the benefits of ISV Modernisation on AWS Cloud',
-        '2-Day Discovery Workshop',
-        'Develop an actionable go-to Cloud Roadmap',
-        'Regularly check-ins to support the team (vi Slack and Teams/Zoom calls)',
-        'Shared slack and/or teams channel for accelerated collaboration',
-        'Checkout our one-pager here for the program: (Link)'
+        t('detail1Card2'),
+        t('detail2Card2'),
+        t('detail3Card2'),
+        t('detail4Card2'),
+        t('detail5Card2'),
+        t('detail6Card2')
       ]
     },
     {
       icon: '/images/cloud-white.svg',
-      title: 'Cloud Reference Architecture',
+      title: t('titleCard3'),
       items: [
-        'Onboarding to Public Cloud best practices and automation',
-        'Implementation of a Secure Cloud Reference Architecture using AWS',
-        'Managed deployment to rapidly get started across development and production',
-        'A maintainable codebase of infrastructure automation deployed on AWS Cloud',
-        'Build on Hashicorp Terraform or AWS CDK (Cloud Development Kit)',
-        '56K Cloud Slack access* for onboarding and support*',
-        'Technology Stack: Terraform, Terragrunt, AWS, Gitlab/Github Actions, CDK*',
-        'Optional: Support for up to three+ accounts /w codebase access*',
-        'Optional: Compliance and Security packages to reach CIS and HIPPA'
+        t('detail1Card3'),
+        t('detail2Card3'),
+        t('detail3Card3'),
+        t('detail4Card3'),
+        t('detail5Card3'),
+        t('detail6Card3'),
+        t('detail7Card3'),
+        t('detail8Card3'),
+        t('detail9Card3')
       ]
     },
     {
       icon: '/images/cloud-white.svg',
-      title: 'Simple Web Application',
+      title: t('titleCard4'),
       items: [
-        'Getting started with AWS Public Cloud services within hours not weeks!',
-        'Ready-to-go setup that can be expanded and scaled with your application over time',
-        'Fundamental building blocks to support a small development team',
-        'Onboarding support across a one-week program',
-        'Limited investment is required to get started, giving you more time to focus on product development!',
-        'Technology Stack: Docker Containers, ECS, ALB'
+        t('detail1Card4'),
+        t('detail2Card4'),
+        t('detail3Card4'),
+        t('detail4Card4'),
+        t('detail5Card4'),
+        t('detail6Card4')
       ]
     }
   ]
