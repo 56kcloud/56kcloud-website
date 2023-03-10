@@ -6,13 +6,13 @@ export function getBaseCardsAbout (t) {
     {
       number: '01',
       icon: '/images/automation-icon.png',
-      title: 'Automation both Infrastructure & Applications',
+      title: t('titleCard1'),
       className: 'bg-orange-medium'
     },
     {
       number: '02',
       icon: '/images/devops-icon.png',
-      title: 'DevOps Services',
+      title: 'DevOps services',
       className: 'bg-orange-lighter'
     },
     {
@@ -24,7 +24,7 @@ export function getBaseCardsAbout (t) {
     {
       number: '04',
       icon: '/images/monitoring-icon.png',
-      title: 'Monitoring & Security',
+      title: t('titleCard4'),
       className: 'bg-orange-medium'
     }
   ]
@@ -36,19 +36,19 @@ export function getTeamCardsAbout (t) {
     {
       firstName: 'Darragh',
       lastName: 'Grealish',
-      role: 'Site Reliability Engineer & Managing Partner',
+      role: t('roleTeamCard1'),
       image: '/images/darragh.jpeg'
     },
     {
       firstName: 'Jochen',
       lastName: 'Zehnder',
-      role: 'Site Reliability Engineer & Managing Partner',
+      role: t('roleTeamCard2'),
       image: '/images/jochen.jpeg'
     },
     {
       firstName: 'Jean-Pierre',
       lastName: 'Gehrig',
-      role: 'Principal Programmer & Managing Partner',
+      role: t('roleTeamCard3'),
       image: '/images/jean-pierre.jpeg'
     }
   ]
