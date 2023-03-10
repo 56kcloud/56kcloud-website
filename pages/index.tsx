@@ -12,12 +12,8 @@ export default function HomePage () {
   const darkIllustrationCards: Array<CardPropsImpl> = t('home:darkServices', { count: 3 }, { returnObjects: true })
   const lightIllustrationCards: Array<CardPropsImpl> = t('home:lightServices', { count: 3 }, { returnObjects: true })
 
-  const toggleIsOpen = () => {
-    setIsOpen(state => !state)
-  }
-
   return (
-    <Layout isOpen={false} setIsOpen={toggleIsOpen}>
+    <Layout>
       <Hero titleLine1={t('titleLine1')} titleLine2={t('titleLine2')} titleLine3={t('titleLine3')} />
       <SmallTitleIntro text={t('text')}
         title={t('title')} />

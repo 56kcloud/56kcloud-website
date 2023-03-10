@@ -32,7 +32,7 @@ export default function TrainingPage () {
       <DetailsCardsWrapper title='Our courses' cards={cardsDetails} styleTitle='text-white' />
       <BackgroundImage src='/images/divider-light.png' alt={t('altDivider')} className='-mt-40 xl:-mt-64'
         width={1920} height={0} />
-      <Contact />
+      <Contact toggleIsModalOpen={toggleIsOpen} />
     </Layout>
   )
 }

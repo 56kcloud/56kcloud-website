@@ -1,17 +1,15 @@
-import { useState } from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import classNames from '../../utils/classes'
 import Link from 'next/link'
 import Img from '../atoms/img'
 import Button from '../atoms/button'
-import Modal from './modal'
 
 type FooterProps = {
   version: 'illustration' | 'blue'
+  toggleIsModalOpen: () => void
 }
 
-export default function Footer ({ version = 'illustration' }: FooterProps) {
-  const [isOpen, setIsOpen] = useState(false)
+export default function Footer ({ version = 'illustration', toggleIsModalOpen }: FooterProps) {
   const { t } = useTranslation('footer')
 
   const links = [
@@ -41,10 +39,6 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
     }
   ]
 
-  function openModal () {
-    setIsOpen(true)
-  }
-
   return (
     <div className={classNames(
       version === 'illustration'
@@ -66,7 +60,7 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
                     <Link href={link.href} target={link.target} rel={link.rel}>{link.title}</Link>
                   </li>
                 ))}
-                <Button style='linkFooter' setOpen={openModal}>{t('linkContactUs')}</Button>
+                <Button style='linkFooter' setOpen={toggleIsModalOpen}>{t('linkContactUs')}</Button>
               </ul>
               <p className='text-grey-medium lg:w-1/3'>
                 56K.Cloud SA<br /> Chemin Saint-Hubert 5<br /> 1950 Sion<br /> {t('address')}
@@ -101,7 +95,6 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
           </div>
         </div>
       </div>
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   )
 }

@@ -7,11 +7,9 @@ import Img from '../atoms/img'
 import Button from '../atoms/button'
 import classNames from '../../utils/classes'
 import NavSelect from '../atoms/nav-select'
-import Modal from './modal'
 
-export default function Nav () {
+export default function Nav ({ toggleIsModalOpen }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
   const { t } = useTranslation('nav')
 
@@ -30,10 +28,6 @@ export default function Nav () {
 
   const sidebarToggle = () => {
     setSidebarOpen(false)
-  }
-
-  function openModal () {
-    setIsOpen(true)
   }
 
   return (
@@ -75,7 +69,7 @@ export default function Nav () {
                     ))}
                   </div>
                   <div className='py-12 text-center border-t'>
-                    <Button src='/images/pencil.svg' alt={t('altButtonNav')} icon={true} setOpen={openModal}>
+                    <Button src='/images/pencil.svg' alt={t('altButtonNav')} icon={true} setOpen={toggleIsModalOpen}>
                       {t('navButton')}</Button>
                   </div>
                 </div>
@@ -116,14 +110,13 @@ export default function Nav () {
                   ))}
                   <NavSelect />
                 </div>
-                <Button src='/images/pencil.svg' alt={t('altButtonNav')} setOpen={openModal} icon={true}>
+                <Button src='/images/pencil.svg' alt={t('altButtonNav')} setOpen={toggleIsModalOpen} icon={true}>
                   {t('navButton')}</Button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   )
 }

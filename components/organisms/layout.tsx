@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Modal from '../molecules/modal'
 import Nav from '../molecules/nav'
 import Footer from '../molecules/footer'
@@ -9,19 +9,21 @@ type LayoutProps = {
 }
 
 export default function Layout ({ children }: LayoutProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const toggleIsOpen = () => {
-    alert('ahasijhfgas')
+    setIsModalOpen(true)
   }
+
   return (
     <div>
-      {/* <Modal toggleIsOpen={toggleIsOpen} /> */}
+      <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}/>
       <div className='bg-blue-lighter'>
         <header className='overflow-hidden'>
           <Nav toggleIsModalOpen={toggleIsOpen}/>
         </header>
         <main>{children}</main>
         <footer>
-          <Footer version='illustration' />
+          <Footer version='illustration' toggleIsModalOpen={toggleIsOpen} />
         </footer>
       </div>
     </div>
