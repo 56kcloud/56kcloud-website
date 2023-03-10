@@ -6,7 +6,6 @@
   "descriptionSurtitle": "Que comprennent nos programmes de services",
   "descriptionText": "Nous avons appris qu'un grand nombre de nos clients ont les mêmes besoins et exigences. Par conséquent, nous construisons des services qui apportent plus de valeur à nos clients pour moins d'argent. Ces services fournissent des composants prêts à l'emploi, tout en permettant l'adaptation à chaque client et équipe spécifique. Ces services comprennent:",
   "altMainIllustration": "Personnes se tenant devant la montagne",
-  "altDivider": "Plantes",
   "listDetail1": "Apprentissage de l'informatique en nuage et de ses meilleures pratiques",
   "listDetail2": "Les connaissances accumulées sur l'informatique en nuage dans des paquets prêts à l'emploi",
   "listDetail3": "Composants personnalisables de l'infrastructure en tant que code (IaC)",
@@ -42,5 +41,6 @@
   "detail3Card4": "Des éléments de base pour soutenir une petite équipe de développement",
   "detail4Card4": "Assistance à l'intégration dans le cadre d'un programme d'une semaine",
   "detail5Card4": "Un investissement limité est nécessaire pour démarrer, ce qui vous laisse plus de temps pour vous concentrer sur le développement du produit",
-  "detail6Card4": "Pile technologique: Docker Containers, ECS, ALB"
+  "detail6Card4": "Pile technologique: Docker Containers, ECS, ALB",
+  "altDivider": "Plantes"
 }

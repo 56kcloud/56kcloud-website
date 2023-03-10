@@ -2,11 +2,11 @@ import { DetailsCardProps } from '../components/molecules/details-card'
 
 export function getListDetailsTraining (t) {
   const listDetails: Array<string> = [
-    '30 days of Slack support after the course concludes*',
-    'Additional Ressources and Labs',
-    'Welcome email/checklist',
-    'One scheduled follow-up call',
-    'Training content made available via Git'
+    t('listDetail1'),
+    t('listDetail2'),
+    t('listDetail3'),
+    t('listDetail4'),
+    t('listDetail5')
   ]
   return listDetails
 }
@@ -15,53 +15,53 @@ export function getDetailsCardsTraining (t) {
   const detailsCards: Array<DetailsCardProps> = [
     {
       icon: '/images/wheel.svg',
-      title: 'Kubernetes Training',
+      title: t('titleCard1'),
       items: [
-        'Kubernetes Overview (Architecture and concepts)',
-        'Install a Local Development Environment',
-        'Kubectl CLI overview',
-        'Kubernetes Pods',
-        'Deployment (Scaling, labeling, health checks)',
-        'Kubernetes logging, monitoring, and securing containers',
-        'Custom content (Typically, one “hello world” use case application) Kubernetes on AWS'
+        t('detail1Card1'),
+        t('detail2Card1'),
+        t('detail3Card1'),
+        t('detail4Card1'),
+        t('detail5Card1'),
+        t('detail6Card1'),
+        t('detail7Card1')
       ]
     },
     {
       icon: '/images/whale.svg',
-      title: 'Docker Training',
+      title: t('titleCard2'),
       items: [
-        'Introduction to Docker, Kubernetes, and Cloud-Native',
-        'Docker Overview',
-        'Docker CLI Overview',
-        'Web apps and Docker',
-        'Write Dockerfiles',
-        'Build a monitoring stack',
-        'Deploy apps to Swarm',
-        'Create a Docker Build pipeline',
-        'Docker Swarm & Kubernetes',
-        'Sponsor Labs'
+        t('detail1Card2'),
+        t('detail2Card2'),
+        t('detail3Card2'),
+        t('detail4Card2'),
+        t('detail5Card2'),
+        t('detail6Card2'),
+        t('detail7Card2'),
+        t('detail8Card2'),
+        t('detail9Card2'),
+        t('detail10Card2')
       ]
     },
     {
       icon: '/images/cloud-white.svg',
-      title: 'Cloud-Native Introduction',
+      title: t('titleCard3'),
       items: [
-        'Cloud-Native Overview',
-        'Modern application Concepts',
-        'CNCF Landscape',
-        'Native tooling in the cloud',
-        'Your Cloud-Native Journey'
+        t('detail1Card3'),
+        t('detail2Card3'),
+        t('detail3Card3'),
+        t('detail4Card3'),
+        t('detail5Card3')
       ]
     },
     {
       icon: '/images/infinity.svg',
-      title: 'DevOps Training',
+      title: t('titleCard4'),
       items: [
-        'Cloud-Native Tooling',
-        'CI/CD Pipelines',
-        'Infrastructure Automation',
-        'Cloud Platform Services',
-        'Best Practices'
+        t('detail1Card4'),
+        t('detail2Card4'),
+        t('detail3Card4'),
+        t('detail4Card4'),
+        t('detail5Card4')
       ]
     }
   ]

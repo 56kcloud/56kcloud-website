@@ -6,7 +6,6 @@
   "descriptionSurtitle": "What do our services programs include",
   "descriptionText": "We have learned that a lot of our customers have the same needs and requirements. Therefore, we build services that bring more value for less money to our customers. These provide ready-to-use components, while still allowing the adaption to each specific customer and team. These services include:",
   "altMainIllustration": "People standing in front of the mountain",
-  "altDivider": "Plants",
   "listDetail1": "Learning about the Cloud and it's best practices",
   "listDetail2": "Accumulated cloud knowledge in ready to use packages",
   "listDetail3": "Customizable Infrastructure as Code (IaC) components",
@@ -42,5 +41,6 @@
   "detail3Card4": "Fundamental building blocks to support a small development team",
   "detail4Card4": "Onboarding support across a one-week program",
   "detail5Card4": "Limited investment is required to get started, giving you more time to focus on product development!",
-  "detail6Card4": "Technology Stack: Docker Containers, ECS, ALB"
+  "detail6Card4": "Technology Stack: Docker Containers, ECS, ALB",
+  "altDivider": "Plants"
 }
