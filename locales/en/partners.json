@@ -3,32 +3,5 @@
   "introTitle": "On a Journey together",
   "introText": "We partner to enabled effective and successful projects together for customers.",
   "cardsWrapperSurtitle": "Key Partners",
-  "altDivider": "Plants",
-  "partners": [
-    {
-      "number": "01",
-      "image": "/images/automation.png",
-      "icon": "/images/cloud-icon.png",
-      "title": "AWS - Amazon Web Services",
-      "description": "As Advanced Partner, in Edge, IoT and Cloud Transformation.",
-      "theme": "light"
-    },
-    {
-      "number": "02",
-      "image": "/images/automation.png",
-      "icon": "/images/docker-icon.png",
-      "title": "Docker",
-      "description": "Enabling Containerisation and Developer tooling at it\"s best.",
-      "alignment": "right",
-      "theme": "light"
-    },
-    {
-      "number": "03",
-      "image": "/images/automation.png",
-      "icon": "/images/devops-icon.png",
-      "title": "ARM",
-      "description": "Across Cloud and Embedded Systems (IoT) we work with leading CPU architecture that increase performance and reduce energy requirements, Partnering with ARM enable\"s 56K.Cloud customers to access key experts and industry relationships.",
-      "theme": "light"
-    }
-  ]
+  "altDivider": "Plants"
 }

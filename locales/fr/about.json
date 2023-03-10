@@ -9,52 +9,6 @@
   "epigraphSurtitle": "Déclaration de vision",
   "epigraphText": "Nous avons créé une déclaration de vision qui est claire, courte et intemporelle. Chaque projet bénéficie des avantages des projets précédents et de l'expérience acquise. L'innovation par l'automatisation.",
   "cardsWrapperSurtitle": "Nos objectifs",
-  "focus": [
-    {
-      "number": "01",
-      "icon": "/images/automation-icon.png",
-      "title": "Automatisation de l'infrastructure et des applications",
-      "className": "bg-orange-medium"
-    },
-    {
-      "number": "02",
-      "icon": "/images/devops-icon.png",
-      "title": "Services DevOps",
-      "className": "bg-orange-lighter"
-    },
-    {
-      "number": "03",
-      "icon": "/images/cloud-icon.png",
-      "title": "Cloud",
-      "className": "bg-blue-light"
-    },
-    {
-      "number": "04",
-      "icon": "/images/monitoring-icon.png",
-      "title": "Surveillance et sécurité",
-      "className": "bg-orange-medium"
-    }
-  ],
-  "team": [
-    {
-      "firstName": "Darragh",
-      "lastName": "Grealish",
-      "role": "Ingénieur en fiabilité de site et associé gérant",
-      "image": "/images/darragh.jpeg"
-    },
-    {
-      "firstName": "Jochen",
-      "lastName": "Zehnder",
-      "role": "Ingénieur en fiabilité de site et associé gérant",
-      "image": "/images/jochen.jpeg"
-    },
-    {
-      "firstName": "Jean-Pierre",
-      "lastName": "Gehrig",
-      "role": "Programmeur principal et associé gérant",
-      "image": "/images/jean-pierre.jpeg"
-    }
-  ],
   "teamTitle": "Voulez-vous faire partie de l'équipe?",
   "teamText1": "Partagez-vous la même vision et les mêmes valeurs? Nous serions ravis de vous entendre.",
   "teamText2": "Contactez-nous",

@@ -6,7 +6,7 @@ export function getDarkIllustrationCardsHome (t) {
       number: '01',
       image: '/images/automation.png',
       icon: '/images/automation-icon.png',
-      title: t('titleCard1'),
+      title: 'Automation',
       description: 'End-to-End automation of your infrastructure and applications which enables reproducible \
       and version-controlled environments.'
     },
@@ -29,7 +29,9 @@ export function getDarkIllustrationCardsHome (t) {
     }
   ]
   return darkIllustrationCardsHome
+}
 
+export function getLightIllustrationCardsHome (t) {
   const lightIllustrationCardsHome: Array<CardPropsImpl> = [
     {
       number: '04',
@@ -55,12 +57,14 @@ export function getDarkIllustrationCardsHome (t) {
       image: '/images/training.png',
       icon: '/images/training-icon.png',
       title: 'Training',
-      description: '56K.Cloud’s training program provides hands-on training using real-world examples and use-cases. Our \
-        Training program covers Cloud, Containers, and DevOps.',
+      description: '56K.Cloud’s training program provides hands-on training using real-world examples and use-cases. \ Our Training program covers Cloud, Containers, and DevOps.',
       theme: 'light'
     }
   ]
+  return lightIllustrationCardsHome
+}
 
+export function getLightIllustrationsCardsPartners (t) {
   const lightIllustrationCardsPartners: Array<CardPropsImpl> = [
     {
       number: '01',
@@ -90,4 +94,5 @@ export function getDarkIllustrationCardsHome (t) {
       theme: 'light'
     }
   ]
+  return lightIllustrationCardsPartners
 }
