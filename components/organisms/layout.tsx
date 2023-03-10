@@ -21,7 +21,7 @@ export default function Layout ({ children }: LayoutProps) {
         <header className='overflow-hidden'>
           <Nav toggleIsModalOpen={toggleIsOpen}/>
         </header>
-        <main>{children}</main>
+        <main>{children({ toggleIsOpen })}</main>
         <footer>
           <Footer version='illustration' toggleIsModalOpen={toggleIsOpen} />
         </footer>

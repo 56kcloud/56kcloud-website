@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ButtonHTMLAttributes, DetailedHTMLProps } from 'react'
 import classNames from '../../utils/classes'
 import Img from './img'
 
@@ -8,12 +8,12 @@ type ButtonProps = {
   icon?: boolean
   style?: 'blueButton' | 'linkContact' | 'linkFooter'
   children: React.ReactNode
-  setOpen?: (open: (open: boolean) => boolean) => void
-}
+  onClick: () => void
+} & DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 
-export default function Button ({ children, src, alt, icon, style = 'blueButton', setOpen }: ButtonProps) {
+export default function Button ({ children, src, alt, icon, style = 'blueButton', onClick }: ButtonProps) {
   return (
-    <button onClick={() => setOpen(open => !open)}
+    <button onClick={onClick}
       className={classNames(style === 'blueButton'
         ? 'inline-flex items-center px-4 py-3 text-xs font-medium tracking-widest uppercase border border-transparent rounded-md shadow-sm 2xl:px-6 2xl:text-sm bg-blue-light'
         : style === 'linkContact' ? 'font-normal text-orange-medium' : 'text-blue-medium')}>

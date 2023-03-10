@@ -16,17 +16,21 @@ export default function AboutPage () {
 
   return (
     <Layout>
-      <Head>
-        <title>Edeltech | {t('tab')}</title>
-      </Head>
-      <MediumTitleIntro title={t('introTitle')}
-        textColLeft={t('introTextColLeft')}
-        textColRight={t('introTextColRight')} />
-      <Gallery />
-      <BaseCardsWrapper cards={cardsBase} text={t('cardsWrapperSurtitle')} className='after:w-64' />
-      <BackgroundImage src='/images/divider-dark.png' alt='Plants divider' width={1920} height={0}
-        className='-mt-[7rem] sm:-mt-36 md:-mt-44 lg:-mt-56 xl:-mt-72 2xl:-mt-96' />
-      <TeamCardsWrapper cards={cardsTeam} />
+      {({ toggleIsOpen }) => (
+        <>
+          <Head>
+            <title>Edeltech | {t('tab')}</title>
+          </Head>
+          <MediumTitleIntro title={t('introTitle')}
+            textColLeft={t('introTextColLeft')}
+            textColRight={t('introTextColRight')} />
+          <Gallery />
+          <BaseCardsWrapper cards={cardsBase} text={t('cardsWrapperSurtitle')} className='after:w-64' />
+          <BackgroundImage src='/images/divider-dark.png' alt='Plants divider' width={1920} height={0}
+            className='-mt-[7rem] sm:-mt-36 md:-mt-44 lg:-mt-56 xl:-mt-72 2xl:-mt-96' />
+          <TeamCardsWrapper toggleContactModal={toggleIsOpen} cards={cardsTeam} />
+        </>
+      )}
     </Layout>
   )
 }
