@@ -4,12 +4,13 @@ import Nav from '../molecules/nav'
 import Footer from '../molecules/footer'
 
 type LayoutProps = {
-  toggleIsOpen: () => void
+  // toggleIsOpen: () => void
   children: React.ReactNode
 }
 
 export default function Layout ({ children }: LayoutProps) {
   const [isModalOpen, setIsModalOpen] = useState(false)
+
   const toggleIsOpen = () => {
     setIsModalOpen(true)
   }
