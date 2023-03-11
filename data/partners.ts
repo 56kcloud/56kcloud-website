@@ -1,6 +1,7 @@
+import { Translate } from 'next-translate'
 import { BaseCardProps } from '../components/molecules/base-card'
 
-export function getBaseCardsPartners (t) {
+export function getBaseCardsPartners (t: Translate) {
   const baseCards: Array<BaseCardProps> = [
     {
       number: '01',

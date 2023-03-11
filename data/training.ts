@@ -1,6 +1,7 @@
+import { Translate } from 'next-translate'
 import { DetailsCardProps } from '../components/molecules/details-card'
 
-export function getListDetailsTraining (t) {
+export function getListDetailsTraining (t: Translate) {
   const listDetails: Array<string> = [
     t('listDetail1'),
     t('listDetail2'),

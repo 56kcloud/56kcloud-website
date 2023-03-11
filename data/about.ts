@@ -1,7 +1,8 @@
+import { Translate } from 'next-translate'
 import { BaseCardProps } from '../components/molecules/base-card'
 import { TeamCardProps } from '../components/molecules/team-card'
 
-export function getBaseCardsAbout (t) {
+export function getBaseCardsAbout (t: Translate) {
   const baseCards: Array<BaseCardProps> = [
     {
       number: '01',
@@ -31,7 +32,7 @@ export function getBaseCardsAbout (t) {
   return baseCards
 }
 
-export function getTeamCardsAbout (t) {
+export function getTeamCardsAbout (t: Translate) {
   const teamCards: Array<TeamCardProps> = [
     {
       firstName: 'Darragh',
