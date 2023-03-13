@@ -2,7 +2,7 @@
   "locales": ["en", "fr"],
   "defaultLocale": "en",
   "pages": {
-    "*": ["common", "nav", "footer"],
+    "*": ["common", "nav", "footer", "modal"],
     "/": ["home"],
     "/services": ["services", "cards"],
     "/training": ["training"],

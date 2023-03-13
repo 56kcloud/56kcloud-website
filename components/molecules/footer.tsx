@@ -2,13 +2,15 @@ import useTranslation from 'next-translate/useTranslation'
 import classNames from '../../utils/classes'
 import Link from 'next/link'
 import Img from '../atoms/img'
+import Button from '../atoms/button'
 import Icon, { IconProps } from '../atoms/icon'
 
 type FooterProps = {
-  backgroundStyle: 'illustration' | 'blue'
+  version: 'illustration' | 'blue'
+  toggleIsModalOpen: () => void
 }
 
-export default function Footer ({ backgroundStyle = 'illustration' }: FooterProps) {
+export default function Footer ({ version = 'illustration', toggleIsModalOpen }: FooterProps) {
   const { t } = useTranslation('footer')
 
   const links = [
@@ -16,8 +18,7 @@ export default function Footer ({ backgroundStyle = 'illustration' }: FooterProp
     { href: '/training', title: t('link2') },
     { href: '/partners', title: t('link3') },
     { href: '/about', title: t('link4') },
-    { href: 'https://blog.56k.cloud/', title: 'Blog', target: '_blank', rel: 'noopener noreferrer' },
-    { href: '/', title: t('link6') }
+    { href: 'https://blog.56k.cloud/', title: 'Blog', target: '_blank', rel: 'noopener noreferrer' }
   ]
 
   const socialNetworksIcons: Array<IconProps> = [
@@ -34,8 +35,8 @@ export default function Footer ({ backgroundStyle = 'illustration' }: FooterProp
   ]
 
   return (
-    <footer className={classNames(
-      backgroundStyle === 'illustration'
+    <div className={classNames(
+      version === 'illustration'
         ? 'bg-footer-background bg-no-repeat bg-cover bg-blue-lighter'
         : 'bg-blue-dark', 'relative h-[1000px] sm:h-[850px]')}>
       <div className='absolute bottom-0 right-0 z-50 p-8 md:p-0 md:w-10/12'>
@@ -54,6 +55,7 @@ export default function Footer ({ backgroundStyle = 'illustration' }: FooterProp
                     <Link href={link.href} target={link.target} rel={link.rel}>{link.title}</Link>
                   </li>
                 ))}
+                <Button style='linkFooter' onClick={toggleIsModalOpen}>{t('linkContactUs')}</Button>
               </ul>
               <p className='text-grey-medium lg:w-1/3'>
                 56K.Cloud SA<br /> Chemin Saint-Hubert 5<br /> 1950 Sion<br /> {t('countryNameAddress')}
@@ -88,6 +90,6 @@ export default function Footer ({ backgroundStyle = 'illustration' }: FooterProp
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   )
 }
