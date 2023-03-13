@@ -69,7 +69,7 @@ export default function Nav ({ toggleIsModalOpen }) {
                     ))}
                   </div>
                   <div className='py-12 text-center border-t'>
-                    <Button src='/images/pencil.svg' alt={t('altButtonNav')} icon={true} setOpen={toggleIsModalOpen}>
+                    <Button src='/images/pencil.svg' alt={t('altButtonNav')} icon={true} onClick={toggleIsModalOpen}>
                       {t('navButton')}</Button>
                   </div>
                 </div>
@@ -83,7 +83,8 @@ export default function Nav ({ toggleIsModalOpen }) {
         <div className='relative'>
           <div className='max-w-[100rem] mx-auto'>
             <div className='absolute inset-y-0 right-0 flex items-center xl:hidden'>
-              <Button src='/images/menu.svg' alt={t('altIconMenuButton')} icon={true} setOpen={setSidebarOpen}>
+              <Button src='/images/menu.svg' alt={t('altIconMenuButton')} icon={true}
+                onClick={() => setSidebarOpen(!sidebarOpen)}>
                 Menu
               </Button>
             </div>
@@ -110,7 +111,7 @@ export default function Nav ({ toggleIsModalOpen }) {
                   ))}
                   <NavSelect />
                 </div>
-                <Button src='/images/pencil.svg' alt={t('altButtonNav')} setOpen={toggleIsModalOpen} icon={true}>
+                <Button src='/images/pencil.svg' alt={t('altButtonNav')} onClick={toggleIsModalOpen} icon={true}>
                   {t('navButton')}</Button>
               </div>
             </div>

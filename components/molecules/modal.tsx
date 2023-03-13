@@ -71,7 +71,7 @@ export default function Modal ({ isOpen, setIsOpen }) {
                     min-h-[7rem]' />
                 </form>
                 <div className='flex justify-center mt-6'>
-                  <Button setOpen={closeModal}>{t('button')}</Button>
+                  <Button onClick={closeModal}>{t('button')}</Button>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
