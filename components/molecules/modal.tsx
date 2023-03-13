@@ -66,7 +66,7 @@ export default function Modal ({ isOpen, setIsOpen }) {
                     className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium' />
                   <input {...register('email')} placeholder={t('inputEmail')}
                     className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium' />
-                  <input {...register('text')} placeholder={t('inputMessage')}
+                  <textarea {...register('text')} placeholder={t('inputMessage')}
                     className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium \
                     min-h-[7rem]' />
                 </form>
