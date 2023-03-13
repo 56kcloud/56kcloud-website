@@ -3,11 +3,11 @@ import { DetailsCardProps } from '../components/molecules/details-card'
 
 export function getListDetailsTraining (t: Translate) {
   const listDetails: Array<string> = [
-    t('listDetail1'),
-    t('listDetail2'),
-    t('listDetail3'),
-    t('listDetail4'),
-    t('listDetail5')
+    t('training:listDetail1'),
+    t('training:listDetail2'),
+    t('training:listDetail3'),
+    t('training:listDetail4'),
+    t('training:listDetail5')
   ]
   return listDetails
 }
@@ -18,51 +18,51 @@ export function getDetailsCardsTraining (t) {
       icon: '/images/wheel.svg',
       title: t('titleCard1'),
       items: [
-        t('detail1Card1'),
-        t('detail2Card1'),
-        t('detail3Card1'),
-        t('detail4Card1'),
-        t('detail5Card1'),
-        t('detail6Card1'),
-        t('detail7Card1')
+        t('training:detail1Card1'),
+        t('training:detail2Card1'),
+        t('training:detail3Card1'),
+        t('training:detail4Card1'),
+        t('training:detail5Card1'),
+        t('training:detail6Card1'),
+        t('training:detail7Card1')
       ]
     },
     {
       icon: '/images/whale.svg',
-      title: t('titleCard2'),
+      title: t('training:titleCard2'),
       items: [
-        t('detail1Card2'),
-        t('detail2Card2'),
-        t('detail3Card2'),
-        t('detail4Card2'),
-        t('detail5Card2'),
-        t('detail6Card2'),
-        t('detail7Card2'),
-        t('detail8Card2'),
-        t('detail9Card2'),
-        t('detail10Card2')
+        t('training:detail1Card2'),
+        t('training:detail2Card2'),
+        t('training:detail3Card2'),
+        t('training:detail4Card2'),
+        t('training:detail5Card2'),
+        t('training:detail6Card2'),
+        t('training:detail7Card2'),
+        t('training:detail8Card2'),
+        t('training:detail9Card2'),
+        t('training:detail10Card2')
       ]
     },
     {
       icon: '/images/cloud-white.svg',
-      title: t('titleCard3'),
+      title: t('training:titleCard3'),
       items: [
-        t('detail1Card3'),
-        t('detail2Card3'),
-        t('detail3Card3'),
-        t('detail4Card3'),
-        t('detail5Card3')
+        t('training:detail1Card3'),
+        t('training:detail2Card3'),
+        t('training:detail3Card3'),
+        t('training:detail4Card3'),
+        t('training:detail5Card3')
       ]
     },
     {
       icon: '/images/infinity.svg',
-      title: t('titleCard4'),
+      title: t('training:titleCard4'),
       items: [
-        t('detail1Card4'),
-        t('detail2Card4'),
-        t('detail3Card4'),
-        t('detail4Card4'),
-        t('detail5Card4')
+        t('training:detail1Card4'),
+        t('training:detail2Card4'),
+        t('training:detail3Card4'),
+        t('training:detail4Card4'),
+        t('training:detail5Card4')
       ]
     }
   ]

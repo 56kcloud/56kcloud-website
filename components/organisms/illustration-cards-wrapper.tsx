@@ -1,4 +1,4 @@
-import { CardPropsImpl } from '../../models/Card.model'
+import { CardPropsImpl } from '../../models/card.model'
 import classNames from '../../utils/classes'
 import VerticalTitle from '../atoms/vertical-title'
 import IllustrationCard from '../molecules/illustration-card'

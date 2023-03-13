@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { ImgProps, ImgPropsImpl } from '../../models/Img.model'
+import { ImgProps, ImgPropsImpl } from '../../models/img.model'
 import classNames from '../../utils/classes'
 
 export default function Img (props: ImgPropsImpl) {

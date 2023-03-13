@@ -37,19 +37,19 @@ export function getTeamCardsAbout (t: Translate) {
     {
       firstName: 'Darragh',
       lastName: 'Grealish',
-      role: t('roleTeamCard1'),
+      role: t('about:roleTeamCard1'),
       image: '/images/darragh.jpeg'
     },
     {
       firstName: 'Jochen',
       lastName: 'Zehnder',
-      role: t('roleTeamCard2'),
+      role: t('about:roleTeamCard2'),
       image: '/images/jochen.jpeg'
     },
     {
       firstName: 'Jean-Pierre',
       lastName: 'Gehrig',
-      role: t('roleTeamCard3'),
+      role: t('about:roleTeamCard3'),
       image: '/images/jean-pierre.jpeg'
     }
   ]

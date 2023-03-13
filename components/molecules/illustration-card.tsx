@@ -1,4 +1,4 @@
-import { CardProps, CardPropsImpl } from '../../models/Card.model'
+import { CardProps, CardPropsImpl } from '../../models/card.model'
 import classNames from '../../utils/classes'
 import Img from '../atoms/img'
 import Icon from '../atoms/icon'

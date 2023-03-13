@@ -1,4 +1,3 @@
-import useTranslation from 'next-translate/useTranslation'
 import { getListDetailsServices, getDetailsCardsServices } from '../data/services'
 import Head from 'next/head'
 import Layout from '../components/organisms/layout'
@@ -7,31 +6,30 @@ import LargeTitleIntro from '../components/molecules/large-title-intro'
 import Description from '../components/molecules/description'
 import DetailsCardsWrapper from '../components/organisms/details-cards-wrapper'
 import Contact from '../components/atoms/contact'
+import { PageProps } from '../models/page.model'
 
-export default function ServicesPage () {
-  const { t } = useTranslation('services')
-
+export default function ServicesPage ({ t }: PageProps) {
   return (
     <Layout>
       {({ toggleIsOpen }) => (
         <>
           <Head>
-            <title>56K.Cloud | {t('tab')}</title>
+            <title>56K.Cloud | {t('services:tab')}</title>
           </Head>
           <LargeTitleIntro
-            surtitle={t('introSurtitle')}
-            title={t('introTitle')}
-            text={t('introText')} />
+            surtitle={t('services:introSurtitle')}
+            title={t('services:introTitle')}
+            text={t('services:introText')} />
           <Description
-            surtitle={t('descriptionSurtitle')}
-            text={t('descriptionText')}
+            surtitle={t('services:descriptionSurtitle')}
+            text={t('services:descriptionText')}
             details={getListDetailsServices(t)} />
-          <BackgroundImage src='/images/mountain-background.png' alt={t('altMainIllustration')}
+          <BackgroundImage src='/images/mountain-background.png' alt={t('services:altMainIllustration')}
             className='-mt-[10rem] sm:-mt-[15rem] md:-mt-[17rem] lg:-mt-[30rem] xl:-mt-[40rem] 2xl:-mt-[50rem]'
             width={1920} height={0} />
-          <DetailsCardsWrapper title={t('verticalTitle')} cards={getDetailsCardsServices(t)}
-            styleTitle='text-white' />
-          <BackgroundImage src='/images/divider-light.png' alt={t('altDivider')} className='-mt-40 xl:-mt-64'
+          <DetailsCardsWrapper title={t('services:verticalTitle')} cards={getDetailsCardsServices(t)}
+            titleClassnames='text-white' />
+          <BackgroundImage src='/images/divider-light.png' alt={t('services:altDivider')} className='-mt-40 xl:-mt-64'
             width={1920} height={0} />
           <Contact toggleContactModal={toggleIsOpen} />
         </>

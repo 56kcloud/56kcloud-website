@@ -1,31 +1,30 @@
-import useTranslation from 'next-translate/useTranslation'
 import Layout from '../components/organisms/layout'
 import Head from 'next/head'
 import MediumTitleIntro from '../components/molecules/medium-title-intro'
 import Gallery from '../components/molecules/gallery'
 import BaseCardsWrapper from '../components/organisms/base-cards-wrapper'
-import { getBaseCardsAbout, getTeamCardsAbout } from '../data/about'
+import { getBaseCardsAbout } from '../data/about'
 import BackgroundImage from '../components/atoms/background-image'
 import TeamCardsWrapper from '../components/organisms/team-cards-wrapper'
+import { PageProps } from '../models/page.model'
 
-export default function AboutPage () {
-  const { t } = useTranslation('about')
-
+export default function AboutPage ({ t }: PageProps) {
   return (
     <Layout>
       {({ toggleIsOpen }) => (
         <>
           <Head>
-            <title>Edeltech | {t('tab')}</title>
+            <title>Edeltech | {t('about:tab')}</title>
           </Head>
-          <MediumTitleIntro title={t('introTitle')}
-            textColLeft={t('introTextColLeft')}
-            textColRight={t('introTextColRight')} />
+          <MediumTitleIntro title={t('about:introTitle')}
+            textColLeft={t('about:introTextColLeft')}
+            textColRight={t('about:introTextColRight')} />
           <Gallery />
-          <BaseCardsWrapper cards={getBaseCardsAbout(t)} text={t('cardsWrapperSurtitle')} className='after:w-64' />
+          <BaseCardsWrapper cards={getBaseCardsAbout(t)} text={t('about:cardsWrapperSurtitle')}
+            className='after:w-64' />
           <BackgroundImage src='/images/divider-dark.png' alt='Plants divider' width={1920} height={0}
             className='-mt-[7rem] sm:-mt-36 md:-mt-44 lg:-mt-56 xl:-mt-72 2xl:-mt-96' />
-          <TeamCardsWrapper toggleContactModal={toggleIsOpen} cards={getTeamCardsAbout(t)} />
+          <TeamCardsWrapper toggleContactModal={toggleIsOpen} t={t}/>
         </>
       )}
     </Layout>

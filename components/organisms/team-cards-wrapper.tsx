@@ -1,14 +1,15 @@
 import TeamCard, { TeamCardProps } from '../molecules/team-card'
-import useTranslation from 'next-translate/useTranslation'
 import Button from '../atoms/button'
+import { getTeamCardsAbout } from '../../data/about'
+import { Translate } from 'next-translate'
 
 type TeamCardsWrapperProps = {
-  cards: Array<TeamCardProps>
+  t: Translate
   toggleContactModal: () => void
 }
 
-export default function TeamCardsWrapper ({ cards, toggleContactModal }: TeamCardsWrapperProps) {
-  const { t } = useTranslation('about')
+export default function TeamCardsWrapper ({ t, toggleContactModal }: TeamCardsWrapperProps) {
+  const cards: Array<TeamCardProps> = getTeamCardsAbout(t)
 
   return (
     <section className='section-padding bg-blue-dark -mt-[1px]'>
@@ -19,9 +20,10 @@ export default function TeamCardsWrapper ({ cards, toggleContactModal }: TeamCar
             role={card.role} image={card.image} />
         ))}
         <div className='flex flex-col items-center justify-center col-start-2 col-end-3 p-8 text-center text-white'>
-          <h2 className='mb-6 text-[36px] md:text-[48px] title'>{t('teamTitle')}</h2>
-          <p className='text-lg'>{t('teamText1')}
-            <Button onClick={toggleContactModal} style='linkContact'>{t('teamText2')}</Button>{t('teamText3')}
+          <h2 className='mb-6 text-[36px] md:text-[48px] title'>{t('about:teamTitle')}</h2>
+          <p className='text-lg'>{t('about:teamText1')}
+            <Button onClick={toggleContactModal} style='linkContact'>{t('about:teamText2')}</Button>
+            {t('about:teamText3')}
           </p>
         </div>
       </div>

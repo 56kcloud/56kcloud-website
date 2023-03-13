@@ -8,7 +8,7 @@ type ChildrenProps = {
 }
 
 type LayoutProps = {
-  children: (props: ChildrenProps) => ReactNode | ReactNode
+  children: ((props: ChildrenProps) => ReactNode) | ReactNode
 }
 
 export default function Layout ({ children }: LayoutProps) {
@@ -25,7 +25,7 @@ export default function Layout ({ children }: LayoutProps) {
         <header className='overflow-hidden'>
           <Nav toggleIsModalOpen={toggleIsOpen}/>
         </header>
-        <main>{typeof children === 'object' ? children : children({ toggleIsOpen })}</main>
+        <main>{typeof children === 'function' ? children({ toggleIsOpen }) : children}</main>
         <footer>
           <Footer version='illustration' toggleIsModalOpen={toggleIsOpen} />
         </footer>

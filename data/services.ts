@@ -3,11 +3,11 @@ import { DetailsCardProps } from '../components/molecules/details-card'
 
 export function getListDetailsServices (t: Translate) {
   const listDetails: Array<string> = [
-    t('listDetail1'),
-    t('listDetail2'),
-    t('listDetail3'),
-    t('listDetail4'),
-    t('listDetail5')
+    t('services:listDetail1'),
+    t('services:listDetail2'),
+    t('services:listDetail3'),
+    t('services:listDetail4'),
+    t('services:listDetail5')
   ]
   return listDetails
 }
@@ -16,53 +16,53 @@ export function getDetailsCardsServices (t: Translate) {
   const detailsCards: Array<DetailsCardProps> = [
     {
       icon: '/images/cloud-white.svg',
-      title: t('titleCard1'),
+      title: t('services:titleCard1'),
       items: [
-        t('detail1Card1'),
-        t('detail2Card1'),
-        t('detail3Card1'),
-        t('detail4Card1'),
-        t('detail5Card1'),
-        t('detail6Card1')
+        t('services:detail1Card1'),
+        t('services:detail2Card1'),
+        t('services:detail3Card1'),
+        t('services:detail4Card1'),
+        t('services:detail5Card1'),
+        t('services:detail6Card1')
       ]
     },
     {
       icon: '/images/infinity.svg',
-      title: t('titleCard2'),
+      title: t('services:titleCard2'),
       items: [
-        t('detail1Card2'),
-        t('detail2Card2'),
-        t('detail3Card2'),
-        t('detail4Card2'),
-        t('detail5Card2'),
-        t('detail6Card2')
+        t('services:detail1Card2'),
+        t('services:detail2Card2'),
+        t('services:detail3Card2'),
+        t('services:detail4Card2'),
+        t('services:detail5Card2'),
+        t('services:detail6Card2')
       ]
     },
     {
       icon: '/images/cloud-white.svg',
-      title: t('titleCard3'),
+      title: t('services:titleCard3'),
       items: [
-        t('detail1Card3'),
-        t('detail2Card3'),
-        t('detail3Card3'),
-        t('detail4Card3'),
-        t('detail5Card3'),
-        t('detail6Card3'),
-        t('detail7Card3'),
-        t('detail8Card3'),
-        t('detail9Card3')
+        t('services:detail1Card3'),
+        t('services:detail2Card3'),
+        t('services:detail3Card3'),
+        t('services:detail4Card3'),
+        t('services:detail5Card3'),
+        t('services:detail6Card3'),
+        t('services:detail7Card3'),
+        t('services:detail8Card3'),
+        t('services:detail9Card3')
       ]
     },
     {
       icon: '/images/cloud-white.svg',
-      title: t('titleCard4'),
+      title: t('services:titleCard4'),
       items: [
-        t('detail1Card4'),
-        t('detail2Card4'),
-        t('detail3Card4'),
-        t('detail4Card4'),
-        t('detail5Card4'),
-        t('detail6Card4')
+        t('services:detail1Card4'),
+        t('services:detail2Card4'),
+        t('services:detail3Card4'),
+        t('services:detail4Card4'),
+        t('services:detail5Card4'),
+        t('services:detail6Card4')
       ]
     }
   ]
