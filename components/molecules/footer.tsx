@@ -23,12 +23,10 @@ export default function Footer ({version = 'illustration', toggleIsModalOpen}: F
 
   const socialNetworksIcons: Array<IconProps> = [
     {
-      iconLink: 'https://twitter.com/56kcloud',
       src: '/images/twitter-icon.svg',
       alt: t('altIconTwitter')
     },
     {
-      iconLink: 'https://www.linkedin.com/company/56kcloud',
       src: '/images/linkedin-icon.svg',
       alt: t('altIconLinkedin')
     }
