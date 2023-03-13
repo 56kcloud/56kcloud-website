@@ -2,6 +2,7 @@ import Img from './img'
 import classNames from '../../utils/classes'
 
 export type IconProps = {
+  iconLink?: string
   src: string
   alt: string
   width?: number

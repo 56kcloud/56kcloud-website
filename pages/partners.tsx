@@ -15,7 +15,7 @@ export default function PartnersPage ({t}: PageProps) {
         <title>56K.Cloud | {t('partners:tab')}</title>
       </Head>
       <MediumTitleIntro title={t('partners:introTitle')} textColLeft={t('partners:introText')} />
-      <BaseCardsWrapper cards={getBaseCardsPartners(t)} text={t('partners:cardsWrapperSurtitle')}
+      <BaseCardsWrapper cards={getBaseCardsPartners()} text={t('partners:cardsWrapperSurtitle')}
         className='after:w-64' />
       <BackgroundImage src='/images/divider-dark.png' alt={t('partners:altDivider')} width={1920} height={0}
         className='-mt-[7rem] mb-16 md:mb-28 sm:-mt-36 md:-mt-44 lg:-mt-56 xl:-mt-72 2xl:-mt-96' />

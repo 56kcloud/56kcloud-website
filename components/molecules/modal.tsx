@@ -13,6 +13,10 @@ export default function Modal ({isOpen, setIsOpen}) {
     setIsOpen(false)
   }
 
+  function submit(data) {
+    console.log(data)
+  }
+
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as='div' className='relative z-50' onClose={closeModal}>
@@ -60,7 +64,7 @@ export default function Modal ({isOpen, setIsOpen}) {
                     {t('text')}
                   </p>
                 </div>
-                <form onSubmit={handleSubmit()}
+                <form onSubmit={handleSubmit(submit)}
                   className='mt-6 text-sm sm:text-base sm:mt-9 placeholder:text-base font-graphik '>
                   <input {...register('name')} placeholder={t('inputName')}
                     className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium' />
