@@ -1,11 +1,11 @@
+import {GetStaticPaths, GetStaticProps} from 'next'
+import {useRouter} from 'next/router'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { GetStaticProps, GetStaticPaths } from 'next'
 
-import Layout from '../../components/organisms/layout'
 import Date from '../../components/date'
+import Layout from '../../components/organisms/layout'
 
-import { getAllPostIds, getPostData } from '../../lib/posts'
+import {getAllPostIds, getPostData} from '../../lib/posts'
 
 export default function Post ({
   postData
@@ -63,7 +63,7 @@ export default function Post ({
           </div>
           <div
             className='mx-auto mt-6 prose prose-lg text-gray-500 prose-blue'
-            dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+            dangerouslySetInnerHTML={{__html: postData.contentHtml}}
           ></div>
         </div>
       </article>
@@ -79,7 +79,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({params}) => {
   const postData = await getPostData(params.id as string)
   return {
     props: {

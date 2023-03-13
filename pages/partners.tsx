@@ -1,14 +1,14 @@
-import Layout from '../components/organisms/layout'
-import Head from 'next/head'
-import MediumTitleIntro from '../components/molecules/medium-title-intro'
-import BaseCardsWrapper from '../components/organisms/base-cards-wrapper'
-import { getBaseCardsPartners } from '../data/partners'
+import {PageProps} from '../models/page.model'
+import {getBaseCardsPartners} from '../data/partners'
+import {getLightIllustrationsCardsPartners} from '../data/illustration-cards'
 import BackgroundImage from '../components/atoms/background-image'
+import BaseCardsWrapper from '../components/organisms/base-cards-wrapper'
+import Head from 'next/head'
 import IllustrationCardWrapper from '../components/organisms/illustration-cards-wrapper'
-import { getLightIllustrationsCardsPartners } from '../data/illustration-cards'
-import { PageProps } from '../models/page.model'
+import Layout from '../components/organisms/layout'
+import MediumTitleIntro from '../components/molecules/medium-title-intro'
 
-export default function PartnersPage ({ t }: PageProps) {
+export default function PartnersPage ({t}: PageProps) {
   return (
     <Layout>
       <Head>

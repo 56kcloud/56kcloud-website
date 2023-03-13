@@ -1,5 +1,5 @@
-import { Translate } from 'next-translate'
-import { CardPropsImpl } from '../models/card.model'
+import {CardPropsImpl} from '../models/card.model'
+import {Translate} from 'next-translate'
 
 export function getDarkIllustrationCardsHome (t: Translate) {
   const darkIllustrationCardsHome: Array<CardPropsImpl> = [

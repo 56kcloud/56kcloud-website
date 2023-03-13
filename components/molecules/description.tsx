@@ -1,5 +1,5 @@
-import Surtitle from '../atoms/surtitle'
 import Icon from '../atoms/icon'
+import Surtitle from '../atoms/surtitle'
 
 type DescriptionProps = {
   surtitle: string
@@ -7,7 +7,7 @@ type DescriptionProps = {
   details: Array<string>
 }
 
-export default function Description ({ surtitle, text, details }: DescriptionProps) {
+export default function Description ({surtitle, text, details}: DescriptionProps) {
   return (
     <section className='px-8 pb-[72px] pt-6 xl:section-padding'>
       <div className='relative max-w-6xl mx-auto'>

@@ -7,7 +7,7 @@ export type TeamCardProps = {
   image: string
 }
 
-export default function TeamCard ({ firstName, lastName, role, image }: TeamCardProps) {
+export default function TeamCard ({firstName, lastName, role, image}: TeamCardProps) {
   return (
     <div className='relative flex flex-col p-6 mb-8 text-white sm:mb-0 bg-blue-medium'>
       <p className='font-normal text-right'>{role}</p>

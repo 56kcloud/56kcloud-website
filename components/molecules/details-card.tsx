@@ -6,7 +6,7 @@ export type DetailsCardProps = {
   items: Array<string>
 }
 
-export default function DetailsCard ({ icon, title, items }: DetailsCardProps) {
+export default function DetailsCard ({icon, title, items}: DetailsCardProps) {
   return (
     <div className='h-full bg-white pt-16 pr-[15%] pb-24 pl-12 z-10'>
       <Icon src={icon} alt={title} width={0} height={0}

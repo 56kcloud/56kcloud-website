@@ -1,13 +1,13 @@
-import Hero from '../components/molecules/hero'
-import SmallTitleIntro from '../components/molecules/small-title-intro'
-import IllustrationCardsWrapper from '../components/organisms/illustration-cards-wrapper'
-import { getDarkIllustrationCardsHome, getLightIllustrationCardsHome } from '../data/illustration-cards'
+import {PageProps} from '../models/page.model'
+import {getDarkIllustrationCardsHome, getLightIllustrationCardsHome} from '../data/illustration-cards'
 import BackgroundImage from '../components/atoms/background-image'
 import Companies from '../components/molecules/companies'
+import Hero from '../components/molecules/hero'
+import IllustrationCardsWrapper from '../components/organisms/illustration-cards-wrapper'
 import Layout from '../components/organisms/layout'
-import { PageProps } from '../models/page.model'
+import SmallTitleIntro from '../components/molecules/small-title-intro'
 
-export default function HomePage ({ t }: PageProps) {
+export default function HomePage ({t}: PageProps) {
   return (
     <Layout>
       <Hero titleLine1={t('home:titleLine1')} titleLine2={t('home:titleLine2')} titleLine3={t('home:titleLine3')} />

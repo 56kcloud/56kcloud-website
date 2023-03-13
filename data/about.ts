@@ -1,6 +1,6 @@
-import { Translate } from 'next-translate'
-import { BaseCardProps } from '../components/molecules/base-card'
-import { TeamCardProps } from '../components/molecules/team-card'
+import {BaseCardProps} from '../components/molecules/base-card'
+import {TeamCardProps} from '../components/molecules/team-card'
+import {Translate} from 'next-translate'
 
 export function getBaseCardsAbout (t: Translate) {
   const baseCards: Array<BaseCardProps> = [

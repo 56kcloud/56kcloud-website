@@ -4,8 +4,8 @@ import useTranslation from 'next-translate/useTranslation'
 
 export const siteTitle = '56k.Cloud'
 
-export default function App ({ Component, pageProps }) {
-  const { t } = useTranslation('about')
+export default function App ({Component, pageProps}) {
+  const {t} = useTranslation('about')
 
   return (
     <>

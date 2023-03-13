@@ -1,9 +1,9 @@
-import useTranslation from 'next-translate/useTranslation'
-import { companies } from '../../data/companies'
+import {companies} from '../../data/companies'
 import Icon from '../atoms/icon'
+import useTranslation from 'next-translate/useTranslation'
 
 export default function Companies () {
-  const { t } = useTranslation('home')
+  const {t} = useTranslation('home')
 
   return (
     <section className='bg-blue-lighter section-padding' >

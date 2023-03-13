@@ -1,5 +1,5 @@
-import { Translate } from 'next-translate'
-import { DetailsCardProps } from '../components/molecules/details-card'
+import {DetailsCardProps} from '../components/molecules/details-card'
+import {Translate} from 'next-translate'
 
 export function getListDetailsServices (t: Translate) {
   const listDetails: Array<string> = [

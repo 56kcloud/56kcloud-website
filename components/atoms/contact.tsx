@@ -1,12 +1,12 @@
-import useTranslation from 'next-translate/useTranslation'
 import Button from './button'
+import useTranslation from 'next-translate/useTranslation'
 
 type ContactProps = {
   toggleContactModal: () => void
 }
 
-export default function Contact ({ toggleContactModal }: ContactProps) {
-  const { t } = useTranslation('common')
+export default function Contact ({toggleContactModal}: ContactProps) {
+  const {t} = useTranslation('common')
 
   return (
     <section className='px-8 py-24 sm:section-padding bg-blue-lighter'>

@@ -1,6 +1,6 @@
-import React, { ButtonHTMLAttributes, DetailedHTMLProps } from 'react'
-import classNames from '../../utils/classes'
 import Img from './img'
+import React, {ButtonHTMLAttributes, DetailedHTMLProps} from 'react'
+import classNames from '../../utils/classes'
 
 type ButtonProps = {
   src?: string
@@ -11,11 +11,12 @@ type ButtonProps = {
   onClick: () => void
 } & DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 
-export default function Button ({ children, src, alt, icon, style = 'blueButton', onClick }: ButtonProps) {
+export default function Button ({children, src, alt, icon, style = 'blueButton', onClick}: ButtonProps) {
   return (
     <button onClick={onClick}
       className={classNames(style === 'blueButton'
-        ? 'inline-flex items-center px-4 py-3 text-xs font-medium tracking-widest uppercase border border-transparent rounded-md shadow-sm 2xl:px-6 2xl:text-sm bg-blue-light'
+        ? 'inline-flex items-center px-4 py-3 text-xs font-medium tracking-widest uppercase border border-transparent \
+         rounded-md shadow-sm 2xl:px-6 2xl:text-sm bg-blue-light'
         : style === 'linkContact' ? 'font-normal text-orange-medium' : 'text-blue-medium')}>
       <div className='flex items-center gap-x-4'>
         {children}

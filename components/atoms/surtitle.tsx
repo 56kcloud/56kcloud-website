@@ -5,7 +5,7 @@ type SurtitleProps = {
   className?: string
 }
 
-export default function Surtitle ({ text, className }: SurtitleProps) {
+export default function Surtitle ({text, className}: SurtitleProps) {
   return (
     <span className={classNames(
       'mb-8 text-orange-medium font-graphik font-semibold tracking-wide flex items-center after:content-[\'\'] \

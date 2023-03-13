@@ -1,7 +1,7 @@
-import { CardPropsImpl } from '../../models/card.model'
-import classNames from '../../utils/classes'
-import VerticalTitle from '../atoms/vertical-title'
+import {CardPropsImpl} from '../../models/card.model'
 import IllustrationCard from '../molecules/illustration-card'
+import VerticalTitle from '../atoms/vertical-title'
+import classNames from '../../utils/classes'
 
 type IllustrationCardsWrapperProps = {
   theme?: 'dark' | 'light'
@@ -9,7 +9,7 @@ type IllustrationCardsWrapperProps = {
   cards: Array<CardPropsImpl>
 }
 
-export default function IllustrationCardWrapper ({ theme = 'dark', title, cards }
+export default function IllustrationCardWrapper ({theme = 'dark', title, cards}
   : IllustrationCardsWrapperProps) {
   return (
     <section className={classNames(theme === 'dark' ? 'bg-blue-dark' : 'bg-blue-lighter', 'section-padding relative')}>

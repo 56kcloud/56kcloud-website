@@ -6,7 +6,7 @@ type VerticalTitleProps = {
   classNameText?: string
 }
 
-export default function VerticalTitle ({ title, styleCard = 'illustrationCard', classNameText }: VerticalTitleProps) {
+export default function VerticalTitle ({title, styleCard = 'illustrationCard', classNameText}: VerticalTitleProps) {
   return (
     <div className={classNames(styleCard === 'illustrationCard' ? 'top-48' : 'top-[450px]',
       'absolute items-center translate-x-[50%] translate-y-[100%] rotate-90 gap-x-8 hidden xl:flex right-24')}>

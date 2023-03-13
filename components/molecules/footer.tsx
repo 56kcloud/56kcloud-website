@@ -1,24 +1,24 @@
-import useTranslation from 'next-translate/useTranslation'
-import classNames from '../../utils/classes'
-import Link from 'next/link'
-import Img from '../atoms/img'
 import Button from '../atoms/button'
-import Icon, { IconProps } from '../atoms/icon'
+import Icon, {IconProps} from '../atoms/icon'
+import Img from '../atoms/img'
+import Link from 'next/link'
+import classNames from '../../utils/classes'
+import useTranslation from 'next-translate/useTranslation'
 
 type FooterProps = {
   version: 'illustration' | 'blue'
   toggleIsModalOpen: () => void
 }
 
-export default function Footer ({ version = 'illustration', toggleIsModalOpen }: FooterProps) {
-  const { t } = useTranslation('footer')
+export default function Footer ({version = 'illustration', toggleIsModalOpen}: FooterProps) {
+  const {t} = useTranslation('footer')
 
   const links = [
-    { href: '/services', title: t('link1') },
-    { href: '/training', title: t('link2') },
-    { href: '/partners', title: t('link3') },
-    { href: '/about', title: t('link4') },
-    { href: 'https://blog.56k.cloud/', title: 'Blog', target: '_blank', rel: 'noopener noreferrer' }
+    {href: '/services', title: t('link1')},
+    {href: '/training', title: t('link2')},
+    {href: '/partners', title: t('link3')},
+    {href: '/about', title: t('link4')},
+    {href: 'https://blog.56k.cloud/', title: 'Blog', target: '_blank', rel: 'noopener noreferrer'}
   ]
 
   const socialNetworksIcons: Array<IconProps> = [

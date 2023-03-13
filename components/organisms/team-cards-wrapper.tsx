@@ -1,14 +1,14 @@
-import TeamCard, { TeamCardProps } from '../molecules/team-card'
+import {Translate} from 'next-translate'
+import {getTeamCardsAbout} from '../../data/about'
 import Button from '../atoms/button'
-import { getTeamCardsAbout } from '../../data/about'
-import { Translate } from 'next-translate'
+import TeamCard, {TeamCardProps} from '../molecules/team-card'
 
 type TeamCardsWrapperProps = {
   t: Translate
   toggleContactModal: () => void
 }
 
-export default function TeamCardsWrapper ({ t, toggleContactModal }: TeamCardsWrapperProps) {
+export default function TeamCardsWrapper ({t, toggleContactModal}: TeamCardsWrapperProps) {
   const cards: Array<TeamCardProps> = getTeamCardsAbout(t)
 
   return (

@@ -1,21 +1,9 @@
+import {GetStaticProps} from 'next'
+import {getSortedPostsData} from '../../lib/posts'
 import Head from 'next/head'
 import Layout from '../../components/organisms/layout'
-import Link from 'next/link'
-import { GetStaticProps } from 'next'
-import { getSortedPostsData } from '../../lib/posts'
 
-export default function Blog ({
-  allPostsData
-}: {
-  allPostsData: {
-    id: string;
-    title: string;
-    excerpt: string;
-    author: string;
-    date: string;
-    image: string;
-  }[];
-}) {
+export default function Blog () {
   return (
     <Layout>
       <Head>
@@ -30,7 +18,7 @@ export default function Blog ({
             Developer life, tips and tricks.
           </p>
         </div>
-        {allPostsData.map(({ id, title, excerpt, author, date, image }) => (
+        {/* {allPostsData.map(({id, title, excerpt, author, date, image}) => (
           <Link href={`/blog/${encodeURIComponent(id)}`} key={id}>
             <Link href=''>
               <div className='grid max-w-lg gap-5 mx-auto my-12 lg:grid-cols-1 lg:max-w-2xl'>
@@ -61,7 +49,7 @@ export default function Blog ({
               </div>
             </Link>
           </Link>
-        ))}
+        ))} */}
       </section>
     </Layout>
   )

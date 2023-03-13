@@ -1,5 +1,5 @@
+import DetailsCard, {DetailsCardProps} from '../molecules/details-card'
 import VerticalTitle from '../atoms/vertical-title'
-import DetailsCard, { DetailsCardProps } from '../molecules/details-card'
 
 type DetailsCardsWrapperProps = {
   title: string
@@ -7,7 +7,7 @@ type DetailsCardsWrapperProps = {
   cards: Array<DetailsCardProps>
 }
 
-export default function DetailsCardsWrapper ({ title, cards, titleClassnames }
+export default function DetailsCardsWrapper ({title, cards, titleClassnames}
   : DetailsCardsWrapperProps) {
   return (
     <section className='relative bg-blue-dark section-padding'>

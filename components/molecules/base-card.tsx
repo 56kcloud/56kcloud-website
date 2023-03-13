@@ -8,7 +8,7 @@ export type BaseCardProps = {
   className: string
 }
 
-export default function BaseCard ({ number, icon, title, className }: BaseCardProps) {
+export default function BaseCard ({number, icon, title, className}: BaseCardProps) {
   return (
     <div className='z-10 border-b border-gray-100 border-solid sm:border-r last:border-r-0'>
       <div className='relative flex flex-col bg-white p-7 min-h-[15rem] sm:min-h-[25rem]'>

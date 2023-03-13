@@ -1,17 +1,17 @@
-import { getListDetailsServices, getDetailsCardsServices } from '../data/services'
-import Head from 'next/head'
-import Layout from '../components/organisms/layout'
+import {PageProps} from '../models/page.model'
+import {getDetailsCardsServices, getListDetailsServices} from '../data/services'
 import BackgroundImage from '../components/atoms/background-image'
-import LargeTitleIntro from '../components/molecules/large-title-intro'
+import Contact from '../components/atoms/contact'
 import Description from '../components/molecules/description'
 import DetailsCardsWrapper from '../components/organisms/details-cards-wrapper'
-import Contact from '../components/atoms/contact'
-import { PageProps } from '../models/page.model'
+import Head from 'next/head'
+import LargeTitleIntro from '../components/molecules/large-title-intro'
+import Layout from '../components/organisms/layout'
 
-export default function ServicesPage ({ t }: PageProps) {
+export default function ServicesPage ({t}: PageProps) {
   return (
     <Layout>
-      {({ toggleIsOpen }) => (
+      {({toggleIsOpen}) => (
         <>
           <Head>
             <title>56K.Cloud | {t('services:tab')}</title>

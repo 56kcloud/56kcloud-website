@@ -1,9 +1,9 @@
-import useTranslation from 'next-translate/useTranslation'
 import Img from '../atoms/img'
 import Surtitle from '../atoms/surtitle'
+import useTranslation from 'next-translate/useTranslation'
 
 export default function Gallery () {
-  const { t } = useTranslation('about')
+  const {t} = useTranslation('about')
 
   return (
     <section className='px-8 py-24 2xl:px-36'>

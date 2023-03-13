@@ -1,7 +1,7 @@
-import { CardProps, CardPropsImpl } from '../../models/card.model'
-import classNames from '../../utils/classes'
-import Img from '../atoms/img'
+import {CardProps, CardPropsImpl} from '../../models/card.model'
 import Icon from '../atoms/icon'
+import Img from '../atoms/img'
+import classNames from '../../utils/classes'
 
 export default function IllustrationCard (props: CardPropsImpl) {
   const cardProps = new CardProps(props)

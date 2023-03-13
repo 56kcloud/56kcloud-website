@@ -4,7 +4,7 @@ type MediumTitleIntroProps = {
   textColRight?: string
 }
 
-export default function MediumTitleIntro ({ title, textColLeft, textColRight }: MediumTitleIntroProps) {
+export default function MediumTitleIntro ({title, textColLeft, textColRight}: MediumTitleIntroProps) {
   return (
     <section className=
       'bg-medium-title-background px-8 pt-56 bg-no-repeat bg-[length:100%] xl:px-36 bg-bottom bg-white'>

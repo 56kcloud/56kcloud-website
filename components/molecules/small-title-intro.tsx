@@ -3,7 +3,7 @@ type SmallTitleIntroProps = {
   title: string
 }
 
-export default function SmallTitleIntro ({ text, title }: SmallTitleIntroProps) {
+export default function SmallTitleIntro ({text, title}: SmallTitleIntroProps) {
   return (
     <section className='section-padding bg-blue-dark'>
       <div className='flex flex-col mx-auto max-w-7xl md:flex-row'>

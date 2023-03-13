@@ -7,7 +7,7 @@ type IntroPrps = {
   text: string
 }
 
-export default function LargeTitleIntro ({ surtitle, title, text }: IntroPrps) {
+export default function LargeTitleIntro ({surtitle, title, text}: IntroPrps) {
   return (
     <section className='px-8 pb-12 xl:px-36'>
       <div className='max-w-6xl mx-auto mt-12 sm:mt-0'>

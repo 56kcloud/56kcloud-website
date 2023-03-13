@@ -1,17 +1,17 @@
-import Layout from '../components/organisms/layout'
-import Head from 'next/head'
-import MediumTitleIntro from '../components/molecules/medium-title-intro'
-import Gallery from '../components/molecules/gallery'
-import BaseCardsWrapper from '../components/organisms/base-cards-wrapper'
-import { getBaseCardsAbout } from '../data/about'
+import {PageProps} from '../models/page.model'
+import {getBaseCardsAbout} from '../data/about'
 import BackgroundImage from '../components/atoms/background-image'
+import BaseCardsWrapper from '../components/organisms/base-cards-wrapper'
+import Gallery from '../components/molecules/gallery'
+import Head from 'next/head'
+import Layout from '../components/organisms/layout'
+import MediumTitleIntro from '../components/molecules/medium-title-intro'
 import TeamCardsWrapper from '../components/organisms/team-cards-wrapper'
-import { PageProps } from '../models/page.model'
 
-export default function AboutPage ({ t }: PageProps) {
+export default function AboutPage ({t}: PageProps) {
   return (
     <Layout>
-      {({ toggleIsOpen }) => (
+      {({toggleIsOpen}) => (
         <>
           <Head>
             <title>Edeltech | {t('about:tab')}</title>

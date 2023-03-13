@@ -34,7 +34,7 @@ export class ImgProps {
     const HTMLPropsKeys = Object.keys(props).filter(prop => !Object.keys(this).includes(prop))
     HTMLPropsKeys.forEach(specificProp => {
       const value = props[specificProp as keyof ImgPropsImpl]
-      Object.assign(HTMLProps, { [specificProp]: value })
+      Object.assign(HTMLProps, {[specificProp]: value})
     })
     return HTMLProps
   }

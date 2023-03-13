@@ -1,23 +1,23 @@
-import useTranslation from 'next-translate/useTranslation'
-import { Fragment, useState } from 'react'
-import { useRouter } from 'next/router'
-import { Dialog, Transition } from '@headlessui/react'
-import Link from 'next/link'
-import Img from '../atoms/img'
+import {Dialog, Transition} from '@headlessui/react'
+import {Fragment, useState} from 'react'
+import {useRouter} from 'next/router'
 import Button from '../atoms/button'
-import classNames from '../../utils/classes'
+import Img from '../atoms/img'
+import Link from 'next/link'
 import NavSelect from '../atoms/nav-select'
+import classNames from '../../utils/classes'
+import useTranslation from 'next-translate/useTranslation'
 
-export default function Nav ({ toggleIsModalOpen }) {
+export default function Nav ({toggleIsModalOpen}) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const router = useRouter()
-  const { t } = useTranslation('nav')
+  const {t} = useTranslation('nav')
 
   const navigation = [
-    { name: t('navItem1'), href: '/services' },
-    { name: t('navItem2'), href: '/training' },
-    { name: t('navItem3'), href: '/partners' },
-    { name: t('navItem4'), href: '/about' },
+    {name: t('navItem1'), href: '/services'},
+    {name: t('navItem2'), href: '/training'},
+    {name: t('navItem3'), href: '/partners'},
+    {name: t('navItem4'), href: '/about'},
     {
       name: 'Blog',
       href: 'https://blog.56k.cloud/',

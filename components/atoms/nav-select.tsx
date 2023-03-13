@@ -1,8 +1,8 @@
-import { Fragment, useEffect, useState } from 'react'
-import { Listbox, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/outline'
+import {ChevronDownIcon} from '@heroicons/react/outline'
+import {Fragment, useEffect, useState} from 'react'
+import {Listbox, Transition} from '@headlessui/react'
+import {useRouter} from 'next/router'
 import classNames from '../../utils/classes'
-import { useRouter } from 'next/router'
 
 export default function NavSelect () {
   const router = useRouter()
@@ -13,7 +13,7 @@ export default function NavSelect () {
   }, [router])
 
   useEffect(() => {
-    selected !== router.locale && router.push(`/${router.pathname}`, `/${router.pathname}`, { locale: selected })
+    selected !== router.locale && router.push(`/${router.pathname}`, `/${router.pathname}`, {locale: selected})
   }, [selected])
 
   return (
@@ -35,7 +35,7 @@ export default function NavSelect () {
               <Listbox.Option key={idx} className='flex items-center justify-center uppercase cursor-pointer h-9'
                 value={language}
               >
-                {({ selected }) => (
+                {({selected}) => (
                   <>
                     <div className={classNames(selected ? 'font-medium' : 'font-normal')}>{language}</div>
                   </>

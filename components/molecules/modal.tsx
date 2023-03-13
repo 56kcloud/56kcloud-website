@@ -1,13 +1,13 @@
-import useTranslation from 'next-translate/useTranslation'
-import { useForm } from 'react-hook-form'
-import { Dialog, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
-import Img from '../atoms/img'
+import {Dialog, Transition} from '@headlessui/react'
+import {Fragment} from 'react'
+import {useForm} from 'react-hook-form'
 import Button from '../atoms/button'
+import Img from '../atoms/img'
+import useTranslation from 'next-translate/useTranslation'
 
-export default function Modal ({ isOpen, setIsOpen }) {
-  const { t } = useTranslation('modal')
-  const { register, handleSubmit } = useForm<{name: string, email: string, text: string }>()
+export default function Modal ({isOpen, setIsOpen}) {
+  const {t} = useTranslation('modal')
+  const {register, handleSubmit} = useForm<{name: string, email: string, text: string }>()
 
   function closeModal () {
     setIsOpen(false)
