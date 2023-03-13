@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 import Modal from '../molecules/modal'
 import Nav from '../molecules/nav'
 import Footer from '../molecules/footer'
 
+type ChildrenProps = {
+  toggleIsOpen: () => void
+}
+
 type LayoutProps = {
-  // toggleIsOpen: () => void
-  children: React.ReactNode
+  children: (props: ChildrenProps) => ReactNode | ReactNode
 }
 
 export default function Layout ({ children }: LayoutProps) {
@@ -22,7 +25,7 @@ export default function Layout ({ children }: LayoutProps) {
         <header className='overflow-hidden'>
           <Nav toggleIsModalOpen={toggleIsOpen}/>
         </header>
-        <main>{children({ toggleIsOpen })}</main>
+        <main>{typeof children === 'object' ? children : children({ toggleIsOpen })}</main>
         <footer>
           <Footer version='illustration' toggleIsModalOpen={toggleIsOpen} />
         </footer>
