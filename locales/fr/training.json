@@ -6,12 +6,12 @@
   "descriptionSurtitle": "Que comprend notre formation",
   "descriptionText": "Nous ne nous contentons pas de dispenser des formations, nous proposons également des appels préformation et un soutien post-formation. Nous organisons des événements de formation spéciaux dans les Alpes suisses où nous pouvons profiter du grand air, tout en étant immergés dans les différents sujets de formation.",
   "altMainIllustration": "Personnes se tenant devant la montagne",
-  "altDivider": "Plantes",
   "listDetail1": "30 jours de support Slack après la fin du cours*",
   "listDetail2": "Ressources et laboratoires supplémentaires",
   "listDetail3": "Courriel de bienvenue/liste de contrôle",
   "listDetail4": "Un appel de suivi programmé",
   "listDetail5": "Le contenu de la formation est disponible via Git",
+  "verticalTitle": "Nos cours",
   "titleCard1": "Formation Kubernetes",
   "detail1Card1": "Aperçu de Kubernetes (architecture et concepts)",
   "detail2Card1": "Installer un environnement de développement local",
@@ -42,5 +42,6 @@
   "detail2Card4": "Pipelines CI/CD",
   "detail3Card4": "Automatisation de l'infrastructure",
   "detail4Card4": "Services de plateforme cloud",
-  "detail5Card4": "Meilleures pratiques"
+  "detail5Card4": "Meilleures pratiques",
+  "altDivider": "Plantes"
 }

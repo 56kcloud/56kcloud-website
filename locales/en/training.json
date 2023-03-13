@@ -6,12 +6,12 @@
   "descriptionSurtitle": "What does our training include",
   "descriptionText": "Not only do we provide training but we also offer pre-training calls and after-training support. We host special training events in the Swiss Alps where we can take advantage of the great outdoors, while immersed in the different training topics.",
   "altMainIllustration": "People standing in front of the mountain",
-  "altDivider": "Plants",
   "listDetail1": "30 days of Slack support after the course concludes*",
   "listDetail2": "Additional Ressources and Labs",
   "listDetail3": "Welcome email/checklist",
   "listDetail4": "One scheduled follow-up call",
   "listDetail5": "Training content made available via Git",
+  "verticalTitle": "Our courses",
   "titleCard1": "Kubernetes Training",
   "detail1Card1": "Kubernetes Overview (Architecture and concepts)",
   "detail2Card1": "Install a Local Development Environment",
@@ -42,5 +42,6 @@
   "detail2Card4": "CI/CD Pipelines",
   "detail3Card4": "Infrastructure Automation",
   "detail4Card4": "Cloud Platform Services",
-  "detail5Card4": "Best Practices"
+  "detail5Card4": "Best Practices",
+  "altDivider": "Plants"
 }

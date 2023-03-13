@@ -9,54 +9,13 @@
   "epigraphSurtitle": "Vision Erklärung",
   "epigraphText": "Wir haben eine Vision entwickelt, die klar, kurz und zeitlos ist. Jedes Projekt profitiert von den Vorteilen früherer Projekte und Erfahrungen. Innovation durch Automatisierung.",
   "cardsWrapperSurtitle": "Unser Schwerpunkt",
-  "focus": [
-    {
-      "number": "01",
-      "icon": "/images/automation-icon.png",
-      "title": "Automatisierung von Infrastruktur und Anwendungen",
-      "className": "bg-orange-medium"
-    },
-    {
-      "number": "02",
-      "icon": "/images/devops-icon.png",
-      "title": "DevOps Services",
-      "className": "bg-orange-lighter"
-    },
-    {
-      "number": "03",
-      "icon": "/images/cloud-icon.png",
-      "title": "Cloud",
-      "className": "bg-blue-light"
-    },
-    {
-      "number": "04",
-      "icon": "/images/monitoring-icon.png",
-      "title": "Überwachung und Sicherheit",
-      "className": "bg-orange-medium"
-    }
-  ],
-  "team": [
-    {
-      "firstName": "Darragh",
-      "lastName": "Grealish",
-      "role": "Ingenieur für Standortzuverlässigkeit und Geschäftsführender Partner",
-      "image": "/images/darragh.jpeg"
-    },
-    {
-      "firstName": "Jochen",
-      "lastName": "Zehnder",
-      "role": "Ingenieur für Standortzuverlässigkeit und Geschäftsführender Partner",
-      "image": "/images/jochen.jpeg"
-    },
-    {
-      "firstName": "Jean-Pierre",
-      "lastName": "Gehrig",
-      "role": "Hauptprogrammierer und Geschäftsführender Partner",
-      "image": "/images/jean-pierre.jpeg"
-    }
-  ],
-  "teamTitle": "Teil des Teams?",
-  "teamText1": "Teilen Sie dieselbe Vision und dieselben Werte? Wir würden uns freuen, von Ihnen zu hören.",
-  "teamText2": "Uns kontaktieren",
+  "titleCard1": "Automatisierung von Infrastruktur und Anwendungen",
+  "titleCard4": "Überwachung und Sicherheit",
+  "roleTeamCard1": "Ingenieur für Standortzuverlässigkeit und Geschäftsführender Partner",
+  "roleTeamCard2": "Ingenieur für Standortzuverlässigkeit und Geschäftsführender Partner",
+  "roleTeamCard3": "Hauptprogrammierer und Geschäftsführender Partner",
+  "teamTitle": "Teil des Teams werden?",
+  "teamText1": "Teilen Sie dieselbe Vision und dieselben Werte? Wir würden uns freuen, von Ihnen zu hören. ",
+  "teamText2": "Kontaktieren Sie uns",
   "teamText3": ", wir würden uns freuen, mit Ihnen einen Kaffee zu trinken."
 }

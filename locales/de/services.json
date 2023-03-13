@@ -5,66 +5,43 @@
   "introText": "Im Laufe der Jahre haben wir viel Wissen über die Migration in die öffentliche Cloud und den sicheren und skalierbaren Betrieb von Workloads angesammelt. Wir haben viele Gemeinsamkeiten in allen Projekten und in verschiedenen Branchen festgestellt. Wir haben dieses Wissen gebündelt, um unsere Kunden dabei zu unterstützen, schneller voranzukommen und von den Tausenden von Stunden, die wir in der Cloud verbracht haben, zu profitieren.",
   "descriptionSurtitle": "Was beinhalten unsere Dienstleistungsprogramme?",
   "descriptionText": "Wir haben gelernt, dass viele unserer Kunden die gleichen Bedürfnisse und Anforderungen haben. Deshalb entwickeln wir Dienstleistungen, die unseren Kunden mehr Wert für weniger Geld bieten. Diese bieten gebrauchsfertige Komponenten, ermöglichen aber dennoch die Anpassung an jeden einzelnen Kunden und jedes Team. Diese Dienstleistungen umfassen:",
-  "details": [
-    "Lernen über die Cloud und ihre besten Praktiken",
-    "Geballtes Cloud-Wissen in gebrauchsfertigen Paketen",
-    "Anpassbare Infrastructure as Code (IaC)-Komponenten",
-    "Zugang zu Experten, die das Team auf seinem Weg begleiten",
-    "Rückwärtsgerichteter Ansatz zur Befähigung des Teams"
-  ],
   "altMainIllustration": "Menschen vor dem Berg stehend",
-  "features": [
-    {
-      "icon": "/images/cloud-white.svg",
-      "title": "Bewertung der Cloud-Bereitschaft",
-      "items": [
-        "Cloud-Native Einführung",
-        "Ihre Anwendungslandschaft verstehen",
-        "Ihren Prozess kennenlernen",
-        "Kennenlernen des Teams und seiner Fähigkeiten",
-        "Den Status quo zusammenfassen",
-        "Empfehlungen für die nächsten Schritte"
-      ]
-    },
-    {
-      "icon": "/images/infinity.svg",
-      "title": "ISV zu SaaS - Befähigungsprogramm",
-      "items": [
-        "Strukturiertes Cloud Journey-Programm, das die Vorteile der ISV-Modernisierung in der AWS-Cloud aufzeigt",
-        "2-tägiger Entdeckungsworkshop",
-        "Entwicklung einer umsetzbaren Cloud-Roadmap",
-        "Regelmäßige Check-Ins zur Unterstützung des Teams (vi Slack und Teams/Zoom-Anrufe)",
-        "Gemeinsamer Slack- und/oder Teams-Kanal für eine beschleunigte Zusammenarbeit",
-        "Schauen Sie sich hier unseren One-Pager für das Programm an: (Link)"
-      ]
-    },
-    {
-      "icon": "/images/cloud-white.svg",
-      "title": "Cloud-Referenzarchitektur",
-      "items": [
-        "Bewährte Praktiken und Automatisierung beim Onboarding in die Public Cloud",
-        "Implementierung einer sicheren Cloud-Referenzarchitektur mit AWS",
-        "Verwaltete Bereitstellung für einen schnellen Start in Entwicklung und Produktion",
-        "Eine wartbare Codebasis für die Automatisierung der Infrastruktur, die in der AWS Cloud bereitgestellt wird",
-        "Aufbau auf Hashicorp Terraform oder AWS CDK (Cloud Development Kit)",
-        "56K Cloud Slack Zugang* für Onboarding und Support*",
-        "Technologie-Stack: Terraform, Terragrunt, AWS, Gitlab/Github Actions, CDK*",
-        "Optional: Unterstützung für bis zu drei+ Konten /w Codebase-Zugang*",
-        "Optional: Compliance- und Sicherheitspakete zur Erfüllung von CIS und HIPPA"
-      ]
-    },
-    {
-      "icon": "/images/cloud-white.svg",
-      "title": "Einfache Webanwendung",
-      "items": [
-        "Erste Schritte mit AWS Public Cloud-Services innerhalb von Stunden, nicht Wochen!",
-        "Sofort einsatzbereites Setup, das im Laufe der Zeit mit Ihrer Anwendung erweitert und skaliert werden kann",
-        "Grundlegende Bausteine zur Unterstützung eines kleinen Entwicklungsteams",
-        "Onboarding Unterstützung über ein einwöchiges Programm",
-        "Begrenzte Investitionen sind für den Start erforderlich, so dass Sie mehr Zeit für die Produktentwicklung haben!",
-        "Technologie Stack: Docker Containers, ECS, ALB"
-      ]
-    }
-  ],
+  "listDetail1": "Lernen über die Cloud und ihre besten Praktiken",
+  "listDetail2": "Geballtes Cloud-Wissen in gebrauchsfertigen Paketen",
+  "listDetail3": "Anpassbare Infrastructure as Code (IaC)-Komponenten",
+  "listDetail4": "Zugang zu Experten, die das Team auf seinem Weg begleiten",
+  "listDetail5": "Rückwärtsgerichteter Ansatz zur Befähigung des Teams",
+  "verticalTitle": "Unsere produktbezogenen Dienstleistungen",
+  "titleCard1": "Bewertung der Cloud-Bereitschaft",
+  "detail1Card1": "Cloud-Native Einführung",
+  "detail2Card1": "Ihre Anwendungslandschaft verstehen",
+  "detail3Card1": "Ihren Prozess kennenlernen",
+  "detail4Card1": "Kennenlernen des Teams und seiner Fähigkeiten",
+  "detail5Card1": "Den Status quo zusammenfassen",
+  "detail6Card1": "Empfehlungen für die nächsten Schritte",
+  "titleCard2": "ISV zu SaaS - Befähigungsprogramm",
+  "detail1Card2": "Strukturiertes Cloud Journey-Programm, das die Vorteile der ISV-Modernisierung in der AWS-Cloud aufzeigt",
+  "detail2Card2": "2-tägiger Entdeckungsworkshop",
+  "detail3Card2": "Entwicklung einer umsetzbaren Cloud-Roadmap",
+  "detail4Card2": "Regelmäßige Check-Ins zur Unterstützung des Teams (vi Slack und Teams/Zoom-Anrufe)",
+  "detail5Card2": "Gemeinsamer Slack- und/oder Teams-Kanal für eine beschleunigte Zusammenarbeit",
+  "detail6Card2": "Schauen Sie sich hier unseren One-Pager für das Programm an: (Link)",
+  "titleCard3": "Cloud-Referenzarchitektur",
+  "detail1Card3": "Bewährte Praktiken und Automatisierung beim Onboarding in die Public Cloud",
+  "detail2Card3": "Implementierung einer sicheren Cloud-Referenzarchitektur mit AWS",
+  "detail3Card3": "Verwaltete Bereitstellung für einen schnellen Start in Entwicklung und Produktion",
+  "detail4Card3": "Eine wartbare Codebasis für die Automatisierung der Infrastruktur, die in der AWS Cloud bereitgestellt wird",
+  "detail5Card3": "Aufbau auf Hashicorp Terraform oder AWS CDK (Cloud Development Kit)",
+  "detail6Card3": "56K Cloud Slack Zugang* für Onboarding und Support*",
+  "detail7Card3": "Technologie-Stack: Terraform, Terragrunt, AWS, Gitlab/Github Actions, CDK*",
+  "detail8Card3": "Optional: Unterstützung für bis zu drei+ Konten /w Codebase-Zugang*",
+  "detail9Card3": "Optional: Compliance- und Sicherheitspakete zur Erfüllung von CIS und HIPPA",
+  "titleCard4": "Einfache Webanwendung",
+  "detail1Card4": "Erste Schritte mit AWS Public Cloud-Services innerhalb von Stunden, nicht Wochen!",
+  "detail2Card4": "Sofort einsatzbereites Setup, das im Laufe der Zeit mit Ihrer Anwendung erweitert und skaliert werden kann",
+  "detail3Card4": "Grundlegende Bausteine zur Unterstützung eines kleinen Entwicklungsteams",
+  "detail4Card4": "Onboarding Unterstützung über ein einwöchiges Programm",
+  "detail5Card4": "Begrenzte Investitionen sind für den Start erforderlich, so dass Sie mehr Zeit für die Produktentwicklung haben!",
+  "detail6Card4": "Technologie Stack: Docker Containers, ECS, ALB",
   "altDivider": "Pflanzen"
 }

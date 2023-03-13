@@ -13,7 +13,7 @@ export default function HomePage () {
   return (
     <Layout>
       <Hero titleLine1={t('titleLine1')} titleLine2={t('titleLine2')} titleLine3={t('titleLine3')} />
-      <SmallTitleIntro text={t('text')} title={t('title')} />
+      <SmallTitleIntro text={t('textIntro')} title={t('titleIntro')} />
       <IllustrationCardsWrapper title='Services' cards={getDarkIllustrationCardsHome(t)} />
       <BackgroundImage src='/images/buro-background.png' alt={t('alt')} width={1920} height={0}
         className='bg-blue-lighter' />
