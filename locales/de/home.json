@@ -1,0 +1,19 @@
+{
+  "titleLine1": "Beginnen wir",
+  "titleLine2": "Ihre Cloud",
+  "titleLine3": "Reise",
+  "textIntro": "Es ist wichtig, dass das gesamte Team an Bord ist und auf der gleichen Cloud-Reise in die richtige Richtung geht. Wir unterstützen die Kunden bei ihrer Cloud-Native-Geschichte.",
+  "titleIntro": "56K.Cloud wurde gegründet, um unsere Vision der Cloud mit unseren Partnern und Kunden zu teilen.",
+  "titleCard1": "Automatisierung",
+  "descriptionCard1": "End-to-End-Automatisierung Ihrer Infrastruktur und Anwendungen, die reproduzierbare und versionskontrollierte Umgebungen ermöglicht.",
+  "descriptionCard2": "Nutzen Sie die Best Practice der Cloud-Architektur in Kombination mit Automatisierung, um maximale Leistung zu erzielen und gleichzeitig Ihre monatlichen Cloud-Kosten zu senken.",
+  "titleCard3": "Docker und Kubernetes",
+  "descriptionCard3": "Containerisieren Sie Anwendungen oder setzen Sie einen Container-Orchestrator wie Docker Swarm oder Kubernetes ein und integrieren Sie ihn in Ihren DevOps-Workflow.",
+  "altImageBackground": "Buro Illustration",
+  "descriptionCard4": "Von Infrastructure as Code bis zum Aufbau von CI/CD-Pipelines unterstützen wir Ihr Unternehmen mit den neuesten DevOps-Tools und Best Practices.",
+  "titleCard5": "Überwachung und Sicherheit",
+  "descriptionCard5": "Eine unserer Leidenschaften ist die Überwachung. Wir haben maßgeschneiderte Überwachungsinstrumente entwickelt, die Sie über Ihre Geschäftsentscheidungen und Ihre Infrastruktur auf dem Laufenden halten.",
+  "titleCard6": "Ausbildung",
+  "descriptionCard6": "Das Schulungsprogramm von 56K.Cloud bietet praktische Schulungen anhand von realen Beispielen und Anwendungsfällen. Unser Schulungsprogramm deckt die Bereiche Cloud, Container und DevOps ab.",
+  "companiesTitle": "Diese Unternehmen vertrauen uns bereits"
+}
