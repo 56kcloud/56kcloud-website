@@ -1,7 +1,8 @@
-import classNames from '../../utils/classes'
 import Img from './img'
+import classNames from '../../utils/classes'
 
-type IconProps = {
+export type IconProps = {
+  iconLink?: string
   src: string
   alt: string
   width?: number
@@ -10,7 +11,7 @@ type IconProps = {
   className?: string
 }
 
-export default function Icon ({ src, alt, width, height, fill = false, className }: IconProps) {
+export default function Icon ({src, alt, width, height, fill = false, className}: IconProps) {
   return (
     <div className={classNames('flex items-center justify-center rounded-full relative', className)}>
       <Img src={src} alt={alt} width={width} height={height} fill={fill} className='w-full h-auto' />

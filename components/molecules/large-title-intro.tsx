@@ -7,7 +7,7 @@ type IntroPrps = {
   text: string
 }
 
-export default function LargeTitleIntro ({ surtitle, title, text }: IntroPrps) {
+export default function LargeTitleIntro ({surtitle, title, text}: IntroPrps) {
   return (
     <section className='px-8 pb-12 xl:px-36'>
       <div className='max-w-6xl mx-auto mt-12 sm:mt-0'>
@@ -16,7 +16,7 @@ export default function LargeTitleIntro ({ surtitle, title, text }: IntroPrps) {
         </div>
         <div className='lg:-mt-12'>
           <Surtitle text={surtitle} />
-          <h2 className='font-semibold mb-8 leading-[1.1] title xl-responsive-title'>{title}</h2>
+          <h2 className='mb-8 font-semibold title xl-responsive-title'>{title}</h2>
           <div className='w-full'>
             <p className='xl:text-lg'>{text}</p>
           </div>

@@ -6,9 +6,9 @@ type HeroProps = {
   titleLine3: string
 }
 
-export default function Hero ({ titleLine1, titleLine2, titleLine3 }: HeroProps) {
+export default function Hero ({titleLine1, titleLine2, titleLine3}: HeroProps) {
   return (
-    <div className='relative pt-24 sm:pt-0 sm:bg-transparent'>
+    <div className='relative pt-24 overflow-hidden bg-white sm:pt-0'>
       <div className='title font-semibold absolute left-[41%] bottom-[40%] z-10 sm:bottom-[43%] sm:left-[46%] \
         md:bottom-[44%] md:left-[48%] lg:left-1/2 xl:bottom-[45%]'>
         <h1 className='leading-none sm-responsive-title sm:md-responsive-title md:lg-responsive-title \

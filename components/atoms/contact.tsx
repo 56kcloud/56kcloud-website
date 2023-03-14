@@ -1,12 +1,19 @@
-import Link from 'next/link'
+import Button from './button'
+import useTranslation from 'next-translate/useTranslation'
 
-export default function Contact () {
+type ContactProps = {
+  toggleContactModal: () => void
+}
+
+export default function Contact ({toggleContactModal}: ContactProps) {
+  const {t} = useTranslation('common')
+
   return (
     <section className='px-8 py-24 sm:section-padding bg-blue-lighter'>
       <div className='w-full'>
         <p className='text-center xl:text-lg text-blue-dark'>
-          In case you haven’t found the answer to your question please feel free to <Link href='#'
-            className='font-normal text-orange-medium'> contact us</Link>, we will be happy to help you.</p>
+          {t('contactText1')} <Button style='linkContact' onClick={toggleContactModal}>
+            {t('contactText2')}</Button>{t('contactText3')}</p>
       </div>
     </section>
   )

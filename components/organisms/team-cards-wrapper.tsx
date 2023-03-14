@@ -1,12 +1,16 @@
-import Link from 'next/link'
-import { Card } from '../../data/team-cards'
-import TeamCard from '../molecules/team-card'
+import {Translate} from 'next-translate'
+import {getTeamCardsAbout} from '../../data/about'
+import Button from '../atoms/button'
+import TeamCard, {TeamCardProps} from '../molecules/team-card'
 
 type TeamCardsWrapperProps = {
-  cards: Array<Card>
+  t: Translate
+  toggleContactModal: () => void
 }
 
-export default function TeamCardsWrapper ({ cards }: TeamCardsWrapperProps) {
+export default function TeamCardsWrapper ({t, toggleContactModal}: TeamCardsWrapperProps) {
+  const cards: Array<TeamCardProps> = getTeamCardsAbout(t)
+
   return (
     <section className='section-padding bg-blue-dark -mt-[1px]'>
       <div className='sm:grid grid-cols-1 sm:gap-10 mx-auto sm:grid-cols-2 lg:grid-cols-3 \
@@ -16,10 +20,11 @@ export default function TeamCardsWrapper ({ cards }: TeamCardsWrapperProps) {
             role={card.role} image={card.image} />
         ))}
         <div className='flex flex-col items-center justify-center col-start-2 col-end-3 p-8 text-center text-white'>
-          <h2 className='mb-6 text-4xl leading-tight md:text-5xl title'>Part of the Team?</h2>
-          <p className='text-lg'>Do you share the same vision and values? We'd love to hear from you.
-            <Link href='#' className='font-normal text-orange-medium'> Contact us</Link>,
-            we'd be happy to share a coffee/drink together.</p>
+          <h2 className='mb-6 text-[36px] md:text-[48px] title'>{t('about:teamTitle')}</h2>
+          <p className='text-lg'>{t('about:teamText1')}
+            <Button onClick={toggleContactModal} style='linkContact'>{t('about:teamText2')}</Button>
+            {t('about:teamText3')}
+          </p>
         </div>
       </div>
     </section>

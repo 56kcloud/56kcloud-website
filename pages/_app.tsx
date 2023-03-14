@@ -1,9 +1,12 @@
 import '../styles/global.css'
 import Head from 'next/head'
+import useTranslation from 'next-translate/useTranslation'
 
 export const siteTitle = '56k.Cloud'
 
-export default function App ({ Component, pageProps }) {
+export default function App ({Component, pageProps}) {
+  const {t} = useTranslation('about')
+
   return (
     <>
       <Head>
@@ -15,7 +18,7 @@ export default function App ({ Component, pageProps }) {
         />
         <meta name='og:title' content={siteTitle} />
       </Head>
-      <Component {...pageProps} />
+      <Component {...pageProps} t={t} />
     </>
   )
 }

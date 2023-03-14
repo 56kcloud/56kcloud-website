@@ -1,42 +1,41 @@
-import classNames from '../../utils/classes'
-import Link from 'next/link'
+import Button from '../atoms/button'
+import Icon, {IconProps} from '../atoms/icon'
 import Img from '../atoms/img'
+import Link from 'next/link'
+import classNames from '../../utils/classes'
+import useTranslation from 'next-translate/useTranslation'
 
 type FooterProps = {
   version: 'illustration' | 'blue'
+  toggleIsModalOpen: () => void
 }
 
-export default function Footer ({ version = 'illustration' }: FooterProps) {
+export default function Footer ({version = 'illustration', toggleIsModalOpen}: FooterProps) {
+  const {t} = useTranslation('footer')
+
   const links = [
-    { href: '/services', title: 'Services' },
-    { href: '/training', title: 'Training' },
-    { href: '/partners', title: 'Partners' },
-    { href: '/about', title: 'About' },
-    { href: 'https://blog.56k.cloud/', title: 'Blog', target: '_blank', rel: 'noopener noreferrer' },
-    { href: '/', title: 'Contact Us' }
+    {href: '/services', title: t('link1')},
+    {href: '/training', title: t('link2')},
+    {href: '/partners', title: t('link3')},
+    {href: '/about', title: t('link4')},
+    {href: 'https://blog.56k.cloud/', title: 'Blog', target: '_blank', rel: 'noopener noreferrer'}
   ]
 
-  const socialNetworksIcons = [
+  const socialNetworksIcons: Array<IconProps> = [
     {
-      href: 'https://twitter.com/56kcloud',
+      iconLink: 'https://twitter.com/56kcloud',
       src: '/images/twitter-icon.svg',
-      alt: 'Twitter logo',
-      title: 'twitter',
-      target: '_blank',
-      rel: 'noopener noreferrer'
+      alt: t('altIconTwitter')
     },
     {
-      href: 'https://www.linkedin.com/company/56kcloud',
+      iconLink: 'https://www.linkedin.com/company/56kcloud',
       src: '/images/linkedin-icon.svg',
-      alt: 'Linkedin logo',
-      title: 'linkedin',
-      target: '_blank',
-      rel: 'noopener noreferrer'
+      alt: t('altIconLinkedin')
     }
   ]
 
   return (
-    <footer className={classNames(
+    <div className={classNames(
       version === 'illustration'
         ? 'bg-footer-background bg-no-repeat bg-cover bg-blue-lighter'
         : 'bg-blue-dark', 'relative h-[1000px] sm:h-[850px]')}>
@@ -44,13 +43,10 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
         <div className='py-8 bg-white md:py-16'>
           <div className='flex flex-wrap justify-between px-8 overflow-hidden md:px-16'>
             <p className='title mb-10 w-full xs-responsive-title leading-[1.1] lg:w-2/3 2xl:w-1/2 lg:mb-16'>
-                56K.Cloud is a professional services, training and technology company focusing on cloud product
-                acceleration, through cloud-native migration, security, developer tooling and community. We enable
-                customers to build on public cloud technologies and accelerate their development practices through
-                DevOps and Agile transformation.
+              {t('companyDescription')}
             </p>
             <Link href='/' className='hidden lg:block lg:w-1/4'>
-              <Img src='/images/56k-logo.svg' alt='56k logo' width={100} height={100} />
+              <Img src='/images/56k-logo.svg' alt={t('altLogo56k')} width={100} height={100} />
             </Link>
             <div className='flex flex-col flex-wrap md:flex-row lg:w-2/3 2xl:w-1/2'>
               <ul className='flex flex-wrap mb-10 font-medium lg:w-2/3 lg:mb-0'>
@@ -59,40 +55,41 @@ export default function Footer ({ version = 'illustration' }: FooterProps) {
                     <Link href={link.href} target={link.target} rel={link.rel}>{link.title}</Link>
                   </li>
                 ))}
+                <Button style='linkFooter' onClick={toggleIsModalOpen}>{t('linkContactUs')}</Button>
               </ul>
               <p className='text-grey-medium lg:w-1/3'>
-                56K.Cloud SA<br /> Chemin Saint-Hubert 5<br /> 1950 Sion<br /> Switzerland
+                56K.Cloud SA<br /> Chemin Saint-Hubert 5<br /> 1950 Sion<br /> {t('countryNameAddress')}
               </p>
             </div>
             <hr className='border-top-[1px] my-10 w-full border-slate-300' />
             <div className='flex flex-col w-full mb-10 md:flex-row lg:w-1/2 lg:mb-0'>
               <div className='w-2/5 lg:w-2/3'>
                 <ul className='flex items-center mb-10 list-none gap-x-16 md:mb-0'>
-                  {socialNetworksIcons.map((icon) => (
-                    <li key={icon.title}>
-                      <Link href={icon.href} target={icon.target} rel={icon.rel} >
-                        <Img src={icon.src} alt={icon.alt} width={18} height={18} />
+                  {socialNetworksIcons.map((icon, idx) => (
+                    <li key={idx} className='w-4'>
+                      <Link href={icon.iconLink} target='_blank' rel='noopener noreferrer'>
+                        <Icon src={icon.src} alt={icon.alt} width={100} height={100} />
                       </Link>
                     </li>
                   ))}
                 </ul>
               </div>
               <p className='w-1/3 whitespace-pre text-grey-medium'>
-                  Copyright (c) 2023, 56K.Cloud SA <br />all rights reserved
+                &copy; 56K.Cloud SA 2023 <br />{t('rightsReserved')}
               </p>
             </div>
             <p className='w-full lg:w-1/4'>
               <span className='flex items-center gap-x-3'>
-                <span className='text-grey-medium'>Design by</span>
+                <span className='text-grey-medium'>{t('designBy')}</span>
                 <Link href='https://studiovoila.com/' target='_blank' rel='noopener noreferrer'
                   className='w-16 -translate-y-[2px]'>
-                  <Img src='/images/voila-logo.png' alt='Voila logo' width={100} height={0} />
+                  <Img src='/images/voila-logo.png' alt={t('altLogoVoila')} width={100} height={0} />
                 </Link>
               </span>
             </p>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   )
 }

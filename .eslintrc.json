@@ -1,23 +1,63 @@
 {
-    "env": {
-      "browser": true
-    },
-    "extends": ["standard"],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaVersion": 12,
-      "sourceType": "module"
-    },
-    "plugins": ["@typescript-eslint"],
-    "rules": {
-      "no-console": "error",
-      "camelcase": "off",
-      "indent": ["error", 2],
-      "linebreak-style": ["error", "unix"],
-      "quotes": ["error", "single"],
-      "semi": ["error", "never"],
-      "jsx-quotes":["error", "prefer-single"],
-      "max-len": ["error", { "code": 120 }],
-      "no-multi-str": "off"
-    }
+  "extends": "next/core-web-vitals",
+  "ignorePatterns": [
+    "package-lock.json",
+    "node_modules",
+    "next.config.js"
+  ],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "sort-imports-es6-autofix"
+  ],
+  "rules": {
+    "react-hooks/exhaustive-deps": "off",
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "jsx-quotes": [
+      "error",
+      "prefer-single"
+    ],
+    "indent": [
+      "error",
+      2
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "no-unused-vars": "error",
+    "comma-dangle": "error",
+    "object-curly-spacing": [
+      "error",
+      "never"
+    ],
+    "sort-imports-es6-autofix/sort-imports-es6": [
+      2,
+      {
+        "ignoreCase": false,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": [
+          "none",
+          "all",
+          "multiple",
+          "single"
+        ]
+      }
+    ],
+    "eol-last": ["error", "always"],
+    "max-len": [
+      "error",
+      {
+        "code": 120
+      }
+    ]
   }
+  
+}

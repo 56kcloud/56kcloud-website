@@ -9,10 +9,10 @@ type BackgroundImageProps = {
   className?: string
 }
 
-export default function BackgroundImage ({ src, alt, width, height, fill = false, className }: BackgroundImageProps) {
+export default function BackgroundImage ({src, alt, width, height, fill = false, className}: BackgroundImageProps) {
   return (
     <div className={className}>
-      <Img src={src} alt={alt} width={width} height={height} fill={fill} className='w-full h-auto' />
+      <Img src={src} alt={alt} width={width} height={height} fill={fill} className='relative w-full h-auto' />
     </div>
   )
 }

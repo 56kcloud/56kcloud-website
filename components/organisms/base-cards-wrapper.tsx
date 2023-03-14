@@ -1,14 +1,13 @@
+import BaseCard, {BaseCardProps} from '../molecules/base-card'
 import Surtitle from '../atoms/surtitle'
-import { Card } from '../../data/base-cards'
-import BaseCard from '../molecules/base-card'
 
 type BaseCardsWrapperProps = {
-  cards: Array<Card>
+  cards: Array<BaseCardProps>
   text: string
   className?: string
 }
 
-export default function BaseCardsWrapper ({ cards, text, className }: BaseCardsWrapperProps) {
+export default function BaseCardsWrapper ({cards, text, className}: BaseCardsWrapperProps) {
   return (
     <section className='section-padding'>
       <div className='mx-auto max-w-7xl'>
