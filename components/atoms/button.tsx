@@ -17,7 +17,7 @@ export default function Button ({children, src, alt, icon, style = 'blueButton',
       className={classNames(style === 'blueButton'
         ? 'inline-flex items-center px-4 py-3 text-xs font-medium tracking-widest uppercase border border-transparent \
          rounded-md shadow-sm 2xl:px-6 2xl:text-sm bg-blue-light'
-        : style === 'linkContact' ? 'font-normal text-orange-medium' : 'text-blue-medium')}>
+        : style === 'linkContact' ? 'font-normal text-orange-medium' : 'text-blue-medium flex items-start')}>
       <div className='flex items-center gap-x-4'>
         {children}
         {icon && <Img src={src} alt={alt} width={14} height={14} className='-translate-y-0.5' />}
