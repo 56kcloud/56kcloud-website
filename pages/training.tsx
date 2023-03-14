@@ -29,7 +29,7 @@ export default function TrainingPage ({t}: PageProps) {
             width={1920} height={0} />
           <DetailsCardsWrapper title={t('training:verticalTitle')} cards={getDetailsCardsTraining(t)}
             titleClassnames='text-white' />
-          <BackgroundImage src='/images/divider-light.png' alt={t('training:altDivider')} className='-mt-40 xl:-mt-64'
+          <BackgroundImage src='/images/divider-light.png' alt={t('training:altDivider')} className='-mt-12 sm:-mt-24 md:-mt-28 lg:-mt-36 xl:-mt-44 2xl:-mt-56'
             width={1920} height={0} />
           <Contact toggleContactModal={toggleIsOpen} />
         </>

@@ -29,7 +29,7 @@ export default function ServicesPage ({t}: PageProps) {
             width={1920} height={0} />
           <DetailsCardsWrapper title={t('services:verticalTitle')} cards={getDetailsCardsServices(t)}
             titleClassnames='text-white' />
-          <BackgroundImage src='/images/divider-light.png' alt={t('services:altDivider')} className='-mt-40 xl:-mt-64'
+          <BackgroundImage src='/images/divider-light.png' alt={t('services:altDivider')} className='-mt-12 sm:-mt-24 md:-mt-28 lg:-mt-36 xl:-mt-44 2xl:-mt-56'
             width={1920} height={0} />
           <Contact toggleContactModal={toggleIsOpen} />
         </>
