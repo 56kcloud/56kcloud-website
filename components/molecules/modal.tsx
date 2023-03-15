@@ -1,5 +1,6 @@
 import {Dialog, Transition} from '@headlessui/react'
 import {Fragment} from 'react'
+import {sendEmail} from '../../utils/engine-api'
 import {useForm} from 'react-hook-form'
 import Button from '../atoms/button'
 import Img from '../atoms/img'
@@ -13,9 +14,12 @@ export default function Modal ({isOpen, setIsOpen}) {
     setIsOpen(false)
   }
 
-  function submit(data) {
-    console.log(data)
+  const submit = async (data: any) => {
+    try {
+      await sendEmail(data.name, data.email, data.text)
+    } catch (err: any) {}
   }
+
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
