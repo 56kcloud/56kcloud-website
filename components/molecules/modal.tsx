@@ -73,10 +73,10 @@ export default function Modal ({isOpen, setIsOpen}) {
                   <textarea {...register('text')} placeholder={t('inputMessage')}
                     className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium \
                     min-h-[7rem]' />
+                  <div className='flex justify-center mt-6'>
+                    <Button type='submit' onClick={closeModal}>{t('button')}</Button>
+                  </div>
                 </form>
-                <div className='flex justify-center mt-6'>
-                  <Button onClick={closeModal}>{t('button')}</Button>
-                </div>
               </Dialog.Panel>
             </Transition.Child>
           </div>
