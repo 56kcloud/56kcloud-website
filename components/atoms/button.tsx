@@ -9,7 +9,7 @@ type ButtonProps = {
   style?: 'blueButton' | 'linkContact' | 'linkFooter'
   children: React.ReactNode
   type?: string
-  onClick: () => void
+  onClick?: () => void
 } & DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 
 export default function Button ({children, src, alt, icon, style = 'blueButton', type, onClick}: ButtonProps) {

@@ -8,16 +8,28 @@ import useTranslation from 'next-translate/useTranslation'
 
 export default function Modal ({isOpen, setIsOpen}) {
   const {t} = useTranslation('modal')
-  const {register, handleSubmit} = useForm<{name: string, email: string, text: string }>()
+  const {register, handleSubmit, formState: {errors}} = useForm<{name: string, email: string, text: string }>()
+
+  const emailOptions = {
+    required: 'An email is required',
+    pattern: {
+      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+      message: 'Email is invalid'
+    }
+  }
+
+  console.log(errors)
 
   function closeModal () {
     setIsOpen(false)
   }
 
-  const submit = async (data: any) => {
+  const onSubmit = async (data: any) => {
     try {
       await sendEmail(data.name, data.email, data.text)
-    } catch (err: any) {}
+    } catch {
+
+    }
   }
 
 
@@ -68,17 +80,26 @@ export default function Modal ({isOpen, setIsOpen}) {
                     {t('text')}
                   </p>
                 </div>
-                <form onSubmit={handleSubmit(submit)}
+                {errors.name || errors.email || errors.text ? (
+                  <div className='p-3 text-sm text-red-600 bg-red-100 rounded-lg pl-7 mt-7 font-graphik sm:text-base'>
+                    <ul className='list-disc'>
+                      {errors.name?.message && (<li>{errors.name?.message}</li>)}
+                      {errors.email?.message && (<li>{errors.email?.message}</li>)}
+                      {errors.text?.message && (<li>{errors.text?.message}</li>)}
+                    </ul>
+                  </div>
+                ) : null}
+                <form onSubmit={handleSubmit(onSubmit)}
                   className='mt-6 text-sm sm:text-base sm:mt-9 placeholder:text-base font-graphik '>
-                  <input {...register('name')} placeholder={t('inputName')}
+                  <input {...register('name', {required: 'Your name is required'})} placeholder={t('inputName')}
                     className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium' />
-                  <input {...register('email')} placeholder={t('inputEmail')}
+                  <input {...register('email', emailOptions)} placeholder={t('inputEmail')}
                     className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium' />
-                  <textarea {...register('text')} placeholder={t('inputMessage')}
+                  <textarea {...register('text', {required: 'A message is required'})} placeholder={t('inputMessage')}
                     className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium \
                     min-h-[7rem]' />
                   <div className='flex justify-center mt-6'>
-                    <Button type='submit' onClick={closeModal}>{t('button')}</Button>
+                    <Button type='submit'>{t('button')}</Button>
                   </div>
                 </form>
               </Dialog.Panel>
