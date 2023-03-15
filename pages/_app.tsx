@@ -13,8 +13,13 @@ export default function App ({Component, pageProps}) {
         <title>{siteTitle}</title>
         <link rel='icon' href='/favicon.ico' />
         <meta
+          name='title'
+          content="Let's Start your Cloud Journey"
+        />
+        <meta
           name='description'
-          content="We're a team of passionate engineers ready to develop your next web, mobile or desktop applications."
+          content='56K.Cloud is a team of Site Reliability Engineers focusing on Automation, Containers, and your \ 
+            Journey to the Cloud.'
         />
         <meta name='og:title' content={siteTitle} />
       </Head>

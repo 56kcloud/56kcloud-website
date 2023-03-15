@@ -8,7 +8,11 @@ import useTranslation from 'next-translate/useTranslation'
 
 export default function Modal ({isOpen, setIsOpen}) {
   const {t} = useTranslation('modal')
-  const {register, handleSubmit, formState: {errors}} = useForm<{name: string, email: string, text: string }>()
+  const {register, handleSubmit, reset, formState: {errors}} = useForm<{name: string, email: string, text: string }>()
+
+  const nameOptions = {
+    required: 'Your name is required'
+  }
 
   const emailOptions = {
     required: 'An email is required',
@@ -18,7 +22,9 @@ export default function Modal ({isOpen, setIsOpen}) {
     }
   }
 
-  console.log(errors)
+  const textOptions = {
+    required: 'A message is required'
+  }
 
   function closeModal () {
     setIsOpen(false)
@@ -27,8 +33,10 @@ export default function Modal ({isOpen, setIsOpen}) {
   const onSubmit = async (data: any) => {
     try {
       await sendEmail(data.name, data.email, data.text)
+      closeModal()
+      reset()
     } catch {
-
+      // FIND A GREAT WAY TO HANDLE ERROR
     }
   }
 
@@ -91,11 +99,11 @@ export default function Modal ({isOpen, setIsOpen}) {
                 ) : null}
                 <form onSubmit={handleSubmit(onSubmit)}
                   className='mt-6 text-sm sm:text-base sm:mt-9 placeholder:text-base font-graphik '>
-                  <input {...register('name', {required: 'Your name is required'})} placeholder={t('inputName')}
+                  <input {...register('name', nameOptions)} placeholder={t('inputName')}
                     className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium' />
                   <input {...register('email', emailOptions)} placeholder={t('inputEmail')}
                     className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium' />
-                  <textarea {...register('text', {required: 'A message is required'})} placeholder={t('inputMessage')}
+                  <textarea {...register('text', textOptions)} placeholder={t('inputMessage')}
                     className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium \
                     min-h-[7rem]' />
                   <div className='flex justify-center mt-6'>
