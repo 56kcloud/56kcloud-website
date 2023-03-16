@@ -14,7 +14,7 @@ export default function ServicesPage ({t}: PageProps) {
       {({toggleIsOpen}) => (
         <>
           <Head>
-            <title>56K.Cloud | {t('services:tab')}</title>
+            <title>56K.Cloud | Services</title>
           </Head>
           <LargeTitleIntro
             surtitle={t('services:introSurtitle')}
@@ -25,13 +25,11 @@ export default function ServicesPage ({t}: PageProps) {
             text={t('services:descriptionText')}
             details={getListDetailsServices(t)} />
           <BackgroundImage src='/images/mountain-background.png' alt={t('services:altMainIllustration')}
-            className='-mt-[10rem] sm:-mt-[15rem] md:-mt-[17rem] lg:-mt-[30rem] xl:-mt-[40rem] 2xl:-mt-[50rem]'
-            width={1920} height={0} />
+            className='-mt-[10rem] sm:-mt-[15rem] md:-mt-[17rem] lg:-mt-[30rem] xl:-mt-[40rem] 2xl:-mt-[50rem]' />
           <DetailsCardsWrapper title={t('services:verticalTitle')} cards={getDetailsCardsServices(t)}
             titleClassnames='text-white' />
           <BackgroundImage src='/images/divider-light.png' alt={t('services:altDivider')}
-            className='-mt-12 sm:-mt-24 md:-mt-28 lg:-mt-36 xl:-mt-44 2xl:-mt-56'
-            width={1920} height={0} />
+            className='-mt-12 sm:-mt-24 md:-mt-28 lg:-mt-36 xl:-mt-44 2xl:-mt-56' />
           <Contact toggleContactModal={toggleIsOpen} />
         </>
       )}

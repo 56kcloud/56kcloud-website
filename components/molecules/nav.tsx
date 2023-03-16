@@ -45,16 +45,15 @@ export default function Nav ({toggleIsModalOpen}) {
               leaveTo='translate-x-full'
             >
               <Dialog.Panel className='w-full h-screen bg-black/10 backdrop-blur-lg xl:hidden'>
-                <div className='bg-white flex flex-col flex-wrap ml-auto pt-8 px-16 w-[90%] h-full'>
-                  <div className='absolute left-[7%] top-10'>
+                <div className='bg-white flex flex-col flex-wrap ml-auto pt-8 px-12 sm:px-16 w-[90%] h-full'>
+                  <div className='absolute left-[4%] sm:left-[7%] top-10'>
                     <button onClick={sidebarHandler}>
-                      <Img src='/images/plus-white.png' alt={t('altIconNavResponsive')} width={50} height={50} />
+                      <Img src='/images/plus-white.png' alt={t('altIconNavResponsive')} className='w-12 sm:w-14' />
                     </button>
                   </div>
                   <div className='flex items-center justify-between mb-auto'>
                     <Link href='/' className='inline-block' onClick={sidebarHandler}>
-                      <Img className='w-auto h-7' src='/images/56k-logo.svg' alt={t('altLogoNav')}
-                        width={100} height={100} />
+                      <Img className='w-auto h-7' src='/images/56k-logo.svg' alt={t('altLogoNav')} />
                     </Link>
                     <div className='translate-y-[3px]'>
                       <NavSelect />
@@ -92,8 +91,7 @@ export default function Nav ({toggleIsModalOpen}) {
             <div className='flex justify-between'>
               <div>
                 <Link href='/'>
-                  <Img className='w-auto h-7 lg:h-10' src='/images/56k-logo.svg' alt={t('altLogoNav')}
-                    width={0} height={0} />
+                  <Img className='w-auto h-7 lg:h-10' src='/images/56k-logo.svg' alt={t('altLogoNav')} />
                 </Link>
               </div>
               <div className='hidden xl:flex xl:items-center xl:justify-between gap-x-12 2xl:gap-x-16'>

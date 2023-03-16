@@ -14,7 +14,7 @@ export default function TrainingPage ({t}: PageProps) {
       {({toggleIsOpen}) => (
         <>
           <Head>
-            <title>56K.Cloud | {t('training:tab')}</title>
+            <title>56K.Cloud | Training</title>
           </Head>
           <LargeTitleIntro
             surtitle={t('training:introSurtitle')}
@@ -25,13 +25,11 @@ export default function TrainingPage ({t}: PageProps) {
             text={t('training:descriptionText')}
             details={getListDetailsTraining(t)} />
           <BackgroundImage src='/images/mountain-background.png' alt={t('training:altMainIllustration')}
-            className='-mt-[10rem] sm:-mt-[15rem] md:-mt-[17rem] lg:-mt-[30rem] xl:-mt-[40rem] 2xl:-mt-[50rem]'
-            width={1920} height={0} />
+            className='-mt-[10rem] sm:-mt-[15rem] md:-mt-[17rem] lg:-mt-[30rem] xl:-mt-[40rem] 2xl:-mt-[50rem]' />
           <DetailsCardsWrapper title={t('training:verticalTitle')} cards={getDetailsCardsTraining(t)}
             titleClassnames='text-white' />
           <BackgroundImage src='/images/divider-light.png' alt={t('training:altDivider')}
-            className='-mt-12 sm:-mt-24 md:-mt-28 lg:-mt-36 xl:-mt-44 2xl:-mt-56'
-            width={1920} height={0} />
+            className='-mt-12 sm:-mt-24 md:-mt-28 lg:-mt-36 xl:-mt-44 2xl:-mt-56' />
           <Contact toggleContactModal={toggleIsOpen} />
         </>
       )}

@@ -2,7 +2,7 @@ import '../styles/global.css'
 import Head from 'next/head'
 import useTranslation from 'next-translate/useTranslation'
 
-export const siteTitle = '56k.Cloud'
+export const siteTitle = '56K.Cloud'
 
 export default function App ({Component, pageProps}) {
   const {t} = useTranslation('about')

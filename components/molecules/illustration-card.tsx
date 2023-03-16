@@ -17,11 +17,11 @@ export default function IllustrationCard (props: CardPropsImpl) {
         </div>
         <div className='px-8 md:px-24 md:w-2/3'>
           <div className='relative -translate-y-6 h-60 md:-translate-y-16 lg:-translate-y-12 md:h-96'>
-            <Img src={cardProps.image} alt={cardProps.title} fill className='object-contain'/>
+            <Img src={cardProps.image} alt={cardProps.title} className='object-contain h-full mx-auto'/>
           </div>
         </div>
         <div className='p-8 pt-0 md:p-16 md:w-1/3 md:pr-8 md:pl-0 lg:py-28 2xl:pr-36'>
-          <Icon src={cardProps.icon} alt={cardProps.title} width={100} height={0}
+          <Icon src={cardProps.icon} alt={cardProps.title}
             className={classNames(cardProps.alignment === 'right'
               ? 'bg-blue-light'
               : 'bg-orange-medium', 'w-12 h-12 p-3')} />

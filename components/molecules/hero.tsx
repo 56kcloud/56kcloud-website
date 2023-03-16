@@ -18,7 +18,7 @@ export default function Hero ({titleLine1, titleLine2, titleLine3}: HeroProps) {
           <div className='relative left-[50%]'>{titleLine3}</div>
         </h1>
       </div>
-      <BackgroundImage src='/images/train-background.png' alt='Train background' width={1920} height={0} />
+      <BackgroundImage src='/images/train-background.png' alt='Train background' />
     </div>
   )
 }

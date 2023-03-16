@@ -1,13 +1,14 @@
-import {ImgProps, ImgPropsImpl} from '../../models/img.model'
-import Image from 'next/image'
 import classNames from '../../utils/classes'
 
-export default function Img (props: ImgPropsImpl) {
-  const imgProps = new ImgProps(props)
+export type ImgProps = {
+  src: string
+  alt: string
+  className?: string
+}
 
+export default function Img ({src, alt, className}: ImgProps) {
   return (
-    <Image src={props.src} alt={props.alt} className={classNames(imgProps.className || '', 'pointer-events-none')}
-      {...imgProps.specificHTMLProps}
-    />
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={src} alt={alt} className={classNames('pointer-events-none', className)} />
   )
 }

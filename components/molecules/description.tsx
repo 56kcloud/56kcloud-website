@@ -19,8 +19,7 @@ export default function Description ({surtitle, text, details}: DescriptionProps
           <ul className='flex flex-col'>
             {details.map((detail, idx) => (
               <li key={idx} className='flex items-center gap-x-4 mb-7'>
-                <Icon src='/images/check.svg' alt='Check icon' width={0} height={0}
-                  className='w-8 h-8 p-2 bg-white shadow-md' />
+                <Icon src='/images/check.svg' alt='Check icon' className='w-8 h-8 p-2 bg-white shadow-md' />
                 <span className='xl:text-lg'>{detail}</span>
               </li>
             ))}

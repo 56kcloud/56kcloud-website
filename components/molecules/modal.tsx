@@ -71,11 +71,10 @@ export default function Modal ({isOpen, setIsOpen}) {
                  pt-40 sm:pt-52 transition-all transform bg-white shadow-xl rounded-2xl'>
                 <div>
                   <button onClick={closeModal}
-                    className='absolute -top-20 translate-x-[50%] right-0 translate-y-[100%]'>
-                    <Img src='/images/plus-white.png' alt='' width={50} height={50} />
+                    className='absolute -top-[72px] sm:-top-20 translate-x-[50%] right-0 translate-y-[100%]'>
+                    <Img src='/images/plus-white.png' alt={t('altButton')} className='w-12 sm:w-14' />
                   </button>
-                  <Img src='/images/modal.png' alt={t('altImage')} width={1920} height={0}
-                    className='absolute -top-14 sm:-top-20 left-2' />
+                  <Img src='/images/modal.png' alt={t('altImage')} className='absolute -top-14 sm:-top-20 left-2' />
                 </div>
                 <Dialog.Title
                   as='h3'

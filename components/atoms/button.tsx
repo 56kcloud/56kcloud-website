@@ -21,7 +21,7 @@ export default function Button ({children, src, alt, icon, style = 'blueButton',
         : style === 'linkContact' ? 'font-normal text-orange-medium' : 'text-blue-medium flex items-start')}>
       <div className='flex items-center gap-x-4'>
         {children}
-        {icon && <Img src={src} alt={alt} width={14} height={14} className='-translate-y-0.5' />}
+        {icon && <Img src={src} alt={alt} className='-translate-y-0.5 w-[14px]' />}
       </div>
     </button>
   )
