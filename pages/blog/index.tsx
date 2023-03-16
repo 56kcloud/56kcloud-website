@@ -1,65 +1,39 @@
-import {GetStaticProps} from 'next'
-import {getSortedPostsData} from '../../lib/posts'
+import {Client} from '@notionhq/client'
+import {authorsDbId, notionKey, postsDbId} from '../../config'
+import BlogCardsWrapper from '../../components/organisms/blog-cards-wrapper'
 import Head from 'next/head'
 import Layout from '../../components/organisms/layout'
+import MediumTitleIntro from '../../components/molecules/medium-title-intro'
 
-export default function Blog () {
+const notion = new Client({auth: notionKey})
+
+export default function Blog({posts}) {
   return (
     <Layout>
       <Head>
         <title>56K.Cloud | Blog</title>
       </Head>
-      <section className='pt-8 mx-auto max-w-7xl'>
-        <div className='text-center'>
-          <h2 className='text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
-            From the blog
-          </h2>
-          <p className='max-w-2xl mx-auto mt-3 text-xl text-gray-500 sm:mt-4'>
-            Developer life, tips and tricks.
-          </p>
-        </div>
-        {/* {allPostsData.map(({id, title, excerpt, author, date, image}) => (
-          <Link href={`/blog/${encodeURIComponent(id)}`} key={id}>
-            <Link href=''>
-              <div className='grid max-w-lg gap-5 mx-auto my-12 lg:grid-cols-1 lg:max-w-2xl'>
-                <div className='flex flex-col overflow-hidden rounded-lg shadow-lg'>
-                  <div className='flex-shrink-0'>
-                    <img
-                      className='object-cover w-full h-96'
-                      src={image}
-                      alt=''
-                    />
-                  </div>
-                  <div className='flex flex-col justify-between flex-1 p-6 bg-white'>
-                    <div className='flex-1'>
-                      <p className='text-sm font-medium text-blue-600'>
-                        Article
-                      </p>
-                      <div className='block mt-2'>
-                        <p className='text-xl font-semibold text-gray-900'>
-                          {title}
-                        </p>
-                        <p className='mt-3 text-base text-gray-500'>
-                          {excerpt}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </Link>
-        ))} */}
-      </section>
+      <MediumTitleIntro title='From the blog' />
+      <BlogCardsWrapper posts={posts} />
     </Layout>
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData()
+export async function getStaticProps() {
+  const authors = (await notion.databases.query({database_id: authorsDbId})).results || []
+  const postsQuery = (await notion.databases.query({database_id: postsDbId})).results || []
+  const posts = postsQuery.map(post => {
+    if (post['properties'].author.relation.length > 0) {
+      post['properties'].author = authors[
+        authors.map(author => author.id).indexOf(post['properties'].author.relation[0].id)
+      ]
+    }
+    return post
+  })
   return {
     props: {
-      allPostsData
-    }
+      posts
+    },
+    revalidate: 3600
   }
 }

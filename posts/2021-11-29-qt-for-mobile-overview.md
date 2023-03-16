@@ -1,10 +1,12 @@
 ---
-title: Is Qt a good choice for cross-platform mobile development?
-excerpt: Qt offers a rich framework for building cross-platform solutions, but it is not the most beginner friendly, is more suited for companies than indie developers and its mobile solution is better suited to porting existing Qt apps to mobile.
-date: "2021-12-02"
-author: John Ingram
-image: "/images/posts/qt-banner.jpg"
-caption: "..."
+textBadge: Cloud
+title: Is Qt a good choice for mobile development?
+description: Qt offers a rich framework for building cross-platform solutions, but it is not the most beginner friendly, is more suited for companies.
+nameAuthor: John Ingram
+imageAuthor: '/images/jochen.jpeg'
+date: 12 February 2021
+timeToRead: 7 min read
+image: "/images/gallery-04.jpeg"
 ---
 
 ![](/images/posts/qt-banner.jpg)

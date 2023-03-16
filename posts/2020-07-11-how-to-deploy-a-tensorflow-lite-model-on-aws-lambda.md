@@ -1,10 +1,12 @@
 ---
+textBadge: Company news
 title: How to deploy a TensorFlow Lite model on AWS Lambda
-excerpt: In this post, we present a cost-effective and surpisingly easy method for running a TensorFlow machine learning model on AWS Lambda.
-date: "2020-07-11"
-author: Jean-Pierre Gehrig
-image: "/images/posts/barry.jpg"
-caption: "A Saint Bernard (confidence: 99.6%), Barry Foundation, Martigny, Switzerland."
+description: In this post, we present a cost-effective and surpisingly easy method for running a TensorFlow machine learning model on AWS Lambda.
+nameAuthor: Jean-Pierre Gehrig
+imageAuthor: '/images/darragh.jpeg'
+date: 27 July 2021
+timeToRead: 4 min read
+image: "/images/gallery-05.jpeg"
 ---
 
 > ⚡️ **This post was updated on December 23rd, 2021, to use [Lambda Container Images](https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/).**

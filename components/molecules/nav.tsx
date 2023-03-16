@@ -18,12 +18,7 @@ export default function Nav ({toggleIsModalOpen}) {
     {name: t('navItem2'), href: '/training'},
     {name: t('navItem3'), href: '/partners'},
     {name: t('navItem4'), href: '/about'},
-    {
-      name: 'Blog',
-      href: 'https://blog.56k.cloud/',
-      target: '_blank',
-      rel: 'noopener noreferrer'
-    }
+    {name: 'Blog', href: '/blog'}
   ]
 
   const sidebarHandler = () => {
@@ -61,8 +56,7 @@ export default function Nav ({toggleIsModalOpen}) {
                   </div>
                   <div className='mb-auto'>
                     {navigation.map((item) => (
-                      <Link key={item.name} href={item.href} target={item.target} rel={item.rel}
-                        onClick={sidebarHandler}
+                      <Link key={item.name} href={item.href} onClick={sidebarHandler}
                         className='block mb-4 text-2xl font-medium font-graphik text-blue-dark'>
                         {item.name}
                       </Link>
@@ -97,7 +91,7 @@ export default function Nav ({toggleIsModalOpen}) {
               <div className='hidden xl:flex xl:items-center xl:justify-between gap-x-12 2xl:gap-x-16'>
                 <div className='flex items-center space-x-12 2xl:space-x-14'>
                   {navigation.map((item) => (
-                    <Link key={item.name} href={item.href} target={item.target} rel={item.rel} className='relative'>
+                    <Link key={item.name} href={item.href} className='relative'>
                       <div className={classNames(router.pathname === item.href
                         ? 'after:content-[\'\'] after:absolute after:left-0 after:bottom-0 after:bg-blue-light \
                           after:h-[3px] after:w-full'

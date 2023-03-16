@@ -25,7 +25,9 @@ module.exports = {
           medium: '#e7755f'
         },
         grey: {
-          medium: '#636e8e'
+          light: '#6a6e7a',
+          medium: '#636e8e',
+          dark: '#1d1e22'
         }
       },
       fontFamily: {
@@ -40,6 +42,7 @@ module.exports = {
   },
   variants: {},
   plugins: [
+    require('@tailwindcss/line-clamp'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio')
