@@ -1,5 +1,7 @@
 import {Dialog, Transition} from '@headlessui/react'
 import {Fragment} from 'react'
+import {contactUsFormData} from '../../models/contact-us-form-data.model'
+import {createHsformsPayload} from '../../utils/toolbox'
 import {sendEmail} from '../../utils/engine-api'
 import {useForm} from 'react-hook-form'
 import Button from '../atoms/button'
@@ -8,8 +10,8 @@ import useTranslation from 'next-translate/useTranslation'
 
 export default function Modal ({isOpen, setIsOpen}) {
   const {t} = useTranslation('modal')
-  const {register, handleSubmit, reset, formState: {errors}} = useForm<{name: string, email: string, text: string }>()
-
+  const {register, handleSubmit, reset, formState: {errors}} = useForm()
+  
   const nameOptions = {
     required: 'Your name is required'
   }
@@ -28,18 +30,17 @@ export default function Modal ({isOpen, setIsOpen}) {
 
   function closeModal () {
     setIsOpen(false)
+    setTimeout(reset, 1000)
   }
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: contactUsFormData) => {
     try {
-      await sendEmail(data.name, data.email, data.text)
+      await sendEmail(createHsformsPayload(data))
       closeModal()
-      reset()
     } catch {
       // FIND A GREAT WAY TO HANDLE ERROR
     }
   }
-
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -53,11 +54,11 @@ export default function Modal ({isOpen, setIsOpen}) {
           leaveFrom='opacity-100'
           leaveTo='opacity-0'
         >
-          <div className='fixed inset-0 bg-white bg-opacity-80' />
+          <div className='fixed inset-0 bg-white bg-opacity-90' />
         </Transition.Child>
 
         <div className='fixed inset-0 overflow-y-auto'>
-          <div className='flex items-center justify-center min-h-full text-center'>
+          <div className='flex items-center justify-center min-h-full px-8 text-center sm:px-0'>
             <Transition.Child
               as={Fragment}
               enter='ease-out duration-300'
@@ -67,14 +68,15 @@ export default function Modal ({isOpen, setIsOpen}) {
               leaveFrom='opacity-100 scale-100'
               leaveTo='opacity-0 scale-95'
             >
-              <Dialog.Panel className='relative w-full max-w-xs sm:max-w-md p-6 sm:p-8 text-left top-10 align-middle \
-                 pt-40 sm:pt-52 transition-all transform bg-white shadow-xl rounded-2xl'>
+              <Dialog.Panel className='relative w-full sm:max-w-xl px-6 py-10 sm:p-8 text-left top-10 align-middle \ 
+                sm:pt-44 transition-all transform bg-white shadow-xl rounded-2xl'>
                 <div>
                   <button onClick={closeModal}
                     className='absolute -top-[72px] sm:-top-20 translate-x-[50%] right-0 translate-y-[100%]'>
                     <Img src='/images/plus-white.png' alt={t('altButton')} className='w-12 sm:w-14' />
                   </button>
-                  <Img src='/images/modal.png' alt={t('altImage')} className='absolute -top-14 sm:-top-20 left-2' />
+                  <Img src='/images/modal.png' alt={t('altImage')} className='hidden sm:block sm:absolute \ 
+                    sm:w-[400px] sm:left-1/2 sm:-translate-x-[47%] sm:-top-24' />
                 </div>
                 <Dialog.Title
                   as='h3'
@@ -105,7 +107,27 @@ export default function Modal ({isOpen, setIsOpen}) {
                   <textarea {...register('text', textOptions)} placeholder={t('inputMessage')}
                     className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium \
                     min-h-[7rem]' />
-                  <div className='flex justify-center mt-6'>
+                  <div className='text-xs'>
+                    <div className='flex items-start mb-5 text-sm gap-x-3'>
+                      <input {...register('legalConsent')} type='checkbox' id='legalConsent' 
+                        className='translate-y-[3px] rounded-sm h-3 w-3 focus:ring-offset-0 focus:ring-1' />
+                      <label htmlFor='legalConsent'>
+                        {t('checkboxLegalConsent')}
+                      </label>
+                    </div>
+                    <div className='relative'>
+                      <div className='h-20 overflow-y-scroll'>
+                        <p>{t('textLegalConsent1')}
+                          <br />
+                          {t('textLegalConsent2')}
+                          <br /><br /><br />
+                        </p>
+                      </div>
+                      <div className='absolute -bottom-[1px] w-full h-10 bg-gradient-to-b from-transparent \ 
+                      to-white'></div>
+                    </div>
+                  </div>
+                  <div className='flex justify-center mt-9'>
                     <Button type='submit'>{t('button')}</Button>
                   </div>
                 </form>

@@ -45,7 +45,7 @@ export default function Nav ({toggleIsModalOpen}) {
               leaveTo='translate-x-full'
             >
               <Dialog.Panel className='w-full h-screen bg-black/10 backdrop-blur-lg xl:hidden'>
-                <div className='bg-white flex flex-col flex-wrap ml-auto pt-8 px-12 sm:px-16 w-[90%] h-full'>
+                <div className='bg-white flex flex-col flex-wrap ml-auto pt-8 px-12 sm:px-16 w-[90%] h-screen'>
                   <div className='absolute left-[4%] sm:left-[7%] top-10'>
                     <button onClick={sidebarHandler}>
                       <Img src='/images/plus-white.png' alt={t('altIconNavResponsive')} className='w-12 sm:w-14' />
@@ -68,7 +68,7 @@ export default function Nav ({toggleIsModalOpen}) {
                       </Link>
                     ))}
                   </div>
-                  <div className='py-12 text-center border-t'>
+                  <div className='pt-8 text-center border-t pb-28'>
                     <Button src='/images/pencil.svg' alt={t('altButtonNav')} icon={true} onClick={toggleIsModalOpen}>
                       {t('navButton')}</Button>
                   </div>

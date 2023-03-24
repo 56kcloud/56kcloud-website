@@ -8,7 +8,7 @@ export type DetailsCardProps = {
 
 export default function DetailsCard ({icon, title, items}: DetailsCardProps) {
   return (
-    <div className='h-full bg-white pt-16 pr-[15%] pb-24 pl-12 z-10'>
+    <div className='h-full bg-white p-8 md:pt-16 md:pr-[15%] md:pb-24 md:pl-12 z-10'>
       <Icon src={icon} alt={title} className='w-12 h-12 p-3 mb-6 bg-blue-light md:mb-10 md:p-5 md:w-20 md:h-20' />
       <h3 className='mb-6 md:mb-10 text-[24px] md:text-[28px] title'>{title}</h3>
       <ul className='text-grey-medium'>

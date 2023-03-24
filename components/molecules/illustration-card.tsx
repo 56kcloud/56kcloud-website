@@ -27,7 +27,7 @@ export default function IllustrationCard (props: CardPropsImpl) {
               : 'bg-orange-medium', 'w-12 h-12 p-3')} />
           <h3 className={classNames(
             cardProps.alignment === 'left' ? 'text-orange-medium' : 'text-blue-light',
-            'mt-4 mb-3 title text-[28px]')}>
+            'mt-4 mb-3 title text-[24px] md:text-[28px]')}>
             {cardProps.title}
           </h3>
           <p className='w-full sm:w-2/3 md:w-full'>{cardProps.description}</p>

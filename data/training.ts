@@ -16,7 +16,7 @@ export function getDetailsCardsTraining (t) {
   const detailsCards: Array<DetailsCardProps> = [
     {
       icon: '/images/wheel.svg',
-      title: t('titleCard1'),
+      title: t('training:titleCard1'),
       items: [
         t('training:detail1Card1'),
         t('training:detail2Card1'),
