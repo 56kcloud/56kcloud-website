@@ -12,8 +12,12 @@ export default function Modal ({isOpen, setIsOpen}) {
   const {t} = useTranslation('modal')
   const {register, handleSubmit, reset, formState: {errors}} = useForm()
   
-  const nameOptions = {
-    required: 'Your name is required'
+  const firstNameOptions = {
+    required: 'Your first name is required'
+  }
+
+  const lastNameOptions = {
+    required: 'Your last name is required'
   }
 
   const emailOptions = {
@@ -24,7 +28,7 @@ export default function Modal ({isOpen, setIsOpen}) {
     }
   }
 
-  const textOptions = {
+  const messageOptions = {
     required: 'A message is required'
   }
 
@@ -58,7 +62,8 @@ export default function Modal ({isOpen, setIsOpen}) {
         </Transition.Child>
 
         <div className='fixed inset-0 overflow-y-auto'>
-          <div className='flex items-center justify-center min-h-full px-8 text-center sm:px-0'>
+          <div className='flex items-center justify-center min-h-full px-8 text-center -translate-y-6 \
+            sm:-translate-y-0  sm:px-0'>
             <Transition.Child
               as={Fragment}
               enter='ease-out duration-300'
@@ -68,55 +73,66 @@ export default function Modal ({isOpen, setIsOpen}) {
               leaveFrom='opacity-100 scale-100'
               leaveTo='opacity-0 scale-95'
             >
-              <Dialog.Panel className='relative w-full sm:max-w-xl px-6 py-10 sm:p-8 text-left top-10 align-middle \ 
-                sm:pt-44 transition-all transform bg-white shadow-xl rounded-2xl'>
+              <Dialog.Panel className='relative w-full sm:max-w-xl px-6 py-7 sm:py-10 sm:p-8 text-left top-7 
+                align-middle sm:pt-20 min-[1700px]:pt-40 transition-all transform bg-white shadow-xl rounded-2xl'>
                 <div>
                   <button onClick={closeModal}
                     className='absolute -top-[72px] sm:-top-20 translate-x-[50%] right-0 translate-y-[100%]'>
                     <Img src='/images/plus-white.png' alt={t('altButton')} className='w-12 sm:w-14' />
                   </button>
-                  <Img src='/images/modal.png' alt={t('altImage')} className='hidden sm:block sm:absolute \ 
-                    sm:w-[400px] sm:left-1/2 sm:-translate-x-[47%] sm:-top-24' />
+                  <Img src='/images/modal.png' alt={t('altImage')} className='hidden sm:block sm:absolute 
+                    sm:w-[250px] min-[1700px]:w-[400px] sm:left-1/2 sm:-translate-x-[47%] sm:-top-20 
+                    min-[1700px]:-top-24' />
                 </div>
                 <Dialog.Title
-                  as='h3'
-                  className='text-3xl font-semibold text-center sm:text-4xl text-blue-medium title'
+                  as='h3' className='text-3xl font-semibold text-center sm:text-3xl min-[1700px]:text-4xl 
+                  text-blue-medium title'
                 >
                   {t('title')}
                 </Dialog.Title>
-                <div className='mt-2'>
-                  <p className='text-base font-normal text-center sm:text-lg font-graphik text-blue-medium'>
+                <div className='mt-1'>
+                  <p className='text-base font-normal text-center sm:text-base min-[1700px]:text-lg font-graphik 
+                    text-blue-medium'>
                     {t('text')}
                   </p>
                 </div>
-                {errors.name || errors.email || errors.text ? (
-                  <div className='p-3 text-sm text-red-600 bg-red-100 rounded-lg pl-7 mt-7 font-graphik sm:text-base'>
-                    <ul className='list-disc'>
-                      {errors.name?.message && (<li>{errors.name?.message}</li>)}
+                {errors.firstName || errors.lastName || errors.email || errors.text ? (
+                  <div className='p-2 sm:p-3 text-sm text-red-600 bg-red-100 rounded-lg pl-7 sm:pl-7 mt-5 
+                    min-[1700px]:mt-6 font-graphik sm:text-sm min-[1700px]:text-base'>
+                    <ul className='list-disc marker:text-xs sm:marker:text-base'>
+                      {errors.firstName?.message && (<li>{errors.firstName?.message}</li>)}
+                      {errors.lastName?.message && (<li>{errors.lastName?.message}</li>)}
                       {errors.email?.message && (<li>{errors.email?.message}</li>)}
-                      {errors.text?.message && (<li>{errors.text?.message}</li>)}
+                      {errors.message?.message && (<li>{errors.message?.message}</li>)}
                     </ul>
                   </div>
                 ) : null}
                 <form onSubmit={handleSubmit(onSubmit)}
-                  className='mt-6 text-sm sm:text-base sm:mt-9 placeholder:text-base font-graphik '>
-                  <input {...register('name', nameOptions)} placeholder={t('inputName')}
-                    className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium' />
+                  className='mt-6 text-sm min-[1700px]:text-base sm:mt-7 min-[1700px]:mt-8 
+                    placeholder:text-base font-graphik '>
+                  <input {...register('firstName', firstNameOptions)} placeholder={t('inputFirstName')}
+                    className='block w-full p-2 min-[1700px]:p-3 mb-2 sm:mb-3 min-[1700px]:mb-4 border 
+                      border-gray-300 rounded-md sm:rounded-lg placeholder:text-blue-medium' />
+                  <input {...register('lastName', lastNameOptions)} placeholder={t('inputLastName')}
+                    className='block w-full p-2 min-[1700px]:p-3 mb-2 sm:mb-3 min-[1700px]:mb-4 border 
+                      border-gray-300 rounded-md sm:rounded-lg placeholder:text-blue-medium' />
                   <input {...register('email', emailOptions)} placeholder={t('inputEmail')}
-                    className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium' />
-                  <textarea {...register('text', textOptions)} placeholder={t('inputMessage')}
-                    className='block w-full p-3 mb-4 border border-gray-300 rounded-lg placeholder:text-blue-medium \
-                    min-h-[7rem]' />
-                  <div className='text-xs'>
-                    <div className='flex items-start mb-5 text-sm gap-x-3'>
+                    className='block w-full p-2 min-[1700px]:p-3 mb-2 sm:mb-3 min-[1700px]:mb-4 border 
+                      border-gray-300 rounded-md sm:rounded-lg placeholder:text-blue-medium' />
+                  <textarea {...register('message', messageOptions)} placeholder={t('inputMessage')}
+                    className='text-sm min-[1700px]:text-base block w-full p-2 min-[1700px]:p-3 mb-2 
+                      sm:mb-3 min-[1700px]:mb-4 border border-gray-300 rounded-md sm:rounded-lg 
+                      placeholder:text-blue-medium min-h-[5rem] sm:min-h-[6rem]' />
+                  <div>
+                    <div className='flex items-start mb-4 sm:mb-5 text-xs min-[1700px]:text-sm gap-x-3'>
                       <input {...register('legalConsent')} type='checkbox' id='legalConsent' 
                         className='translate-y-[3px] rounded-sm h-3 w-3 focus:ring-offset-0 focus:ring-1' />
                       <label htmlFor='legalConsent'>
                         {t('checkboxLegalConsent')}
                       </label>
                     </div>
-                    <div className='relative'>
-                      <div className='h-20 overflow-y-scroll'>
+                    <div className='relative text-[10px] leading-tight min-[1700px]:text-xs'>
+                      <div className='h-[56px] overflow-y-scroll sm:h-20'>
                         <p>{t('textLegalConsent1')}
                           <br />
                           {t('textLegalConsent2')}
@@ -127,7 +143,7 @@ export default function Modal ({isOpen, setIsOpen}) {
                       to-white'></div>
                     </div>
                   </div>
-                  <div className='flex justify-center mt-9'>
+                  <div className='flex justify-center mt-7 min-[1700px]:mt-9'>
                     <Button type='submit'>{t('button')}</Button>
                   </div>
                 </form>

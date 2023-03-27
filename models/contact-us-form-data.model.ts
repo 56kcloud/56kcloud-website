@@ -1,7 +1,8 @@
 export type contactUsFormData = {
-  name: string
+  firstName: string
+  lastName: string
   email: string
-  text: string
+  message: string
   legalConsent: boolean
 }
 
