@@ -13,7 +13,7 @@ export default function BlogCard({post}: BlogCardProps) {
   const createdAt = format(new Date(
     post.properties.published_at.date && post.properties.published_at.date.start ), 'dd MMM yyyy')
   const readTime = humanizeDuration(post.properties.read_time.number * 100000, {largest: 1})
-  console.log(post)
+  
   return (
     <div className='overflow-hidden rounded-lg shadow-lg'>
       <Link href={`/blog/${encodeURIComponent(post.id)}`}>
