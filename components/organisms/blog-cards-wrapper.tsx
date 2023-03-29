@@ -6,8 +6,8 @@ export type BlogCardsWrapperProps = {
 
 export default function BlogCardsWrapper({posts}: BlogCardsWrapperProps) {
   const postsSorted = posts.sort((a, b) => {
-    return new Date(a['properties'].published_at.date.start).valueOf() 
-    - new Date(b['properties'].published_at.date.start).valueOf()
+    return new Date(b['properties'].published_at.date.start).valueOf() -
+    new Date(a['properties'].published_at.date.start).valueOf()
   })
 
   return (
