@@ -21,8 +21,10 @@ export default function BlogCard({post}: BlogCardProps) {
           <Badge>{post.properties.tags.multi_select[0] && post.properties.tags.multi_select[0].name}</Badge>
           <Img src={post.cover && post.cover.external.url} alt='Blog image' className='object-cover w-full h-72' />
           <div className='flex flex-col p-6 bg-white'>
-            <h3 className='text-2xl line-clamp-2 text-grey-dark title'>{post.properties.name.title[0].text.content}</h3>
-            <p className='mt-2 text-base text-grey-light line-clamp-3'>
+            <h3 className='h-16 text-2xl line-clamp-2 text-grey-dark title'>
+              {post.properties.name.title[0].text.content}
+            </h3>
+            <p className='h-[72px] mt-2 text-base text-grey-light line-clamp-3'>
               {post.properties.description.rich_text[0] && post.properties.description.rich_text[0].text.content}
             </p>
             <div className='flex flex-wrap items-center mt-8 text-sm gap-x-3 text-grey-light'>
