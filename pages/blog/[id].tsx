@@ -7,6 +7,18 @@ import Layout from '../../components/organisms/layout'
 
 import {getAllPostIds, getPostData} from '../../lib/posts'
 
+
+import {Client} from '@notionhq/client'
+// import {NotionPageRenderer, retrieveBlocksChildren} from 'notion-to-tailwind'
+import {NotionPageRenderer, retrieveBlocksChildren} from 'notion-to-tailwind'
+import {notionKey} from '../../config'
+// import ogs from 'open-graph-scraper'
+const notion = new Client({auth: notionKey})
+
+
+
+
+
 export default function Post ({
   postData
 }: {
@@ -23,29 +35,6 @@ export default function Post ({
   const router = useRouter()
   return (
     <Layout>
-      <Head>
-        <title>{'Edeltech | ' + postData.title}</title>
-        <meta property='og:type' content='website' />
-        <meta property='og:title' content={postData.title} />
-        <meta property='og:description' content={postData.excerpt} />
-        <meta
-          property='og:image'
-          content={'https://www.edeltech.ch' + postData.image}
-        />
-
-        <meta name='twitter:card' content='summary_large_image' />
-        <meta property='twitter:domain' content='edeltech.ch' />
-        <meta
-          property='twitter:url'
-          content={'https://www.edeltech.ch' + router.asPath}
-        />
-        <meta name='twitter:title' content={postData.title} />
-        <meta name='twitter:description' content={postData.excerpt} />
-        <meta
-          name='twitter:image'
-          content={'https://www.edeltech.ch' + postData.image}
-        />
-      </Head>
       <article className='relative py-16 overflow-hidden bg-white'>
         <div className='relative px-4 sm:px-6 lg:px-8'>
           <div className='mx-auto text-lg max-w-prose'>
@@ -71,19 +60,46 @@ export default function Post ({
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllPostIds()
-  return {
-    paths,
-    fallback: false
-  }
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const paths = getAllPostIds()
+//   return {
+//     paths,
+//     fallback: false
+//   }
+// }
+
+// export const getStaticProps: GetStaticProps = async ({params}) => {
+//   const postData = await getPostData(params.id as string)
+//   return {
+//     props: {
+//       postData
+//     }
+//   }
+// }
+
+export async function getStaticPaths() {
+  return {paths: [], fallback: true}
 }
 
-export const getStaticProps: GetStaticProps = async ({params}) => {
-  const postData = await getPostData(params.id as string)
+
+export async function getStaticProps(props) {
+  const postId = props.params.postId
+  const [post, children] = await Promise.all([
+    notion.pages.retrieve({page_id: postId}),
+    notion.blocks.children.list({block_id: postId})
+  ])
+  // const post = {}
+  const blocks = children.results
+  // const {result} = await ogs({url: 'https://tailwindui.com/'})
+  // console.log(result)
+
+  await retrieveBlocksChildren(notion, blocks)
+
   return {
     props: {
-      postData
-    }
+      post,
+      blocks
+    },
+    revalidate: 3600
   }
 }
