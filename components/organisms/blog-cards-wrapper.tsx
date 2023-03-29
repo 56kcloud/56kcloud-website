@@ -4,7 +4,7 @@ export default function BlogCardsWrapper({posts}) {
   return (
     <section className='section-padding'>
       <div className='mx-auto max-w-7xl'>
-        <div className='grid grid-cols-3 gap-6'>
+        <div className='space-y-6 gap-x-6 sm:columns-2 lg:columns-3'>
           {posts.map((post) => (
             <div key={post.id}>
               <BlogCard post={post} />

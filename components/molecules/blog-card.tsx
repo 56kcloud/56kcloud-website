@@ -19,7 +19,7 @@ export default function BlogCard({post}: BlogCardProps) {
       <Link href={`/blog/${encodeURIComponent(post.id)}`}>
         <div className='relative flex flex-col'>
           <Badge>{post.properties.tags.multi_select[0] && post.properties.tags.multi_select[0].name}</Badge>
-          <Img src={post.cover && post.cover.external.url} alt='Blog image' className='object-cover w-full h-72' />
+          <Img src={post.cover && post.cover.external.url} alt='Blog image' className='aspect-w-1' />
           <div className='flex flex-col p-6 bg-white'>
             <h3 className='text-2xl line-clamp-2 text-grey-dark title'>{post.properties.name.title[0].text.content}</h3>
             <p className='mt-2 text-base text-grey-light line-clamp-3'>
