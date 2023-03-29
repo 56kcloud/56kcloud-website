@@ -35,7 +35,7 @@ export default function BlogCard({post}: BlogCardProps) {
                 <div className='flex gap-x-2'>
                   <span>{createdAt}</span>
                   <span>|</span>
-                  <span>{readTime}</span>
+                  <span>{readTime} read</span>
                 </div>
               </div>
             </div>
