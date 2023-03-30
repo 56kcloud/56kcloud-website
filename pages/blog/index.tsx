@@ -1,5 +1,6 @@
 import {Client} from '@notionhq/client'
 import {authorsDbId, notionKey, postsDbId} from '../../config'
+import {useState} from 'react'
 import BlogCardsWrapper from '../../components/organisms/blog-cards-wrapper'
 import Head from 'next/head'
 import Layout from '../../components/organisms/layout'
@@ -8,6 +9,16 @@ import MediumTitleIntro from '../../components/molecules/medium-title-intro'
 const notion = new Client({auth: notionKey})
 
 export default function Blog({posts}) {
+  const [listPosts, setListPosts] = useState(posts)
+  
+  function getFilteredPosts(posts) {
+    posts.filter((post) => {
+      post.properties.tags.multi_select[0].name === 'Company News'
+    })
+  }
+
+  getFilteredPosts(posts)
+
   return (
     <Layout>
       <Head>
@@ -27,7 +38,13 @@ export async function getStaticProps() {
         property: 'published_at',
         direction: 'descending'
       }
-    ]
+    ],
+    filter: {
+      property: 'tags',
+      multi_select: {
+        contains: 'Company News'
+      }
+    }
   })).results || []
   const posts = postsQuery.map(post => {
     if (post['properties'].author.relation.length > 0) {
