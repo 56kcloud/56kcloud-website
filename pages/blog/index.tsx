@@ -19,6 +19,7 @@ export default function Blog({posts}) {
     setFilteredPosts(filterBy 
       ? posts.filter((post) => {
         return post.properties.tags.multi_select.map(select => slugify(select.name.toLowerCase())).includes(filterBy)
+        
       }) 
       : posts)
   }
@@ -45,21 +46,13 @@ export default function Blog({posts}) {
 
 export async function getStaticProps() {
   const authors = (await notion.databases.query({database_id: authorsDbId})).results || []
-  const db = await notion.databases.retrieve({database_id: postsDbId})
-  console.log(db.properties.tags.multi_select.options)
   const postsQuery = (await notion.databases.query({database_id: postsDbId,
     sorts: [
       {
         property: 'published_at',
         direction: 'descending'
       }
-    ],
-    filter: {
-      property: 'tags',
-      multi_select: {
-        contains: 'Company News'
-      }
-    }
+    ]
   })).results || []
   const posts = postsQuery.map(post => {
     if (post['properties'].author.relation.length > 0) {
