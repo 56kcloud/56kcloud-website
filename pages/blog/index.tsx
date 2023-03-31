@@ -5,7 +5,6 @@ import {useRouter} from 'next/router'
 import BlogCardsWrapper from '../../components/organisms/blog-cards-wrapper'
 import Head from 'next/head'
 import Layout from '../../components/organisms/layout'
-import Link from 'next/link'
 import MediumTitleIntro from '../../components/molecules/medium-title-intro'
 import slugify from 'slugify'
 
@@ -36,9 +35,6 @@ export default function Blog({posts}) {
         <title>56K.Cloud | Blog</title>
       </Head>
       <MediumTitleIntro title='From the blog' />
-      <Link href={'/blog?tag=aws'}>AWS</Link>
-      <Link href={'/blog?tag=company-news'}>company news</Link>
-      <Link href={'/blog?tag=5g'}>5G</Link>
       <BlogCardsWrapper posts={filteredPosts} />
     </Layout>
   )
