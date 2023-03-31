@@ -1,5 +1,5 @@
 import {ArrowLeftIcon, ArrowRightIcon} from '@heroicons/react/outline'
-import {useRef} from 'react'
+import {useRef, useState} from 'react'
 import Link from 'next/link'
 
 const tabs = [
@@ -31,15 +31,28 @@ const tabs = [
 ]
 
 export default function TabsFilter() {
+  const [scrollPosition, setScrollPosition] = useState(200)
   const tabsListRef = useRef<HTMLUListElement>(null)
   
-  function scrollLeft() {
-    tabsListRef.current.scrollTo({left: - 200, behavior: 'smooth'})
+  function scrollRight() {
+    console.log(tabsListRef.current.offsetWidth+  ' ' +  scrollPosition)
+    if (tabsListRef.current.offsetWidth > scrollPosition){
+      setScrollPosition(scrollPosition + 200)
+    }
+    console.log(tabsListRef.current.offsetWidth+  ' ' +  scrollPosition)
+    tabsListRef.current.scrollTo({left: scrollPosition, behavior: 'smooth'})
   }
 
-  function scrollRight() {
-    tabsListRef.current.scrollTo({left: + 200, behavior: 'smooth'})
+  function scrollLeft() {
+    console.log(tabsListRef.current.offsetWidth+  ' ' +  scrollPosition)
+    if (0 < scrollPosition){
+      setScrollPosition(scrollPosition - 200)
+    }
+    console.log(tabsListRef.current.offsetWidth+  ' ' +  scrollPosition)
+    tabsListRef.current.scrollTo({left: scrollPosition, behavior: 'smooth'})
   }
+
+
   
   return (
     <div className='relative mb-8 max-w-7xl'> {/* Maybe remove max-w-7xl className */}
