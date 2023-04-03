@@ -16,7 +16,7 @@ export default function BlogCard({post}: BlogCardProps) {
   
   return (
     <div className='overflow-hidden rounded-lg shadow-lg'>
-      <Link href={`/blog/${encodeURIComponent(post.id)}`}>
+      <Link href={{pathname: `/blog/${encodeURIComponent(post.id)}`, query: post}}>
         <div className='relative flex flex-col bg-white'>
           <Badge>{post.properties.tags.multi_select[0] && post.properties.tags.multi_select[0].name}</Badge>
           <Img src={post.cover && post.cover.external.url} alt='Blog image' className='object-cover w-full h-auto' />
