@@ -13,14 +13,18 @@ export default function BlogCard({post}: BlogCardProps) {
   const createdAt = format(new Date(
     post.properties.published_at.date && post.properties.published_at.date.start ), 'dd MMM yyyy')
   const readTime = humanizeDuration(post.properties.read_time.number * 100000, {largest: 1})
-  
+
   return (
     <div className='overflow-hidden rounded-lg shadow-lg'>
       <Link href={{pathname: `/blog/${encodeURIComponent(post.id)}`, query: post}}>
         <div className='relative flex flex-col bg-white'>
-          <Badge>{post.properties.tags.multi_select[0] && post.properties.tags.multi_select[0].name}</Badge>
           <Img src={post.cover && post.cover.external.url} alt='Blog image' className='object-cover w-full h-auto' />
           <div className='flex flex-col p-6 bg-white'>
+            <div className='flex flex-wrap gap-1 mb-5'>
+              {post.properties.tags.multi_select.map((tag, idx: number) => (
+                <Badge key={idx}>{tag.name}</Badge>
+              ))}
+            </div>
             <h3 className='text-2xl line-clamp-2 text-grey-dark title'>
               {post.properties.name.title[0].text.content}
             </h3>
