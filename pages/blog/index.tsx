@@ -34,7 +34,9 @@ export default function Blog({posts}) {
       <Head>
         <title>56K.Cloud | Blog</title>
       </Head>
-      <MediumTitleIntro title='From the blog' />
+      <MediumTitleIntro title='From the blog' subTitle='Tech, stories and thoughts from 56K.Cloud' className='mb-5' />
+      <div className='py-0 section-padding'>
+      </div>
       <BlogCardsWrapper posts={filteredPosts} />
     </Layout>
   )
