@@ -14,7 +14,7 @@ export default function BlogCardsWrapper({posts}: BlogCardsWrapperProps) {
         <ResponsiveMasonry
           columnsCountBreakPoints={{300: 1, 700: 2, 1000: 3}}
         >
-          <Masonry gutter='2rem'>
+          <Masonry gutter='2.5rem'>
             {posts.map((post, idx) => (
               <BlogCard key={idx} post={post}/>
             ))}
