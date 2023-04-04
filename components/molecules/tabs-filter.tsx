@@ -1,5 +1,5 @@
-import {ArrowLeftIcon, ArrowRightIcon} from '@heroicons/react/outline'
-import {useRef, useState} from 'react'
+import 'pure-react-carousel/dist/react-carousel.es.css'
+import {ButtonBack, ButtonNext, CarouselProvider, Slider} from 'pure-react-carousel'
 import Link from 'next/link'
 
 const tabs = [
@@ -31,46 +31,32 @@ const tabs = [
 ]
 
 export default function TabsFilter() {
-  const [scrollPosition, setScrollPosition] = useState(200)
-  const tabsListRef = useRef<HTMLUListElement>(null)
-  
-  function scrollRight() {
-    console.log(tabsListRef.current.offsetWidth+  ' ' +  scrollPosition)
-    if (tabsListRef.current.offsetWidth > scrollPosition){
-      setScrollPosition(scrollPosition + 200)
-    }
-    console.log(tabsListRef.current.offsetWidth+  ' ' +  scrollPosition)
-    tabsListRef.current.scrollTo({left: scrollPosition, behavior: 'smooth'})
-  }
-
-  function scrollLeft() {
-    console.log(tabsListRef.current.offsetWidth+  ' ' +  scrollPosition)
-    if (0 < scrollPosition){
-      setScrollPosition(scrollPosition - 200)
-    }
-    console.log(tabsListRef.current.offsetWidth+  ' ' +  scrollPosition)
-    tabsListRef.current.scrollTo({left: scrollPosition, behavior: 'smooth'})
-  }
-
-
-  
   return (
-    <div className='relative mb-8 max-w-7xl'> {/* Maybe remove max-w-7xl className */}
-      <div className='absolute top-0 left-0 flex items-center justify-center w-10 h-full bg-gradient-to-r \
-       from-blue-lighter to-transparent'>
-        <ArrowLeftIcon onClick={scrollLeft} className='w-6 h-6 cursor-pointer' />
+    <CarouselProvider className='mb-10 overflow-hidden' naturalSlideWidth={100} naturalSlideHeight={125} 
+      totalSlides={25}>
+      <div className='relative flex items-center px-8'>
+        <ButtonBack role='button' aria-label='slide backward' className='absolute left-0 z-50'>
+          <svg width={8} height={14} viewBox='0 0 8 14' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path d='M7 1L1 7L7 13' stroke='#1f2c73' strokeWidth={2} strokeLinecap='round' strokeLinejoin='round' />
+          </svg>
+        </ButtonBack>
+        <div className='absolute z-30 w-10 h-12 left-6 bg-gradient-to-r from-blue-lighter'></div>
+        <Slider>
+          <ul className='flex overflow-x-hidden gap-x-3'>
+            {tabs.map((tab, idx) => (
+              <Link key={idx} href={tab.href} className='px-5 py-3 bg-white rounded-xl whitespace-nowrap'>
+                {tab.name}
+              </Link>
+            ))}
+          </ul>
+        </Slider>
+        <div className='absolute z-30 w-10 h-12 right-6 bg-gradient-to-l from-blue-lighter'></div>
+        <ButtonNext role='button' aria-label='slide forward' className='absolute right-0 z-50'>
+          <svg width={8} height={14} viewBox='0 0 8 14' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path d='M1 1L7 7L1 13' stroke='#1f2c73' strokeWidth={2} strokeLinecap='round' strokeLinejoin='round' />
+          </svg>
+        </ButtonNext>
       </div>
-      <ul ref={tabsListRef} className='flex overflow-x-hidden gap-x-3'>
-        {tabs.map((tab, idx) => (
-          <li key={idx} className='px-5 py-3 bg-white rounded-xl whitespace-nowrap'>
-            <Link href={tab.href}>{tab.name}</Link>
-          </li>
-        ))}
-      </ul>
-      <div className='absolute top-0 right-0 flex items-center justify-center w-10 h-full bg-gradient-to-l \
-       from-blue-lighter to-transparent'>
-        <ArrowRightIcon onClick={scrollRight} className='w-6 h-6 cursor-pointer' />
-      </div>
-    </div>
+    </CarouselProvider>
   )
 }
