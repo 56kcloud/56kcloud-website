@@ -1,3 +1,4 @@
+import {BlogCardProps} from '../../components/molecules/blog-card'
 import {Client} from '@notionhq/client'
 import {authorsDbId, notionKey, postsDbId} from '../../config'
 import {useEffect, useState} from 'react'
@@ -10,14 +11,19 @@ import slugify from 'slugify'
 
 const notion = new Client({auth: notionKey})
 
-export default function Blog({posts}) {
+export type BlogProps = {
+  posts: Array<BlogCardProps>
+  tags: Array<string>
+}
+
+export default function Blog({posts, tags}: BlogProps) {
   const [filteredPosts, setFilteredPosts] = useState(posts)
   const router = useRouter()
   
   function filterPosts(filterBy: string) {
     setFilteredPosts(filterBy 
       ? posts.filter((post) => {
-        return post.properties.tags.multi_select.map(select => slugify(select.name.toLowerCase())).includes(filterBy)
+        return post['properties'].tags.multi_select.map(select => slugify(select.name.toLowerCase())).includes(filterBy)
         
       }) 
       : posts)
@@ -35,13 +41,14 @@ export default function Blog({posts}) {
         <title>56K.Cloud | Blog</title>
       </Head>
       <MediumTitleIntro title='From the blog' subTitle='Tech, stories and thoughts from 56K.Cloud' className='mb-5' />
-      <BlogCardsWrapper posts={filteredPosts} />
+      <BlogCardsWrapper posts={filteredPosts} tags={tags} />
     </Layout>
   )
 }
 
 export async function getStaticProps() {
   const authors = (await notion.databases.query({database_id: authorsDbId})).results || []
+
   const postsQuery = (await notion.databases.query({database_id: postsDbId,
     sorts: [
       {
@@ -50,6 +57,7 @@ export async function getStaticProps() {
       }
     ]
   })).results || []
+
   const posts = postsQuery.map(post => {
     if (post['properties'].author.relation.length > 0) {
       post['properties'].author = authors[
@@ -58,9 +66,15 @@ export async function getStaticProps() {
     }
     return post
   })
+
+  const arrayOfTags = (await notion.databases.query({database_id: postsDbId})).results.map(
+    post => post['properties'].tags.multi_select.map(select => slugify(select.name))).flat()
+  const tags = [...new Set(arrayOfTags)]
+
   return {
     props: {
-      posts
+      posts,
+      tags
     },
     revalidate: 3600
   }

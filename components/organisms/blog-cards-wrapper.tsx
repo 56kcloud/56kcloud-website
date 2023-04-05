@@ -4,13 +4,14 @@ import TabsFilter from '../molecules/tabs-filter'
 
 export type BlogCardsWrapperProps = {
   posts: Array<BlogCardProps>
+  tags: Array<string>
 }
 
-export default function BlogCardsWrapper({posts}: BlogCardsWrapperProps) {
+export default function BlogCardsWrapper({posts, tags}: BlogCardsWrapperProps) {
   return (
     <section className='section-padding'>
       <div className='mx-auto max-w-7xl'>
-        <TabsFilter />
+        <TabsFilter tags={tags} />
         <ResponsiveMasonry
           columnsCountBreakPoints={{300: 1, 700: 2, 1000: 3}}
         >

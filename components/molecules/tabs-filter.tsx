@@ -4,37 +4,14 @@ import {useRouter} from 'next/router'
 import Link from 'next/link'
 import classNames from '../../utils/classes'
 
-const tabs = [
-  {href: '/blog', name: 'All'},
-  {href: '/blog?tag=aws', name: 'AWS'},
-  {href: '/blog?tag=company-news', name: 'Company News'},
-  {href: '/blog?tag=5g', name: '5G'},
-  {href: '/blog?tag=how-to', name: 'How To'},
-  {href: '/blog?tag=iot', name: 'IoT'},
-  {href: '/blog?tag=cloud', name: 'Cloud'},
-  {href: '/blog?tag=docker', name: 'Docker'},
-  {href: '/blog?tag=arm', name: 'ARM'},
-  {href: '/blog?tag=gitlab', name: 'GitLab'},
-  {href: '/blog?tag=aws-graviton', name: 'AWS Graviton'},
-  {href: '/blog?tag=devops', name: 'DevOps'},
-  {href: '/blog?tag=agile', name: 'Agile'},
-  {href: '/blog?tag=digital-transformation', name: 'Digital Transformation'},
-  {href: '/blog?tag=devsecops', name: 'DevSecOps'},
-  {href: '/blog?tag=gruntworks', name: 'Gruntworks'},
-  {href: '/blog?tag=github', name: 'GitHub'},
-  {href: '/blog?tag=terraform', name: 'Terraform'},
-  {href: '/blog?tag=edge', name: 'Edge'},
-  {href: '/blog?tag=monitoring', name: 'Monitoring'},
-  {href: '/blog?tag=community', name: 'Community'},
-  {href: '/blog?tag=cdk', name: 'CDK'},
-  {href: '/blog?tag=iac', name: 'IaC'},
-  {href: '/blog?tag=azure', name: 'Azure'},
-  {href: '/blog?tag=partners', name: 'Partners'}
-]
+export type TabsFilterProps = {
+  tags: Array<string>
+}
 
-export default function TabsFilter() {
+export default function TabsFilter({tags}: TabsFilterProps) {
   const router = useRouter()
-  
+  const tagsWithCategoryAll = ['All', ...tags]
+
   return (
     <CarouselProvider className='mb-10 overflow-hidden' naturalSlideWidth={100} naturalSlideHeight={125} 
       totalSlides={25}>
@@ -47,12 +24,21 @@ export default function TabsFilter() {
         <div className='absolute z-30 w-10 h-12 left-6 bg-gradient-to-r from-blue-lighter'></div>
         <Slider>
           <ul className='flex overflow-x-hidden gap-x-3'>
-            {tabs.map((tab, idx) => (
-              <Link key={idx} href={tab.href} className={classNames(router.asPath === tab.href 
-                ? 'text-blue-medium' : 'text-blue-300 hover:text-blue-medium', 
-              'text-sm 2xl:text-base font-normal relative px-5 py-3 bg-white rounded-xl whitespace-nowrap')}>
-                {tab.name}
-              </Link>
+            {tagsWithCategoryAll.map((tag, idx) => (
+              tag === 'All' ? (
+                <Link key={tag} href={'/blog'} className={classNames(router.pathname === '/blog' 
+                  ? 'text-blue-medium' : 'text-blue-300 hover:text-blue-medium', 
+                'text-sm 2xl:text-base font-normal relative px-5 py-3 bg-white rounded-xl whitespace-nowrap')}>
+                  {tag}
+                </Link>
+              ) : (
+                <Link key={idx} href={`/blog?tag=${tag.toLowerCase()}`} 
+                  className={classNames(router.asPath === `/blog?tag=${tag.toLowerCase()}` 
+                    ? 'text-blue-medium' : 'text-blue-300 hover:text-blue-medium', 
+                  'text-sm 2xl:text-base font-normal relative px-5 py-3 bg-white rounded-xl whitespace-nowrap')}>
+                  {tag.replace(/-/g, ' ')}
+                </Link>
+              )
             ))}
           </ul>
         </Slider>
