@@ -26,20 +26,20 @@ export default function TabsFilter({tags}: TabsFilterProps) {
       {/* <ul className='flex overflow-x-scroll gap-x-3'> */}
       <button className='fixed top-0 left-0 z-50 bg-red-500' onClick={slideTo}>LEFT</button>
       {tagsWithCategoryAll.map((tag, idx) => (
-        tag === 'All' ? (
-          <Link key={tag} href={'/blog'} className={classNames(router.pathname === '/blog' 
+        // tag === 'All' ? (
+        //   <Link key={tag} href={'/blog'} className={classNames(router.asPath === '/blog' 
+        //     ? 'text-blue-medium' : 'text-blue-300 hover:text-blue-medium', 
+        //   'text-sm 2xl:text-base font-normal relative px-5 py-3 bg-white rounded-xl whitespace-nowrap')}>
+        //     {tag}
+        //   </Link>
+        // ) : (
+        <Link key={idx} href={idx > 1 ? `/blog?tag=${tag.toLowerCase()}` : '/blog'} 
+          className={classNames((router.query.tag ? router.query.tag === tag.toLowerCase() : idx === 0)
             ? 'text-blue-medium' : 'text-blue-300 hover:text-blue-medium', 
           'text-sm 2xl:text-base font-normal relative px-5 py-3 bg-white rounded-xl whitespace-nowrap')}>
-            {tag}
-          </Link>
-        ) : (
-          <Link key={idx} href={`/blog?tag=${tag.toLowerCase()}`} 
-            className={classNames(router.asPath === `/blog?tag=${tag.toLowerCase()}` 
-              ? 'text-blue-medium' : 'text-blue-300 hover:text-blue-medium', 
-            'text-sm 2xl:text-base font-normal relative px-5 py-3 bg-white rounded-xl whitespace-nowrap')}>
-            {tag.replace(/-/g, ' ')}
-          </Link>
-        )
+          {tag.replace(/-/g, ' ')}
+        </Link>
+        // )
       ))}
       <button onClick={slideTo}>LEFT</button>
       {/* </ul> */}
