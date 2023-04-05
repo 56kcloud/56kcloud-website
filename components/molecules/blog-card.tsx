@@ -15,7 +15,7 @@ export default function BlogCard({post}: BlogCardProps) {
   const readTime = humanizeDuration(post.properties.read_time.number * 100000, {largest: 1})
 
   return (
-    <div className='overflow-hidden rounded-lg shadow-lg'>
+    <div className='overflow-hidden duration-200 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-2xl'>
       <Link href={{pathname: `/blog/${encodeURIComponent(post.id)}`}}>
         <div className='relative flex flex-col bg-white'>
           <Img src={post.cover && post.cover.external.url} alt='Blog image' className='object-cover w-full h-auto' />

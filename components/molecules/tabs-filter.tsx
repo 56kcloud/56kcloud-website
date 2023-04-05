@@ -13,7 +13,7 @@ export default function TabsFilter({tags}: TabsFilterProps) {
   const tagsWithCategoryAll = ['All', ...tags]
 
   return (
-    <CarouselProvider className='mb-10 overflow-hidden' naturalSlideWidth={100} naturalSlideHeight={125} 
+    <CarouselProvider className='mb-12 overflow-hidden' naturalSlideWidth={100} naturalSlideHeight={125} 
       totalSlides={25}>
       <div className='relative flex items-center px-8'>
         <ButtonBack role='button' aria-label='slide backward' className='absolute left-0 z-50'>
