@@ -24,7 +24,6 @@ export default function Blog({posts, tags}: BlogProps) {
     setFilteredPosts(filterBy 
       ? posts.filter((post) => {
         return post['properties'].tags.multi_select.map(select => slugify(select.name.toLowerCase())).includes(filterBy)
-        
       }) 
       : posts)
   }
