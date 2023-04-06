@@ -1,3 +1,4 @@
+// HubSpot Form //
 import {HsformsPayload, HsformsPayloadItem, contactUsFormData} from '../models/contact-us-form-data.model'
 
 export function createHsformsPayload(data) {
@@ -27,3 +28,18 @@ export function formatFormDataToHsforms(data: contactUsFormData) {
     value: data[key]
   } as HsformsPayloadItem))
 }
+
+// Blog Posts Date //
+import * as humanizeDuration from 'humanize-duration'
+import {format} from 'date-fns'
+
+export function publishedPostDate(publishedPostAt: string, publishedPostAtStart: string) {
+  const date = format(new Date(publishedPostAt && publishedPostAtStart ), 'dd MMM yyyy')
+  return date
+}
+
+export function humanizeSecondsToMinutes(seconds: number) {
+  const time = humanizeDuration(seconds * 100000, {largest: 1})
+  return time
+}
+

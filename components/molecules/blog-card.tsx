@@ -1,18 +1,17 @@
-import * as humanizeDuration from 'humanize-duration'
-import {format} from 'date-fns'
+import {humanizeSecondsToMinutes, publishedPostDate} from '../../utils/toolbox'
 import Avatar from '../atoms/avatar'
 import Badge from '../atoms/badge'
 import Img from '../atoms/img'
 import Link from 'next/link'
+
 
 export type BlogCardProps = {
   post: any
 }
 
 export default function BlogCard({post}: BlogCardProps) {
-  const createdAt = format(new Date(
-    post.properties.published_at.date && post.properties.published_at.date.start ), 'dd MMM yyyy')
-  const readTime = humanizeDuration(post.properties.read_time.number * 100000, {largest: 1})
+  const createdAt = publishedPostDate(post.properties.published_at.date, post.properties.published_at.date.start)
+  const readTime = humanizeSecondsToMinutes(post.properties.read_time.number)
 
   const postTitle = post.properties.name.title[0].text.content
   const postDescription = 

@@ -11,7 +11,6 @@ export type TabsFilterProps = {
 
 export default function TabsFilter({tags}: TabsFilterProps) {
   const slider = useRef(null)
-  const tagsWithCategoryAll = ['All', ...tags]
   const router = useRouter()
 
   function slideToRight() {
@@ -30,7 +29,7 @@ export default function TabsFilter({tags}: TabsFilterProps) {
         <ArrowLeftIcon className='w-5 h-5' />
       </Button>
       <div ref={slider} className='flex mx-12 overflow-x-hidden 2xl:mx-16 gap-x-3'>
-        {tagsWithCategoryAll.map((tag, idx) => (
+        {tags.map((tag, idx) => (
           <Link key={idx} href={idx > 1 ? `/blog?tag=${tag.toLowerCase()}` : '/blog'} 
             className={classNames((router.query.tag ? router.query.tag === tag.toLowerCase() : idx === 0)
               ? 'text-blue-medium' : 'text-blue-300 hover:text-blue-medium', 

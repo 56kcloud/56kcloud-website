@@ -69,6 +69,7 @@ export async function getStaticProps() {
   const arrayOfTags = (await notion.databases.query({database_id: postsDbId})).results.map(
     post => post['properties'].tags.multi_select.map(select => slugify(select.name))).flat()
   const tags = [...new Set(arrayOfTags)]
+  tags.unshift('All')
 
   return {
     props: {

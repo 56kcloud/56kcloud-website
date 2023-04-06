@@ -1,8 +1,6 @@
 import {Client} from '@notionhq/client'
-// import {NotionPageRenderer, retrieveBlocksChildren} from 'notion-to-tailwind'
 import {NotionPageRenderer, retrieveBlocksChildren} from 'notion-to-tailwind'
 import {notionKey} from '../../config'
-// import ogs from 'open-graph-scraper'
 const notion = new Client({auth: notionKey})
 
 export default function Post ({post, blocks}) {
