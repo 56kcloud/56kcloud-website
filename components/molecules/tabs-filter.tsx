@@ -14,11 +14,11 @@ export default function TabsFilter({tags}: TabsFilterProps) {
   const router = useRouter()
 
   function slideToRight() {
-    slider.current.scrollLeft += 100
+    slider.current.scrollBy({left: 200, behavior: 'smooth'})
   }
-
+  
   function slideToLeft() {
-    slider.current.scrollLeft -= 100
+    slider.current.scrollBy({left: -200, behavior: 'smooth'})
   }
   
   return (
@@ -33,7 +33,7 @@ export default function TabsFilter({tags}: TabsFilterProps) {
           <Link key={idx} href={idx > 1 ? `/blog?tag=${tag.toLowerCase()}` : '/blog'} 
             className={classNames((router.query.tag ? router.query.tag === tag.toLowerCase() : idx === 0)
               ? 'text-blue-medium' : 'text-blue-300 hover:text-blue-medium', 
-            'text-sm 2xl:text-base font-normal relative px-5 py-3 bg-white rounded-xl whitespace-nowrap')}>
+            'text-sm 2xl:text-base font-normal relative px-5 py-3 bg-white rounded-lg whitespace-nowrap')}>
             {tag.replace(/-/g, ' ')}
           </Link>
         ))}
