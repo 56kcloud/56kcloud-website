@@ -14,6 +14,13 @@ export default function BlogCard({post}: BlogCardProps) {
     post.properties.published_at.date && post.properties.published_at.date.start ), 'dd MMM yyyy')
   const readTime = humanizeDuration(post.properties.read_time.number * 100000, {largest: 1})
 
+  const postTitle = post.properties.name.title[0].text.content
+  const postDescription = 
+  post.properties.description.rich_text[0] && post.properties.description.rich_text[0].text.content
+  const postAvatarImage = post.properties.author.properties && post.properties.author.properties.profile_image.url
+  const postAvatarImageAlt = post.properties.author.properties?.name.title[0].plain_text
+  const postAuthor = post.properties.author.properties?.name.title[0].plain_text
+
   return (
     <div className='overflow-hidden duration-200 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-2xl'>
       <Link href={`/blog/${encodeURIComponent(post.id)}`}>
@@ -25,19 +32,12 @@ export default function BlogCard({post}: BlogCardProps) {
                 <Badge key={idx}>{tag.name}</Badge>
               ))}
             </div>
-            <h3 className='text-2xl line-clamp-2 text-grey-dark title'>
-              {post.properties.name.title[0].text.content}
-            </h3>
-            <p className='mt-2 text-base text-grey-light line-clamp-3'>
-              {post.properties.description.rich_text[0] && post.properties.description.rich_text[0].text.content}
-            </p>
+            <h3 className='text-2xl line-clamp-2 text-grey-dark title'>{postTitle}</h3>
+            <p className='mt-2 text-base text-grey-light line-clamp-3'>{postDescription}</p>
             <div className='flex flex-wrap items-center mt-8 text-sm gap-x-3 text-grey-light'>
-              <Avatar image={post.properties.author.properties && post.properties.author.properties.profile_image.url} 
-                alt={post.properties.author.properties?.name.title[0].plain_text} />
+              <Avatar image={postAvatarImage} alt={postAvatarImageAlt} />
               <div className='flex flex-col'>
-                <span>by <span className='font-normal text-grey-dark'>
-                  {post.properties.author.properties?.name.title[0].plain_text}
-                </span></span>
+                <span>by <span className='font-normal text-grey-dark'>{postAuthor}</span></span>
                 <div className='flex gap-x-2'>
                   <span>{createdAt}</span>
                   <span>|</span>
