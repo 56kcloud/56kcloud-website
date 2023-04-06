@@ -16,7 +16,7 @@ export default function BlogCard({post}: BlogCardProps) {
 
   return (
     <div className='overflow-hidden duration-200 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-2xl'>
-      <Link href={{pathname: `/blog/${encodeURIComponent(post.id)}`}}>
+      <Link href={`/blog/${encodeURIComponent(post.id)}`}>
         <div className='relative flex flex-col bg-white'>
           <Img src={post.cover && post.cover.external.url} alt='Blog image' className='object-cover w-full h-auto' />
           <div className='flex flex-col p-6 bg-white'>
