@@ -12,20 +12,20 @@ import slugify from 'slugify'
 const notion = new Client({auth: notionKey})
 
 export type BlogProps = {
-  posts: Array<BlogCardProps>
+  publishedPosts: Array<BlogCardProps>
   tags: Array<string>
 }
 
-export default function Blog({posts, tags}: BlogProps) {
-  const [filteredPosts, setFilteredPosts] = useState(posts)
+export default function Blog({publishedPosts, tags}: BlogProps) {
+  const [filteredPosts, setFilteredPosts] = useState(publishedPosts)
   const router = useRouter()
   
   function filterPosts(filterBy: string) {
     setFilteredPosts(filterBy 
-      ? posts.filter((post) => {
+      ? publishedPosts.filter((post) => {
         return post['properties'].tags.multi_select.map(select => slugify(select.name.toLowerCase())).includes(filterBy)
       }) 
-      : posts)
+      : publishedPosts)
   }
 
   useEffect(() => {
@@ -66,6 +66,8 @@ export async function getStaticProps() {
     return post
   })
 
+  const publishedPosts = posts.filter(post => post['properties'].status.select.name === 'published')
+
   const arrayOfTags = (await notion.databases.query({database_id: postsDbId})).results.map(
     post => post['properties'].tags.multi_select.map(select => slugify(select.name))).flat()
   const tags = [...new Set(arrayOfTags)]
@@ -73,7 +75,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts,
+      publishedPosts,
       tags
     },
     revalidate: 3600
