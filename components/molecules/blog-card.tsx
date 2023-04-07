@@ -19,10 +19,11 @@ export default function BlogCard({post}: BlogCardProps) {
   const postAvatarImage = post.properties.author.properties && post.properties.author.properties.profile_image.url
   const postAvatarImageAlt = post.properties.author.properties?.name.title[0].plain_text
   const postAuthor = post.properties.author.properties?.name.title[0].plain_text
+  const postSlug = post.properties.slug.rich_text[0].plain_text
 
   return (
     <div className='overflow-hidden duration-200 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-2xl'>
-      <Link href={`/blog/${encodeURIComponent(post.id)}`}>
+      <Link href={{pathname: '/blog/[id]', query: {postId: post.id}}} as={`/blog/${encodeURIComponent(postSlug)}`}>
         <div className='relative flex flex-col bg-white'>
           <Img src={post.cover && post.cover.external.url} alt='Blog image' className='object-cover w-full h-auto' />
           <div className='flex flex-col p-6 bg-white'>
