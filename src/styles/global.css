@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base */
+html,
+body {
+  @apply font-graphik text-primary-500 text-base font-light
+}
+
+.background-image {
+  @apply relative w-full h-auto
+}
+
+/* Typography */
+@font-face {
+  font-family: 'Graphik';
+  font-display: swap;
+  font-style: light;
+  font-weight: 300;
+  src: url('/fonts/graphik/light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Graphik';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/graphik/regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Graphik';
+  font-display: swap;
+  font-style: medium;
+  font-weight: 500;
+  src: url('/fonts/graphik/medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Graphik';
+  font-display: swap;
+  font-style: semibold;
+  font-weight: 600;
+  src: url('/fonts/graphik/semibold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Chap';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/chap/regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Chap';
+  font-display: swap;
+  font-style: medium;
+  font-weight: 500;
+  src: url('/fonts/chap/medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Chap';
+  font-display: swap;
+  font-style: semibold;
+  font-weight: 600;
+  src: url('/fonts/chap/semibold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Chap';
+  font-display: swap;
+  font-style: bold;
+  font-weight: 700;
+  src: url('/fonts/chap/bold.woff') format('woff');
+}
+
+/* Classes */
+@layer base {
+  .section-padding {
+    @apply px-8 py-[72px] xl:py-24 xl:px-36
+  }
+
+  .title {
+    @apply font-chap font-medium leading-[1.15]
+  }
+
+  .xs-responsive-title {
+    @apply text-[calc(20px+0.75vw)]
+  }
+  
+  .sm-responsive-title {
+    @apply text-[calc(22px+3vw)]
+  }
+
+  .md-responsive-title {
+    @apply text-[calc(24px+4vw)]
+  }
+
+  .lg-responsive-title {
+    @apply text-[calc(28px+4vw)]
+  }
+
+  .xl-responsive-title {
+    @apply text-[calc(32px+4vw)]
+  }
+}
