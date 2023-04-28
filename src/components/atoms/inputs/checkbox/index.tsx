@@ -16,7 +16,9 @@ export function Checkbox({register, id, name, label, options}: CheckboxProps) {
         type='checkbox'
         id={id} 
         className='w-3 h-3 rounded-sm focus:ring-offset-0 focus:ring-1'/>
-      <label htmlFor={id}>
+      <label
+        htmlFor={id}
+        className='pt-0.5'>
         {label}
       </label>
     </div>

@@ -55,7 +55,7 @@ export default function ContactForm({isOpen, setIsOpen, t}) {
     register,
     id: 'legalConsent',
     name:'legalConsent',
-    label: t('modal:legalConsent')
+    label: t('modal:checkboxLegalConsent')
   }
 
   function closeModal() {
