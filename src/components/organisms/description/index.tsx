@@ -1,13 +1,13 @@
 import {Check} from '@/components/svgs/icons/check'
 import Surtitle from '../../atoms/surtitle'
 
-type DescriptionProps = {
+export type DescriptionProps = {
   surtitle: string
   text: string
-  details: Array<string>
+  items: Array<string>
 }
 
-export default function Description({surtitle, text, details}: DescriptionProps) {
+export default function Description({surtitle, text, items}: DescriptionProps) {
   return (
     <section className='px-8 pb-[72px] pt-6 xl:section-padding'>
       <div className='relative max-w-6xl mx-auto'>
@@ -19,7 +19,7 @@ export default function Description({surtitle, text, details}: DescriptionProps)
         </div>
         <div className='w-full mb-16 lg:w-1/2'>
           <ul className='flex flex-col'>
-            {details.map((detail, idx) => (
+            {items.map((item, idx) => (
               <li
                 key={idx}
                 className='flex items-center gap-x-4 mb-7'>
@@ -27,7 +27,7 @@ export default function Description({surtitle, text, details}: DescriptionProps)
                   <Check className='mt-0.5'/>
                 </div>
                 <span className='xl:text-lg'>
-                  {detail}
+                  {item}
                 </span>
               </li>
             ))}

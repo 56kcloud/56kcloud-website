@@ -1,3 +1,6 @@
+import {Checkbox, CheckboxProps} from '@/components/atoms/inputs/checkbox'
+import {Input, InputProps} from '@/components/atoms/inputs/input'
+import {TextArea, TextAreaProps} from '@/components/atoms/inputs/textarea'
 import {contactUsFormData} from '@/models/contact-us-form-data.model'
 import {createHsformsPayload} from '@/utils/toolbox'
 import {sendEmail} from '@/utils/engine-api'
@@ -10,24 +13,49 @@ import groupOfPeople from '../../../../public/images/illustrations/group-of-peop
 export default function ContactForm({isOpen, setIsOpen, t}) {
   const {register, handleSubmit, reset, formState: {errors}} = useForm()
   
-  const firstNameOptions = {
-    required: 'Your first name is required'
+  const firstNameInput: InputProps = {
+    register,
+    name:'firstName',
+    options: {
+      required: 'Your first name is required'
+    },
+    placeholder: t('modal:inputFirstName')
+  }
+  const lastNameInput: InputProps = {
+    register,
+    name:'lastName',
+    options: {
+      required: 'Your last name is required'
+    },
+    placeholder: t('modal:inputLastName')
+  }
+  const emailInput: InputProps = {
+    register,
+    name:'email',
+    options: {
+      required: 'An email is required',
+      pattern: {
+        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+        message: 'Email is invalid'
+      }
+    },
+    placeholder: t('modal:inputEmail')
   }
 
-  const lastNameOptions = {
-    required: 'Your last name is required'
+  const messageInput: TextAreaProps = {
+    register,
+    name:'message',
+    options: {
+      required: 'A message is required'
+    },
+    placeholder: t('modal:inputMessage')
   }
 
-  const emailOptions = {
-    required: 'An email is required',
-    pattern: {
-      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-      message: 'Email is invalid'
-    }
-  }
-
-  const messageOptions = {
-    required: 'A message is required'
+  const legalConsentInput: CheckboxProps = {
+    register,
+    id: 'legalConsent',
+    name:'legalConsent',
+    label: t('modal:legalConsent')
   }
 
   function closeModal() {
@@ -80,38 +108,12 @@ export default function ContactForm({isOpen, setIsOpen, t}) {
         onSubmit={handleSubmit(onSubmit)}
         className='mt-6 text-sm min-[1700px]:text-base sm:mt-7 min-[1700px]:mt-8 
                     placeholder:text-base font-graphik '>
-        <input
-          {...register('firstName', firstNameOptions)}
-          placeholder={t('modal:inputFirstName')}
-          className='block w-full p-2 min-[1700px]:p-3 mb-2 sm:mb-3 min-[1700px]:mb-4 border 
-                      border-gray-300 rounded-md sm:rounded-lg placeholder:text-blue-medium'/>
-        <input
-          {...register('lastName', lastNameOptions)}
-          placeholder={t('modal:inputLastName')}
-          className='block w-full p-2 min-[1700px]:p-3 mb-2 sm:mb-3 min-[1700px]:mb-4 border 
-                      border-gray-300 rounded-md sm:rounded-lg placeholder:text-blue-medium'/>
-        <input
-          {...register('email', emailOptions)}
-          placeholder={t('modal:inputEmail')}
-          className='block w-full p-2 min-[1700px]:p-3 mb-2 sm:mb-3 min-[1700px]:mb-4 border 
-                      border-gray-300 rounded-md sm:rounded-lg placeholder:text-blue-medium'/>
-        <textarea
-          {...register('message', messageOptions)}
-          placeholder={t('modal:inputMessage')}
-          className='text-sm min-[1700px]:text-base block w-full p-2 min-[1700px]:p-3 mb-2 
-                      sm:mb-3 min-[1700px]:mb-4 border border-gray-300 rounded-md sm:rounded-lg 
-                      placeholder:text-blue-medium min-h-[5rem] sm:min-h-[6rem]'/>
+        <Input {...firstNameInput}/>
+        <Input {...lastNameInput}/>
+        <Input {...emailInput}/>
+        <TextArea {...messageInput}/>
         <div>
-          <div className='flex items-start mb-4 sm:mb-5 text-xs min-[1700px]:text-sm gap-x-3'>
-            <input
-              {...register('legalConsent')}
-              type='checkbox'
-              id='legalConsent' 
-              className='translate-y-[3px] rounded-sm h-3 w-3 focus:ring-offset-0 focus:ring-1'/>
-            <label htmlFor='legalConsent'>
-              {t('modal:checkboxLegalConsent')}
-            </label>
-          </div>
+          <Checkbox {...legalConsentInput}/>
           <div className='relative text-[10px] leading-tight min-[1700px]:text-xs'>
             <div className='h-[56px] overflow-y-scroll sm:h-20'>
               <p>{t('modal:textLegalConsent1')}

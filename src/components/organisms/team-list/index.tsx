@@ -3,7 +3,7 @@ import {getTeamCardsAbout} from '../../../data/about'
 import Button from '@/components/atoms/button'
 import TeamCard, {TeamCardProps} from '@/components/molecules/card/team'
 
-type TeamListProps = {
+export type TeamListProps = {
   t: Translate
   toggleContactModal: () => void
 }

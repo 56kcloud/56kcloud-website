@@ -31,7 +31,7 @@ export default function Services({t}: PageProps) {
           <Description
             surtitle={t('services:descriptionSurtitle')}
             text={t('services:descriptionText')}
-            details={getListDetailsServices(t)}/>
+            items={getListDetailsServices(t)}/>
           <Image
             src={mountain}
             alt={t('services:altMainIllustration')}

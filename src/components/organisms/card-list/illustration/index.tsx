@@ -1,12 +1,12 @@
-import {CardPropsImpl} from '@/components/molecules/card/illustration/card.model'
+import {IllustrationCardPropsImpl} from '@/components/molecules/card/illustration/card.model'
 import {cn} from '@/utils/classes'
 import IllustrationCard from '../../../molecules/card/illustration'
 import VerticalTitle from '@/components/atoms/title/vertical'
 
-type IllustrationCardListProps = {
+export type IllustrationCardListProps = {
   theme?: 'dark' | 'light'
   title: string
-  cards: Array<CardPropsImpl>
+  cards: Array<IllustrationCardPropsImpl>
 }
 
 export default function IllustrationCardList({theme = 'dark', title, cards}

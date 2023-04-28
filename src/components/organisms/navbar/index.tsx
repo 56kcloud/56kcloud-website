@@ -3,13 +3,20 @@ import {Fragment, useState} from 'react'
 import {Logo} from '../../svgs/logos/56k'
 import {Menu} from '../../svgs/icons/menu'
 import {Pencil} from '../../svgs/icons/pencil'
+import {Translate} from 'next-translate'
 import {useRouter} from 'next/router'
 import Button from '../../atoms/button'
 import Image from 'next/image'
 import LanguageSwitcher from '@/components/organisms/language-switcher'
 import Link from 'next/link'
 
-export default function Navbar({toggleIsModalOpen, t, fullHeightHero = false}) {
+export type NavbarProps = {
+  toggleIsModalOpen: () => void
+  t: Translate 
+  fullHeightHero: boolean
+}
+
+export default function Navbar({toggleIsModalOpen, t, fullHeightHero = false}: NavbarProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const router = useRouter()
   const navigation = [

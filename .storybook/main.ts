@@ -1,4 +1,4 @@
-import type { StorybookConfig } from "@storybook/react-webpack5"
+import type { StorybookConfig } from "@storybook/nextjs"
 const path = require('path')
 
 const config: StorybookConfig = {
@@ -8,7 +8,6 @@ const config: StorybookConfig = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    'storybook-addon-next',
     {
       name: '@storybook/addon-styling',
       options: {
@@ -17,7 +16,7 @@ const config: StorybookConfig = {
     },
   ],
   framework: {
-    name: "@storybook/react-webpack5",
+    name: "@storybook/nextjs",
     options: {},
   },
   webpackFinal: async (config) => {

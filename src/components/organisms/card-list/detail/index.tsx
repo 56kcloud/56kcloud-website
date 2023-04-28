@@ -1,7 +1,7 @@
 import DetailCard, {DetailCardProps} from '@/components/molecules/card/detail'
 import VerticalTitle from '@/components/atoms/title/vertical'
 
-type DetailCardListProps = {
+export type DetailCardListProps = {
   title: string
   titleClassName?: string
   cards: Array<DetailCardProps>

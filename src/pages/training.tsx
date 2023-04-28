@@ -31,7 +31,7 @@ export default function Training({t}: PageProps) {
           <Description
             surtitle={t('training:descriptionSurtitle')}
             text={t('training:descriptionText')}
-            details={getListDetailsTraining(t)}/>
+            items={getListDetailsTraining(t)}/>
           <Image
             src={mountain}
             alt={t('training:altMainIllustration')}
