@@ -44,7 +44,7 @@ export default function Footer({version = 'illustration', toggleIsModalOpen}: Fo
         version === 'illustration'
           ? 'bg-footer bg-no-repeat bg-cover'
           : 'bg-primary-900', 'relative h-[1000px] sm:h-[850px]')}>
-      <div className='absolute bottom-0 right-0 z-50 p-8 md:p-0 md:w-10/12'>
+      <div className='absolute bottom-0 right-0 z-30 p-8 md:p-0 md:w-10/12'>
         <div className='py-8 bg-white md:py-16'>
           <div className='flex flex-wrap justify-between px-8 overflow-hidden md:px-16'>
             <p className='title mb-10 w-full xs-responsive-title leading-[1.1] lg:w-2/3 2xl:w-1/2 lg:mb-16'>

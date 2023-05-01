@@ -7,7 +7,7 @@ import {
 export const buttonSizes = ['small', 'medium', 'large'] as const
 export const buttonShapes = ['square', 'rounded', 'circle'] as const
 export const buttonVariants = ['default', 'link', 'ghost'] as const
-export const buttonTones = ['primary', 'secondary', 'gray', 'error'] as const
+export const buttonTones = ['primary', 'secondary', 'gray', 'error', 'white'] as const
 export const buttonAlignments = ['start', 'center', 'end'] as const
 
 const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVariants[number], string>> = {
@@ -37,6 +37,12 @@ const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVarian
     default: 'text-white bg-error-500 hover:bg-error-600 focus-visible:ring-error-500 focus-visible:outline-error-600',
     link: 'text-error-500 hover:underline hover:bg-gray-50 focus-visible:outline-error-600 focus-visible:underline',
     ghost: 'text-error-500 hover:bg-error-50 focus-visible:outline-error-600'
+  },
+  white: {
+    default: 'bg-white text-primary-300 hover:text-primary-500 focus-visible:ring-primary-500 \
+    focus-visible:outline-primary-200',
+    link: '',
+    ghost: ''
   }
 }
 

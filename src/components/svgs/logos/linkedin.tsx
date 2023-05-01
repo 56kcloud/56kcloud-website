@@ -19,7 +19,7 @@ export function Linkedin(props: IconProps) {
           filterUnits='userSpaceOnUse'>
           <feFlood
             result='flood'
-            flood-color='#16215b' 
+            floodColor='#16215b' 
           />
           <feComposite
             result='composite'

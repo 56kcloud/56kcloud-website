@@ -1,6 +1,6 @@
 const colors = require('tailwindcss/colors')
 module.exports = {
-  purge: ['./src/**/*.{js,ts,jsx,tsx}'],
+  purge: ['./src/**/*.{js,ts,jsx,tsx}', './node_modules/notion-to-tailwind/dist/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -61,7 +61,31 @@ module.exports = {
       backgroundImage: {
         'medium-title': 'url(\'/images/backgrounds/cloud.webp\')',
         'footer': 'url(\'/images/backgrounds/landscape.webp\')'
-      }
+      },
+      typography: () => ({
+        DEFAULT: {
+          css: [
+            {
+              h1: {
+                fontFamily: 'Chap',
+                fontWeight: '500'
+              },
+              h2: {
+                fontFamily: 'Chap',
+                fontWeight: '500'
+              },
+              h3: {
+                fontFamily: 'Chap',
+                fontWeight: '500'
+              },
+              h4: {
+                fontFamily: 'Chap',
+                fontWeight: '500'
+              }
+            }
+          ]
+        }
+      })
     }
   },
   variants: {},

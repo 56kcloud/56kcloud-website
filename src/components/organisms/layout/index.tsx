@@ -1,3 +1,4 @@
+'use client'
 import {ReactNode, useState} from 'react'
 import {Translate} from 'next-translate'
 import ContactForm from '../contact-form'

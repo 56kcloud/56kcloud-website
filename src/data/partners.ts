@@ -7,25 +7,25 @@ import monitoring from '../../public/images/icons/monitoring.webp'
 export function getBaseCardsPartners() {
   const baseCards: Array<BaseCardProps> = [
     {
-      number: '01',
+      number: 1,
       icon: cloud,
       title: 'AWS',
       className: 'bg-primary-200'
     },
     {
-      number: '02',
+      number: 2,
       icon: monitoring,
       title: 'Docker',
       className: 'bg-secondary-500'
     },
     {
-      number: '03',
+      number: 3,
       icon: automation,
       title: 'ARM',
       className: 'bg-secondary-500'
     },
     {
-      number: '04',
+      number: 4,
       icon: devops,
       title: 'Hashicorp',
       className: 'bg-orange-300'

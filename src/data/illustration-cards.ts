@@ -1,4 +1,4 @@
-import {CardPropsImpl} from '../components/molecules/card/illustration/card.model'
+import {IllustrationCardPropsImpl} from '../components/molecules/card/illustration/card.model'
 import {Translate} from 'next-translate'
 import automation from '../../public/images/illustrations/automation.webp'
 import automationIcon from '../../public/images/icons/automation.webp'
@@ -14,16 +14,16 @@ import training from '../../public/images/illustrations/training.webp'
 import trainingIcon from '../../public/images/icons/training.webp'
 
 export function getDarkIllustrationCardsHome(t: Translate) {
-  const darkIllustrationCardsHome: Array<CardPropsImpl> = [
+  const darkIllustrationCardsHome: Array<IllustrationCardPropsImpl> = [
     {
-      number: '01',
+      number: 1,
       image: automation,
       icon: automationIcon,
       title: t('home:titleCard1'),
       description: t('home:descriptionCard1')
     },
     {
-      number: '02',
+      number: 2,
       image: cloud,
       icon: cloudIcon,
       title: 'Cloud',
@@ -31,7 +31,7 @@ export function getDarkIllustrationCardsHome(t: Translate) {
       alignment: 'right'
     },
     {
-      number: '03',
+      number: 3,
       image: dockers,
       icon: automationIcon,
       title: t('home:titleCard3'),
@@ -42,9 +42,9 @@ export function getDarkIllustrationCardsHome(t: Translate) {
 }
 
 export function getLightIllustrationCardsHome(t: Translate) {
-  const lightIllustrationCardsHome: Array<CardPropsImpl> = [
+  const lightIllustrationCardsHome: Array<IllustrationCardPropsImpl> = [
     {
-      number: '04',
+      number: 4,
       image: devops,
       icon: devopsIcon,
       title: 'DevOps services',
@@ -52,7 +52,7 @@ export function getLightIllustrationCardsHome(t: Translate) {
       theme: 'light'
     },
     {
-      number: '05',
+      number: 5,
       image: monitoring,
       icon: monitoringIcon,
       title: t('home:titleCard5'),
@@ -61,7 +61,7 @@ export function getLightIllustrationCardsHome(t: Translate) {
       theme: 'light'
     },
     {
-      number: '06',
+      number: 6,
       image: training,
       icon: trainingIcon,
       title: t('home:titleCard6'),
@@ -73,9 +73,9 @@ export function getLightIllustrationCardsHome(t: Translate) {
 }
 
 export function getLightIllustrationsCardsPartners(t: Translate) {
-  const lightIllustrationCardsPartners: Array<CardPropsImpl> = [
+  const lightIllustrationCardsPartners: Array<IllustrationCardPropsImpl> = [
     {
-      number: '01',
+      number: 1,
       image: automation,
       icon: cloudIcon,
       title: 'AWS - Amazon Web Services',
@@ -83,7 +83,7 @@ export function getLightIllustrationsCardsPartners(t: Translate) {
       theme: 'light'
     },
     {
-      number: '02',
+      number: 2,
       image: automation,
       icon: dockerIcon,
       title: 'Docker',
@@ -92,7 +92,7 @@ export function getLightIllustrationsCardsPartners(t: Translate) {
       theme: 'light'
     },
     {
-      number: '03',
+      number: 3,
       image: automation,
       icon: devopsIcon,
       title: 'ARM',
