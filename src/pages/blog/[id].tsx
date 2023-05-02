@@ -21,7 +21,7 @@ export default function Post({post, t}: PostPageProps) {
 
 export async function getServerSideProps(context) {
   const postSlug = context.query.id
-  const post = JSON.parse(await fs.readFile(path.join(process.cwd(), `data/blog/posts/${postSlug}.json`), 'utf8'))
+  const post = JSON.parse(await fs.readFile(path.join(process.cwd(), `/blog/posts/${postSlug}.json`), 'utf8'))
   return {
     props: {post}
   }
