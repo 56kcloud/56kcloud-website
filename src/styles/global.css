@@ -8,6 +8,10 @@ body {
   @apply font-graphik text-primary-500 text-base font-light
 }
 
+#tags-slider::-webkit-scrollbar{
+  display: none;
+}
+
 .background-image {
   @apply relative w-full h-auto
 }

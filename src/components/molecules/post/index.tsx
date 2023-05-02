@@ -45,7 +45,10 @@ export default function PostDetail({post, blocks, animateCover=false}: PostProps
               duration: 0.5
             }}
           >
-            {blocks && <NotionPageRenderer blocks={blocks}/>}
+            {blocks && <NotionPageRenderer
+              openGraphURL={'/api/og'}
+              blocks={blocks}/>
+            }
           </motion.div>
         </div>
       </div>

@@ -1,13 +1,11 @@
 import {NotionPostPreview} from '@/models/blog/blog-preview'
 import {PageProps} from '@/models/page.model'
 import {Tag} from '@/models/tag.model'
-// import {createPostData, getPost, getPostsTags, getPublishedPosts, replaceNotionImagesInPostList} from '@/utils/notion'
-import {promises as fs} from 'fs'
+import {createPostData, getPost, getPostsTags, getPublishedPosts, replaceNotionImagesInPostList} from '@/utils/notion'
 import Head from 'next/head'
 import Layout from '@/components/organisms/layout'
 import MediumTitleSection from '@/components/molecules/title-section/medium'
 import PostCardList from '@/components/organisms/card-list/post'
-import path from 'path'
 
 interface BlogPageProps extends PageProps {
   posts: Array<NotionPostPreview>
@@ -37,20 +35,20 @@ export default function Blog({t, posts, tags}: BlogPageProps) {
 
 export async function getStaticProps() {
   //PROD
-  // let posts = await getPublishedPosts()
-  // await Promise.all(posts.map(async(post) => {
-  //   await createPostData(await getPost(post.id))
-  // }))
-  // posts = await replaceNotionImagesInPostList(posts)
+  let posts = await getPublishedPosts()
+  await Promise.all(posts.map(async(post) => {
+    await createPostData(await getPost(post.id))
+  }))
+  posts = await replaceNotionImagesInPostList(posts)
   // fs.writeFile(path.join(process.cwd(), 'data/blog/posts.json'), JSON.stringify(posts))
-  // const tags = await getPostsTags(true)
+  const tags = await getPostsTags(true)
   // fs.writeFile(path.join(process.cwd(), 'data/blog/tags.json'), JSON.stringify(tags))
 
   //DEV
-  let posts = JSON.parse(await fs.readFile(path.join(process.cwd(), 'data/blog/posts.json'), 'utf-8'))
-  let tags = JSON.parse(await fs.readFile(path.join(process.cwd(), 'data/blog/tags.json'), 'utf-8'))
+  // let posts = JSON.parse(await fs.readFile(path.join(process.cwd(), 'data/blog/posts.json'), 'utf-8'))
+  // let tags = JSON.parse(await fs.readFile(path.join(process.cwd(), 'data/blog/tags.json'), 'utf-8'))
   // let tags = []
-  console.log('DONE !⭐️')
+  // console.log('DONE !⭐️')
 
   return {
     props: {

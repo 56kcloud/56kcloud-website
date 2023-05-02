@@ -61,7 +61,6 @@ export async function createPostData(data) {
   fs.writeFile(path.join(process.cwd(), `data/blog/posts/${slug}.json`), JSON.stringify(data), options)
 }
 
-
 export async function getAuthors() {
   return (await notion.databases.query({database_id: authorsDbId})).results || []
 }

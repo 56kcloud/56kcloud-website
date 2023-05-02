@@ -39,8 +39,8 @@ const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVarian
     ghost: 'text-error-500 hover:bg-error-50 focus-visible:outline-error-600'
   },
   white: {
-    default: 'bg-white text-primary-300 hover:text-primary-500 focus-visible:ring-primary-500 \
-    focus-visible:outline-primary-200 data-[active=true]:text-primary-500',
+    default: 'text-primary-500 hover:bg-primary-100/20 hover:text-primary-800 focus-visible:ring-primary-500 \
+    focus-visible:outline-primary-200',
     link: '',
     ghost: ''
   }
