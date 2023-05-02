@@ -87,7 +87,7 @@ export default function PostCardList({posts, tags}: BaseCardListProps) {
         {openedPost && 
           <AnimatePresence>
             <motion.div
-              className='fixed inset-0 z-50 flex items-center justify-center bg-gray-900/20 backdrop-blur-md'
+              className='fixed inset-0 z-50 flex items-center justify-center p-10 bg-gray-900/20 backdrop-blur-md'
               onClick={closePreview}
             >
               <motion.div
