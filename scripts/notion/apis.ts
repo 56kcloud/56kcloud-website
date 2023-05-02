@@ -1,7 +1,7 @@
 import {Abortable} from 'events'
 import {Client} from '@notionhq/client'
 import {Mode, ObjectEncodingOptions, OpenMode, promises as fs} from 'fs'
-import {authorsDbId, notionKey, postsDbId} from '../../config'
+import {authorsDbId, notionKey, postsDbId} from './config'
 import {retrieveBlocksChildren} from 'notion-to-tailwind'
 import imageSize from 'buffer-image-size'
 import path from 'path'
@@ -46,7 +46,7 @@ export async function replaceNotionImagesInPostList(list) {
       const base = getFileName(url, true)[0].toString()
       const fileName = (await fs.readdir(path.join(process.cwd(), `/public/${publicPostsPath}/${postSlug}/`)))
         .filter(image => image.includes(base))[0]
-      stringifiedPost = stringifiedPost.replaceAll(url, `/${publicPostsPath}/${postSlug}/${fileName}`)
+      stringifiedPost = stringifiedPost.replaceAll(url, `${publicPostsPath}/${postSlug}/${fileName}`)
     }
     posts.push(JSON.parse(stringifiedPost))
   }

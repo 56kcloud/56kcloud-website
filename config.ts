@@ -1,6 +1,1 @@
 export const api = process.env.NEXT_PUBLIC_API || ''
-export const notionKey = process.env.NEXT_PUBLIC_NOTION_KEY || ''
-export const postsDbId = process.env.NEXT_PUBLIC_NOTION_POSTS_DB_ID || ''
-export const authorsDbId = process.env.NEXT_PUBLIC_NOTION_AUTHORS_DB_ID || ''
-export const teamsDbId = process.env.NEXT_PUBLIC_NOTION_TEAMS_DB_ID || ''
-export const dataPath = process.env.NEXT_PUBLIC_ENV || 'local'
