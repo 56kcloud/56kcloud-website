@@ -59,7 +59,7 @@ export async function createPostData(data) {
   fs.mkdir(path.join(process.cwd(), publicPostsPath), {recursive: true})
   fs.mkdir(path.join(process.cwd(), `${publicPostsPath}/${slug}`), {recursive: true})
   data = await downloadAndReplaceNotionImages(data, `${publicPostsPath}/${slug}`)
-  fs.writeFile(path.join(process.cwd(), `${publicPostsPath}/${slug}.json`), JSON.stringify(data), options)
+  fs.writeFile(path.join(process.cwd(), `${publicPostsPath}/${slug}/post.json`), JSON.stringify(data), options)
 }
 
 export async function getAuthors() {
@@ -68,7 +68,7 @@ export async function getAuthors() {
 
 export async function getPublishedPosts() {
   let authors = await getAuthors()
-  authors = await downloadAndReplaceNotionImages(authors, '/public/blog/authors')
+  authors = await downloadAndReplaceNotionImages(authors, '/blog/authors')
   const postsQuery = (await notion.databases.query({database_id: postsDbId,
     sorts: [
       {

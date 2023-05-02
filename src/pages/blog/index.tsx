@@ -2,7 +2,7 @@ import {NotionPostPreview} from '@/models/blog/blog-preview'
 import {PageProps} from '@/models/page.model'
 import {Tag} from '@/models/tag.model'
 // eslint-disable-next-line max-len
-// import {createPostData, getPost, getPostsTags, getPublishedPosts, replaceNotionImagesInPostList} from '@/utils/notion'
+import {createPostData, getPost, getPostsTags, getPublishedPosts, replaceNotionImagesInPostList} from '@/utils/notion'
 import Head from 'next/head'
 import Layout from '@/components/organisms/layout'
 import MediumTitleSection from '@/components/molecules/title-section/medium'
@@ -36,18 +36,18 @@ export default function Blog({t, posts, tags}: BlogPageProps) {
 
 export async function getStaticProps() {
   //PROD
-  // let posts = await getPublishedPosts()
-  // await Promise.all(posts.map(async(post) => {
-  //   await createPostData(await getPost(post.id))
-  // }))
-  // posts = await replaceNotionImagesInPostList(posts)
+  let posts = await getPublishedPosts()
+  await Promise.all(posts.map(async(post) => {
+    await createPostData(await getPost(post.id))
+  }))
+  posts = await replaceNotionImagesInPostList(posts)
   // fs.writeFile(path.join(process.cwd(), 'data/blog/posts.json'), JSON.stringify(posts))
-  // const tags = await getPostsTags(true)
+  const tags = await getPostsTags(true)
   // fs.writeFile(path.join(process.cwd(), 'data/blog/tags.json'), JSON.stringify(tags))
 
   //DEV
-  let posts = []
-  let tags = []
+  // let posts = []
+  // let tags = []
   // let tags = []
   // console.log('DONE !⭐️')
 
