@@ -1,4 +1,4 @@
-import {Dispatch} from 'react'
+import {Dispatch, useEffect} from 'react'
 import {NotionPostPreview} from '@/models/blog/blog-preview'
 import {formatDate, humanizeSecondsToMinutes} from '@/utils/toolbox'
 import {motion} from 'framer-motion'
