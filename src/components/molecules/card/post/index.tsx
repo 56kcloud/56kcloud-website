@@ -24,7 +24,7 @@ export default function PostCard({post, setOpenedPost}: PostCardProps) {
   const postSlug = post.properties.slug.rich_text[0].plain_text
   
   async function setPost() {
-    const res = await fetch(`/api/post/${postSlug}`)
+    const res = await fetch(`/blog/posts/${postSlug}/post.json`)
     setOpenedPost(await res.json())
   }
 
