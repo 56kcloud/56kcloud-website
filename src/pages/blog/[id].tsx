@@ -21,7 +21,12 @@ export default function Post({post, t}: PostPageProps) {
 
 export async function getServerSideProps(context) {
   const postSlug = context.query.id
-  const post = await fs.readFile(path.join(process.cwd(), `public/blog/posts/${postSlug}/post.json`), 'utf8')
+  const post = {}
+  console.log(await fs.readdir(path.join(process.cwd(), 'public/')))
+  console.log(await fs.readdir(path.join(process.cwd(), 'public/blog')))
+  console.log(await fs.readdir(path.join(process.cwd(), 'public/posts')))
+  console.log(await fs.readdir(path.join(process.cwd(),  `public/blog/posts/${postSlug}/post.json`)))
+  // const post = await fs.readFile(path.join(process.cwd(), `public/blog/posts/${postSlug}/post.json`), 'utf8')
   return {
     props: {post}
   }
