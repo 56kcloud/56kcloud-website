@@ -5,9 +5,6 @@ const nextConfig = {
     domains: ['s3.us-west-2.amazonaws.com']
   },
   reactStrictMode: true,
-  experimental: {
-    appDir: true
-  },
   ...nextTranslate()
 }
 
