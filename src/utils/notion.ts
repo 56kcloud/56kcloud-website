@@ -9,6 +9,7 @@ import path from 'path'
 const notion = new Client({auth: notionKey})
 
 const notionS3Regex = /https:\/\/s3\.us-west-2\.amazonaws\.com\/secure\.notion-static\.com\/[^\"]+"/g
+const publicPostsPath = 'public/blog/posts'
 
 export function getFileName(url, split=false) {
   const fileName = decodeURI(url.split('/').pop().split('?')[0])
@@ -42,9 +43,9 @@ export async function replaceNotionImagesInPostList(list) {
     for (let url of matches) {
       url = url.replaceAll('"', '')
       const base = getFileName(url, true)[0].toString()
-      const fileName = (await fs.readdir(path.join(process.cwd(), `public/blog/posts/${postSlug}/`)))
+      const fileName = (await fs.readdir(path.join(process.cwd(), `${publicPostsPath}/${postSlug}/`)))
         .filter(image => image.includes(base))[0]
-      stringifiedPost = stringifiedPost.replaceAll(url, `/blog/posts/${postSlug}/${fileName}`)
+      stringifiedPost = stringifiedPost.replaceAll(url, `${publicPostsPath}/${postSlug}/${fileName}`)
     }
     posts.push(JSON.parse(stringifiedPost))
   }
@@ -55,10 +56,10 @@ export async function createPostData(data) {
   const slug = data.post.properties.slug.rich_text[0].plain_text
   const options: (ObjectEncodingOptions & { mode?: Mode; flag?: OpenMode; }
    & Abortable) = {encoding:'utf8', flag:'w'}
-  fs.mkdir(path.join(process.cwd(), 'data/blog/posts'), {recursive: true})
-  fs.mkdir(path.join(process.cwd(), `public/blog/posts/${slug}`), {recursive: true})
-  data = await downloadAndReplaceNotionImages(data, `/blog/posts/${slug}`)
-  fs.writeFile(path.join(process.cwd(), `data/blog/posts/${slug}.json`), JSON.stringify(data), options)
+  fs.mkdir(path.join(process.cwd(), publicPostsPath), {recursive: true})
+  fs.mkdir(path.join(process.cwd(), `${publicPostsPath}/${slug}`), {recursive: true})
+  data = await downloadAndReplaceNotionImages(data, `${publicPostsPath}/${slug}`)
+  fs.writeFile(path.join(process.cwd(), `${publicPostsPath}/${slug}.json`), JSON.stringify(data), options)
 }
 
 export async function getAuthors() {
@@ -67,7 +68,7 @@ export async function getAuthors() {
 
 export async function getPublishedPosts() {
   let authors = await getAuthors()
-  authors = await downloadAndReplaceNotionImages(authors, '/blog/authors')
+  authors = await downloadAndReplaceNotionImages(authors, '/public/blog/authors')
   const postsQuery = (await notion.databases.query({database_id: postsDbId,
     sorts: [
       {
