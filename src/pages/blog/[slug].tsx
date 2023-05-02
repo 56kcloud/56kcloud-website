@@ -21,20 +21,18 @@ export default function Post({post, t}: PostPageProps) {
 
 export async function getStaticPaths() {
   const posts = JSON.parse(await fs.readFile(path.join(process.cwd(),  'public/blog/posts.json'), 'utf8'))
+  const paths = posts.map(post => ({params: {slug: post.properties.slug.rich_text[0].plain_text}}))
   return {
-    paths: posts.map(post => ({params: {id: post['properties'].slug.rich_text[0].plain_text}})),
-    fallback: 'blocking' //indicates the type of fallback
+    paths,
+    fallback: false
   }
 }
 
 export async function getStaticProps(context) {
-  const postSlug = context.params.id
-  // const post = {}
-  // console.log(await fs.readdir(path.join(process.cwd(), 'public/')))
-  // console.log(await fs.readdir(path.join(process.cwd(), 'public/blog')))
-  // console.log(await fs.readdir(path.join(process.cwd(), 'public/posts')))
-  // console.log(await fs.readdir(path.join(process.cwd(),  `public/blog/posts/${postSlug}/post.json`)))
-  const post = await fs.readFile(path.join(process.cwd(), `public/blog/posts/${postSlug}/post.json`), 'utf8')
+  const postSlug = context.params.slug
+  const post = JSON.parse(
+    await fs.readFile(path.join(process.cwd(), `public/blog/posts/${postSlug}/post.json`), 'utf8')
+  )
   return {
     props: {post}
   }
