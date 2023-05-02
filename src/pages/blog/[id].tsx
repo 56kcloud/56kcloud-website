@@ -1,9 +1,7 @@
 import {NotionPost} from '@/models/blog/blog-preview'
 import {PageProps} from '@/models/page.model'
-import {promises as fs} from 'fs'
 import Layout from '@/components/organisms/layout'
 import PostDetail from '@/components/molecules/post'
-import path from 'path'
 
 type PostPageProps = {
   post: NotionPost
