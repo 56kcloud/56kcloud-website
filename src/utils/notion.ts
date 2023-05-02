@@ -9,7 +9,7 @@ import path from 'path'
 const notion = new Client({auth: notionKey})
 
 const notionS3Regex = /https:\/\/s3\.us-west-2\.amazonaws\.com\/secure\.notion-static\.com\/[^\"]+"/g
-const publicPostsPath = 'public/blog/posts'
+const publicPostsPath = '/blog/posts'
 
 export function getFileName(url, split=false) {
   const fileName = decodeURI(url.split('/').pop().split('?')[0])
@@ -17,9 +17,9 @@ export function getFileName(url, split=false) {
   return split ? [fileName.slice(0, extensionIndex), fileName.slice(extensionIndex)] : fileName
 }
 
-export async function downloadAndReplaceNotionImages(object, publicPath) {
-  const completePath = path.join(process.cwd(), 'public', publicPath)
-  fs.mkdir(completePath, {recursive: true})
+export async function downloadAndReplaceNotionImages(object, relativePath) {
+  const publicPath = path.join(process.cwd(), 'public', relativePath)
+  fs.mkdir(publicPath, {recursive: true})
   const matches = JSON.stringify(object).match(notionS3Regex)
   for (let url of matches) {
     url = url.replaceAll('"', '')
@@ -28,8 +28,9 @@ export async function downloadAndReplaceNotionImages(object, publicPath) {
     const dimensions = imageSize(buffer)
     const [name, ext] = getFileName(url, true)
     const fileName = `${name}-${dimensions.width}x${dimensions.height}${ext}`
-    object = JSON.parse(JSON.stringify(object).replaceAll(url, path.join(publicPath, fileName)))
-    fs.writeFile(path.join(completePath, fileName), buffer)
+    const completePath = path.join(relativePath, fileName)
+    object = JSON.parse(JSON.stringify(object).replaceAll(url, completePath))
+    fs.writeFile(path.join(publicPath, fileName), buffer)
   }
   return object
 }
@@ -43,9 +44,9 @@ export async function replaceNotionImagesInPostList(list) {
     for (let url of matches) {
       url = url.replaceAll('"', '')
       const base = getFileName(url, true)[0].toString()
-      const fileName = (await fs.readdir(path.join(process.cwd(), `${publicPostsPath}/${postSlug}/`)))
+      const fileName = (await fs.readdir(path.join(process.cwd(), `/public/${publicPostsPath}/${postSlug}/`)))
         .filter(image => image.includes(base))[0]
-      stringifiedPost = stringifiedPost.replaceAll(url, `${publicPostsPath}/${postSlug}/${fileName}`)
+      stringifiedPost = stringifiedPost.replaceAll(url, `/${publicPostsPath}/${postSlug}/${fileName}`)
     }
     posts.push(JSON.parse(stringifiedPost))
   }
@@ -56,10 +57,9 @@ export async function createPostData(data) {
   const slug = data.post.properties.slug.rich_text[0].plain_text
   const options: (ObjectEncodingOptions & { mode?: Mode; flag?: OpenMode; }
    & Abortable) = {encoding:'utf8', flag:'w'}
-  fs.mkdir(path.join(process.cwd(), publicPostsPath), {recursive: true})
-  fs.mkdir(path.join(process.cwd(), `${publicPostsPath}/${slug}`), {recursive: true})
+  fs.mkdir(path.join(process.cwd(), `/public/${publicPostsPath}/${slug}`), {recursive: true})
   data = await downloadAndReplaceNotionImages(data, `${publicPostsPath}/${slug}`)
-  fs.writeFile(path.join(process.cwd(), `${publicPostsPath}/${slug}/post.json`), JSON.stringify(data), options)
+  fs.writeFile(path.join(process.cwd(), `/public/${publicPostsPath}/${slug}/post.json`), JSON.stringify(data), options)
 }
 
 export async function getAuthors() {
@@ -75,7 +75,8 @@ export async function getPublishedPosts() {
         property: 'publishedOn',
         direction: 'descending'
       }
-    ]
+    ],
+    page_size: 1
   })).results || []
 
   return postsQuery.map(post => {
