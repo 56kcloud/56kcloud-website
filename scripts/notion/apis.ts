@@ -75,8 +75,7 @@ export async function getPublishedPosts() {
         property: 'publishedOn',
         direction: 'descending'
       }
-    ],
-    page_size: 1
+    ]
   })).results || []
 
   return postsQuery.map(post => {

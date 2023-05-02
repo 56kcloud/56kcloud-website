@@ -17,7 +17,7 @@ export default function PostDetail({post, blocks, animateCover=false}: PostProps
       layout
       onClick={(e) => {e.stopPropagation()}}
       layoutId={`card-${post.id}`}
-      className='z-50 w-full h-full overflow-auto bg-white max-w-7xl rounded-xl'>       
+      className='z-50 w-full h-full overflow-auto bg-white shadow-lg max-w-7xl rounded-xl overscroll-contain'>       
       <PostCover
         className='max-h-[400px]'
         postId={post.id}
