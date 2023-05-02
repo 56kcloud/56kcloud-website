@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import Image, {StaticImageData} from 'next/image'
 import Surtitle from '../../../atoms/surtitle'
 
