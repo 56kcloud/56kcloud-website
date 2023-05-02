@@ -1,31 +1,28 @@
-// import {Client} from '@notionhq/client'
-// import {NotionPageRenderer, retrieveBlocksChildren} from 'notion-to-tailwind'
-// import {notionKey} from '../../../config'
-
-import {NotionPageRenderer} from 'notion-to-tailwind'
+import {NotionPost} from '@/models/blog/blog-preview'
+import {PageProps} from '@/models/page.model'
 import {promises as fs} from 'fs'
+import Layout from '@/components/organisms/layout'
+import PostDetail from '@/components/molecules/post'
 import path from 'path'
 
-// const notion = new Client({auth: notionKey})
+type PostPageProps = {
+  post: NotionPost
+} & PageProps
 
-export default function Post({post, blocks}) {
-  // console.log(JSON.parse(post))
-  console.log(post)
-  console.log(blocks)
+export default function Post({post, t}: PostPageProps) {
   return (
-    // <div className='flex flex-col items-center justify-center max-w-full mt-8 prose'>
-    //   <h1>{post?.properties.name.title[0].text.content}</h1>
-    //   <div className='w-4/5 max-w-4xl p-8 border rounded-xl'>
-    //     <NotionPageRenderer blocks={blocks}/>
-    //   </div>
-    // </div>
+    <Layout t={t}>
+      <div className='flex items-end justify-center p-10'>
+        <PostDetail {...post}/>
+      </div>
+    </Layout>
   )
 }
 
 export async function getServerSideProps(context) {
   const postSlug = context.query.id
-  const props = JSON.parse(await fs.readFile(path.join(process.cwd(), `data/blog/${postSlug}.json`), 'utf8'))
+  const post = JSON.parse(await fs.readFile(path.join(process.cwd(), `data/blog/posts/${postSlug}.json`), 'utf8'))
   return {
-    props
+    props: {post}
   }
 }

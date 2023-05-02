@@ -1,6 +1,11 @@
 import * as humanizeDuration from 'humanize-duration'
 import {HsformsPayload, HsformsPayloadItem, contactUsFormData} from '../models/contact-us-form-data.model'
 import {format} from 'date-fns'
+import slugify from 'slugify'
+
+export function toQueryParam(string) {
+  return slugify(string.toLowerCase())
+}
 
 export function createHsformsPayload(data) {
   const legalConsent = data.legalConsent

@@ -1,7 +1,7 @@
+import {NotionPostPreview} from '@/models/blog/blog-preview'
 import {PageProps} from '@/models/page.model'
-import {PostPreview} from '@/models/blog/blog-preview'
-// import {createPostData, getPost, getPostsTags, getPublishedPosts, replaceNotionImagesInPostList} from '@/utils/notion'
 import {Tag} from '@/models/tag.model'
+// import {createPostData, getPost, getPostsTags, getPublishedPosts, replaceNotionImagesInPostList} from '@/utils/notion'
 import {promises as fs} from 'fs'
 import Head from 'next/head'
 import Layout from '@/components/organisms/layout'
@@ -10,7 +10,7 @@ import PostCardList from '@/components/organisms/card-list/post'
 import path from 'path'
 
 interface BlogPageProps extends PageProps {
-  posts: Array<PostPreview>
+  posts: Array<NotionPostPreview>
   tags: Array<Tag>
 }
 
@@ -37,9 +37,9 @@ export default function Blog({t, posts, tags}: BlogPageProps) {
 
 export async function getStaticProps() {
   //PROD
-  // let posts = await getPublishedPosts(notion)
+  // let posts = await getPublishedPosts()
   // await Promise.all(posts.map(async(post) => {
-  //   await createPostData(await getPost(notion, post.id))
+  //   await createPostData(await getPost(post.id))
   // }))
   // posts = await replaceNotionImagesInPostList(posts)
   // fs.writeFile(path.join(process.cwd(), 'data/blog/posts.json'), JSON.stringify(posts))
@@ -49,7 +49,7 @@ export async function getStaticProps() {
   //DEV
   let posts = JSON.parse(await fs.readFile(path.join(process.cwd(), 'data/blog/posts.json'), 'utf-8'))
   let tags = JSON.parse(await fs.readFile(path.join(process.cwd(), 'data/blog/tags.json'), 'utf-8'))
-  
+  // let tags = []
   console.log('DONE !⭐️')
 
   return {

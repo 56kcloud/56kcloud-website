@@ -3,15 +3,17 @@ import {Client} from '@notionhq/client'
 import {Mode, ObjectEncodingOptions, OpenMode, promises as fs} from 'fs'
 import {authorsDbId, notionKey, postsDbId} from '../../config'
 import {retrieveBlocksChildren} from 'notion-to-tailwind'
+import imageSize from 'buffer-image-size'
 import path from 'path'
-import slugify from 'slugify'
 
 const notion = new Client({auth: notionKey})
 
 const notionS3Regex = /https:\/\/s3\.us-west-2\.amazonaws\.com\/secure\.notion-static\.com\/[^\"]+"/g
 
-export function getFileName(url) {
-  return decodeURI(url.split('/').pop().split('?')[0])
+export function getFileName(url, split=false) {
+  const fileName = decodeURI(url.split('/').pop().split('?')[0])
+  const extensionIndex = fileName.lastIndexOf('.')
+  return split ? [fileName.slice(0, extensionIndex), fileName.slice(extensionIndex)] : fileName
 }
 
 export async function downloadAndReplaceNotionImages(object, publicPath) {
@@ -21,10 +23,12 @@ export async function downloadAndReplaceNotionImages(object, publicPath) {
   for (let url of matches) {
     url = url.replaceAll('"', '')
     const res = await fetch(url)
-    const buffer = await res.arrayBuffer()
-    const fileName = getFileName(url)
-    object = JSON.parse(JSON.stringify(object).replaceAll(url, `${publicPath}/${fileName}`))
-    fs.writeFile(path.join(completePath, fileName), Buffer.from(buffer))
+    const buffer = Buffer.from(await res.arrayBuffer())
+    const dimensions = imageSize(buffer)
+    const [name, ext] = getFileName(url, true)
+    const fileName = `${name}-${dimensions.width}x${dimensions.height}${ext}`
+    object = JSON.parse(JSON.stringify(object).replaceAll(url, path.join(publicPath, fileName)))
+    fs.writeFile(path.join(completePath, fileName), buffer)
   }
   return object
 }
@@ -37,7 +41,9 @@ export async function replaceNotionImagesInPostList(list) {
     let stringifiedPost = JSON.stringify(post)
     for (let url of matches) {
       url = url.replaceAll('"', '')
-      const fileName = getFileName(url)
+      const base = getFileName(url, true)[0].toString()
+      const fileName = (await fs.readdir(path.join(process.cwd(), `public/blog/posts/${postSlug}/`)))
+        .filter(image => image.includes(base))[0]
       stringifiedPost = stringifiedPost.replaceAll(url, `/blog/posts/${postSlug}/${fileName}`)
     }
     posts.push(JSON.parse(stringifiedPost))
@@ -82,7 +88,7 @@ export async function getPublishedPosts() {
   }).filter(post => post['properties'].status.select.name === 'published')
 }
 
-export async function getPost(notion, postId) {
+export async function getPost(postId) {
   const [post, children] = await Promise.all([
     notion.pages.retrieve({page_id: postId}),
     notion.blocks.children.list({block_id: postId})
@@ -93,15 +99,10 @@ export async function getPost(notion, postId) {
 }
 
 export async function getPostsTags(withAll=false) {
-  const tagsQuery = (await notion.databases.query({database_id: postsDbId})).results.map(
-    post => post['properties'].tags.multi_select.map(select => ({
-      name: slugify(select.name),
-      color: select.color
-    }))).flat()
-  const tags = [...new Set(tagsQuery)]
+  const tags = (await notion.databases.retrieve({database_id: postsDbId})).properties.tags['multi_select'].options
   withAll && tags.unshift({
     name: 'all',
-    color: 'grey'
+    color: 'gray'
   })
   return tags
 }

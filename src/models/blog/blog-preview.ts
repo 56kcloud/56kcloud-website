@@ -77,7 +77,7 @@ export type URL = {
 }
 
 
-export type PostPreview = {
+export type NotionPostPreview = {
   archived: boolean
   cover: {
     type: string
@@ -158,4 +158,9 @@ export type PostPreview = {
     tags: MultiSelectTags
   }
   url: string
+}
+
+export type NotionPost= {
+  post: NotionPostPreview
+  blocks: Array<unknown>
 }

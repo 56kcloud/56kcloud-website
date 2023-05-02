@@ -53,7 +53,7 @@ export default function ListBox({data = [], defaultValue = null, register, name,
               {data.map((option, idx) => (
                 <Listbox.Option
                   key={idx}
-                  className='flex items-center justify-center cursor-pointer h-9 hover:bg-primary-50'
+                  className='flex items-center justify-center cursor-pointer h-9 hover:bg-primary-100/20'
                   value={option}
                 >
                   {({selected}) => (

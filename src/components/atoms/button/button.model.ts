@@ -1,8 +1,8 @@
 import {
-  ButtonProps as  ButtonPrimitiveProps,
-  ButtonPropsImpl as ButtonPrimitivePropsImpl,
   ButtonTypes,
-  Link
+  Link,
+  PrimitiveButtonProps,
+  PrimitiveButtonPropsImpl
 } from './primitive/button/button.model'
 export const buttonSizes = ['small', 'medium', 'large'] as const
 export const buttonShapes = ['square', 'rounded', 'circle'] as const
@@ -15,7 +15,7 @@ const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVarian
     default: 'bg-primary-200 text-primary-500 hover:bg-primary-100 focus-visible:ring-primary-500 \
     focus-visible:outline-primary-200 uppercase tracking-widest',
     link: 'text-primary-800 hover:underline hover:bg-gray-50 focus-visible:outline-primary-600 focus-visible:underline',
-    ghost: 'text-primary-800 hover:bg-primary-50 focus-visible:outline-primary-600  \
+    ghost: 'text-primary-800 hover:bg-primary-100/30 focus-visible:outline-primary-600  \
     data-[active=true]:underline data-[active=true]:decoration-primary-200 data-[active=true]:underline-offset-4	\
     data-[active=true]:decoration-2'
   },
@@ -40,7 +40,7 @@ const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVarian
   },
   white: {
     default: 'bg-white text-primary-300 hover:text-primary-500 focus-visible:ring-primary-500 \
-    focus-visible:outline-primary-200',
+    focus-visible:outline-primary-200 data-[active=true]:text-primary-500',
     link: '',
     ghost: ''
   }
@@ -64,7 +64,7 @@ const alignmentClasses: Record<typeof buttonAlignments[number], string> = {
   end: 'justify-end'
 }
 
-export type ButtonPropsImpl<T extends keyof ButtonTypes | Link> = ButtonPrimitivePropsImpl<T> & {
+export type ButtonPropsImpl<T extends keyof ButtonTypes | Link> = PrimitiveButtonPropsImpl<T> & ({
   size?: typeof buttonSizes[number]
   shape?: typeof buttonShapes[number]
   align?: typeof buttonAlignments[number]
@@ -73,9 +73,12 @@ export type ButtonPropsImpl<T extends keyof ButtonTypes | Link> = ButtonPrimitiv
   width?: number | 'auto'
   leading?: React.ReactNode
   trailing?: React.ReactNode
-}
+} | {
+  unstyled: boolean
+})
 
-export class ButtonProps<T extends keyof ButtonTypes | Link> extends ButtonPrimitiveProps<T> {
+export class ButtonProps<T extends keyof ButtonTypes | Link> extends PrimitiveButtonProps<T> {
+  unstyled?: boolean
   size?: typeof buttonSizes[number]
   shape?: typeof buttonShapes[number]
   align?: typeof buttonAlignments[number]
@@ -87,20 +90,40 @@ export class ButtonProps<T extends keyof ButtonTypes | Link> extends ButtonPrimi
 
   constructor(props: ButtonPropsImpl<T>) {
     super(props)
-    this.size = props.size || 'medium'
-    this.shape = props.shape || 'rounded'
-    this.align = props.align || 'center'
-    this.tone = props.tone || 'primary'
-    this.variant = props.variant || 'default'
-    this.width = props.width || 'auto'
-    this.leading = props.leading
-    this.trailing = props.trailing
+    this.unstyled = props['unstyled']
+    if (!this.unstyled) {
+      this.size = props['size'] || 'medium'
+      this.shape = props['shape'] || 'rounded'
+      this.align = props['align'] || 'center'
+      this.tone = props['tone'] || 'primary'
+      this.variant = props['variant'] || 'default'
+      this.width = props['width'] || 'auto'
+      this.leading = props['leading']
+      this.trailing = props['trailing']
+    }
     this.HTMLProps = this.HTMLPropsIntegration(props)
   }
 
+
+  private HTMLPropsIntegration(props: PrimitiveButtonPropsImpl<T>) {
+    let HTMLProps = {}
+    const HTMLPropsKeys = Object.keys(props).filter(prop => !Object.keys(this).includes(prop))
+    HTMLPropsKeys.forEach(specificProp => {
+      const value = props[specificProp as keyof ButtonPropsImpl<T>]
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      Object.assign(HTMLProps , {[specificProp]: value})
+    })
+    HTMLProps['disabled'] = props.loading || props['disabled']
+    return HTMLProps
+  }
+
   public buttonVariants() {
+    if (this.unstyled) {
+      return ''
+    }
     let classes = 'flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 \
-    disabled:opacity-50 disabled:cursor-not-allowed font-medium'
+      disabled:opacity-50 disabled:cursor-not-allowed font-medium'
     classes += ` ${toneClasses[this.tone][this.variant]}`
     classes += ` ${sizeClasses[this.size]}`
     classes += ` ${shapeClasses[this.shape]}`
@@ -108,6 +131,9 @@ export class ButtonProps<T extends keyof ButtonTypes | Link> extends ButtonPrimi
   }
 
   public alignmentClasses() {
+    if (this.unstyled) {
+      return ''
+    }
     return `flex flex-1 ${alignmentClasses[this.align]}`
   }
 }

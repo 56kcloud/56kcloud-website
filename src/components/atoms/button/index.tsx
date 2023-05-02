@@ -3,7 +3,7 @@ import {ButtonTypes, Link} from './primitive/button/button.model'
 import {Spinner} from '../../svgs/icons/spinner'
 import {cn} from '@/utils/classes'
 import {forwardRef} from 'react'
-import BTN from './primitive/button'
+import PrimitiveButton from './primitive/button'
 
 function Button<T extends keyof ButtonTypes | Link>(
   props: ButtonPropsImpl<T>,
@@ -12,12 +12,12 @@ function Button<T extends keyof ButtonTypes | Link>(
   const buttonProps = new ButtonProps<T>(props)
 
   return (
-    <BTN
+    <PrimitiveButton
       {...buttonProps}
       ref={ref}
       className={cn(buttonProps.buttonVariants(), buttonProps.className)}>
       {buttonProps.loading 
-        ? <div className='pr-2'><Spinner classNames='text-white w-5 h-5'/></div> 
+        ? <div className='pr-2'><Spinner className='w-5 h-5 text-white'/></div> 
         : buttonProps.leading 
           ? <span>{buttonProps.leading}</span> 
           : null
@@ -29,7 +29,7 @@ function Button<T extends keyof ButtonTypes | Link>(
           : null 
         : null
       }
-    </BTN>
+    </PrimitiveButton>
   )
 }
 

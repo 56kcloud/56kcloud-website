@@ -1,9 +1,9 @@
-export function Spinner({classNames = ''}: {classNames?: string}) {
+export function Spinner({className = ''}: {className?: string}) {
   return (
     <div
       aria-label='Loading...'
       role='status'
-      className={classNames}>
+      className={className}>
       <svg
         className='stroke-current animate-[spin_1.5s_linear_infinite]'
         viewBox='0 0 256 256'>

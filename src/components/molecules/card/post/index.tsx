@@ -1,30 +1,17 @@
+import {Dispatch} from 'react'
 import {PostPreview} from '@/models/blog/blog-preview'
 import {formatDate, humanizeSecondsToMinutes} from '@/utils/toolbox'
 import {motion} from 'framer-motion'
-import {useState} from 'react'
 import Avatar from '@/components/atoms/avatar'
 import PostCover from './cover'
 import PostTagList from './tag-list'
 
 export type PostCardProps = {
   post: PostPreview
-  setOpenedPost: (post: PostPreview) => void
-}
-
-export const variants = {
-  test: {
-    opacity: 1,
-    transition: {
-      layout: {
-        duration: 0
-      }
-    }
-  },
-  basic: {}
+  setOpenedPost: Dispatch<any>
 }
 
 export default function PostCard({post, setOpenedPost}: PostCardProps) {
-  const [variant, setVariant] = useState(false)
   const createdAt = formatDate(post.properties.publishedOn.date.start)
   const readTime = humanizeSecondsToMinutes(post.properties.readTime.number)
   const postTitle = post.properties.name.title[0].text.content
@@ -36,18 +23,8 @@ export default function PostCard({post, setOpenedPost}: PostCardProps) {
   const postAuthor = post.properties.author.properties?.name.title[0].plain_text
   const postSlug = post.properties.slug.rich_text[0].plain_text
   
-  const defaultProps = {
-    layout: true
-    // transition: {
-    //   duration: 1
-    // }
-    // variants,
-    // animate: variant
-  }
-
   async function setPost() {
     const res = await fetch(`/api/post/${postSlug}`)
-    setVariant(true)
     setOpenedPost(await res.json())
   }
 
@@ -69,7 +46,6 @@ export default function PostCard({post, setOpenedPost}: PostCardProps) {
         postId={post.id}
         src={post.cover.file.url}
         alt={post.cover.file.url}
-        test={true}
       />
       <motion.div
         layout
@@ -86,22 +62,12 @@ export default function PostCard({post, setOpenedPost}: PostCardProps) {
             {postTitle}
           </motion.h1>
           <motion.p 
-            {...defaultProps}
+            layout
             className='mt-2 text-base text-grey-light line-clamp-3'>
             {postDescription}
           </motion.p>
           <motion.div
-            {...defaultProps}
-            initial={{
-              opacity: 0
-            }}
-            animate={{
-              opacity: 1
-            }}
-            transition={{
-              duration: 2
-              // ease: 'linear'
-            }}
+            layout
             className='flex flex-wrap items-center mt-8 text-sm gap-x-3 text-grey-light'>
             <Avatar
               image={postAvatarImage}

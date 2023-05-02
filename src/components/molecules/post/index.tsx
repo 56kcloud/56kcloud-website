@@ -1,28 +1,29 @@
 import {NotionPageRenderer} from 'notion-to-tailwind'
-import {PostPreview} from '@/models/blog/blog-preview'
+import {NotionPostPreview} from '@/models/blog/blog-preview'
 import {motion} from 'framer-motion'
 import PostCover from '../card/post/cover'
 import PostTagList from '../card/post/tag-list'
 
 export type PostProps = {
-  post: PostPreview
-  blocks?: any
+  post: NotionPostPreview
+  blocks?: Array<unknown>
+  animateCover?: boolean
 }
 
-export default function Post({post, blocks}: PostProps) {
+export default function PostDetail({post, blocks, animateCover=false}: PostProps) {
   const postTitle = post.properties.name.title[0].text.content
-  
   return (
     <motion.div
       layout
       onClick={(e) => {e.stopPropagation()}}
       layoutId={`card-${post.id}`}
-      className='z-50 w-full h-[90%] bg-white max-w-7xl overflow-auto rounded-xl'>
+      className='z-50 w-full h-full overflow-auto bg-white max-w-7xl rounded-xl'>       
       <PostCover
         className='max-h-[400px]'
         postId={post.id}
         src={post.cover.file.url}
         alt={post.cover.file.url}
+        animate={animateCover}
       />
       <div className='w-full p-10'>
         <PostTagList
@@ -48,6 +49,6 @@ export default function Post({post, blocks}: PostProps) {
           </motion.div>
         </div>
       </div>
-    </motion.div>
+    </motion.div>    
   )
 }

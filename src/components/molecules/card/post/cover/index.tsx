@@ -1,24 +1,24 @@
 import {Logo} from '@/components/svgs/logos/56k'
 import {cn} from '@/utils/classes'
 import {motion} from 'framer-motion'
-import {useRef, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import Image from 'next/image'
 
-export default function PostCover({postId, src, alt, className='', test=false}) {
+export default function PostCover({postId, src='', alt, className='', animate=false}) {
   const [isLoaded, setIsLoaded] = useState(false)
+  
   const [height, setHeight] = useState('200px')
   const coverParent = useRef(null)
 
-  function updateCoverHeight(aspectRatio: number) {
+  useEffect(() => {
     const parentWidth = coverParent.current?.offsetWidth
-    console.log(parentWidth * aspectRatio)
+    const [width, height] = src.substring(src.lastIndexOf('-')+1, src.lastIndexOf('.')).split('x')
     if (parentWidth) {
-      // if (coverParent.current.style.height !== height) {
-      setHeight(`${parentWidth * aspectRatio}px`)
-      // }
-      setIsLoaded(true)
+      if (coverParent.current.style.height !== height) {
+        setHeight(`${parentWidth * (parseInt(height)/parseInt(width))}px`)
+      }
     }
-  }
+  }, [])
 
   return (
     <motion.div
@@ -27,13 +27,12 @@ export default function PostCover({postId, src, alt, className='', test=false}) 
       className={cn('relative w-full', className)}
       transition={{
         layout: {
-          duration: test ? 0.1 : 0.2
+          duration: animate ? 0.2 : 0
         }
       }}
       ref={coverParent}
       style={{height}}
     >
-      {JSON.stringify(test)}
       {!isLoaded 
         ? <div className='flex items-center justify-center w-full h-full p-10 bg-gray-50 animate-pulse grayscale'>
           <Logo className='w-32 text-gray-100'/>
@@ -43,9 +42,7 @@ export default function PostCover({postId, src, alt, className='', test=false}) 
       <Image
         src={src}
         alt={alt}
-        onLoadingComplete={(e) => {
-          updateCoverHeight(e.naturalHeight/e.naturalWidth)
-        }}
+        onLoadingComplete={() => {setIsLoaded(true)}}
         fill
         className={cn('object-cover')}
       />

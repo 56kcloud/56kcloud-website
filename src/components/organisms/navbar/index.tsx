@@ -80,7 +80,7 @@ export default function Navbar({toggleIsModalOpen, t, fullHeightHero = false}: N
                         align='start'
                         className='text-2xl'
                         aria-label={item.name}
-                        data-active={router.pathname === item.href}
+                        data-active={router.pathname.includes(item.href)}
                       >
                         {item.name}
                       </Button>
@@ -132,7 +132,7 @@ export default function Navbar({toggleIsModalOpen, t, fullHeightHero = false}: N
                       href={item.href}
                       variant='ghost'
                       aria-label={item.name}
-                      data-active={router.pathname === item.href}
+                      data-active={router.pathname.includes(item.href)}
                     >
                       {item.name}
                     </Button>

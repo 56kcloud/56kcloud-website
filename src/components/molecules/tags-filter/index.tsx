@@ -1,12 +1,16 @@
 import {ArrowLeftIcon, ArrowRightIcon} from '@heroicons/react/outline'
 import {Tag} from '@/models/tag.model'
+import {toQueryParam} from '@/utils/toolbox'
 import {useRef} from 'react'
+import {useRouter} from 'next/router'
 import Button from '@/components/atoms/button'
 import Link from 'next/link'
+
 export type TabsFilterProps = {
   tags: Array<Tag>
 }
 export default function TagsFilter({tags}: TabsFilterProps) {
+  const router = useRouter()
   const slider = useRef(null)
   
   function slide(direction: 'left' | 'right') {
@@ -27,13 +31,17 @@ export default function TagsFilter({tags}: TabsFilterProps) {
       <div
         ref={slider}
         className='flex mx-12 overflow-x-hidden 2xl:mx-16 gap-x-3'>
+        <div>
+            
+        </div>
         {tags.map((tag, idx) => (
           <Button
             shallow={true}
             as={Link}
             key={idx}
             tone='white'
-            href={`/blog${idx > 0 ? `?tag=${tag.name.toLowerCase()}` : ''}`}
+            href={`/blog${idx > 0 ? `?tag=${toQueryParam(tag.name)}` : ''}`}
+            data-active={router.query.tag ? router.query.tag === toQueryParam(tag.name) : idx === 0}
             className='capitalize whitespace-nowrap'
           >
             {tag.name.replace(/-/g, ' ')}

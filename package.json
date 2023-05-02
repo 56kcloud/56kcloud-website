@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "clean-blog": "rm -rf ./public/blog && rm -rf ./data",
     "lint": "eslint . --ext js,jsx,ts,tsx --max-warnings=0 --config .eslintrc.json --no-eslintrc --fix",
     "build": "next build",
     "dev": "next dev",
@@ -15,6 +16,7 @@
     "@heroicons/react": "^1.0.5",
     "@next/font": "^13.2.4",
     "@notionhq/client": "^2.2.3",
+    "buffer-image-size": "^0.6.4",
     "date-fns": "^2.29.3",
     "framer-motion": "^10.12.4",
     "gray-matter": "^4.0.3",

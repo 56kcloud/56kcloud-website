@@ -1,11 +1,11 @@
-import {ButtonProps, ButtonPropsImpl, ButtonTypes, Link} from './button.model'
+import {ButtonTypes, Link, PrimitiveButtonProps, PrimitiveButtonPropsImpl} from './button.model'
 import {forwardRef} from 'react'
 
-function Button<T extends keyof ButtonTypes | Link>(
-  props: ButtonPropsImpl<T>,
+function PrimitiveButton<T extends keyof ButtonTypes | Link>(
+  props: PrimitiveButtonPropsImpl<T>,
   ref: React.RefObject<HTMLElement>
 ) {
-  const buttonProps = new ButtonProps(props)
+  const buttonProps = new PrimitiveButtonProps<T>(props)
 
   return (
     <buttonProps.as
@@ -19,4 +19,4 @@ function Button<T extends keyof ButtonTypes | Link>(
   )
 }
 
-export default forwardRef(Button)
+export default forwardRef(PrimitiveButton)

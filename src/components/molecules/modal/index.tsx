@@ -1,6 +1,7 @@
 import {Dialog, Transition} from '@headlessui/react'
 import {Fragment} from 'react'
 import {Translate} from 'next-translate'
+import Button from '@/components/atoms/button'
 import Image from 'next/image'
 import plusWhite from '../../../../public/images/icons/plus-white.webp'
 
@@ -13,7 +14,7 @@ export type ModalProps = {
   t: Translate
 }
 
-export default function Modal({isOpen, closeModal, header, title, children, t}: ModalProps) {
+export default function Modal({isOpen, closeModal, header, title, children}: ModalProps) {
   return (
     <Transition
       appear
@@ -51,16 +52,17 @@ export default function Modal({isOpen, closeModal, header, title, children, t}: 
                 className='relative w-full sm:max-w-xl px-6 py-7 sm:py-10 sm:p-8 text-left top-7 
                 align-middle sm:pt-20 min-[1700px]:pt-40 transition-all transform bg-white shadow-xl rounded-2xl'>
                 <div>
-                  <button
-                    onClick={closeModal}
+                  <Button
+                    unstyled
                     className='absolute -top-[72px] sm:-top-20 translate-x-[50%] right-0 translate-y-[100%]
                      focus:outline-primary-900 focus:outline-offset-2
-                     rounded-full'>
+                     rounded-full z-50'
+                  >
                     <Image
                       src={plusWhite}
-                      alt={t('altButton')}
+                      alt={'altButton'}
                       className='w-12 sm:w-14'/>
-                  </button>
+                  </Button>
                   {header}
                 </div>
                 <Dialog.Title
