@@ -1,5 +1,5 @@
 import {Dispatch} from 'react'
-import {PostPreview} from '@/models/blog/blog-preview'
+import {NotionPostPreview} from '@/models/blog/blog-preview'
 import {formatDate, humanizeSecondsToMinutes} from '@/utils/toolbox'
 import {motion} from 'framer-motion'
 import Avatar from '@/components/atoms/avatar'
@@ -7,7 +7,7 @@ import PostCover from './cover'
 import PostTagList from './tag-list'
 
 export type PostCardProps = {
-  post: PostPreview
+  post: NotionPostPreview
   setOpenedPost: Dispatch<any>
 }
 
