@@ -24,6 +24,7 @@ export default function PostCardList({posts, tags}: BaseCardListProps) {
   const [filteredPosts, setFilteredPosts] = useState([])
 
   useEffect(() => {
+    setOpenedPost(null)
     setFilteredPosts([])
     if (router.isReady) {
       const filteredPosts = posts
