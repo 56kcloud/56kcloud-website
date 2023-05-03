@@ -1,10 +1,9 @@
 import {Logo} from '@/components/svgs/logos/56k'
 import {cn} from '@/utils/classes'
-import {motion} from 'framer-motion'
 import {useEffect, useRef, useState} from 'react'
 import Image from 'next/image'
 
-export default function PostCover({postId, src='', alt, className='', animate=false}) {
+export default function PostCover({src='', alt, className=''}) {
   const [isLoaded, setIsLoaded] = useState(false)
   
   const [height, setHeight] = useState('200px')
@@ -21,15 +20,8 @@ export default function PostCover({postId, src='', alt, className='', animate=fa
   }, [])
 
   return (
-    <motion.div
-      layout
-      layoutId={`cover-${postId}`}
+    <div
       className={cn('relative w-full', className)}
-      transition={{
-        layout: {
-          duration: animate ? 0.2 : 0
-        }
-      }}
       ref={coverParent}
       style={{height}}
     >
@@ -46,7 +38,7 @@ export default function PostCover({postId, src='', alt, className='', animate=fa
         fill
         className={cn('object-cover')}
       />
-    </motion.div>
+    </div>
   )
 
 }

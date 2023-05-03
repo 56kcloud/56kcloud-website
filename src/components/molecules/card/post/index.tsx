@@ -1,17 +1,16 @@
-import {Dispatch} from 'react'
 import {NotionPostPreview} from '@/models/blog/blog-preview'
 import {formatDate, humanizeSecondsToMinutes} from '@/utils/toolbox'
 import {motion} from 'framer-motion'
 import Avatar from '@/components/atoms/avatar'
+import Link from 'next/link'
 import PostCover from './cover'
 import PostTagList from './tag-list'
 
 export type PostCardProps = {
   post: NotionPostPreview
-  setOpenedPost: Dispatch<any>
 }
 
-export default function PostCard({post, setOpenedPost}: PostCardProps) {
+export default function PostCard({post}: PostCardProps) {
   const createdAt = formatDate(post.properties.publishedOn.date.start)
   const readTime = humanizeSecondsToMinutes(post.properties.readTime.number)
   const postTitle = post.properties.name.title[0].text.content
@@ -22,72 +21,58 @@ export default function PostCard({post, setOpenedPost}: PostCardProps) {
   const postAvatarImageAlt = post.properties.author.properties?.name.title[0].plain_text
   const postAuthor = post.properties.author.properties?.name.title[0].plain_text
   const postSlug = post.properties.slug.rich_text[0].plain_text
-  
-  async function setPost() {
-    const res = await fetch(`/api/post/${postSlug}`)
-    setOpenedPost(await res.json())
-  }
 
   return (
     <motion.div
-      layout
-      id={post.id}
-      layoutId={`card-${post.id}`}
-      onClick={setPost}
       initial={{opacity: 0}}
       animate={{opacity: 1}}
       exit={{opacity: 0}}
-      transition={{
-        duration: 0.3
-      }}
-      className='relative flex flex-col overflow-hidden duration-200 bg-white rounded-lg shadow-lg cursor-pointer \
+      transition={{duration: 0.2}}
+    >
+      <Link
+        href={`/blog/${postSlug}`}
+        className='relative flex flex-col overflow-hidden duration-200 bg-white rounded-lg shadow-lg cursor-pointer \
       hover:shadow-2xl hover:scale-105'>
-      <PostCover
-        postId={post.id}
-        src={post.cover.file.url}
-        alt={post.cover.file.url}
-      />
-      <motion.div
-        layout
-        className='flex flex-col py-6 pl-6 bg-white'>
-        <PostTagList
-          postId={post.id}
-          tags={post.properties.tags.multi_select}
+        <PostCover
+          src={post.cover.file.url}
+          alt={post.cover.file.url}
         />
-        <div className='pr-6'>
-          <motion.h1
-            layout
-            layoutId={`title-${post.id}`}
-            className='text-2xl line-clamp-2 text-grey-dark title'>
-            {postTitle}
-          </motion.h1>
-          <motion.p 
-            layout
-            className='mt-2 text-base text-grey-light line-clamp-3'>
-            {postDescription}
-          </motion.p>
-          <motion.div
-            layout
-            className='flex flex-wrap items-center mt-8 text-sm gap-x-3 text-grey-light'>
-            <Avatar
-              image={postAvatarImage}
-              alt={postAvatarImageAlt}/>
-            <div className='flex flex-col'>
-              <span>
+        <div
+          className='flex flex-col py-6 pl-6 bg-white'>
+          <PostTagList
+            tags={post.properties.tags.multi_select}
+          />
+          <div className='pr-6'>
+            <h1
+              className='text-2xl line-clamp-2 text-grey-dark title'>
+              {postTitle}
+            </h1>
+            <p 
+              className='mt-2 text-base text-grey-light line-clamp-3'>
+              {postDescription}
+            </p>
+            <div
+              className='flex flex-wrap items-center mt-8 text-sm gap-x-3 text-grey-light'>
+              <Avatar
+                image={postAvatarImage}
+                alt={postAvatarImageAlt}/>
+              <div className='flex flex-col'>
+                <span>
                 by{' '}
-                <span className='font-normal text-grey-dark'>
-                  {postAuthor}
+                  <span className='font-normal text-grey-dark'>
+                    {postAuthor}
+                  </span>
                 </span>
-              </span>
-              <div className='flex gap-x-2'>
-                <span>{createdAt}</span>
-                <span>|</span>
-                <span>{readTime} read</span>
+                <div className='flex gap-x-2'>
+                  <span>{createdAt}</span>
+                  <span>|</span>
+                  <span>{readTime} read</span>
+                </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </Link>
     </motion.div>
   )
 }
