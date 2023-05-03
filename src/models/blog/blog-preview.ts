@@ -104,51 +104,7 @@ export type NotionPostPreview = {
     database_id: string
   }
   properties: {
-    author: {
-      archived: boolean
-      cover: unknown
-      created_by: {
-        object: string
-        id: string
-      }
-      created_time: string
-      icon: unknown
-      id: string
-      last_edited_by: {
-        object: string
-        id: string
-      }
-      last_edited_time: string
-      object: string
-      parent: {
-        type: string
-        database_id: string
-      }
-      properties: {
-        bio: RichText
-        facebook: RichText
-        id: RichText
-        location: RichText
-        name: Title
-        profileImage: {
-          files: Array<{
-            file: {
-              url: string
-              expiry_time: string
-            }
-            name: string
-            type: string
-          }>
-          type: string
-          id: string
-        }
-        slug: RichText
-        twitter: RichText
-        url: URL
-        website: URL
-      }
-      url: string
-    }
+    author: NotionPostAuthor
     description: RichText
     name: Title
     publishedOn: Date
@@ -156,6 +112,52 @@ export type NotionPostPreview = {
     slug: RichText
     status: Select
     tags: MultiSelectTags
+  }
+  url: string
+}
+
+export type NotionPostAuthor = {
+  archived: boolean
+  cover: unknown
+  created_by: {
+    object: string
+    id: string
+  }
+  created_time: string
+  icon: unknown
+  id: string
+  last_edited_by: {
+    object: string
+    id: string
+  }
+  last_edited_time: string
+  object: string
+  parent: {
+    type: string
+    database_id: string
+  }
+  properties: {
+    bio: RichText
+    facebook: RichText
+    id: RichText
+    location: RichText
+    name: Title
+    profileImage: {
+      files: Array<{
+        file: {
+          url: string
+          expiry_time: string
+        }
+        name: string
+        type: string
+      }>
+      type: string
+      id: string
+    }
+    slug: RichText
+    twitter: RichText
+    url: URL
+    website: URL
   }
   url: string
 }

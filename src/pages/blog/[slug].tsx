@@ -1,6 +1,7 @@
 import {NotionPost, NotionPostPreview} from '@/models/blog/blog-preview'
 import {PageProps} from '@/models/page.model'
 import {promises as fs} from 'fs'
+import AuthorCard from '@/components/molecules/card/author'
 import Layout from '@/components/organisms/layout'
 import PostCardList from '@/components/organisms/card-list/post'
 import PostDetail from '@/components/molecules/post'
@@ -12,25 +13,22 @@ type PostPageProps = {
 } & PageProps
 
 export default function Post({notionPost, similarPosts, t}: PostPageProps) {
-  console.log(notionPost.post)
   return (
     <Layout t={t}>
-      <div className='flex items-end justify-center p-10'>
-        <PostDetail {...notionPost}/>
-      </div>
-      <div>
-        <div>
-
+      <div className='flex flex-col items-center'>
+        <div className='w-full p-3 space-y-10 md:space-y-16 xl:p-10 max-w-7xl'>
+          <div className='flex items-end justify-center'>
+            <PostDetail {...notionPost}/>
+          </div>
+          <AuthorCard author={notionPost.post.properties.author}/>
+          <h1 className='text-3xl text-center md:text-4xl title line-clamp-2'>You may also like</h1>
+          {similarPosts && 
+            <PostCardList
+              posts={similarPosts}
+            />
+          }
         </div>
-        <div>
-          {/* <h1>{notionPost.post.properties.author.name.title[0].plain_text}</h1> */}
-          <p></p>
-          <p></p>
-        </div>
       </div>
-      <PostCardList
-        posts={similarPosts}
-      />
     </Layout>
   )
 }
@@ -52,7 +50,8 @@ export async function getStaticProps(context) {
   const postTags = notionPost.post.properties.tags.multi_select.map(tag => tag.name)
   const posts = 
     JSON.parse(await fs.readFile(path.join(process.cwd(), 'public/blog/posts.json'), 'utf8'))
-  const similarPosts = posts.filter(post => 
+  const similarPosts = posts.filter(post =>
+    post.id !== notionPost.post.id &&
     post.properties.tags.multi_select.map(tag => tag.name).some(tag => postTags.includes(tag))
   ).slice(0, 6)
   return {

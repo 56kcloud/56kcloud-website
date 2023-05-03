@@ -30,7 +30,7 @@ export default function PostCardList({posts, tags}: BaseCardListProps) {
   }, [router.isReady, queryTag])
 
   return (
-    <section className='section-padding'>
+    <section>
       <div
         className='mx-auto max-w-7xl'
       >

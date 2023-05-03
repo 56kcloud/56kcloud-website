@@ -1,11 +1,18 @@
+import {cn} from '@/utils/classes'
 import Image from 'next/image'
 export type AvatarProps = {
   image: string
   alt: string
+  size?: 'sm' | 'lg'
 }
-export default function Avatar({image, alt}: AvatarProps) {
+export default function Avatar({image, alt, size='sm'}: AvatarProps) {
+  const sizes = {
+    sm: 'w-8 h-8',
+    lg: 'w-32 h-32'
+  }
+  
   return (
-    <div className='relative flex items-center w-8 h-8 gap-x-4'>
+    <div className={cn(sizes[size], 'relative flex items-center gap-x-4')}>
       <Image
         src={image}
         alt={alt}

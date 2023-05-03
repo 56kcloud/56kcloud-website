@@ -26,9 +26,11 @@ export default function Blog({t, posts, tags}: BlogPageProps) {
         title='From the blog'
         subTitle='Tech, stories and thoughts from 56K.Cloud'
         className='mb-5'/>
-      <PostCardList
-        tags={tags}
-        posts={posts}/>
+      <div className='section-padding'>
+        <PostCardList
+          tags={tags}
+          posts={posts}/>
+      </div>
     </Layout>
   )
 }

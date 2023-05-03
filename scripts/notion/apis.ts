@@ -74,14 +74,13 @@ export async function getPublishedPosts(authors) {
         property: 'publishedOn',
         direction: 'descending'
       }
-    ],
-    page_size: 1
+    ]
   })).results || []
   return postsQuery.map(post => replaceAuthorBlockInPost(authors, post))
     .filter(post => post['properties'].status.select.name === 'published')
 }
 
-export async function replaceAuthorBlockInPost(authors, post) {
+export function replaceAuthorBlockInPost(authors, post) {
   if (post['properties'].author.relation.length > 0) {
     post['properties'].author = authors[
       authors.map(author => author.id).indexOf(post['properties'].author.relation[0].id)
@@ -95,7 +94,7 @@ export async function getPost(authors, postId) {
     notion.pages.retrieve({page_id: postId}),
     notion.blocks.children.list({block_id: postId})
   ])
-  post = await replaceAuthorBlockInPost(authors, post)
+  post = replaceAuthorBlockInPost(authors, post)
   const blocks = children.results
   await retrieveBlocksChildren(notion, blocks)
   return {post, blocks}
