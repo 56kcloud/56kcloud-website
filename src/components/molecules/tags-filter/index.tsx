@@ -1,7 +1,7 @@
 import {ChevronLeftIcon, ChevronRightIcon} from '@heroicons/react/outline'
 import {Tag} from '@/models/tag.model'
 import {toQueryParam} from '@/utils/toolbox'
-import {useRef} from 'react'
+import {useEffect, useRef} from 'react'
 import {useRouter} from 'next/router'
 import Button from '@/components/atoms/button'
 import Link from 'next/link'
@@ -14,9 +14,17 @@ export default function TagsFilter({tags}: TabsFilterProps) {
   const slider = useRef(null)
   
   function slide(direction: 'left' | 'right') {
-    const scroll =  direction === 'right' ? 200 : -200
+    const scroll =  direction === 'right' ? 400 : -400
     slider.current.scrollBy({left: scroll, behavior: 'smooth'})
   }
+
+  useEffect(() => {
+    if (router.query.tag) {
+      const element = document.getElementById(router.query.tag.toString())
+      const scroll = element.offsetLeft - (element.offsetWidth + element.offsetWidth/2)
+      slider.current.scrollTo({left: scroll, behavior: 'smooth'})
+    }
+  }, [router.query.tag])
 
   return (
     <div className='relative flex mb-10 border-b'>
@@ -40,6 +48,7 @@ export default function TagsFilter({tags}: TabsFilterProps) {
             as={Link}
             key={idx}
             unstyled
+            id={toQueryParam(tag.name)}
             href={`/blog${idx > 0 ? `?tag=${toQueryParam(tag.name)}` : ''}`}
             data-active={router.query.tag ? router.query.tag === toQueryParam(tag.name) : idx === 0}
             className='capitalize rounded-none whitespace-nowrap border-b border-transparent / 
