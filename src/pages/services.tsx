@@ -15,7 +15,7 @@ export default function Services({t}: PageProps) {
     <Layout 
       t={t}
       title='56K.Cloud | Services'
-      description={t('services:introTitle')}
+      description={t('services:introText')}
     >
       {({toggleIsOpen}) => (
         <>

@@ -14,7 +14,7 @@ export default function Partners({t}: PageProps) {
       t={t}
       fullHeightHero
       title='56K.Cloud | Partners'
-      description={t('partners:introTitle')}
+      description={t('partners:introText')}
     >
       <MediumTitleSection
         title={t('partners:introTitle')}

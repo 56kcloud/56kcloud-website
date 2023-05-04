@@ -15,7 +15,7 @@ export default function Training({t}: PageProps) {
     <Layout 
       t={t}
       title='56K.Cloud | Training'
-      description={t('training:introTitle')}
+      description={t('training:introText')}
     >
       {({toggleIsOpen}) => (
         <>
