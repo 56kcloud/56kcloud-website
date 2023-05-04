@@ -1,12 +1,14 @@
 'use client'
+import {NextSeo} from 'next-seo'
 import {ReactNode, useState} from 'react'
 import {Translate} from 'next-translate'
+import {hostname} from '../../../../config'
 import ContactForm from '../contact-form'
 import Footer from '../footer'
 import Navbar from '../navbar'
 
 type ChildrenProps = {
-  toggleIsOpen: () => void
+  toggleIsOpen: () => void,
 }
 
 type LayoutProps = {
@@ -14,9 +16,25 @@ type LayoutProps = {
   children: ((props: ChildrenProps) => ReactNode) | ReactNode
   t: Translate
   fullHeightHero?: boolean
+  title?: string,
+  description?: string,
+  images?: Array<{
+    url: string,
+    alt: string
+  }>
 }
 
-export default function Layout({children, t, fullHeightHero=false}: LayoutProps) {
+export default function Layout({
+  children,
+  t,
+  fullHeightHero=false,
+  title='',
+  description='',
+  images=[{
+    url: `${hostname}/images/og/train.webp`,
+    alt: '56k.cloud logo'
+  }]
+}: LayoutProps) {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const toggleIsOpen = () => {
@@ -25,6 +43,22 @@ export default function Layout({children, t, fullHeightHero=false}: LayoutProps)
 
   return (
     <div>
+      <NextSeo
+        title={title}
+        description={description}
+        openGraph={{
+          url: hostname,
+          title: title,
+          description: description,
+          images: images,
+          siteName: '56k.cloud'
+        }}
+        twitter={{
+          handle: '@56k.cloud',
+          site: '@56k.cloud',
+          cardType: 'summary_large_image'
+        }}
+      />
       <ContactForm
         t={t}
         isOpen={isModalOpen}

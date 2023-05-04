@@ -1,8 +1,6 @@
-import {NextSeo} from 'next-seo'
 import {NotionPost, NotionPostPreview} from '@/models/blog/blog-preview'
 import {PageProps} from '@/models/page.model'
 import {promises as fs} from 'fs'
-import {hostname} from '../../../config'
 import AuthorCard from '@/components/molecules/card/author'
 import Layout from '@/components/organisms/layout'
 import PostCardList from '@/components/organisms/card-list/post'
@@ -15,32 +13,19 @@ type PostPageProps = {
 } & PageProps
 
 export default function Post({notionPost, similarPosts, t}: PostPageProps) {
-  const ogTitle = notionPost.post.properties.name.title[0].plain_text
-  const ogDescription = notionPost.post.properties.description.rich_text[0].plain_text
-  const ogImage = notionPost.post.cover.file.url
+  const title = notionPost.post.properties.name.title[0].plain_text
+  const description = notionPost.post.properties.description.rich_text[0].plain_text
+  const images = [{
+    url: notionPost.post.cover.file.url,
+    alt: title
+  }]
   return (
-    <Layout t={t}>
-      <NextSeo
-        title={ogTitle}
-        description={ogDescription}
-        openGraph={{
-          url: hostname,
-          title: ogTitle,
-          description: ogDescription,
-          images: [
-            {
-              url: `${hostname}${ogImage}`,
-              alt: ogTitle
-            }
-          ],
-          siteName: '56k.cloud'
-        }}
-        twitter={{
-          handle: '@56k.cloud',
-          site: '@56k.cloud',
-          cardType: 'summary_large_image'
-        }}
-      />
+    <Layout
+      t={t}
+      title={title}
+      description={description}
+      images={images}
+    >
       <div className='flex flex-col items-center'>
         <div className='w-full p-3 space-y-10 md:space-y-16 xl:p-10 max-w-7xl'>
           <div className='flex items-end justify-center'>

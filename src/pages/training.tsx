@@ -3,7 +3,6 @@ import {getDetailsCardsTraining, getListDetailsTraining} from '@/data/training'
 import ContactSection from '@/components/atoms/contact'
 import Description from '@/components/organisms/description'
 import DetailCardList from '@/components/organisms/card-list/detail'
-import Head from 'next/head'
 import Image from 'next/image'
 import LargeTitleSection from '@/components/molecules/title-section/large'
 import Layout from '../components/organisms/layout'
@@ -13,12 +12,13 @@ import mountain from '../../public/images/backgrounds/mountain.webp'
 
 export default function Training({t}: PageProps) {
   return (
-    <Layout t={t}>
+    <Layout 
+      t={t}
+      title='56K.Cloud | Training'
+      description={t('training:introTitle')}
+    >
       {({toggleIsOpen}) => (
         <>
-          <Head>
-            <title>56K.Cloud | Training</title>
-          </Head>
           <LargeTitleSection
             backgroundImage={{
               src: groupOfPeople,

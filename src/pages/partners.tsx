@@ -2,7 +2,6 @@ import {PageProps} from '@/models/page.model'
 import {getBaseCardsPartners} from '@/data/partners'
 import {getLightIllustrationsCardsPartners} from '@/data/illustration-cards'
 import BaseCardList from '@/components/organisms/card-list/base'
-import Head from 'next/head'
 import IllustrationCardList from '@/components/organisms/card-list/illustration'
 import Image from 'next/image'
 import Layout from '../components/organisms/layout'
@@ -13,10 +12,10 @@ export default function Partners({t}: PageProps) {
   return (
     <Layout
       t={t}
-      fullHeightHero>
-      <Head>
-        <title>56K.Cloud | Partners</title>
-      </Head>
+      fullHeightHero
+      title='56K.Cloud | Partners'
+      description={t('partners:introTitle')}
+    >
       <MediumTitleSection
         title={t('partners:introTitle')}
         textColLeft={t('partners:introText')}/>

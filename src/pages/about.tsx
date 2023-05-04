@@ -2,7 +2,6 @@ import {PageProps} from '@/models/page.model'
 import {getBaseCardsAbout} from '@/data/about'
 import BaseCardList from '@/components/organisms/card-list/base'
 import Gallery from '@/components/molecules/gallery'
-import Head from 'next/head'
 import Image from 'next/image'
 import Layout from '../components/organisms/layout'
 import MediumTitleSection from '@/components/molecules/title-section/medium'
@@ -13,12 +12,12 @@ export default function About({t}: PageProps) {
   return (
     <Layout
       t={t}
-      fullHeightHero>
+      fullHeightHero
+      title='56K.Cloud | About'
+      description={t('about:introTitle')}
+    >
       {({toggleIsOpen}) => (
         <>
-          <Head>
-            <title>56K.Cloud | About</title>
-          </Head>
           <MediumTitleSection
             title={t('about:introTitle')}
             textColLeft={t('about:introTextColLeft')}

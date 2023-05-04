@@ -13,6 +13,8 @@ export default function Home({t}: PageProps) {
     <Layout
       t={t}
       fullHeightHero
+      title='56K.Cloud'
+      description={t('home:textIntro')}
     >
       <HomeHero t={t}/>
       <SmallTitleSection

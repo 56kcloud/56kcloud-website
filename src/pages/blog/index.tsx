@@ -2,7 +2,6 @@ import {NotionPostPreview} from '@/models/blog/blog-preview'
 import {PageProps} from '@/models/page.model'
 import {Tag} from '@/models/tag.model'
 import {promises as fs} from 'fs'
-import Head from 'next/head'
 import Layout from '@/components/organisms/layout'
 import MediumTitleSection from '@/components/molecules/title-section/medium'
 import PostCardList from '@/components/organisms/card-list/post'
@@ -18,10 +17,9 @@ export default function Blog({t, posts, tags}: BlogPageProps) {
     <Layout
       t={t}
       fullHeightHero
+      title='56K.Cloud | Blog'
+      description='Tech, stories and thoughts from 56K.Cloud'
     >
-      <Head>
-        <title>56K.Cloud | Blog</title>
-      </Head>
       <MediumTitleSection
         title='From the blog'
         subTitle='Tech, stories and thoughts from 56K.Cloud'

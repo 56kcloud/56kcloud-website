@@ -3,7 +3,6 @@ import {getDetailsCardsServices, getListDetailsServices} from '@/data/services'
 import ContactSection from '@/components/atoms/contact'
 import Description from '@/components/organisms/description'
 import DetailCardList from '@/components/organisms/card-list/detail'
-import Head from 'next/head'
 import Image from 'next/image'
 import LargeTitleSection from '@/components/molecules/title-section/large'
 import Layout from '../components/organisms/layout'
@@ -13,12 +12,13 @@ import mountain from '../../public/images/backgrounds/mountain.webp'
 
 export default function Services({t}: PageProps) {
   return (
-    <Layout t={t}>
+    <Layout 
+      t={t}
+      title='56K.Cloud | Services'
+      description={t('services:introTitle')}
+    >
       {({toggleIsOpen}) => (
         <>
-          <Head>
-            <title>56K.Cloud | Services</title>
-          </Head>
           <LargeTitleSection
             backgroundImage={{
               src: groupOfPeople,
