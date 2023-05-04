@@ -27,7 +27,7 @@ export default function TagsFilter({tags}: TabsFilterProps) {
   }, [router.query.tag])
 
   return (
-    <div className='relative flex mb-10 border-b'>
+    <div className='relative flex border-b mb-14'>
       <div className='absolute left-0 flex h-full'>
         <Button
           onClick={() => slide('left')} 
