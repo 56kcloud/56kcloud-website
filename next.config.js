@@ -5,6 +5,15 @@ const nextConfig = {
     domains: ['s3.us-west-2.amazonaws.com']
   },
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/:slug',
+        destination: '/blog/:slug',
+        permanent: false
+      }
+    ]
+  },
   ...nextTranslate()
 }
 
