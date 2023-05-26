@@ -11,6 +11,10 @@
     "sort-imports-es6-autofix"
   ],
   "rules": {
+    "react/jsx-first-prop-new-line": [2, "multiline"],
+    "space-before-function-paren": ["error", "never"],
+    "react/jsx-tag-spacing": [2, {"beforeSelfClosing": "never"}],
+    "react/jsx-max-props-per-line": [2],
     "react-hooks/exhaustive-deps": "off",
     "quotes": [
       "error",

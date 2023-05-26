@@ -3,4 +3,8 @@ out
 node_modules
 .DS_Store
 *.sublime-workspace
-.env.local
+.env
+data
+public/blog
+.vercel
+.env
