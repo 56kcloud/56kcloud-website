@@ -4,9 +4,12 @@ import {Dialog, Transition} from '@headlessui/react'
 import {Fragment, useState} from 'react'
 import {Logo} from '../../svgs/logos/56k'
 import {Menu} from '../../svgs/icons/menu'
-import {usePathname} from 'next/navigation'
+import {Pencil} from '../../svgs/icons/pencil'
+import {usePathname, useRouter} from 'next/navigation'
 import Button from '../../atoms/button'
+import ContactForm from '../contact-form'
 import Image from 'next/image'
+import LanguageSwitcher from '@/components/organisms/language-switcher'
 import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
 
@@ -17,6 +20,7 @@ export type NavbarProps = {
 export default function Navbar({fullHeightHero = false}: NavbarProps) {
   const {t} = useTranslation()
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  // const router = useRouter()
   const pathname = usePathname()
   console.log(pathname)
   const navigation = [
@@ -67,7 +71,7 @@ export default function Navbar({fullHeightHero = false}: NavbarProps) {
                       <Logo className='w-auto h-7'/>
                     </Link>
                     <div className='translate-y-[3px]'>
-                      {/* <LanguageSwitcher/> */}
+                      <LanguageSwitcher/>
                     </div>
                   </div>
                   <div className='mb-auto'>
@@ -87,6 +91,7 @@ export default function Navbar({fullHeightHero = false}: NavbarProps) {
                     ))}
                   </div>
                   <div className='flex justify-center pt-8 border-t pb-28'>
+                    <ContactForm/>
                   </div>
                 </div>
               </Dialog.Panel>
@@ -130,7 +135,9 @@ export default function Navbar({fullHeightHero = false}: NavbarProps) {
                       </Link>
                     </Button>
                   ))}
+                  {/* <LanguageSwitcher/> */}
                 </div>
+                <ContactForm/>
               </div>
             </div>
           </div>

@@ -3,6 +3,7 @@ import {Logo} from '@/components/svgs/logos/56k'
 import {Twitter} from '@/components/svgs/logos/twitter'
 import {cn} from '@/utils/toolbox'
 import Button from '@/components/atoms/button'
+import ContactForm from '../contact-form'
 import Image from 'next/image'
 import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
@@ -78,6 +79,16 @@ export default function Footer({version = 'illustration'}: FooterProps) {
                     </Button>
                   </li>
                 ))}
+                <li>
+                  {/* <Button
+                    variant='link'
+                    align='start'
+                    onClick={toggleIsModalOpen}
+                  >
+                    {t('linkContactUs')}
+                  </Button> */}
+                  <ContactForm/>
+                </li>
               </ul>
               <p className='text-grey-medium lg:w-1/3'>
                 56K.Cloud SA<br/> Chemin Saint-Hubert 5<br/> 1950 Sion<br/> {t('countryNameAddress')}

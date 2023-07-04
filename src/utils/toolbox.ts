@@ -1,7 +1,13 @@
 import * as humanizeDuration from 'humanize-duration'
+import {ClassValue, clsx} from 'clsx'
 import {HsformsPayload, HsformsPayloadItem, contactUsFormData} from '../models/contact-us-form-data.model'
 import {format} from 'date-fns'
+import {twMerge} from 'tailwind-merge'
 import slugify from 'slugify'
+ 
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
 
 export function toQueryParam(string) {
   return slugify(string.toLowerCase())
