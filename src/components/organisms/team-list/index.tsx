@@ -26,12 +26,12 @@ export default function TeamList({t, toggleContactModal}: TeamListProps) {
         ))}
         <div className='flex flex-col items-center justify-center col-start-2 col-end-3 p-8 text-center text-white'>
           <h2 className='mb-6 text-[36px] md:text-[48px] title'>{t('about:teamTitle')}</h2>
-          <p className='items-center justify-center text-lg'>
+          <p className='block text-lg text-center'>
             <span>{t('about:teamText1')}</span>
             <Button
               tone='secondary'
               variant='link'
-              className='inline-block py-0 pl-1 pr-0 text-lg hover:bg-transparent'
+              className='inline-block py-0 !px-0 text-lg hover:bg-transparent'
               onClick={toggleContactModal}>
               {t('about:teamText2')}
             </Button>

@@ -11,7 +11,7 @@ export default function BaseCardList({cards, text, className}: BaseCardListProps
   return (
     <section className='section-padding'>
       <div className='mx-auto max-w-7xl'>
-        <div className='mb-10 md:mb-12 lg:mb-16 xl:px-36'>
+        <div className='mb-10 md:mb-12 lg:mb-16'>
           <Surtitle
             text={text}
             className={className}/>

@@ -16,7 +16,7 @@ export function getBaseCardsAbout(t: Translate) {
     {
       number: 1,
       icon: automation,
-      title: t('titleCard1'),
+      title: t('about:titleCard1'),
       className: 'bg-secondary-500'
     },
     {
@@ -34,7 +34,7 @@ export function getBaseCardsAbout(t: Translate) {
     {
       number: 4,
       icon: monitoring,
-      title: t('titleCard4'),
+      title: t('about:titleCard4'),
       className: 'bg-secondary-500'
     }
   ]
