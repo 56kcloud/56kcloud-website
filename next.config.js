@@ -20,6 +20,7 @@ const nextConfig = {
       }
     ]
   },
+  experimental: { appDir: true }, // until next translate is fixed
   ...nextTranslate()
 }
 

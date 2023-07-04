@@ -3,6 +3,7 @@ import {Logo} from '@/components/svgs/logos/56k'
 import {Twitter} from '@/components/svgs/logos/twitter'
 import {cn} from '@/utils/toolbox'
 import Button from '@/components/atoms/button'
+import ContactForm from '../contact-form'
 import Image from 'next/image'
 import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
@@ -20,7 +21,7 @@ export default function Footer({version = 'illustration'}: FooterProps) {
     {href: '/training', title: t('link2')},
     {href: '/partners', title: t('link3')},
     {href: '/about', title: t('link4')},
-    {href: '/blog', title: 'Blog', target: '_blank', rel: 'noopener noreferrer'}
+    {href: 'https://blog.56k.cloud/', title: 'Blog', target: '_blank', rel: 'noopener noreferrer'}
   ]
 
   const socialNetworks = [
@@ -42,7 +43,7 @@ export default function Footer({version = 'illustration'}: FooterProps) {
       className={cn(
         version === 'illustration'
           ? 'bg-footer bg-no-repeat bg-cover'
-          : 'bg-primary-900', 'relative h-[1000px] sm:h-[900px]')}>
+          : 'bg-primary-900', 'relative h-[1000px] sm:h-[850px]')}>
       <div className='absolute bottom-0 right-0 z-30 p-8 md:p-0 md:w-10/12'>
         <div className='py-8 bg-white md:py-16'>
           <div className='flex flex-wrap justify-between px-8 overflow-hidden md:px-16'>
@@ -78,6 +79,16 @@ export default function Footer({version = 'illustration'}: FooterProps) {
                     </Button>
                   </li>
                 ))}
+                <li>
+                  {/* <Button
+                    variant='link'
+                    align='start'
+                    onClick={toggleIsModalOpen}
+                  >
+                    {t('linkContactUs')}
+                  </Button> */}
+                  <ContactForm/>
+                </li>
               </ul>
               <p className='text-grey-medium lg:w-1/3'>
                 56K.Cloud SA<br/> Chemin Saint-Hubert 5<br/> 1950 Sion<br/> {t('countryNameAddress')}

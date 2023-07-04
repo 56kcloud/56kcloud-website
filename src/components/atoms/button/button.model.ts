@@ -1,13 +1,9 @@
-import {
-  ButtonTypes,
-  Link,
-  PrimitiveButtonProps,
-  PrimitiveButtonPropsImpl
-} from './primitive/button/button.model'
+import {cn} from '@/utils/toolbox'
+
 export const buttonSizes = ['small', 'medium', 'large'] as const
 export const buttonShapes = ['square', 'rounded', 'circle'] as const
 export const buttonVariants = ['default', 'link', 'ghost'] as const
-export const buttonTones = ['primary', 'secondary', 'gray', 'error', 'white'] as const
+export const buttonTones = ['primary', 'secondary'] as const
 export const buttonAlignments = ['start', 'center', 'end'] as const
 
 const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVariants[number], string>> = {
@@ -25,31 +21,13 @@ const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVarian
     link: 'text-secondary-500 hover:underline hover:bg-gray-50 focus-visible:outline-secondary-600 \
     focus-visible:underline',
     ghost: 'text-secondary-500 hover:bg-secondary-50 focus-visible:outline-secondary-600'
-  },
-  gray: {
-    default: 'text-white bg-gray-500 hover:bg-gray-600 focus-visible:ring-gray-500 \
-     focus-visible:outline-gray-600',
-    link: 'text-gray-500 hover:underline hover:bg-gray-50 focus-visible:outline-gray-600 \
-    focus-visible:underline',
-    ghost: 'text-gray-500 hover:bg-gray-50 focus-visible:outline-gray-600'
-  },
-  error: {
-    default: 'text-white bg-error-500 hover:bg-error-600 focus-visible:ring-error-500 focus-visible:outline-error-600',
-    link: 'text-error-500 hover:underline hover:bg-gray-50 focus-visible:outline-error-600 focus-visible:underline',
-    ghost: 'text-error-500 hover:bg-error-50 focus-visible:outline-error-600'
-  },
-  white: {
-    default: 'text-primary-500 hover:bg-primary-100/20 hover:text-primary-800 focus-visible:ring-primary-500 \
-    focus-visible:outline-primary-200',
-    link: '',
-    ghost: ''
   }
 }
 
 const sizeClasses: Record<typeof buttonSizes[number], string> = {
-  small: 'px-4 py-3 2xl:px-6 text-xs 2xl:text-sm',
-  medium: 'px-4 py-3 2xl:px-6 text-base',
-  large: 'px-5 py-4 2xl:px-7'
+  small: 'px-2.5 py-1.5',
+  medium: 'px-3 py-2',
+  large: 'px-3.5 py-2.5'
 }
 
 const shapeClasses: Record<typeof buttonShapes[number], string> = {
@@ -64,76 +42,75 @@ const alignmentClasses: Record<typeof buttonAlignments[number], string> = {
   end: 'justify-end'
 }
 
-export type ButtonPropsImpl<T extends keyof ButtonTypes | Link> = PrimitiveButtonPropsImpl<T> & ({
+export type ButtonPropsImpl = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  asChild?: boolean
   size?: typeof buttonSizes[number]
   shape?: typeof buttonShapes[number]
   align?: typeof buttonAlignments[number]
   tone?: typeof buttonTones[number]
   variant?: typeof buttonVariants[number]
   width?: number | 'auto'
+  loading?: boolean
   leading?: React.ReactNode
   trailing?: React.ReactNode
-} | {
-  unstyled: boolean
-})
+}
 
-export class ButtonProps<T extends keyof ButtonTypes | Link> extends PrimitiveButtonProps<T> {
-  unstyled?: boolean
-  size?: typeof buttonSizes[number]
-  shape?: typeof buttonShapes[number]
-  align?: typeof buttonAlignments[number]
-  tone?: typeof buttonTones[number]
-  variant?: typeof buttonVariants[number]
-  width?: number | 'auto'
+export class ButtonProps {
+  children: React.ReactNode
+  asChild: boolean
+  size: typeof buttonSizes[number]
+  shape: typeof buttonShapes[number]
+  align: typeof buttonAlignments[number]
+  tone: typeof buttonTones[number]
+  variant: typeof buttonVariants[number]
+  width: number | 'auto'
+  className: string
+  loading?: boolean
+  disabled?: boolean
   leading?: React.ReactNode
   trailing?: React.ReactNode
+  HTMLProps?: Record<string, string | number | boolean | undefined>
 
-  constructor(props: ButtonPropsImpl<T>) {
-    super(props)
-    this.unstyled = props['unstyled']
-    if (!this.unstyled) {
-      this.size = props['size'] || 'medium'
-      this.shape = props['shape'] || 'rounded'
-      this.align = props['align'] || 'center'
-      this.tone = props['tone'] || 'primary'
-      this.variant = props['variant'] || 'default'
-      this.width = props['width'] || 'auto'
-      this.leading = props['leading']
-      this.trailing = props['trailing']
-    }
+  constructor(props: ButtonPropsImpl) {
+    this.children = props.children
+    this.asChild = props.asChild || false
+    this.size = props.size || 'medium'
+    this.shape = props.shape || 'rounded'
+    this.align = props.align || 'center'
+    this.tone = props.tone || 'primary'
+    this.variant = props.variant || 'default'
+    this.width = props.width || 'auto'
+    this.className = props.className || ''
+    this.loading = props.loading || false
+    this.disabled = props.disabled || false
+    this.leading = props.leading
+    this.trailing = props.trailing  
     this.HTMLProps = this.HTMLPropsIntegration(props)
   }
+  
 
+  public buttonVariants() {
+    return cn(
+      'flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 \
+      disabled:opacity-50 disabled:cursor-not-allowed font-medium',
+      toneClasses[this.tone][this.variant],
+      sizeClasses[this.size],
+      shapeClasses[this.shape]
+    )
+  }
 
-  private HTMLPropsIntegration(props: PrimitiveButtonPropsImpl<T>) {
-    let HTMLProps = {}
+  public alignmentClasses() {
+    return `flex flex-1 ${alignmentClasses[this.align]}`
+  }
+
+  HTMLPropsIntegration(props: ButtonPropsImpl) {
+    const HTMLProps: typeof this.HTMLProps = {}
     const HTMLPropsKeys = Object.keys(props).filter(prop => !Object.keys(this).includes(prop))
     HTMLPropsKeys.forEach(specificProp => {
-      const value = props[specificProp as keyof ButtonPropsImpl<T>]
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
+      const value = props[specificProp as keyof ButtonPropsImpl]
       Object.assign(HTMLProps , {[specificProp]: value})
     })
     HTMLProps['disabled'] = props.loading || props['disabled']
     return HTMLProps
-  }
-
-  public buttonVariants() {
-    if (this.unstyled) {
-      return ''
-    }
-    let classes = 'flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 \
-      disabled:opacity-50 disabled:cursor-not-allowed font-medium'
-    classes += ` ${toneClasses[this.tone][this.variant]}`
-    classes += ` ${sizeClasses[this.size]}`
-    classes += ` ${shapeClasses[this.shape]}`
-    return classes
-  }
-
-  public alignmentClasses() {
-    if (this.unstyled) {
-      return ''
-    }
-    return `flex flex-1 ${alignmentClasses[this.align]}`
   }
 }
