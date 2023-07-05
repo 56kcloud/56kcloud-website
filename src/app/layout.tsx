@@ -54,7 +54,7 @@ export default function RootLayout({children}: {children: ReactNode}) {
             <main>
               {children}
             </main>
-            <Footer version='illustration'/>
+            <Footer/>
           </div>
         </div>
       </body>

@@ -1,30 +1,27 @@
 'use client'
 
-import {Dialog, Transition} from '@headlessui/react'
-import {Fragment, useState} from 'react'
+import * as NavbarPrimitive from '@radix-ui/react-dialog'
+import {LinkProps} from '@/models/link.model'
 import {Logo} from '../../svgs/logos/56k'
 import {Menu} from '../../svgs/icons/menu'
 import {usePathname} from 'next/navigation'
+import {useState} from 'react'
 import Button from '../../atoms/button'
 import Image from 'next/image'
 import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
 
-export type NavbarProps = {
-  fullHeightHero?: boolean
-}
-
-export default function Navbar({fullHeightHero = false}: NavbarProps) {
+export default function Navbar() {
   const {t} = useTranslation()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const pathname = usePathname()
-  console.log(pathname)
-  const navigation = [
-    {name: t('nav:navItem1'), href: '/services'},
-    {name: t('nav:navItem2'), href: '/training'},
-    {name: t('nav:navItem3'), href: '/partners'},
-    {name: t('nav:navItem4'), href: '/about'},
-    {name: 'Blog', href: '/blog'}
+
+  const navigation: Array<LinkProps> = [
+    {children: t('nav:navItem1'), href: '/services'},
+    {children: t('nav:navItem2'), href: '/training'},
+    {children: t('nav:navItem3'), href: '/partners'},
+    {children: t('nav:navItem4'), href: '/about'},
+    {children: 'Blog', href: '/blog'}
   ]
 
   const sidebarHandler = () => {
@@ -32,68 +29,65 @@ export default function Navbar({fullHeightHero = false}: NavbarProps) {
   }
 
   return (
-    <div className={fullHeightHero ? '' : 'pb-24'}>
-      <Transition.Root show={sidebarOpen}>
-        <Dialog
-          as='div'
-          className='relative z-50 xl:hidden'
-          onClose={setSidebarOpen}>
-          <div className='fixed inset-0 z-50'>
-            <Transition.Child
-              as={Fragment}
-              enter='transition ease-in-out duration-300 transform'
-              enterFrom='translate-x-full'
-              enterTo='-translate-x-0'
-              leave='transition ease-in-out duration-300 transform'
-              leaveFrom='-translate-x-0'
-              leaveTo='translate-x-full'
-            >
-              <Dialog.Panel className='w-full h-screen bg-black/10 backdrop-blur-lg xl:hidden'>
-                <div className='bg-white flex flex-col flex-wrap ml-auto pt-8 px-12 sm:px-16 w-[90%] h-screen'>
-                  <div className='absolute left-[4%] sm:left-[7%] top-10'>
-                    <button onClick={sidebarHandler}>
-                      <Image
-                        src='/images/icons/plus-white.webp'
-                        alt={t('nav:altIconNavResponsive')}
-                        height={48}
-                        width={48}
-                      />
-                    </button>
-                  </div>
-                  <div className='flex items-center justify-between mb-auto'>
-                    <Link
-                      href='/'
-                      aria-label='56k cloud logo'>
-                      <Logo className='w-auto h-7'/>
-                    </Link>
-                    <div className='translate-y-[3px]'>
-                      {/* <LanguageSwitcher/> */}
-                    </div>
-                  </div>
-                  <div className='mb-auto'>
-                    {navigation.map((item) => (
-                      <Button
-                        key={item.name}
-                        variant='ghost'
-                        align='start'
-                        className='text-2xl'
-                        aria-label={item.name}
-                        data-active={pathname.includes(item.href)}
-                      >
-                        <Link href={item.href}>
-                          {item.name}
-                        </Link>
-                      </Button>
-                    ))}
-                  </div>
-                  <div className='flex justify-center pt-8 border-t pb-28'>
-                  </div>
-                </div>
-              </Dialog.Panel>
-            </Transition.Child>
-          </div>
-        </Dialog>
-      </Transition.Root>
+    <>
+      <NavbarPrimitive.Root
+        open={sidebarOpen}
+        onOpenChange={setSidebarOpen}>
+        <NavbarPrimitive.Portal>
+          <NavbarPrimitive.Overlay 
+            className='fixed inset-0 z-50 bg-background/80 backdrop-blur-sm data-[state=open]:animate-in \
+            data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0'
+          />
+          <NavbarPrimitive.Content
+            className='fixed z-50 gap-4 flex flex-col bg-white p-8 px-12 sm:px-16 shadow-lg transition ease-in-out \
+            data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 \
+            data-[state=open]:duration-500 inset-y-0 right-0 h-full w-[90%] border-l \
+            data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right'
+          >
+            <div className='absolute -left-10 top-10'>
+              <button
+                onClick={sidebarHandler}
+                className='rounded-full'
+              >
+                <Image
+                  src='/images/icons/plus-white.webp'
+                  alt={t('nav:altIconNavResponsive')}
+                  height={48}
+                  width={48}
+                />
+              </button>
+            </div>
+            <div className='flex items-center justify-between mt-4 mb-auto'>
+              <Link
+                href='/'
+                aria-label='56k cloud logo'>
+                <Logo className='w-auto h-7'/>
+              </Link>
+              <div className='translate-y-[3px]'>
+                {/* <LanguageSwitcher/> */}
+              </div>
+            </div>
+            <div className='mb-auto'>
+              {navigation.map((item, index) => (
+                <Button
+                  key={index}
+                  variant='ghost'
+                  align='start'
+                  className='text-2xl'
+                  data-active={pathname.includes(item.href)}
+                >
+                  <Link href={item.href}>
+                    {item.children}
+                  </Link>
+                </Button>
+              ))}
+            </div>
+            <div className='flex justify-center pt-8 border-t pb-28'>
+              {/* <ContactForm/> */}
+            </div>
+          </NavbarPrimitive.Content>
+        </NavbarPrimitive.Portal>
+      </NavbarPrimitive.Root>
       <div 
         className= 'absolute top-0 left-0 z-50 min-w-full max-w-[100rem] px-6 mx-auto mt-8 lg:mt-12 lg:px-12 xl:px-32'
       >
@@ -118,15 +112,14 @@ export default function Navbar({fullHeightHero = false}: NavbarProps) {
               </div>
               <div className='hidden xl:flex xl:items-center xl:justify-between gap-x-12 2xl:gap-x-16'>
                 <div className='flex items-center space-x-2'>
-                  {navigation.map((item) => (
+                  {navigation.map((item, index) => (
                     <Button
-                      key={item.name}
+                      key={index}
                       variant='ghost'
-                      aria-label={item.name}
                       data-active={pathname.includes(item.href)}
                     >
                       <Link href={item.href}>
-                        {item.name}
+                        {item.children}
                       </Link>
                     </Button>
                   ))}
@@ -136,6 +129,6 @@ export default function Navbar({fullHeightHero = false}: NavbarProps) {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
