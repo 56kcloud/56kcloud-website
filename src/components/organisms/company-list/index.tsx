@@ -13,7 +13,7 @@ export default function CompanyList({companies}: {companies: Array<Company>}) {
           <li
             key={company.name}
             className='flex items-center justify-center w-20 h-20 p-5 m-6 list-none bg-white rounded-full \
-             lg:w-24 lg:h-24 relative group transition ease-in-out hover:scale-110'>
+             lg:w-24 lg:h-24 relative group transition ease-in-out duration-500 hover:scale-110'>
             <Image
               width={company.logo.width}
               height={company.logo.height}
