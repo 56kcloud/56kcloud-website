@@ -10,7 +10,7 @@ const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVarian
   primary: {
     default: 'bg-primary-200 text-primary-500 hover:bg-primary-100 focus-visible:ring-primary-500 \
     focus-visible:outline-primary-200 uppercase tracking-widest',
-    link: 'text-primary-800 hover:underline hover:bg-gray-50 focus-visible:outline-primary-600 focus-visible:underline',
+    link: 'text-primary-800 hover:underline focus-visible:outline-primary-600 focus-visible:underline',
     ghost: 'text-primary-800 hover:bg-primary-100/30 focus-visible:outline-primary-600  \
     data-[active=true]:underline data-[active=true]:decoration-primary-200 data-[active=true]:underline-offset-4	\
     data-[active=true]:decoration-2'
@@ -18,16 +18,16 @@ const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVarian
   secondary: {
     default: 'text-white bg-secondary-500 hover:bg-secondary-600 focus-visible:ring-secondary-500 \
      focus-visible:outline-secondary-600',
-    link: 'text-secondary-500 hover:underline hover:bg-gray-50 focus-visible:outline-secondary-600 \
+    link: 'text-secondary-500 hover:underline focus-visible:outline-secondary-600 \
     focus-visible:underline',
     ghost: 'text-secondary-500 hover:bg-secondary-50 focus-visible:outline-secondary-600'
   }
 }
 
 const sizeClasses: Record<typeof buttonSizes[number], string> = {
-  small: 'px-2.5 py-1.5',
-  medium: 'px-3 py-2',
-  large: 'px-3.5 py-2.5'
+  small: 'px-4 py-3 2xl:px-6 text-xs 2xl:text-sm',
+  medium: 'px-4 py-3 2xl:px-6 text-base',
+  large: 'px-5 py-4 2xl:px-7'
 }
 
 const shapeClasses: Record<typeof buttonShapes[number], string> = {
@@ -95,7 +95,8 @@ export class ButtonProps {
       disabled:opacity-50 disabled:cursor-not-allowed font-medium',
       toneClasses[this.tone][this.variant],
       sizeClasses[this.size],
-      shapeClasses[this.shape]
+      shapeClasses[this.shape],
+      this.variant === 'link' && 'p-0'
     )
   }
 

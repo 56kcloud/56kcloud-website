@@ -1,22 +1,24 @@
+import {backgroundOptions} from './footer.model'
 import Footer from './index'
-import type {Meta} from '@storybook/react'
+import type {Meta, StoryObj} from '@storybook/react'
 
-const meta = {
+const meta: Meta<typeof Footer> = {
   title: 'components/Organisms/Footer',
   component: Footer,
+  argTypes: {
+    background: {control: 'select', options: backgroundOptions}
+  },
   tags: ['autodocs']
-} satisfies Meta<typeof Footer>
-
+}
 export default meta
+type Story = StoryObj<typeof Footer>
 
-const Template = (props) => {
-  return <Footer {...props}/>
+export const Default: Story = {
+  args: {}
 }
 
-export const Default = Template.bind({})
-Default.args = {}
-
-export const Blue = Template.bind({})
-Blue.args = {
-  version: 'blue'
+export const Color: Story = {
+  args: {
+    background: 'color'
+  }
 }
