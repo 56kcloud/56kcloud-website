@@ -1,19 +1,9 @@
-// import {Metadata} from 'next'
-// import {NextSeo} from 'next-seo'
-import {ReactNode, useState} from 'react'
-// import ContactForm from '@/components/organisms/contact-form'
+import {ReactNode} from 'react'
 import {getSingleTypeProps} from '@/utils/api/single-type'
-import Footer from '@/components/organisms/footer'
-import Navbar from '@/components/organisms/navbar'
-// import useTranslation from 'next-translate/useTranslation'
- 
-// export const metadata: Metadata = {
-//   title: 'Home',
-//   description: 'Welcome to Next.js'
-// }
+import Navbar, {HeaderProps} from '@/components/organisms/header/header'
 
 export default async function Layout({children, params}: {children: ReactNode, params: {lang: string}}) {
-  const headerProps = await getSingleTypeProps('header', params.lang)
+  const headerProps = (await getSingleTypeProps('header', params.lang)) as HeaderProps //NEED TO IMPROVE THIS
 
   return (
     <div>
