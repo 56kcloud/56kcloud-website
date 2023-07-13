@@ -5,6 +5,7 @@ export const imageSchema = z.object({
   alt: z.string().nullable(),
   src: z.string(),
   width: z.number(),
-  height: z.number()
+  height: z.number(),
+  blurDataURL: z.string().optional()
 })
 export type Image = z.infer<typeof imageSchema>
