@@ -1,9 +1,13 @@
 import {companySchema} from '@/models/company.model'
 import {strapiFetcher} from '../../../config'
 
-export async function listCompanies() {
-  const res = await strapiFetcher.call({path: '/api/companies?populate=*', method: 'GET'})
-  const list = res.data.map(company => ({
+export async function getCompanyListProps(lang: string) {
+  console.log('😅', lang)
+  const res = await strapiFetcher.call(
+    {path: `/api/company-list/?populate[companies][populate]=*&locale=${lang}`, method: 'GET'}
+  )
+  const title = res.data.attributes.title
+  const list = res.data.attributes.companies.data.map(company => ({
     id: company.id,
     name: company.attributes.name,
     url: company.attributes.url,
@@ -15,5 +19,8 @@ export async function listCompanies() {
       height: company.attributes.logo.data.attributes.height
     }
   }))
-  return companySchema.array().parse(list)
+  return {
+    title,
+    companies: companySchema.array().parse(list)
+  }
 }

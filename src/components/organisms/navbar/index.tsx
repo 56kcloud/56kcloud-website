@@ -11,18 +11,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
 
-export default function Navbar() {
+export default function Navbar({logo, links}) {
   const {t} = useTranslation()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const pathname = usePathname()
 
-  const navigation: Array<LinkProps> = [
-    {children: t('nav:navItem1'), href: '/services'},
-    {children: t('nav:navItem2'), href: '/training'},
-    {children: t('nav:navItem3'), href: '/partners'},
-    {children: t('nav:navItem4'), href: '/about'},
-    {children: 'Blog', href: '/blog'}
-  ]
+  const navigation: Array<LinkProps> = links.map((link) => ({
+    href: link.href,
+    children: link.title
+  }))
 
   const sidebarHandler = () => {
     setSidebarOpen(false)
@@ -70,10 +67,11 @@ export default function Navbar() {
             <div className='mb-auto'>
               {navigation.map((item, index) => (
                 <Button
+                  asChild
                   key={index}
                   variant='ghost'
                   align='start'
-                  className='text-2xl'
+                  className='text-2xl capitalize'
                   data-active={pathname.includes(item.href)}
                 >
                   <Link href={item.href}>
@@ -107,7 +105,13 @@ export default function Navbar() {
                 <Link
                   href='/'
                   aria-label='56k cloud logo'>
-                  <Logo className='w-auto h-7 lg:h-10'/>
+                  <Image
+                    src={logo.src}
+                    alt={logo.alternativeText}
+                    width={logo.width}
+                    height={logo.height}
+                    className='w-auto h-7 lg:h-10'
+                  />
                 </Link>
               </div>
               <div className='hidden xl:flex xl:items-center xl:justify-between gap-x-12 2xl:gap-x-16'>
@@ -116,6 +120,7 @@ export default function Navbar() {
                     <Button
                       key={index}
                       variant='ghost'
+                      className='capitalize'
                       data-active={pathname.includes(item.href)}
                     >
                       <Link href={item.href}>

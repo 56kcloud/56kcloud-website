@@ -1,10 +1,7 @@
 import {companies} from '../../../data/companies'
 import Image from 'next/image'
-import useTranslation from 'next-translate/useTranslation'
 
 export default function CompanyList() {
-  const {t} = useTranslation('home')
-
   return (
     <section className='bg-primary-50 section-padding' >
       <h2 className='text-center title mb-14 xs-responsive-title'>{t('companiesTitle')}</h2>

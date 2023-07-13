@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextTranslate = require('next-translate-plugin')
 const nextConfig = {
   images: {
     domains: ['s3.us-west-2.amazonaws.com', 'localhost']
@@ -19,9 +18,7 @@ const nextConfig = {
         permanent: false
       }
     ]
-  },
-  experimental: { appDir: true }, // until next translate is fixed
-  ...nextTranslate()
+  }
 }
 
 module.exports = nextConfig

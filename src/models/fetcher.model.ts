@@ -1,9 +1,3 @@
-// type CallPropsBase = {
-//   path: string
-//   options?: any
-//   method: 'GET' | 'POST' | 'PUT' | 'DELETE'
-// }
-
 import {mergeNestedObject} from '@/utils/toolbox'
 
 export type CallProps = {
@@ -25,7 +19,8 @@ export class Fetcher {
     try {
       const res = await fetch((new URL(props.path, this.baseUrl)).href, {
         method: props.method,
-        headers: props.options?.headers ? mergeNestedObject(this.headers, props.options?.headers) : this.headers
+        headers: props.options?.headers ? mergeNestedObject(this.headers, props.options?.headers) : this.headers,
+        next: {tags: ['strapi']}
       })
       return res.json()
     } catch (error) {
