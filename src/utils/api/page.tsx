@@ -9,19 +9,19 @@ export async function getPageComponents(lang: string) {
       method: 'GET'
     }
   )
-  const t: Array<unknown> = res.body.filter((item) => Object.keys(components).includes(item.__component.split('.')[1]))
+  const pageComponents = res.body.filter((item) => Object.keys(components).includes(item.__component.split('.')[1]))
   const footer = await getSingleTypeProps('footer', lang)
-  if (t[t.length - 1].__component.split('.')[1].includes('footer')) {
-    t[t.length - 1] = {...footer, ...t[t.length - 1]}
+  const lastItemIndex = pageComponents.length - 1
+  const lastItem = pageComponents[lastItemIndex]
+  if (lastItem.__component.split('.')[1].includes('footer')) {
+    pageComponents[lastItemIndex] = {...footer, ...lastItem}
   } else {
-    t.push({...footer, __component: 'footer.footer'})
+    pageComponents.push({...footer, __component: 'footer.footer'})
   }
-  return t.map((item) => {
+  return pageComponents.map((item) => {
     const key = item.__component.split('.')[1]
     const Comp = components[key].component
     const props = getPropsFromNestedObjects(components[key].props, item)
-    console.log('TEST3', props)
-
     return <Comp
       key={item.id}
       {...props}

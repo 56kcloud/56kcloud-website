@@ -1,6 +1,7 @@
 'use client'
 
 import * as NavbarPrimitive from '@radix-ui/react-dialog'
+import {Image as ImageProps} from '@/models/image.model'
 import {LinkProps} from '@/models/link.model'
 import {Logo} from '../../svgs/logos/56k'
 import {Menu} from '../../svgs/icons/menu'
@@ -11,7 +12,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
 
-export default function Navbar({logo, links}) {
+export type HeaderProps = {
+  logo: ImageProps,
+  links: Array<LinkProps>
+}
+
+
+export default function Header({logo, links}) {
   const {t} = useTranslation()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const pathname = usePathname()
