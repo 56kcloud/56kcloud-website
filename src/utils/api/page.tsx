@@ -1,4 +1,4 @@
-import {components} from '@/data/components'
+import {components} from '@/utils/api/components'
 import {deepFind} from '../toolbox'
 import {getPlaiceholder} from 'plaiceholder'
 import {getSingleTypeProps} from './single-type'
