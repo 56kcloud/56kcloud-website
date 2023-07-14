@@ -4,7 +4,7 @@ import {getPlaiceholder} from 'plaiceholder'
 // import {getSingleTypeProps} from './single-type'
 // import {strapiFetcher} from '../../../config'
 
-export async function getPageComponents(lang: string) {
+export async function getPageComponents() {
   await new Promise((resolve) => setTimeout(resolve, 1000))
   return 'TEST'
   // try {
