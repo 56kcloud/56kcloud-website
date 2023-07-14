@@ -6,7 +6,7 @@ export default function BackgroundImage({background}: {background: ImageProps}) 
     <Image
       src={background.src}
       placeholder='blur'
-      blurDataURL='http://localhost:1337/uploads/thumbnail_training_546e045188.webp'
+      blurDataURL={background.blurDataURL}
       alt={background.alt}
       width={background.width}
       height={background.height}

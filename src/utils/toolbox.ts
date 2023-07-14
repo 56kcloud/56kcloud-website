@@ -76,3 +76,17 @@ export function mergeNestedObject(obj: Record<string, any>, objToMerge: Record<s
   })
   return obj
 }
+
+export const deepFind = (object, path) => {
+  let paths = path.split('.')
+    , current = object
+    , i
+  for (i = 0; i < paths.length; ++i) {
+    if (!current || current[paths[i]] == undefined) {
+      return undefined
+    } else {
+      current = current[paths[i]]
+    }
+  }
+  return current
+}

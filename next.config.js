@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['s3.us-west-2.amazonaws.com', 'localhost']
+    domains: ['56k-strapi.s3.eu-central-1.amazonaws.com', 'localhost']
   },
   reactStrictMode: true,
   async redirects() {

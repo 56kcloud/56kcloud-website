@@ -81,8 +81,6 @@ export default function Footer({background='cover', logo, links, address, title,
                 alt={logo.alt}
                 width={logo.width}
                 height={logo.height}
-                placeholder='blur'
-                blurDataURL={logo.blurDataURL}
                 className='w-28'
               />
             </Link>

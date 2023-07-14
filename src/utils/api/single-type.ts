@@ -9,5 +9,5 @@ export async function getSingleTypeProps(component, lang: string) {
       method: 'GET'
     }
   )
-  return getPropsFromNestedObjects(components[component].props, res.data.attributes)
+  return await getPropsFromNestedObjects(components[component].props, res.data.attributes)
 }
