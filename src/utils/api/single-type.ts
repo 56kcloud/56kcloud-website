@@ -1,4 +1,4 @@
-import {components} from '@/data/components'
+import {components} from '@/utils/api/components'
 import {getPropsFromNestedObjects} from './page'
 import {strapiFetcher} from '../../../config'
 
