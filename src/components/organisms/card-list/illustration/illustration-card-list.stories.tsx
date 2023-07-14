@@ -1,6 +1,5 @@
-import {getDarkIllustrationCardsHome, getLightIllustrationCardsHome} from '@/data/illustration-cards'
-import IllustrationCardList, {IllustrationCardListProps} from './index'
-import useTranslation from 'next-translate/useTranslation'
+// import {getDarkIllustrationCardsHome, getLightIllustrationCardsHome} from '@/data/illustration-cards'
+import IllustrationCardList from './index'
 import type {Meta} from '@storybook/react'
 
 const meta = {
@@ -11,12 +10,11 @@ const meta = {
 
 export default meta
 
-const Template = (props: IllustrationCardListProps) => {
-  const {t} = useTranslation()
-  const cards = props.theme === 'light' ? getLightIllustrationCardsHome(t) : getDarkIllustrationCardsHome(t)
-  return <IllustrationCardList
-    illustrationCards={cards}
-    {...props}/>
+const Template = () => {
+  // const cards = props.theme === 'light' ? getLightIllustrationCardsHome(t) : getDarkIllustrationCardsHome(t)
+  // return <IllustrationCardList
+  //   illustrationCards={cards}
+  //   {...props}/>
 }
 
 export const Default = Template.bind({})

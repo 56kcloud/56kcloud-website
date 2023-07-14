@@ -10,7 +10,8 @@ const meta = {
 export default meta
 
 const Template = () => {
-  return <CompanyList/>
+  // return <CompanyList/>
+  return <div></div>
 }
 
 export const Default = Template.bind({})
