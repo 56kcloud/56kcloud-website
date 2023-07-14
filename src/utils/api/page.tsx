@@ -1,4 +1,6 @@
 import {components} from '@/data/components'
+import {deepFind} from '../toolbox'
+import {getPlaiceholder} from 'plaiceholder'
 import {getSingleTypeProps} from './single-type'
 import {strapiFetcher} from '../../../config'
 
@@ -18,32 +20,48 @@ export async function getPageComponents(lang: string) {
   } else {
     pageComponents.push({...footer, __component: 'footer.footer'})
   }
+  console.log(pageComponents)
   return pageComponents.map((item) => {
     const key = item.__component.split('.')[1]
     const Comp = components[key].component
-    const props = getPropsFromNestedObjects(components[key].props, item)
-    return <Comp
-      key={item.id}
-      {...props}
-    />
+    return getPropsFromNestedObjects(components[key].props, item).then((props) => 
+      <Comp
+        key={item.id}
+        {...props}
+      />)
   })
 }
 
-export function getPropsFromNestedObjects(schema, object) {
+export async function getPropsFromNestedObjects(schema, object) {
   const temp = {}
-  Object.keys(schema).forEach(key => {
+  const keys = Object.keys(schema)
+  for (const keyIndex in keys) {
+    const key = keys[keyIndex]
     if (typeof (schema[key]) !== 'object') {
-      if (schema[key].includes('url:') && !object[key]?.includes('http')) {
-        temp[key] = new URL(object['url'], strapiFetcher.baseUrl).href
+      const path = schema[key].split('.')
+      const pathFirstKey = path[0]
+      path.shift()
+      const value = deepFind(object, schema[key]) 
+      || deepFind(object, `${pathFirstKey}.data.attributes.${path.join('.')}`)
+      || path.splice(path.length - 1, 1, key) && deepFind(object, `${pathFirstKey}.${path.join('.')}`)
+      if (key === 'blurDataURL') {
+        const res = await fetch(value, {method: 'GET'})
+        const buffer = Buffer.from(await res.arrayBuffer())
+        const {base64} = await getPlaiceholder(buffer)
+        temp[key] = base64
       } else {
-        temp[key] = object[key]
+        temp[key] = value
       }
     } else if (Array.isArray(schema[key])) {
       let array = object[key].data || object[key]
-      temp[key] = array.map((item) => getPropsFromNestedObjects(schema[key][0], item.attributes || item))
+      temp[key] = []
+      for (const itemIndex in array) {
+        const item = array[itemIndex]
+        temp[key].push(await getPropsFromNestedObjects(schema[key][0], item.attributes || item))
+      }
     } else {
-      temp[key] = getPropsFromNestedObjects(schema[key], object[key].data?.attributes || object[key] )
+      temp[key] = await getPropsFromNestedObjects(schema[key], object)
     }
-  })
+  }
   return temp
 }

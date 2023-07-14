@@ -6,6 +6,8 @@ export default function HomeHero({titleLine1, titleLine2, titleLine3, background
       <Image
         alt={'Train background'}
         src={background.src}
+        placeholder='blur'
+        blurDataURL={background.blurDataURL}
         width={background.width}
         height={background.height}
         className='w-full'/>

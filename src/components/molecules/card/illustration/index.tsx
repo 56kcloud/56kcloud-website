@@ -30,6 +30,8 @@ export default function IllustrationCard({
               src={illustration.src}
               width={illustration.width}
               height={illustration.height}
+              placeholder='blur'
+              blurDataURL={illustration.blurDataURL}
               alt={title}
               className='object-contain h-full mx-auto'/>
           </div>
