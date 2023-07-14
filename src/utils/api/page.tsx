@@ -14,6 +14,7 @@ export async function getPageComponents() {
   //       method: 'GET'
   //     }
   //   )
+  // eslint-disable-next-line max-len
   //   const pageComponents = res.body.filter((item) => Object.keys(components).includes(item.__component.split('.')[1]))
   //   const footer = await getSingleTypeProps('footer', lang)
   //   const lastItemIndex = pageComponents.length - 1
