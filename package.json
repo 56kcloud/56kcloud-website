@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "clean-blog": "rm -rf ./public/blog && rm -rf ./data",
     "lint": "eslint . --ext js,jsx,ts,tsx --max-warnings=0 --config .eslintrc.json --no-eslintrc --fix",
-    "build": "npx tsx scripts/notion/build.ts && next build",
+    "build": "next build",
     "dev": "next dev",
     "export": "next export",
     "start": "next start",
