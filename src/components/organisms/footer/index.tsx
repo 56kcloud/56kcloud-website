@@ -65,7 +65,7 @@ export default function Footer({background='cover', logo, links, address, title,
                 href={gMapAddress}
                 rel='noopener noreferrer'
                 target='_blank'
-                className='hidden lg:block w-content text-grey-medium lg:w-1/3 hover:underline'
+                className='hidden w-auto whitespace-pre-wrap lg:block text-grey-medium lg:w-1/3 hover:underline'
               >
                 {address}
               </Link>

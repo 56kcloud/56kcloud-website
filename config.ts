@@ -1,5 +1,4 @@
 import {Fetcher} from '@/models/fetcher.model'
-
 const strapiAPI = process.env.STRAPI_API_URL || ''
 const strapiAPIToken = process.env.STRAPI_API_TOKEN || ''
 export const hostname = 
