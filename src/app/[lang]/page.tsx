@@ -1,7 +1,7 @@
 import {getPageComponents} from '@/utils/api/page'
 
-export default async function Home({params}: {params: {lang: string}}) {
-  const components = await getPageComponents(params.lang)
+export default async function Home() {
+  const components = await getPageComponents('en')
   return <>
     {components}
   </>
