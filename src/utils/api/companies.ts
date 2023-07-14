@@ -2,7 +2,6 @@ import {companySchema} from '@/models/company.model'
 import {strapiFetcher} from '../../../config'
 
 export async function getCompanyListProps(lang: string) {
-  console.log('😅', lang)
   const res = await strapiFetcher.call(
     {path: `/api/company-list/?populate[companies][populate]=*&locale=${lang}`, method: 'GET'}
   )

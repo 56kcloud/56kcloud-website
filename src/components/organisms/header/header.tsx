@@ -9,6 +9,7 @@ import {usePathname} from 'next/navigation'
 import {useState} from 'react'
 import Button from '../../atoms/button'
 import Image from 'next/image'
+import LanguageSwitcher from '@/components/molecules/language-switcher'
 import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
 
@@ -68,7 +69,7 @@ export default function Header({logo, links}) {
                 <Logo className='w-auto h-7'/>
               </Link>
               <div className='translate-y-[3px]'>
-                {/* <LanguageSwitcher/> */}
+                <LanguageSwitcher/>
               </div>
             </div>
             <div className='mb-auto'>
@@ -114,7 +115,7 @@ export default function Header({logo, links}) {
                   aria-label='56k cloud logo'>
                   <Image
                     src={logo.src}
-                    alt={logo.alternativeText}
+                    alt={logo.alt}
                     width={logo.width}
                     height={logo.height}
                     className='w-auto h-7 lg:h-10'
@@ -136,6 +137,7 @@ export default function Header({logo, links}) {
                     </Button>
                   ))}
                 </div>
+                <LanguageSwitcher/>
               </div>
             </div>
           </div>

@@ -21,7 +21,6 @@ export async function getPageComponents(lang) {
     } else {
       pageComponents.push({...footer, __component: 'footer.footer'})
     }
-    console.log(pageComponents)
     return pageComponents.map((item) => {
       const key = item.__component.split('.')[1]
       const Comp = components[key].component
