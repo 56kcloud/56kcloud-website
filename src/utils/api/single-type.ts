@@ -1,6 +1,10 @@
+import {Fetcher} from '@/models/fetcher.model'
 import {components} from '@/utils/api/components'
 import {getPropsFromNestedObjects} from './page'
-import {strapiFetcher} from '../../../config'
+import {strapiAPI, strapiAPIToken} from '../../../config'
+// import {strapiFetcher} from '../../../config'
+
+const strapiFetcher = new Fetcher(strapiAPI, {Authorization: `Bearer ${strapiAPIToken}`})
 
 export async function getSingleTypeProps(component, lang: string) {
   const res = await strapiFetcher.call(
