@@ -3,7 +3,7 @@ import {getSingleTypeProps} from '@/utils/api/single-type'
 import Navbar, {HeaderProps} from '@/components/organisms/header/header'
 
 export async function generateStaticParams() {
-  return [{lang: 'en'}, {lang: 'fr'}, {lang: 'de'}]
+  return [{lang: 'en'}, {lang: 'fr'}]
 }
 
 export default async function Layout({children, params}: {children: ReactNode, params: {lang: string}}) {
