@@ -1,5 +1,7 @@
 import {NextResponse} from 'next/server'
 // import {revalidateTag} from 'next/cache'
+import {faker} from '@faker-js/faker'
+export const dynamic = 'force-dynamic'
 
 export async function GET() {
   // try {
@@ -9,5 +11,5 @@ export async function GET() {
   // } catch (error) {
   //   return NextResponse.json({error: error.toString()})
   // }
-  return NextResponse.json({now: Date.now()})
+  return NextResponse.json({now: faker.date.past()})
 }
