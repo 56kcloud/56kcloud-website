@@ -1,7 +1,7 @@
 import {NextResponse} from 'next/server'
 import {revalidateTag} from 'next/cache'
 
-export async function GET(request, {params}) {
+export async function POST(request, {params}) {
   try {
     const tag = params.tag
     revalidateTag(tag)
