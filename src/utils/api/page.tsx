@@ -4,6 +4,13 @@ import {getPlaiceholder} from 'plaiceholder'
 // import {getSingleTypeProps} from './single-type'
 // import {strapiFetcher} from '../../../config'
 
+export async function getData() {
+  const res = await fetch('http://56k-cloud-git-migrate-to-strapi-edeltech.vercel.app/api/date', {
+    next: {tags: ['strapi']}
+  })
+  return res.json()
+}
+
 export async function getPageComponents() {
   // try {
   //   const res = await strapiFetcher.call(
