@@ -10,5 +10,6 @@ export default async function Home() {
   // return await getPageComponents(params.lang)
   return <div>
     {data.now}
+    {JSON.stringify(headerProps.links)}
   </div>
 }

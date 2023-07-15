@@ -1,7 +1,7 @@
-import {HeaderProps} from '@/components/organisms/header/header'
+// import {HeaderProps} from '@/components/organisms/header/header'
 import {ReactNode} from 'react'
-import {getSingleTypeProps} from '@/utils/api/single-type'
-import Navbar from '@/components/organisms/header/header'
+// import {getSingleTypeProps} from '@/utils/api/single-type'
+// import Navbar from '@/components/organisms/header/header'
 
 // export async function generateStaticParams() {
 //   return [{lang: 'en'}, {lang: 'fr'}]
