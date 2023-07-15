@@ -2,9 +2,9 @@ import {ReactNode} from 'react'
 import {getSingleTypeProps} from '@/utils/api/single-type'
 import Navbar, {HeaderProps} from '@/components/organisms/header/header'
 
-export async function generateStaticParams() {
-  return [{lang: 'en'}, {lang: 'fr'}]
-}
+// export async function generateStaticParams() {
+//   return [{lang: 'en'}, {lang: 'fr'}]
+// }
 
 export default async function Layout({children, params}: {children: ReactNode, params: {lang: string}}) {
   const headerProps = (await getSingleTypeProps('header', params.lang)) as HeaderProps //NEED TO IMPROVE THIS
