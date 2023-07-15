@@ -1,46 +1,40 @@
-// import {components} from '@/utils/api/components'
+import {components} from '@/utils/api/components'
 import {deepFind} from '../toolbox'
 import {getPlaiceholder} from 'plaiceholder'
-// import {getSingleTypeProps} from './single-type'
-// import {strapiFetcher} from '../../../config'
+import {getSingleTypeProps} from './single-type'
+import {strapiFetcher} from '../../../config'
 
-export async function getData() {
-  const res = await fetch('http://56k-cloud-git-migrate-to-strapi-edeltech.vercel.app/api/date', {
-    next: {tags: ['strapi']}
-  })
-  return res.json()
-}
-
-export async function getPageComponents() {
-  // try {
-  // const res = await strapiFetcher.call(
-  //   {
-  //     path: `/api/page/home?populate=deep&locale=${lang}`,
-  //     method: 'GET'
-  //   }
-  // )
-  // eslint-disable-next-line max-len
-  //   const pageComponents = res.body.filter((item) => Object.keys(components).includes(item.__component.split('.')[1]))
-  //   const footer = await getSingleTypeProps('footer', lang)
-  //   const lastItemIndex = pageComponents.length - 1
-  //   const lastItem = pageComponents[lastItemIndex]
-  //   if (lastItem.__component.split('.')[1].includes('footer')) {
-  //     pageComponents[lastItemIndex] = {...footer, ...lastItem}
-  //   } else {
-  //     pageComponents.push({...footer, __component: 'footer.footer'})
-  //   }
-  //   return pageComponents.map((item) => {
-  //     const key = item.__component.split('.')[1]
-  //     const Comp = components[key].component
-  //     return getPropsFromNestedObjects(components[key].props, item).then((props) => 
-  //       <Comp
-  //         key={item.id}
-  //         {...props}
-  //       />)
-  //   })
-  // } catch (error) {
-  //   console.error(error)
-  // }
+export async function getPageComponents(lang: string) {
+  try {
+    const res = await strapiFetcher.call(
+      {
+        path: `/api/page/home?populate=deep&locale=${lang}`,
+        method: 'GET'
+      }
+    )
+    const pageComponents = res.body.filter((item) => Object.keys(components).includes(item.__component.split('.')[1]))
+    const header = await getSingleTypeProps('header', lang)
+    pageComponents.unshift({...header, __component: 'header.header'})
+    const footer = await getSingleTypeProps('footer', lang)
+    const lastItemIndex = pageComponents.length - 1
+    const lastItem = pageComponents[lastItemIndex]
+    if (lastItem.__component.split('.')[1].includes('footer')) {
+      pageComponents[lastItemIndex] = {...footer, ...lastItem}
+    } else {
+      pageComponents.push({...footer, __component: 'footer.footer'})
+    }
+    return pageComponents.map((item) => {
+      const key = item.__component.split('.')[1]
+      const Comp = components[key].component
+      return getPropsFromNestedObjects(components[key].props, item).then((props) => 
+        <Comp
+          key={item.id}
+          {...props}
+        />)
+    })
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 export async function getPropsFromNestedObjects(schema, object) {

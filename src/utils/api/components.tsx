@@ -1,12 +1,15 @@
 import BackgroundImage from '@/components/atoms/background-image'
 import CompanyList from '@/components/organisms/company-list'
 import Footer from '@/components/organisms/footer'
+import Header from '@/components/organisms/header/header'
 import HomeHero from '@/components/organisms/home-hero'
 import IllustrationCardList from '@/components/organisms/card-list/illustration'
 import SmallTitleSection from '@/components/molecules/title-section/small'
 
 export const components = {
   'header': {
+    component: Header,
+    type: 'singleType',
     props: {
       logo: {
         name: 'logo.name',
