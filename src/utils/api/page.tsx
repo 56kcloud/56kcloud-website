@@ -2,7 +2,7 @@ import {Fetcher} from '@/models/fetcher.model'
 import {components} from '@/utils/api/components'
 import {deepFind} from '../toolbox'
 import {getPlaiceholder} from 'plaiceholder'
-import {getSingleTypeProps} from './single-type'
+// import {getSingleTypeProps} from './single-type'
 import {strapiAPI, strapiAPIToken} from '../../../config'
 
 export async function getPageComponents(lang: string) {
@@ -15,15 +15,15 @@ export async function getPageComponents(lang: string) {
       }
     )
     const pageComponents = res.body.filter((item) => Object.keys(components).includes(item.__component.split('.')[1]))
-    const header = await getSingleTypeProps('header', lang)
-    pageComponents.unshift({...header, __component: 'header.header'})
-    const footer = await getSingleTypeProps('footer', lang)
+    // const header = await getSingleTypeProps('header', lang)
+    // pageComponents.unshift({...header, __component: 'header.header'})
+    // const footer = await getSingleTypeProps('footer', lang)
     const lastItemIndex = pageComponents.length - 1
     const lastItem = pageComponents[lastItemIndex]
     if (lastItem.__component.split('.')[1].includes('footer')) {
-      pageComponents[lastItemIndex] = {...footer, ...lastItem}
+      // pageComponents[lastItemIndex] = {...footer, ...lastItem}
     } else {
-      pageComponents.push({...footer, __component: 'footer.footer'})
+      // pageComponents.push({...footer, __component: 'footer.footer'})
     }
     return pageComponents.map((item) => {
       const key = item.__component.split('.')[1]

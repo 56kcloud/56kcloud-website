@@ -4,6 +4,7 @@ import {faker} from '@faker-js/faker'
 export const dynamic = 'force-dynamic'
 
 export async function GET() {
+  
   // try {
   //   const tag = params.tag
   //   revalidateTag(tag)
@@ -11,5 +12,5 @@ export async function GET() {
   // } catch (error) {
   //   return NextResponse.json({error: error.toString()})
   // }
-  return NextResponse.json({now: faker.date.past()})
+  return NextResponse.json({now: faker.date.anytime()})
 }
