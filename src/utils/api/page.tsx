@@ -13,12 +13,12 @@ export async function getData() {
 
 export async function getPageComponents() {
   // try {
-  //   const res = await strapiFetcher.call(
-  //     {
-  //       path: `/api/page/home?populate=deep&locale=${lang}`,
-  //       method: 'GET'
-  //     }
-  //   )
+  // const res = await strapiFetcher.call(
+  //   {
+  //     path: `/api/page/home?populate=deep&locale=${lang}`,
+  //     method: 'GET'
+  //   }
+  // )
   // eslint-disable-next-line max-len
   //   const pageComponents = res.body.filter((item) => Object.keys(components).includes(item.__component.split('.')[1]))
   //   const footer = await getSingleTypeProps('footer', lang)

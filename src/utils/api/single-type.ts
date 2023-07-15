@@ -4,9 +4,9 @@ import {getPropsFromNestedObjects} from './page'
 import {strapiAPI, strapiAPIToken} from '../../../config'
 // import {strapiFetcher} from '../../../config'
 
-const strapiFetcher = new Fetcher(strapiAPI, {Authorization: `Bearer ${strapiAPIToken}`})
 
 export async function getSingleTypeProps(component, lang: string) {
+  const strapiFetcher = new Fetcher(strapiAPI, {Authorization: `Bearer ${strapiAPIToken}`})
   const res = await strapiFetcher.call(
     {
       path: `/api/${component}?populate=deep&locale=${lang}`,
