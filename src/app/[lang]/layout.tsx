@@ -7,14 +7,13 @@ import Navbar from '@/components/organisms/header/header'
 //   return [{lang: 'en'}, {lang: 'fr'}]
 // }
 
-export default async function Layout({children, params}: {children: ReactNode, params: {lang: string}}) {
-  const headerProps = (await getSingleTypeProps('header', params.lang)) as HeaderProps //NEED TO IMPROVE THIS
+export default async function Layout({children}: {children: ReactNode, params: {lang: string}}) {
 
   return (
     <div>
       <div className='bg-primary-50'>
         <header>
-          <Navbar {...headerProps}/>
+          {/* <Navbar {...headerProps}/> */}
         </header>
         <main>
           {children}
