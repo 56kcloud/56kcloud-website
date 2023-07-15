@@ -1,8 +1,8 @@
 // import {getPageComponents} from '@/utils/api/page'
 
 async function getData() {
-  const res = await fetch('http://localhost:3000/api/date', {
-    next: {tags: ['date']}
+  const res = await fetch('https://56k-cloud-git-migrate-to-strapi-edeltech.vercel.app/api/date', {
+    next: {tags: ['strapi']}
   })
   return res.json()
 }
