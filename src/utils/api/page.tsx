@@ -1,10 +1,12 @@
+import {Fetcher} from '@/models/fetcher.model'
 import {components} from '@/utils/api/components'
 import {deepFind} from '../toolbox'
 import {getPlaiceholder} from 'plaiceholder'
 import {getSingleTypeProps} from './single-type'
-import {strapiFetcher} from '../../../config'
+import {strapiAPI, strapiAPIToken} from '../../../config'
 
 export async function getPageComponents(lang: string) {
+  const strapiFetcher = new Fetcher(strapiAPI, {Authorization: `Bearer ${strapiAPIToken}`})
   try {
     const res = await strapiFetcher.call(
       {
