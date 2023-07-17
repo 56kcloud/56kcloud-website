@@ -20,6 +20,7 @@ export default async function Home() {
   // return await getPageComponents(params.lang)
   return (
     <div>
+      TEST
       {JSON.stringify(header)}
     </div>
   )
