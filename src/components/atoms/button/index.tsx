@@ -1,4 +1,3 @@
-'use client'
 import {ButtonProps, ButtonPropsImpl} from './button.model'
 import {Fragment, JSXElementConstructor, forwardRef, isValidElement} from 'react'
 import {Slot} from '@radix-ui/react-slot'
