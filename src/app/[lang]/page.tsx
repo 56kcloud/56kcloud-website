@@ -12,10 +12,12 @@ export default async function Home() {
   // const path = usePathname()
   // const router = useRouter()
   // const headersList = headers()
-  const host = 'migrate-to-strapi.d1ickrcxtzn63a.amplifyapp.com'
-  // const host = 'localhost:3000'
+  // const host = 'https://migrate-to-strapi.d1ickrcxtzn63a.amplifyapp.com'
+  const host = 'http://localhost:3000'
   // console.log(host)
-  const res  = await fetch(`https://${host}/api/date`)
+  const res  = await fetch(`${host}/api/date`, {
+    next: {tags: ['strapi']}
+  })
   const header = await res.json()
   // const header = await getSingleTypeProps(host)
   // return await getPageComponents(params.lang)
