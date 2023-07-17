@@ -1,14 +1,12 @@
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from '@/components/primitives/select'
-import {locales} from '../../../../locale'
-import {usePathname, useRouter} from 'next/navigation'
+import {useRouter} from 'next/router'
 
 export default function LanguageSwitcher() {
   const router = useRouter()
-  const pathName = usePathname() || ''
-  const currentLocale = pathName?.split('/')[1] || 'en'
-
+  const currentLocale = router.locale
+  
   function updateLanguage(lang) {
-    router.push(pathName.replace(currentLocale, lang))
+    router.push(`${router.pathname}`, `${router.pathname}`, {locale: lang.toLowerCase()})
   }
   
   return <Select
@@ -21,7 +19,7 @@ export default function LanguageSwitcher() {
       <SelectValue/>
     </SelectTrigger>
     <SelectContent>
-      {locales.map((locale) => (
+      {router.locales.map((locale) => (
         <SelectItem
           className='uppercase'
           key={locale}
