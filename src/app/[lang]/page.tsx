@@ -15,7 +15,7 @@ export default async function Home() {
   const host = '56k-cloud-git-migrate-to-strapi-edeltech.vercel.app'
   // console.log(host)
   const res  = await fetch(`https://${host}/api/date`, {next: {tags: ['strapi']}})
-  const header = res.json()
+  const header = await res.json()
   // const header = await getSingleTypeProps(host)
   // return await getPageComponents(params.lang)
   return (
