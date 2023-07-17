@@ -136,8 +136,8 @@ export default function Header({logo, links}) {
                       </Link>
                     </Button>
                   ))}
+                  <LanguageSwitcher/>
                 </div>
-                <LanguageSwitcher/>
               </div>
             </div>
           </div>
