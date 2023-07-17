@@ -20,6 +20,7 @@
     "@radix-ui/react-select": "^1.2.2",
     "@radix-ui/react-slot": "^1.0.2",
     "axios": "^1.4.0",
+    "child_process": "^1.0.2",
     "clsx": "^1.2.1",
     "date-fns": "^2.30.0",
     "dotenv": "^16.3.1",
