@@ -3,9 +3,8 @@ import {revalidateTag} from 'next/cache'
 
 export async function GET(request, {params}) {
   try {
-    
     const tag = params.tag
-    // console.log(tag)
+    console.log('REVALIDATE TAG')
     revalidateTag(tag)
     return NextResponse.json({revalidated: true, now: Date.now()})
   } catch (error) {
