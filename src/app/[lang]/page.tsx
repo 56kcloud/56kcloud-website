@@ -5,7 +5,7 @@ import {getSingleTypeProps} from '@/utils/api/single-type'
 import {headers} from 'next/headers'
 // import {useRouter} from 'next/navigation'
 
-export const dynamic = 'force-dynamic'
+// export const dynamic = 'force-dynamic'
 
 export default async function Home() {
   // const path = usePathname()
