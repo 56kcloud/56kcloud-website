@@ -7,7 +7,7 @@ export default function BackgroundImage({background}: {background: ImageProps}) 
       src={background.src}
       placeholder='blur'
       blurDataURL={background.blurDataURL}
-      alt={background.alt}
+      alt={background.alt || 'alt'}
       width={background.width}
       height={background.height}
       className='background-image bg-primary-lighter'/>

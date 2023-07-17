@@ -3,7 +3,6 @@ const nextConfig = {
   images: {
     domains: ['56k-strapi.s3.eu-central-1.amazonaws.com', 'localhost']
   },
-  reactStrictMode: true,
   async redirects() {
     return [
       {
