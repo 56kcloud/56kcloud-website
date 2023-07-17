@@ -12,8 +12,8 @@ export default async function Home() {
   // const path = usePathname()
   // const router = useRouter()
   // const headersList = headers()
-  // const host = 'https://migrate-to-strapi.d1ickrcxtzn63a.amplifyapp.com'
-  const host = 'http://localhost:3000'
+  const host = 'https://56k-cloud-git-migrate-to-strapi-edeltech.vercel.app'
+  // const host = 'http://localhost:3000'
   // console.log(host)
   const res  = await fetch(`${host}/api/date`, {
     next: {tags: ['strapi']}
