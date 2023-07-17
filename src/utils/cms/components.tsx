@@ -134,3 +134,13 @@ export const components = {
     }
   }
 }
+
+export function getPageComponents(comps) {
+  return comps.map((item, index) => {
+    const Comp = components[item.component].component
+    return <Comp
+      {...item.props}
+      key={index}
+    />
+  })
+}

@@ -91,7 +91,7 @@ body {
     @apply font-chap font-medium leading-[1.15]
   }
 
-  /*.xs-responsive-title {
+  .xs-responsive-title {
     @apply text-[calc(20px+0.75vw)]
   }
   
@@ -109,5 +109,5 @@ body {
 
   .xl-responsive-title {
     @apply text-[calc(32px+4vw)]
-  } */
+  }
 }

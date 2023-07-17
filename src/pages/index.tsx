@@ -1,15 +1,5 @@
-import {components} from '@/utils/api/components'
-import {getPageComponentsProps} from '@/utils/api/page'
-
-export function getPageComponents(comps) {
-  return comps.map((item, index) => {
-    const Comp = components[item.component].component
-    return <Comp
-      {...item.props}
-      key={index}
-    />
-  })
-}
+import {getPageComponents} from '@/utils/cms/components'
+import {getPageComponentsProps} from '@/utils/cms/endpoints'
 
 export default function Home({components}) {
   return getPageComponents(components)
