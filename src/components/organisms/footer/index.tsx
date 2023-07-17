@@ -35,7 +35,7 @@ export default function Footer({background='cover', logo, links, address, title,
   return (
     <footer
       className={cn(background === 'cover' ? 'bg-footer bg-no-repeat bg-cover' : 'bg-primary-900',
-        'p-10 lg:pb-0 lg:pr-0 lg:pt-12 lg:pl-12 flex justify-end')}>
+        'p-10 lg:pb-0 lg:pr-0 lg:pt-32 lg:pl-12 flex justify-end h-[900px]')}>
       <div className='w-full p-10 bg-white lg:w-10/12'>
         <div className='flex lg:space-x-8'>
           <div className='lg:w-2/3 2xl:w-1/2'>

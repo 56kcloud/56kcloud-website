@@ -10,7 +10,7 @@ export default function HomeHero({titleLine1, titleLine2, titleLine3, background
         blurDataURL={background.blurDataURL}
         width={background.width}
         height={background.height}
-        className='w-full'/>
+        className='w-full pointer-events-none'/>
       <div
         className='title font-semibold absolute left-[41%] bottom-[40%] z-10 sm:bottom-[43%] sm:left-[46%] \
         md:bottom-[44%] md:left-[48%] lg:left-1/2 xl:bottom-[45%]'>
