@@ -11,7 +11,7 @@ export default async function Home() {
   // const path = usePathname()
   // const router = useRouter()
   // const headersList = headers()
-  const host = 'localhost:3000'
+  const host = '56k-cloud-git-migrate-to-strapi-edeltech.vercel.app'
   // console.log(host)
   const header = await getSingleTypeProps(host)
   // return await getPageComponents(params.lang)
