@@ -1,11 +1,11 @@
-import {Fetcher} from '@/models/fetcher.model'
+// import {Fetcher} from '@/models/fetcher.model'
 import {components} from '@/utils/api/components'
 import {deepFind} from '../toolbox'
 import {getPlaiceholder} from 'plaiceholder'
-import {strapiAPI, strapiAPIToken} from '../../../config'
+import {getSingleTypeProps} from './single-type'
+import {strapiFetcher} from '../../../config'
 
-export async function getPageComponents(lang: string) {
-  const strapiFetcher = new Fetcher(strapiAPI, {Authorization: `Bearer ${strapiAPIToken}`})
+export async function getPageComponentsProps(lang: string) {
   try {
     const res = await strapiFetcher.call(
       {
@@ -14,32 +14,25 @@ export async function getPageComponents(lang: string) {
       }
     )
     const pageComponents = res.body.filter((item) => Object.keys(components).includes(item.__component.split('.')[1]))
-    // const header = await getSingleTypeProps('header', lang)
-    // pageComponents.unshift({...header, __component: 'header.header'})
-    // const footer = await getSingleTypeProps('footer', lang)
-    console.log(pageComponents)
     const lastItemIndex = pageComponents.length - 1
     const lastItem = pageComponents[lastItemIndex]
+    const header = await getSingleTypeProps('header', lang)
+    pageComponents.unshift({...header, __component: 'header.header'})
+    const footer = await getSingleTypeProps('footer', lang)
     if (lastItem.__component.split('.')[1].includes('footer')) {
-      // pageComponents[lastItemIndex] = {...footer, ...lastItem}
+      pageComponents[lastItemIndex] = {...footer, ...lastItem}
     } else {
-      // pageComponents.push({...footer, __component: 'footer.footer'})
+      pageComponents.push({...footer, __component: 'footer.footer'})
     }
-    return pageComponents.map((item) => {
+    for (const itemIndex in pageComponents) {
+      const item = pageComponents[itemIndex]
       const key = item.__component.split('.')[1]
-      // const Comp = components[key].component
-      // return []
-      return getPropsFromNestedObjects(components[key].props, item).then((props) => {
-        // console.log(props)
-        // return <Comp
-        //   key={item.id}
-        //   {...props}
-        // />
-        return props
+      pageComponents[itemIndex] = {
+        component: key,
+        props: await getPropsFromNestedObjects(components[key].props, item)
       }
-        
-      )
-    })
+    }
+    return pageComponents
   } catch (error) {
     console.error(error)
   }
@@ -62,7 +55,7 @@ export async function getPropsFromNestedObjects(schema, object) {
         const buffer = Buffer.from(await res.arrayBuffer())
         const {base64} = await getPlaiceholder(buffer)
         temp[key] = base64
-      } else {
+      } else if (value) {
         temp[key] = value
       }
     } else if (Array.isArray(schema[key])) {

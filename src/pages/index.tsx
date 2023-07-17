@@ -1,28 +1,25 @@
-// import {getPageComponents} from '@/utils/api/page'
-import {getSingleTypeProps} from '@/utils/api/single-type'
+import {components} from '@/utils/api/components'
+import {getPageComponentsProps} from '@/utils/api/page'
 
-export default function Home({header}) {
-  return (
-    <div className='text-red-500'>
-      {/* {components} */}
-      {JSON.stringify(header)}
-    </div>
-  )
+export function getPageComponents(comps) {
+  return comps.map((item, index) => {
+    const Comp = components[item.component].component
+    return <Comp
+      {...item.props}
+      key={index}
+    />
+  })
 }
 
-export async function getStaticProps() {
-  // const host = 'https://56k-cloud-git-migrate-to-strapi-edeltech.vercel.app'
-  // const host = 'http://localhost:3000'
-  // console.log(host)
-  // const res  = await fetch(`${host}/api/date`)
-  const header = await getSingleTypeProps('header', 'en')
-  // const components = await getPageComponents('en')
-  console.log(header)
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
+export default function Home({components}) {
+  return getPageComponents(components)
+}
+
+export async function getStaticProps(options) {
+  const components = await getPageComponentsProps(options.locale)
   return {
     props: {
-      header
+      components
     }
   }
 }
