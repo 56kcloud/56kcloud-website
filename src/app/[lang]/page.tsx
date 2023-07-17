@@ -13,6 +13,7 @@ export default async function Home() {
   // const router = useRouter()
   // const headersList = headers()
   const host = '56k-cloud-git-migrate-to-strapi-edeltech.vercel.app'
+  // const host = 'localhost:3000'
   // console.log(host)
   const res  = await fetch(`https://${host}/api/date`)
   const header = await res.json()
