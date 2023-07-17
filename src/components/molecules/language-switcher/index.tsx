@@ -14,8 +14,8 @@ export default function LanguageSwitcher() {
     onValueChange={updateLanguage}
   >
     <SelectTrigger
-      className={`w-16 font-medium uppercase bg-transparent border-primary-800 hover:bg-primary-100/30
-    [&>svg]:text-primary-800 [&>svg]:opacity-100`}>
+      className={`w-auto font-medium uppercase border-transparent bg-transparent hover:bg-primary-100/30
+    [&>svg]:text-primary-800 [&>svg]:opacity-100 px-4 2xl:px-6 text-base h-auto`}>
       <SelectValue/>
     </SelectTrigger>
     <SelectContent>
