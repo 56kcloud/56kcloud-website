@@ -6,6 +6,7 @@ import {getSingleTypeProps} from '@/utils/api/single-type'
 // import {useRouter} from 'next/navigation'
 
 // export const dynamic = 'force-dynamic'
+export const tags = ['strapi']
 
 export default async function Home() {
   // const path = usePathname()
