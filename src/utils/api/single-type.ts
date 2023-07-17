@@ -27,6 +27,6 @@ export async function getSingleTypeProps(path) {
   const res  = await fetch(`https://${path}/api/date`, {
     next: {tags: ['strapi']}
   })
-  return await res.json()
+  return res.json()
   // return {}
 }

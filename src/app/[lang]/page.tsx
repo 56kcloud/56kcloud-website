@@ -5,12 +5,14 @@ import {getSingleTypeProps} from '@/utils/api/single-type'
 import {headers} from 'next/headers'
 // import {useRouter} from 'next/navigation'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Home() {
   // const path = usePathname()
   // const router = useRouter()
   const headersList = headers()
   const host = headersList.get('host') || ''
-  console.log(host)
+  // console.log(host)
   const header = await getSingleTypeProps(host)
   // return await getPageComponents(params.lang)
   return (
