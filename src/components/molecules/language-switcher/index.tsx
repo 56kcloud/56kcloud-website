@@ -4,8 +4,8 @@ import {usePathname, useRouter} from 'next/navigation'
 
 export default function LanguageSwitcher() {
   const router = useRouter()
-  const pathName = usePathname()
-  const currentLocale = pathName.split('/')[1]
+  const pathName = usePathname() || ''
+  const currentLocale = pathName?.split('/')[1] || 'en'
 
   function updateLanguage(lang) {
     router.push(pathName.replace(currentLocale, lang))

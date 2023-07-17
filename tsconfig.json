@@ -28,7 +28,7 @@
         "name": "next"
       }
     ],
-    "strictNullChecks": true
+    "strictNullChecks": false
   },
   "exclude": [
     "node_modules",
