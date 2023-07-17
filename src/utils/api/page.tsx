@@ -2,7 +2,6 @@ import {Fetcher} from '@/models/fetcher.model'
 import {components} from '@/utils/api/components'
 import {deepFind} from '../toolbox'
 import {getPlaiceholder} from 'plaiceholder'
-// import {getSingleTypeProps} from './single-type'
 import {strapiAPI, strapiAPIToken} from '../../../config'
 
 export async function getPageComponents(lang: string) {
@@ -18,6 +17,7 @@ export async function getPageComponents(lang: string) {
     // const header = await getSingleTypeProps('header', lang)
     // pageComponents.unshift({...header, __component: 'header.header'})
     // const footer = await getSingleTypeProps('footer', lang)
+    console.log(pageComponents)
     const lastItemIndex = pageComponents.length - 1
     const lastItem = pageComponents[lastItemIndex]
     if (lastItem.__component.split('.')[1].includes('footer')) {
@@ -28,11 +28,17 @@ export async function getPageComponents(lang: string) {
     return pageComponents.map((item) => {
       const key = item.__component.split('.')[1]
       const Comp = components[key].component
-      return getPropsFromNestedObjects(components[key].props, item).then((props) => 
-        <Comp
-          key={item.id}
-          {...props}
-        />)
+      // return []
+      return getPropsFromNestedObjects(components[key].props, item).then((props) => {
+        // console.log(props)
+        // return <Comp
+        //   key={item.id}
+        //   {...props}
+        // />
+        return props
+      }
+        
+      )
     })
   } catch (error) {
     console.error(error)
