@@ -13,5 +13,7 @@ export function GET() {
   // } catch (error) {
   //   return NextResponse.json({error: error.toString()})
   // }
-  return NextResponse.json({now: faker.date.anytime()})
+  const date = faker.date.anytime()
+  console.log('GET DATE', date)
+  return NextResponse.json({now: date})
 }
