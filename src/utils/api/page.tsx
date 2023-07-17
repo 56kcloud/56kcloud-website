@@ -27,7 +27,7 @@ export async function getPageComponents(lang: string) {
     }
     return pageComponents.map((item) => {
       const key = item.__component.split('.')[1]
-      const Comp = components[key].component
+      // const Comp = components[key].component
       // return []
       return getPropsFromNestedObjects(components[key].props, item).then((props) => {
         // console.log(props)
