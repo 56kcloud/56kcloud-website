@@ -1,9 +1,10 @@
 import {NextResponse} from 'next/server'
 // import {revalidateTag} from 'next/cache'
 import {faker} from '@faker-js/faker'
+
 export const dynamic = 'force-dynamic'
 
-export async function GET() {
+export function GET() {
   
   // try {
   //   const tag = params.tag
