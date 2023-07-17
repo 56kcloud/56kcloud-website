@@ -7,6 +7,11 @@
 
 
 export async function getSingleTypeProps(path) {
+  console.log(path)
+  const res  = await fetch(`http://${path}/api/date`, {
+    next: {tags: ['strapi']}
+  })
+  return res.json()
   // const strapiFetcher = new Fetcher(strapiAPI, {Authorization: `Bearer ${strapiAPIToken}`})
   // const res = await strapiFetcher.call(
   //   {
@@ -24,9 +29,6 @@ export async function getSingleTypeProps(path) {
   // const res = await test.json()
   // return await getPropsFromNestedObjects(components[component].props, res.data.attributes)
   // console.log(path)
-  const res  = await fetch(`https://${path}/api/date`, {
-    next: {tags: ['strapi']}
-  })
-  return res.json()
+
   // return {}
 }
