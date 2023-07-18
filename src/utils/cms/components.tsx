@@ -4,7 +4,10 @@ import Footer from '@/components/organisms/footer'
 import Header from '@/components/organisms/header/header'
 import HomeHero from '@/components/organisms/home-hero'
 import IllustrationCardList from '@/components/organisms/card-list/illustration'
+import MediumTitleSection from '@/components/molecules/title-section/medium'
+import PostCardList from '@/components/organisms/card-list/post'
 import SmallTitleSection from '@/components/molecules/title-section/small'
+import TagsFilter from '@/components/molecules/tags-filter'
 
 export const components = {
   'header': {
@@ -75,6 +78,13 @@ export const components = {
       title: 'title'
     }
   },
+  'medium-title-section': {
+    component: MediumTitleSection,
+    props: {
+      title: 'title',
+      subtitle: 'subtitle'
+    }
+  },
   'illustration-card-list': {
     component: IllustrationCardList,
     props: {
@@ -99,6 +109,41 @@ export const components = {
             src: 'illustration.url',
             width: 'illustration.width',
             height: 'illustration.height'
+          }
+        }
+      ]
+    }
+  },
+  'tags-filter': {
+    component: TagsFilter,
+    props: {
+      tags: [
+        {
+          name: 'name'
+        }
+      ]
+    }
+  },
+  'blog-list': {
+    component: PostCardList,
+    props: {
+      posts: [
+        {
+          title: 'title',
+          description: 'description',
+          slug: 'slug',
+          tags: [
+            {
+              name: 'name'
+            }
+          ],
+          cover: {
+            name: 'cover.name',
+            alt: 'cover.alternativeText',
+            src: 'cover.url',
+            blurDataURL: 'cover.formats.thumbnail.url',
+            width: 'cover.width',
+            height: 'cover.height'
           }
         }
       ]

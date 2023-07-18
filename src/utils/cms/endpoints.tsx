@@ -3,11 +3,11 @@ import {components} from './components'
 import {getPropsFromNestedObjects} from './page'
 import {strapiAPI, strapiAPIToken, strapiFetcher} from '../../../config'
 
-export async function getPageComponentsProps(lang: string) {
+export async function getPageComponentsProps(page:string, lang: string) {
   try {
     const res = await strapiFetcher.call(
       {
-        path: `/api/page/home?populate=deep&locale=${lang}`,
+        path: `/api/page/${page}?populate=deep&locale=${lang}`,
         method: 'GET'
       }
     )
