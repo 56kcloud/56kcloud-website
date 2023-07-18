@@ -21,7 +21,7 @@ export default function PostCover({image}) {
 
   return (
     <div
-      className={cn('relative w-full')}
+      className={cn('relative w-full rounded-lg')}
       ref={coverParent}
       style={{height: `${image.width * (parseInt(height)/parseInt(image.width))}px`}}
     >
@@ -40,5 +40,4 @@ export default function PostCover({image}) {
       />
     </div>
   )
-
 }
