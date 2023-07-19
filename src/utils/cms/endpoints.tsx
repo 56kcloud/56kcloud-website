@@ -44,5 +44,6 @@ export async function getSingleTypeProps(component, lang) {
       method: 'GET'
     }
   )
-  return await getPropsFromNestedObjects(components[component].props, res.data.attributes)
+  const componentKey = component.split('/')[0]
+  return await getPropsFromNestedObjects(components[componentKey].props, res.data?.attributes || res.data || res)
 }

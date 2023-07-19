@@ -6,6 +6,7 @@ import HomeHero from '@/components/organisms/home-hero'
 import IllustrationCardList from '@/components/organisms/card-list/illustration'
 import MediumTitleSection from '@/components/molecules/title-section/medium'
 import PostCardList from '@/components/organisms/card-list/post'
+import PostDetail from '@/components/molecules/post'
 import SmallTitleSection from '@/components/molecules/title-section/small'
 import TagsFilter from '@/components/molecules/tags-filter'
 
@@ -162,6 +163,41 @@ export const components = {
       ]
     }
   },
+  'blog-post': {
+    component: PostDetail,
+    props: {
+      title: 'title',
+      content: 'content',
+      description: 'description',
+      slug: 'slug',
+      readTime: 'readTime',
+      tags: [
+        {
+          name: 'name'
+        }
+      ],
+      publishedOn: 'publishedOn',
+      cover: {
+        name: 'cover.name',
+        alt: 'cover.alternativeText',
+        src: 'cover.url',
+        blurDataURL: 'cover.formats.thumbnail.url',
+        width: 'cover.width',
+        height: 'cover.height'
+      },
+      author: {
+        name: 'author.name',
+        avatar: {
+          name: 'author.avatar.name',
+          alt: 'author.avatar.alternativeText',
+          src: 'author.avatar.url',
+          blurDataURL: 'author.avatar.formats.thumbnail.url',
+          width: 'author.avatar.width',
+          height: 'author.avatar.height'
+        }
+      }
+    }
+  },
   'background-image': {
     component: BackgroundImage,
     props: {
@@ -194,7 +230,7 @@ export const components = {
 }
 
 export function getPageComponents(comps) {
-  return comps.map((item, index) => {
+  return comps?.map((item, index) => {
     const Comp = components[item.component].component
     return <Comp
       {...item.props}

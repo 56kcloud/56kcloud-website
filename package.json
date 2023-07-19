@@ -30,6 +30,7 @@
     "lucide": "^0.258.0",
     "lucide-react": "^0.258.0",
     "luxon": "^3.3.0",
+    "markdown-to-jsx": "^7.2.1",
     "next": "^13.4.10",
     "next-translate": "^2.4.4",
     "next-translate-plugin": "^2.4.4",
