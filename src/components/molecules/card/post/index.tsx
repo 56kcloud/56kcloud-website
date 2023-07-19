@@ -1,9 +1,12 @@
+import {formatDate} from '@/utils/toolbox'
 import {motion} from 'framer-motion'
+import Avatar from '@/components/atoms/avatar'
 import Link from 'next/link'
 import PostCover from './cover'
 import PostTagList from './tag-list'
 
 export default function PostCard({post}) {
+  const publishedOn = formatDate(post.publishedOn)
   return (
     <motion.div
       initial={{opacity: 0}}
@@ -28,25 +31,25 @@ export default function PostCard({post}) {
               className='mt-2 text-base text-grey-light line-clamp-3'>
               {post.description}
             </p>
-            {/* <div
+            <div
               className='flex flex-wrap items-center mt-8 text-sm gap-x-3 text-grey-light'>
               <Avatar
-                image={postAvatarImage}
-                alt={postAvatarImageAlt}/>
+                image={post.author.avatar.src}
+                alt={post.author.avatar.alt}/>
               <div className='flex flex-col'>
                 <span>
-                by{' '}
+                  by{' '}
                   <span className='font-normal text-grey-dark'>
-                    {postAuthor}
+                    {post.author.name}
                   </span>
                 </span>
                 <div className='flex gap-x-2'>
-                  <span>{createdAt}</span>
+                  <span>{publishedOn}</span>
                   <span>|</span>
-                  <span>{readTime} read</span>
+                  <span>{post.readTime} minute{post.readTime > 1 ? 's' : ''} read</span>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </Link>

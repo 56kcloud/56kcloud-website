@@ -132,11 +132,13 @@ export const components = {
           title: 'title',
           description: 'description',
           slug: 'slug',
+          readTime: 'readTime',
           tags: [
             {
               name: 'name'
             }
           ],
+          publishedOn: 'publishedOn',
           cover: {
             name: 'cover.name',
             alt: 'cover.alternativeText',
@@ -144,6 +146,17 @@ export const components = {
             blurDataURL: 'cover.formats.thumbnail.url',
             width: 'cover.width',
             height: 'cover.height'
+          },
+          author: {
+            name: 'author.name',
+            avatar: {
+              name: 'author.avatar.name',
+              alt: 'author.avatar.alternativeText',
+              src: 'author.avatar.url',
+              blurDataURL: 'author.avatar.formats.thumbnail.url',
+              width: 'author.avatar.width',
+              height: 'author.avatar.height'
+            }
           }
         }
       ]
