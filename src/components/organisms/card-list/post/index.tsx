@@ -1,5 +1,6 @@
 // import {NotionPostPreview} from '@/models/blog/blog-preview'
 // import {Tag} from '@/models/tag.model'
+import {DateTime} from 'luxon'
 import {useEffect, useState} from 'react'
 import {useRouter} from 'next/router'
 import Masonry, {ResponsiveMasonry} from 'react-responsive-masonry'
@@ -18,7 +19,8 @@ export default function PostCardList({posts}) {
         .filter(post => queryTag ? post.tags.map(tag => slugify(tag.name).toLowerCase())
           .includes(queryTag?.toString()) : true)
       setTimeout(() => {
-        setFilteredPosts(filteredPosts)
+        setFilteredPosts(filteredPosts.sort((a,b) => DateTime.fromISO(b.publishedOn).toMillis()
+         - DateTime.fromISO(a.publishedOn).toMillis()))
       }, 100)
     }
   }, [router.isReady, queryTag])
