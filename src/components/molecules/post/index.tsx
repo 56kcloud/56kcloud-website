@@ -1,6 +1,8 @@
 import {NotionPageRenderer} from 'notion-to-tailwind'
 import {NotionPostPreview} from '@/models/blog/blog-preview'
+import AuthorCard from '../card/author'
 import Markdown from 'markdown-to-jsx'
+import PostCardList from '@/components/organisms/card-list/post'
 import PostCover from '../card/post/cover'
 import PostTagList from '../card/post/tag-list'
 
@@ -31,7 +33,8 @@ export default function PostDetail(props) {
               </div>
             </div>
           </div>    
-        </div>    
+        </div>
+        <AuthorCard author={props.author}/>
       </div>    
     </div>    
   )

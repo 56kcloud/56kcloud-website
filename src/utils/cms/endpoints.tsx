@@ -12,10 +12,12 @@ export async function getPageComponentsProps(page:string, lang: string) {
       }
     )
     const pageComponents = res.body.filter((item) => Object.keys(components).includes(item.__component.split('.')[1]))
+    console.log('TEST', pageComponents)
     const lastItemIndex = pageComponents.length - 1
     const lastItem = pageComponents[lastItemIndex]
     const header = await getSingleTypeProps('header', lang)
     pageComponents.unshift({...header, __component: 'header.header'})
+    console.log(header)
     const footer = await getSingleTypeProps('footer', lang)
     if (lastItem.__component.split('.')[1].includes('footer')) {
       pageComponents[lastItemIndex] = {...footer, ...lastItem}
@@ -36,14 +38,20 @@ export async function getPageComponentsProps(page:string, lang: string) {
   }
 }
 
-export async function getSingleTypeProps(component, lang) {
+export async function getSingleTypeProps(apiName, lang, component=apiName, queryparams=`?populate=deep&locale=${lang}`) {
   const strapiFetcher = new Fetcher(strapiAPI, {Authorization: `Bearer ${strapiAPIToken}`})
   const res = await strapiFetcher.call(
     {
-      path: `/api/${component}?populate=deep&locale=${lang}`,
+      path: `/api/${apiName}${queryparams}`,
       method: 'GET'
     }
   )
   const componentKey = component.split('/')[0]
-  return await getPropsFromNestedObjects(components[componentKey].props, res.data?.attributes || res.data || res)
+  console.log('😅', res.data)
+  try {
+    return await getPropsFromNestedObjects(components[componentKey].props, res.data?.attributes || res.data || res)
+  } catch (error) {
+    console.error(error)
+    return res
+  }
 }

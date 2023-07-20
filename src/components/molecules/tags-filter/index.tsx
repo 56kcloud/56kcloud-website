@@ -28,7 +28,7 @@ export default function TagsFilter({tags}: TabsFilterProps) {
   
   return (
     <div className='flex items-center justify-center'>
-      <div className='relative flex flex-1 max-w-6xl border-b mb-14'>
+      <div className='relative flex flex-1 border-b max-w-7xl mb-14'>
         <div className='absolute left-0 flex h-full'>
           <button
             onClick={() => slide('left')} 

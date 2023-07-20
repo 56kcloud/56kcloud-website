@@ -28,7 +28,7 @@ export default function PostCardList({posts}) {
   return (
     <section>
       <div
-        className='max-w-6xl mx-auto'
+        className='mx-auto max-w-7xl'
       >
         <div className='min-h-[1000px]'>
           <ResponsiveMasonry

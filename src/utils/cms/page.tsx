@@ -22,7 +22,8 @@ export async function getPropsFromNestedObjects(schema, object) {
         temp[key] = value
       }
     } else if (Array.isArray(schema[key])) {
-      let array = object[key].data || object[key]
+      let array = object[key]?.data || object[key]
+      console.log('🏎️', object)
       temp[key] = []
       for (const itemIndex in array) {
         const item = array[itemIndex]

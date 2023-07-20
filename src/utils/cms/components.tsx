@@ -194,7 +194,10 @@ export const components = {
           blurDataURL: 'author.avatar.formats.thumbnail.url',
           width: 'author.avatar.width',
           height: 'author.avatar.height'
-        }
+        },
+        bio: 'author.bio',
+        twitter: 'author.twitter',
+        website: 'author.website'
       }
     }
   },
@@ -231,10 +234,11 @@ export const components = {
 
 export function getPageComponents(comps) {
   return comps?.map((item, index) => {
-    const Comp = components[item.component].component
-    return <Comp
+    const Comp = components[item.component]?.component
+
+    return Comp ? <Comp
       {...item.props}
       key={index}
-    />
+    /> : null
   })
 }
