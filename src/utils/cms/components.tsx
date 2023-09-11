@@ -25,8 +25,7 @@ export const components = {
       links: [
         {
           title: 'title',
-          externalLink: 'externalLink',
-          page: 'page'
+          href: 'externalLink || page.path'
         }
       ]
     }
@@ -46,8 +45,7 @@ export const components = {
       links: [
         {
           title: 'title',
-          externalLink: 'externalLink',
-          page: 'page'
+          href: 'externalLink || page.path'
         }
       ],
       gMapAddress: 'gMapAddress',
@@ -237,7 +235,6 @@ export const components = {
 export function getPageComponents(comps) {
   return comps?.map((item, index) => {
     const Comp = components[item.component]?.component
-
     return Comp ? <Comp
       {...item.props}
       key={index}

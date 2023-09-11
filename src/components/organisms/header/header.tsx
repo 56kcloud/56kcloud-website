@@ -25,7 +25,7 @@ export default function Header({logo, links}) {
   const pathname = usePathname()
 
   const navigation: Array<LinkProps> = links.map((link) => ({
-    href: link.href || link.page?.path || '',
+    href: link.href || '',
     children: link.title
   }))
 
@@ -80,7 +80,7 @@ export default function Header({logo, links}) {
                   variant='ghost'
                   align='start'
                   className='text-2xl capitalize'
-                  // data-active={pathname.includes(item.href)}
+                  data-active={pathname.includes(item.href)}
                 >
                   <Link href={item.href}>
                     {item.children}

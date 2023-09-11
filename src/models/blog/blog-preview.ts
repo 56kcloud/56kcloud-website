@@ -162,6 +162,14 @@ export type NotionPostAuthor = {
   url: string
 }
 
+export type Author = {
+  avatar: string
+  name: string
+  bio: string
+  twitter?: string
+  website?: string
+}
+
 export type NotionPost= {
   post: NotionPostPreview
   blocks: Array<unknown>
