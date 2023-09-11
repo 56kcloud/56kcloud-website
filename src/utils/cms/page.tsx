@@ -7,22 +7,31 @@ export async function getPropsFromNestedObjects(schema, object) {
   for (const keyIndex in keys) {
     const key = keys[keyIndex]
     if (typeof (schema[key]) !== 'object') {
-      const path = schema[key].split('.')
-      const pathFirstKey = path[0]
-      path.shift()
-      const value = deepFind(object, schema[key]) 
-      || deepFind(object, `${pathFirstKey}.data.attributes.${path.join('.')}`)
-      || path.splice(path.length - 1, 1, key) && deepFind(object, `${pathFirstKey}.${path.join('.')}`)
-      if (key === 'blurDataURL') {
-        const res = await fetch(value, {method: 'GET'})
-        const buffer = Buffer.from(await res.arrayBuffer())
-        const {base64} = await getPlaiceholder(buffer)
-        temp[key] = base64
-      } else if (value) {
-        temp[key] = value
+      const options = schema[key].split('||')
+      for (const optionIndex in options) {
+        const path = options[optionIndex].split('.')
+        const pathFirstKey = path[0]
+        path.shift()
+        const value = deepFind(object, options[optionIndex].trim()) 
+        || deepFind(object, `${pathFirstKey}.data.attributes.${path.join('.')}`)
+        || path.splice(path.length - 1, 1, key) && deepFind(object, `${pathFirstKey}.${path.join('.')}`)
+        if (key === 'blurDataURL') {
+          console.log(value)
+          const res = await fetch(value, {method: 'GET'})
+          const buffer = Buffer.from(await res.arrayBuffer())
+          const {base64} = await getPlaiceholder(buffer)
+          temp[key] = base64
+          break
+        } else if (value) {
+          // console.log('value', value)
+          temp[key] = value
+          break
+        } else {
+          temp[key] = null
+        }
       }
     } else if (Array.isArray(schema[key])) {
-      let array = object[key].data || object[key]
+      let array = object[key]?.data || object[key]
       temp[key] = []
       for (const itemIndex in array) {
         const item = array[itemIndex]

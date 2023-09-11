@@ -1,27 +1,16 @@
-import {Fetcher} from '@/models/fetcher.model'
 import {components} from './components'
 import {getPropsFromNestedObjects} from './page'
-import {strapiAPI, strapiAPIToken, strapiFetcher} from '../../../config'
+import {strapiFetcher} from '../../../config'
 
-export async function getPageComponentsProps(lang: string) {
+export async function getPageComponentsProps(path = '/', lang: string) {
   try {
     const res = await strapiFetcher.call(
       {
-        path: `/api/page/home?populate=deep&locale=${lang}`,
+        path: `/api/page/path/${btoa(path)}?locale=${lang}`,
         method: 'GET'
       }
     )
     const pageComponents = res.body.filter((item) => Object.keys(components).includes(item.__component.split('.')[1]))
-    const lastItemIndex = pageComponents.length - 1
-    const lastItem = pageComponents[lastItemIndex]
-    const header = await getSingleTypeProps('header', lang)
-    pageComponents.unshift({...header, __component: 'header.header'})
-    const footer = await getSingleTypeProps('footer', lang)
-    if (lastItem.__component.split('.')[1].includes('footer')) {
-      pageComponents[lastItemIndex] = {...footer, ...lastItem}
-    } else {
-      pageComponents.push({...footer, __component: 'footer.footer'})
-    }
     for (const itemIndex in pageComponents) {
       const item = pageComponents[itemIndex]
       const key = item.__component.split('.')[1]
@@ -32,17 +21,6 @@ export async function getPageComponentsProps(lang: string) {
     }
     return pageComponents
   } catch (error) {
-    console.error(error)
+    console.log(error)
   }
-}
-
-export async function getSingleTypeProps(component, lang) {
-  const strapiFetcher = new Fetcher(strapiAPI, {Authorization: `Bearer ${strapiAPIToken}`})
-  const res = await strapiFetcher.call(
-    {
-      path: `/api/${component}?populate=deep&locale=${lang}`,
-      method: 'GET'
-    }
-  )
-  return await getPropsFromNestedObjects(components[component].props, res.data.attributes)
 }

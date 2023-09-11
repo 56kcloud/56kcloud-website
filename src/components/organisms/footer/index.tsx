@@ -9,7 +9,7 @@ import voila from '../../../../public/images/logos/voila.webp'
 
 export default function Footer({background='cover', logo, links, address, title, gMapAddress}: FooterProps) {  
   const internalLinks: Array<LinkProps> = links.map(link => ({
-    href: link.href,
+    href: link.href || '',
     children: link.title
   }))
 

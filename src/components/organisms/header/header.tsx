@@ -25,7 +25,7 @@ export default function Header({logo, links}) {
   const pathname = usePathname()
 
   const navigation: Array<LinkProps> = links.map((link) => ({
-    href: link.href,
+    href: link.href || '',
     children: link.title
   }))
 
