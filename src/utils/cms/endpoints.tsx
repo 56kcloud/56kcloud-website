@@ -21,6 +21,6 @@ export async function getPageComponentsProps(path = '/', lang: string) {
     }
     return pageComponents
   } catch (error) {
-    console.error(error)
+    console.log(error)
   }
 }

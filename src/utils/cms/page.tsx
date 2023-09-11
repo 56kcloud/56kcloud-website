@@ -16,14 +16,18 @@ export async function getPropsFromNestedObjects(schema, object) {
         || deepFind(object, `${pathFirstKey}.data.attributes.${path.join('.')}`)
         || path.splice(path.length - 1, 1, key) && deepFind(object, `${pathFirstKey}.${path.join('.')}`)
         if (key === 'blurDataURL') {
+          console.log(value)
           const res = await fetch(value, {method: 'GET'})
           const buffer = Buffer.from(await res.arrayBuffer())
           const {base64} = await getPlaiceholder(buffer)
           temp[key] = base64
           break
         } else if (value) {
+          // console.log('value', value)
           temp[key] = value
           break
+        } else {
+          temp[key] = null
         }
       }
     } else if (Array.isArray(schema[key])) {

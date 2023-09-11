@@ -163,41 +163,41 @@ export const components = {
       ]
     }
   },
-  'blog-post': {
+  'blog-content': {
     component: PostDetail,
     props: {
-      title: 'title',
-      content: 'content',
-      description: 'description',
-      slug: 'slug',
-      readTime: 'readTime',
+      title: 'blog_post.title',
+      content: 'blog_post.content',
+      description: 'blog_post.description',
+      slug: 'blog_post.slug',
+      readTime: 'blog_post.readTime',
       tags: [
         {
-          name: 'name'
+          name: 'blog_post.tags.name'
         }
       ],
-      publishedOn: 'publishedOn',
+      publishedOn: 'blog_post.publishedOn',
       cover: {
-        name: 'cover.name',
-        alt: 'cover.alternativeText',
-        src: 'cover.url',
-        blurDataURL: 'cover.formats.thumbnail.url',
-        width: 'cover.width',
-        height: 'cover.height'
+        name: 'blog_post.cover.name',
+        alt: 'blog_post.cover.alternativeText',
+        src: 'blog_post.cover.url',
+        blurDataURL: 'blog_post.cover.formats.thumbnail.url',
+        width: 'blog_post.cover.width',
+        height: 'blog_post.cover.height'
       },
       author: {
-        name: 'author.name',
+        name: 'blog_post.author.name',
         avatar: {
-          name: 'author.avatar.name',
-          alt: 'author.avatar.alternativeText',
-          src: 'author.avatar.url',
-          blurDataURL: 'author.avatar.formats.thumbnail.url',
-          width: 'author.avatar.width',
-          height: 'author.avatar.height'
+          name: 'blog_post.author.avatar.name',
+          alt: 'blog_post.author.avatar.alternativeText',
+          src: 'blog_post.author.avatar.url',
+          blurDataURL: 'blog_post.author.avatar.formats.thumbnail.url',
+          width: 'blog_post.author.avatar.width',
+          height: 'blog_post.author.avatar.height'
         },
-        bio: 'author.bio',
-        twitter: 'author.twitter',
-        website: 'author.website'
+        bio: 'blog_post.author.bio',
+        twitter: 'blog_post.author.twitter',
+        website: 'blog_post.author.website'
       }
     }
   },

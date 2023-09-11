@@ -1,5 +1,5 @@
 import {Author} from '@/models/blog/blog-preview'
-import {LinkIcon} from '@heroicons/react/outline'
+import {Link2} from 'lucide-react'
 import {Twitter} from '@/components/svgs/logos/twitter'
 import Avatar from '@/components/atoms/avatar'
 import Button from '@/components/atoms/button'
@@ -16,7 +16,8 @@ export default function AuthorCard({author}: AuthorCardProps) {
         <Avatar
           size='lg'
           image={author.avatar}
-          alt={'postAvatarImageAlt'}/>
+          alt={'postAvatarImageAlt'}
+        />
       </div>
       <div className='space-y-2'>
         <h1 className='text-2xl title line-clamp-2'>
@@ -25,7 +26,7 @@ export default function AuthorCard({author}: AuthorCardProps) {
         <p className='max-w-2xl mt-2 text-base text-grey-light line-clamp-3'>
           {author.bio}
         </p>
-        <div className='flex'>
+        <div className='flex space-x-2'>
           {author.twitter &&
             <Button
               asChild
@@ -42,7 +43,7 @@ export default function AuthorCard({author}: AuthorCardProps) {
               variant='link'
             >
               <Link href={author.website}>
-                <LinkIcon className='w-4 h-4'/>
+                <Link2 className='w-4 h-4'/>
               </Link>
             </Button>
           }

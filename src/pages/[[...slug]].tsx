@@ -13,7 +13,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(options) {
-  const components = await getPageComponentsProps(options.params.slug, options.locale)
+  const test = await getPageComponentsProps(options.params.slug?.join('/'), options.locale)
+  const components = test
   return {
     props: {
       components
