@@ -5,8 +5,15 @@ export default function Home({components}) {
   return getPageComponents(components)
 }
 
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: true
+  }
+}
+
 export async function getStaticProps(options) {
-  const components = await getPageComponentsProps('home', options.locale)
+  const components = await getPageComponentsProps(options.params.slug, options.locale)
   return {
     props: {
       components

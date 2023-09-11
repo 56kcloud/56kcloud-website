@@ -25,7 +25,8 @@ export const components = {
       links: [
         {
           title: 'title',
-          href: 'href'
+          externalLink: 'externalLink',
+          page: 'page'
         }
       ]
     }
@@ -45,7 +46,8 @@ export const components = {
       links: [
         {
           title: 'title',
-          href: 'href'
+          externalLink: 'externalLink',
+          page: 'page'
         }
       ],
       gMapAddress: 'gMapAddress',
