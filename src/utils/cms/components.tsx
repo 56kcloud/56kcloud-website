@@ -1,20 +1,25 @@
-import BackgroundImage from '@/components/atoms/background-image'
-import CompanyList from '@/components/organisms/company-list'
-import Footer from '@/components/organisms/footer'
-import Header from '@/components/organisms/header/header'
-import HomeHero from '@/components/organisms/home-hero'
-import IllustrationCardList from '@/components/organisms/card-list/illustration'
-import MediumTitleSection from '@/components/molecules/title-section/medium'
-import PostCardList from '@/components/organisms/card-list/post'
-import PostDetail from '@/components/molecules/post'
-import SmallTitleSection from '@/components/molecules/title-section/small'
-import TagsFilter from '@/components/molecules/tags-filter'
+import BackgroundImage from '@/components/ui/atoms/background-image'
+import BlogContentSection from '@/components/ui/molecules/blog/content-section'
+import CenteredLayout from '@/components/ui/organisms/layouts/7xl'
+import CompanyList from '@/components/ui/organisms/lists/company'
+import Footer from '@/components/ui/organisms/footer'
+import Head from 'next/head'
+import Header from '@/components/ui/organisms/header/header'
+import HomeHero from '@/components/ui/organisms/heros/home'
+import IllustrationCardList from '@/components/ui/organisms/lists/illustration'
+import MediumTitleSection from '@/components/ui/molecules/title-sections/medium'
+import PostCardList from '@/components/ui/organisms/lists/blog-post'
+import RelatedBlogPostsSection from '@/components/ui/molecules/blog/related-blog-posts-section'
+import SmallTitleSection from '@/components/ui/molecules/title-sections/small'
+import TagsFilter from '@/components/ui/molecules/tag-filter'
+import TeamMemberCard from '@/components/ui/molecules/cards/team-member'
 
 export const components = {
   'header': {
     component: Header,
     type: 'singleType',
     props: {
+      isFloating: 'isFloating',
       logo: {
         name: 'logo.name',
         alt: 'logo.alternativeText',
@@ -115,6 +120,12 @@ export const components = {
       ]
     }
   },
+  'team-member-card': {
+    component: TeamMemberCard,
+    props: {
+      teamMember: 'teamMember'
+    }
+  },
   'tags-filter': {
     component: TagsFilter,
     props: {
@@ -163,42 +174,77 @@ export const components = {
       ]
     }
   },
-  'blog-content': {
-    component: PostDetail,
+  'related-blog-posts-section': {
+    component: RelatedBlogPostsSection,
     props: {
-      title: 'blog_post.title',
-      content: 'blog_post.content',
-      description: 'blog_post.description',
-      slug: 'blog_post.slug',
-      readTime: 'blog_post.readTime',
+      title: 'title',
+      blogPosts: [
+        {
+          title: 'title',
+          description: 'description',
+          slug: 'slug',
+          readTime: 'readTime',
+          tags: [
+            {
+              name: 'name'
+            }
+          ],
+          publishedOn: 'publishedOn',
+          cover: {
+            name: 'cover.name',
+            alt: 'cover.alternativeText',
+            src: 'cover.url',
+            blurDataURL: 'cover.formats.thumbnail.url',
+            width: 'cover.width',
+            height: 'cover.height'
+          },
+          author: {
+            name: 'author.name',
+            avatar: {
+              name: 'author.avatar.name',
+              alt: 'author.avatar.alternativeText',
+              src: 'author.avatar.url',
+              blurDataURL: 'author.avatar.formats.thumbnail.url',
+              width: 'author.avatar.width',
+              height: 'author.avatar.height'
+            }
+          }
+        }
+      ]
+    }
+  },
+  'blog-content-section': {
+    component: BlogContentSection,
+    props: {
+      title: 'title',
+      content: 'content',
       tags: [
         {
-          name: 'blog_post.tags.name'
+          name: 'name'
         }
       ],
-      publishedOn: 'blog_post.publishedOn',
       cover: {
-        name: 'blog_post.cover.name',
-        alt: 'blog_post.cover.alternativeText',
-        src: 'blog_post.cover.url',
-        blurDataURL: 'blog_post.cover.formats.thumbnail.url',
-        width: 'blog_post.cover.width',
-        height: 'blog_post.cover.height'
-      },
-      author: {
-        name: 'blog_post.author.name',
-        avatar: {
-          name: 'blog_post.author.avatar.name',
-          alt: 'blog_post.author.avatar.alternativeText',
-          src: 'blog_post.author.avatar.url',
-          blurDataURL: 'blog_post.author.avatar.formats.thumbnail.url',
-          width: 'blog_post.author.avatar.width',
-          height: 'blog_post.author.avatar.height'
-        },
-        bio: 'blog_post.author.bio',
-        twitter: 'blog_post.author.twitter',
-        website: 'blog_post.author.website'
+        name: 'cover.name',
+        alt: 'cover.alternativeText',
+        src: 'cover.url',
+        blurDataURL: 'cover.formats.thumbnail.url',
+        width: 'cover.width',
+        height: 'cover.height'
       }
+      // author: {
+      //   name: 'blog_post.author.name',
+      //   avatar: {
+      //     name: 'blog_post.author.avatar.name',
+      //     alt: 'blog_post.author.avatar.alternativeText',
+      //     src: 'blog_post.author.avatar.url',
+      //     blurDataURL: 'blog_post.author.avatar.formats.thumbnail.url',
+      //     width: 'blog_post.author.avatar.width',
+      //     height: 'blog_post.author.avatar.height'
+      //   },
+      //   bio: 'blog_post.author.bio',
+      //   twitter: 'blog_post.author.twitter',
+      //   website: 'blog_post.author.website'
+      // }
     }
   },
   'background-image': {
@@ -230,6 +276,28 @@ export const components = {
       }
     }
   }
+}
+
+export const layouts = {
+  'CenteredLayout': {
+    component: CenteredLayout
+  }
+}
+
+export function createPage(layout, children, openGraph) {
+  const Layout = layouts[layout]?.component
+  return (<>
+    <Head>
+      {openGraph && Object.keys(openGraph).map((key) => <meta
+        property={`og:${key}`}
+        content={openGraph[key]}
+        key={key}
+      />
+      )}
+    </Head>
+    {Layout ? <Layout>{children}</Layout> : children}
+  </>
+  )
 }
 
 export function getPageComponents(comps) {

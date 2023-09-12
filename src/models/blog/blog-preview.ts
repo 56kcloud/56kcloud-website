@@ -162,7 +162,7 @@ export type NotionPostAuthor = {
   url: string
 }
 
-export type Author = {
+export type TeamMember = {
   avatar: string
   name: string
   bio: string

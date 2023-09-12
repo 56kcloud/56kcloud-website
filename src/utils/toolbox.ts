@@ -90,3 +90,27 @@ export const deepFind = (object, path) => {
   }
   return current
 }
+
+export function snakeCaseToCamelCase(str: string) {
+  return str.replace(/([-_][a-z])/g, $1 => $1.toUpperCase().replace('-', '').replace('_', ''))
+}
+
+export function snakeCaseObjectKeysToCamelCase(snakeCaseObject: Record<string, unknown>) {
+  if (snakeCaseObject == null) {
+    return snakeCaseObject
+  }
+
+  Object.keys(snakeCaseObject).forEach(key => {
+    const camelCaseKey = snakeCaseToCamelCase(key)
+    if (camelCaseKey !== key) {
+      snakeCaseObject[camelCaseKey] = snakeCaseObject[key]
+      delete snakeCaseObject[key]
+    }
+    if (typeof snakeCaseObject[camelCaseKey] === 'object') {
+      snakeCaseObject[camelCaseKey] = 
+        snakeCaseObjectKeysToCamelCase(snakeCaseObject[camelCaseKey] as Record<string, unknown>)
+    }
+  })
+
+  return snakeCaseObject
+}
