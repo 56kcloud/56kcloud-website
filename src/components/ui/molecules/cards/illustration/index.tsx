@@ -1,4 +1,4 @@
-import {IllustrationCardPropsImpl} from '@/components/ui/molecules/card/illustration/illustration-card.model'
+import {IllustrationCardPropsImpl} from './illustration-card.model'
 import {cn} from '@/utils/toolbox'
 import {padNumberWithZeroes} from '@/utils/toolbox'
 import Image from 'next/image'

@@ -10,7 +10,7 @@ export class Fetcher {
   baseUrl: URL
   headers: HeadersInit
 
-  constructor(baseUrl: string, headers) {
+  constructor(baseUrl: string, headers: HeadersInit) {
     this.baseUrl = new URL(baseUrl)
     this.headers = headers
   }

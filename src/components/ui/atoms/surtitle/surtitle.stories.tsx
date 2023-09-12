@@ -1,4 +1,4 @@
-import Surtitle from './index'
+import Surtitle, {SurtitleProps} from './index'
 import type {Meta} from '@storybook/react'
 
 const meta = {
@@ -19,5 +19,5 @@ export default meta
 
 export const Default = {
   name: 'Default',
-  render: (args) => <Surtitle {...args}/>
+  render: (args: SurtitleProps) => <Surtitle {...args}/>
 }

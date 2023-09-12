@@ -1,13 +1,16 @@
+import {ReactNode} from 'react'
 import BackgroundImage from '@/components/ui/atoms/background-image'
 import BlogContentSection from '@/components/ui/molecules/blog/content-section'
 import CenteredLayout from '@/components/ui/organisms/layouts/7xl'
 import CompanyList from '@/components/ui/organisms/lists/company'
+import FeatureList from '@/components/ui/organisms/lists/feature'
 import Footer from '@/components/ui/organisms/footer'
 import Head from 'next/head'
 import Header from '@/components/ui/organisms/header/header'
 import HomeHero from '@/components/ui/organisms/heros/home'
 import IllustrationCardList from '@/components/ui/organisms/lists/illustration'
 import MediumTitleSection from '@/components/ui/molecules/title-sections/medium'
+import PartnerList from '@/components/ui/organisms/lists/partner'
 import PostCardList from '@/components/ui/organisms/lists/blog-post'
 import RelatedBlogPostsSection from '@/components/ui/molecules/blog/related-blog-posts-section'
 import SmallTitleSection from '@/components/ui/molecules/title-sections/small'
@@ -77,6 +80,25 @@ export const components = {
       ]
     }
   },
+  'partner-list': {
+    component: PartnerList,
+    props: {
+      title: 'title',
+      partners: [
+        {
+          name: 'name',
+          url: 'url',
+          logo: {
+            name: 'logo.name',
+            alt: 'logo.alternativeText',
+            src: 'logo.url',
+            width: 'logo.width',
+            height: 'logo.height'
+          }
+        }
+      ]
+    }
+  },
   'small-title-section': {
     component: SmallTitleSection,
     props: {
@@ -132,6 +154,26 @@ export const components = {
       tags: [
         {
           name: 'name'
+        }
+      ]
+    }
+  },
+  'feature-list': {
+    component: FeatureList,
+    props: {
+      title: 'title',
+      subtitle: 'subtitle',
+      features: [
+        {
+          name: 'name',
+          description: 'description',
+          icon: {
+            name: 'icon.name',
+            alt: 'icon.alternativeText',
+            src: 'icon.formats.thumbnail.url',
+            width: 'icon.width',
+            height: 'icon.height'
+          }
         }
       ]
     }
@@ -231,20 +273,6 @@ export const components = {
         width: 'cover.width',
         height: 'cover.height'
       }
-      // author: {
-      //   name: 'blog_post.author.name',
-      //   avatar: {
-      //     name: 'blog_post.author.avatar.name',
-      //     alt: 'blog_post.author.avatar.alternativeText',
-      //     src: 'blog_post.author.avatar.url',
-      //     blurDataURL: 'blog_post.author.avatar.formats.thumbnail.url',
-      //     width: 'blog_post.author.avatar.width',
-      //     height: 'blog_post.author.avatar.height'
-      //   },
-      //   bio: 'blog_post.author.bio',
-      //   twitter: 'blog_post.author.twitter',
-      //   website: 'blog_post.author.website'
-      // }
     }
   },
   'background-image': {
@@ -284,8 +312,8 @@ export const layouts = {
   }
 }
 
-export function createPage(layout, children, openGraph) {
-  const Layout = layouts[layout]?.component
+export function createPage(layout: string, children: Array<ReactNode>, openGraph: Record<string, string>) {
+  const Layout = layouts[layout as keyof typeof layouts]?.component
   return (<>
     <Head>
       {openGraph && Object.keys(openGraph).map((key) => <meta
@@ -300,10 +328,12 @@ export function createPage(layout, children, openGraph) {
   )
 }
 
-export function getPageComponents(comps) {
+export function getPageComponents(comps: Array<Record<string, string>>) {
   return comps?.map((item, index) => {
-    const Comp = components[item.component]?.component
+    const Comp = components[item.component as keyof typeof components]?.component
+    // @ts-ignore
     return Comp ? <Comp
+    // @ts-ignore
       {...item.props}
       key={index}
     /> : null

@@ -1,6 +1,14 @@
+import {ImageProps} from '@/models/image.model'
 import Image from 'next/image'
 
-export default function HomeHero({titleLine1, titleLine2, titleLine3, background}) {  
+export type HomeHeroProps = {
+  titleLine1: string
+  titleLine2: string
+  titleLine3: string
+  background: ImageProps
+}
+
+export default function HomeHero({titleLine1, titleLine2, titleLine3, background}: HomeHeroProps) {  
   return (
     <div className='relative pt-24 overflow-hidden bg-white sm:pt-0'>
       <Image

@@ -1,6 +1,6 @@
 import {cn} from '@/utils/toolbox'
 
-type VerticalTitleProps = {
+export type VerticalTitleProps = {
   styleCard: 'illustrationCard' | 'detailsCard'
   title: string
   classNameText?: string

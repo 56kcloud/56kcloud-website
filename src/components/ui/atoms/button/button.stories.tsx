@@ -1,4 +1,4 @@
-import {buttonAlignments, buttonShapes, buttonSizes, buttonTones, buttonVariants} from './button.model'
+import {ButtonPropsImpl, buttonAlignments, buttonShapes, buttonSizes, buttonTones, buttonVariants} from './button.model'
 import Button from './index'
 import type {Meta} from '@storybook/react'
 
@@ -49,12 +49,12 @@ export default meta
 
 export const Default = {
   name: 'Default',
-  render: (args) => <Button {...args}>Default</Button>
+  render: (args: ButtonPropsImpl) => <Button {...args}>Default</Button>
 }
 
 export const Variants = {
   name: 'Variants',
-  render: (args) => (
+  render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
       {buttonTones.map(tone => 
         <Button
@@ -71,7 +71,7 @@ export const Variants = {
 
 export const VariantsLinks = {
   name: 'Variants - Link',
-  render: (args) => (
+  render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
       {buttonTones.map(tone => 
         <Button
@@ -88,7 +88,7 @@ export const VariantsLinks = {
 
 export const VariantsGhosts = {
   name: 'Variants - Ghost',
-  render: (args) => (
+  render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
       {buttonTones.map(tone => 
         <Button
@@ -106,7 +106,7 @@ export const VariantsGhosts = {
 
 export const Sizes = {
   name: 'Sizes',
-  render: (args) => (
+  render: (args: ButtonPropsImpl) => (
     <div className='flex items-center space-x-2'>
       {buttonSizes.map(size => 
         <Button
@@ -123,7 +123,7 @@ export const Sizes = {
 
 export const Shapes = {
   name: 'Shapes',
-  render: (args) => (
+  render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
       {buttonShapes.map(shape => 
         <Button
@@ -139,7 +139,7 @@ export const Shapes = {
 
 export const Alignments = {
   name: 'Alignments',
-  render: (args) => (
+  render: (args: ButtonPropsImpl) => (
     <div className='flex flex-col'>
       {buttonAlignments.map((alignment, i) => {
         return (
@@ -168,7 +168,7 @@ export const Alignments = {
 
 export const leading = {
   name: 'With leading',
-  render: (args) => 
+  render: (args: ButtonPropsImpl) => 
     <Button
       {...args}
       leading={<span className='pr-2'>With leading</span>}>Button
@@ -177,7 +177,7 @@ export const leading = {
 
 export const trailing = {
   name: 'With trailing',
-  render: (args) => 
+  render: (args: ButtonPropsImpl) => 
     <Button
       {...args}
       trailing={<span className='pl-2'>With trailing</span>}>Button
@@ -186,7 +186,7 @@ export const trailing = {
 
 export const Loading = {
   name: 'Loading',
-  render: (args) => (
+  render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
       {buttonTones.map(tone => 
         <Button
@@ -204,7 +204,7 @@ export const Loading = {
 
 export const Disabled = {
   name: 'Disabled',
-  render: (args) => (
+  render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
       {buttonTones.map(tone => 
         <Button

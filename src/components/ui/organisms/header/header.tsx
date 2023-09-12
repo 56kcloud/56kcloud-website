@@ -1,7 +1,7 @@
 'use client'
 
 import * as NavbarPrimitive from '@radix-ui/react-dialog'
-import {Image as ImageProps} from '@/models/image.model'
+import {ImageProps} from '@/models/image.model'
 import {LinkProps} from '@/models/link.model'
 import {Logo} from '../../svgs/logos/56k'
 import {Menu} from '../../svgs/icons/menu'
@@ -20,7 +20,6 @@ export type HeaderProps = {
   isFloating?: boolean
 }
 
-
 export default function Header({logo, links, isFloating}: HeaderProps) {
   const {t} = useTranslation()
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -28,7 +27,7 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
 
   const navigation: Array<LinkProps> = links.map((link) => ({
     href: link.href || '',
-    children: link.title
+    children: link.children
   }))
 
   const sidebarHandler = () => {
@@ -119,10 +118,8 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
                   href='/'
                   aria-label='56k cloud logo'>
                   <Image
-                    src={logo.src}
-                    alt={logo.alt}
-                    width={logo.width}
-                    height={logo.height}
+                    {...logo}
+                    alt='altLogo56k'
                     className='w-auto h-7 lg:h-10'
                   />
                 </Link>

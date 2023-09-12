@@ -8,4 +8,5 @@ export const imageSchema = z.object({
   height: z.number(),
   blurDataURL: z.string().optional()
 })
-export type Image = z.infer<typeof imageSchema>
+
+export type ImageProps = z.infer<typeof imageSchema>

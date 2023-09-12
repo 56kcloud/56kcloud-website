@@ -1,4 +1,7 @@
-export default async function handler(req, res) {
+import {NextApiResponse} from 'next'
+import {NextRequest} from 'next/server'
+
+export default async function handler(req: NextRequest, res: NextApiResponse) {
   try {
     // this should be the actual path not a rewritten path
     // e.g. for "/blog/[slug]" this should be "/blog/post-1"

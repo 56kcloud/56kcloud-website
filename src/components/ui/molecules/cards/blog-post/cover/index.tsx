@@ -1,20 +1,25 @@
+import {ImageProps} from '@/models/image.model'
 import {Logo} from '@/components/ui/svgs/logos/56k'
 import {cn} from '@/utils/toolbox'
 import {useEffect, useRef, useState} from 'react'
 import Image from 'next/image'
 
-export default function BlogPostCover({image}) {
+type BlogPostCoverProps = {
+  image: ImageProps
+}
+
+export default function BlogPostCover({image}: BlogPostCoverProps) {
   const [isLoaded, setIsLoaded] = useState(false)
   
   const [height, setHeight] = useState('200px')
-  const coverParent = useRef(null)
+  const coverParent = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const parentWidth = coverParent.current?.offsetWidth
     const {width, height} = image
     if (parentWidth) {
-      if (coverParent.current.style.height !== height) {
-        setHeight(`${parentWidth * (parseInt(height)/parseInt(width))}px`)
+      if (coverParent.current && parseInt(coverParent.current.style.height) !== height) {
+        setHeight(`${parentWidth * (height/width)}px`)
       }
     }
   }, [])
@@ -23,7 +28,7 @@ export default function BlogPostCover({image}) {
     <div
       className={cn('relative w-full rounded-lg')}
       ref={coverParent}
-      style={{height: `${image.width * (parseInt(height)/parseInt(image.width))}px`}}
+      style={{height: `${image.width * (parseInt(height)/image.width)}px`}}
     >
       {!isLoaded 
         ? <div className='flex items-center justify-center w-full h-full p-10 bg-gray-50 animate-pulse grayscale'>
