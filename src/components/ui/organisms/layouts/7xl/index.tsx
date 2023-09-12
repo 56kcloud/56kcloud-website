@@ -1,4 +1,9 @@
-export default function CenteredLayout({children}) {
+
+export type CenteredLayoutProps = {
+  children: Array<React.ReactNode>
+}
+
+export default function CenteredLayout({children}: CenteredLayoutProps) {
   const header = children[0]
   const footer = children[children.length - 1]
   const body = children.slice(1, children.length - 1)

@@ -11,19 +11,21 @@ export type TagFilterProps = {
 
 export default function TagFilter({tags}: TagFilterProps) {
   const router = useRouter()
-  const slider = useRef(null)
+  const slider = useRef<HTMLDivElement>(null)
   const tagsList = [{name: 'all'}, ...tags]
   
   function slide(direction: 'left' | 'right') {
     const scroll =  direction === 'right' ? 400 : -400
-    slider.current.scrollBy({left: scroll, behavior: 'smooth'})
+    slider.current?.scrollBy({left: scroll, behavior: 'smooth'})
   }
 
   useEffect(() => {
     if (router.query.tag) {
       const element = document.getElementById(router.query.tag.toString())
-      const scroll = element.offsetLeft - (element.offsetWidth + element.offsetWidth/2)
-      slider.current.scrollTo({left: scroll, behavior: 'smooth'})
+      if (element) {
+        const scroll = element.offsetLeft - (element.offsetWidth + element.offsetWidth/2)
+        slider.current?.scrollTo({left: scroll, behavior: 'smooth'})
+      }
     }
   }, [router.query.tag])
   

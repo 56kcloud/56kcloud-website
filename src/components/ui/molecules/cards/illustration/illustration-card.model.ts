@@ -1,9 +1,9 @@
-import {Image} from '@/models/image.model'
+import {ImageProps} from '@/models/image.model'
 import {StaticImageData} from 'next/image'
 
 export type IllustrationCardPropsImpl = {
   number: number
-  illustration: Image
+  illustration: ImageProps
   icon: StaticImageData
   title: string
   description: string

@@ -77,10 +77,8 @@ export default function Footer({background='cover', logo, links, address, title,
               aria-label='56k logo'
             >
               <Image
-                src={logo.src}
-                alt={logo.alt}
-                width={logo.width}
-                height={logo.height}
+                {...logo}
+                alt='altLogo56k'
                 className='w-28'
               />
             </Link>

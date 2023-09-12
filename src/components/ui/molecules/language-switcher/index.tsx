@@ -5,7 +5,7 @@ export default function LanguageSwitcher() {
   const router = useRouter()
   const currentLocale = router.locale
   
-  function updateLanguage(lang) {
+  function updateLanguage(lang: string) {
     router.push(`${router.pathname}`, `${router.pathname}`, {locale: lang.toLowerCase()})
   }
   
@@ -19,7 +19,7 @@ export default function LanguageSwitcher() {
       <SelectValue/>
     </SelectTrigger>
     <SelectContent>
-      {router.locales.map((locale) => (
+      {router.locales?.map((locale) => (
         <SelectItem
           className='uppercase'
           key={locale}

@@ -1,4 +1,4 @@
-import {Image as ImageProps} from '@/models/image.model'
+import {ImageProps} from '@/models/image.model'
 import Image from 'next/image'
 
 export default function BackgroundImage({background}: {background: ImageProps}) {

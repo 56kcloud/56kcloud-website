@@ -1,3 +1,4 @@
+import {BlogPost} from '@/models/blog-post.model'
 import {formatDate} from '@/utils/toolbox'
 import {motion} from 'framer-motion'
 import Avatar from '@/components/ui/atoms/avatar'
@@ -5,8 +6,12 @@ import Link from 'next/link'
 import PostCover from './cover'
 import PostTagList from './tag-list'
 
-export default function BlogPostCard({post}) {
-  const publishedOn = formatDate(post.publishedOn)
+type BlogPostCardProps = {
+  blogPost: BlogPost
+}
+
+export default function BlogPostCard({blogPost}: BlogPostCardProps) {
+  const publishedOn = formatDate(blogPost.publishedOn)
   return (
     <motion.div
       initial={{opacity: 0}}
@@ -15,39 +20,39 @@ export default function BlogPostCard({post}) {
       transition={{duration: 0.2}}
     >
       <Link
-        href={`/blog/${post.slug}`}
+        href={`/blog/${blogPost.slug}`}
         className='relative flex flex-col overflow-hidden duration-200 bg-white rounded-lg shadow-lg cursor-pointer \
       hover:shadow-2xl hover:scale-105'>
-        <PostCover image={post.cover}/>
+        <PostCover image={blogPost.cover}/>
         <div
           className='flex flex-col py-6 pl-6 bg-white'>
-          <PostTagList tags={post.tags}/>
+          <PostTagList tags={blogPost.tags}/>
           <div className='pr-6'>
             <h1
               className='text-2xl line-clamp-2 text-grey-dark title'>
-              {post.title}
+              {blogPost.title}
             </h1>
             <p 
               className='mt-2 text-base text-grey-light line-clamp-3'>
-              {post.description}
+              {blogPost.description}
             </p>
             <div
               className='flex flex-wrap items-center mt-8 text-sm gap-x-3 text-grey-light'>
               <Avatar
-                image={post.author.avatar.src}
-                alt={post.author.avatar.alt || 'author'}
+                image={blogPost.author.avatar.src}
+                alt={blogPost.author.avatar.alt || 'author'}
               />
               <div className='flex flex-col'>
                 <span>
                   by{' '}
                   <span className='font-normal text-grey-dark'>
-                    {post.author.name}
+                    {blogPost.author.name}
                   </span>
                 </span>
                 <div className='flex gap-x-2'>
                   <span>{publishedOn}</span>
                   <span>|</span>
-                  <span>{post.readTime} minute{post.readTime > 1 ? 's' : ''} read</span>
+                  <span>{blogPost.readTime} minute{blogPost.readTime > 1 ? 's' : ''} read</span>
                 </div>
               </div>
             </div>

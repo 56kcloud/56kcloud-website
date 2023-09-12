@@ -1,5 +1,6 @@
 import IllustrationCard from './index'
 // import devops from '../../../../../public/images/illustrations/devops.webp'
+import {IllustrationCardPropsImpl} from './illustration-card.model'
 import docker from '../../../../../public/images/icons/docker.webp'
 import type {Meta} from '@storybook/react'
 
@@ -32,12 +33,12 @@ export default meta
 
 export const Default = {
   name: 'Default',
-  render: (args) => <IllustrationCard {...args}/>
+  render: (args: IllustrationCardPropsImpl) => <IllustrationCard {...args}/>
 }
 
 export const Light = {
   name: 'Light',
-  render: (args) => 
+  render: (args: IllustrationCardPropsImpl) => 
     <IllustrationCard
       theme='light'
       {...args}

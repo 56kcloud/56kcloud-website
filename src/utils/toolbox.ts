@@ -1,45 +1,44 @@
-import * as humanizeDuration from 'humanize-duration'
 import {ClassValue, clsx} from 'clsx'
-import {HsformsPayload, HsformsPayloadItem, contactUsFormData} from '../models/contact-us-form-data.model'
 import {format} from 'date-fns'
 import {twMerge} from 'tailwind-merge'
+import humanizeDuration from 'humanize-duration'
 import slugify from 'slugify'
  
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function toQueryParam(string) {
+export function toQueryParam(string: string) {
   return slugify(string.toLowerCase())
 }
 
-export function createHsformsPayload(data) {
-  const legalConsent = data.legalConsent
-  delete data.legalConsent
-  return {
-    fields: formatFormDataToHsforms(data),
-    legalConsentOptions:{
-      consent:{
-        consentToProcess: true,
-        text:'Text that gives consent to process',
-        communications:[
-          {
-            value: legalConsent,
-            subscriptionTypeId: 9310596,
-            text:'I agree to receive additional communications from 56K.Cloud GmbH'
-          }
-        ]
-      }
-    }
-  } as HsformsPayload
-}
+// export function createHsformsPayload(data: s) {
+//   const legalConsent = data.legalConsent
+//   delete data.legalConsent
+//   return {
+//     fields: formatFormDataToHsforms(data),
+//     legalConsentOptions:{
+//       consent:{
+//         consentToProcess: true,
+//         text:'Text that gives consent to process',
+//         communications:[
+//           {
+//             value: legalConsent,
+//             subscriptionTypeId: 9310596,
+//             text:'I agree to receive additional communications from 56K.Cloud GmbH'
+//           }
+//         ]
+//       }
+//     }
+//   } as HsformsPayload
+// }
 
-export function formatFormDataToHsforms(data: contactUsFormData) {
-  return Object.keys(data).map(key => ({
-    name: key, 
-    value: data[key]
-  } as HsformsPayloadItem))
-}
+// export function formatFormDataToHsforms(data: contactUsFormData) {
+//   return Object.keys(data).map(key => ({
+//     name: key, 
+//     value: data[key]
+//   } as HsformsPayloadItem))
+// }
 
 export function formatDate(date: string, to = 'dd MMM yyyy') {
   return format(new Date(date), to)
@@ -50,7 +49,7 @@ export function humanizeSecondsToMinutes(seconds: number) {
   return time
 }
 
-export function padNumberWithZeroes(number, length) {
+export function padNumberWithZeroes(number: number, length: number) {
   let str = number.toString()
   while (str.length < length) {
     str = '0' + str
@@ -77,12 +76,12 @@ export function mergeNestedObject(obj: Record<string, any>, objToMerge: Record<s
   return obj
 }
 
-export const deepFind = (object, path) => {
-  let paths = path.split('.')
-    , current = object
-    , i
+export const deepFind = (object: Record<string, unknown>, path: string) => {
+  const paths = path.split('.')
+  let current: any = object
+  let i
   for (i = 0; i < paths.length; ++i) {
-    if (!current || current[paths[i]] == undefined) {
+    if (!current || current[paths[i]] === undefined) {
       return undefined
     } else {
       current = current[paths[i]]

@@ -1,4 +1,4 @@
-import VerticalTitle from './index'
+import VerticalTitle, {VerticalTitleProps} from './index'
 import type {Meta} from '@storybook/react'
 
 const meta = {
@@ -19,7 +19,7 @@ export default meta
 
 export const Default = {
   name: 'Default',
-  render: (args) => <div className='h-96'>
+  render: (args: VerticalTitleProps) => <div className='h-96'>
     <div className='text-black xl:hidden'>
       This component is only displayed on large screens.
     </div>

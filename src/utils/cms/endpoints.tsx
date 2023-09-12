@@ -3,7 +3,7 @@ import {getPropsFromNestedObjects} from './page'
 import {snakeCaseObjectKeysToCamelCase} from '../toolbox'
 import {strapiFetcher} from '../../../config'
 
-export async function getPageProps(path = '/', lang: string) {
+export async function getPageProps(path='/', lang='en') {
   try {
     const res = await strapiFetcher.call(
       {
@@ -11,13 +11,18 @@ export async function getPageProps(path = '/', lang: string) {
         method: 'GET'
       }
     )
-    const pageComponents = res.body.filter((item) => Object.keys(components).includes(item.__component.split('.')[1]))
+    const pageComponents = res.body.filter(
+      (item: Record<string, string>) => Object.keys(components).includes(item.__component.split('.')[1])
+    )
     for (const itemIndex in pageComponents) {
       const item = pageComponents[itemIndex]
-      const key = item.__component.split('.')[1]
+      const key: string = item.__component.split('.')[1]
       pageComponents[itemIndex] = {
         component: key,
-        props: await getPropsFromNestedObjects(components[key].props, snakeCaseObjectKeysToCamelCase(item))
+        props: await getPropsFromNestedObjects(
+          components[key as keyof typeof components].props,
+          snakeCaseObjectKeysToCamelCase(item)
+        )
       }
     }
     return {

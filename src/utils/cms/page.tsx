@@ -1,8 +1,8 @@
 import {deepFind} from '../toolbox'
 import {getPlaiceholder} from 'plaiceholder'
 
-export async function getPropsFromNestedObjects(schema, object) {
-  const temp = {}
+export async function getPropsFromNestedObjects(schema: Record<string, any>, object: Record<string, any>) {
+  const temp: Record<string, any> = {}
   const keys = Object.keys(schema)
   for (const keyIndex in keys) {
     const key = keys[keyIndex]
@@ -15,7 +15,7 @@ export async function getPropsFromNestedObjects(schema, object) {
         const value = deepFind(object, options[optionIndex].trim()) 
         || deepFind(object, `${pathFirstKey}.data.attributes.${path.join('.')}`)
         || path.splice(path.length - 1, 1, key) && deepFind(object, `${pathFirstKey}.${path.join('.')}`)
-        if (key === 'blurDataURL') {
+        if (key === 'blurDataURL' && value) {
           const res = await fetch(value, {method: 'GET'})
           const buffer = Buffer.from(await res.arrayBuffer())
           const {base64} = await getPlaiceholder(buffer)

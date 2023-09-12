@@ -1,6 +1,6 @@
 import {cn} from '@/utils/toolbox'
 
-type SurtitleProps = {
+export type SurtitleProps = {
   text: string
   className?: string
 }
