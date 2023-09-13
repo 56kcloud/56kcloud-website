@@ -1,8 +1,8 @@
 import {ImageProps} from '@/models/image.model'
 import {Tag} from '@/models/tag.model'
 import Markdown from 'markdown-to-jsx'
-import PostCover from '../../cards/blog-post/cover'
-import PostTagList from '../../cards/blog-post/tag-list'
+import PostCover from '../../cards/article/cover'
+import PostTagList from '../../cards/article/tag-list'
 
 export type BlogContentSectionProps = {
   cover: ImageProps

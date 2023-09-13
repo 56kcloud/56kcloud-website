@@ -1,5 +1,5 @@
 import {GetStaticPropsContext} from 'next'
-import {createPage, getPageComponents} from '@/utils/cms/components'
+import {createPage, getPageComponents} from '@/utils/cms/renderer/components'
 import {getPageProps} from '@/utils/cms/endpoints'
 
 export type PageProps = {

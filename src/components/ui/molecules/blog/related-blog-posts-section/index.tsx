@@ -1,5 +1,5 @@
-import {BlogPost} from '@/models/blog-post.model'
-import BlogPostList from '@/components/ui/organisms/lists/blog-post'
+import {BlogPost} from '@/models/article.model'
+import BlogPostList from '@/components/ui/organisms/lists/article'
 
 export type RelatedBlogPostsSectionProps = {
   title: string

@@ -14,12 +14,14 @@ export default function Avatar({image, alt, size='sm'}: AvatarProps) {
   }
   
   return (
-    <div className={cn(sizes[size], 'relative flex items-center gap-x-4')}>
-      <Image
-        src={image}
-        alt={alt}
-        fill
-        className='object-cover w-full h-full rounded-full'/>
+    <div className={cn(sizes[size], 'flex items-center gap-x-4')}>
+      <div className='relative w-full h-full bg-gray-100 rounded-full'>
+        {image && <Image
+          src={image}
+          alt={alt}
+          fill
+          className='object-cover w-full h-full'/>}
+      </div>
     </div>
   )
 }
