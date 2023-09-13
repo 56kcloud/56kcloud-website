@@ -4,11 +4,11 @@ import {cn} from '@/utils/toolbox'
 import {useEffect, useRef, useState} from 'react'
 import Image from 'next/image'
 
-type BlogPostCoverProps = {
+type ArticleCoverProps = {
   image: ImageProps
 }
 
-export default function BlogPostCover({image}: BlogPostCoverProps) {
+export default function ArticleCover({image}: ArticleCoverProps) {
   const [isLoaded, setIsLoaded] = useState(false)
   
   const [height, setHeight] = useState('200px')

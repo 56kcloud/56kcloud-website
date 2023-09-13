@@ -3,7 +3,7 @@ import {imageSchema} from './image.model'
 import {teamMemberSchema} from './team-member'
 import {z} from 'zod'
 
-export const blogPostSchema = z.object({
+export const articleSchema = z.object({
   id: z.number(),
   title: z.string(),
   slug: z.string(),
@@ -16,4 +16,4 @@ export const blogPostSchema = z.object({
   author: teamMemberSchema
 })
 
-export type BlogPost = z.infer<typeof blogPostSchema>
+export type Article = z.infer<typeof articleSchema>

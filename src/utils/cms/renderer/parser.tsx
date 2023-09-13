@@ -1,4 +1,4 @@
-import {deepFind} from '../toolbox'
+import {deepFind} from '../../toolbox'
 import {getPlaiceholder} from 'plaiceholder'
 
 export async function getPropsFromNestedObjects(schema: Record<string, any>, object: Record<string, any>) {

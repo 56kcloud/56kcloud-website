@@ -4,11 +4,11 @@ import Badge from '@/components/ui/atoms/badge'
 import Link from 'next/link'
 import slugify from 'slugify'
 
-export type BlogTagListProps = {
+export type ArticleListProps = {
   tags: Array<Tag>
 }
 
-export default function BlogPostTagList({tags}: BlogTagListProps) {
+export default function ArticleTagList({tags}: ArticleListProps) {
   const queryTag = useRouter().query.tag
   const sortedTags = tags?.sort((a,b) => 
     slugify(a.name).toLowerCase() === queryTag ? -1 : slugify(b.name).toLowerCase() === queryTag ? 1 : 0)
