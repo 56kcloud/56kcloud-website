@@ -11,7 +11,7 @@ export type MediumTitleSectionProps = {
 export default function MediumTitleSection({title, subtitle, textColLeft, textColRight, className}
   : MediumTitleSectionProps) {
   return (
-    <section className='w-full pb-16'>
+    <section className='w-full pt-10'>
       <div className='xl:mx-auto'>
         <h2 className={cn('mb-5 font-semibold title sm-responsive-title', className)}>{title}</h2>
         <h3 className='text-2xl font-light xl:mx-auto'>{subtitle}</h3>

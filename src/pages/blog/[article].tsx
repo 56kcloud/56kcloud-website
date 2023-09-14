@@ -3,9 +3,9 @@ import {PageProps} from '@/models/page.mode'
 import {getPageProps} from '@/utils/cms/endpoints'
 import {pageRenderer} from '@/utils/cms/renderer/components'
 
-export default function BlogPage({components, layout, openGraph}: PageProps) {
+export default function BlogPage({components, openGraph}: PageProps) {
   console.log(components)
-  return pageRenderer('CenteredLayout', components, openGraph)
+  return pageRenderer(components, openGraph, 'CenteredLayout')
 }
 
 export async function getStaticPaths() {
@@ -16,6 +16,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const props = await getPageProps(`articles/${context.params.article}`, context.locale)
+  const article = context.params?.article || ''
+  const props = await getPageProps(`articles/${article}`, context.locale)
   return {props}
 }

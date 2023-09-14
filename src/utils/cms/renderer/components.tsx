@@ -12,6 +12,7 @@ import {
   mediumTitleSectionBlueprint,
   partnerListBlueprint,
   smallTitleSectionBlueprint,
+  solutionListBlueprint,
   tagsFilterBlueprint,
   teamMemberCardBlueprint
 } from './blueprints'
@@ -37,13 +38,14 @@ export const componentBlueprints: ComponentBlueprints = {
   'feature-list': featureListBlueprint,
   'article-list': articleListBlueprint,
   'related-articles': articleListBlueprint,
-  'article-content': articleContentBlueprint,
+  'solution-list': articleListBlueprint,
+  'related-solutions': solutionListBlueprint,
+  'article-content': solutionListBlueprint,
   'background-image': backgroundImageBlueprint,
   'home-hero': homeHeroBlueprint
 }
 
 export function renderComponents(components: Array<ComponentBlueprint>) {
-  console.log(components, '📟')
   return components?.map((item, index) => {
     const Component = componentBlueprints[item.component]?.component
     return Component && (
@@ -77,7 +79,7 @@ export function pageRenderer(components: Array<ComponentBlueprint>, openGraph: P
         )
       })}
     </Head>
-    {Layout ? <Layout>{children}</Layout> : children}
+    {children && (Layout ? <Layout>{children}</Layout> : children)}
   </>
   )
 }

@@ -3,12 +3,21 @@ import {PageProps} from '@/models/page.mode'
 import {getPageProps} from '@/utils/cms/endpoints'
 import {pageRenderer} from '@/utils/cms/renderer/components'
 
-export default function BlogPage({components, openGraph}: PageProps) {
+export default function ServicePage({components, openGraph}: PageProps) {
   console.log(components)
   return pageRenderer(components, openGraph, 'CenteredLayout')
+  return <div>HELLO</div>
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: true
+  }
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const props = await getPageProps('blog-page', context.locale)
+  const service = context.params?.service || ''
+  const props = await getPageProps(`services/${service}`, context.locale)
   return {props}
 }

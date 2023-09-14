@@ -4,11 +4,11 @@ import {cn} from '@/utils/toolbox'
 import {useEffect, useRef, useState} from 'react'
 import Image from 'next/image'
 
-type ArticleCoverProps = {
+type CardCoverProps = {
   image: ImageProps
 }
 
-export default function ArticleCover({image}: ArticleCoverProps) {
+export default function CardCover({image}: CardCoverProps) {
   const [isLoaded, setIsLoaded] = useState(false)
   
   const [height, setHeight] = useState('200px')
