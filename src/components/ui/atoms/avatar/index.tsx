@@ -15,7 +15,7 @@ export default function Avatar({image, alt, size='sm'}: AvatarProps) {
   
   return (
     <div className={cn(sizes[size], 'flex items-center gap-x-4')}>
-      <div className='relative w-full h-full bg-gray-100 rounded-full'>
+      <div className='relative w-full h-full overflow-hidden bg-gray-100 rounded-full'>
         {image && <Image
           src={image}
           alt={alt}

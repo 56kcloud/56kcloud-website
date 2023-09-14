@@ -43,6 +43,7 @@ export const componentBlueprints: ComponentBlueprints = {
 }
 
 export function renderComponents(components: Array<ComponentBlueprint>) {
+  console.log(components, '📟')
   return components?.map((item, index) => {
     const Component = componentBlueprints[item.component]?.component
     return Component && (
@@ -60,7 +61,7 @@ export const layouts = {
   }
 }
 
-export function pageRenderer(layout: string|null, components: Array<ComponentBlueprint>, openGraph: PageOpenGraph) {
+export function pageRenderer(components: Array<ComponentBlueprint>, openGraph: PageOpenGraph, layout: string|null) {
   const Layout = layouts[layout as keyof typeof layouts]?.component
   const children = renderComponents(components)
   return (<>
