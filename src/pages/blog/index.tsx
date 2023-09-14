@@ -1,17 +1,11 @@
 import {GetStaticPropsContext} from 'next'
-import {createPage, getPageComponents} from '@/utils/cms/renderer/components'
+import {PageProps} from '@/models/page.mode'
 import {getPageProps} from '@/utils/cms/endpoints'
+import {pageRenderer} from '@/utils/cms/renderer/components'
 
-export type PageProps = {
-  components: Array<Record<string, string>>
-  layout: string
-  openGraph: Record<string, string>
-}
-
-export default function BlogPage({components, layout, openGraph}: PageProps) {
-  console.log(components, layout, openGraph)
-  return createPage(layout, getPageComponents(components), openGraph)
-  return <div>TEST</div>
+export default function BlogPage({components, openGraph}: PageProps) {
+  console.log(components)
+  return pageRenderer('CenteredLayout', components, openGraph)
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {

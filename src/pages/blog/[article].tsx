@@ -5,7 +5,7 @@ import {pageRenderer} from '@/utils/cms/renderer/components'
 
 export default function BlogPage({components, layout, openGraph}: PageProps) {
   console.log(components)
-  return pageRenderer(layout, components, openGraph)
+  return pageRenderer('CenteredLayout', components, openGraph)
 }
 
 export async function getStaticPaths() {

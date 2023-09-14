@@ -8,11 +8,12 @@ export async function getPageProps(path='/', lang='en'): Promise<PageProps|undef
   try {
     const res = await strapiFetcher.call(
       {
-        path: `/api/${path}?locale=${lang}`,
+        path: `/api/${path}?populate=deep&locale=${lang}`,
         method: 'GET'
       }
     )
     const element = res.data?.attributes || res
+    console.log(element, '📟')
     const components = element.body.filter((item: Record<string, string>) => 
       Object.keys(componentBlueprints).includes(item.__component.split('.')[1])
     )
