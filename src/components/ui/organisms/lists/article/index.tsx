@@ -3,7 +3,7 @@ import {DateTime} from 'luxon'
 import {useEffect, useState} from 'react'
 import {useRouter} from 'next/router'
 import ArticleCard from '@/components/ui/molecules/cards/article'
-import Masonry, {ResponsiveMasonry} from 'react-responsive-masonry'
+import MasonryLayout from '../masonry'
 import slugify from 'slugify'
 
 export type ArticleListProps = {
@@ -29,19 +29,13 @@ export default function ArticleList({articles}: ArticleListProps) {
   }, [router.isReady, queryTag])
 
   return (
-    <div className='w-full'>
-      <ResponsiveMasonry
-        columnsCountBreakPoints={{300: 1, 700: 2, 1000: 3}}
-      >
-        <Masonry gutter='2.5rem'>
-          {filteredPosts.map((article, index) => (
-            <ArticleCard
-              key={index}
-              article={article}
-            />
-          ))}
-        </Masonry>
-      </ResponsiveMasonry>
-    </div>
+    <MasonryLayout>
+      {filteredPosts.map((article, index) => (
+        <ArticleCard
+          key={index}
+          article={article}
+        />
+      ))}
+    </MasonryLayout>
   )
 }

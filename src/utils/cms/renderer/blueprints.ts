@@ -1,7 +1,7 @@
 import {z} from 'zod'
+import ArticleContentSection from '@/components/ui/molecules/article/content-section'
 import ArticleList from '@/components/ui/organisms/lists/article'
 import BackgroundImage from '@/components/ui/atoms/background-image'
-import BlogContentSection from '@/components/ui/molecules/blog/content-section'
 import CompanyList from '@/components/ui/organisms/lists/company'
 import FeatureList from '@/components/ui/organisms/lists/feature'
 import Footer from '@/components/ui/organisms/footer'
@@ -11,6 +11,7 @@ import IllustrationCardList from '@/components/ui/organisms/lists/illustration'
 import MediumTitleSection from '@/components/ui/molecules/title-sections/medium'
 import PartnerList from '@/components/ui/organisms/lists/partner'
 import SmallTitleSection from '@/components/ui/molecules/title-sections/small'
+import SolutionList from '@/components/ui/organisms/lists/solution'
 import TagsFilter from '@/components/ui/molecules/tag-filter'
 import TeamMemberCard from '@/components/ui/molecules/cards/team-member'
 
@@ -28,6 +29,15 @@ const backgroundBlueprint = {
   blurDataURL: 'background.formats.thumbnail.url',
   width: 'background.width',
   height: 'background.height'
+}
+
+const imageBlueprint = {
+  name: 'image.name',
+  alt: 'image.alternativeText',
+  src: 'image.url',
+  blurDataURL: 'image.formats.thumbnail.url',
+  width: 'image.width',
+  height: 'image.height'
 }
 
 const coverBlueprint = {
@@ -156,7 +166,20 @@ export const illustrationCardListBlueprint: ComponentBlueprint = {
 export const teamMemberCardBlueprint: ComponentBlueprint = {
   component: TeamMemberCard,
   props: {
-    teamMember: 'teamMember'
+    teamMember: {
+      name: 'teamMember.name',
+      bio: 'teamMember.bio',
+      twitter: 'teamMember.twitter',
+      website: 'teamMember.website',
+      avatar: {
+        name: 'teamMember.avatar.name',
+        alt: 'teamMember.avatar.alternativeText',
+        src: 'teamMember.avatar.url',
+        blurDataURL: 'teamMember.avatar.formats.thumbnail.url',
+        width: 'teamMember.avatar.width',
+        height: 'teamMember.avatar.height'
+      }
+    }
   }
 }
 
@@ -197,12 +220,12 @@ export const articleListBlueprint: ComponentBlueprint = {
         author: {
           name: 'author.name',
           avatar: {
-            name: 'author.avatar.data.attributes.name',
-            alt: 'author.avatar.data.attributes.alternativeText',
-            src: 'author.avatar.data.attributes.url',
-            blurDataURL: 'author.avatar.data.attributes.formats.thumbnail.url',
-            width: 'author.avatar.data.attributes.width',
-            height: 'author.avatar.data.attributes.height'
+            name: 'author.avatar.name',
+            alt: 'author.avatar.alternativeText',
+            src: 'author.avatar.url',
+            blurDataURL: 'author.avatar.formats.thumbnail.url',
+            width: 'author.avatar.width',
+            height: 'author.avatar.height'
           }
         }
       }
@@ -210,8 +233,22 @@ export const articleListBlueprint: ComponentBlueprint = {
   }
 }
 
+export const solutionListBlueprint: ComponentBlueprint = {
+  component: SolutionList,
+  props: {
+    solutions: [
+      {
+        title: 'title',
+        description: 'description',
+        slug: 'slug',
+        image: imageBlueprint
+      }
+    ]
+  }
+}
+
 export const articleContentBlueprint: ComponentBlueprint = {
-  component: BlogContentSection,
+  component: ArticleContentSection,
   props: {
     title: 'title',
     content: 'content',

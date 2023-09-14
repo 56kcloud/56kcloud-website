@@ -13,7 +13,6 @@ export async function getPageProps(path='/', lang='en'): Promise<PageProps|undef
       }
     )
     const element = res.data?.attributes || res
-    console.log(element, '📟')
     const components = element.body.filter((item: Record<string, string>) => 
       Object.keys(componentBlueprints).includes(item.__component.split('.')[1])
     )
@@ -21,7 +20,6 @@ export async function getPageProps(path='/', lang='en'): Promise<PageProps|undef
       const component = components[componentIndex]
       const key = component.__component.split('.')[1] as keyof typeof componentBlueprints
       const componentBlueprint = componentBlueprints[key]
-      console.log(key, '📟')
       components[componentIndex] = {
         component: key,
         props: await getPropsFromNestedObjects(
