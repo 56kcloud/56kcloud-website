@@ -415,9 +415,8 @@ export const backgroundImageBlueprint: ComponentBlueprint = {
 export const homeHeroBlueprint: ComponentBlueprint = {
   component: HomeHero,
   props: {
-    titleLine1: 'titleLine1',
-    titleLine2: 'titleLine2',
-    titleLine3: 'titleLine3',
+    title: 'title',
+    button: linkBlueprint,
     image: imageBlueprint
   }
 }
