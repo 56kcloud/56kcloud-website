@@ -11,6 +11,10 @@ import {
   illustrationCardListBlueprint,
   mediumTitleSectionBlueprint,
   partnerListBlueprint,
+  relatedArticleListBlueprint,
+  relatedPartnersBlueprint,
+  relatedServicesBlueprint,
+  relatedSolutionsBlueprint,
   smallTitleSectionBlueprint,
   solutionListBlueprint,
   tagsFilterBlueprint,
@@ -37,9 +41,11 @@ export const componentBlueprints: ComponentBlueprints = {
   'tags-filter': tagsFilterBlueprint,
   'feature-list': featureListBlueprint,
   'article-list': articleListBlueprint,
-  'related-articles': articleListBlueprint,
   'solution-list': solutionListBlueprint,
-  'related-solutions': solutionListBlueprint,
+  'related-articles': relatedArticleListBlueprint,
+  'related-solutions': relatedSolutionsBlueprint,
+  'related-services': relatedServicesBlueprint,
+  'related-partners': relatedPartnersBlueprint,
   'article-content': articleContentBlueprint,
   'background-image': backgroundImageBlueprint,
   'home-hero': homeHeroBlueprint
@@ -63,8 +69,17 @@ export const layouts = {
   }
 }
 
-export function pageRenderer(components: Array<ComponentBlueprint>, openGraph: PageOpenGraph, layout: string|null) {
+export function pageRenderer(
+  components: Array<ComponentBlueprint>,
+  openGraph: PageOpenGraph,
+  layout: string|null,
+  footerBackground: 'cover'|'background' = 'cover'
+) {
   const Layout = layouts[layout as keyof typeof layouts]?.component
+  if (components?.length > 0) {
+    components[0].props['isFloating'] = layout ? false : true
+    components[components.length-1].props['background'] = footerBackground
+  }
   const children = renderComponents(components)
   return (<>
     <Head>

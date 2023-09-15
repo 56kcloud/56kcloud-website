@@ -1,8 +1,6 @@
-import {ReactNode} from 'react'
-
 export type LinkProps = {
   href: string
-  children: ReactNode
+  title: string
   alt?: string
   className?: string
 }

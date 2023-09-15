@@ -1,13 +1,13 @@
-import {Solution} from '@/models/solution.model'
+import {Service} from '@/models/service.model'
 import {motion} from 'framer-motion'
 import CardCover from '../cover'
 import Link from 'next/link'
 
-type SolutionCardProps = {
-  solution: Solution
+type ServiceCardProps = {
+  service: Service
 }
 
-export default function SolutionCard({solution}: SolutionCardProps) {
+export default function ServiceCard({service}: ServiceCardProps) {
   return (
     <motion.div
       initial={{opacity: 0}}
@@ -16,20 +16,20 @@ export default function SolutionCard({solution}: SolutionCardProps) {
       transition={{duration: 0.2}}
     >
       <Link
-        href={`/solutions/${solution.slug}`}
+        href={`/services/${service.slug}`}
         className='relative flex flex-col overflow-hidden duration-200 bg-white rounded-lg shadow-lg cursor-pointer \
       hover:shadow-2xl hover:scale-105'>
-        <CardCover image={solution.image}/>
+        <CardCover image={service.image}/>
         <div
           className='flex flex-col py-6 pl-6 bg-white'>
           <div className='pr-6'>
             <h1
               className='text-2xl line-clamp-2 text-grey-dark title'>
-              {solution.title}
+              {service.title}
             </h1>
             <p 
               className='mt-2 text-base text-grey-light line-clamp-3'>
-              {solution.description}
+              {service.description}
             </p>
           </div>
         </div>

@@ -4,7 +4,6 @@ import {getPageProps} from '@/utils/cms/endpoints'
 import {pageRenderer} from '@/utils/cms/renderer/components'
 
 export default function BlogPage({components, openGraph}: PageProps) {
-  console.log(components)
   return pageRenderer(components, openGraph, 'CenteredLayout')
 }
 

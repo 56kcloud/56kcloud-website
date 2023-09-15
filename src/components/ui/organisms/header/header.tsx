@@ -27,7 +27,7 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
 
   const navigation: Array<LinkProps> = links.map((link) => ({
     href: link.href || '',
-    children: link.children
+    title: link.title
   }))
 
   const sidebarHandler = () => {
@@ -84,7 +84,7 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
                   data-active={pathname.includes(item.href)}
                 >
                   <Link href={item.href}>
-                    {item.children}
+                    {item.title}
                   </Link>
                 </Button>
               ))}
@@ -134,7 +134,7 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
                       data-active={pathname.includes(item.href)}
                     >
                       <Link href={item.href}>
-                        {item.children}
+                        {item.title}
                       </Link>
                     </Button>
                   ))}

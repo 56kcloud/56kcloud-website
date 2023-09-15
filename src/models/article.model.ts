@@ -12,7 +12,7 @@ export const articleSchema = z.object({
   tags: z.array(TagSchema),
   publishedOn: z.string(),
   readTime: z.number(),
-  cover: imageSchema,
+  image: imageSchema,
   author: teamMemberSchema
 })
 
