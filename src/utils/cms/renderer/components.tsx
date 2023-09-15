@@ -38,9 +38,9 @@ export const componentBlueprints: ComponentBlueprints = {
   'feature-list': featureListBlueprint,
   'article-list': articleListBlueprint,
   'related-articles': articleListBlueprint,
-  'solution-list': articleListBlueprint,
+  'solution-list': solutionListBlueprint,
   'related-solutions': solutionListBlueprint,
-  'article-content': solutionListBlueprint,
+  'article-content': articleContentBlueprint,
   'background-image': backgroundImageBlueprint,
   'home-hero': homeHeroBlueprint
 }
