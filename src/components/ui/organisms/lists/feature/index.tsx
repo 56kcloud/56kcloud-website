@@ -13,7 +13,7 @@ export default function FeatureList({title, subtitle, features}: FeatureListProp
       <div className='px-6 mx-auto lg:px-8'>
         <div className='max-w-2xl mx-auto lg:text-center'>
           {title
-            ? <p className='mt-2 text-3xl font-bold tracking-tight sm:text-4xl title'>
+            ? <p className='mt-2 text-3xl font-bold tracking-tight capitalize sm:text-4xl title'>
               {title}
             </p>
             : null

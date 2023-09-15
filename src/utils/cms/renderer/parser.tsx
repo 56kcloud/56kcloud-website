@@ -16,10 +16,15 @@ export async function getPropsFromNestedObjects(schema: Record<string, any>, obj
         || deepFind(object, `${pathFirstKey}.data.attributes.${path.join('.')}`)
         || path.splice(path.length - 1, 1, key) && deepFind(object, `${pathFirstKey}.${path.join('.')}`)
         if (key === 'blurDataURL' && value) {
-          const res = await fetch(value, {method: 'GET'})
-          const buffer = Buffer.from(await res.arrayBuffer())
-          const {base64} = await getPlaiceholder(buffer)
-          temp[key] = base64
+          try {
+            console.log(value)
+            const res = await fetch(value, {method: 'GET'})
+            const buffer = Buffer.from(await res.arrayBuffer())
+            const {base64} = await getPlaiceholder(buffer)
+            temp[key] = base64
+          } catch (error) {
+            temp[key] = null
+          }
           break
         } else {
           temp[key] = value || null

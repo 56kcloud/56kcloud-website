@@ -98,11 +98,11 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
       <div
         className={
           cn(isFloating ? 'absolute top-0 left-0' : 'my-8 lg:my-12',
-            'mt-8 lg:mt-12 z-50 min-w-full max-w-[100rem] px-6 mx-auto lg:px-12 xl:px-32')
+            'mt-8 lg:mt-12 z-50 min-w-full max-w-7xl px-4 mx-auto lg:px-12 xl:px-32')
         }
       >
         <div className='relative'>
-          <div className='max-w-[100rem] mx-auto'>
+          <div className='mx-auto max-w-7xl'>
             <div className='absolute inset-y-0 right-0 flex items-center xl:hidden'>
               <Button
                 onClick={() => setSidebarOpen(!sidebarOpen)}

@@ -5,19 +5,19 @@ export type HomeHeroProps = {
   titleLine1: string
   titleLine2: string
   titleLine3: string
-  background: ImageProps
+  image: ImageProps
 }
 
-export default function HomeHero({titleLine1, titleLine2, titleLine3, background}: HomeHeroProps) {  
+export default function HomeHero({titleLine1, titleLine2, titleLine3, image}: HomeHeroProps) {  
   return (
     <div className='relative pt-24 overflow-hidden bg-white sm:pt-0'>
       <Image
         alt={'Train background'}
-        src={background.src}
+        src={image.src}
         placeholder='blur'
-        blurDataURL={background.blurDataURL}
-        width={background.width}
-        height={background.height}
+        blurDataURL={image.blurDataURL}
+        width={image.width}
+        height={image.height}
         className='w-full pointer-events-none'/>
       <div
         className='title font-semibold absolute left-[41%] bottom-[40%] z-10 sm:bottom-[43%] sm:left-[46%] \

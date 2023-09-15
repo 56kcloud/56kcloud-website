@@ -12,14 +12,13 @@ export default function FeatureCard({feature}: FeatureCardProps) {
       className='relative pl-16'>
       <dt className='text-base font-semibold leading-7 text-gray-900'>
         <div
-          className={`absolute top-0 left-0 flex items-center justify-center w-10 h-10 p-2 rounded-lg
-                   bg-primary-200`}>
+          className={'absolute top-0 left-0 flex items-center justify-center w-10 h-10 p-2 rounded-lg'}>
           <Image
             {...feature.icon}
             alt={feature.name}
           />
         </div>
-        {feature.name}
+        <span className='capitalize'>{feature.name}</span>
       </dt>
       <dd className='mt-2 text-base leading-7 text-gray-600'>{feature.description}</dd>
     </div>
