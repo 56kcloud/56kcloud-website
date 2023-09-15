@@ -23,7 +23,7 @@ export default function ArticleCard({article}: ArticleCardProps) {
         href={`/blog/${article.slug}`}
         className='relative flex flex-col overflow-hidden duration-200 bg-white rounded-lg shadow-lg cursor-pointer \
       hover:shadow-2xl hover:scale-105'>
-        <ArticleCover image={article.cover}/>
+        <ArticleCover image={article.image}/>
         <div
           className='flex flex-col py-6 pl-6 bg-white'>
           <ArticleTagList tags={article.tags}/>

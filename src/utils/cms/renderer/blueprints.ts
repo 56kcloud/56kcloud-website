@@ -10,6 +10,10 @@ import HomeHero from '@/components/ui/organisms/heros/home'
 import IllustrationCardList from '@/components/ui/organisms/lists/illustration'
 import MediumTitleSection from '@/components/ui/molecules/title-sections/medium'
 import PartnerList from '@/components/ui/organisms/lists/partner'
+import RelatedArticles from '@/components/ui/organisms/lists/related/articles'
+import RelatedPartners from '@/components/ui/organisms/lists/related/partners'
+import RelatedServices from '@/components/ui/organisms/lists/related/services'
+import RelatedSolutions from '@/components/ui/organisms/lists/related/solutions'
 import SmallTitleSection from '@/components/ui/molecules/title-sections/small'
 import SolutionList from '@/components/ui/organisms/lists/solution'
 import TagsFilter from '@/components/ui/molecules/tag-filter'
@@ -22,15 +26,6 @@ export const componentBlueprintSchema = z.object({
 })
 export type ComponentBlueprint = z.infer<typeof componentBlueprintSchema>
 
-const backgroundBlueprint = {
-  name: 'background.name',
-  alt: 'background.alternativeText',
-  src: 'background.url',
-  blurDataURL: 'background.formats.thumbnail.url',
-  width: 'background.width',
-  height: 'background.height'
-}
-
 const imageBlueprint = {
   name: 'image.name',
   alt: 'image.alternativeText',
@@ -40,19 +35,10 @@ const imageBlueprint = {
   height: 'image.height'
 }
 
-const coverBlueprint = {
-  name: 'cover.name',
-  alt: 'cover.alternativeText',
-  src: 'cover.url',
-  blurDataURL: 'cover.formats.thumbnail.url',
-  width: 'cover.width',
-  height: 'cover.height'
-}
-
 const iconBlueprint = {
   name: 'icon.name',
   alt: 'icon.alternativeText',
-  src: 'icon.formats.thumbnail.url',
+  src: 'icon.url',
   width: 'icon.width',
   height: 'icon.height'
 }
@@ -67,7 +53,7 @@ const logoBlueprint = {
 
 const linkBlueprint = {
   title: 'title',
-  href: 'externalLink || page.path'
+  href: 'href'
 }
 
 const tagBlueprint = {
@@ -102,7 +88,20 @@ export const companyListBlueprint: ComponentBlueprint = {
     companies: [
       {
         name: 'name',
-        url: 'url',
+        url: 'href',
+        logo: logoBlueprint
+      }
+    ]
+  }
+}
+
+export const relatedPartnersBlueprint: ComponentBlueprint = {
+  component: RelatedPartners,
+  props: {
+    partners: [
+      {
+        name: 'name',
+        url: 'href',
         logo: logoBlueprint
       }
     ]
@@ -112,11 +111,10 @@ export const companyListBlueprint: ComponentBlueprint = {
 export const partnerListBlueprint: ComponentBlueprint = {
   component: PartnerList,
   props: {
-    title: 'title',
     partners: [
       {
         name: 'name',
-        url: 'url',
+        url: 'href',
         logo: logoBlueprint
       }
     ]
@@ -216,7 +214,35 @@ export const articleListBlueprint: ComponentBlueprint = {
         readTime: 'readTime',
         tags: [tagBlueprint],
         publishedOn: 'publishedOn',
-        cover: coverBlueprint,
+        image: imageBlueprint,
+        author: {
+          name: 'author.name',
+          avatar: {
+            name: 'author.avatar.name',
+            alt: 'author.avatar.alternativeText',
+            src: 'author.avatar.url',
+            blurDataURL: 'author.avatar.formats.thumbnail.url',
+            width: 'author.avatar.width',
+            height: 'author.avatar.height'
+          }
+        }
+      }
+    ]
+  }
+}
+
+export const relatedArticleListBlueprint: ComponentBlueprint = {
+  component: RelatedArticles,
+  props: {
+    articles: [
+      {
+        title: 'title',
+        description: 'description',
+        slug: 'slug',
+        readTime: 'readTime',
+        tags: [tagBlueprint],
+        publishedOn: 'publishedOn',
+        image: imageBlueprint,
         author: {
           name: 'author.name',
           avatar: {
@@ -247,20 +273,48 @@ export const solutionListBlueprint: ComponentBlueprint = {
   }
 }
 
+export const relatedSolutionsBlueprint: ComponentBlueprint = {
+  component: RelatedSolutions,
+  props: {
+    solutions: [
+      {
+        title: 'title',
+        description: 'description',
+        slug: 'slug',
+        image: imageBlueprint
+      }
+    ]
+  }
+}
+
+export const relatedServicesBlueprint: ComponentBlueprint = {
+  component: RelatedServices,
+  props: {
+    services: [
+      {
+        title: 'title',
+        description: 'description',
+        slug: 'slug',
+        image: imageBlueprint
+      }
+    ]
+  }
+}
+
 export const articleContentBlueprint: ComponentBlueprint = {
   component: ArticleContentSection,
   props: {
     title: 'title',
     content: 'content',
     tags: [tagBlueprint],
-    cover: coverBlueprint
+    image: imageBlueprint
   }
 }
 
 export const backgroundImageBlueprint: ComponentBlueprint = {
   component: BackgroundImage,
   props: {
-    background: backgroundBlueprint
+    image: imageBlueprint
   }
 }
 
@@ -270,6 +324,6 @@ export const homeHeroBlueprint: ComponentBlueprint = {
     titleLine1: 'titleLine1',
     titleLine2: 'titleLine2',
     titleLine3: 'titleLine3',
-    background: backgroundBlueprint
+    image: imageBlueprint
   }
 }

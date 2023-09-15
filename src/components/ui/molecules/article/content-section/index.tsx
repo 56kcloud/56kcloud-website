@@ -6,19 +6,19 @@ import PostTagList from '../../cards/article/tag-list'
 import React, {ReactNode} from 'react'
 
 export type ArticleContentSectionProps = {
-  cover: ImageProps
+  image: ImageProps
   tags: Array<Tag>
   title: string
   content: string
 }
 
-export default function ArticleContentSection({cover, tags, title, content}: ArticleContentSectionProps) {
+export default function ArticleContentSection({image, tags, title, content}: ArticleContentSectionProps) {
   return (<div className='flex items-end justify-center w-full'>
     <div 
       className='z-50 w-full h-full overflow-auto bg-white shadow-lg max-w-7xl rounded-xl overscroll-contain'
     >
       <PostCover
-        image={cover}
+        image={image}
       />
       <div className='w-full p-10'>
         <PostTagList
