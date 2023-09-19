@@ -3,11 +3,11 @@ import {PageProps} from '@/models/page.mode'
 import {getPageProps} from '@/utils/cms/endpoints'
 import {pageRenderer} from '@/utils/cms/renderer/components'
 
-export default function BlogPage({components, openGraph}: PageProps) {
+export default function ServicesPage({components, openGraph}: PageProps) {
   return pageRenderer(components, openGraph, 'CenteredLayout')
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const props = await getPageProps('blog-page', context.locale)
+  const props = await getPageProps('partners-page', context.locale)
   return {props}
 }

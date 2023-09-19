@@ -32,12 +32,12 @@ export async function getPageProps(path='/', lang='en'): Promise<PageProps|undef
       components,
       layout: element.layout || null,
       openGraph: {
-        title: element.title,
-        description: element.description,
+        title: element.title || '',
+        description: element.description || '',
         image: element.image || null
       }
     }
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
 }

@@ -1,33 +1,19 @@
-/* eslint-disable jsx-a11y/alt-text */
-import Image, {StaticImageData} from 'next/image'
-import Surtitle from '@/components/ui/atoms/surtitle'
-
 export type LargeTitleSectionProps = {
-  surtitle: string
   title: string
-  text: string
-  backgroundImage: {
-    src: StaticImageData
-    alt: string
-    className?: string
-  }
+  leftSubtitle: string
+  rightSubtitle: string
 }
 
-export default function LargeTitleSection({surtitle, title, text, backgroundImage}: LargeTitleSectionProps) {
+export default function LargeTitleSection({title, leftSubtitle, rightSubtitle}: LargeTitleSectionProps) {
   return (
-    <section className='px-8 pb-12 xl:px-36'>
-      <div className='max-w-6xl mx-auto mt-12 sm:mt-0'>
-        <div className='flex items-center justify-center max-w-5xl mx-auto'>
-          <Image
-            {...backgroundImage}
-          />
-        </div>
-        <div className='lg:-mt-12'>
-          <Surtitle text={surtitle}/>
-          <h2 className='mb-8 font-semibold title xl-responsive-title'>{title}</h2>
-          <div className='w-full'>
-            <p className='xl:text-lg'>{text}</p>
-          </div>
+    <section
+      className='bg-medium-title px-8 pt-56 bg-no-repeat bg-[length:100%] xl:px-36 bg-bottom \ 
+    bg-white'>
+      <div className='max-w-6xl xl:mx-auto'>
+        <h2 className='mb-16 font-semibold title sm-responsive-title'>{title}</h2>
+        <div className='flex flex-col justify-between sm:flex-row'>
+          <p className='w-full sm:w-[45%] xl:text-lg mb-4 sm:mb-0'>{leftSubtitle}</p>
+          <p className='w-full sm:w-[45%] xl:text-lg'>{rightSubtitle}</p>
         </div>
       </div>
     </section>

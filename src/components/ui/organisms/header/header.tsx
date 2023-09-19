@@ -27,7 +27,7 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
 
   const navigation: Array<LinkProps> = links.map((link) => ({
     href: link.href || '',
-    title: link.title
+    children: link.children
   }))
 
   const sidebarHandler = () => {
@@ -84,7 +84,7 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
                   data-active={pathname.includes(item.href)}
                 >
                   <Link href={item.href}>
-                    {item.title}
+                    {item.children}
                   </Link>
                 </Button>
               ))}
@@ -98,7 +98,7 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
       <div
         className={
           cn(isFloating ? 'absolute top-0 left-0' : 'my-8 lg:my-12',
-            'mt-8 lg:mt-12 z-50 min-w-full max-w-7xl px-4 mx-auto lg:px-12 xl:px-32')
+            'mt-8 lg:mt-12 z-50 w-full max-w-7xl px-4 mx-auto')
         }
       >
         <div className='relative'>
@@ -128,13 +128,14 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
                 <div className='flex items-center space-x-2'>
                   {navigation.map((item, index) => (
                     <Button
+                      asChild
                       key={index}
                       variant='ghost'
                       className='capitalize'
                       data-active={pathname.includes(item.href)}
                     >
                       <Link href={item.href}>
-                        {item.title}
+                        {item.children}
                       </Link>
                     </Button>
                   ))}

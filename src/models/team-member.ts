@@ -2,6 +2,7 @@ import {imageSchema} from './image.model'
 import {z} from 'zod'
 
 export const teamMemberSchema = z.object({
+  slug: z.string(),
   name: z.string(),
   role: z.string().optional(),
   bio: z.string().optional(),
