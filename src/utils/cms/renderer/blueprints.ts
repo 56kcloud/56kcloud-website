@@ -6,18 +6,25 @@ import CompanyList from '@/components/ui/organisms/lists/company'
 import FeatureList from '@/components/ui/organisms/lists/feature'
 import Footer from '@/components/ui/organisms/footer'
 import Header from '@/components/ui/organisms/header/header'
+import HeroWithImageTiles from '@/components/ui/organisms/heros/hero-with-image-tiles'
 import HomeHero from '@/components/ui/organisms/heros/home'
 import IllustrationCardList from '@/components/ui/organisms/lists/illustration'
+import LargeTitleSection from '@/components/ui/molecules/title-sections/large'
 import MediumTitleSection from '@/components/ui/molecules/title-sections/medium'
 import PartnerList from '@/components/ui/organisms/lists/partner'
+import RectangleCardList from '@/components/ui/organisms/lists/rectangle'
 import RelatedArticles from '@/components/ui/organisms/lists/related/articles'
 import RelatedPartners from '@/components/ui/organisms/lists/related/partners'
 import RelatedServices from '@/components/ui/organisms/lists/related/services'
 import RelatedSolutions from '@/components/ui/organisms/lists/related/solutions'
+import ServiceList from '@/components/ui/organisms/lists/service'
 import SmallTitleSection from '@/components/ui/molecules/title-sections/small'
 import SolutionList from '@/components/ui/organisms/lists/solution'
 import TagsFilter from '@/components/ui/molecules/tag-filter'
+import TeamList from '@/components/ui/organisms/lists/team'
 import TeamMemberCard from '@/components/ui/molecules/cards/team-member'
+import TeamMemberHero from '@/components/ui/organisms/heros/team-member'
+import TitleSection from '@/components/ui/molecules/title-sections/normal'
 
 
 export const componentBlueprintSchema = z.object({
@@ -34,6 +41,15 @@ const imageBlueprint = {
   width: 'image.width',
   height: 'image.height'
 }
+
+const imageListBlueprint = [{
+  name: 'name',
+  alt: 'alternativeText',
+  src: 'url',
+  blurDataURL: 'formats.thumbnail.url',
+  width: 'width',
+  height: 'height'
+}]
 
 const iconBlueprint = {
   name: 'icon.name',
@@ -52,7 +68,7 @@ const logoBlueprint = {
 }
 
 const linkBlueprint = {
-  title: 'title',
+  children: 'children',
   href: 'href'
 }
 
@@ -124,7 +140,15 @@ export const partnerListBlueprint: ComponentBlueprint = {
 export const smallTitleSectionBlueprint: ComponentBlueprint = {
   component: SmallTitleSection,
   props: {
-    text: 'text',
+    subtitle: 'subtitle',
+    title: 'title'
+  }
+}
+
+export const titleSectionBlueprint: ComponentBlueprint = {
+  component: TitleSection,
+  props: {
+    surtitle: 'surtitle',
     title: 'title'
   }
 }
@@ -134,6 +158,15 @@ export const mediumTitleSectionBlueprint: ComponentBlueprint = {
   props: {
     title: 'title',
     subtitle: 'subtitle'
+  }
+}
+
+export const largeTitleSectionBlueprint: ComponentBlueprint = {
+  component: LargeTitleSection,
+  props: {
+    title: 'title',
+    leftSubtitle: 'leftSubtitle',
+    rightSubtitle: 'rightSubtitle'
   }
 }
 
@@ -169,6 +202,28 @@ export const teamMemberCardBlueprint: ComponentBlueprint = {
       bio: 'teamMember.bio',
       twitter: 'teamMember.twitter',
       website: 'teamMember.website',
+      slug: 'teamMember.slug',
+      avatar: {
+        name: 'teamMember.avatar.name',
+        alt: 'teamMember.avatar.alternativeText',
+        src: 'teamMember.avatar.url',
+        blurDataURL: 'teamMember.avatar.formats.thumbnail.url',
+        width: 'teamMember.avatar.width',
+        height: 'teamMember.avatar.height'
+      }
+    }
+  }
+}
+
+export const teamMemberHeroBlueprint: ComponentBlueprint = {
+  component: TeamMemberHero,
+  props: {
+    teamMember: {
+      name: 'teamMember.name',
+      bio: 'teamMember.bio',
+      twitter: 'teamMember.twitter',
+      website: 'teamMember.website',
+      slug: 'teamMember.slug',
       avatar: {
         name: 'teamMember.avatar.name',
         alt: 'teamMember.avatar.alternativeText',
@@ -287,6 +342,20 @@ export const relatedSolutionsBlueprint: ComponentBlueprint = {
   }
 }
 
+export const serviceListBlueprint: ComponentBlueprint = {
+  component: ServiceList,
+  props: {
+    services: [
+      {
+        title: 'title',
+        description: 'description',
+        slug: 'slug',
+        image: imageBlueprint
+      }
+    ]
+  }
+}
+
 export const relatedServicesBlueprint: ComponentBlueprint = {
   component: RelatedServices,
   props: {
@@ -325,5 +394,57 @@ export const homeHeroBlueprint: ComponentBlueprint = {
     titleLine2: 'titleLine2',
     titleLine3: 'titleLine3',
     image: imageBlueprint
+  }
+}
+
+export const heroWithImageTilesBlueprint: ComponentBlueprint = {
+  component: HeroWithImageTiles,
+  props: {
+    images: imageListBlueprint,
+    title: {
+      title: 'title.title',
+      surtitle: 'title.surtitle'
+    }
+  }
+}
+
+export const rectangleCardListBlueprint: ComponentBlueprint = {
+  component: RectangleCardList,
+  props: {
+    cards: [
+      {
+        title: 'title',
+        image: imageBlueprint
+      }
+    ],
+    surtitle: 'surtitle'
+  }
+}
+
+export const teamListBlueprint: ComponentBlueprint = {
+  component: TeamList,
+  props: {
+    teamMembers: [
+      {
+        name: 'name',
+        role: 'role',
+        bio: 'bio',
+        twitter: 'twitter',
+        website: 'website',
+        slug: 'slug',
+        avatar: {
+          name: 'avatar.name',
+          alt: 'avatar.alternativeText',
+          src: 'avatar.url',
+          blurDataURL: 'avatar.formats.thumbnail.url',
+          width: 'avatar.width',
+          height: 'avatar.height'
+        }
+      }
+    ],
+    joinTeamTitle: 'joinTeamTitle',
+    joinTeamTextStart: 'joinTeamTextStart',
+    joinTeamTextEnd: 'joinTeamTextEnd',
+    joinTeamCTATitle: 'joinTeamCTATitle'
   }
 }
