@@ -14,7 +14,7 @@ export default function HomeHero({title, button, image}: HomeHeroProps) {
   return (
     <div className='relative pt-24 overflow-hidden bg-white sm:pt-0'>
       <Image
-        alt={'Train background'}
+        alt={'Team background'}
         src={image.src}
         placeholder='blur'
         blurDataURL={image.blurDataURL}
