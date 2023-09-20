@@ -77,7 +77,7 @@ export default function Footer({background='cover', logo, links, title, location
               target='_blank'
               href={location.gMap}
               key={location.name}
-              className='flex flex-col justify-between space-y-5 text-white w-52 hover:underline'
+              className='flex flex-col space-y-5 text-white w-52 hover:underline'
             >
               <Image
                 {...location.image}
