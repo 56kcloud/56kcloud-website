@@ -76,6 +76,23 @@ const tagBlueprint = {
   name: 'name'
 }
 
+const contactUsCTABlueprint = {
+  title: 'contactUsCTA.title',
+  modal: {
+    title: 'contactUsCTA.modal.title',
+    subtitle: 'contactUsCTA.modal.subtitle',
+    submitButtonTitle: 'contactUsCTA.modal.submitButtonTitle',
+    image: {
+      name: 'contactUsCTA.modal.image.name',
+      alt: 'contactUsCTA.modal.image.alternativeText',
+      src: 'contactUsCTA.modal.image.url',
+      blurDataURL: 'contactUsCTA.modal.image.formats.thumbnail.url',
+      width: 'contactUsCTA.modal.image.width',
+      height: 'contactUsCTA.modal.image.height'
+    }
+  }
+}
+
 export const headerBlueprint: ComponentBlueprint = {
   component: Header,
   props: {
@@ -88,7 +105,6 @@ export const headerBlueprint: ComponentBlueprint = {
 export const footerBlueprint: ComponentBlueprint = {
   component: Footer,
   props: {
-    
     logo: logoBlueprint,
     links: [linkBlueprint],
     locations: [
@@ -101,7 +117,8 @@ export const footerBlueprint: ComponentBlueprint = {
         image: imageBlueprint,
         gMap: 'gMap'
       }
-    ]
+    ],
+    contactUsCTA: contactUsCTABlueprint
   }
 }
 

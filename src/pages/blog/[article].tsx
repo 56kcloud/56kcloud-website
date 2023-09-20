@@ -1,15 +1,23 @@
+import {Article} from '@/models/article.model'
 import {GetStaticPropsContext} from 'next'
 import {PageProps} from '@/models/page.mode'
 import {getPageProps} from '@/utils/cms/endpoints'
 import {pageRenderer} from '@/utils/cms/renderer/components'
+import {strapiFetcher} from '../../../config'
 
 export default function BlogPage({components, openGraph}: PageProps) {
   return pageRenderer(components, openGraph, 'CenteredLayout')
 }
 
 export async function getStaticPaths() {
+  const articles = await strapiFetcher.call({
+    path: '/api/articles-slugs'
+  })
+  const paths = articles.map((article: Partial<Article>) => ({
+    params: {article: article.slug}
+  }))
   return {
-    paths: [],
+    paths,
     fallback: true
   }
 }

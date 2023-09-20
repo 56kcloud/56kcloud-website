@@ -1,15 +1,17 @@
 import {Partner} from '@/models/partner'
 import PartnerList from '../partner'
 import RelatedList from './base'
+import useTranslation from 'next-translate/useTranslation'
 
 export type RelatedPartnersProps = {
   partners: Array<Partner>
 }
 
 export default function RelatedPartners({partners}: RelatedPartnersProps) {
+  const {t} = useTranslation('common')
   return (<RelatedList
-    title='Related partners'
-    subtitle='partners that may be of interest to you'
+    title={t('relatedPartnersTitle')}
+    subtitle={t('relatedPartnersSubtitle')}
   >
     <PartnerList partners={partners}/>
   </RelatedList>)

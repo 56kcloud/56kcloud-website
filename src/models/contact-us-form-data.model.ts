@@ -3,7 +3,7 @@ export type contactUsFormData = {
   lastName: string
   email: string
   message: string
-  legalConsent: boolean
+  legalConsent?: boolean
 }
 
 export type HsformsPayloadItem = {

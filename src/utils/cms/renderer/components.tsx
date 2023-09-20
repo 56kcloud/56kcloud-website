@@ -86,13 +86,11 @@ export const layouts = {
 export function pageRenderer(
   components: Array<ComponentBlueprint>,
   openGraph: PageOpenGraph,
-  layout: string|null,
-  footerBackground: 'cover'|'background' = 'cover'
+  layout: string|null
 ) {
   const Layout = layouts[layout as keyof typeof layouts]?.component
   if (components?.length > 0) {
     components[0].props['isFloating'] = layout ? false : true
-    components[components.length-1].props['background'] = footerBackground
   }
   const children = renderComponents(components)
   return (<>
