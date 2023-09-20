@@ -71,13 +71,13 @@ export default function Footer({background='cover', logo, links, title, location
           Contact Us
           </Button>
         </div>
-        <div className='flex justify-between space-x-10'>
+        <div className='flex space-x-10'>
           {locations?.map((location) => (
             <a
               target='_blank'
               href={location.gMap}
               key={location.name}
-              className='flex flex-col space-y-5 text-white w-52 hover:underline'
+              className='flex flex-col justify-between space-y-5 text-white w-52 hover:underline'
             >
               <Image
                 {...location.image}
