@@ -88,12 +88,20 @@ export const headerBlueprint: ComponentBlueprint = {
 export const footerBlueprint: ComponentBlueprint = {
   component: Footer,
   props: {
-    background: 'background',
+    
     logo: logoBlueprint,
     links: [linkBlueprint],
-    gMapAddress: 'gMapAddress',
-    address: 'address',
-    title: 'title'
+    locations: [
+      {
+        name: 'name',
+        address: 'address',
+        city: 'city',
+        zipCode: 'zipCode',
+        country: 'country',
+        image: imageBlueprint,
+        gMap: 'gMap'
+      }
+    ]
   }
 }
 

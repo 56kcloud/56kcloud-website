@@ -3,7 +3,7 @@ import {cn} from '@/utils/toolbox'
 export const buttonSizes = ['small', 'medium', 'large'] as const
 export const buttonShapes = ['square', 'rounded', 'circle'] as const
 export const buttonVariants = ['default', 'link', 'ghost'] as const
-export const buttonTones = ['primary', 'secondary'] as const
+export const buttonTones = ['primary', 'secondary', 'white'] as const
 export const buttonAlignments = ['start', 'center', 'end'] as const
 
 const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVariants[number], string>> = {
@@ -21,6 +21,11 @@ const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVarian
     link: 'text-secondary-500 hover:underline focus-visible:outline-secondary-600 \
     focus-visible:underline',
     ghost: 'text-secondary-500 hover:bg-secondary-50 focus-visible:outline-secondary-600'
+  },
+  white: {
+    default: 'text-white bg-white hover:bg-white/90 focus-visible:ring-white focus-visible:outline-white',
+    link: 'text-white hover:underline focus-visible:outline-white focus-visible:underline',
+    ghost: 'text-white hover:bg-white/90 focus-visible:outline-white'
   }
 }
 
