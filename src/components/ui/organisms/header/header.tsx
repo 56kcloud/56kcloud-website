@@ -98,10 +98,10 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
       <div
         className={
           cn(isFloating ? 'absolute top-0 left-0' : 'my-8 lg:my-12',
-            'mt-8 lg:mt-12 z-50 w-full max-w-7xl px-4 mx-auto')
+            'mt-8 lg:mt-12 z-50 px-4 w-full flex justify-center')
         }
       >
-        <div className='relative'>
+        <div className='relative w-full max-w-7xl'>
           <div className='mx-auto max-w-7xl'>
             <div className='absolute inset-y-0 right-0 flex items-center xl:hidden'>
               <Button
