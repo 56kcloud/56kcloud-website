@@ -1,14 +1,10 @@
 import {ImageProps} from '@/models/image.model'
+import {LinkProps} from '@/models/link.model'
+import {LocationObject} from '@/models/location.model'
 
 export const backgroundOptions = ['cover', 'color'] as const
 export type FooterProps = {
-  background?: typeof backgroundOptions[number]
   logo: ImageProps
-  links: Array<{
-    title: string
-    href: string
-  }>
-  address: string
-  title: string
-  gMapAddress: string
+  links: Array<LinkProps>
+  locations: Array<LocationObject>
 }
