@@ -1,34 +1,12 @@
 import {FooterProps} from './footer.model'
-import {LinkProps} from '@/models/link.model'
-import {Linkedin, MapPin, Twitter} from 'lucide-react'
-import {cn} from '@/utils/toolbox'
+import {useState} from 'react'
 import Button from '@/components/ui/atoms/button'
+import ContactForm from '../contact-form'
 import Image from 'next/image'
 import Link from 'next/link'
-import voila from '../../../../../public/images/logos/voila.webp'
 
-export default function Footer({background='cover', logo, links, title, locations}: FooterProps) {
-  console.log(locations)
-  // const externalLinks: Array<LinkProps> = [
-  //   {
-  //     href: gMapAddress,
-  //     children: <MapPin className='w-4 h-4'/>,
-  //     alt: 'altIconGMaps',
-  //     className: 'block lg:hidden'
-  //   },
-  //   {
-  //     href: 'https://twitter.com/56kcloud',
-  //     children: <Twitter className='w-4 h-4'/>,
-  //     alt: 'altIconTwitter'
-  //   },
-  //   {
-  //     href: 'https://www.linkedin.com/company/56kcloud',
-  //     children: <Linkedin className='w-4 h-4'/>,
-  //     alt: 'altIconLinkedin'
-  //   }
-  // ]
-
-
+export default function Footer({logo, links, locations, contactUsCTA}: FooterProps) {
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false)
   return (
     <footer
       className='flex justify-center p-10 lg:h-80 bg-primary-900'>
@@ -67,9 +45,15 @@ export default function Footer({background='cover', logo, links, title, location
           </Link>
           <Button
             tone='secondary'
+            onClick={() => setIsContactFormOpen(true)}
           >
-          Contact Us
+            {contactUsCTA.title}
           </Button>
+          <ContactForm
+            isOpen={isContactFormOpen}
+            setIsOpen={setIsContactFormOpen}
+            {...contactUsCTA.modal}
+          />
         </div>
         <div className='flex space-x-10'>
           {locations?.map((location) => (

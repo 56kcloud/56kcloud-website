@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const nextTranslate = require('next-translate-plugin')
 const nextConfig = {
   images: {
     domains: ['56k-strapi.s3.eu-central-1.amazonaws.com', 'localhost']
@@ -18,10 +19,7 @@ const nextConfig = {
       }
     ]
   },
-  i18n: {
-    locales: ['en', 'fr', 'de'],
-    defaultLocale: 'en'
-  },
+  ...nextTranslate()
 }
 
 module.exports = nextConfig

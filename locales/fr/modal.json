@@ -1,0 +1,9 @@
+{
+  "inputFirstName": "Votre prénom",
+  "inputLastName": "Votre nom de famille",
+  "inputEmail": "Votre e-mail",
+  "inputMessage": "Votre message...",
+  "checkboxLegalConsent": "J'accepte de recevoir des communications supplémentaires de 56K.Cloud GmbH",
+  "textLegalConsent1": "56K.Cloud GmbH s'engage à protéger et à respecter votre vie privée. Nous utiliserons vos informations personnelles uniquement pour administrer votre compte et vous fournir les produits et services que vous avez demandés. Nous aimerions vous contacter de temps en temps au sujet de nos produits et services et d'autres contenus susceptibles de vous intéresser. Si vous consentez à ce que nous vous contactions à cette fin, veuillez indiquer votre méthode de communication préférée en cochant la case appropriée ci-dessus.",
+  "textLegalConsent2": "Vous pouvez vous désinscrire de ces communications à tout moment. Veuillez consulter notre Politique de confidentialité pour en savoir plus sur notre politique de désabonnement, nos politiques de confidentialité et notre engagement en matière de protection et de respect de la vie privée. En cliquant sur \"Envoyer\" ci-dessus, vous autorisez 56K.Cloud GmbH à stocker et à traiter les données personnelles soumises ci-dessus afin de vous fournir le contenu demandé."
+}

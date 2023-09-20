@@ -1,5 +1,10 @@
 {
-  "contactText1": "In case you haven’t found the answer to your question please feel free to",
-  "contactText2": "contact us",
-  "contactText3": ", we will be happy to help you."
+  "relatedArticlesTitle": "Related Articles",
+  "relatedArticlesSubtitle": "Articles that may be of interest to you",
+  "relatedSolutionsTitle": "Related Solutions",
+  "relatedSolutionsSubtitle": "Solutions that may be of interest to you",
+  "relatedServicesTitle": "Related Services",
+  "relatedServicesSubtitle": "Services that may be of interest to you",
+  "relatedPartnersTitle": "Related Partners",
+  "relatedPartnersSubtitle": "Partners that may be of interest to you"
 }

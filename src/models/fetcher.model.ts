@@ -1,30 +1,54 @@
-import {mergeNestedObject} from '@/utils/toolbox'
+import {mergeNestedObject} from '../utils/toolbox'
 
 export type CallProps = {
   path: string
-  options?: any
-  method: 'GET' | 'POST' | 'PUT' | 'DELETE'
+  options?: RequestInit
+  apiKey?: string
+}
+
+export const baseOptions: RequestInit = {
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  method: 'GET'
 }
 
 export class Fetcher {
   baseUrl: URL
-  headers: HeadersInit
+  options: RequestInit
 
-  constructor(baseUrl: string, headers: HeadersInit) {
+  constructor(baseUrl: string, options?: RequestInit | undefined) {
     this.baseUrl = new URL(baseUrl)
-    this.headers = headers
+    this.options = mergeNestedObject(baseOptions, options || {})
   }
 
   async call(props: CallProps) {
     try {
-      const res = await fetch((new URL(props.path, this.baseUrl)).href, {
-        method: props.method,
-        headers: props.options?.headers ? mergeNestedObject(this.headers, props.options?.headers) : this.headers,
-        next: {tags: ['strapi']}
-      })
-      return res.json()
+      if (props.options?.body && typeof props.options.body !== 'string') {
+        props.options.body = JSON.stringify(props.options?.body)
+      }
+      const baseOptions = {...this.options}
+      const options = props.options ? mergeNestedObject(baseOptions, props.options) : baseOptions
+      const res = await fetch(this.cleanUrl((new URL(props.path, this.baseUrl)).href), options)
+      if (res.status >= 200 && res.status < 300) {
+        try {
+          return await res.json()
+        } catch (error) {
+          return {}
+        }
+      } else {
+        let detail = res.statusText
+        try { 
+          detail = JSON.stringify((await res.json())?.detail)
+        } catch (error) { /* empty */ }
+        throw Error(`${res.status} ${detail}`)
+      }
     } catch (error) {
       return Promise.reject(error)
     }
+  }
+
+  cleanUrl(url: string) {
+    return url.replaceAll(' ', '').trim()
   }
 }

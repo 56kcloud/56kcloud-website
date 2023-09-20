@@ -6,12 +6,9 @@ import {strapiFetcher} from '../../../config'
 
 export async function getPageProps(path='/', lang='en'): Promise<PageProps|undefined> {
   try {
-    const res = await strapiFetcher.call(
-      {
-        path: `/api/${path}?populate=deep&locale=${lang}`,
-        method: 'GET'
-      }
-    )
+    const res = await strapiFetcher.call({
+      path: `/api/${path}?populate=deep&locale=${lang}`
+    })
     const element = res.data?.attributes || res
     const components = element.body.filter((item: Record<string, string>) => 
       Object.keys(componentBlueprints).includes(item.__component.split('.')[1])
