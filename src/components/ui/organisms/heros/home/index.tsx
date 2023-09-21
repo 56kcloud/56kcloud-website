@@ -1,34 +1,42 @@
 import {ImageProps} from '@/models/image.model'
+import {LinkProps} from '@/models/link.model'
+import Button from '@/components/ui/atoms/button'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export type HomeHeroProps = {
-  titleLine1: string
-  titleLine2: string
-  titleLine3: string
+  title: string
+  button: LinkProps
   image: ImageProps
 }
 
-export default function HomeHero({titleLine1, titleLine2, titleLine3, image}: HomeHeroProps) {  
+export default function HomeHero({title, button, image}: HomeHeroProps) {  
   return (
     <div className='relative pt-24 overflow-hidden bg-white sm:pt-0'>
       <Image
-        alt={'Train background'}
+        alt={'Team background'}
         src={image.src}
         placeholder='blur'
         blurDataURL={image.blurDataURL}
         width={image.width}
         height={image.height}
         className='w-full pointer-events-none'/>
-      <div
-        className='title font-semibold absolute left-[41%] bottom-[40%] z-10 sm:bottom-[43%] sm:left-[46%] \
-        md:bottom-[44%] md:left-[48%] lg:left-1/2 xl:bottom-[45%]'>
+      <div 
+        className='absolute inset-0 flex flex-col items-center justify-center title'>
         <h1
-          className='leading-none sm-responsive-title sm:md-responsive-title md:lg-responsive-title \
-          lg:xl-responsive-title'>
-          <div>{titleLine1}</div>
-          <div className='relative left-[12.5%]'>{titleLine2}</div>
-          <div className='relative left-[50%]'>{titleLine3}</div>
+          className={`mx-10 my-4 mt-20 text-xl text-center text-white sm:mx-30 sm:mt-10 sm:text-3xl md:text-5xl 
+          lg:text-6xl xl:text-7xl 2xl:text-8xl`}>
+          {title}
         </h1>
+        <Button
+          tone='primary'
+          size='small'
+          className='p-2 mt-8 text-xs/3 lg:mt-20'
+        >
+          <Link href={button.href}>
+            {button.title}
+          </Link>
+        </Button>
       </div>
     </div>
   )

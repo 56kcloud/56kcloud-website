@@ -16,7 +16,10 @@ import useTranslation from 'next-translate/useTranslation'
 
 export type HeaderProps = {
   logo: ImageProps
-  links: Array<LinkProps>
+  links: Array<{
+    title: string
+    href: string
+  }>
   isFloating?: boolean
 }
 
@@ -25,7 +28,7 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const pathname = usePathname()
 
-  const navigation: Array<LinkProps> = links.map((link) => ({
+  const navigation: Array<LinkProps> = links.map(link => ({
     href: link.href || '',
     children: link.children
   }))
@@ -86,7 +89,7 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
                   <Link href={item.href}>
                     {item.children}
                   </Link>
-                </Button>
+                </Button>       
               ))}
             </div>
             <div className='flex justify-center pt-8 border-t pb-28'>
@@ -131,7 +134,7 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
                       asChild
                       key={index}
                       variant='ghost'
-                      className='capitalize'
+                      className='text-white capitalize'
                       data-active={pathname.includes(item.href)}
                     >
                       <Link href={item.href}>

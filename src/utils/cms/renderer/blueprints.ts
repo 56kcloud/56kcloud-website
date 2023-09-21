@@ -5,7 +5,7 @@ import BackgroundImage from '@/components/ui/atoms/background-image'
 import CompanyList from '@/components/ui/organisms/lists/company'
 import FeatureList from '@/components/ui/organisms/lists/feature'
 import Footer from '@/components/ui/organisms/footer'
-import Header from '@/components/ui/organisms/header/header'
+import Header from '@/components/ui/organisms/header'
 import HeroWithImageTiles from '@/components/ui/organisms/heros/hero-with-image-tiles'
 import HomeHero from '@/components/ui/organisms/heros/home'
 import IllustrationCardList from '@/components/ui/organisms/lists/illustration'
@@ -70,6 +70,11 @@ const logoBlueprint = {
 const linkBlueprint = {
   children: 'children',
   href: 'href'
+}
+
+const buttonBlueprint = {
+  children: 'button.children',
+  href: 'button.href'
 }
 
 const tagBlueprint = {
@@ -415,9 +420,8 @@ export const backgroundImageBlueprint: ComponentBlueprint = {
 export const homeHeroBlueprint: ComponentBlueprint = {
   component: HomeHero,
   props: {
-    titleLine1: 'titleLine1',
-    titleLine2: 'titleLine2',
-    titleLine3: 'titleLine3',
+    title: 'title',
+    button: buttonBlueprint,
     image: imageBlueprint
   }
 }
