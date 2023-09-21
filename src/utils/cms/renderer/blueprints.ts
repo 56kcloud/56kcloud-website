@@ -72,6 +72,11 @@ const linkBlueprint = {
   href: 'href'
 }
 
+const buttonBlueprint = {
+  children: 'button.children',
+  href: 'button.href'
+}
+
 const tagBlueprint = {
   name: 'name'
 }
@@ -416,7 +421,7 @@ export const homeHeroBlueprint: ComponentBlueprint = {
   component: HomeHero,
   props: {
     title: 'title',
-    button: linkBlueprint,
+    button: buttonBlueprint,
     image: imageBlueprint
   }
 }
