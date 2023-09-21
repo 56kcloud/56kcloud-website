@@ -5,4 +5,5 @@ export type LinkProps = {
   children: ReactNode
   alt?: string
   className?: string
+  children?: React.ReactNode
 }

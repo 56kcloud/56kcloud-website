@@ -8,3 +8,4 @@ data
 public/blog
 .vercel
 .env
+.vscode
