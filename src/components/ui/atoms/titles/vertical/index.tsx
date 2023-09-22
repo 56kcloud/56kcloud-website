@@ -1,6 +1,5 @@
 import {MoveDown} from 'lucide-react'
 import {cn} from '@/utils/toolbox'
-import Arrow from '../../arrow'
 
 export type VerticalTitleProps = {
   styleCard: 'illustrationCard' | 'detailsCard'
