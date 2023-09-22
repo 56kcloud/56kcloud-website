@@ -25,13 +25,13 @@ export default function FeaturesHero({title, subtitle, image, features}: BasicHe
         />
         <div 
           className='absolute inset-0 flex flex-col items-start justify-center w-full mx-auto max-w-7xl'>
-          <div className='flex flex-col items-center w-full pr-4 space-y-8 xl:items-start text-primary-800'>
+          <div className='flex flex-col justify-center w-full pl-4'>
             <h1
-              className={'text-center text-6xl xl:text-left xl:text-7xl title max-w-2xl'}>
+              className={'text-left text-primary-800 text-7xl title max-w-2xl'}>
               {title}
             </h1>
             <p
-              className={'text-center xl:text-left text-base w-96'}>
+              className={'text-left text-primary-800 text-base w-96'}>
               {subtitle}
             </p>
           </div>

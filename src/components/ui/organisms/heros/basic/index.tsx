@@ -17,17 +17,17 @@ export default function BasicHero({title, subtitle, image}: BasicHeroProps) {
         blurDataURL={image.blurDataURL}
         width={image.width}
         height={image.height}
-        className='pointer-events-none'
+        className='object-cover object-left-top h-full pointer-events-none'
       />
       <div 
         className='absolute inset-0 flex flex-col items-start justify-center w-full mx-auto max-w-7xl'>
-        <div className='flex flex-col items-center w-full pr-4 xl:items-start'>
+        <div className='flex flex-col justify-center w-full pl-4'>
           <h1
-            className={'text-center xl:text-left text-primary-800 text-7xl title'}>
+            className={'text-left text-primary-800 text-7xl title'}>
             {title}
           </h1>
           <p
-            className={'text-center xl:text-left text-primary-800 text-base title'}>
+            className={'text-left text-primary-800 text-base'}>
             {subtitle}
           </p>
         </div>
