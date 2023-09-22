@@ -1,20 +1,25 @@
 import {Solution} from '@/models/solution.model'
-import MasonryLayout from '../masonry'
-import SolutionCard from '@/components/ui/molecules/cards/solution'
+import IllustrationCardList from '../illustration'
 
 export type SolutionListProps = {
-  solutions: Array<Solution>
+  solutions: Array<Solution>,
+  title?: string
 }
 
-export default function SolutionList({solutions}: SolutionListProps) {
+export default function SolutionList({solutions, title}: SolutionListProps) {
+  const cards =  solutions.map((solution, index) => ({
+    title: solution.title,
+    description: solution.description,
+    illustration: solution.image,
+    number: index+1,
+    href: `/solutions/${solution.slug}`
+  }))
+
   return (
-    <MasonryLayout>
-      {solutions.map((solution, index) => (
-        <SolutionCard
-          key={index}
-          solution={solution}
-        />
-      ))}
-    </MasonryLayout>
+    <IllustrationCardList
+      theme='light'
+      title={title || 'Solutions'}
+      illustrationCards={cards}
+    />
   )
 }

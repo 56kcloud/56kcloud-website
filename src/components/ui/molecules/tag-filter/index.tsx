@@ -31,7 +31,7 @@ export default function TagFilter({tags}: TagFilterProps) {
   
   return (
     <div className='flex items-center justify-center w-full'>
-      <div className='relative flex w-full border-b'>
+      <div className='relative flex w-full mt-10 border-b max-w-7xl'>
         <div className='absolute left-0 flex h-full'>
           <button
             onClick={() => slide('left')} 

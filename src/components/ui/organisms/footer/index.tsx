@@ -9,66 +9,72 @@ export default function Footer({logo, links, locations, contactUsCTA}: FooterPro
   const [isContactFormOpen, setIsContactFormOpen] = useState(false)
   return (
     <footer
-      className='flex justify-center p-10 lg:h-80 bg-primary-900'>
-      <div className='flex flex-col w-full space-y-10 lg:space-y-0 lg:space-x-20 lg:flex-row max-w-7xl'>
-        <div className='flex-1'>
-          <ul className='space-y-2'>
-            {links.map((link, index) => (
-              <li
-                key={index}
-                className='w-1/2 mb-2'>
+      className='flex justify-center w-full px-10 pt-12 pb-16 lg:h-80 bg-primary-900'>
+      <div className='flex flex-col w-full space-y-10 lg:space-y-0 lg:space-x-10 lg:flex-row max-w-7xl'>
+        <div className='flex flex-col flex-1 space-y-10 lg:space-y-0 lg:space-x-10 sm:flex-row'>
+          <div className='flex items-start flex-1 lg:flex-col lg:pt-10'>
+            <Link
+              href='/'
+              aria-label='56k logo'
+            >
+              <Image
+                {...logo}
+                alt='altLogo56k'
+                className='w-40'
+              />
+            </Link>
+          </div>
+          <div className='flex items-center flex-1 lg:pt-3'>
+            <ul className='space-y-2'>
+              {links.map((link, index) => (
+                <li
+                  key={index}
+                  className='w-1/2 mb-2'>
+                  <Button
+                    asChild
+                    variant='link'
+                    tone='white'
+                    align='start'
+                    className='capitalize w-max'
+                  >
+                    <Link href={link.href}>
+                      {link.children}
+                    </Link>
+                  </Button>
+                </li>
+              ))}
+              <li>
                 <Button
-                  asChild
-                  variant='link'
                   tone='white'
+                  variant='link'
                   align='start'
-                  className='capitalize w-max'
+                  onClick={() => setIsContactFormOpen(true)}
                 >
-                  <Link href={link.href}>
-                    {link.children}
-                  </Link>
+                  {contactUsCTA.title}
                 </Button>
+                <ContactForm
+                  isOpen={isContactFormOpen}
+                  setIsOpen={setIsContactFormOpen}
+                  {...contactUsCTA.modal}
+                />
               </li>
-            ))}
-          </ul>
+            </ul>
+          </div>
         </div>
-        <div className='flex justify-between lg:flex-col'>
-          <Link
-            href='/'
-            aria-label='56k logo'
-          >
-            <Image
-              {...logo}
-              alt='altLogo56k'
-              className='w-40'
-            />
-          </Link>
-          <Button
-            tone='secondary'
-            onClick={() => setIsContactFormOpen(true)}
-          >
-            {contactUsCTA.title}
-          </Button>
-          <ContactForm
-            isOpen={isContactFormOpen}
-            setIsOpen={setIsContactFormOpen}
-            {...contactUsCTA.modal}
-          />
-        </div>
-        <div className='flex space-x-10'>
+        <div className='flex flex-col space-y-10 sm:space-y-0 sm:space-x-10 md:space-x-36 sm:flex-row'>
           {locations?.map((location) => (
             <a
               target='_blank'
               href={location.gMap}
               key={location.name}
-              className='flex flex-col justify-between space-y-5 text-white w-52 hover:underline'
+              className='flex items-center space-x-5 text-white hover:underline'
             >
               <Image
                 {...location.image}
                 alt={location.name}
-                className='w-32'
+                className='w-32 aspect-square'
               />
-              <div>
+              <div className='ml-2'>
                 <p>{location.address}</p>
                 <p>{location.zipCode} {location.city}</p>
                 <p>{location.country}</p>

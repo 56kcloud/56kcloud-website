@@ -8,7 +8,7 @@ export const buttonAlignments = ['start', 'center', 'end'] as const
 
 const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVariants[number], string>> = {
   primary: {
-    default: 'bg-primary-200 text-primary-500 hover:bg-primary-100 focus-visible:ring-primary-500 \
+    default: 'bg-primary-800 text-white hover:bg-white hover:text-primary-800 focus-visible:ring-primary-800 \
     focus-visible:outline-primary-200 uppercase tracking-widest',
     link: 'text-primary-800 hover:underline focus-visible:outline-primary-600 focus-visible:underline',
     ghost: 'text-primary-800 hover:bg-primary-100/30 focus-visible:outline-primary-600  \
@@ -23,9 +23,9 @@ const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVarian
     ghost: 'text-secondary-500 hover:bg-secondary-50 focus-visible:outline-secondary-600'
   },
   white: {
-    default: 'text-white bg-white hover:bg-white/90 focus-visible:ring-white focus-visible:outline-white',
+    default: 'text-white bg-white hover:bg-white/10 focus-visible:ring-white focus-visible:outline-white',
     link: 'text-white hover:underline focus-visible:outline-white focus-visible:underline',
-    ghost: 'text-white hover:bg-white/90 focus-visible:outline-white'
+    ghost: 'text-white hover:bg-white/10 focus-visible:outline-white'
   }
 }
 
@@ -101,7 +101,7 @@ export class ButtonProps {
       toneClasses[this.tone][this.variant],
       sizeClasses[this.size],
       shapeClasses[this.shape],
-      this.variant === 'link' && 'p-0'
+      this.variant === 'link' && '!p-0'
     )
   }
 

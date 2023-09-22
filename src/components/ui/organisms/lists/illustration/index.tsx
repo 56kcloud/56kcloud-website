@@ -16,14 +16,18 @@ export default function IllustrationCardList({theme='dark', title, illustrationC
       <VerticalTitle
         title={title}
         styleCard='illustrationCard'
-        classNameText={cn(theme === 'dark' ? 'text-white' : 'text-blue-dark')}/>
-      {illustrationCards.map((card) => 
-        <IllustrationCard
-          theme={theme}
-          key={card.title}
-          {...card}
-        />
-      )}
+        theme={theme}
+        classNameText={cn(theme === 'dark' ? 'text-white' : 'text-blue-dark')}
+      />
+      <div className='flex flex-col space-y-28'>
+        {illustrationCards.map((card) => 
+          <IllustrationCard
+            theme={theme}
+            key={card.title}
+            {...card}
+          />
+        )}
+      </div>
     </section>
   )
 }

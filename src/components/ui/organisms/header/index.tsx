@@ -1,7 +1,6 @@
 'use client'
 
 import * as NavbarPrimitive from '@radix-ui/react-dialog'
-import {ImageProps} from '@/models/image.model'
 import {LinkProps} from '@/models/link.model'
 import {Logo} from '../../svgs/logos/56k'
 import {Menu} from '../../svgs/icons/menu'
@@ -10,28 +9,19 @@ import {usePathname} from 'next/navigation'
 import {useState} from 'react'
 import Button from '../../atoms/button'
 import Image from 'next/image'
-import LanguageSwitcher from '@/components/ui/molecules/language-switcher'
 import Link from 'next/link'
 import useTranslation from 'next-translate/useTranslation'
 
 export type HeaderProps = {
-  logo: ImageProps
-  links: Array<{
-    title: string
-    href: string
-  }>
+  links: Array<LinkProps>
   isFloating?: boolean
+  darkTheme?: boolean
 }
 
-export default function Header({logo, links, isFloating}: HeaderProps) {
+export default function Header({links, isFloating, darkTheme}: HeaderProps) {
   const {t} = useTranslation()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const pathname = usePathname()
-
-  const navigation: Array<LinkProps> = links.map(link => ({
-    href: link.href || '',
-    children: link.children
-  }))
 
   const sidebarHandler = () => {
     setSidebarOpen(false)
@@ -70,14 +60,14 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
               <Link
                 href='/'
                 aria-label='56k cloud logo'>
-                <Logo className='w-auto h-7'/>
+                <Logo className={cn(darkTheme ? 'text-white' : 'text-primary-800',  'w-auto h-7')}/>
               </Link>
               <div className='translate-y-[3px]'>
-                <LanguageSwitcher/>
+                {/* <LanguageSwitcher/> */}
               </div>
             </div>
             <div className='mb-auto'>
-              {navigation.map((item, index) => (
+              {links.map((item, index) => (
                 <Button
                   asChild
                   key={index}
@@ -109,10 +99,10 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
             <div className='absolute inset-y-0 right-0 flex items-center xl:hidden'>
               <Button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                trailing={<Menu className='w-3.5 h-3.5 ml-3 -mt-[1.5px]'/>}
-                size='small'
+                shape='circle'
+                className='p-3'
               >
-                Menu
+                <Menu className='w-5 h-5'/>
               </Button>
             </div>
             <div className='flex justify-between'>
@@ -120,21 +110,18 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
                 <Link
                   href='/'
                   aria-label='56k cloud logo'>
-                  <Image
-                    {...logo}
-                    alt='altLogo56k'
-                    className='w-auto h-7 lg:h-10'
-                  />
+                  <Logo className={cn(darkTheme ? 'text-white' : 'text-primary-800',  'w-auto h-7 lg:h-10')}/>
                 </Link>
               </div>
               <div className='hidden xl:flex xl:items-center xl:justify-between gap-x-12 2xl:gap-x-16'>
                 <div className='flex items-center space-x-2'>
-                  {navigation.map((item, index) => (
+                  {links.map((item, index) => (
                     <Button
                       asChild
                       key={index}
                       variant='ghost'
-                      className='text-white capitalize'
+                      tone={darkTheme ? 'white' : 'primary'}
+                      className='capitalize'
                       data-active={pathname.includes(item.href)}
                     >
                       <Link href={item.href}>
@@ -142,7 +129,7 @@ export default function Header({logo, links, isFloating}: HeaderProps) {
                       </Link>
                     </Button>
                   ))}
-                  <LanguageSwitcher/>
+                  {/* <LanguageSwitcher/> */}
                 </div>
               </div>
             </div>

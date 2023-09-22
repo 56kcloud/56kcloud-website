@@ -1,9 +1,11 @@
+import {MarkdownViewer} from '@/components/ui/molecules/mardown'
 import {z} from 'zod'
 import ArticleContentSection from '@/components/ui/molecules/article/content-section'
 import ArticleList from '@/components/ui/organisms/lists/article'
 import BackgroundImage from '@/components/ui/atoms/background-image'
+import BasicHero from '@/components/ui/organisms/heros/basic'
 import CompanyList from '@/components/ui/organisms/lists/company'
-import FeatureList from '@/components/ui/organisms/lists/feature'
+import FeaturesHero from '@/components/ui/organisms/heros/features'
 import Footer from '@/components/ui/organisms/footer'
 import Header from '@/components/ui/organisms/header'
 import HeroWithImageTiles from '@/components/ui/organisms/heros/hero-with-image-tiles'
@@ -273,21 +275,6 @@ export const tagsFilterBlueprint: ComponentBlueprint = {
   }
 }
 
-export const featureListBlueprint: ComponentBlueprint = {
-  component: FeatureList,
-  props: {
-    title: 'title',
-    subtitle: 'subtitle',
-    features: [
-      {
-        name: 'name',
-        description: 'description',
-        icon: iconBlueprint
-      }
-    ]
-  }
-}
-
 export const articleListBlueprint: ComponentBlueprint = {
   component: ArticleList,
   props: {
@@ -426,6 +413,31 @@ export const homeHeroBlueprint: ComponentBlueprint = {
   }
 }
 
+export const basicHeroBlueprint: ComponentBlueprint = {
+  component: BasicHero,
+  props: {
+    title: 'title',
+    subtitle: 'subtitle',
+    image: imageBlueprint
+  }
+}
+
+export const featuresHeroBlueprint: ComponentBlueprint = {
+  component: FeaturesHero,
+  props: {
+    title: 'title',
+    subtitle: 'subtitle',
+    image: imageBlueprint,
+    features: [
+      {
+        name: 'name',
+        description: 'description',
+        icon: iconBlueprint
+      }
+    ]
+  }
+}
+
 export const heroWithImageTilesBlueprint: ComponentBlueprint = {
   component: HeroWithImageTiles,
   props: {
@@ -475,5 +487,12 @@ export const teamListBlueprint: ComponentBlueprint = {
     joinTeamTextStart: 'joinTeamTextStart',
     joinTeamTextEnd: 'joinTeamTextEnd',
     joinTeamCTATitle: 'joinTeamCTATitle'
+  }
+}
+
+export const markdownViewerBlueprint: ComponentBlueprint = {
+  component: MarkdownViewer,
+  props: {
+    content: 'content'
   }
 }

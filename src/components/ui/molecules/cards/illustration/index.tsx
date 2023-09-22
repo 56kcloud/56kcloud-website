@@ -2,25 +2,27 @@ import {IllustrationCardPropsImpl} from './illustration-card.model'
 import {cn} from '@/utils/toolbox'
 import {padNumberWithZeroes} from '@/utils/toolbox'
 import Image from 'next/image'
+import Link from 'next/link'
 
 
 export default function IllustrationCard({
-  alignment = 'left',
   theme = 'dark',
   illustration,
-  icon,
+  href,
   number,
   title,
   description
 }: IllustrationCardPropsImpl) {
+  const alignment = number % 2 === 0 ? 'right' : 'left'
   const alignClasses = alignment === 'left' ? 'xl:mr-16' : 'xl:ml-16'
   const backgroundColor = theme === 'dark' ? 'bg-primary-500 text-white' : 'bg-white'
 
   return (
     <div className='w-full mx-auto mb-28 max-w-screen-2xl last:mb-0'>
-      <div
+      <Link
+        href={href}
         className={cn(alignClasses, backgroundColor,
-          'relative flex flex-col md:flex-row')}>
+          'relative flex flex-col md:flex-row duration-200 hover:scale-105')}>
         <div className='absolute right-4 top-3 sm:right-10 sm:top-10'>
           <span className='title'>{padNumberWithZeroes(number, 2)}</span>
         </div>
@@ -37,16 +39,6 @@ export default function IllustrationCard({
           </div>
         </div>
         <div className='p-8 pt-0 md:p-16 md:w-1/3 md:pr-8 md:pl-0 lg:py-28 2xl:pr-36'>
-          <div
-            className={cn((alignment === 'right'
-              ? 'bg-primary-200'
-              : 'bg-secondary-500'),
-            'w-12 h-12 p-3 rounded-full flex items-center justify-center')}>
-            <Image
-              src={icon}
-              alt={title}
-            />
-          </div>
           <h3
             className={cn(
               alignment === 'left' ? 'text-secondary-500' : 'text-primary-200',
@@ -55,7 +47,7 @@ export default function IllustrationCard({
           </h3>
           <p className='w-full sm:w-2/3 md:w-full'>{description}</p>
         </div>
-      </div>
+      </Link>
     </div>
   )
 }

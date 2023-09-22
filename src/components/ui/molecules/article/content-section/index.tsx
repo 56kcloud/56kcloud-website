@@ -1,9 +1,9 @@
 import {ImageProps} from '@/models/image.model'
+import {MarkdownViewer} from '../../mardown'
 import {Tag} from '@/models/tag.model'
-import Markdown from 'markdown-to-jsx'
 import PostCover from '../../cards/cover'
 import PostTagList from '../../cards/article/tag-list'
-import React, {ReactNode} from 'react'
+import React from 'react'
 
 export type ArticleContentSectionProps = {
   image: ImageProps
@@ -28,23 +28,7 @@ export default function ArticleContentSection({image, tags, title, content}: Art
           <h1 className='text-4xl line-clamp-2 text-grey-dark title'>
             {title}
           </h1>
-          <Markdown
-            options={{
-              createElement(type, props: React.HTMLProps<HTMLDivElement> , children: ReactNode) {
-                const element = Array.isArray(children) ? children[0] : children
-                if (element === 'video') {
-                  return <iframe
-                    key={props['href']}
-                    src={props['href']}
-                    className='w-full rounded-lg h-[500px]'/>
-                } else {
-                  return React.createElement(type, props, children)
-                }
-              }
-            }}
-          >
-            {content}
-          </Markdown>
+          <MarkdownViewer content={content}/>
         </div>
       </div>
     </div>    
