@@ -3,14 +3,16 @@ import {
   articleContentBlueprint,
   articleListBlueprint,
   backgroundImageBlueprint,
+  basicHeroBlueprint,
   companyListBlueprint,
-  featureListBlueprint,
+  featuresHeroBlueprint,
   footerBlueprint,
   headerBlueprint,
   heroWithImageTilesBlueprint,
   homeHeroBlueprint,
   illustrationCardListBlueprint,
   largeTitleSectionBlueprint,
+  markdownViewerBlueprint,
   mediumTitleSectionBlueprint,
   partnerListBlueprint,
   rectangleCardListBlueprint,
@@ -49,7 +51,6 @@ export const componentBlueprints: ComponentBlueprints = {
   'team-member-hero': teamMemberHeroBlueprint,
   'team-member-card': teamMemberCardBlueprint,
   'tags-filter': tagsFilterBlueprint,
-  'feature-list': featureListBlueprint,
   'article-list': articleListBlueprint,
   'solution-list': solutionListBlueprint,
   'service-list': serviceListBlueprint,
@@ -60,7 +61,10 @@ export const componentBlueprints: ComponentBlueprints = {
   'related-partners': relatedPartnersBlueprint,
   'article-content': articleContentBlueprint,
   'background-image': backgroundImageBlueprint,
+  'markdown': markdownViewerBlueprint,
   'home-hero': homeHeroBlueprint,
+  'basic-hero': basicHeroBlueprint,
+  'features-hero': featuresHeroBlueprint,
   'hero-with-image-tiles': heroWithImageTilesBlueprint,
   'rectangle-card-list': rectangleCardListBlueprint
 }
@@ -86,11 +90,13 @@ export const layouts = {
 export function pageRenderer(
   components: Array<ComponentBlueprint>,
   openGraph: PageOpenGraph,
-  layout: string|null
+  layout: string|null,
+  headerDark?: boolean
 ) {
   const Layout = layouts[layout as keyof typeof layouts]?.component
   if (components?.length > 0) {
     components[0].props['isFloating'] = layout ? false : true
+    components[0].props['darkTheme'] = headerDark
   }
   const children = renderComponents(components)
   return (<>

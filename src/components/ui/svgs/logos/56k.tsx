@@ -9,7 +9,7 @@ export function Logo(props: IconProps) {
       x='0px'
       y='0px'
       viewBox='0 0 194 40.6'
-      fill='#002E6E'
+      fill='currentColor'
       {...props}
     >
       <g>

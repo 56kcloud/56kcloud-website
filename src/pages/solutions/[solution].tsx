@@ -5,8 +5,8 @@ import {getPageProps} from '@/utils/cms/endpoints'
 import {pageRenderer} from '@/utils/cms/renderer/components'
 import {strapiFetcher} from '../../../config'
 
-export default function SolutionPage({components, openGraph}: PageProps) {
-  return pageRenderer(components, openGraph, 'CenteredLayout')
+export default function SolutionPage({layout, components, openGraph}: PageProps) {
+  return pageRenderer(components, openGraph, layout, true)
 }
 
 export async function getStaticPaths() {

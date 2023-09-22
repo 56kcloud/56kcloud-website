@@ -11,7 +11,9 @@ export type TeamMemberCardProps = {
 
 export default function TeamMemberCard({teamMember}: TeamMemberCardProps) {
   return (
-    <div className='flex w-full p-10 space-x-4 bg-white shadow-lg sm:space-x-8 rounded-xl'>
+    <Link
+      href={`/about/team-members/${teamMember.slug}`}
+      className='flex w-full p-10 space-x-4 bg-white shadow-lg sm:space-x-8 rounded-xl hover:bg-gray-50'>
       <div>
         <Avatar
           size='lg'
@@ -49,6 +51,6 @@ export default function TeamMemberCard({teamMember}: TeamMemberCardProps) {
           }
         </div>
       </div>
-    </div>
+    </Link>
   )
 }

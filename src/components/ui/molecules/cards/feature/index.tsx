@@ -9,18 +9,16 @@ export default function FeatureCard({feature}: FeatureCardProps) {
   return (
     <div
       key={feature.name}
-      className='relative pl-16'>
-      <dt className='text-base font-semibold leading-7 text-gray-900'>
-        <div
-          className={'absolute top-0 left-0 flex items-center justify-center w-10 h-10 p-2 rounded-lg'}>
-          <Image
-            {...feature.icon}
-            alt={feature.name}
-          />
-        </div>
+      className='w-full p-6 h-80 bg-primary-500'>
+      <Image
+        {...feature.icon}
+        alt={feature.name}
+        className='w-auto h-10 mb-2'
+      />
+      <div className='text-xl font-semibold leading-7 text-white title'>
         <span className='capitalize'>{feature.name}</span>
-      </dt>
-      <dd className='mt-2 text-base leading-7 text-gray-600'>{feature.description}</dd>
+      </div>
+      <p className='mt-2 overflow-hidden text-base leading-7 text-gray-100'>{feature.description}</p>
     </div>
   )
 }
