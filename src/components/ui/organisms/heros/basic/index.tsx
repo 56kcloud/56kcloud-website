@@ -23,7 +23,7 @@ export default function BasicHero({title, subtitle, image}: BasicHeroProps) {
         className='absolute inset-0 flex flex-col items-start justify-center w-full mx-auto max-w-7xl'>
         <div className='flex flex-col justify-center w-full pl-4 sm:mt-10'>
           <h1
-            className={'text-left text-primary-800 responsive-title title max-w-xl'}>
+            className={'text-left text-primary-800 responsive-title title max-w-2xl'}>
             {title}
           </h1>
           <p
