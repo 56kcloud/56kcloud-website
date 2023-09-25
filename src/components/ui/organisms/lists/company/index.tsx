@@ -5,7 +5,7 @@ export default function CompanyList({title, companies}: {title:string, companies
 
   return (
     <section className='bg-primary-50 section-padding' >
-      <h2 className='text-center title mb-14 xs-responsive-title'>{title}</h2>
+      <h2 className='text-center title mb-14 text-[36px] xl:text-[42px]'>{title}</h2>
       <ul className='flex flex-wrap justify-center'>
         {companies.map((company) => (
           <li

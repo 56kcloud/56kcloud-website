@@ -13,6 +13,7 @@ export type ArticleContentSectionProps = {
 }
 
 export default function ArticleContentSection({image, tags, title, content}: ArticleContentSectionProps) {
+  content = `# ${title} \n ${content}`
   return (<div className='flex items-end justify-center w-full'>
     <div 
       className='z-50 w-full h-full overflow-auto bg-white shadow-lg max-w-7xl rounded-xl overscroll-contain'
@@ -25,10 +26,9 @@ export default function ArticleContentSection({image, tags, title, content}: Art
           tags={tags}
         />
         <div className='max-w-full prose'>
-          <h1 className='text-4xl line-clamp-2 text-grey-dark title'>
-            {title}
-          </h1>
-          <MarkdownViewer content={content}/>
+          <MarkdownViewer
+            content={content}
+            className='px-0'/>
         </div>
       </div>
     </div>    

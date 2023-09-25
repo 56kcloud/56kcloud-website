@@ -13,7 +13,7 @@ export default function TeamMemberHero({teamMember}: TeamMemberCardProps) {
         alt={'postAvatarImageAlt'}
       />
       <p className='font-normal text-right'>{teamMember.role}</p>
-      <h3 className='sm-responsive-title title'>{teamMember.name}</h3>
+      <h3 className='responsive-title title'>{teamMember.name}</h3>
       <p className='max-w-4xl text-center'>{teamMember.bio}</p>
       <div className='flex space-x-2'>
         {teamMember.twitter &&

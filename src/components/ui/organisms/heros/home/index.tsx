@@ -40,7 +40,7 @@ export default function HomeHero({title, button, image}: HomeHeroProps) {
   }, [])
 
   return (
-    <div className='relative overflow-hidden bg-white'>
+    <div className='relative w-full h-screen overflow-hidden bg-white 2xl:h-auto'>
       <Image
         alt={'Team background'}
         src={image.src}
@@ -48,13 +48,13 @@ export default function HomeHero({title, button, image}: HomeHeroProps) {
         blurDataURL={image.blurDataURL}
         width={image.width}
         height={image.height}
-        className='w-full pointer-events-none'/>
+        className='object-cover w-full h-full pointer-events-none 2xl:object-fill'/>
       <div 
-        className='absolute inset-0 flex flex-col items-center justify-center space-y-10 xl:justify-start xl:top-72'>
+        className='absolute inset-0 flex flex-col items-center justify-center max-h-screen -mt-16 space-y-10 xl:mt-0'
+      >
         <div className='flex flex-col items-center space-y-10 max-w-7xl'>
           <h1
-            className={`mx-10 my-4 mt-20 text-xl text-center text-white sm:mx-30 sm:mt-10 sm:text-3xl md:text-5xl 
-          lg:text-6xl xl:text-7xl title`}>
+            className={'mx-10 my-4 mt-20 text-center text-white sm:mx-30 sm:mt-10 responsive-title title'}>
             {title}
           </h1>
           <Button
@@ -72,7 +72,6 @@ export default function HomeHero({title, button, image}: HomeHeroProps) {
           'fixed items-center justify-center w-full flex bottom-24',
           hideScrollBar && 'hidden'
         )}>
-        {/* <Arrow className='text-white w-14 h-14 animate-bounce'/> */}
         <MoveDown className='text-white stroke-1 w-14 h-14 animate-bounce'/>
       </div>
     </div>

@@ -1,10 +1,11 @@
+import {cn} from '@/utils/toolbox'
 import Markdown from 'markdown-to-jsx'
 import React from 'react'
 
-export function MarkdownViewer({content}: {content: string}) {
+export function MarkdownViewer({content, className}: {content: string, className?: string}) {
   return (
     <div className='flex justify-center w-full'>
-      <div className='w-full px-4 prose max-w-7xl'>
+      <div className={cn('w-full px-4 leading-6 prose max-w-7xl prose-config', className)}>
         <Markdown
           options={{
             createElement(type, props: React.HTMLProps<HTMLDivElement> , children: React.ReactNode) {

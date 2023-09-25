@@ -90,24 +90,12 @@ body {
   .title {
     @apply font-chap font-medium leading-[1.15]
   }
-
-  .xs-responsive-title {
-    @apply text-[calc(20px+0.75vw)]
-  }
   
-  .sm-responsive-title {
-    @apply text-[calc(22px+3vw)]
+  .responsive-title {
+    @apply text-[calc(22px+3vw)] xl:text-7xl
   }
+}
 
-  .md-responsive-title {
-    @apply text-[calc(24px+4vw)]
-  }
-
-  .lg-responsive-title {
-    @apply text-[calc(28px+4vw)]
-  }
-
-  .xl-responsive-title {
-    @apply text-[calc(32px+4vw)]
-  }
+.prose-config {
+  @apply prose-h1:leading-10 prose-h2:leading-[30px] prose-h3:leading-6 prose-h4:leading-6 prose-h1:mt-8
 }
