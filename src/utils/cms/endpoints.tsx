@@ -2,7 +2,7 @@ import {PageProps} from '@/models/page.mode'
 import {componentBlueprints} from './renderer/components'
 import {getPropsFromNestedObjects} from './renderer/parser'
 import {snakeCaseObjectKeysToCamelCase} from '../toolbox'
-import {strapiFetcher} from '../../../config'
+import {strapiFetcher} from '../../../configs/server'
 
 export async function getPageProps(path='/', lang='en'): Promise<PageProps|undefined> {
   try {

@@ -1,5 +1,5 @@
 import {HsformsPayload} from '../models/contact-us-form-data.model'
-import {hubspotFetcher} from '../../config'
+import {hubspotFetcher} from '../../configs/client'
 
 export const sendEmail = async(data: HsformsPayload) => {
   return await hubspotFetcher.call({
