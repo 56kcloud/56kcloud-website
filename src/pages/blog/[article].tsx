@@ -3,7 +3,7 @@ import {GetStaticPropsContext} from 'next'
 import {PageProps} from '@/models/page.mode'
 import {getPageProps} from '@/utils/cms/endpoints'
 import {pageRenderer} from '@/utils/cms/renderer/components'
-import {strapiFetcher} from '../../../config'
+import {strapiFetcher} from '../../../configs/server'
 
 export default function BlogPage({components, openGraph}: PageProps) {
   return pageRenderer(components, openGraph, 'CenteredLayout')

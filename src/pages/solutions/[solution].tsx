@@ -3,7 +3,7 @@ import {PageProps} from '@/models/page.mode'
 import {Solution} from '@/models/solution.model'
 import {getPageProps} from '@/utils/cms/endpoints'
 import {pageRenderer} from '@/utils/cms/renderer/components'
-import {strapiFetcher} from '../../../config'
+import {strapiFetcher} from '../../../configs/server'
 
 export default function SolutionPage({layout, components, openGraph}: PageProps) {
   return pageRenderer(components, openGraph, layout, true)
