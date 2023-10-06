@@ -15,9 +15,9 @@ import path from 'path'
   await Promise.all(posts.map(async(post) => {
     await createPostData(await getPost(authors, post.id))
   }))
-  posts = await replaceNotionImagesInPostList(posts)
-  fs.writeFileSync(path.join(process.cwd(), 'public/blog/posts.json'), JSON.stringify(posts))
-  const tags = await getPostsTags(true)
-  fs.writeFileSync(path.join(process.cwd(), 'public/blog/tags.json'), JSON.stringify(tags))
+  // posts = await replaceNotionImagesInPostList(posts)
+  // fs.writeFileSync(path.join(process.cwd(), 'public/blog/posts.json'), JSON.stringify(posts))
+  // const tags = await getPostsTags(true)
+  // fs.writeFileSync(path.join(process.cwd(), 'public/blog/tags.json'), JSON.stringify(tags))
 })()
 
