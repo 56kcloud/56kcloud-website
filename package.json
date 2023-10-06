@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "clean-blog": "rm -rf ./public/blog && rm -rf ./data",
-    "lint": "eslint . --ext js,jsx,ts,tsx --max-warnings=0 --config .eslintrc.json --no-eslintrc --fix",
     "build": "npx tsx scripts/notion/build.ts && next build",
+    "build-storybook": "storybook build",
+    "clean-blog": "rm -rf ./public/blog && rm -rf ./data",
     "dev": "next dev",
     "export": "next export",
+    "lint": "eslint . --ext js,jsx,ts,tsx --max-warnings=0 --config .eslintrc.json --no-eslintrc --fix",
     "start": "next start",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "storybook dev -p 6006"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.5",
@@ -25,7 +25,7 @@
     "next": "latest",
     "next-seo": "^6.0.0",
     "next-translate": "^2.0.4",
-    "notion-to-tailwind": "0.0.11",
+    "notion-to-tailwind": "0.0.12",
     "open-graph-scraper": "^5.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
