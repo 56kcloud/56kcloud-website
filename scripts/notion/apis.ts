@@ -8,7 +8,10 @@ import path from 'path'
 
 const notion = new Client({auth: notionKey})
 
-const notionS3Regex = /https:\/\/s3\.us-west-2\.amazonaws\.com\/secure\.notion-static\.com\/[^\"]+"/g
+const notionOldS3Regex = /https:\/\/s3\.us-west-2\.amazonaws\.com\/secure\.notion-static\.com\/[^\"]+"/g
+const notionNewS3Regex = /https:\/\/prod-files-secure\.s3\.us-west-2\.amazonaws\.com\/[^\"]+"/g
+const s3Regexes = new RegExp(`(${notionOldS3Regex.source})|(${notionNewS3Regex.source})`, 'g')
+
 const publicPostsPath = '/blog/posts'
 
 export function getFileName(url, split=false) {
@@ -20,7 +23,7 @@ export function getFileName(url, split=false) {
 export async function downloadAndReplaceNotionImages(object, relativePath) {
   const publicPath = path.join(process.cwd(), 'public', relativePath)
   fs.mkdir(publicPath, {recursive: true})
-  const matches = JSON.stringify(object).match(notionS3Regex)
+  const matches = JSON.stringify(object).match(s3Regexes)
   for (let url of matches) {
     url = url.replaceAll('"', '')
     const res = await fetch(url)
@@ -39,7 +42,7 @@ export async function replaceNotionImagesInPostList(list) {
   const posts = []
   for (const post of list) {
     const postSlug = post.properties.slug.rich_text[0].plain_text
-    const matches = JSON.stringify(post).match(notionS3Regex)
+    const matches = JSON.stringify(post).match(s3Regexes)
     let stringifiedPost = JSON.stringify(post)
     for (let url of matches) {
       url = url.replaceAll('"', '')
