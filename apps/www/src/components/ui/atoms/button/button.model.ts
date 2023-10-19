@@ -3,14 +3,14 @@ import {cn} from '@/utils/toolbox'
 export const buttonSizes = ['small', 'medium', 'large'] as const
 export const buttonShapes = ['square', 'rounded', 'circle'] as const
 export const buttonVariants = ['default', 'link', 'ghost'] as const
-export const buttonTones = ['primary', 'secondary', 'white'] as const
+export const buttonTones = ['primary', 'secondary'] as const
 export const buttonAlignments = ['start', 'center', 'end'] as const
 
 const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVariants[number], string>> = {
   primary: {
     default: 'bg-primary-800 text-white hover:bg-white hover:text-primary-800 focus-visible:ring-primary-800 \
-    focus-visible:outline-primary-200 uppercase tracking-widest',
-    link: 'text-primary-800 hover:underline focus-visible:outline-primary-600 focus-visible:underline',
+    focus-visible:outline-primary-200',
+    link: 'text-primary-800 focus-visible:outline-primary-600 focus-visible:underline',
     ghost: 'text-primary-800 hover:bg-primary-100/30 focus-visible:outline-primary-600  \
     data-[active=true]:underline data-[active=true]:decoration-primary-200 data-[active=true]:underline-offset-4	\
     data-[active=true]:decoration-2'
@@ -18,21 +18,15 @@ const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVarian
   secondary: {
     default: 'text-white bg-secondary-500 hover:bg-secondary-600 focus-visible:ring-secondary-500 \
      focus-visible:outline-secondary-600',
-    link: 'text-secondary-500 hover:underline focus-visible:outline-secondary-600 \
-    focus-visible:underline',
+    link: 'text-white',
     ghost: 'text-secondary-500 hover:bg-secondary-50 focus-visible:outline-secondary-600'
-  },
-  white: {
-    default: 'text-white bg-white hover:bg-white/10 focus-visible:ring-white focus-visible:outline-white',
-    link: 'text-white hover:underline focus-visible:outline-white focus-visible:underline',
-    ghost: 'text-white hover:bg-white/10 focus-visible:outline-white'
   }
 }
 
 const sizeClasses: Record<typeof buttonSizes[number], string> = {
-  small: 'px-4 py-3 2xl:px-6 text-xs 2xl:text-sm',
-  medium: 'px-4 py-3 2xl:px-6 text-base',
-  large: 'px-5 py-4 2xl:px-7'
+  small: 'px-2.5 py-1.5 text-sm',
+  medium: 'px-3 py-2 text-sm',
+  large: 'px-3.5 py-2.5 text-sm'
 }
 
 const shapeClasses: Record<typeof buttonShapes[number], string> = {

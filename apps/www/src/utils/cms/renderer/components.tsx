@@ -3,15 +3,17 @@ import {
   articleContentBlueprint,
   articleListBlueprint,
   backgroundImageBlueprint,
-  basicHeroBlueprint,
+  blogSectionThreeColumnBlueprint,
+  blogThreeColumnBlueprint,
   companyListBlueprint,
-  featuresHeroBlueprint,
+  contactSplitWithPatternBlueprint,
+  featureThreeColumnWithLargeIconsBlueprint,
   footerBlueprint,
   headerBlueprint,
-  heroWithImageTilesBlueprint,
-  homeHeroBlueprint,
+  heroSimpleCenterWithBackground,
   illustrationCardListBlueprint,
   largeTitleSectionBlueprint,
+  logoCloudsSimpleWithTitleBlueprint,
   markdownViewerBlueprint,
   mediumTitleSectionBlueprint,
   partnerListBlueprint,
@@ -21,12 +23,13 @@ import {
   relatedServicesBlueprint,
   relatedSolutionsBlueprint,
   serviceListBlueprint,
+  servicesThreeColumnWithLargeIconsBlueprint,
   smallTitleSectionBlueprint,
   solutionListBlueprint,
+  solutionThreeColumnWithLargeIconsBlueprint,
   tagsFilterBlueprint,
   teamListBlueprint,
   teamMemberCardBlueprint,
-  teamMemberHeroBlueprint,
   titleSectionBlueprint
 } from './blueprints'
 import {PageOpenGraph} from '@/models/page.mode'
@@ -38,8 +41,8 @@ export type ComponentBlueprints = {
 }
 
 export const componentBlueprints: ComponentBlueprints = {
+  //old blueprints
   'header': headerBlueprint,
-  'footer': footerBlueprint,
   'company-list': companyListBlueprint,
   'partner-list': partnerListBlueprint,
   'small-title-section': smallTitleSectionBlueprint,
@@ -48,7 +51,6 @@ export const componentBlueprints: ComponentBlueprints = {
   'large-title-section': largeTitleSectionBlueprint,
   'illustration-card-list': illustrationCardListBlueprint,
   'article-author': teamMemberCardBlueprint,
-  'team-member-hero': teamMemberHeroBlueprint,
   'team-member-card': teamMemberCardBlueprint,
   'tags-filter': tagsFilterBlueprint,
   'article-list': articleListBlueprint,
@@ -62,11 +64,16 @@ export const componentBlueprints: ComponentBlueprints = {
   'article-content': articleContentBlueprint,
   'background-image': backgroundImageBlueprint,
   'markdown': markdownViewerBlueprint,
-  'home-hero': homeHeroBlueprint,
-  'basic-hero': basicHeroBlueprint,
-  'features-hero': featuresHeroBlueprint,
-  'hero-with-image-tiles': heroWithImageTilesBlueprint,
-  'rectangle-card-list': rectangleCardListBlueprint
+  'rectangle-card-list': rectangleCardListBlueprint,
+  //new blueprints
+  'footer': footerBlueprint,
+  'hero-simple-center-with-background': heroSimpleCenterWithBackground,
+  'blog-three-column': blogThreeColumnBlueprint,
+  'contact-split-with-pattern': contactSplitWithPatternBlueprint,
+  'service-three-column-with-large-icons': servicesThreeColumnWithLargeIconsBlueprint,
+  'solution-three-column-with-large-icons': solutionThreeColumnWithLargeIconsBlueprint,
+  'partner-logo-simple-with-title': logoCloudsSimpleWithTitleBlueprint('partners'),
+  'customer-logo-simple-with-title': logoCloudsSimpleWithTitleBlueprint('customers')
 }
 
 export function renderComponents(components: Array<ComponentBlueprint>) {

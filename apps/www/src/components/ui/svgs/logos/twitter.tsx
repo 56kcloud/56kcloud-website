@@ -7,6 +7,7 @@ export function Twitter(props: IconProps) {
       width='37.4'
       height='30.81'
       viewBox='0 0 37.4 30.81'
+      fill='currentColor'
       {...props}
     >
       <defs>
@@ -18,8 +19,7 @@ export function Twitter(props: IconProps) {
           height='30.81'
           filterUnits='userSpaceOnUse'>
           <feFlood
-            result='flood'
-            floodColor='#16215b' 
+            result='flood' 
           />
           <feComposite
             result='composite'
@@ -33,8 +33,7 @@ export function Twitter(props: IconProps) {
         </filter>
       </defs>
       <path
-        id='twitter'
-        fill='#16215b' 
+        id='twitter' 
         // eslint-disable-next-line max-len
         d='M1485.08,8547.74c13.72-.35,21.21-12,21.21-22.13,0-.33-0.01-0.67-0.02-1a15.792,15.792,0,0,0,3.83-4.03,15.279,15.279,0,0,1-4.41,1.23,7.871,7.871,0,0,0,3.38-4.31,15.158,15.158,0,0,1-4.88,1.89,7.61,7.61,0,0,0-5.6-2.45,7.727,7.727,0,0,0-7.68,7.77,8.026,8.026,0,0,0,.2,1.78,21.71,21.71,0,0,1-15.82-8.13,7.856,7.856,0,0,0,2.38,10.39,7.716,7.716,0,0,1-3.48-.98v0.1a7.758,7.758,0,0,0,6.16,7.63,7.644,7.644,0,0,1-3.47.13,7.694,7.694,0,0,0,7.17,5.4,15.262,15.262,0,0,1-9.53,3.33,13.836,13.836,0,0,1-1.83-.11v0.01a21.543,21.543,0,0,0,11.31,3.48h1.08'
         transform='translate(-1472.69 -8516.94)' 

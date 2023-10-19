@@ -74,41 +74,23 @@
       "relation": "oneToMany",
       "target": "api::solution.solution"
     },
-    "body": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "dynamiczone",
-      "components": [
-        "article.article-author",
-        "article.article-content",
-        "background.background-image",
-        "button.link",
-        "card.illustration-card",
-        "card.team-member-card",
-        "filter.tags-filter",
-        "hero.home-hero",
-        "list.article-list",
-        "list.company-list",
-        "list.feature-list",
-        "list.illustration-card-list",
-        "list.partner-list",
-        "text.h1",
-        "title-section.medium-title-section",
-        "title-section.small-title-section",
-        "hero.centered-text-hero",
-        "hero.basic-hero",
-        "hero.features-hero",
-        "hero.hero-with-image-tiles",
-        "text.markdown"
-      ]
-    },
     "relatedServices": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::service.service"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true
     }
   }
 }

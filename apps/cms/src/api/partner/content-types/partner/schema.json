@@ -16,11 +16,11 @@
       "type": "string",
       "required": true
     },
-    "href": {
+    "link": {
       "type": "string",
-      "required": true
+      "required": false
     },
-    "logo": {
+    "image": {
       "type": "media",
       "multiple": false,
       "required": true,

@@ -1,4 +1,4 @@
-import {bodyHandler, getAllSlugs} from '../../../utils/toolbox'
+import {getAllSlugs} from '../../../utils/toolbox'
 import {factories} from '@strapi/strapi'
 
 /**
@@ -23,19 +23,19 @@ async function getBySlug(ctx) {
       'tags'
     ]
   })
-  teamMember.body = [
-    {
-      __component: 'hero.team-member-hero',
-      teamMember: {...teamMember}
-    }
-  ]
-  relatedArticles.length > 0 && teamMember.body.push(
-    {
-      __component: 'list.related-articles',
-      articles: relatedArticles
-    }
-  )
-  await bodyHandler(teamMember, 'en', true)
+  // teamMember.body = [
+  //   {
+  //     __component: 'hero.team-member-hero',
+  //     teamMember: {...teamMember}
+  //   }
+  // ]
+  // relatedArticles.length > 0 && teamMember.body.push(
+  //   {
+  //     __component: 'list.related-articles',
+  //     articles: relatedArticles
+  //   }
+  // )
+  // await bodyHandler(teamMember, 'en', true)
   return teamMember
 }
 

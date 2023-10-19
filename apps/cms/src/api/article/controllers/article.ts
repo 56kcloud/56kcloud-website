@@ -2,7 +2,7 @@
  * article controller
  */
 
-import {bodyHandler, getAllSlugs} from '../../../utils/toolbox'
+import {getAllSlugs} from '../../../utils/toolbox'
 import {factories} from '@strapi/strapi'
 
 const uid = 'api::article.article'
@@ -27,20 +27,20 @@ async function getBySlug(ctx) {
       'relatedSolutions.image'
     ]
   })
-  article.body = [
-    {
-      __component: 'article.article-content',
-      content: article.content,
-      image: article.image,
-      title: article.title,
-      tags: article.tags
-    },
-    {
-      __component: 'article.article-author',
-      teamMember: article.author
-    }
-  ]
-  await bodyHandler(article, 'en', true)
+  // article.body = [
+  //   {
+  //     __component: 'article.article-content',
+  //     content: article.content,
+  //     image: article.image,
+  //     title: article.title,
+  //     tags: article.tags
+  //   },
+  //   {
+  //     __component: 'article.article-author',
+  //     teamMember: article.author
+  //   }
+  // ]
+  // await bodyHandler(article, 'en', true)
   return article
 }
 

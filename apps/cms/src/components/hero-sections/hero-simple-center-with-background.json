@@ -1,0 +1,35 @@
+{
+  "collectionName": "hero_simple_center_with_backgrounds",
+  "info": {
+    "displayName": "hero-simple-center-with-background",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "primaryCTA": {
+      "type": "component",
+      "repeatable": false,
+      "component": "cta.button"
+    },
+    "secondaryCTA": {
+      "type": "component",
+      "repeatable": false,
+      "component": "cta.button"
+    }
+  }
+}

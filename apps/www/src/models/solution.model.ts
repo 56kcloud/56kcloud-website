@@ -7,7 +7,8 @@ export const baseSolutionSchema = z.object({
   title: z.string(),
   slug: z.string(),
   description: z.string(),
-  image: imageSchema
+  image: imageSchema,
+  icon: imageSchema
 })
 
 export const solutionSchema = baseSolutionSchema.extend({

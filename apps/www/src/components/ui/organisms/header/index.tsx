@@ -1,7 +1,7 @@
 'use client'
 
 import * as NavbarPrimitive from '@radix-ui/react-dialog'
-import {LinkProps} from '@/models/link.model'
+import {LinkProps} from '@/models/cta.model'
 import {Logo} from '../../svgs/logos/56k'
 import {Menu} from '../../svgs/icons/menu'
 import {cn} from '@/utils/toolbox'

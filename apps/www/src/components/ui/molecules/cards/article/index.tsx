@@ -21,23 +21,23 @@ export default function ArticleCard({article}: ArticleCardProps) {
     >
       <Link
         href={`/blog/${article.slug}`}
-        className='relative flex flex-col overflow-hidden duration-200 bg-white rounded-lg shadow-lg cursor-pointer \
+        className='relative flex flex-col overflow-hidden duration-200 bg-white/5 rounded-lg shadow-lg cursor-pointer \
       hover:shadow-2xl hover:scale-105'>
         <ArticleCover image={article.image}/>
         <div
-          className='flex flex-col py-6 pl-6 bg-white'>
+          className='flex flex-col py-6 pl-6'>
           <ArticleTagList tags={article.tags}/>
           <div className='pr-6'>
             <h1
-              className='text-2xl line-clamp-2 text-grey-dark title'>
+              className='text-2xl text-white line-clamp-2 title'>
               {article.title}
             </h1>
             <p 
-              className='mt-2 text-base text-grey-light line-clamp-3'>
+              className='mt-2 text-base text-grey-300 line-clamp-3'>
               {article.description}
             </p>
             <div
-              className='flex flex-wrap items-center mt-8 text-sm gap-x-3 text-grey-light'>
+              className='flex flex-wrap items-center mt-8 text-sm gap-x-3 text-grey-300'>
               <Avatar
                 image={article.author.avatar.src}
                 alt={article.author.avatar.alt || 'author'}
@@ -45,7 +45,7 @@ export default function ArticleCard({article}: ArticleCardProps) {
               <div className='flex flex-col'>
                 <span>
                   by{' '}
-                  <span className='font-normal text-grey-dark'>
+                  <span className='font-normal text-white'>
                     {article.author.name}
                   </span>
                 </span>

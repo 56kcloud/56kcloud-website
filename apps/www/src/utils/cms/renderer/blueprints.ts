@@ -3,15 +3,16 @@ import {z} from 'zod'
 import ArticleContentSection from '@/components/ui/molecules/article/content-section'
 import ArticleList from '@/components/ui/organisms/lists/article'
 import BackgroundImage from '@/components/ui/atoms/background-image'
-import BasicHero from '@/components/ui/organisms/heros/basic'
+import BlogThreeColumn from '@/components/ui/organisms/blog-sections/blog-three-column'
 import CompanyList from '@/components/ui/organisms/lists/company'
-import FeaturesHero from '@/components/ui/organisms/heros/features'
+import ContactSplitWithPattern from '@/components/ui/organisms/contact-sections/contact-split-with-pattern'
 import Footer from '@/components/ui/organisms/footer'
 import Header from '@/components/ui/organisms/header'
-import HeroWithImageTiles from '@/components/ui/organisms/heros/hero-with-image-tiles'
-import HomeHero from '@/components/ui/organisms/heros/home'
+import HeroSimpleCenterWithBackground 
+  from '@/components/ui/organisms/hero-sections/hero-simple-center-with-background'
 import IllustrationCardList from '@/components/ui/organisms/lists/illustration'
 import LargeTitleSection from '@/components/ui/molecules/title-sections/large'
+import LogoCloudsSimpleWithTitle from '@/components/ui/organisms/logo-clouds/logo-clouds-simple-with-title'
 import MediumTitleSection from '@/components/ui/molecules/title-sections/medium'
 import PartnerList from '@/components/ui/organisms/lists/partner'
 import RectangleCardList from '@/components/ui/organisms/lists/rectangle'
@@ -20,12 +21,13 @@ import RelatedPartners from '@/components/ui/organisms/lists/related/partners'
 import RelatedServices from '@/components/ui/organisms/lists/related/services'
 import RelatedSolutions from '@/components/ui/organisms/lists/related/solutions'
 import ServiceList from '@/components/ui/organisms/lists/service'
+import ServiceThreeColumnWithLargeIcons from '@/components/ui/organisms/service-sections/service-three-column-with-large-icons'
 import SmallTitleSection from '@/components/ui/molecules/title-sections/small'
 import SolutionList from '@/components/ui/organisms/lists/solution'
+import SolutionThreeColumnWithLargeIcons from '@/components/ui/organisms/solutions-sections/solution-three-column-with-large-icons'
 import TagsFilter from '@/components/ui/molecules/tag-filter'
 import TeamList from '@/components/ui/organisms/lists/team'
 import TeamMemberCard from '@/components/ui/molecules/cards/team-member'
-import TeamMemberHero from '@/components/ui/organisms/heros/team-member'
 import TitleSection from '@/components/ui/molecules/title-sections/normal'
 
 
@@ -44,15 +46,6 @@ const imageBlueprint = {
   height: 'image.height'
 }
 
-const imageListBlueprint = [{
-  name: 'name',
-  alt: 'alternativeText',
-  src: 'url',
-  blurDataURL: 'formats.thumbnail.url',
-  width: 'width',
-  height: 'height'
-}]
-
 const iconBlueprint = {
   name: 'icon.name',
   alt: 'icon.alternativeText',
@@ -67,6 +60,16 @@ const logoBlueprint = {
   src: 'logo.url',
   width: 'logo.width',
   height: 'logo.height'
+}
+
+function ctaBlueprint(name: string) {
+  return {
+    [name]: {
+      text: `${name}.text`,
+      link: `${name}.link`,
+      tone: `${name}.tone`
+    }
+  }
 }
 
 const linkBlueprint = {
@@ -112,20 +115,19 @@ export const headerBlueprint: ComponentBlueprint = {
 export const footerBlueprint: ComponentBlueprint = {
   component: Footer,
   props: {
-    logo: logoBlueprint,
-    links: [linkBlueprint],
-    locations: [
+    text: 'text',
+    solutions: [
       {
-        name: 'name',
-        address: 'address',
-        city: 'city',
-        zipCode: 'zipCode',
-        country: 'country',
-        image: imageBlueprint,
-        gMap: 'gMap'
+        text: 'title',
+        link: 'slug'
       }
     ],
-    contactUsCTA: contactUsCTABlueprint
+    services: [
+      {
+        text: 'title',
+        link: 'slug'
+      }
+    ]
   }
 }
 
@@ -228,27 +230,6 @@ export const illustrationCardListBlueprint: ComponentBlueprint = {
 
 export const teamMemberCardBlueprint: ComponentBlueprint = {
   component: TeamMemberCard,
-  props: {
-    teamMember: {
-      name: 'teamMember.name',
-      bio: 'teamMember.bio',
-      twitter: 'teamMember.twitter',
-      website: 'teamMember.website',
-      slug: 'teamMember.slug',
-      avatar: {
-        name: 'teamMember.avatar.name',
-        alt: 'teamMember.avatar.alternativeText',
-        src: 'teamMember.avatar.url',
-        blurDataURL: 'teamMember.avatar.formats.thumbnail.url',
-        width: 'teamMember.avatar.width',
-        height: 'teamMember.avatar.height'
-      }
-    }
-  }
-}
-
-export const teamMemberHeroBlueprint: ComponentBlueprint = {
-  component: TeamMemberHero,
   props: {
     teamMember: {
       name: 'teamMember.name',
@@ -373,6 +354,93 @@ export const serviceListBlueprint: ComponentBlueprint = {
   }
 }
 
+export const contactSplitWithPatternBlueprint: ComponentBlueprint = {
+  component: ContactSplitWithPattern,
+  props: {
+    title: 'title',
+    subtitle: 'subtitle'
+  }
+}
+
+export const blogThreeColumnBlueprint: ComponentBlueprint = {
+  component: BlogThreeColumn,
+  props: {
+    title: 'title',
+    subtitle: 'subtitle',
+    articles: [
+      {
+        title: 'title',
+        description: 'description',
+        slug: 'slug',
+        readTime: 'readTime',
+        tags: [tagBlueprint],
+        publishedOn: 'publishedOn',
+        image: imageBlueprint,
+        author: {
+          name: 'author.name',
+          avatar: {
+            name: 'author.avatar.name',
+            alt: 'author.avatar.alternativeText',
+            src: 'author.avatar.url',
+            blurDataURL: 'author.avatar.formats.thumbnail.url',
+            width: 'author.avatar.width',
+            height: 'author.avatar.height'
+          }
+        }
+      }
+    ]
+  }
+}
+
+export const solutionThreeColumnWithLargeIconsBlueprint: ComponentBlueprint = {
+  component: SolutionThreeColumnWithLargeIcons,
+  props: {
+    title: 'title',
+    subtitle: 'subtitle',
+    solutions: [
+      {
+        title: 'title',
+        description: 'description',
+        slug: 'slug',
+        icon: iconBlueprint
+      }
+    ]
+  }
+}
+
+export const servicesThreeColumnWithLargeIconsBlueprint: ComponentBlueprint = {
+  component: ServiceThreeColumnWithLargeIcons,
+  props: {
+    title: 'title',
+    subtitle: 'subtitle',
+    services: [
+      {
+        title: 'title',
+        description: 'description',
+        slug: 'slug',
+        icon: iconBlueprint
+      }
+    ]
+  }
+}
+
+
+export function logoCloudsSimpleWithTitleBlueprint(companyType: string): ComponentBlueprint{
+  return  {
+    component: LogoCloudsSimpleWithTitle,
+    props: {
+      title: 'title',
+      [`${companyType}->companies`]: [
+        {
+          name: 'name',
+          // link: 'link',
+          image: imageBlueprint
+        }
+      ]
+    }
+  }
+}
+
 export const relatedServicesBlueprint: ComponentBlueprint = {
   component: RelatedServices,
   props: {
@@ -404,48 +472,14 @@ export const backgroundImageBlueprint: ComponentBlueprint = {
   }
 }
 
-export const homeHeroBlueprint: ComponentBlueprint = {
-  component: HomeHero,
-  props: {
-    title: 'title',
-    button: buttonBlueprint,
-    image: imageBlueprint
-  }
-}
-
-export const basicHeroBlueprint: ComponentBlueprint = {
-  component: BasicHero,
-  props: {
-    title: 'title',
-    subtitle: 'subtitle',
-    image: imageBlueprint
-  }
-}
-
-export const featuresHeroBlueprint: ComponentBlueprint = {
-  component: FeaturesHero,
+export const heroSimpleCenterWithBackground: ComponentBlueprint = {
+  component: HeroSimpleCenterWithBackground,
   props: {
     title: 'title',
     subtitle: 'subtitle',
     image: imageBlueprint,
-    features: [
-      {
-        name: 'name',
-        description: 'description',
-        icon: iconBlueprint
-      }
-    ]
-  }
-}
-
-export const heroWithImageTilesBlueprint: ComponentBlueprint = {
-  component: HeroWithImageTiles,
-  props: {
-    images: imageListBlueprint,
-    title: {
-      title: 'title.title',
-      surtitle: 'title.surtitle'
-    }
+    ...ctaBlueprint('primaryCTA'),
+    ...ctaBlueprint('secondaryCTA')
   }
 }
 

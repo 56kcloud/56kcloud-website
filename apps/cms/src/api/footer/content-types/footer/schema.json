@@ -16,44 +16,24 @@
     }
   },
   "attributes": {
-    "logo": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ],
+    "text": {
+      "type": "text",
+      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "links": {
-      "type": "component",
-      "repeatable": true,
-      "component": "button.link",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "locations": {
+    "solutions": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::location.location"
+      "target": "api::solution.solution"
     },
-    "contactUsCTA": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "button.contact-us-cta",
-      "required": true
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service"
     }
   }
 }

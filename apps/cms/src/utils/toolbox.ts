@@ -20,13 +20,13 @@ export async function bodyHandler(contentType, locale = 'en', needRelatedSection
   if (needRelatedSections) {
     contentType.body = contentType.body.concat(addRelatedSections(contentType))
   }
-  const headerComponentName = 'header.header'
-  const header = await strapi.entityService.findMany(`api::${headerComponentName}`, {
-    populate: 'deep' as any,
-    locale: locale
-  })
-  header['__component'] = headerComponentName
-  contentType.body.unshift(header)
+  // const headerComponentName = 'header.header'
+  // const header = await strapi.entityService.findMany(`api::${headerComponentName}`, {
+  //   populate: 'deep' as any,
+  //   locale: locale
+  // })
+  // header['__component'] = headerComponentName
+  // contentType.body.unshift(header)
   const footerComponentName = 'footer.footer'
   const footer = await strapi.entityService.findMany(`api::${footerComponentName}`, {
     populate: 'deep' as any,
@@ -94,7 +94,8 @@ export function createPopulateArray(depth = 2) {
     'author',
     'author.avatar',
     'avatar',
-    'logo'
+    'icon',
+    'logo',
   ]
   const basePaths = [
     'relatedArticles',

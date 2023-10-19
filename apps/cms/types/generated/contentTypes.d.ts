@@ -677,101 +677,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiAboutPageAboutPage extends Schema.SingleType {
-  collectionName: 'about_pages';
-  info: {
-    singularName: 'about-page';
-    pluralName: 'about-pages';
-    displayName: 'About page';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    description: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    image: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    body: Attribute.DynamicZone<
-      [
-        'article.article-author',
-        'article.article-content',
-        'background.background-image',
-        'button.link',
-        'card.illustration-card',
-        'card.team-member-card',
-        'filter.tags-filter',
-        'list.article-list',
-        'list.company-list',
-        'list.feature-list',
-        'list.illustration-card-list',
-        'list.partner-list',
-        'hero.centered-text-hero',
-        'hero.home-hero',
-        'text.h1',
-        'title-section.medium-title-section',
-        'title-section.small-title-section',
-        'title-section.large-title-section',
-        'hero.hero-with-image-tiles',
-        'title-section.title-section',
-        'card.rectangle-card',
-        'list.rectangle-card-list',
-        'list.team-list'
-      ]
-    > &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::about-page.about-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::about-page.about-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::about-page.about-page',
-      'oneToMany',
-      'api::about-page.about-page'
-    >;
-    locale: Attribute.String;
-  };
-}
-
 export interface ApiArticleArticle extends Schema.CollectionType {
   collectionName: 'articles';
   info: {
@@ -839,149 +744,31 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   };
 }
 
-export interface ApiBlogPageBlogPage extends Schema.SingleType {
-  collectionName: 'blog_pages';
+export interface ApiCustomerCustomer extends Schema.CollectionType {
+  collectionName: 'customers';
   info: {
-    singularName: 'blog-page';
-    pluralName: 'blog-pages';
-    displayName: 'Blog page';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    description: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    image: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    body: Attribute.DynamicZone<
-      [
-        'filter.tags-filter',
-        'list.company-list',
-        'list.feature-list',
-        'list.illustration-card-list',
-        'list.partner-list',
-        'title-section.medium-title-section',
-        'title-section.small-title-section',
-        'list.article-list',
-        'hero.centered-text-hero',
-        'hero.hero-with-image-tiles',
-        'hero.home-hero',
-        'hero.basic-hero',
-        'hero.features-hero'
-      ]
-    > &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::blog-page.blog-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::blog-page.blog-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::blog-page.blog-page',
-      'oneToMany',
-      'api::blog-page.blog-page'
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiCompanyCompany extends Schema.CollectionType {
-  collectionName: 'companies';
-  info: {
-    singularName: 'company';
-    pluralName: 'companies';
-    displayName: 'Company';
-    description: '';
+    singularName: 'customer';
+    pluralName: 'customers';
+    displayName: 'Customer';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
-    logo: Attribute.Media & Attribute.Required;
-    url: Attribute.String & Attribute.Required;
+    link: Attribute.String;
+    image: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::company.company',
+      'api::customer.customer',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::company.company',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiFeatureFeature extends Schema.CollectionType {
-  collectionName: 'features';
-  info: {
-    singularName: 'feature';
-    pluralName: 'features';
-    displayName: 'Feature';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required;
-    icon: Attribute.Media & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::feature.feature',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::feature.feature',
+      'api::customer.customer',
       'oneToOne',
       'admin::user'
     > &
@@ -1006,30 +793,23 @@ export interface ApiFooterFooter extends Schema.SingleType {
     };
   };
   attributes: {
-    logo: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    links: Attribute.Component<'button.link', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locations: Attribute.Relation<
-      'api::footer.footer',
-      'oneToMany',
-      'api::location.location'
-    >;
-    contactUsCTA: Attribute.Component<'button.contact-us-cta'> &
+    text: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
+    solutions: Attribute.Relation<
+      'api::footer.footer',
+      'oneToMany',
+      'api::solution.solution'
+    >;
+    services: Attribute.Relation<
+      'api::footer.footer',
+      'oneToMany',
+      'api::service.service'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1049,53 +829,6 @@ export interface ApiFooterFooter extends Schema.SingleType {
       'api::footer.footer',
       'oneToMany',
       'api::footer.footer'
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiHeaderHeader extends Schema.SingleType {
-  collectionName: 'headers';
-  info: {
-    singularName: 'header';
-    pluralName: 'headers';
-    displayName: 'Header';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    links: Attribute.Component<'button.link', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::header.header',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::header.header',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::header.header',
-      'oneToMany',
-      'api::header.header'
     >;
     locale: Attribute.String;
   };
@@ -1141,24 +874,13 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       }>;
     body: Attribute.DynamicZone<
       [
-        'background.background-image',
-        'filter.tags-filter',
-        'button.link',
-        'card.illustration-card',
-        'card.team-member-card',
-        'hero.home-hero',
-        'list.company-list',
-        'list.feature-list',
-        'list.illustration-card-list',
-        'list.partner-list',
-        'text.h1',
-        'title-section.medium-title-section',
-        'title-section.small-title-section',
-        'list.article-list',
-        'list.rectangle-card-list',
-        'list.service-list',
-        'list.solution-list',
-        'list.team-list'
+        'hero-sections.hero-simple-center-with-background',
+        'service-sections.service-three-column-with-large-icons',
+        'solution-sections.solution-three-column-with-large-icons',
+        'partner-sections.partner-logo-simple-with-title',
+        'customer-sections.customer-logo-simple-with-title',
+        'blog-sections.blog-three-column',
+        'contact-sections.contact-split-with-pattern'
       ]
     > &
       Attribute.Required &
@@ -1327,8 +1049,8 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
-    href: Attribute.String & Attribute.Required;
-    logo: Attribute.Media & Attribute.Required;
+    link: Attribute.String;
+    image: Attribute.Media & Attribute.Required;
     relatedArticles: Attribute.Relation<
       'api::partner.partner',
       'manyToMany',
@@ -1345,68 +1067,6 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::partner.partner',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPartnersPagePartnersPage extends Schema.SingleType {
-  collectionName: 'partners_pages';
-  info: {
-    singularName: 'partners-page';
-    pluralName: 'partners-pages';
-    displayName: 'Partners page';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Text;
-    image: Attribute.Media;
-    body: Attribute.DynamicZone<
-      [
-        'article.article-author',
-        'article.article-content',
-        'background.background-image',
-        'button.link',
-        'card.illustration-card',
-        'card.rectangle-card',
-        'card.team-member-card',
-        'filter.tags-filter',
-        'hero.centered-text-hero',
-        'hero.hero-with-image-tiles',
-        'hero.home-hero',
-        'list.article-list',
-        'list.company-list',
-        'list.feature-list',
-        'list.illustration-card-list',
-        'list.partner-list',
-        'list.rectangle-card-list',
-        'list.team-list',
-        'text.h1',
-        'title-section.large-title-section',
-        'title-section.medium-title-section',
-        'title-section.small-title-section',
-        'title-section.title-section',
-        'hero.basic-hero'
-      ]
-    > &
-      Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::partners-page.partners-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::partners-page.partners-page',
       'oneToOne',
       'admin::user'
     > &
@@ -1474,41 +1134,18 @@ export interface ApiServiceService extends Schema.CollectionType {
       'oneToMany',
       'api::solution.solution'
     >;
-    body: Attribute.DynamicZone<
-      [
-        'article.article-author',
-        'article.article-content',
-        'background.background-image',
-        'button.link',
-        'card.illustration-card',
-        'card.team-member-card',
-        'filter.tags-filter',
-        'hero.home-hero',
-        'list.article-list',
-        'list.company-list',
-        'list.feature-list',
-        'list.illustration-card-list',
-        'list.partner-list',
-        'text.h1',
-        'title-section.medium-title-section',
-        'title-section.small-title-section',
-        'hero.centered-text-hero',
-        'hero.basic-hero',
-        'hero.features-hero',
-        'hero.hero-with-image-tiles',
-        'text.markdown'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     relatedServices: Attribute.Relation<
       'api::service.service',
       'oneToMany',
       'api::service.service'
     >;
+    icon: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1528,104 +1165,6 @@ export interface ApiServiceService extends Schema.CollectionType {
       'api::service.service',
       'oneToMany',
       'api::service.service'
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiServicesPageServicesPage extends Schema.SingleType {
-  collectionName: 'services_pages';
-  info: {
-    singularName: 'services-page';
-    pluralName: 'services-pages';
-    displayName: 'Services page';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    description: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    image: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    body: Attribute.DynamicZone<
-      [
-        'article.article-author',
-        'article.article-content',
-        'background.background-image',
-        'button.link',
-        'card.illustration-card',
-        'card.team-member-card',
-        'filter.tags-filter',
-        'hero.home-hero',
-        'list.article-list',
-        'list.company-list',
-        'list.feature-list',
-        'list.illustration-card-list',
-        'list.partner-list',
-        'text.h1',
-        'title-section.medium-title-section',
-        'title-section.small-title-section',
-        'title-section.large-title-section',
-        'title-section.title-section',
-        'list.rectangle-card-list',
-        'list.team-list',
-        'hero.centered-text-hero',
-        'hero.hero-with-image-tiles',
-        'card.rectangle-card',
-        'list.service-list',
-        'list.solution-list',
-        'hero.basic-hero',
-        'hero.features-hero'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::services-page.services-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::services-page.services-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::services-page.services-page',
-      'oneToMany',
-      'api::services-page.services-page'
     >;
     locale: Attribute.String;
   };
@@ -1691,40 +1230,18 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
       'oneToMany',
       'api::service.service'
     >;
-    body: Attribute.DynamicZone<
-      [
-        'article.article-author',
-        'article.article-content',
-        'background.background-image',
-        'button.link',
-        'card.illustration-card',
-        'card.team-member-card',
-        'filter.tags-filter',
-        'list.article-list',
-        'list.company-list',
-        'list.feature-list',
-        'list.illustration-card-list',
-        'list.partner-list',
-        'hero.home-hero',
-        'text.h1',
-        'title-section.medium-title-section',
-        'title-section.small-title-section',
-        'hero.centered-text-hero',
-        'hero.basic-hero',
-        'hero.features-hero',
-        'hero.hero-with-image-tiles'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     relatedSolutions: Attribute.Relation<
       'api::solution.solution',
       'oneToMany',
       'api::solution.solution'
     >;
+    icon: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1744,102 +1261,6 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
       'api::solution.solution',
       'oneToMany',
       'api::solution.solution'
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiSolutionsPageSolutionsPage extends Schema.SingleType {
-  collectionName: 'solutions_pages';
-  info: {
-    singularName: 'solutions-page';
-    pluralName: 'solutions-pages';
-    displayName: 'Solutions page';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    description: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    image: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    body: Attribute.DynamicZone<
-      [
-        'article.article-author',
-        'article.article-content',
-        'background.background-image',
-        'button.link',
-        'card.illustration-card',
-        'card.team-member-card',
-        'filter.tags-filter',
-        'hero.home-hero',
-        'list.article-list',
-        'list.company-list',
-        'list.feature-list',
-        'list.illustration-card-list',
-        'list.partner-list',
-        'text.h1',
-        'title-section.medium-title-section',
-        'title-section.small-title-section',
-        'card.rectangle-card',
-        'hero.centered-text-hero',
-        'hero.hero-with-image-tiles',
-        'list.rectangle-card-list',
-        'list.service-list',
-        'list.solution-list',
-        'list.team-list',
-        'title-section.large-title-section',
-        'title-section.title-section',
-        'hero.basic-hero'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::solutions-page.solutions-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::solutions-page.solutions-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::solutions-page.solutions-page',
-      'oneToMany',
-      'api::solutions-page.solutions-page'
     >;
     locale: Attribute.String;
   };
@@ -2005,22 +1426,15 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::about-page.about-page': ApiAboutPageAboutPage;
       'api::article.article': ApiArticleArticle;
-      'api::blog-page.blog-page': ApiBlogPageBlogPage;
-      'api::company.company': ApiCompanyCompany;
-      'api::feature.feature': ApiFeatureFeature;
+      'api::customer.customer': ApiCustomerCustomer;
       'api::footer.footer': ApiFooterFooter;
-      'api::header.header': ApiHeaderHeader;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::location.location': ApiLocationLocation;
       'api::modal.modal': ApiModalModal;
       'api::partner.partner': ApiPartnerPartner;
-      'api::partners-page.partners-page': ApiPartnersPagePartnersPage;
       'api::service.service': ApiServiceService;
-      'api::services-page.services-page': ApiServicesPageServicesPage;
       'api::solution.solution': ApiSolutionSolution;
-      'api::solutions-page.solutions-page': ApiSolutionsPageSolutionsPage;
       'api::tag.tag': ApiTagTag;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
     }

@@ -1,7 +1,7 @@
-import {factories} from '@strapi/strapi'
-
 /**
  * footer controller
  */
 
-export default factories.createCoreController('api::footer.footer')
+import { factories } from '@strapi/strapi'
+
+export default factories.createCoreController('api::footer.footer');

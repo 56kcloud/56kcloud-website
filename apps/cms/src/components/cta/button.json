@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_cta_buttons",
+  "info": {
+    "displayName": "Button",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    },
+    "tone": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary"
+      ],
+      "default": "primary",
+      "required": true
+    }
+  }
+}

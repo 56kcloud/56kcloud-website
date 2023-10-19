@@ -6,19 +6,30 @@ export type InputProps = {
   register: UseFormRegister<FieldValues>
   name: string
   options?: RegisterOptions<FieldValues>
-  placeholder?: string
+  label: string
   className?: string
   type?: HTMLInputTypeAttribute
 }
 
-export function Input({register, name, options, placeholder, className, type = 'text'}: InputProps) {
+export function Input({register, name, options, label, className, type = 'text'}: InputProps) {
   return (
-    <input
-      type={type}
-      {...register(name, options)}
-      placeholder={placeholder}
-      className={cn('block w-full p-2 min-[1700px]:p-3 mb-2 sm:mb-3 min-[1700px]:mb-4 border border-gray-300 \
-       rounded-md sm:rounded-lg placeholder:text-blue-medium', className)}
-    />
+    <div className={className}>
+      <label
+        htmlFor={name}
+        className='block text-sm font-semibold leading-6 text-white'>
+        {label}
+      </label>
+      <div className='mt-2.5'>
+        <input
+          type={type}
+          {...register(name, options)}
+          id={name}
+          className={cn(
+            'block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset \
+            ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6'
+          )}
+        />
+      </div>
+    </div>
   )
 }
