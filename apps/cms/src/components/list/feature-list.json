@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_list_feature_lists",
+  "info": {
+    "displayName": "FeatureList"
+  },
+  "options": {},
+  "attributes": {
+    "features": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::feature.feature"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    }
+  }
+}

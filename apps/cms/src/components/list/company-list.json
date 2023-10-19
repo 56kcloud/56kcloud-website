@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_list_company_lists",
+  "info": {
+    "displayName": "CompanyList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "companies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::company.company"
+    }
+  }
+}

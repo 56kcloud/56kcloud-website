@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_hero_centered_text_heroes",
+  "info": {
+    "displayName": "CenteredTextHero"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

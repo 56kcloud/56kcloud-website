@@ -1,0 +1,86 @@
+{
+  "kind": "singleType",
+  "collectionName": "solutions_pages",
+  "info": {
+    "singularName": "solutions-page",
+    "pluralName": "solutions-pages",
+    "displayName": "Solutions page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "body": {
+      "type": "dynamiczone",
+      "components": [
+        "article.article-author",
+        "article.article-content",
+        "background.background-image",
+        "button.link",
+        "card.illustration-card",
+        "card.team-member-card",
+        "filter.tags-filter",
+        "hero.home-hero",
+        "list.article-list",
+        "list.company-list",
+        "list.feature-list",
+        "list.illustration-card-list",
+        "list.partner-list",
+        "text.h1",
+        "title-section.medium-title-section",
+        "title-section.small-title-section",
+        "card.rectangle-card",
+        "hero.centered-text-hero",
+        "hero.hero-with-image-tiles",
+        "list.rectangle-card-list",
+        "list.service-list",
+        "list.solution-list",
+        "list.team-list",
+        "title-section.large-title-section",
+        "title-section.title-section",
+        "hero.basic-hero"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}
