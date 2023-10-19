@@ -21,10 +21,12 @@ import RelatedPartners from '@/components/ui/organisms/lists/related/partners'
 import RelatedServices from '@/components/ui/organisms/lists/related/services'
 import RelatedSolutions from '@/components/ui/organisms/lists/related/solutions'
 import ServiceList from '@/components/ui/organisms/lists/service'
-import ServiceThreeColumnWithLargeIcons from '@/components/ui/organisms/service-sections/service-three-column-with-large-icons'
+import ServiceThreeColumnWithLargeIcons
+  from '@/components/ui/organisms/service-sections/service-three-column-with-large-icons'
 import SmallTitleSection from '@/components/ui/molecules/title-sections/small'
 import SolutionList from '@/components/ui/organisms/lists/solution'
-import SolutionThreeColumnWithLargeIcons from '@/components/ui/organisms/solutions-sections/solution-three-column-with-large-icons'
+import SolutionThreeColumnWithLargeIcons 
+  from '@/components/ui/organisms/solutions-sections/solution-three-column-with-large-icons'
 import TagsFilter from '@/components/ui/molecules/tag-filter'
 import TeamList from '@/components/ui/organisms/lists/team'
 import TeamMemberCard from '@/components/ui/molecules/cards/team-member'
@@ -77,30 +79,8 @@ const linkBlueprint = {
   href: 'href'
 }
 
-const buttonBlueprint = {
-  children: 'button.children',
-  href: 'button.href'
-}
-
 const tagBlueprint = {
   name: 'name'
-}
-
-const contactUsCTABlueprint = {
-  title: 'contactUsCTA.title',
-  modal: {
-    title: 'contactUsCTA.modal.title',
-    subtitle: 'contactUsCTA.modal.subtitle',
-    submitButtonTitle: 'contactUsCTA.modal.submitButtonTitle',
-    image: {
-      name: 'contactUsCTA.modal.image.name',
-      alt: 'contactUsCTA.modal.image.alternativeText',
-      src: 'contactUsCTA.modal.image.url',
-      blurDataURL: 'contactUsCTA.modal.image.formats.thumbnail.url',
-      width: 'contactUsCTA.modal.image.width',
-      height: 'contactUsCTA.modal.image.height'
-    }
-  }
 }
 
 export const headerBlueprint: ComponentBlueprint = {

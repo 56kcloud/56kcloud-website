@@ -17,7 +17,10 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
             {props.subtitle}
           </p>
         </div>
-        <div className='grid max-w-2xl grid-cols-1 pt-10 mx-auto mt-10 border-t border-gray-700 gap-x-8 gap-y-16 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3'>
+        <div
+          className='grid max-w-2xl grid-cols-1 pt-10 mx-auto mt-10 border-t border-gray-700 gap-x-8 gap-y-16 \
+                     sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3'
+        >
           {props.articles.map((article) => (
             <ArticleCard
               key={article.slug}

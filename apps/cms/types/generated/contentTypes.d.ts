@@ -800,15 +800,15 @@ export interface ApiFooterFooter extends Schema.SingleType {
           localized: true;
         };
       }>;
-    solutions: Attribute.Relation<
-      'api::footer.footer',
-      'oneToMany',
-      'api::solution.solution'
-    >;
     services: Attribute.Relation<
       'api::footer.footer',
       'oneToMany',
       'api::service.service'
+    >;
+    solutions: Attribute.Relation<
+      'api::footer.footer',
+      'oneToMany',
+      'api::solution.solution'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

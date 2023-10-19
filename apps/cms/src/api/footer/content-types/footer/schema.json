@@ -25,15 +25,15 @@
         }
       }
     },
-    "solutions": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::solution.solution"
-    },
     "services": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::service.service"
+    },
+    "solutions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::solution.solution"
     }
   }
 }

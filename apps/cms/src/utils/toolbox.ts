@@ -29,7 +29,7 @@ export async function bodyHandler(contentType, locale = 'en', needRelatedSection
   // contentType.body.unshift(header)
   const footerComponentName = 'footer.footer'
   const footer = await strapi.entityService.findMany(`api::${footerComponentName}`, {
-    populate: 'deep' as any,
+    populate: '*',
     locale: locale  
   })
   footer['__component'] = footerComponentName

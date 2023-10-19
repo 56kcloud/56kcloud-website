@@ -5,7 +5,7 @@ import {contactUsFormData} from '@/models/contact-us-form-data.model'
 // import {createHsformsPayload} from '@/utils/toolbox'
 // import {sendEmail} from '@/utils/hubspot'
 import {useForm} from 'react-hook-form'
-import {useState} from 'react'
+// import {useState} from 'react'
 import Button from '@/components/ui/atoms/button'
 import useTranslation from 'next-translate/useTranslation'
 
@@ -15,9 +15,9 @@ export type ContactSplitWithPatternProps = {
 }
 
 export default function ContactSplitWithPattern(props: ContactSplitWithPatternProps) {
-  const {register, handleSubmit, reset, formState: {errors}} = useForm()
-  const [serverError, setServerError] = useState<string | null>(null)
-  const hasAnyError = errors.firstName || errors.lastName || errors.email || errors.text || serverError
+  const {register, handleSubmit, reset} = useForm()
+  // const [serverError, setServerError] = useState<string | null>(null)
+  // const hasAnyError = errors.firstName || errors.lastName || errors.email || errors.text || serverError
   const {t} = useTranslation('modal')
 
   const firstNameInput: InputProps = {
@@ -71,7 +71,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
       // await sendEmail(createHsformsPayload(data))
       reset()
     } catch (e) {
-      setServerError((e as Error).toString())
+      // setServerError((e as Error).toString())
     }
   }
   
@@ -82,7 +82,8 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
           <div className='max-w-xl mx-auto lg:mx-0 lg:max-w-lg'>
             <div className='absolute inset-y-0 left-0 w-full overflow-hidden -z-10 ring-1 ring-white/5 lg:w-1/2'>
               <svg
-                className='absolute inset-0 h-full w-full stroke-gray-700 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]'
+                className='absolute inset-0 h-full w-full stroke-gray-700 \
+                           [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]'
                 aria-hidden='true'
               >
                 <defs>
@@ -114,14 +115,17 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                   fill='url(#54f88622-e7f8-4f1d-aaf9-c2f5e46dd1f2)'/>
               </svg>
               <div
-                className='absolute -left-56 top-[calc(100%-13rem)] transform-gpu blur-3xl lg:left-[max(-14rem,calc(100%-59rem))] lg:top-[calc(50%-7rem)]'
+                className='absolute -left-56 top-[calc(100%-13rem)] transform-gpu blur-3xl \
+                           lg:left-[max(-14rem,calc(100%-59rem))] lg:top-[calc(50%-7rem)]'
                 aria-hidden='true'
               >
                 <div
                   className='aspect-[1155/678] w-[72.1875rem] bg-gradient-to-br from-[#80caff] to-[#4f46e5] opacity-20'
                   style={{
                     clipPath:
-                      'polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, 60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% 23.5%, 76.1% 2.6%, 74.1% 56.1%)'
+                      'polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, \
+                       60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% \
+                       23.5%, 76.1% 2.6%, 74.1% 56.1%)'
                   }}
                 />
               </div>

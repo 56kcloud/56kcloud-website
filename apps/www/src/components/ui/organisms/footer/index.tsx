@@ -1,4 +1,4 @@
-import {LinkProps} from '@/models/cta.model'
+import {LinkProps} from '@/models/link.model'
 import {Linkedin} from '../../svgs/logos/linkedin'
 import {Logo} from '../../svgs/logos/56k'
 import {Twitter} from '../../svgs/logos/twitter'
@@ -18,12 +18,12 @@ export default function Footer(props: FooterProps) {
   const socialLinks = [
     {
       name: 'Twitter',
-      link: '#',
+      link: 'https://x.com/56kcloud',
       icon: Twitter
     },
     {
       name: 'Linkedin',
-      link: '#',
+      link: 'https://www.linkedin.com/company/56kcloud',
       icon: Linkedin
     }
   ]
@@ -49,7 +49,9 @@ export default function Footer(props: FooterProps) {
                 <a
                   key={item.name}
                   href={item.link}
-                  className='text-gray-500 hover:text-gray-400'>
+                  className='text-gray-500 hover:text-gray-400'
+                  target='_blank'
+                >
                   <span className='sr-only'>{item.name}</span>
                   <item.icon
                     className='w-6 h-6 text-white'
@@ -66,7 +68,7 @@ export default function Footer(props: FooterProps) {
                   role='list'
                   className='mt-6 space-y-4'>
                   {props.services.map((item) => (
-                    <li key={item.text}>
+                    <li key={item.link}>
                       <a
                         href={item.link}
                         className='text-sm leading-6 text-gray-300 hover:text-white'>
@@ -82,7 +84,7 @@ export default function Footer(props: FooterProps) {
                   role='list'
                   className='mt-6 space-y-4'>
                   {props.solutions.map((item) => (
-                    <li key={item.text}>
+                    <li key={item.link}>
                       <a
                         href={item.link}
                         className='text-sm leading-6 text-gray-300 hover:text-white'>
