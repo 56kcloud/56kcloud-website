@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_text_h1s",
+  "info": {
+    "displayName": "h1"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

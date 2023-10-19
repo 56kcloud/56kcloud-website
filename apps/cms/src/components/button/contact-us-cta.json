@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_button_contact_us_ctas",
+  "info": {
+    "displayName": "ContactUsCTA",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "modal": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::modal.modal"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

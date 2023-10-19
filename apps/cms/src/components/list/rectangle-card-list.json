@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_list_rectangle_card_lists",
+  "info": {
+    "displayName": "RectangleCardList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "surtitle": {
+      "type": "string",
+      "required": true
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "card.rectangle-card"
+    }
+  }
+}

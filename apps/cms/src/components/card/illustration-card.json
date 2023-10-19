@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_card_illustration_cards",
+  "info": {
+    "displayName": "IllustrationCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "illustration": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "number": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

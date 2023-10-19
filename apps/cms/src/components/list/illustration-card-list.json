@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_card_list_illustration_card_lists",
+  "info": {
+    "displayName": "IllustrationCardList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "illustrationCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "card.illustration-card"
+    },
+    "theme": {
+      "type": "enumeration",
+      "enum": [
+        "dark",
+        "light"
+      ],
+      "default": "dark"
+    }
+  }
+}

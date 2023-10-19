@@ -1,0 +1,40 @@
+{
+  "name": "strapi-56kcloud",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A Strapi application",
+  "license": "MIT",
+  "author": {
+    "name": "56kcloud"
+  },
+  "scripts": {
+    "build": "strapi build",
+    "dev": "strapi develop",
+    "start": "strapi start",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@strapi/plugin-i18n": "^4.14.5",
+    "@strapi/plugin-users-permissions": "4.14.5",
+    "@strapi/provider-upload-aws-s3": "^4.14.5",
+    "@strapi/strapi": "4.14.5",
+    "better-sqlite3": "9.0.0",
+    "pg": "^8.11.3",
+    "react-dom": "^18.2.0",
+    "strapi-plugin-multi-select": "^1.2.2",
+    "strapi-plugin-populate-deep": "^3.0.0"
+  },
+  "devDependencies": {
+    "@strapi/typescript-utils": "4.14.5",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.6.0"
+  },
+  "engines": {
+    "node": "18.x",
+    "npm": ">=6.0.0"
+  },
+  "strapi": {
+    "uuid": "d69d5225-af2c-47d1-97f1-7f47e16e6ab8"
+  }
+}

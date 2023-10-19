@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_article_article_contents",
+  "info": {
+    "displayName": "ArticleContent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

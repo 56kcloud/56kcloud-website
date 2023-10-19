@@ -1,0 +1,110 @@
+{
+  "kind": "collectionType",
+  "collectionName": "solutions",
+  "info": {
+    "singularName": "solution",
+    "pluralName": "solutions",
+    "displayName": "Solution",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "relatedPartners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::partner.partner"
+    },
+    "relatedArticles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    },
+    "relatedServices": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service"
+    },
+    "body": {
+      "type": "dynamiczone",
+      "components": [
+        "article.article-author",
+        "article.article-content",
+        "background.background-image",
+        "button.link",
+        "card.illustration-card",
+        "card.team-member-card",
+        "filter.tags-filter",
+        "list.article-list",
+        "list.company-list",
+        "list.feature-list",
+        "list.illustration-card-list",
+        "list.partner-list",
+        "hero.home-hero",
+        "text.h1",
+        "title-section.medium-title-section",
+        "title-section.small-title-section",
+        "hero.centered-text-hero",
+        "hero.basic-hero",
+        "hero.features-hero",
+        "hero.hero-with-image-tiles"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "relatedSolutions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::solution.solution"
+    }
+  }
+}

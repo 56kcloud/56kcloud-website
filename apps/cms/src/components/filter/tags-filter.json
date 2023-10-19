@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_blog_tags_filters",
+  "info": {
+    "displayName": "TagFilter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    }
+  }
+}

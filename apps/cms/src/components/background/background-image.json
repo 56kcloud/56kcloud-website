@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_background_background_images",
+  "info": {
+    "displayName": "BackgroundImage",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

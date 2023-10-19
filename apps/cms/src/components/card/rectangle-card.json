@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_card_rectangle_cards",
+  "info": {
+    "displayName": "RectangleCard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
