@@ -1,5 +1,5 @@
-import {getAllSlugs} from '../../../utils/toolbox'
 import {factories} from '@strapi/strapi'
+import {getAllSlugs} from '../../../utils/toolbox'
 
 /**
  * team-member controller
@@ -13,16 +13,16 @@ async function getBySlug(ctx) {
       'avatar'
     ]
   })
-  const relatedArticles = await strapi.db.query('api::article.article').findMany({
-    where: {author: teamMember.id},
-    limit: 6,
-    populate: [
-      'content',
-      'author.avatar',
-      'image',
-      'tags'
-    ]
-  })
+  // const relatedArticles = await strapi.db.query('api::article.article').findMany({
+  //   where: {author: teamMember.id},
+  //   limit: 6,
+  //   populate: [
+  //     'content',
+  //     'author.avatar',
+  //     'image',
+  //     'tags'
+  //   ]
+  // })
   // teamMember.body = [
   //   {
   //     __component: 'hero.team-member-hero',

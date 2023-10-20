@@ -2,8 +2,8 @@
  * article controller
  */
 
-import {getAllSlugs} from '../../../utils/toolbox'
 import {factories} from '@strapi/strapi'
+import {getAllSlugs} from '../../../utils/toolbox'
 
 const uid = 'api::article.article'
 

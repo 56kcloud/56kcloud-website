@@ -15,7 +15,8 @@
   ],
   "scripts": {
     "dev:cms": "cd apps/cms && npm run dev",
-    "dev:website": "cd apps/www && npm run dev"
+    "dev:website": "cd apps/www && npm run dev",
+    "lint": "cd apps/www && npm run lint && cd ../cms && npm run lint"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.2.0",
