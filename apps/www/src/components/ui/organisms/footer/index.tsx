@@ -72,7 +72,7 @@ export default function Footer(props: FooterProps) {
           <div className='grid grid-cols-2 gap-8 mt-16 xl:col-span-2 xl:mt-0'>
             <div className='md:grid md:grid-cols-2 md:gap-8'>
               <div>
-                <h3 className='text-sm font-semibold leading-6 text-white capitalize'>{t('services')}</h3>
+                <h3 className='text-sm font-semibold leading-6 text-white capitalize'>{t('common:services')}</h3>
                 <ul
                   role='list'
                   className='mt-6 space-y-4'>
@@ -95,7 +95,7 @@ export default function Footer(props: FooterProps) {
                 </ul>
               </div>
               <div className='mt-10 md:mt-0'>
-                <h3 className='text-sm font-semibold leading-6 text-white capitalize'>{t('solutions')}</h3>
+                <h3 className='text-sm font-semibold leading-6 text-white capitalize'>{t('common:solutions')}</h3>
                 <ul
                   role='list'
                   className='mt-6 space-y-4'>
@@ -118,7 +118,7 @@ export default function Footer(props: FooterProps) {
             </div>
             <div className='md:grid md:grid-cols-1 md:gap-8'>
               <div>
-                <h3 className='text-sm font-semibold leading-6 text-white capitalize'>{t('company')}</h3>
+                <h3 className='text-sm font-semibold leading-6 text-white capitalize'>{t('common:company')}</h3>
                 <ul
                   role='list'
                   className='mt-6 space-y-4'>
@@ -143,7 +143,7 @@ export default function Footer(props: FooterProps) {
           </div>
         </div>
         <div className='pt-8 mt-16 border-t border-white/10 sm:mt-20 lg:mt-24'>
-          <p className='text-xs leading-5 text-gray-400'>&copy; 2023 56k.Cloud {t('services')}.</p>
+          <p className='text-xs leading-5 text-gray-400'>&copy; 2023 56k.Cloud {t('common:services')}.</p>
         </div>
       </div>
     </footer>
