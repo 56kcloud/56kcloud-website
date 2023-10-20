@@ -71,8 +71,8 @@ export interface HeroSectionsHeroSimpleCenterWithBackground
     image: Attribute.Media & Attribute.Required;
     title: Attribute.String & Attribute.Required;
     subtitle: Attribute.Text;
-    primaryCTA: Attribute.Component<'cta.button'>;
-    secondaryCTA: Attribute.Component<'cta.button'>;
+    leftCTA: Attribute.Component<'cta.button'>;
+    rightCTA: Attribute.Component<'cta.button'>;
   };
 }
 

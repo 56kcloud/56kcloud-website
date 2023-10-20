@@ -21,12 +21,12 @@
     "subtitle": {
       "type": "text"
     },
-    "primaryCTA": {
+    "leftCTA": {
       "type": "component",
       "repeatable": false,
       "component": "cta.button"
     },
-    "secondaryCTA": {
+    "rightCTA": {
       "type": "component",
       "repeatable": false,
       "component": "cta.button"

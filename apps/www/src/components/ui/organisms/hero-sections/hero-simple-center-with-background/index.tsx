@@ -8,8 +8,8 @@ export type SimpleCenteredWithBackgroundProps = {
   title: string
   subtitle: string
   image: ImageProps
-  primaryCTA: CTAProps
-  secondaryCTA: CTAProps
+  leftCTA: CTAProps
+  rightCTA: CTAProps
 }
 
 export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWithBackgroundProps) {  
@@ -51,20 +51,20 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
             <Button
               asChild
               size='large'
-              tone={props.primaryCTA.tone}
+              tone={props.leftCTA.tone}
             >
-              <Link href={props.primaryCTA.link}>
-                {props.primaryCTA.text}
+              <Link href={props.leftCTA.link}>
+                {props.leftCTA.text}
               </Link>
             </Button>
             <Button
               asChild
               size='large'
               variant='link'
-              tone={props.secondaryCTA.tone}
+              tone={props.rightCTA.tone}
             >
-              <Link href={props.secondaryCTA.link}>
-                {props.secondaryCTA.text}
+              <Link href={props.rightCTA.link}>
+                {props.rightCTA.text}
               </Link>
             </Button>
           </div>

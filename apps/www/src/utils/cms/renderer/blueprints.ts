@@ -152,8 +152,8 @@ export const heroSimpleCenterWithBackground: ComponentBlueprint = {
     title: 'title',
     subtitle: 'subtitle',
     image: imageBlueprint(),
-    ...ctaBlueprint('primaryCTA'),
-    ...ctaBlueprint('secondaryCTA')
+    ...ctaBlueprint('leftCTA'),
+    ...ctaBlueprint('rightCTA')
   }
 }
 

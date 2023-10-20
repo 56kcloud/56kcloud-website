@@ -14,6 +14,8 @@
     "apps/cms"
   ],
   "scripts": {
+    "build": "cd apps/cms && strapi build",
+    "start": "cd apps/cms && strapi start",
     "dev:cms": "cd apps/cms && npm run dev",
     "dev:website": "cd apps/www && npm run dev",
     "lint": "cd apps/www && npm run lint && cd ../cms && npm run lint"

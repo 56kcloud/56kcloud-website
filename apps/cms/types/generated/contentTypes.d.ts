@@ -781,7 +781,7 @@ export interface ApiFooterFooter extends Schema.SingleType {
   info: {
     singularName: 'footer';
     pluralName: 'footers';
-    displayName: 'Footer';
+    displayName: '90 - Footer';
     description: '';
   };
   options: {
@@ -839,7 +839,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   info: {
     singularName: 'home-page';
     pluralName: 'home-pages';
-    displayName: 'Home Page';
+    displayName: '01 - Home Page';
     description: '';
   };
   options: {
