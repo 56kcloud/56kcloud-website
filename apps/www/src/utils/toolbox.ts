@@ -18,7 +18,7 @@ export function createHsformsPayload(data: contactUsFormData) {
   delete data.legalConsent
   return {
     fields: formatFormDataToHsforms(data),
-    legalConsentOptions:{
+    legalConsentOptions: {
       consent:{
         consentToProcess: true,
         text:'Text that gives consent to process',

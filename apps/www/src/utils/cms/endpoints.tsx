@@ -27,7 +27,6 @@ export async function getPageProps(path='/', lang='en'): Promise<PageProps|undef
     }
     return {
       components,
-      layout: element.layout || null,
       openGraph: {
         title: element.title || '',
         description: element.description || '',

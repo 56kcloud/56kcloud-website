@@ -1,37 +1,14 @@
 import {
   ComponentBlueprint,
-  articleContentBlueprint,
-  articleListBlueprint,
-  backgroundImageBlueprint,
   blogThreeColumnBlueprint,
-  companyListBlueprint,
   contactSplitWithPatternBlueprint,
   footerBlueprint,
-  headerBlueprint,
   heroSimpleCenterWithBackground,
-  illustrationCardListBlueprint,
-  largeTitleSectionBlueprint,
   logoCloudsSimpleWithTitleBlueprint,
-  markdownViewerBlueprint,
-  mediumTitleSectionBlueprint,
-  partnerListBlueprint,
-  rectangleCardListBlueprint,
-  relatedArticleListBlueprint,
-  relatedPartnersBlueprint,
-  relatedServicesBlueprint,
-  relatedSolutionsBlueprint,
-  serviceListBlueprint,
   servicesThreeColumnWithLargeIconsBlueprint,
-  smallTitleSectionBlueprint,
-  solutionListBlueprint,
-  solutionThreeColumnWithLargeIconsBlueprint,
-  tagsFilterBlueprint,
-  teamListBlueprint,
-  teamMemberCardBlueprint,
-  titleSectionBlueprint
+  solutionThreeColumnWithLargeIconsBlueprint
 } from './blueprints'
 import {PageOpenGraph} from '@/models/page.mode'
-import CenteredLayout from '@/components/ui/organisms/layouts/7xl'
 import Head from 'next/head'
 
 export type ComponentBlueprints = {
@@ -39,31 +16,6 @@ export type ComponentBlueprints = {
 }
 
 export const componentBlueprints: ComponentBlueprints = {
-  //old blueprints
-  'header': headerBlueprint,
-  'company-list': companyListBlueprint,
-  'partner-list': partnerListBlueprint,
-  'small-title-section': smallTitleSectionBlueprint,
-  'title-section': titleSectionBlueprint,
-  'medium-title-section': mediumTitleSectionBlueprint,
-  'large-title-section': largeTitleSectionBlueprint,
-  'illustration-card-list': illustrationCardListBlueprint,
-  'article-author': teamMemberCardBlueprint,
-  'team-member-card': teamMemberCardBlueprint,
-  'tags-filter': tagsFilterBlueprint,
-  'article-list': articleListBlueprint,
-  'solution-list': solutionListBlueprint,
-  'service-list': serviceListBlueprint,
-  'team-list': teamListBlueprint,
-  'related-articles': relatedArticleListBlueprint,
-  'related-solutions': relatedSolutionsBlueprint,
-  'related-services': relatedServicesBlueprint,
-  'related-partners': relatedPartnersBlueprint,
-  'article-content': articleContentBlueprint,
-  'background-image': backgroundImageBlueprint,
-  'markdown': markdownViewerBlueprint,
-  'rectangle-card-list': rectangleCardListBlueprint,
-  //new blueprints
   'footer': footerBlueprint,
   'hero-simple-center-with-background': heroSimpleCenterWithBackground,
   'blog-three-column': blogThreeColumnBlueprint,
@@ -86,23 +38,10 @@ export function renderComponents(components: Array<ComponentBlueprint>) {
   })
 }
 
-export const layouts = {
-  'CenteredLayout': {
-    component: CenteredLayout
-  }
-}
-
 export function pageRenderer(
   components: Array<ComponentBlueprint>,
-  openGraph: PageOpenGraph,
-  layout: string|null,
-  headerDark?: boolean
+  openGraph: PageOpenGraph
 ) {
-  const Layout = layouts[layout as keyof typeof layouts]?.component
-  if (components?.length > 0) {
-    components[0].props['isFloating'] = layout ? false : true
-    components[0].props['darkTheme'] = headerDark
-  }
   const children = renderComponents(components)
   return (<>
     <Head>
@@ -117,7 +56,7 @@ export function pageRenderer(
         )
       })}
     </Head>
-    {children && (Layout ? <Layout>{children}</Layout> : children)}
+    {children}
   </>
   )
 }

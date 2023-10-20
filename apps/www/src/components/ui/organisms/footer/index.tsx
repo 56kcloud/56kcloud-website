@@ -1,7 +1,9 @@
-import {LinkProps} from '@/models/link.model'
+import {LinkProps, SocialLinks} from '@/models/link.model'
 import {Linkedin} from '../../svgs/logos/linkedin'
 import {Logo} from '../../svgs/logos/56k'
-import {Twitter} from '../../svgs/logos/twitter'
+import {X} from '../../svgs/logos/x'
+import Button from '../../atoms/button'
+import useTranslation from 'next-translate/useTranslation'
 
 export type FooterProps = {
   text: string
@@ -10,19 +12,21 @@ export type FooterProps = {
 }
 
 export default function Footer(props: FooterProps) {
-  const companyLinks = [
-    {name: 'about', link: '/about'},
-    {name: 'blog', link: '/blog'}
+  const {t} = useTranslation()
+  
+  const companyLinks: Array<LinkProps> = [
+    {text: 'About', link: '/about'},
+    {text: 'Blog', link: '/blog'}
   ]
 
-  const socialLinks = [
+  const socialLinks: Array<SocialLinks> = [
     {
-      name: 'Twitter',
+      text: 'X',
       link: 'https://x.com/56kcloud',
-      icon: Twitter
+      icon: X
     },
     {
-      name: 'Linkedin',
+      text: 'Linkedin',
       link: 'https://www.linkedin.com/company/56kcloud',
       icon: Linkedin
     }
@@ -44,52 +48,69 @@ export default function Footer(props: FooterProps) {
             <p className='text-sm leading-6 text-gray-300'>
               {props.text}
             </p>
-            <div className='flex space-x-6'>
+            <div className='flex items-center space-x-6'>
               {socialLinks.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.link}
-                  className='text-gray-500 hover:text-gray-400'
-                  target='_blank'
+                <Button
+                  key={item.text}
+                  asChild
+                  tone='secondary'
+                  variant='link'
                 >
-                  <span className='sr-only'>{item.name}</span>
-                  <item.icon
-                    className='w-6 h-6 text-white'
-                    aria-hidden='true'/>
-                </a>
+                  <a
+                    href={item.link}
+                    target='_blank'
+                  >
+                    <span className='sr-only'>{item.text}</span>
+                    <item.icon
+                      className='w-6 h-6 text-white'
+                      aria-hidden='true'/>
+                  </a>
+                </Button>
               ))}
             </div>
           </div>
           <div className='grid grid-cols-2 gap-8 mt-16 xl:col-span-2 xl:mt-0'>
             <div className='md:grid md:grid-cols-2 md:gap-8'>
               <div>
-                <h3 className='text-sm font-semibold leading-6 text-white'>Services</h3>
+                <h3 className='text-sm font-semibold leading-6 text-white capitalize'>{t('services')}</h3>
                 <ul
                   role='list'
                   className='mt-6 space-y-4'>
                   {props.services.map((item) => (
                     <li key={item.link}>
-                      <a
-                        href={item.link}
-                        className='text-sm leading-6 text-gray-300 hover:text-white'>
-                        {item.text}
-                      </a>
+                      <Button
+                        key={item.text}
+                        asChild
+                        tone='secondary'
+                        variant='link'
+                      >
+                        <a
+                          href={item.link}
+                          className='text-sm leading-6 text-gray-300 hover:text-white'>
+                          {item.text}
+                        </a>
+                      </Button>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className='mt-10 md:mt-0'>
-                <h3 className='text-sm font-semibold leading-6 text-white'>Solutions</h3>
+                <h3 className='text-sm font-semibold leading-6 text-white capitalize'>{t('solutions')}</h3>
                 <ul
                   role='list'
                   className='mt-6 space-y-4'>
                   {props.solutions.map((item) => (
                     <li key={item.link}>
-                      <a
-                        href={item.link}
-                        className='text-sm leading-6 text-gray-300 hover:text-white'>
-                        {item.text}
-                      </a>
+                      <Button
+                        key={item.text}
+                        asChild
+                        tone='secondary'
+                        variant='link'
+                      >
+                        <a href={item.link}>
+                          {item.text}
+                        </a>
+                      </Button>
                     </li>
                   ))}
                 </ul>
@@ -97,17 +118,22 @@ export default function Footer(props: FooterProps) {
             </div>
             <div className='md:grid md:grid-cols-1 md:gap-8'>
               <div>
-                <h3 className='text-sm font-semibold leading-6 text-white'>Company</h3>
+                <h3 className='text-sm font-semibold leading-6 text-white capitalize'>{t('company')}</h3>
                 <ul
                   role='list'
                   className='mt-6 space-y-4'>
                   {companyLinks.map((item) => (
-                    <li key={item.name}>
-                      <a
-                        href={item.link}
-                        className='text-sm leading-6 text-gray-300 capitalize hover:text-white'>
-                        {item.name}
-                      </a>
+                    <li key={item.text}>
+                      <Button
+                        key={item.text}
+                        asChild
+                        tone='secondary'
+                        variant='link'
+                      >
+                        <a href={item.link}>
+                          {item.text}
+                        </a>
+                      </Button>
                     </li>
                   ))}
                 </ul>
@@ -117,7 +143,7 @@ export default function Footer(props: FooterProps) {
           </div>
         </div>
         <div className='pt-8 mt-16 border-t border-white/10 sm:mt-20 lg:mt-24'>
-          <p className='text-xs leading-5 text-gray-400'>&copy; 2023 56k.Cloud All rights reserved.</p>
+          <p className='text-xs leading-5 text-gray-400'>&copy; 2023 56k.Cloud {t('services')}.</p>
         </div>
       </div>
     </footer>

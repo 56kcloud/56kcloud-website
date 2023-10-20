@@ -1,6 +1,6 @@
 import {Link2} from 'lucide-react'
 import {TeamMember} from '@/models/team-member'
-import {Twitter} from '@/components/ui/svgs/logos/twitter'
+import {Twitter} from '@/components/ui/svgs/logos/x'
 import Avatar from '@/components/ui/atoms/avatar'
 import Button from '@/components/ui/atoms/button'
 import Link from 'next/link'

@@ -62,7 +62,6 @@ export class ButtonProps {
   align: typeof buttonAlignments[number]
   tone: typeof buttonTones[number]
   variant: typeof buttonVariants[number]
-  width: number | 'auto'
   className: string
   loading?: boolean
   disabled?: boolean
@@ -78,7 +77,6 @@ export class ButtonProps {
     this.align = props.align || 'center'
     this.tone = props.tone || 'primary'
     this.variant = props.variant || 'default'
-    this.width = props.width || 'auto'
     this.className = props.className || ''
     this.loading = props.loading || false
     this.disabled = props.disabled || false
@@ -91,7 +89,7 @@ export class ButtonProps {
   public buttonVariants() {
     return cn(
       'flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 \
-      disabled:opacity-50 disabled:cursor-not-allowed font-medium',
+      disabled:opacity-50 disabled:cursor-not-allowed font-medium w-fit',
       toneClasses[this.tone][this.variant],
       sizeClasses[this.size],
       shapeClasses[this.shape],

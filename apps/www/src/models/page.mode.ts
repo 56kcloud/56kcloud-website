@@ -8,6 +8,5 @@ export type PageOpenGraph = {
 
 export type PageProps = {
   components: Array<ComponentBlueprint>
-  layout: string | null
   openGraph: PageOpenGraph
 }
