@@ -26,7 +26,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
     options: {
       required: 'Your first name is required'
     },
-    label: t('inputFirstName')
+    label: t('contact:inputFirstName')
   }
   const lastNameInput: InputProps = {
     register,
@@ -34,7 +34,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
     options: {
       required: 'Your last name is required'
     },
-    label: t('inputLastName')
+    label: t('contact:inputLastName')
   }
   const emailInput: InputProps = {
     register,
@@ -46,7 +46,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
         message: 'Email is invalid'
       }
     },
-    label: t('inputEmail')
+    label: t('contact:inputEmail')
   }
 
   const messageInput: TextAreaProps = {
@@ -55,14 +55,14 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
     options: {
       required: 'A message is required'
     },
-    label: t('inputMessage')
+    label: t('contact:inputMessage')
   }
 
   const legalConsentInput: CheckboxProps = {
     register,
     id: 'legalConsent',
     name:'legalConsent',
-    label: t('checkboxLegalConsent')
+    label: t('contact:checkboxLegalConsent')
   }
 
   async function onSubmit(data: contactUsFormData){

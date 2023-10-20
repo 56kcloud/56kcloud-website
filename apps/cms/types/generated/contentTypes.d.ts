@@ -1002,40 +1002,6 @@ export interface ApiLocationLocation extends Schema.CollectionType {
   };
 }
 
-export interface ApiModalModal extends Schema.CollectionType {
-  collectionName: 'modals';
-  info: {
-    singularName: 'modal';
-    pluralName: 'modals';
-    displayName: 'Modal';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.String;
-    submitButtonTitle: Attribute.String;
-    image: Attribute.Media & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::modal.modal',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::modal.modal',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiPartnerPartner extends Schema.CollectionType {
   collectionName: 'partners';
   info: {
@@ -1431,7 +1397,6 @@ declare module '@strapi/types' {
       'api::footer.footer': ApiFooterFooter;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::location.location': ApiLocationLocation;
-      'api::modal.modal': ApiModalModal;
       'api::partner.partner': ApiPartnerPartner;
       'api::service.service': ApiServiceService;
       'api::solution.solution': ApiSolutionSolution;

@@ -3,7 +3,7 @@ import type { Schema, Attribute } from '@strapi/strapi';
 export interface BlogSectionsBlogThreeColumn extends Schema.Component {
   collectionName: 'components_blog_sections_blog_three_columns';
   info: {
-    displayName: 'Blog-three-column';
+    displayName: 'blog-three-column';
     description: '';
   };
   attributes: {
@@ -32,7 +32,7 @@ export interface ContactSectionsContactSplitWithPattern
 export interface CtaButton extends Schema.Component {
   collectionName: 'components_cta_buttons';
   info: {
-    displayName: 'Button';
+    displayName: 'button';
     description: '';
   };
   attributes: {

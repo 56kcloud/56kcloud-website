@@ -1,4 +1,8 @@
 {
+  "services": "Dienstleistungen",
+  "solutions": "Lösungen",
+  "blog": "Blog",
+  "about": "Über uns",
   "relatedArticlesTitle": "Verwandte Artikel",
   "relatedArticlesSubtitle": "Artikel, die für Sie von Interesse sein könnten",
   "relatedSolutionsTitle": "Verwandte Lösungen",

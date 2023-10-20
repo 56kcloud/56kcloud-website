@@ -1,8 +1,8 @@
 {
-  "locales": ["en"],
+  "locales": ["en", "fr", "de"],
   "defaultLocale": "en",
   "pages": {
-    "*": ["common", "nav", "footer", "modal"],
+    "*": ["common", "contact"],
     "/": ["home"],
     "/services": ["services", "cards"],
     "/solutions": ["solutions"],

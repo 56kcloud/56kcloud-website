@@ -10,6 +10,7 @@ import {
 } from './blueprints'
 import {PageOpenGraph} from '@/models/page.mode'
 import Head from 'next/head'
+import Header from '@/components/ui/organisms/header'
 
 export type ComponentBlueprints = {
   [key: string]: ComponentBlueprint
@@ -56,6 +57,7 @@ export function pageRenderer(
         )
       })}
     </Head>
+    <Header/>
     {children}
   </>
   )
