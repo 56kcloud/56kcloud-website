@@ -145,7 +145,10 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
           </p>
         </div>
       </div>
-      <div className='px-6 pt-20 pb-24 sm:pb-32 lg:px-8 lg:py-48 lg:h-[840px]'>
+      <div
+        className='px-6 pt-20 pb-24 sm:pb-32 lg:px-8 lg:py-48 lg:h-[840px]'
+        id='contact-section'
+      >
         {isExploding && <ConfettiExplosion
           force={0.8}
           duration={3000}
