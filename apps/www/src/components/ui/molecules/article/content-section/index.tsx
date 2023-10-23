@@ -14,23 +14,25 @@ export type ArticleContentSectionProps = {
 
 export default function ArticleContentSection({image, tags, title, content}: ArticleContentSectionProps) {
   content = `# ${title} \n ${content}`
-  return (<div className='flex items-end justify-center w-full'>
-    <div 
-      className='z-50 w-full h-full overflow-auto bg-white shadow-lg max-w-7xl rounded-xl overscroll-contain'
-    >
-      <PostCover
-        image={image}
-      />
-      <div className='w-full p-10'>
-        <PostTagList
-          tags={tags}
+  return (<div className='flex items-center justify-center py-24 sm:py-32'>
+    <div className='px-6 mx-auto max-w-7xl lg:px-8'>
+      <div 
+        className='z-50 w-full h-full overflow-auto bg-white/5 max-w-7xl rounded-xl overscroll-contain'
+      >
+        <PostCover
+          image={image}
         />
-        <div className='max-w-full prose'>
-          <MarkdownViewer
-            content={content}
-            className='px-0'/>
+        <div className='w-full p-10'>
+          <PostTagList
+            tags={tags}
+          />
+          <div className='max-w-full'>
+            <MarkdownViewer
+              content={content}
+              className='px-0'/>
+          </div>
         </div>
-      </div>
-    </div>    
+      </div>    
+    </div>
   </div>)
 }

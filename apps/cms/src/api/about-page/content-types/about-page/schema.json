@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_pages",
+  "info": {
+    "singularName": "about-page",
+    "pluralName": "about-pages",
+    "displayName": "03 - About page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "body": {
+      "type": "dynamiczone",
+      "components": [
+        "hero-sections.hero-simple-center",
+        "content-section.content-two-column",
+        "image-sections.image-simple",
+        "value-sections.value-two-column",
+        "team-sections.team-three-column",
+        "cta-sections.join-our-team",
+        "contact-sections.contact-split-with-pattern"
+      ]
+    }
+  }
+}

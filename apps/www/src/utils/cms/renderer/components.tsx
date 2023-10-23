@@ -1,12 +1,20 @@
 import {
   ComponentBlueprint,
+  articleContentBlueprint,
   blogThreeColumnBlueprint,
   contactSplitWithPatternBlueprint,
+  contentTwoColumnBlueprint,
   footerBlueprint,
-  heroSimpleCenterWithBackground,
+  heroSimpleCenterBlueprint,
+  heroSimpleCenterWithBackgroundBlueprint,
+  imageSimpleBlueprint,
+  joinOurTeamBlueprint,
   logoCloudsSimpleWithTitleBlueprint,
   servicesThreeColumnWithLargeIconsBlueprint,
-  solutionThreeColumnWithLargeIconsBlueprint
+  solutionThreeColumnWithLargeIconsBlueprint,
+  tagFilterBlueprint,
+  teamThreeColumnBlueprint,
+  valueTwoColumnBlueprint
 } from './blueprints'
 import {PageOpenGraph} from '@/models/page.mode'
 import Head from 'next/head'
@@ -18,13 +26,21 @@ export type ComponentBlueprints = {
 
 export const componentBlueprints: ComponentBlueprints = {
   'footer': footerBlueprint,
-  'hero-simple-center-with-background': heroSimpleCenterWithBackground,
+  'hero-simple-center': heroSimpleCenterBlueprint,
+  'hero-simple-center-with-background': heroSimpleCenterWithBackgroundBlueprint,
   'blog-three-column': blogThreeColumnBlueprint,
   'contact-split-with-pattern': contactSplitWithPatternBlueprint,
   'service-three-column-with-large-icons': servicesThreeColumnWithLargeIconsBlueprint,
   'solution-three-column-with-large-icons': solutionThreeColumnWithLargeIconsBlueprint,
   'partner-logo-simple-with-title': logoCloudsSimpleWithTitleBlueprint('partners'),
-  'customer-logo-simple-with-title': logoCloudsSimpleWithTitleBlueprint('customers')
+  'customer-logo-simple-with-title': logoCloudsSimpleWithTitleBlueprint('customers'),
+  'article-content': articleContentBlueprint,
+  'content-two-column': contentTwoColumnBlueprint,
+  'image-simple': imageSimpleBlueprint,
+  'value-two-column': valueTwoColumnBlueprint,
+  'team-three-column': teamThreeColumnBlueprint,
+  'join-our-team': joinOurTeamBlueprint,
+  'tag-filter': tagFilterBlueprint
 }
 
 export function renderComponents(components: Array<ComponentBlueprint>) {

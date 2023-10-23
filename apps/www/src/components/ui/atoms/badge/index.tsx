@@ -21,11 +21,11 @@ export default function Badge({children, color='default', className=''}: BadgePr
   }
   
   return (
-    <div
+    <span
       className={cn('inline-flex items-center px-2 py-1 text-xs font-medium rounded-md ring-1 hover:opacity-100',
         colors[color] || colors.default,
         className)}>
       <p className='text-xs font-medium whitespace-nowrap'>{children}</p>
-    </div>
+    </span>
   )
 }

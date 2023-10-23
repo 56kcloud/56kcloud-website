@@ -95,7 +95,8 @@ export function createPopulateArray(depth = 2) {
     'author.avatar',
     'avatar',
     'icon',
-    'logo'
+    'logo',
+    'tags'
   ]
   const basePaths = [
     'relatedArticles',

@@ -1,15 +1,23 @@
 import {MarkdownViewer} from '@/components/ui/molecules/mardown'
 import {z} from 'zod'
+import ArticleContentSection from '@/components/ui/molecules/article/content-section'
 import BlogThreeColumn from '@/components/ui/organisms/blog-sections/blog-three-column'
 import ContactSplitWithPattern from '@/components/ui/organisms/contact-sections/contact-split-with-pattern'
+import ContentTwoColumn from '@/components/ui/organisms/content-sections/content-two-column'
 import Footer from '@/components/ui/organisms/footer'
+import HeroSimpleCenter from '@/components/ui/organisms/hero-sections/hero-simple-center'
 import HeroSimpleCenterWithBackground 
   from '@/components/ui/organisms/hero-sections/hero-simple-center-with-background'
+import ImageSimple from '@/components/ui/organisms/image-sections/image-simple'
+import JoinOurTeam from '@/components/ui/organisms/cta-sections/join-our-team'
 import LogoCloudsSimpleWithTitle from '@/components/ui/organisms/logo-clouds/logo-clouds-simple-with-title'
 import ServiceThreeColumnWithLargeIcons
   from '@/components/ui/organisms/service-sections/service-three-column-with-large-icons'
 import SolutionThreeColumnWithLargeIcons 
   from '@/components/ui/organisms/solutions-sections/solution-three-column-with-large-icons'
+import TagFilter from '@/components/ui/molecules/tag-filter'
+import TeamThreeColumn from '@/components/ui/organisms/team-sections/team-three-column'
+import ValueTwoColumn from '@/components/ui/organisms/value-sections/value-two-column'
 
 export const componentBlueprintSchema = z.object({
   component: z.any(),
@@ -28,7 +36,7 @@ function imageBlueprint(name='image') {
   }
 }
 
-function ctaBlueprint(name: string) {
+function ctaBlueprint(name='cta') {
   return {
     [name]: {
       text: `${name}.text`,
@@ -69,6 +77,23 @@ export const contactSplitWithPatternBlueprint: ComponentBlueprint = {
   }
 }
 
+export const tagFilterBlueprint: ComponentBlueprint = {
+  component: TagFilter,
+  props: {
+    tags: [tagBlueprint]
+  }
+}
+
+export const articleContentBlueprint: ComponentBlueprint = {
+  component: ArticleContentSection,
+  props: {
+    title: 'title',
+    content: 'content',
+    tags: [tagBlueprint],
+    image: imageBlueprint()
+  }
+}
+
 export const blogThreeColumnBlueprint: ComponentBlueprint = {
   component: BlogThreeColumn,
   props: {
@@ -85,14 +110,7 @@ export const blogThreeColumnBlueprint: ComponentBlueprint = {
         image: imageBlueprint(),
         author: {
           name: 'author.name',
-          avatar: {
-            name: 'author.avatar.name',
-            alt: 'author.avatar.alternativeText',
-            src: 'author.avatar.url',
-            blurDataURL: 'author.avatar.formats.thumbnail.url',
-            width: 'author.avatar.width',
-            height: 'author.avatar.height'
-          }
+          avatar: imageBlueprint('author.avatar')
         }
       }
     ]
@@ -146,7 +164,15 @@ export function logoCloudsSimpleWithTitleBlueprint(companyType: string): Compone
   }
 }
 
-export const heroSimpleCenterWithBackground: ComponentBlueprint = {
+export const heroSimpleCenterBlueprint: ComponentBlueprint = {
+  component: HeroSimpleCenter,
+  props: {
+    title: 'title',
+    subtitle: 'subtitle'
+  }
+}
+
+export const heroSimpleCenterWithBackgroundBlueprint: ComponentBlueprint = {
   component: HeroSimpleCenterWithBackground,
   props: {
     title: 'title',
@@ -154,6 +180,65 @@ export const heroSimpleCenterWithBackground: ComponentBlueprint = {
     image: imageBlueprint(),
     ...ctaBlueprint('leftCTA'),
     ...ctaBlueprint('rightCTA')
+  }
+}
+
+export const contentTwoColumnBlueprint: ComponentBlueprint = {
+  component: ContentTwoColumn,
+  props: {
+    contentLeft: 'contentLeft',
+    contentRight: 'contentRight'
+  }
+}
+
+export const valueTwoColumnBlueprint: ComponentBlueprint = {
+  component: ValueTwoColumn,
+  props: {
+    title: 'title',
+    subtitle: 'subtitle',
+    values: [
+      {
+        name: 'name',
+        description: 'description'
+      }
+    ]
+  }
+}
+
+export const imageSimpleBlueprint: ComponentBlueprint = {
+  component: ImageSimple,
+  props: {
+    image: imageBlueprint()
+  }
+}
+
+export const joinOurTeamBlueprint: ComponentBlueprint = {
+  component: JoinOurTeam,
+  props: {
+    title: 'title',
+    subtitle: 'subtitle',
+    ...ctaBlueprint(),
+    image: imageBlueprint(),
+    benefits: [{
+      name: 'name'
+    }]
+  }
+}
+
+export const teamThreeColumnBlueprint: ComponentBlueprint = {
+  component: TeamThreeColumn,
+  props: {
+    title: 'title',
+    subtitle: 'subtitle',
+    teamMembers: [{
+      name: 'name',
+      bio: 'bio',
+      twitter: 'twitter',
+      website: 'website',
+      slug: 'slug',
+      role: 'role',
+      avatar: imageBlueprint('avatar')
+    }]
   }
 }
 

@@ -1,5 +1,15 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface BenefitBenefit extends Schema.Component {
+  collectionName: 'components_benefit_benefits';
+  info: {
+    displayName: 'benefit';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface BlogSectionsBlogThreeColumn extends Schema.Component {
   collectionName: 'components_blog_sections_blog_three_columns';
   info: {
@@ -26,6 +36,32 @@ export interface ContactSectionsContactSplitWithPattern
   attributes: {
     title: Attribute.String & Attribute.Required;
     subtitle: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface ContentSectionContentTwoColumn extends Schema.Component {
+  collectionName: 'components_content_section_content_two_columns';
+  info: {
+    displayName: 'Content-two-column';
+  };
+  attributes: {
+    contentLeft: Attribute.Text & Attribute.Required;
+    contentRight: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface CtaSectionsJoinOurTeam extends Schema.Component {
+  collectionName: 'components_cta_sections_join_our_teams';
+  info: {
+    displayName: 'join-our-team';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.Text & Attribute.Required;
+    cta: Attribute.Component<'cta.button'>;
+    benefits: Attribute.Component<'benefit.benefit', true>;
+    image: Attribute.Media & Attribute.Required;
   };
 }
 
@@ -60,6 +96,17 @@ export interface CustomerSectionsCustomerLogoSimpleWithTitle
   };
 }
 
+export interface FilterTagsFilter extends Schema.Component {
+  collectionName: 'tag_filter';
+  info: {
+    displayName: 'tag-filter';
+    description: '';
+  };
+  attributes: {
+    tags: Attribute.Relation<'filter.tags-filter', 'oneToMany', 'api::tag.tag'>;
+  };
+}
+
 export interface HeroSectionsHeroSimpleCenterWithBackground
   extends Schema.Component {
   collectionName: 'hero_simple_center_with_backgrounds';
@@ -73,6 +120,27 @@ export interface HeroSectionsHeroSimpleCenterWithBackground
     subtitle: Attribute.Text;
     leftCTA: Attribute.Component<'cta.button'>;
     rightCTA: Attribute.Component<'cta.button'>;
+  };
+}
+
+export interface HeroSectionsHeroSimpleCenter extends Schema.Component {
+  collectionName: 'components_hero_sections_hero_simple_centers';
+  info: {
+    displayName: 'hero-simple-center';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.Text;
+  };
+}
+
+export interface ImageSectionsImageSimple extends Schema.Component {
+  collectionName: 'components_image_sections_image_simples';
+  info: {
+    displayName: 'image-simple';
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
   };
 }
 
@@ -126,17 +194,67 @@ export interface SolutionSectionsSolutionThreeColumnWithLargeIcons
   };
 }
 
+export interface TeamSectionsTeamThreeColumn extends Schema.Component {
+  collectionName: 'team_three_columns';
+  info: {
+    displayName: 'team-three-column';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.Text & Attribute.Required;
+    teamMembers: Attribute.Relation<
+      'team-sections.team-three-column',
+      'oneToMany',
+      'api::team-member.team-member'
+    >;
+  };
+}
+
+export interface ValueSectionsValueTwoColumn extends Schema.Component {
+  collectionName: 'components_value_sections_value_two_columns';
+  info: {
+    displayName: 'value-two-column';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.Text & Attribute.Required;
+    values: Attribute.Component<'value-sections.value', true>;
+  };
+}
+
+export interface ValueSectionsValue extends Schema.Component {
+  collectionName: 'components_value_sections_values';
+  info: {
+    displayName: 'value';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    description: Attribute.Text;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'benefit.benefit': BenefitBenefit;
       'blog-sections.blog-three-column': BlogSectionsBlogThreeColumn;
       'contact-sections.contact-split-with-pattern': ContactSectionsContactSplitWithPattern;
+      'content-section.content-two-column': ContentSectionContentTwoColumn;
+      'cta-sections.join-our-team': CtaSectionsJoinOurTeam;
       'cta.button': CtaButton;
       'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle;
+      'filter.tags-filter': FilterTagsFilter;
       'hero-sections.hero-simple-center-with-background': HeroSectionsHeroSimpleCenterWithBackground;
+      'hero-sections.hero-simple-center': HeroSectionsHeroSimpleCenter;
+      'image-sections.image-simple': ImageSectionsImageSimple;
       'partner-sections.partner-logo-simple-with-title': PartnerSectionsPartnerLogoSimpleWithTitle;
       'service-sections.service-three-column-with-large-icons': ServiceSectionsServiceThreeColumnWithLargeIcons;
       'solution-sections.solution-three-column-with-large-icons': SolutionSectionsSolutionThreeColumnWithLargeIcons;
+      'team-sections.team-three-column': TeamSectionsTeamThreeColumn;
+      'value-sections.value-two-column': ValueSectionsValueTwoColumn;
+      'value-sections.value': ValueSectionsValue;
     }
   }
 }

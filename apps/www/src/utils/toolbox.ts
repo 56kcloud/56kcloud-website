@@ -58,6 +58,7 @@ export function padNumberWithZeroes(number: number, length: number) {
   return str
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function assign(obj: Record<string, any>, fields: Array<string>, value: unknown) {
   const lastKey = fields.pop() || ''
   const lastObj = fields.reduce((obj, key) => 
@@ -66,6 +67,7 @@ export function assign(obj: Record<string, any>, fields: Array<string>, value: u
   lastObj[lastKey] = value
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function mergeNestedObject(obj: Record<string, any>, objToMerge: Record<string, any>) {
   Object.keys(objToMerge).map(key => {
     if (typeof obj[key] === 'object' && typeof objToMerge[key] === 'object') {
@@ -79,6 +81,7 @@ export function mergeNestedObject(obj: Record<string, any>, objToMerge: Record<s
 
 export const deepFind = (object: Record<string, unknown>, path: string) => {
   const paths = path.split('.')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let current: any = object
   let i
   for (i = 0; i < paths.length; ++i) {

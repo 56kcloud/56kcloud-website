@@ -2,10 +2,10 @@ import {Checkbox, CheckboxProps} from '@/components/ui/atoms/inputs/checkbox'
 import {Input, InputProps} from '@/components/ui/atoms/inputs/input'
 import {TextArea, TextAreaProps} from '@/components/ui/atoms/inputs/textarea'
 import {contactUsFormData} from '@/models/contact-us-form-data.model'
-// import {createHsformsPayload} from '@/utils/toolbox'
-// import {sendEmail} from '@/utils/hubspot'
+import {createHsformsPayload} from '@/utils/toolbox'
+import {sendEmail} from '@/utils/hubspot'
 import {useForm} from 'react-hook-form'
-// import {useState} from 'react'
+import {useState} from 'react'
 import Button from '@/components/ui/atoms/button'
 import useTranslation from 'next-translate/useTranslation'
 
@@ -15,9 +15,9 @@ export type ContactSplitWithPatternProps = {
 }
 
 export default function ContactSplitWithPattern(props: ContactSplitWithPatternProps) {
-  const {register, handleSubmit, reset} = useForm()
-  // const [serverError, setServerError] = useState<string | null>(null)
-  // const hasAnyError = errors.firstName || errors.lastName || errors.email || errors.text || serverError
+  const {register, handleSubmit, reset, formState: {errors}} = useForm()
+  const [serverError, setServerError] = useState<string | null>(null)
+  const hasAnyError = errors.firstName || errors.lastName || errors.email || errors.text || serverError
   const {t} = useTranslation('modal')
 
   const firstNameInput: InputProps = {
@@ -67,11 +67,10 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
 
   async function onSubmit(data: contactUsFormData){
     try {
-      console.log(data)
-      // await sendEmail(createHsformsPayload(data))
+      await sendEmail(createHsformsPayload(data))
       reset()
     } catch (e) {
-      // setServerError((e as Error).toString())
+      setServerError((e as Error).toString())
     }
   }
   
@@ -140,6 +139,19 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
           onSubmit={handleSubmit((data) => onSubmit(data as contactUsFormData))}
           className='px-6 pt-20 pb-24 sm:pb-32 lg:px-8 lg:py-48'>
           <div className='max-w-xl mx-auto lg:mr-0 lg:max-w-lg'>
+            {hasAnyError ? (
+              <div
+                className='p-2 sm:p-3 text-sm text-red-600 bg-red-100 rounded-lg pl-7 sm:pl-7 mt-5 
+                           min-[1700px]:mt-6 sm:text-sm min-[1700px]:text-base'>
+                <ul className='list-disc marker:text-xs sm:marker:text-base'>
+                  {errors.firstName?.message && (<li>{errors.firstName.message.toString()}</li>)}
+                  {errors.lastName?.message && (<li>{errors.lastName.message.toString()}</li>)}
+                  {errors.email?.message && (<li>{errors.email.message.toString()}</li>)}
+                  {errors.message?.message && (<li>{errors.message.message.toString()}</li>)}
+                  {serverError && (<li>{serverError}</li>)}
+                </ul>
+              </div>
+            ) : null}
             <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
               <Input {...firstNameInput}/>
               <Input {...lastNameInput}/>

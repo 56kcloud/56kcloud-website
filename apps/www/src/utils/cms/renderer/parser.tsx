@@ -1,6 +1,7 @@
 import {deepFind} from '../../toolbox'
 import {getPlaiceholder} from 'plaiceholder'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function getPropsFromNestedObjects(schema: Record<string, any>, object: Record<string, any>) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const temp: Record<string, any> = {}
