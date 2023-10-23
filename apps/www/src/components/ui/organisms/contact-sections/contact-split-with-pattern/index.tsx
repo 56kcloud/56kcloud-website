@@ -9,6 +9,7 @@ import {useForm} from 'react-hook-form'
 import {useState} from 'react'
 import Button from '@/components/ui/atoms/button'
 import ConfettiExplosion from 'react-confetti-explosion'
+import Router from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
 
 export type ContactSplitWithPatternProps = {
@@ -76,6 +77,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
   async function onSubmit(data: contactUsFormData){
     try {
       await sendEmail(createHsformsPayload(data))
+      Router.push('#contact-section')
       setIsExploding(true)
       setShowThanksMessage(true)
       reset()
@@ -85,7 +87,10 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
     }
   }
   
-  return (<div className='relative bg-gray-900 isolate'>
+  return (<div
+    className='relative bg-gray-900 isolate'
+    id='contact-section'
+  >
     <div className='grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2'>
       <div className='relative px-6 pt-24 pb-20 sm:pt-32 lg:static lg:px-8 lg:py-48'>
         <div className='max-w-xl mx-auto lg:mx-0 lg:max-w-lg'>
@@ -147,7 +152,6 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
       </div>
       <div
         className='px-6 pt-20 pb-24 sm:pb-32 lg:px-8 lg:py-48 lg:h-[840px]'
-        id='contact-section'
       >
         {isExploding && <ConfettiExplosion
           force={0.8}
