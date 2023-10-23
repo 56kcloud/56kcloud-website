@@ -1,4 +1,4 @@
-import {FieldValues, RegisterOptions, UseFormRegister} from 'react-hook-form'
+import {FieldError, FieldErrorsImpl, FieldValues, Merge, RegisterOptions, UseFormRegister} from 'react-hook-form'
 import {HTMLInputTypeAttribute} from 'react'
 import {cn} from '@/utils/toolbox'
 
@@ -9,9 +9,11 @@ export type InputProps = {
   label: string
   className?: string
   type?: HTMLInputTypeAttribute
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined
 }
 
-export function Input({register, name, options, label, className, type = 'text'}: InputProps) {
+export function Input({register, name, options, label, className, type = 'text', error}: InputProps) {
   return (
     <div className={className}>
       <label
@@ -26,9 +28,18 @@ export function Input({register, name, options, label, className, type = 'text'}
           id={name}
           className={cn(
             'block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset \
-            ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6'
+            ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6',
+            error && 'text-red-900 ring-red-500 focus:ring-red-500'
           )}
         />
+        {error 
+          ? <p
+            className='mt-2 text-sm text-red-600'
+            id='email-error'>
+            {error.message?.toString()}
+          </p>
+          : null
+        }
       </div>
     </div>
   )

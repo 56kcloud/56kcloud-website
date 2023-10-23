@@ -34,6 +34,7 @@
     "open-graph-scraper": "^6.3.0",
     "plaiceholder": "^3.0.0",
     "react": "^18.2.0",
+    "react-confetti-explosion": "^2.1.2",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.47.0",
     "react-responsive-masonry": "^2.1.7",

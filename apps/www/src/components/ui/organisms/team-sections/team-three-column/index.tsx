@@ -8,7 +8,6 @@ export type TeamThreeColumnProps = {
 }
 
 export default function TeamThreeColumn(props: TeamThreeColumnProps) {
-  console.log('TeamThreeColumn', props)  
   return (
     <div className='px-6 mx-auto mt-32 max-w-7xl sm:mt-40 lg:px-8'>
       <div className='max-w-2xl mx-auto lg:mx-0'>

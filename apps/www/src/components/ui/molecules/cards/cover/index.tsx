@@ -26,13 +26,13 @@ export default function CardCover({image}: CardCoverProps) {
 
   return (
     <div
-      className={cn('relative w-full rounded-lg max-h-96 bg-white')}
+      className={cn('relative w-full rounded-lg max-h-96')}
       ref={coverParent}
       style={{height: `${image.width * (parseInt(height)/image.width)}px`}}
     >
-      {!isLoaded 
-        ? <div className='flex items-center justify-center w-full h-full p-10 bg-gray-50 animate-pulse grayscale'>
-          <Logo className='w-32 text-gray-100'/>
+      {!isLoaded
+        ? <div className='flex items-center justify-center w-full h-full p-10 bg-white/10 animate-pulse grayscale'>
+          <Logo className='w-32 text-gray-900'/>
         </div>
         : null
       }
@@ -41,7 +41,7 @@ export default function CardCover({image}: CardCoverProps) {
         alt={image.alt || 'post-cover'}
         onLoadingComplete={() => {setIsLoaded(true)}}
         fill
-        className={cn('object-cover')}
+        className={cn('object-cover bg0-white')}
       />
     </div>
   )
