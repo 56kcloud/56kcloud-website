@@ -14,7 +14,7 @@ export type ArticleContentSectionProps = {
 
 export default function ArticleContentSection({image, tags, title, content}: ArticleContentSectionProps) {
   content = `# ${title} \n ${content}`
-  return (<div className='flex items-center justify-center py-24 sm:py-32'>
+  return (<div className='flex items-center justify-center pt-24 sm:pt-32'>
     <div className='px-6 mx-auto max-w-7xl lg:px-8'>
       <div 
         className='z-50 w-full h-full overflow-auto bg-white/5 max-w-7xl rounded-xl overscroll-contain'

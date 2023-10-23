@@ -16,6 +16,7 @@ import ServiceThreeColumnWithLargeIcons
 import SolutionThreeColumnWithLargeIcons 
   from '@/components/ui/organisms/solutions-sections/solution-three-column-with-large-icons'
 import TagFilter from '@/components/ui/molecules/tag-filter'
+import TeamMemberCard from '@/components/ui/molecules/team-member'
 import TeamThreeColumn from '@/components/ui/organisms/team-sections/team-three-column'
 import ValueTwoColumn from '@/components/ui/organisms/value-sections/value-two-column'
 
@@ -48,6 +49,18 @@ function ctaBlueprint(name='cta') {
 
 const tagBlueprint = {
   name: 'name'
+}
+
+function teamMemberBlueprint(name='') {
+  return {
+    name: `${name}${name ? '.' : ''}name`,
+    bio: `${name}${name ? '.' : ''}bio`,
+    twitter: `${name}${name ? '.' : ''}twitter`,
+    website: `${name}${name ? '.' : ''}website`,
+    slug: `${name}${name ? '.' : ''}slug`,
+    role: `${name}${name ? '.' : ''}role`,
+    avatar: imageBlueprint(`${name}${name ? '.' : ''}avatar`)
+  }
 }
 
 export const footerBlueprint: ComponentBlueprint = {
@@ -225,20 +238,19 @@ export const joinOurTeamBlueprint: ComponentBlueprint = {
   }
 }
 
+export const teamMemberCardBlueprint: ComponentBlueprint = {
+  component: TeamMemberCard,
+  props: {
+    teamMember: teamMemberBlueprint('teamMember')
+  }
+}
+
 export const teamThreeColumnBlueprint: ComponentBlueprint = {
   component: TeamThreeColumn,
   props: {
     title: 'title',
     subtitle: 'subtitle',
-    teamMembers: [{
-      name: 'name',
-      bio: 'bio',
-      twitter: 'twitter',
-      website: 'website',
-      slug: 'slug',
-      role: 'role',
-      avatar: imageBlueprint('avatar')
-    }]
+    teamMembers: [teamMemberBlueprint()]
   }
 }
 

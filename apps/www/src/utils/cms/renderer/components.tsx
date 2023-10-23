@@ -13,6 +13,7 @@ import {
   servicesThreeColumnWithLargeIconsBlueprint,
   solutionThreeColumnWithLargeIconsBlueprint,
   tagFilterBlueprint,
+  teamMemberCardBlueprint,
   teamThreeColumnBlueprint,
   valueTwoColumnBlueprint
 } from './blueprints'
@@ -40,7 +41,8 @@ export const componentBlueprints: ComponentBlueprints = {
   'value-two-column': valueTwoColumnBlueprint,
   'team-three-column': teamThreeColumnBlueprint,
   'join-our-team': joinOurTeamBlueprint,
-  'tag-filter': tagFilterBlueprint
+  'tag-filter': tagFilterBlueprint,
+  'article-author': teamMemberCardBlueprint
 }
 
 export function renderComponents(components: Array<ComponentBlueprint>) {
