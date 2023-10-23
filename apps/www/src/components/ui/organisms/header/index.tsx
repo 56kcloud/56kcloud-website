@@ -11,16 +11,14 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navigation: Array<LinkProps> = [
-    {text: t('common:services'), link: '/services'},
-    {text: t('common:solutions'), link: '/solutions'},
     {text: t('common:blog'), link: '/blog'},
     {text: t('common:about'), link: '/about'}
   ]
 
   return (
-    <header className='absolute inset-x-0 top-0 z-50'>
+    <header className='absolute inset-x-0 top-0 z-50 flex justify-center'>
       <nav
-        className='flex items-center justify-between p-6 lg:px-8'
+        className='flex items-center justify-between w-full p-6 lg:px-8 max-w-7xl'
         aria-label='Global'>
         <div className='flex lg:flex-1'>
           <Link
