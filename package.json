@@ -15,10 +15,10 @@
   ],
   "scripts": {
     "build": "cd apps/cms && strapi build",
-    "start": "cd apps/cms && strapi start",
     "dev:cms": "cd apps/cms && npm run dev",
-    "dev:website": "cd apps/www && npm run dev",
-    "lint": "cd apps/www && npm run lint && cd ../cms && npm run lint"
+    "dev:www": "cd apps/www && npm run dev",
+    "lint": "cd apps/www && npm run lint && cd ../cms && npm run lint",
+    "start": "cd apps/cms && strapi start"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.2.0",
