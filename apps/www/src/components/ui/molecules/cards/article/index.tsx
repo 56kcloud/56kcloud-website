@@ -8,9 +8,11 @@ import Link from 'next/link'
 
 type ArticleCardProps = {
   article: Article
+  className?: string
+  sameHeight?: boolean
 }
 
-export default function ArticleCard({article}: ArticleCardProps) {
+export default function ArticleCard({article, sameHeight}: ArticleCardProps) {
   const publishedOn = formatDate(article.publishedOn)
   return (
     <motion.div
@@ -18,12 +20,17 @@ export default function ArticleCard({article}: ArticleCardProps) {
       animate={{opacity: 1}}
       exit={{opacity: 0}}
       transition={{duration: 0.2}}
+      className='flex-1'
     >
       <Link
         href={`/blog/${article.slug}`}
         className='relative flex flex-col overflow-hidden duration-200 bg-white/5 rounded-lg shadow-lg cursor-pointer \
-      hover:shadow-2xl hover:scale-105'>
-        <ArticleCover image={article.image}/>
+                   hover:shadow-2xl hover:scale-105 h-[500px]'
+      >
+        <ArticleCover
+          image={article.image}
+          sameHeight={sameHeight}
+        />
         <div
           className='flex flex-col py-6 pl-6'>
           <ArticleTagList tags={article.tags}/>

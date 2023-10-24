@@ -27,6 +27,18 @@ export async function bodyHandler(contentType, locale = 'en', needRelatedSection
   // })
   // header['__component'] = headerComponentName
   // contentType.body.unshift(header)
+  const contactComponentIndex = contentType.body.map(el => el.__component)
+    .indexOf('contact-sections.contact-split-with-pattern')
+  console.log(contactComponentIndex)
+  if (contactComponentIndex >= 0) {
+    const locations = await strapi.entityService.findMany('api::location.location', {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      populate: 'deep' as any,
+      locale: locale
+    })
+    contentType.body[contactComponentIndex].locations = locations
+  }
+
   const footerComponentName = 'footer.footer'
   const footer = await strapi.entityService.findMany(`api::${footerComponentName}`, {
     populate: '*',
@@ -103,7 +115,8 @@ export function createPopulateArray(depth = 2) {
     'relatedPartners',
     'relatedServices',
     'relatedSolutions',
-    'body'
+    'body',
+    'openGraph'
   ]
   Object.keys(strapi.components).forEach(key => {
     const component = strapi.components[key]

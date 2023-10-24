@@ -53,6 +53,17 @@ const tagBlueprint = {
   name: 'name'
 }
 
+const locationBlueprint =  {
+  name: 'name',
+  address: 'address',
+  city: 'city',
+  zipCode: 'zipCode',
+  country: 'country',
+  image: imageBlueprint(),
+  gMap: 'gMap'
+}
+
+
 const CardWithIconBlueprint = {
   title: 'title',
   description: 'description',
@@ -94,7 +105,8 @@ export const contactSplitWithPatternBlueprint: ComponentBlueprint = {
   component: ContactSplitWithPattern,
   props: {
     title: 'title',
-    subtitle: 'subtitle'
+    subtitle: 'subtitle',
+    locations: [locationBlueprint]
   }
 }
 
@@ -283,5 +295,13 @@ export const contentMarkdownBlueprint: ComponentBlueprint = {
   component: ContentMarkdown,
   props: {
     content: 'content'
+  }
+}
+
+export const openGraphBlueprint: ComponentBlueprint = {
+  props: {
+    title: 'title',
+    description: 'description',
+    image: imageBlueprint()
   }
 }

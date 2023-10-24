@@ -23,6 +23,12 @@
         "cta-sections.join-our-team",
         "contact-sections.contact-split-with-pattern"
       ]
+    },
+    "openGraph": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.open-graph",
+      "required": true
     }
   }
 }

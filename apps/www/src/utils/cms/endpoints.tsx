@@ -1,6 +1,7 @@
-import {PageProps} from '@/models/page.mode'
+import {PageOpenGraph, PageProps} from '@/models/page.mode'
 import {componentBlueprints} from './renderer/components'
 import {getPropsFromNestedObjects} from './renderer/parser'
+import {openGraphBlueprint} from './renderer/blueprints'
 import {snakeCaseObjectKeysToCamelCase} from '../toolbox'
 import {strapiFetcher} from '../../../configs/server'
 
@@ -25,13 +26,13 @@ export async function getPageProps(path='/', lang='en'): Promise<PageProps|undef
         )
       }
     }
+    const openGraph = await getPropsFromNestedObjects(
+      openGraphBlueprint.props,
+      snakeCaseObjectKeysToCamelCase(element.openGraph)
+    ) as PageOpenGraph
     return {
       components,
-      openGraph: {
-        title: element.title || '',
-        description: element.description || '',
-        image: element.image || null
-      }
+      openGraph
     }
   } catch (error) {
     console.error(error)

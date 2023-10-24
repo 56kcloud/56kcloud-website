@@ -17,6 +17,12 @@
       "components": [
         "blog-sections.blog-three-column"
       ]
+    },
+    "openGraph": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.open-graph",
+      "required": true
     }
   }
 }

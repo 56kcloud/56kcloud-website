@@ -1,6 +1,7 @@
-import {CheckCircleIcon} from '@heroicons/react/24/outline'
+import {BuildingOffice2Icon, CheckCircleIcon} from '@heroicons/react/24/outline'
 import {Checkbox, CheckboxProps} from '@/components/ui/atoms/inputs/checkbox'
 import {Input, InputProps} from '@/components/ui/atoms/inputs/input'
+import {LocationObject} from '@/models/location.model'
 import {TextArea, TextAreaProps} from '@/components/ui/atoms/inputs/textarea'
 import {contactUsFormData} from '@/models/contact-us-form-data.model'
 import {createHsformsPayload} from '@/utils/toolbox'
@@ -15,6 +16,7 @@ import useTranslation from 'next-translate/useTranslation'
 export type ContactSplitWithPatternProps = {
   title: string
   subtitle: string
+  locations: Array<LocationObject>
 }
 
 export default function ContactSplitWithPattern(props: ContactSplitWithPatternProps) {
@@ -148,6 +150,28 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
           <p className='mt-6 text-lg leading-8 text-gray-300'>
             {props.subtitle}
           </p>
+          <dl className='mt-10 space-y-4 text-base leading-7 text-gray-300'>
+            {props.locations?.map((location) => (
+              <a
+                key={location.address}
+                href={location.gMap}
+                target='_blank'
+                className='flex text-gray-400 gap-x-4'
+              >
+                <dt className='flex-none'>
+                  <span className='sr-only'>Address</span>
+                  <BuildingOffice2Icon
+                    className='w-6 text-gray-400 h-7'
+                    aria-hidden='true'/>
+                </dt>
+                <dd>
+                  {location.address}
+                  <br/>
+                  {location.city} {location.zipCode}, {location.country}
+                </dd>
+              </a>
+            ))}
+          </dl>
         </div>
       </div>
       <div

@@ -16,6 +16,12 @@
     }
   },
   "attributes": {
+    "openGraph": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.open-graph",
+      "required": true
+    },
     "slug": {
       "type": "string",
       "required": true,

@@ -700,6 +700,7 @@ export interface ApiAboutPageAboutPage extends Schema.SingleType {
         'contact-sections.contact-split-with-pattern'
       ]
     >;
+    openGraph: Attribute.Component<'seo.open-graph'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -730,6 +731,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
+    openGraph: Attribute.Component<'seo.open-graph'> & Attribute.Required;
     title: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     readTime: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<1>;
@@ -793,6 +795,7 @@ export interface ApiBlogPageBlogPage extends Schema.SingleType {
   };
   attributes: {
     body: Attribute.DynamicZone<['blog-sections.blog-three-column']>;
+    openGraph: Attribute.Component<'seo.open-graph'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -918,27 +921,6 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     };
   };
   attributes: {
-    image: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    description: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     body: Attribute.DynamicZone<
       [
         'hero-sections.hero-simple-center-with-background',
@@ -950,6 +932,13 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
         'contact-sections.contact-split-with-pattern'
       ]
     > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    openGraph: Attribute.Component<'seo.open-graph'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1124,6 +1113,7 @@ export interface ApiServiceService extends Schema.CollectionType {
     };
   };
   attributes: {
+    openGraph: Attribute.Component<'seo.open-graph'> & Attribute.Required;
     title: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -1214,6 +1204,7 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
     };
   };
   attributes: {
+    openGraph: Attribute.Component<'seo.open-graph'> & Attribute.Required;
     slug: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{

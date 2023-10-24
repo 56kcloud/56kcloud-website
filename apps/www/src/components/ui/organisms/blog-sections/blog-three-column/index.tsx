@@ -8,7 +8,18 @@ export type BlogThreeColumnProps = {
   articles: Array<Article>
 }
 
-export default function BlogThreeColumn(props: BlogThreeColumnProps) { 
+export default function BlogThreeColumn(props: BlogThreeColumnProps) {
+  const length = props.articles.length
+  const hasMoreThanOneRow = length > 3
+  const articles = props.articles.map((article) => (
+    <ArticleCard
+      key={article.slug}
+      article={article}
+      className={hasMoreThanOneRow ? '' : 'flex-1'}
+      sameHeight={!hasMoreThanOneRow}
+    />
+  ))
+  
   return (
     <div className='py-24 bg-gray-900 sm:py-32'>
       <div className='px-6 mx-auto max-w-7xl lg:px-8'>
@@ -21,14 +32,14 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
         <div
           className='max-w-2xl pt-10 mx-auto mt-10 border-t border-gray-700 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none'
         >
-          <MasonryLayout>
-            {props.articles.map((article) => (
-              <ArticleCard
-                key={article.slug}
-                article={article}
-              />
-            ))}
-          </MasonryLayout>
+          {hasMoreThanOneRow
+            ? <MasonryLayout>
+              {articles}
+            </MasonryLayout>
+            : <div className='grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3'>
+              {articles}
+            </div>
+          }
         </div>
       </div>
     </div>

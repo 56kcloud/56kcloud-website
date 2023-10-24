@@ -6,9 +6,10 @@ import Image from 'next/image'
 
 type CardCoverProps = {
   image: ImageProps
+  sameHeight?: boolean
 }
 
-export default function CardCover({image}: CardCoverProps) {
+export default function CardCover({image, sameHeight}: CardCoverProps) {
   const [isLoaded, setIsLoaded] = useState(false)
   
   const [height, setHeight] = useState('200px')
@@ -26,9 +27,9 @@ export default function CardCover({image}: CardCoverProps) {
 
   return (
     <div
-      className={cn('relative w-full rounded-lg max-h-96')}
+      className='relative w-full rounded-lg max-h-96 bg-red-50'
       ref={coverParent}
-      style={{height: `${image.width * (parseInt(height)/image.width)}px`}}
+      style={{height: sameHeight ? '200px' : `${image.width * (parseInt(height)/image.width)}px`}}
     >
       {!isLoaded
         ? <div className='flex items-center justify-center w-full h-full p-10 bg-white/10 animate-pulse grayscale'>
@@ -41,7 +42,7 @@ export default function CardCover({image}: CardCoverProps) {
         alt={image.alt || 'post-cover'}
         onLoadingComplete={() => {setIsLoaded(true)}}
         fill
-        className={cn('object-cover bg0-white')}
+        className={cn('object-cover bg-white')}
       />
     </div>
   )

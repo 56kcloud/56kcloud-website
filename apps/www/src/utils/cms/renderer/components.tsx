@@ -69,11 +69,13 @@ export function pageRenderer(
   return (<>
     <Head>
       {openGraph && Object.keys(openGraph).map((key) => {
-        const value = openGraph[key as keyof PageOpenGraph]
+        const value = key === 'image'
+          ? openGraph.image.src
+          : openGraph[key as keyof PageOpenGraph]
         return value && (
           <meta
             property={`og:${key}`}
-            content={value}
+            content={value.toString()}
             key={key}
           />
         )

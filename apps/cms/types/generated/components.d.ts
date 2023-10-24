@@ -196,6 +196,18 @@ export interface PartnerSectionsPartnerLogoSimpleWithTitle
   };
 }
 
+export interface SeoOpenGraph extends Schema.Component {
+  collectionName: 'components_seo_open_graphs';
+  info: {
+    displayName: 'open-graph';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+  };
+}
+
 export interface ServiceSectionsServiceThreeColumnWithLargeIcons
   extends Schema.Component {
   collectionName: 'service_three_column_with_large_icons';
@@ -289,6 +301,7 @@ declare module '@strapi/types' {
       'hero-sections.hero-simple-center': HeroSectionsHeroSimpleCenter;
       'image-sections.image-simple': ImageSectionsImageSimple;
       'partner-sections.partner-logo-simple-with-title': PartnerSectionsPartnerLogoSimpleWithTitle;
+      'seo.open-graph': SeoOpenGraph;
       'service-sections.service-three-column-with-large-icons': ServiceSectionsServiceThreeColumnWithLargeIcons;
       'solution-sections.solution-three-column-with-large-icons': SolutionSectionsSolutionThreeColumnWithLargeIcons;
       'team-sections.team-three-column': TeamSectionsTeamThreeColumn;
