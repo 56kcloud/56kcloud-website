@@ -1135,13 +1135,6 @@ export interface ApiServiceService extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    image: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     icon: Attribute.Media &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -1217,13 +1210,6 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
-        };
-      }>;
-    image: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
         };
       }>;
     description: Attribute.Text &
