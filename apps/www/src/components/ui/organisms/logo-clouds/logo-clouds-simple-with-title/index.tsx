@@ -14,13 +14,13 @@ export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTit
           {props.title}
         </h2>
         <div
-          className='grid items-center max-w-lg grid-cols-4 mx-auto mt-10 gap-x-8 gap-y-10 sm:max-w-xl \
-                     sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5 text-white'
+          className='flex flex-col lg:flex-row flex-wrap justify-center items-center max-w-lg mx-auto mt-10 gap-x-8 \
+                     sm:gap-x-10 lg:mx-0 lg:max-w-none text-white gap-y-10 sm:max-w-xl '
         >
           {props.companies.map((company, index) => (
             <Image
               key={index} 
-              className='object-contain w-full col-span-2 max-h-12 lg:col-span-1'
+              className='object-contain w-[200px] max-h-12'
               src={company.image.src}
               alt={company.name}
               width={company.image.width}

@@ -23,7 +23,7 @@ export default function ArticleTagList({tags}: ArticleListProps) {
 
 
   return (
-    <div className='flex p-1 mb-5 space-x-2 overflow-x-scroll'>
+    <div className='flex p-1 mb-5 space-x-2 overflow-x-auto'>
       {sortedTags?.map((tag) => (
         <Link
           key={tag.name}

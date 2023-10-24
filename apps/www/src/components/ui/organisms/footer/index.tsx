@@ -143,7 +143,7 @@ export default function Footer(props: FooterProps) {
           </div>
         </div>
         <div className='pt-8 mt-16 border-t border-white/10 sm:mt-20 lg:mt-24'>
-          <p className='text-xs leading-5 text-gray-400'>&copy; 2023 56k.Cloud {t('common:services')}.</p>
+          <p className='text-xs leading-5 text-gray-400'>&copy; 2023 56k.Cloud</p>
         </div>
       </div>
     </footer>

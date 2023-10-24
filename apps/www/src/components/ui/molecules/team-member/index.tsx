@@ -26,7 +26,7 @@ export default function TeamMemberCard({teamMember}: TeamMemberCardProps) {
             <h1 className='text-2xl text-white title line-clamp-2'>
               {teamMember.name}
             </h1>
-            <p className='max-w-2xl mt-2 text-base text-grey-300 line-clamp-3'>
+            <p className='max-w-2xl mt-2 text-base text-grey-300'>
               {teamMember.bio}
             </p>
             <div className='flex space-x-4'>
