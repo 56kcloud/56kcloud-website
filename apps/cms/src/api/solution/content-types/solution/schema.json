@@ -56,26 +56,6 @@
         }
       }
     },
-    "relatedPartners": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::partner.partner"
-    },
-    "relatedArticles": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article"
-    },
-    "relatedServices": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::service.service"
-    },
-    "relatedSolutions": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::solution.solution"
-    },
     "icon": {
       "allowedTypes": [
         "images"
@@ -88,6 +68,21 @@
         }
       },
       "required": true
+    },
+    "body": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "header-sections.header-with-cards",
+        "service-sections.service-three-column-with-large-icons",
+        "solution-sections.solution-three-column-with-large-icons",
+        "content-section.content-markdown",
+        "contact-sections.contact-split-with-pattern"
+      ]
     }
   }
 }

@@ -65,12 +65,6 @@
       "type": "richtext",
       "required": true
     },
-    "relatedServices": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::service.service",
-      "mappedBy": "relatedArticles"
-    },
     "relatedSolutions": {
       "type": "relation",
       "relation": "oneToMany",

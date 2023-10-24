@@ -757,11 +757,6 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'api::article.article'
     >;
     content: Attribute.RichText & Attribute.Required;
-    relatedServices: Attribute.Relation<
-      'api::article.article',
-      'manyToMany',
-      'api::service.service'
-    >;
     relatedSolutions: Attribute.Relation<
       'api::article.article',
       'oneToMany',
@@ -1136,11 +1131,6 @@ export interface ApiServiceService extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    relatedPartners: Attribute.Relation<
-      'api::service.service',
-      'oneToMany',
-      'api::partner.partner'
-    >;
     slug: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -1162,26 +1152,25 @@ export interface ApiServiceService extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    relatedArticles: Attribute.Relation<
-      'api::service.service',
-      'manyToMany',
-      'api::article.article'
-    >;
-    relatedSolutions: Attribute.Relation<
-      'api::service.service',
-      'oneToMany',
-      'api::solution.solution'
-    >;
-    relatedServices: Attribute.Relation<
-      'api::service.service',
-      'oneToMany',
-      'api::service.service'
-    >;
     icon: Attribute.Media &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
+        };
+      }>;
+    body: Attribute.DynamicZone<
+      [
+        'header-sections.header-with-cards',
+        'service-sections.service-three-column-with-large-icons',
+        'solution-sections.solution-three-column-with-large-icons',
+        'content-section.content-markdown',
+        'contact-sections.contact-split-with-pattern'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1253,31 +1242,25 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    relatedPartners: Attribute.Relation<
-      'api::solution.solution',
-      'oneToMany',
-      'api::partner.partner'
-    >;
-    relatedArticles: Attribute.Relation<
-      'api::solution.solution',
-      'oneToMany',
-      'api::article.article'
-    >;
-    relatedServices: Attribute.Relation<
-      'api::solution.solution',
-      'oneToMany',
-      'api::service.service'
-    >;
-    relatedSolutions: Attribute.Relation<
-      'api::solution.solution',
-      'oneToMany',
-      'api::solution.solution'
-    >;
     icon: Attribute.Media &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
+        };
+      }>;
+    body: Attribute.DynamicZone<
+      [
+        'header-sections.header-with-cards',
+        'service-sections.service-three-column-with-large-icons',
+        'solution-sections.solution-three-column-with-large-icons',
+        'content-section.content-markdown',
+        'contact-sections.contact-split-with-pattern'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     createdAt: Attribute.DateTime;

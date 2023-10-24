@@ -3,8 +3,10 @@ import {z} from 'zod'
 import ArticleContentSection from '@/components/ui/molecules/article/content-section'
 import BlogThreeColumn from '@/components/ui/organisms/blog-sections/blog-three-column'
 import ContactSplitWithPattern from '@/components/ui/organisms/contact-sections/contact-split-with-pattern'
+import ContentMarkdown from '@/components/ui/organisms/content-sections/content-markdown'
 import ContentTwoColumn from '@/components/ui/organisms/content-sections/content-two-column'
 import Footer from '@/components/ui/organisms/footer'
+import HeaderWithCards from '@/components/ui/organisms/header-sections/header-with-cards'
 import HeroSimpleCenter from '@/components/ui/organisms/hero-sections/hero-simple-center'
 import HeroSimpleCenterWithBackground 
   from '@/components/ui/organisms/hero-sections/hero-simple-center-with-background'
@@ -51,6 +53,12 @@ const tagBlueprint = {
   name: 'name'
 }
 
+const CardWithIconBlueprint = {
+  title: 'title',
+  description: 'description',
+  icon: imageBlueprint('icon')
+}
+
 function teamMemberBlueprint(name='') {
   return {
     name: `${name}${name ? '.' : ''}name`,
@@ -87,6 +95,16 @@ export const contactSplitWithPatternBlueprint: ComponentBlueprint = {
   props: {
     title: 'title',
     subtitle: 'subtitle'
+  }
+}
+
+export const headerWithCardsBlueprint: ComponentBlueprint = {
+  component: HeaderWithCards,
+  props: {
+    title: 'title',
+    subtitle: 'subtitle',
+    image: imageBlueprint(),
+    cards: [CardWithIconBlueprint]
   }
 }
 
@@ -256,6 +274,13 @@ export const teamThreeColumnBlueprint: ComponentBlueprint = {
 
 export const markdownViewerBlueprint: ComponentBlueprint = {
   component: MarkdownViewer,
+  props: {
+    content: 'content'
+  }
+}
+
+export const contentMarkdownBlueprint: ComponentBlueprint = {
+  component: ContentMarkdown,
   props: {
     content: 'content'
   }

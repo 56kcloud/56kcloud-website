@@ -25,11 +25,6 @@
       },
       "required": true
     },
-    "relatedPartners": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::partner.partner"
-    },
     "slug": {
       "type": "string",
       "unique": false,
@@ -63,34 +58,33 @@
         }
       }
     },
-    "relatedArticles": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::article.article",
-      "inversedBy": "relatedServices"
-    },
-    "relatedSolutions": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::solution.solution"
-    },
-    "relatedServices": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::service.service"
-    },
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
+      }
+    },
+    "body": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
       },
-      "required": true
+      "type": "dynamiczone",
+      "components": [
+        "header-sections.header-with-cards",
+        "service-sections.service-three-column-with-large-icons",
+        "solution-sections.solution-three-column-with-large-icons",
+        "content-section.content-markdown",
+        "contact-sections.contact-split-with-pattern"
+      ]
     }
   }
 }

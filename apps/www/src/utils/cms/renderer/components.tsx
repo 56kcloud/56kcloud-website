@@ -3,8 +3,10 @@ import {
   articleContentBlueprint,
   blogThreeColumnBlueprint,
   contactSplitWithPatternBlueprint,
+  contentMarkdownBlueprint,
   contentTwoColumnBlueprint,
   footerBlueprint,
+  headerWithCardsBlueprint,
   heroSimpleCenterBlueprint,
   heroSimpleCenterWithBackgroundBlueprint,
   imageSimpleBlueprint,
@@ -42,7 +44,9 @@ export const componentBlueprints: ComponentBlueprints = {
   'team-three-column': teamThreeColumnBlueprint,
   'join-our-team': joinOurTeamBlueprint,
   'tag-filter': tagFilterBlueprint,
-  'article-author': teamMemberCardBlueprint
+  'article-author': teamMemberCardBlueprint,
+  'header-with-cards': headerWithCardsBlueprint,
+  'content-markdown': contentMarkdownBlueprint
 }
 
 export function renderComponents(components: Array<ComponentBlueprint>) {

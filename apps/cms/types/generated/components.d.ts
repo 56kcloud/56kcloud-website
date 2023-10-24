@@ -27,6 +27,19 @@ export interface BlogSectionsBlogThreeColumn extends Schema.Component {
   };
 }
 
+export interface CardsCardWithIcon extends Schema.Component {
+  collectionName: 'components_cards_card_with_icons';
+  info: {
+    displayName: 'card-with-icon';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    icon: Attribute.Media & Attribute.Required;
+  };
+}
+
 export interface ContactSectionsContactSplitWithPattern
   extends Schema.Component {
   collectionName: 'contact_split_with_patterns';
@@ -36,6 +49,16 @@ export interface ContactSectionsContactSplitWithPattern
   attributes: {
     title: Attribute.String & Attribute.Required;
     subtitle: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface ContentSectionContentMarkdown extends Schema.Component {
+  collectionName: 'components_content_section_content_markdowns';
+  info: {
+    displayName: 'content-markdown';
+  };
+  attributes: {
+    content: Attribute.RichText & Attribute.Required;
   };
 }
 
@@ -104,6 +127,19 @@ export interface FilterTagsFilter extends Schema.Component {
   };
   attributes: {
     tags: Attribute.Relation<'filter.tags-filter', 'oneToMany', 'api::tag.tag'>;
+  };
+}
+
+export interface HeaderSectionsHeaderWithCards extends Schema.Component {
+  collectionName: 'components_header_sections_header_with_cards';
+  info: {
+    displayName: 'header-with-cards';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.Text & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    cards: Attribute.Component<'cards.card-with-icon', true>;
   };
 }
 
@@ -240,12 +276,15 @@ declare module '@strapi/types' {
     export interface Components {
       'benefit.benefit': BenefitBenefit;
       'blog-sections.blog-three-column': BlogSectionsBlogThreeColumn;
+      'cards.card-with-icon': CardsCardWithIcon;
       'contact-sections.contact-split-with-pattern': ContactSectionsContactSplitWithPattern;
+      'content-section.content-markdown': ContentSectionContentMarkdown;
       'content-section.content-two-column': ContentSectionContentTwoColumn;
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam;
       'cta.button': CtaButton;
       'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle;
       'filter.tags-filter': FilterTagsFilter;
+      'header-sections.header-with-cards': HeaderSectionsHeaderWithCards;
       'hero-sections.hero-simple-center-with-background': HeroSectionsHeroSimpleCenterWithBackground;
       'hero-sections.hero-simple-center': HeroSectionsHeroSimpleCenter;
       'image-sections.image-simple': ImageSectionsImageSimple;
