@@ -24,16 +24,20 @@ export default function ArticleTagList({tags}: ArticleListProps) {
 
   return (
     <div className='flex p-1 mb-5 space-x-2 overflow-x-auto'>
-      {sortedTags?.map((tag) => (
-        <Link
-          key={tag.name}
-          href={`/blog?tag=${slugify(tag.name).toLowerCase()}`}
-        >
-          <Badge className={queryTag ? slugify(tag.name).toLowerCase() === queryTag ? '' : 'opacity-30' : ''}>
-            {tag.name}
-          </Badge>
-        </Link>
-      ))}
+      {sortedTags?.map((tag) => {
+        const tagName = slugify(tag.name).toLowerCase()
+        const href = queryTag === tagName ? '/blog' : `/blog?tag=${tagName}`
+        return (
+          <Link
+            key={tag.name}
+            href={href}
+          >
+            <Badge className={queryTag ? slugify(tag.name).toLowerCase() === queryTag ? '' : 'opacity-30' : ''}>
+              {tag.name}
+            </Badge>
+          </Link>
+        )
+      })}
     </div>
   )
 }
