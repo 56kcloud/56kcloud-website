@@ -67,7 +67,7 @@ const locationBlueprint =  {
 const CardWithIconBlueprint = {
   title: 'title',
   description: 'description',
-  icon: imageBlueprint('icon')
+  icon: 'icon'
 }
 
 function teamMemberBlueprint(name='') {
@@ -170,7 +170,7 @@ export const solutionThreeColumnWithLargeIconsBlueprint: ComponentBlueprint = {
         title: 'title',
         description: 'description',
         slug: 'slug',
-        icon: imageBlueprint('icon')
+        icon: 'icon'
       }
     ]
   }
@@ -186,7 +186,7 @@ export const servicesThreeColumnWithLargeIconsBlueprint: ComponentBlueprint = {
         title: 'title',
         description: 'description',
         slug: 'slug',
-        icon: imageBlueprint('icon')
+        icon: 'icon'
       }
     ]
   }

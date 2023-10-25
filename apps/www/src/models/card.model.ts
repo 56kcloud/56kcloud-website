@@ -1,4 +1,4 @@
-import {imageSchema} from './image.model'
+import {iconSchema} from './icon.model'
 import {z} from 'zod'
 
 export const cardSchema = z.object({
@@ -8,6 +8,6 @@ export const cardSchema = z.object({
 export type Card = z.infer<typeof cardSchema>
 
 export const cardWithIconSchema = cardSchema.extend({
-  icon: imageSchema
+  icon: iconSchema
 })
 export type CardWithIcon = z.infer<typeof cardWithIconSchema>

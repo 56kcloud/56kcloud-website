@@ -1,5 +1,5 @@
 import {Feature} from '@/models/feature.model'
-import Image from 'next/image'
+import Icon, {IconName} from '@/components/ui/atoms/icon'
 
 export type FeatureThreeColumnWithLargeIconsProps = {
   title: string
@@ -25,9 +25,8 @@ export default function FeatureThreeColumnWithLargeIcons(props: FeatureThreeColu
                 className='flex flex-col'>
                 <dt className='text-base font-semibold leading-7 text-white'>
                   <div className='flex items-center justify-center w-10 h-10 mb-6 rounded-lg bg-primary-500'>
-                    <Image
-                      {...feature.icon}
-                      alt={feature.title}
+                    <Icon
+                      name={feature.icon.name as unknown as IconName}
                       className='w-auto h-6'
                     />
                   </div>

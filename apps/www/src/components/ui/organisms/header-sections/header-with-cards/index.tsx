@@ -1,5 +1,6 @@
 import {CardWithIcon} from '@/models/card.model'
 import {ImageProps} from '@/models/image.model'
+import Icon, {IconName} from '@/components/ui/atoms/icon'
 import Image from 'next/image'
 
 export type HeaderWithCardsProps = {
@@ -58,10 +59,9 @@ export default function HeaderWithCards(props: HeaderWithCardsProps) {
             <div
               key={card.title}
               className='flex p-6 gap-x-4 rounded-xl bg-white/5 ring-1 ring-inset ring-white/10'>
-              <Image
-                {...card.icon}
-                alt={card.title}
-                className='flex-none w-5 h-5 text-indigo-400'
+              <Icon
+                name={card.icon.name as unknown as IconName}
+                className='flex-none w-5 text-white h-7'
                 aria-hidden='true'
               />
               <div className='text-base leading-7'>
