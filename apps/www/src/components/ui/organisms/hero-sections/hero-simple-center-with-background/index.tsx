@@ -12,7 +12,7 @@ export type SimpleCenteredWithBackgroundProps = {
   rightCTA: CTAProps
 }
 
-export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWithBackgroundProps) {  
+export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWithBackgroundProps) {
   return (
     <div className='relative overflow-hidden isolate pt-14'>
       <Image
@@ -49,25 +49,30 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
             {props.subtitle}
           </p>
           <div className='flex items-center justify-center mt-10 gap-x-6'>
-            <Button
-              asChild
-              size='large'
-              tone={props.leftCTA.tone}
-            >
-              <Link href={props.leftCTA.link}>
-                {props.leftCTA.text}
-              </Link>
-            </Button>
-            <Button
-              asChild
-              size='large'
-              variant='link'
-              tone={props.rightCTA.tone}
-            >
-              <Link href={props.rightCTA.link}>
-                {props.rightCTA.text}
-              </Link>
-            </Button>
+            {props.leftCTA.text
+              ? <Button
+                asChild
+                size='large'
+                tone={props.leftCTA.tone}
+              >
+                <Link href={props.leftCTA.link}>
+                  {props.leftCTA.text}
+                </Link>
+              </Button>
+              : null
+            }
+            {props.rightCTA.text
+              ? <Button
+                asChild
+                size='large'
+                variant='link'
+                tone={props.rightCTA.tone}
+              >
+                <Link href={props.rightCTA.link}>
+                  {props.rightCTA.text}
+                </Link>
+              </Button>
+              : null}
           </div>
         </div>
       </div>
