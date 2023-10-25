@@ -24,7 +24,6 @@ export default function CardCover({image, sameHeight}: CardCoverProps) {
       }
     }
   }, [])
-
   return (
     <div
       className='relative w-full rounded-lg max-h-96 bg-red-50'

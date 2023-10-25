@@ -1,5 +1,5 @@
 import {Article} from '@/models/article.model'
-import {formatDate} from '@/utils/toolbox'
+import {cn, formatDate} from '@/utils/toolbox'
 import {motion} from 'framer-motion'
 import ArticleCover from '../cover'
 import ArticleTagList from './tag-list'
@@ -20,12 +20,15 @@ export default function ArticleCard({article, sameHeight}: ArticleCardProps) {
       animate={{opacity: 1}}
       exit={{opacity: 0}}
       transition={{duration: 0.2}}
-      className='flex-1'
+      className={cn(sameHeight ? 'flex-1' : '')}
     >
       <Link
         href={`/blog/${article.slug}`}
-        className='relative flex flex-col overflow-hidden duration-200 bg-white/5 rounded-lg shadow-lg cursor-pointer \
-                   hover:shadow-2xl hover:scale-105 h-[500px]'
+        className={cn(
+          'relative flex flex-col overflow-hidden duration-200 bg-white/5 rounded-lg shadow-lg cursor-pointer \
+           hover:shadow-2xl hover:scale-105',
+          sameHeight ? 'h-[500px]' : ''
+        )}
       >
         <ArticleCover
           image={article.image}
