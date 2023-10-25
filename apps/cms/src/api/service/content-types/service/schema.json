@@ -51,19 +51,6 @@
       "type": "text",
       "required": true
     },
-    "icon": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
     "body": {
       "pluginOptions": {
         "i18n": {
@@ -78,6 +65,17 @@
         "content-section.content-markdown",
         "contact-sections.contact-split-with-pattern"
       ]
+    },
+    "icon": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "icon.icon",
+      "required": true
     }
   }
 }

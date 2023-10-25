@@ -1135,13 +1135,6 @@ export interface ApiServiceService extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    icon: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     body: Attribute.DynamicZone<
       [
         'header-sections.header-with-cards',
@@ -1151,6 +1144,13 @@ export interface ApiServiceService extends Schema.CollectionType {
         'contact-sections.contact-split-with-pattern'
       ]
     > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    icon: Attribute.Component<'icon.icon'> &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1219,11 +1219,11 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    icon: Attribute.Media &
+    icon: Attribute.Component<'icon.icon'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     body: Attribute.DynamicZone<

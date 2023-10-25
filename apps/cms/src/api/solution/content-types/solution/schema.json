@@ -50,16 +50,14 @@
       }
     },
     "icon": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false,
+      "type": "component",
+      "repeatable": false,
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
+      "component": "icon.icon",
       "required": true
     },
     "body": {
