@@ -1,5 +1,5 @@
 import {factories} from '@strapi/strapi'
-import {getAllSlugs} from '../../../utils/toolbox'
+import {getAllPublishedSlugs} from '../../../utils/toolbox'
 
 /**
  * team-member controller
@@ -41,5 +41,5 @@ async function getBySlug(ctx) {
 
 export default factories.createCoreController(uid, () => ({
   findOne: getBySlug,
-  slugs: () => getAllSlugs(uid)
+  slugs: () => getAllPublishedSlugs(uid)
 }))

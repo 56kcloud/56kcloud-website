@@ -156,9 +156,14 @@ export async function findSingleType(ctx, uid) {
   return singleType
 }
 
-export async function getAllSlugs(uid) {
+export async function getAllPublishedSlugs(uid) {
   const contentType = await strapi.db.query(uid).findMany({
-    select: ['slug']
+    select: ['slug'],
+    where: {
+      $not: {
+        publishedAt: null
+      }
+    }
   })
   return contentType.filter(content => content.slug)
 }
