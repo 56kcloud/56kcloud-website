@@ -22,7 +22,7 @@
     "framer-motion": "^10.12.4",
     "gray-matter": "^4.0.3",
     "humanize-duration": "^3.28.0",
-    "next": "latest",
+    "next": "13.5.0",
     "next-seo": "^6.0.0",
     "next-translate": "^2.0.4",
     "notion-to-tailwind": "0.0.12",
