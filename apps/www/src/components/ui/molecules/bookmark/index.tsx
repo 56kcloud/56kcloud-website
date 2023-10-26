@@ -39,8 +39,8 @@ export function Bookmark({url}: BookmarkProps) {
       : <span className='flex items-center h-full'>
         <span className='flex items-center flex-1 h-full'>
           <span className='p-5'>
-            {bookmark.ogTitle && <p className='font-bold'>{bookmark.ogTitle}</p>}
-            {bookmark.ogDescription && <p>{bookmark.ogDescription}</p>}
+            {bookmark.ogTitle && <p className='text-lg font-bold line-clamp-1'>{bookmark.ogTitle}</p>}
+            {bookmark.ogDescription && <p className='text-sm font-normal line-clamp-3'>{bookmark.ogDescription}</p>}
             <span className='flex items-center mt-1 space-x-2'>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               {bookmark.favicon && <img

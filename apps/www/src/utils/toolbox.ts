@@ -114,6 +114,27 @@ export function snakeCaseObjectKeysToCamelCase(snakeCaseObject: Record<string, u
         snakeCaseObjectKeysToCamelCase(snakeCaseObject[camelCaseKey] as Record<string, unknown>)
     }
   })
-
   return snakeCaseObject
+}
+
+export function convertRelativeURLToAbsoluteURL(url: string, host: string) {
+  return url.startsWith('/') ? `https://${host}${url}` : url
+}
+
+export function addAbsoluteURLsInObject(object: Record<string, unknown>, keys: Array<string>, host: string) {
+  keys.forEach((key) => {
+    if (key !== undefined && Object.hasOwn(object, key)) {
+      if (Array.isArray(object[key])) {
+        const array = object[key] as Array<Record<string, unknown>>
+        array.map((_, index) => {
+          array[index]['url'] = convertRelativeURLToAbsoluteURL(
+            array[index]['url'] as string,
+            host
+          )
+        })
+      } else {
+        object[key] = convertRelativeURLToAbsoluteURL(object[key] as string, host)
+      }
+    }
+  })
 }
