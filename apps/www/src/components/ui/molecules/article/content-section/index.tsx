@@ -2,6 +2,7 @@ import {ImageProps} from '@/models/image.model'
 import {MarkdownViewer} from '../../mardown'
 import {Tag} from '@/models/tag.model'
 import {TeamMember} from '@/models/team-member'
+import {formatDate} from '@/utils/toolbox'
 import Avatar from '@/components/ui/atoms/avatar'
 import PostCover from '../../cards/cover'
 import PostTagList from '../../cards/article/tag-list'
@@ -34,17 +35,17 @@ export default function ArticleContentSection(
               tags={tags}
             />
             <div
-              className='flex flex-wrap items-center justify-center mb-10 overflow-hidden text-sm leading-6 \
-             text-gray-300 md:mb-0 gap-y-1'>
+              className='flex flex-col md:flex-row items-center justify-center mb-10 overflow-hidden text-sm leading-6 \
+             text-gray-300 md:mb-0 gap-y-6'>
               <time
                 dateTime={publishedOn}
-                className='mr-8'>
-                {publishedOn}
+                className='md:mr-8'>
+                {formatDate(publishedOn)}
               </time>
               <div className='flex items-center -ml-4 gap-x-4'>
                 <svg
                   viewBox='0 0 2 2'
-                  className='-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50'>
+                  className='-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50 hidden md:flex'>
                   <circle
                     cx={1}
                     cy={1}

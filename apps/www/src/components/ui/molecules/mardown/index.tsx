@@ -1,6 +1,7 @@
 import {Bookmark} from '../bookmark'
 import {DynamicImage} from '../../atoms/dynamic-image'
-import {cn} from '@/utils/toolbox'
+import {Tweet} from 'react-twitter-widgets'
+import {cn, getTweetId, isFromTwitter} from '@/utils/toolbox'
 import Markdown from 'markdown-to-jsx'
 import React from 'react'
 
@@ -27,11 +28,17 @@ export function MarkdownViewer({content, className}: {content: string, className
                     />
                   </div>
                 )
-              } else if (type === 'a' && props['key'] === 0) {
+              } else if (type === 'p' && element.type === 'a') {
                 return (
-                  <Bookmark url={props['href'] as string}/>
+                  isFromTwitter(element.props['href'])
+                    ? <Tweet
+                      tweetId={getTweetId(element.props['href'])}
+                      options={{align: 'center'}}
+                    />
+                    : <Bookmark url={element.props['href'] as string}/>
                 )
-              } else {
+              } 
+              else {
                 return React.createElement(type, props, children)
               }
             }

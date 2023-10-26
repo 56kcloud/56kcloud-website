@@ -138,3 +138,11 @@ export function addAbsoluteURLsInObject(object: Record<string, unknown>, keys: A
     }
   })
 }
+
+export function getTweetId(url: string) {
+  return url.split('?')[0].substring(url.lastIndexOf('/')+1)
+}
+
+export function isFromTwitter(url: string) {
+  return url && (url.includes('twitter.com') || url.includes('x.com'))
+}

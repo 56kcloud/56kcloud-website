@@ -14,7 +14,7 @@ export default function TeamMemberCard({teamMember}: TeamMemberCardProps) {
     <div className='flex items-center justify-center py-14 sm:py-14'>
       <div className='w-full px-6 mx-auto max-w-7xl lg:px-8'>
         <div
-          className='flex flex-col items-center w-full p-10 space-x-4 shadow-lg md:flex-row bg-white/5 sm:space-x-8 \
+          className='flex flex-col items-center w-full p-10 space-x-0 shadow-lg md:flex-row bg-white/5 sm:space-x-8 \
            rounded-xl md:items-start space-y-4 md:space-y-0'>
           <div>
             <Avatar
@@ -24,10 +24,10 @@ export default function TeamMemberCard({teamMember}: TeamMemberCardProps) {
             />
           </div>
           <div className='space-y-2'>
-            <h1 className='text-2xl text-white title line-clamp-2'>
+            <h1 className='text-2xl font-semibold text-white title line-clamp-2'>
               {teamMember.name}
             </h1>
-            <p className='max-w-2xl mt-2 text-base text-grey-300'>
+            <p className='max-w-2xl mt-2 text-base text-white/90'>
               {teamMember.bio}
             </p>
             <div className='flex space-x-4'>
