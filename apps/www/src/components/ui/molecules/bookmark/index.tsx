@@ -29,9 +29,9 @@ export function Bookmark({url}: BookmarkProps) {
     {!bookmark
       ? <div className='flex w-full h-full animate-pulse'>
         <div className='flex flex-col justify-center flex-1 w-full h-full p-5 space-y-2'>
-          <div className='h-8 bg-gray-100 rounded-md w-96'></div>
+          <div className='w-full h-8 bg-gray-100 rounded-md md:w-96'></div>
           <div className='w-full h-10 bg-gray-100 rounded-md'></div>
-          <div className='h-5 bg-gray-100 rounded-md w-96'></div>
+          <div className='w-full h-5 bg-gray-100 rounded-md md:w-96'></div>
         </div>
         <div className='relative hidden w-full max-w-sm bg-gray-100 border-l md:block'>
         </div>

@@ -29,7 +29,7 @@ export default function ArticleContentSection(
         <PostCover
           image={image}
         />
-        <div className='w-full p-10'>
+        <div className='w-full p-6 md:p-10'>
           <div className='flex flex-col-reverse justify-between md:items-center md:flex-row'>
             <PostTagList
               tags={tags}
