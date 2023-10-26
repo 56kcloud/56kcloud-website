@@ -35,7 +35,7 @@ export default function ArticleCard({article, sameHeight}: ArticleCardProps) {
           sameHeight={sameHeight}
         />
         <div
-          className='flex flex-col py-6 pl-6'>
+          className='flex flex-col py-6 pl-6 space-y-4'>
           <ArticleTagList tags={article.tags}/>
           <div className='pr-6'>
             <h1
