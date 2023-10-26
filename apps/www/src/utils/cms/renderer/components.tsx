@@ -44,7 +44,7 @@ export const componentBlueprints: ComponentBlueprints = {
   'team-three-column': teamThreeColumnBlueprint,
   'join-our-team': joinOurTeamBlueprint,
   'tag-filter': tagFilterBlueprint,
-  'article-author': teamMemberCardBlueprint,
+  'team-member-card': teamMemberCardBlueprint,
   'header-with-cards': headerWithCardsBlueprint,
   'content-markdown': contentMarkdownBlueprint
 }

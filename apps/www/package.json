@@ -37,6 +37,7 @@
     "react-confetti-explosion": "^2.1.2",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.47.0",
+    "react-image-size": "^2.0.2",
     "react-responsive-masonry": "^2.1.7",
     "slugify": "^1.6.6",
     "tailwind-merge": "^1.14.0",

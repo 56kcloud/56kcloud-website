@@ -33,10 +33,12 @@ async function getBySlug(ctx) {
       content: article.content,
       image: article.image,
       title: article.title,
-      tags: article.tags
+      tags: article.tags,
+      publishedOn: article.publishedOn,
+      author: article.author
     },
     {
-      __component: 'article.article-author',
+      __component: 'team-member-section.team-member-card',
       teamMember: article.author
     }
   ]

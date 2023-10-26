@@ -132,6 +132,11 @@ export const articleContentBlueprint: ComponentBlueprint = {
   props: {
     title: 'title',
     content: 'content',
+    publishedOn: 'publishedOn',
+    author: {
+      name: 'author.name',
+      avatar: imageBlueprint('author.avatar')
+    },
     tags: [tagBlueprint],
     image: imageBlueprint()
   }
