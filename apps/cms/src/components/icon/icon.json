@@ -302,6 +302,15 @@
         "XCircleIcon",
         "XMarkIcon"
       ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "outline",
+        "solid"
+      ],
+      "default": "outline",
+      "required": true
     }
   }
 }

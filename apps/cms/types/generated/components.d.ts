@@ -479,6 +479,9 @@ export interface IconIcon extends Schema.Component {
         'XMarkIcon'
       ]
     >;
+    type: Attribute.Enumeration<['outline', 'solid']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'outline'>;
   };
 }
 
