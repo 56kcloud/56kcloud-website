@@ -1,6 +1,7 @@
 /**
- * about-page controller
+ * blog-page controller
  */
+
 import {factories} from '@strapi/strapi'
 import {findSingleType} from '../../../utils/toolbox'
 

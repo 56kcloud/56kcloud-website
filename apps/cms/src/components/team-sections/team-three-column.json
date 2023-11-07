@@ -1,0 +1,22 @@
+{
+  "collectionName": "team_three_columns",
+  "info": {
+    "displayName": "team-three-column"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text",
+      "required": true
+    },
+    "teamMembers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team-member.team-member"
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import {articleSchema} from './article.model'
+import {iconSchema} from './icon.model'
 import {imageSchema} from './image.model'
 import {partnerSchema} from './partner'
 import {z} from 'zod'
@@ -7,7 +8,8 @@ export const baseSolutionSchema = z.object({
   title: z.string(),
   slug: z.string(),
   description: z.string(),
-  image: imageSchema
+  image: imageSchema,
+  icon: iconSchema
 })
 
 export const solutionSchema = baseSolutionSchema.extend({

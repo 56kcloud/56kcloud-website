@@ -12,6 +12,7 @@ function Button(
   const Comp = buttonProps.asChild ? Slot : 'button'
 
   const buttonPropsChildren = buttonProps.children
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let ChildType: string | JSXElementConstructor<any> = Fragment
   let childProps
   let children = buttonPropsChildren

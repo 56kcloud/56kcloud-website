@@ -1,28 +1,10 @@
-function generateNesting(basePaths: Array<string>, keys: Array<string>, depth: number) {
-  const nesting = [...basePaths]
-  let newNesting = [...basePaths]
+'use strict'
 
-  for(let d = 1; d <= depth; d++){
-    newNesting = nesting.filter((_item, index) => { 
-      return index >= nesting.length - newNesting.length 
-    })
-    
-    newNesting.forEach((path) => {
-      keys.forEach((key) => {
-        nesting.push(`${path}.${key}`)  
-      })
-    })
-  }
-
-  return nesting
+/* eslint-disable no-unused-vars */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+module.exports = (config, webpack) => {
+  // Note: we provide webpack above so you should not `require` it
+  // Perform customizations to webpack config
+  // Important: return the modified config
+  return config
 }
-
-  let props = [
-    'image',
-    'cover',
-    // 'author',
-    // 'avatar'
-  ]
-  
-  const test = ['hello', 'world']
-  console.log(generateNesting(test, props, 5))

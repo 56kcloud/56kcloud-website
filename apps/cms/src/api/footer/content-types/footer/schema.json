@@ -4,7 +4,7 @@
   "info": {
     "singularName": "footer",
     "pluralName": "footers",
-    "displayName": "Footer",
+    "displayName": "90 - Footer",
     "description": ""
   },
   "options": {
@@ -16,44 +16,24 @@
     }
   },
   "attributes": {
-    "logo": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ],
+    "text": {
+      "type": "text",
+      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "links": {
-      "type": "component",
-      "repeatable": true,
-      "component": "button.link",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "locations": {
+    "services": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::location.location"
+      "target": "api::service.service"
     },
-    "contactUsCTA": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "button.contact-us-cta",
-      "required": true
+    "solutions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::solution.solution"
     }
   }
 }

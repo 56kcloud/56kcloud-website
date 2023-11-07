@@ -20,22 +20,6 @@ module.exports = {
           medium: '#1f2c73',
           dark: '#101a56'
         },
-        secondary: {
-          50: '#FCEFED',
-          100: '#F7A758',
-          200: '#F89673',
-          300: '#F2B2A6',
-          400: '#EC9482',
-          500: '#E7755F',
-          600: '#E04B2E',
-          700: '#BA351C',
-          800: '#892715',
-          900: '#58190D',
-          950: '#40120A',
-          lighter: '#f7a758',
-          light: '#f89673',
-          medium: '#e7755f'
-        },
         grey: {
           50: '#CDD1DC',
           100: '#6A6E7A',
@@ -53,39 +37,7 @@ module.exports = {
           dark: '#1d1e22'
         },
         error: colors.red
-      },
-      fontFamily: {
-        chap: ['Chap', 'sans-serif'],
-        graphik: ['Graphik', 'sans-serif']
-      },
-      backgroundImage: {
-        'medium-title': 'url(\'/images/backgrounds/cloud.webp\')',
-        'footer': 'url(\'/images/backgrounds/landscape.webp\')'
-      },
-      typography: () => ({
-        DEFAULT: {
-          css: [
-            {
-              h1: {
-                fontFamily: 'Chap',
-                fontWeight: '500'
-              },
-              h2: {
-                fontFamily: 'Chap',
-                fontWeight: '500'
-              },
-              h3: {
-                fontFamily: 'Chap',
-                fontWeight: '500'
-              },
-              h4: {
-                fontFamily: 'Chap',
-                fontWeight: '500'
-              }
-            }
-          ]
-        }
-      })
+      }
     }
   },
   variants: {},

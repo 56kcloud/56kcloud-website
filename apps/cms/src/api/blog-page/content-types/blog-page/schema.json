@@ -4,75 +4,25 @@
   "info": {
     "singularName": "blog-page",
     "pluralName": "blog-pages",
-    "displayName": "Blog page",
+    "displayName": "02 - Blog Page",
     "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "description": {
-      "type": "text",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "body": {
       "type": "dynamiczone",
       "components": [
-        "filter.tags-filter",
-        "list.company-list",
-        "list.feature-list",
-        "list.illustration-card-list",
-        "list.partner-list",
-        "title-section.medium-title-section",
-        "title-section.small-title-section",
-        "list.article-list",
-        "hero.centered-text-hero",
-        "hero.hero-with-image-tiles",
-        "hero.home-hero",
-        "hero.basic-hero",
-        "hero.features-hero"
-      ],
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+        "blog-sections.blog-three-column"
+      ]
+    },
+    "openGraph": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.open-graph",
+      "required": true
     }
   }
 }

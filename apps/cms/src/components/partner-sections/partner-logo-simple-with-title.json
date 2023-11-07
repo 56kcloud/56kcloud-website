@@ -1,0 +1,18 @@
+{
+  "collectionName": "partner_logo_simple_with_titles",
+  "info": {
+    "displayName": "partner-logo-simple-with-title"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "partners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::partner.partner"
+    }
+  }
+}

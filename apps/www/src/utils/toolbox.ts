@@ -18,7 +18,7 @@ export function createHsformsPayload(data: contactUsFormData) {
   delete data.legalConsent
   return {
     fields: formatFormDataToHsforms(data),
-    legalConsentOptions:{
+    legalConsentOptions: {
       consent:{
         consentToProcess: true,
         text:'Text that gives consent to process',
@@ -58,6 +58,7 @@ export function padNumberWithZeroes(number: number, length: number) {
   return str
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function assign(obj: Record<string, any>, fields: Array<string>, value: unknown) {
   const lastKey = fields.pop() || ''
   const lastObj = fields.reduce((obj, key) => 
@@ -66,6 +67,7 @@ export function assign(obj: Record<string, any>, fields: Array<string>, value: u
   lastObj[lastKey] = value
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function mergeNestedObject(obj: Record<string, any>, objToMerge: Record<string, any>) {
   Object.keys(objToMerge).map(key => {
     if (typeof obj[key] === 'object' && typeof objToMerge[key] === 'object') {
@@ -79,6 +81,7 @@ export function mergeNestedObject(obj: Record<string, any>, objToMerge: Record<s
 
 export const deepFind = (object: Record<string, unknown>, path: string) => {
   const paths = path.split('.')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let current: any = object
   let i
   for (i = 0; i < paths.length; ++i) {
@@ -111,6 +114,35 @@ export function snakeCaseObjectKeysToCamelCase(snakeCaseObject: Record<string, u
         snakeCaseObjectKeysToCamelCase(snakeCaseObject[camelCaseKey] as Record<string, unknown>)
     }
   })
-
   return snakeCaseObject
+}
+
+export function convertRelativeURLToAbsoluteURL(url: string, host: string) {
+  return url.startsWith('/') ? `https://${host}${url}` : url
+}
+
+export function addAbsoluteURLsInObject(object: Record<string, unknown>, keys: Array<string>, host: string) {
+  keys.forEach((key) => {
+    if (key !== undefined && Object.hasOwn(object, key)) {
+      if (Array.isArray(object[key])) {
+        const array = object[key] as Array<Record<string, unknown>>
+        array.map((_, index) => {
+          array[index]['url'] = convertRelativeURLToAbsoluteURL(
+            array[index]['url'] as string,
+            host
+          )
+        })
+      } else {
+        object[key] = convertRelativeURLToAbsoluteURL(object[key] as string, host)
+      }
+    }
+  })
+}
+
+export function getTweetId(url: string) {
+  return url.split('?')[0].substring(url.lastIndexOf('/')+1)
+}
+
+export function isFromTwitter(url: string) {
+  return url && (url.includes('twitter.com') || url.includes('x.com'))
 }

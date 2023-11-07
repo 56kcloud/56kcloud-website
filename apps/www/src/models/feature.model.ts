@@ -1,9 +1,10 @@
-import {imageSchema} from './image.model'
+import {iconSchema} from './icon.model'
 import {z} from 'zod'
 
 export const featureSchema = z.object({
-  name: z.string(),
+  title: z.string(),
   description: z.string(),
-  icon: imageSchema
+  icon: iconSchema,
+  link: z.string().url()
 })
 export type Feature = z.infer<typeof featureSchema>

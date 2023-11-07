@@ -20,17 +20,29 @@ export async function bodyHandler(contentType, locale = 'en', needRelatedSection
   if (needRelatedSections) {
     contentType.body = contentType.body.concat(addRelatedSections(contentType))
   }
-  const headerComponentName = 'header.header'
-  const header = await strapi.entityService.findMany(`api::${headerComponentName}`, {
-    populate: 'deep' as any,
-    locale: locale
-  })
-  header['__component'] = headerComponentName
-  contentType.body.unshift(header)
+  // const headerComponentName = 'header.header'
+  // const header = await strapi.entityService.findMany(`api::${headerComponentName}`, {
+  //   populate: 'deep' as any,
+  //   locale: locale
+  // })
+  // header['__component'] = headerComponentName
+  // contentType.body.unshift(header)
+  const contactComponentIndex = contentType.body.map(el => el.__component)
+    .indexOf('contact-sections.contact-split-with-pattern')
+  console.log(contactComponentIndex)
+  if (contactComponentIndex >= 0) {
+    const locations = await strapi.entityService.findMany('api::location.location', {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      populate: 'deep' as any,
+      locale: locale
+    })
+    contentType.body[contactComponentIndex].locations = locations
+  }
+
   const footerComponentName = 'footer.footer'
   const footer = await strapi.entityService.findMany(`api::${footerComponentName}`, {
-    populate: 'deep' as any,
-    locale: locale  
+    populate: '*',
+    locale: locale
   })
   footer['__component'] = footerComponentName
   contentType.body.push(footer)
@@ -94,14 +106,17 @@ export function createPopulateArray(depth = 2) {
     'author',
     'author.avatar',
     'avatar',
-    'logo'
+    'icon',
+    'logo',
+    'tags'
   ]
   const basePaths = [
     'relatedArticles',
     'relatedPartners',
     'relatedServices',
     'relatedSolutions',
-    'body'
+    'body',
+    'openGraph'
   ]
   Object.keys(strapi.components).forEach(key => {
     const component = strapi.components[key]
@@ -141,9 +156,14 @@ export async function findSingleType(ctx, uid) {
   return singleType
 }
 
-export async function getAllSlugs(uid) {
+export async function getAllPublishedSlugs(uid) {
   const contentType = await strapi.db.query(uid).findMany({
-    select: ['slug']
+    select: ['slug'],
+    where: {
+      $not: {
+        publishedAt: null
+      }
+    }
   })
   return contentType.filter(content => content.slug)
 }

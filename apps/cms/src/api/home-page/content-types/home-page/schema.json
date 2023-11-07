@@ -4,7 +4,7 @@
   "info": {
     "singularName": "home-page",
     "pluralName": "home-pages",
-    "displayName": "Home Page",
+    "displayName": "01 - Home Page",
     "description": ""
   },
   "options": {
@@ -16,40 +16,6 @@
     }
   },
   "attributes": {
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "title": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
-    "description": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text",
-      "required": true
-    },
     "body": {
       "pluginOptions": {
         "i18n": {
@@ -58,25 +24,25 @@
       },
       "type": "dynamiczone",
       "components": [
-        "background.background-image",
-        "filter.tags-filter",
-        "button.link",
-        "card.illustration-card",
-        "card.team-member-card",
-        "hero.home-hero",
-        "list.company-list",
-        "list.feature-list",
-        "list.illustration-card-list",
-        "list.partner-list",
-        "text.h1",
-        "title-section.medium-title-section",
-        "title-section.small-title-section",
-        "list.article-list",
-        "list.rectangle-card-list",
-        "list.service-list",
-        "list.solution-list",
-        "list.team-list"
+        "hero-sections.hero-simple-center-with-background",
+        "service-sections.service-three-column-with-large-icons",
+        "solution-sections.solution-three-column-with-large-icons",
+        "partner-sections.partner-logo-simple-with-title",
+        "customer-sections.customer-logo-simple-with-title",
+        "blog-sections.blog-three-column",
+        "contact-sections.contact-split-with-pattern"
       ],
+      "required": true
+    },
+    "openGraph": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "seo.open-graph",
       "required": true
     }
   }

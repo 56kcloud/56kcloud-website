@@ -1,5 +1,5 @@
-import {bodyHandler, getAllSlugs} from '../../../utils/toolbox'
 import {factories} from '@strapi/strapi'
+import {getAllPublishedSlugs} from '../../../utils/toolbox'
 
 /**
  * team-member controller
@@ -13,33 +13,33 @@ async function getBySlug(ctx) {
       'avatar'
     ]
   })
-  const relatedArticles = await strapi.db.query('api::article.article').findMany({
-    where: {author: teamMember.id},
-    limit: 6,
-    populate: [
-      'content',
-      'author.avatar',
-      'image',
-      'tags'
-    ]
-  })
-  teamMember.body = [
-    {
-      __component: 'hero.team-member-hero',
-      teamMember: {...teamMember}
-    }
-  ]
-  relatedArticles.length > 0 && teamMember.body.push(
-    {
-      __component: 'list.related-articles',
-      articles: relatedArticles
-    }
-  )
-  await bodyHandler(teamMember, 'en', true)
+  // const relatedArticles = await strapi.db.query('api::article.article').findMany({
+  //   where: {author: teamMember.id},
+  //   limit: 6,
+  //   populate: [
+  //     'content',
+  //     'author.avatar',
+  //     'image',
+  //     'tags'
+  //   ]
+  // })
+  // teamMember.body = [
+  //   {
+  //     __component: 'hero.team-member-hero',
+  //     teamMember: {...teamMember}
+  //   }
+  // ]
+  // relatedArticles.length > 0 && teamMember.body.push(
+  //   {
+  //     __component: 'list.related-articles',
+  //     articles: relatedArticles
+  //   }
+  // )
+  // await bodyHandler(teamMember, 'en', true)
   return teamMember
 }
 
 export default factories.createCoreController(uid, () => ({
   findOne: getBySlug,
-  slugs: () => getAllSlugs(uid)
+  slugs: () => getAllPublishedSlugs(uid)
 }))

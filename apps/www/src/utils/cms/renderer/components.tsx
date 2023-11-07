@@ -1,72 +1,52 @@
 import {
   ComponentBlueprint,
   articleContentBlueprint,
-  articleListBlueprint,
-  backgroundImageBlueprint,
-  basicHeroBlueprint,
-  companyListBlueprint,
-  featuresHeroBlueprint,
+  blogThreeColumnBlueprint,
+  contactSplitWithPatternBlueprint,
+  contentMarkdownBlueprint,
+  contentTwoColumnBlueprint,
   footerBlueprint,
-  headerBlueprint,
-  heroWithImageTilesBlueprint,
-  homeHeroBlueprint,
-  illustrationCardListBlueprint,
-  largeTitleSectionBlueprint,
-  markdownViewerBlueprint,
-  mediumTitleSectionBlueprint,
-  partnerListBlueprint,
-  rectangleCardListBlueprint,
-  relatedArticleListBlueprint,
-  relatedPartnersBlueprint,
-  relatedServicesBlueprint,
-  relatedSolutionsBlueprint,
-  serviceListBlueprint,
-  smallTitleSectionBlueprint,
-  solutionListBlueprint,
-  tagsFilterBlueprint,
-  teamListBlueprint,
+  headerWithCardsBlueprint,
+  heroSimpleCenterBlueprint,
+  heroSimpleCenterWithBackgroundBlueprint,
+  imageSimpleBlueprint,
+  joinOurTeamBlueprint,
+  logoCloudsSimpleWithTitleBlueprint,
+  servicesThreeColumnWithLargeIconsBlueprint,
+  solutionThreeColumnWithLargeIconsBlueprint,
+  tagFilterBlueprint,
   teamMemberCardBlueprint,
-  teamMemberHeroBlueprint,
-  titleSectionBlueprint
+  teamThreeColumnBlueprint,
+  valueTwoColumnBlueprint
 } from './blueprints'
 import {PageOpenGraph} from '@/models/page.mode'
-import CenteredLayout from '@/components/ui/organisms/layouts/7xl'
 import Head from 'next/head'
+import Header from '@/components/ui/organisms/header'
 
 export type ComponentBlueprints = {
   [key: string]: ComponentBlueprint
 }
 
 export const componentBlueprints: ComponentBlueprints = {
-  'header': headerBlueprint,
   'footer': footerBlueprint,
-  'company-list': companyListBlueprint,
-  'partner-list': partnerListBlueprint,
-  'small-title-section': smallTitleSectionBlueprint,
-  'title-section': titleSectionBlueprint,
-  'medium-title-section': mediumTitleSectionBlueprint,
-  'large-title-section': largeTitleSectionBlueprint,
-  'illustration-card-list': illustrationCardListBlueprint,
-  'article-author': teamMemberCardBlueprint,
-  'team-member-hero': teamMemberHeroBlueprint,
-  'team-member-card': teamMemberCardBlueprint,
-  'tags-filter': tagsFilterBlueprint,
-  'article-list': articleListBlueprint,
-  'solution-list': solutionListBlueprint,
-  'service-list': serviceListBlueprint,
-  'team-list': teamListBlueprint,
-  'related-articles': relatedArticleListBlueprint,
-  'related-solutions': relatedSolutionsBlueprint,
-  'related-services': relatedServicesBlueprint,
-  'related-partners': relatedPartnersBlueprint,
+  'hero-simple-center': heroSimpleCenterBlueprint,
+  'hero-simple-center-with-background': heroSimpleCenterWithBackgroundBlueprint,
+  'blog-three-column': blogThreeColumnBlueprint,
+  'contact-split-with-pattern': contactSplitWithPatternBlueprint,
+  'service-three-column-with-large-icons': servicesThreeColumnWithLargeIconsBlueprint,
+  'solution-three-column-with-large-icons': solutionThreeColumnWithLargeIconsBlueprint,
+  'partner-logo-simple-with-title': logoCloudsSimpleWithTitleBlueprint('partners'),
+  'customer-logo-simple-with-title': logoCloudsSimpleWithTitleBlueprint('customers'),
   'article-content': articleContentBlueprint,
-  'background-image': backgroundImageBlueprint,
-  'markdown': markdownViewerBlueprint,
-  'home-hero': homeHeroBlueprint,
-  'basic-hero': basicHeroBlueprint,
-  'features-hero': featuresHeroBlueprint,
-  'hero-with-image-tiles': heroWithImageTilesBlueprint,
-  'rectangle-card-list': rectangleCardListBlueprint
+  'content-two-column': contentTwoColumnBlueprint,
+  'image-simple': imageSimpleBlueprint,
+  'value-two-column': valueTwoColumnBlueprint,
+  'team-three-column': teamThreeColumnBlueprint,
+  'join-our-team': joinOurTeamBlueprint,
+  'tag-filter': tagFilterBlueprint,
+  'team-member-card': teamMemberCardBlueprint,
+  'header-with-cards': headerWithCardsBlueprint,
+  'content-markdown': contentMarkdownBlueprint
 }
 
 export function renderComponents(components: Array<ComponentBlueprint>) {
@@ -81,38 +61,28 @@ export function renderComponents(components: Array<ComponentBlueprint>) {
   })
 }
 
-export const layouts = {
-  'CenteredLayout': {
-    component: CenteredLayout
-  }
-}
-
 export function pageRenderer(
   components: Array<ComponentBlueprint>,
-  openGraph: PageOpenGraph,
-  layout: string|null,
-  headerDark?: boolean
+  openGraph: PageOpenGraph
 ) {
-  const Layout = layouts[layout as keyof typeof layouts]?.component
-  if (components?.length > 0) {
-    components[0].props['isFloating'] = layout ? false : true
-    components[0].props['darkTheme'] = headerDark
-  }
   const children = renderComponents(components)
   return (<>
     <Head>
       {openGraph && Object.keys(openGraph).map((key) => {
-        const value = openGraph[key as keyof PageOpenGraph]
+        const value = key === 'image'
+          ? openGraph.image.src
+          : openGraph[key as keyof PageOpenGraph]
         return value && (
           <meta
             property={`og:${key}`}
-            content={value}
+            content={value.toString()}
             key={key}
           />
         )
       })}
     </Head>
-    {children && (Layout ? <Layout>{children}</Layout> : children)}
+    <Header/>
+    {children}
   </>
   )
 }

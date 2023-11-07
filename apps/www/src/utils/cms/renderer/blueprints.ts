@@ -1,33 +1,26 @@
 import {MarkdownViewer} from '@/components/ui/molecules/mardown'
 import {z} from 'zod'
 import ArticleContentSection from '@/components/ui/molecules/article/content-section'
-import ArticleList from '@/components/ui/organisms/lists/article'
-import BackgroundImage from '@/components/ui/atoms/background-image'
-import BasicHero from '@/components/ui/organisms/heros/basic'
-import CompanyList from '@/components/ui/organisms/lists/company'
-import FeaturesHero from '@/components/ui/organisms/heros/features'
+import BlogThreeColumn from '@/components/ui/organisms/blog-sections/blog-three-column'
+import ContactSplitWithPattern from '@/components/ui/organisms/contact-sections/contact-split-with-pattern'
+import ContentMarkdown from '@/components/ui/organisms/content-sections/content-markdown'
+import ContentTwoColumn from '@/components/ui/organisms/content-sections/content-two-column'
 import Footer from '@/components/ui/organisms/footer'
-import Header from '@/components/ui/organisms/header'
-import HeroWithImageTiles from '@/components/ui/organisms/heros/hero-with-image-tiles'
-import HomeHero from '@/components/ui/organisms/heros/home'
-import IllustrationCardList from '@/components/ui/organisms/lists/illustration'
-import LargeTitleSection from '@/components/ui/molecules/title-sections/large'
-import MediumTitleSection from '@/components/ui/molecules/title-sections/medium'
-import PartnerList from '@/components/ui/organisms/lists/partner'
-import RectangleCardList from '@/components/ui/organisms/lists/rectangle'
-import RelatedArticles from '@/components/ui/organisms/lists/related/articles'
-import RelatedPartners from '@/components/ui/organisms/lists/related/partners'
-import RelatedServices from '@/components/ui/organisms/lists/related/services'
-import RelatedSolutions from '@/components/ui/organisms/lists/related/solutions'
-import ServiceList from '@/components/ui/organisms/lists/service'
-import SmallTitleSection from '@/components/ui/molecules/title-sections/small'
-import SolutionList from '@/components/ui/organisms/lists/solution'
-import TagsFilter from '@/components/ui/molecules/tag-filter'
-import TeamList from '@/components/ui/organisms/lists/team'
-import TeamMemberCard from '@/components/ui/molecules/cards/team-member'
-import TeamMemberHero from '@/components/ui/organisms/heros/team-member'
-import TitleSection from '@/components/ui/molecules/title-sections/normal'
-
+import HeaderWithCards from '@/components/ui/organisms/header-sections/header-with-cards'
+import HeroSimpleCenter from '@/components/ui/organisms/hero-sections/hero-simple-center'
+import HeroSimpleCenterWithBackground 
+  from '@/components/ui/organisms/hero-sections/hero-simple-center-with-background'
+import ImageSimple from '@/components/ui/organisms/image-sections/image-simple'
+import JoinOurTeam from '@/components/ui/organisms/cta-sections/join-our-team'
+import LogoCloudsSimpleWithTitle from '@/components/ui/organisms/logo-clouds/logo-clouds-simple-with-title'
+import ServiceThreeColumnWithLargeIcons
+  from '@/components/ui/organisms/service-sections/service-three-column-with-large-icons'
+import SolutionThreeColumnWithLargeIcons 
+  from '@/components/ui/organisms/solutions-sections/solution-three-column-with-large-icons'
+import TagFilter from '@/components/ui/molecules/tag-filter'
+import TeamMemberCard from '@/components/ui/molecules/team-member'
+import TeamThreeColumn from '@/components/ui/organisms/team-sections/team-three-column'
+import ValueTwoColumn from '@/components/ui/organisms/value-sections/value-two-column'
 
 export const componentBlueprintSchema = z.object({
   component: z.any(),
@@ -35,355 +28,102 @@ export const componentBlueprintSchema = z.object({
 })
 export type ComponentBlueprint = z.infer<typeof componentBlueprintSchema>
 
-const imageBlueprint = {
-  name: 'image.name',
-  alt: 'image.alternativeText',
-  src: 'image.url',
-  blurDataURL: 'image.formats.thumbnail.url',
-  width: 'image.width',
-  height: 'image.height'
+function imageBlueprint(name='image') {
+  return {
+    name: `${name}.name`,
+    alt: `${name}.alternativeText`,
+    src: `${name}.url`,
+    blurDataURL: `${name}.formats.thumbnail.url`,
+    width: `${name}.width`,
+    height: `${name}.height`
+  }
 }
 
-const imageListBlueprint = [{
-  name: 'name',
-  alt: 'alternativeText',
-  src: 'url',
-  blurDataURL: 'formats.thumbnail.url',
-  width: 'width',
-  height: 'height'
-}]
-
-const iconBlueprint = {
-  name: 'icon.name',
-  alt: 'icon.alternativeText',
-  src: 'icon.url',
-  width: 'icon.width',
-  height: 'icon.height'
-}
-
-const logoBlueprint = {
-  name: 'logo.name',
-  alt: 'logo.alternativeText',
-  src: 'logo.url',
-  width: 'logo.width',
-  height: 'logo.height'
-}
-
-const linkBlueprint = {
-  children: 'children',
-  href: 'href'
-}
-
-const buttonBlueprint = {
-  children: 'button.children',
-  href: 'button.href'
+function ctaBlueprint(name='cta') {
+  return {
+    [name]: {
+      text: `${name}.text`,
+      link: `${name}.link`,
+      tone: `${name}.tone`
+    }
+  }
 }
 
 const tagBlueprint = {
   name: 'name'
 }
 
-const contactUsCTABlueprint = {
-  title: 'contactUsCTA.title',
-  modal: {
-    title: 'contactUsCTA.modal.title',
-    subtitle: 'contactUsCTA.modal.subtitle',
-    submitButtonTitle: 'contactUsCTA.modal.submitButtonTitle',
-    image: {
-      name: 'contactUsCTA.modal.image.name',
-      alt: 'contactUsCTA.modal.image.alternativeText',
-      src: 'contactUsCTA.modal.image.url',
-      blurDataURL: 'contactUsCTA.modal.image.formats.thumbnail.url',
-      width: 'contactUsCTA.modal.image.width',
-      height: 'contactUsCTA.modal.image.height'
-    }
-  }
+const locationBlueprint =  {
+  name: 'name',
+  address: 'address',
+  city: 'city',
+  zipCode: 'zipCode',
+  country: 'country',
+  image: imageBlueprint(),
+  gMap: 'gMap'
 }
 
-export const headerBlueprint: ComponentBlueprint = {
-  component: Header,
-  props: {
-    isFloating: 'isFloating',
-    logo: logoBlueprint,
-    links: [linkBlueprint]
+
+const CardWithIconBlueprint = {
+  title: 'title',
+  description: 'description',
+  icon: 'icon'
+}
+
+function teamMemberBlueprint(name='') {
+  return {
+    name: `${name}${name ? '.' : ''}name`,
+    bio: `${name}${name ? '.' : ''}bio`,
+    twitter: `${name}${name ? '.' : ''}twitter`,
+    website: `${name}${name ? '.' : ''}website`,
+    slug: `${name}${name ? '.' : ''}slug`,
+    role: `${name}${name ? '.' : ''}role`,
+    avatar: imageBlueprint(`${name}${name ? '.' : ''}avatar`)
   }
 }
 
 export const footerBlueprint: ComponentBlueprint = {
   component: Footer,
   props: {
-    logo: logoBlueprint,
-    links: [linkBlueprint],
-    locations: [
+    text: 'text',
+    solutions: [
       {
-        name: 'name',
-        address: 'address',
-        city: 'city',
-        zipCode: 'zipCode',
-        country: 'country',
-        image: imageBlueprint,
-        gMap: 'gMap'
+        text: 'title',
+        link: 'slug'
       }
     ],
-    contactUsCTA: contactUsCTABlueprint
+    services: [
+      {
+        text: 'title',
+        link: 'slug'
+      }
+    ]
   }
 }
 
-export const companyListBlueprint: ComponentBlueprint = {
-  component: CompanyList,
+export const contactSplitWithPatternBlueprint: ComponentBlueprint = {
+  component: ContactSplitWithPattern,
   props: {
     title: 'title',
-    companies: [
-      {
-        name: 'name',
-        url: 'href',
-        logo: logoBlueprint
-      }
-    ]
-  }
-}
-
-export const relatedPartnersBlueprint: ComponentBlueprint = {
-  component: RelatedPartners,
-  props: {
-    partners: [
-      {
-        name: 'name',
-        url: 'href',
-        logo: logoBlueprint
-      }
-    ]
-  }
-}
-
-export const partnerListBlueprint: ComponentBlueprint = {
-  component: PartnerList,
-  props: {
-    partners: [
-      {
-        name: 'name',
-        url: 'href',
-        logo: logoBlueprint
-      }
-    ]
-  }
-}
-
-export const smallTitleSectionBlueprint: ComponentBlueprint = {
-  component: SmallTitleSection,
-  props: {
     subtitle: 'subtitle',
-    title: 'title'
+    locations: [locationBlueprint]
   }
 }
 
-export const titleSectionBlueprint: ComponentBlueprint = {
-  component: TitleSection,
-  props: {
-    surtitle: 'surtitle',
-    title: 'title'
-  }
-}
-
-export const mediumTitleSectionBlueprint: ComponentBlueprint = {
-  component: MediumTitleSection,
+export const headerWithCardsBlueprint: ComponentBlueprint = {
+  component: HeaderWithCards,
   props: {
     title: 'title',
-    subtitle: 'subtitle'
+    subtitle: 'subtitle',
+    image: imageBlueprint(),
+    cards: [CardWithIconBlueprint]
   }
 }
 
-export const largeTitleSectionBlueprint: ComponentBlueprint = {
-  component: LargeTitleSection,
-  props: {
-    title: 'title',
-    leftSubtitle: 'leftSubtitle',
-    rightSubtitle: 'rightSubtitle'
-  }
-}
-
-export const illustrationCardListBlueprint: ComponentBlueprint = {
-  component: IllustrationCardList,
-  props: {
-    title: 'title',
-    theme: 'theme',
-    illustrationCards: [
-      {
-        number: 'number',
-        title: 'title',
-        description: 'description',
-        icon: iconBlueprint,
-        illustration: {
-          name: 'illustration.name',
-          alt: 'illustration.alternativeText',
-          blurDataURL: 'illustration.formats.thumbnail.url',
-          src: 'illustration.url',
-          width: 'illustration.width',
-          height: 'illustration.height'
-        }
-      }
-    ]
-  }
-}
-
-export const teamMemberCardBlueprint: ComponentBlueprint = {
-  component: TeamMemberCard,
-  props: {
-    teamMember: {
-      name: 'teamMember.name',
-      bio: 'teamMember.bio',
-      twitter: 'teamMember.twitter',
-      website: 'teamMember.website',
-      slug: 'teamMember.slug',
-      avatar: {
-        name: 'teamMember.avatar.name',
-        alt: 'teamMember.avatar.alternativeText',
-        src: 'teamMember.avatar.url',
-        blurDataURL: 'teamMember.avatar.formats.thumbnail.url',
-        width: 'teamMember.avatar.width',
-        height: 'teamMember.avatar.height'
-      }
-    }
-  }
-}
-
-export const teamMemberHeroBlueprint: ComponentBlueprint = {
-  component: TeamMemberHero,
-  props: {
-    teamMember: {
-      name: 'teamMember.name',
-      bio: 'teamMember.bio',
-      twitter: 'teamMember.twitter',
-      website: 'teamMember.website',
-      slug: 'teamMember.slug',
-      avatar: {
-        name: 'teamMember.avatar.name',
-        alt: 'teamMember.avatar.alternativeText',
-        src: 'teamMember.avatar.url',
-        blurDataURL: 'teamMember.avatar.formats.thumbnail.url',
-        width: 'teamMember.avatar.width',
-        height: 'teamMember.avatar.height'
-      }
-    }
-  }
-}
-
-export const tagsFilterBlueprint: ComponentBlueprint = {
-  component: TagsFilter,
+export const tagFilterBlueprint: ComponentBlueprint = {
+  component: TagFilter,
   props: {
     tags: [tagBlueprint]
-  }
-}
-
-export const articleListBlueprint: ComponentBlueprint = {
-  component: ArticleList,
-  props: {
-    articles: [
-      {
-        title: 'title',
-        description: 'description',
-        slug: 'slug',
-        readTime: 'readTime',
-        tags: [tagBlueprint],
-        publishedOn: 'publishedOn',
-        image: imageBlueprint,
-        author: {
-          name: 'author.name',
-          avatar: {
-            name: 'author.avatar.name',
-            alt: 'author.avatar.alternativeText',
-            src: 'author.avatar.url',
-            blurDataURL: 'author.avatar.formats.thumbnail.url',
-            width: 'author.avatar.width',
-            height: 'author.avatar.height'
-          }
-        }
-      }
-    ]
-  }
-}
-
-export const relatedArticleListBlueprint: ComponentBlueprint = {
-  component: RelatedArticles,
-  props: {
-    articles: [
-      {
-        title: 'title',
-        description: 'description',
-        slug: 'slug',
-        readTime: 'readTime',
-        tags: [tagBlueprint],
-        publishedOn: 'publishedOn',
-        image: imageBlueprint,
-        author: {
-          name: 'author.name',
-          avatar: {
-            name: 'author.avatar.name',
-            alt: 'author.avatar.alternativeText',
-            src: 'author.avatar.url',
-            blurDataURL: 'author.avatar.formats.thumbnail.url',
-            width: 'author.avatar.width',
-            height: 'author.avatar.height'
-          }
-        }
-      }
-    ]
-  }
-}
-
-export const solutionListBlueprint: ComponentBlueprint = {
-  component: SolutionList,
-  props: {
-    solutions: [
-      {
-        title: 'title',
-        description: 'description',
-        slug: 'slug',
-        image: imageBlueprint
-      }
-    ]
-  }
-}
-
-export const relatedSolutionsBlueprint: ComponentBlueprint = {
-  component: RelatedSolutions,
-  props: {
-    solutions: [
-      {
-        title: 'title',
-        description: 'description',
-        slug: 'slug',
-        image: imageBlueprint
-      }
-    ]
-  }
-}
-
-export const serviceListBlueprint: ComponentBlueprint = {
-  component: ServiceList,
-  props: {
-    services: [
-      {
-        title: 'title',
-        description: 'description',
-        slug: 'slug',
-        image: imageBlueprint
-      }
-    ]
-  }
-}
-
-export const relatedServicesBlueprint: ComponentBlueprint = {
-  component: RelatedServices,
-  props: {
-    services: [
-      {
-        title: 'title',
-        description: 'description',
-        slug: 'slug',
-        image: imageBlueprint
-      }
-    ]
   }
 }
 
@@ -392,101 +132,160 @@ export const articleContentBlueprint: ComponentBlueprint = {
   props: {
     title: 'title',
     content: 'content',
+    publishedOn: 'publishedOn',
+    author: {
+      name: 'author.name',
+      avatar: imageBlueprint('author.avatar')
+    },
     tags: [tagBlueprint],
-    image: imageBlueprint
+    image: imageBlueprint()
   }
 }
 
-export const backgroundImageBlueprint: ComponentBlueprint = {
-  component: BackgroundImage,
-  props: {
-    image: imageBlueprint
-  }
-}
-
-export const homeHeroBlueprint: ComponentBlueprint = {
-  component: HomeHero,
-  props: {
-    title: 'title',
-    button: buttonBlueprint,
-    image: imageBlueprint
-  }
-}
-
-export const basicHeroBlueprint: ComponentBlueprint = {
-  component: BasicHero,
+export const blogThreeColumnBlueprint: ComponentBlueprint = {
+  component: BlogThreeColumn,
   props: {
     title: 'title',
     subtitle: 'subtitle',
-    image: imageBlueprint
-  }
-}
-
-export const featuresHeroBlueprint: ComponentBlueprint = {
-  component: FeaturesHero,
-  props: {
-    title: 'title',
-    subtitle: 'subtitle',
-    image: imageBlueprint,
-    features: [
+    articles: [
       {
-        name: 'name',
+        title: 'title',
         description: 'description',
-        icon: iconBlueprint
+        slug: 'slug',
+        readTime: 'readTime',
+        tags: [tagBlueprint],
+        publishedOn: 'publishedOn',
+        image: imageBlueprint(),
+        author: {
+          name: 'author.name',
+          avatar: imageBlueprint('author.avatar')
+        }
       }
     ]
   }
 }
 
-export const heroWithImageTilesBlueprint: ComponentBlueprint = {
-  component: HeroWithImageTiles,
+export const solutionThreeColumnWithLargeIconsBlueprint: ComponentBlueprint = {
+  component: SolutionThreeColumnWithLargeIcons,
   props: {
-    images: imageListBlueprint,
-    title: {
-      title: 'title.title',
-      surtitle: 'title.surtitle'
+    title: 'title',
+    subtitle: 'subtitle',
+    solutions: [
+      {
+        title: 'title',
+        description: 'description',
+        slug: 'slug',
+        icon: 'icon'
+      }
+    ]
+  }
+}
+
+export const servicesThreeColumnWithLargeIconsBlueprint: ComponentBlueprint = {
+  component: ServiceThreeColumnWithLargeIcons,
+  props: {
+    title: 'title',
+    subtitle: 'subtitle',
+    services: [
+      {
+        title: 'title',
+        description: 'description',
+        slug: 'slug',
+        icon: 'icon'
+      }
+    ]
+  }
+}
+
+export function logoCloudsSimpleWithTitleBlueprint(companyType: string): ComponentBlueprint{
+  return  {
+    component: LogoCloudsSimpleWithTitle,
+    props: {
+      title: 'title',
+      [`${companyType}->companies`]: [
+        {
+          name: 'name',
+          image: imageBlueprint()
+        }
+      ]
     }
   }
 }
 
-export const rectangleCardListBlueprint: ComponentBlueprint = {
-  component: RectangleCardList,
+export const heroSimpleCenterBlueprint: ComponentBlueprint = {
+  component: HeroSimpleCenter,
   props: {
-    cards: [
-      {
-        title: 'title',
-        image: imageBlueprint
-      }
-    ],
-    surtitle: 'surtitle'
+    title: 'title',
+    subtitle: 'subtitle'
   }
 }
 
-export const teamListBlueprint: ComponentBlueprint = {
-  component: TeamList,
+export const heroSimpleCenterWithBackgroundBlueprint: ComponentBlueprint = {
+  component: HeroSimpleCenterWithBackground,
   props: {
-    teamMembers: [
+    title: 'title',
+    subtitle: 'subtitle',
+    image: imageBlueprint(),
+    ...ctaBlueprint('leftCTA'),
+    ...ctaBlueprint('rightCTA')
+  }
+}
+
+export const contentTwoColumnBlueprint: ComponentBlueprint = {
+  component: ContentTwoColumn,
+  props: {
+    contentLeft: 'contentLeft',
+    contentRight: 'contentRight'
+  }
+}
+
+export const valueTwoColumnBlueprint: ComponentBlueprint = {
+  component: ValueTwoColumn,
+  props: {
+    title: 'title',
+    subtitle: 'subtitle',
+    values: [
       {
         name: 'name',
-        role: 'role',
-        bio: 'bio',
-        twitter: 'twitter',
-        website: 'website',
-        slug: 'slug',
-        avatar: {
-          name: 'avatar.name',
-          alt: 'avatar.alternativeText',
-          src: 'avatar.url',
-          blurDataURL: 'avatar.formats.thumbnail.url',
-          width: 'avatar.width',
-          height: 'avatar.height'
-        }
+        description: 'description'
       }
-    ],
-    joinTeamTitle: 'joinTeamTitle',
-    joinTeamTextStart: 'joinTeamTextStart',
-    joinTeamTextEnd: 'joinTeamTextEnd',
-    joinTeamCTATitle: 'joinTeamCTATitle'
+    ]
+  }
+}
+
+export const imageSimpleBlueprint: ComponentBlueprint = {
+  component: ImageSimple,
+  props: {
+    image: imageBlueprint()
+  }
+}
+
+export const joinOurTeamBlueprint: ComponentBlueprint = {
+  component: JoinOurTeam,
+  props: {
+    title: 'title',
+    subtitle: 'subtitle',
+    ...ctaBlueprint(),
+    image: imageBlueprint(),
+    benefits: [{
+      name: 'name'
+    }]
+  }
+}
+
+export const teamMemberCardBlueprint: ComponentBlueprint = {
+  component: TeamMemberCard,
+  props: {
+    teamMember: teamMemberBlueprint('teamMember')
+  }
+}
+
+export const teamThreeColumnBlueprint: ComponentBlueprint = {
+  component: TeamThreeColumn,
+  props: {
+    title: 'title',
+    subtitle: 'subtitle',
+    teamMembers: [teamMemberBlueprint()]
   }
 }
 
@@ -494,5 +293,20 @@ export const markdownViewerBlueprint: ComponentBlueprint = {
   component: MarkdownViewer,
   props: {
     content: 'content'
+  }
+}
+
+export const contentMarkdownBlueprint: ComponentBlueprint = {
+  component: ContentMarkdown,
+  props: {
+    content: 'content'
+  }
+}
+
+export const openGraphBlueprint: ComponentBlueprint = {
+  props: {
+    title: 'title',
+    description: 'description',
+    image: imageBlueprint()
   }
 }

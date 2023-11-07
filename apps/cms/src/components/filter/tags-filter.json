@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_blog_tags_filters",
+  "collectionName": "tag_filter",
   "info": {
-    "displayName": "TagFilter",
+    "displayName": "tag-filter",
     "description": ""
   },
   "options": {},

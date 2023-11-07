@@ -5,8 +5,8 @@ import {getPageProps} from '@/utils/cms/endpoints'
 import {pageRenderer} from '@/utils/cms/renderer/components'
 import {strapiFetcher} from '../../../configs/server'
 
-export default function ServicePage({layout, components, openGraph}: PageProps) {
-  return pageRenderer(components, openGraph, layout, true)
+export default function ServicePage({components, openGraph}: PageProps) {
+  return pageRenderer(components, openGraph)
 }
 
 export async function getStaticPaths() {

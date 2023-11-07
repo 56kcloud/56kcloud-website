@@ -10,6 +10,7 @@
   "scripts": {
     "build": "strapi build",
     "dev": "strapi develop",
+    "lint": "eslint . --ext js,jsx,ts,tsx --max-warnings=0 --config .eslintrc.json --no-eslintrc --fix",
     "start": "strapi start",
     "strapi": "strapi"
   },
@@ -23,12 +24,6 @@
     "react-dom": "^18.2.0",
     "strapi-plugin-multi-select": "^1.2.2",
     "strapi-plugin-populate-deep": "^3.0.0"
-  },
-  "devDependencies": {
-    "@strapi/typescript-utils": "4.14.5",
-    "@typescript-eslint/eslint-plugin": "^6.8.0",
-    "@typescript-eslint/parser": "^6.8.0",
-    "eslint-plugin-sort-imports-es6-autofix": "^0.6.0"
   },
   "engines": {
     "node": "18.x",

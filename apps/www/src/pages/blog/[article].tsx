@@ -6,7 +6,7 @@ import {pageRenderer} from '@/utils/cms/renderer/components'
 import {strapiFetcher} from '../../../configs/server'
 
 export default function BlogPage({components, openGraph}: PageProps) {
-  return pageRenderer(components, openGraph, 'CenteredLayout')
+  return pageRenderer(components, openGraph)
 }
 
 export async function getStaticPaths() {

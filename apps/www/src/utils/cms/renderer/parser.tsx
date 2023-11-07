@@ -1,21 +1,32 @@
 import {deepFind} from '../../toolbox'
 import {getPlaiceholder} from 'plaiceholder'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function getPropsFromNestedObjects(schema: Record<string, any>, object: Record<string, any>) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const temp: Record<string, any> = {}
-  const keys = Object.keys(schema)
+  const schemaDeepCopy = {...schema}
+  const keys = Object.keys(schemaDeepCopy).map((key) => {
+    const split = key.split('->')
+    if (split.length > 1) {
+      schemaDeepCopy[split[0]] = schemaDeepCopy[key]
+      delete schemaDeepCopy[key]
+    }
+    return split
+  })
   for (const keyIndex in keys) {
-    const key = keys[keyIndex]
-    if (typeof (schema[key]) !== 'object') {
-      const options = schema[key].split('||')
+    const [oldKey, newKey] = keys[keyIndex]
+    const key = newKey || oldKey
+    if (typeof (schemaDeepCopy[oldKey]) !== 'object') {
+      const options = schemaDeepCopy[oldKey].split('||')
       for (const optionIndex in options) {
         const path = options[optionIndex].split('.')
         const pathFirstKey = path[0]
         path.shift()
         const value = deepFind(object, options[optionIndex].trim()) 
         || deepFind(object, `${pathFirstKey}.data.attributes.${path.join('.')}`)
-        || path.splice(path.length - 1, 1, key) && deepFind(object, `${pathFirstKey}.${path.join('.')}`)
-        if (key === 'blurDataURL' && value) {
+        || path.splice(path.length - 1, 1, oldKey) && deepFind(object, `${pathFirstKey}.${path.join('.')}`)
+        if (oldKey === 'blurDataURL' && value) {
           try {
             const res = await fetch(value, {method: 'GET'})
             const buffer = Buffer.from(await res.arrayBuffer())
@@ -30,15 +41,16 @@ export async function getPropsFromNestedObjects(schema: Record<string, any>, obj
           break
         }
       }
-    } else if (Array.isArray(schema[key])) {
-      let array = object[key]?.data || object[key]
+    } else if (Array.isArray(schemaDeepCopy[oldKey])) {
+      const array = object[oldKey]?.data || object[oldKey]
       temp[key] = []
       for (const itemIndex in array) {
         const item = array[itemIndex]
-        temp[key].push(await getPropsFromNestedObjects(schema[key][0], item.attributes || item))
+        temp[key].push(await getPropsFromNestedObjects(schemaDeepCopy[oldKey][0], item.attributes || item))
       }
     } else {
-      temp[key] = await getPropsFromNestedObjects(schema[key], object)
+      temp[key] = {}
+      temp[key] = await getPropsFromNestedObjects(schemaDeepCopy[oldKey], object)
     }
   }
   return temp

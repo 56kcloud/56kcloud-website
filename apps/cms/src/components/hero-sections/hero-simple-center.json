@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_hero_sections_hero_simple_centers",
+  "info": {
+    "displayName": "hero-simple-center"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text"
+    }
+  }
+}

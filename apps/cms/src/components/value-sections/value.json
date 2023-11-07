@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_value_sections_values",
+  "info": {
+    "displayName": "value",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

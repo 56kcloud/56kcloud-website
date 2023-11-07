@@ -14,16 +14,22 @@
     "apps/cms"
   ],
   "scripts": {
+    "build": "cd apps/cms && strapi build",
     "dev:cms": "cd apps/cms && npm run dev",
-    "dev:website": "cd apps/www && npm run dev"
+    "dev:www": "cd apps/www && npm run dev",
+    "lint": "cd apps/www && npm run lint && cd ../cms && npm run lint",
+    "start": "cd apps/cms && strapi start"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.2.0",
     "@types/node": "20.8.7",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
+    "eslint": "^8.44.0",
+    "eslint-config-standard": "^17.1.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
     "fs": "0.0.1-security",
     "ts-node": "^10.9.1"
   },

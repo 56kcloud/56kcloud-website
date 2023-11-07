@@ -1,114 +1,134 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface ArticleArticleAuthor extends Schema.Component {
-  collectionName: 'components_article_article_authors';
+export interface BenefitBenefit extends Schema.Component {
+  collectionName: 'components_benefit_benefits';
   info: {
-    displayName: 'ArticleAuthor';
+    displayName: 'benefit';
   };
   attributes: {
-    teamMember: Attribute.Relation<
-      'article.article-author',
-      'oneToOne',
-      'api::team-member.team-member'
-    >;
+    name: Attribute.String & Attribute.Required;
   };
 }
 
-export interface ArticleArticleContent extends Schema.Component {
-  collectionName: 'components_article_article_contents';
+export interface BlogSectionsBlogThreeColumn extends Schema.Component {
+  collectionName: 'components_blog_sections_blog_three_columns';
   info: {
-    displayName: 'ArticleContent';
+    displayName: 'blog-three-column';
     description: '';
   };
   attributes: {
-    content: Attribute.RichText;
-  };
-}
-
-export interface BackgroundBackgroundImage extends Schema.Component {
-  collectionName: 'components_background_background_images';
-  info: {
-    displayName: 'BackgroundImage';
-    description: '';
-  };
-  attributes: {
-    image: Attribute.Media;
-  };
-}
-
-export interface ButtonContactUsCta extends Schema.Component {
-  collectionName: 'components_button_contact_us_ctas';
-  info: {
-    displayName: 'ContactUsCTA';
-    description: '';
-  };
-  attributes: {
-    modal: Attribute.Relation<
-      'button.contact-us-cta',
-      'oneToOne',
-      'api::modal.modal'
-    >;
     title: Attribute.String & Attribute.Required;
+    articles: Attribute.Relation<
+      'blog-sections.blog-three-column',
+      'oneToMany',
+      'api::article.article'
+    >;
+    subtitle: Attribute.Text & Attribute.Required;
   };
 }
 
-export interface ButtonLink extends Schema.Component {
-  collectionName: 'components_button_links';
+export interface CardsCardWithIcon extends Schema.Component {
+  collectionName: 'components_cards_card_with_icons';
   info: {
-    displayName: 'Link';
+    displayName: 'card-with-icon';
     description: '';
   };
   attributes: {
-    children: Attribute.String;
-    href: Attribute.String;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    icon: Attribute.Component<'icon.icon'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
-export interface CardIllustrationCard extends Schema.Component {
-  collectionName: 'components_card_illustration_cards';
+export interface ContactSectionsContactSplitWithPattern
+  extends Schema.Component {
+  collectionName: 'contact_split_with_patterns';
   info: {
-    displayName: 'IllustrationCard';
+    displayName: 'contact-split-with-pattern';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface ContentSectionContentMarkdown extends Schema.Component {
+  collectionName: 'components_content_section_content_markdowns';
+  info: {
+    displayName: 'content-markdown';
+  };
+  attributes: {
+    content: Attribute.RichText & Attribute.Required;
+  };
+}
+
+export interface ContentSectionContentTwoColumn extends Schema.Component {
+  collectionName: 'components_content_section_content_two_columns';
+  info: {
+    displayName: 'Content-two-column';
+  };
+  attributes: {
+    contentLeft: Attribute.Text & Attribute.Required;
+    contentRight: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface CtaSectionsJoinOurTeam extends Schema.Component {
+  collectionName: 'components_cta_sections_join_our_teams';
+  info: {
+    displayName: 'join-our-team';
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-    illustration: Attribute.Media;
-    icon: Attribute.Media;
-    number: Attribute.Integer & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.Text & Attribute.Required;
+    cta: Attribute.Component<'cta.button'>;
+    benefits: Attribute.Component<'benefit.benefit', true>;
+    image: Attribute.Media & Attribute.Required;
   };
 }
 
-export interface CardRectangleCard extends Schema.Component {
-  collectionName: 'components_card_rectangle_cards';
+export interface CtaButton extends Schema.Component {
+  collectionName: 'components_cta_buttons';
   info: {
-    displayName: 'RectangleCard';
-  };
-  attributes: {
-    title: Attribute.String;
-    image: Attribute.Media;
-  };
-}
-
-export interface CardTeamMemberCard extends Schema.Component {
-  collectionName: 'components_card_team_member_cards';
-  info: {
-    displayName: 'TeamMemberCard';
+    displayName: 'button';
     description: '';
   };
   attributes: {
-    team_member: Attribute.Relation<
-      'card.team-member-card',
-      'oneToOne',
-      'api::team-member.team-member'
+    text: Attribute.String & Attribute.Required;
+    link: Attribute.String & Attribute.Required;
+    tone: Attribute.Enumeration<['primary', 'secondary']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'primary'>;
+  };
+}
+
+export interface CustomerSectionsCustomerLogoSimpleWithTitle
+  extends Schema.Component {
+  collectionName: 'customer_logo_simple_with_titles';
+  info: {
+    displayName: 'customer-logo-simple-with-title';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    customers: Attribute.Relation<
+      'customer-sections.customer-logo-simple-with-title',
+      'oneToMany',
+      'api::customer.customer'
     >;
   };
 }
 
 export interface FilterTagsFilter extends Schema.Component {
-  collectionName: 'components_blog_tags_filters';
+  collectionName: 'tag_filter';
   info: {
-    displayName: 'TagFilter';
+    displayName: 'tag-filter';
     description: '';
   };
   attributes: {
@@ -116,22 +136,385 @@ export interface FilterTagsFilter extends Schema.Component {
   };
 }
 
-export interface HeroBasicHero extends Schema.Component {
-  collectionName: 'components_hero_basic_heroes';
+export interface HeaderSectionsHeaderWithCards extends Schema.Component {
+  collectionName: 'components_header_sections_header_with_cards';
   info: {
-    displayName: 'BasicHero';
+    displayName: 'header-with-cards';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.String;
+    subtitle: Attribute.Text & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    cards: Attribute.Component<'cards.card-with-icon', true>;
+  };
+}
+
+export interface HeroSectionsHeroSimpleCenterWithBackground
+  extends Schema.Component {
+  collectionName: 'hero_simple_center_with_backgrounds';
+  info: {
+    displayName: 'hero-simple-center-with-background';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.Text;
+    leftCTA: Attribute.Component<'cta.button'>;
+    rightCTA: Attribute.Component<'cta.button'>;
+  };
+}
+
+export interface HeroSectionsHeroSimpleCenter extends Schema.Component {
+  collectionName: 'components_hero_sections_hero_simple_centers';
+  info: {
+    displayName: 'hero-simple-center';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.Text;
+  };
+}
+
+export interface IconIcon extends Schema.Component {
+  collectionName: 'components_icon_icons';
+  info: {
+    displayName: 'icon';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.Enumeration<
+      [
+        'AcademicCapIcon',
+        'AdjustmentsHorizontalIcon',
+        'AdjustmentsVerticalIcon',
+        'ArchiveBoxArrowDownIcon',
+        'ArchiveBoxIcon',
+        'ArchiveBoxXMarkIcon',
+        'ArrowDownCircleIcon',
+        'ArrowDownIcon',
+        'ArrowDownLeftIcon',
+        'ArrowDownOnSquareIcon',
+        'ArrowDownOnSquareStackIcon',
+        'ArrowDownRightIcon',
+        'ArrowDownTrayIcon',
+        'ArrowLeftCircleIcon',
+        'ArrowLeftIcon',
+        'ArrowLeftOnRectangleIcon',
+        'ArrowLongDownIcon',
+        'ArrowLongLeftIcon',
+        'ArrowLongRightIcon',
+        'ArrowLongUpIcon',
+        'ArrowPathIcon',
+        'ArrowPathRoundedSquareIcon',
+        'ArrowRightCircleIcon',
+        'ArrowRightIcon',
+        'ArrowRightOnRectangleIcon',
+        'ArrowSmallDownIcon',
+        'ArrowSmallLeftIcon',
+        'ArrowSmallRightIcon',
+        'ArrowSmallUpIcon',
+        'ArrowTopRightOnSquareIcon',
+        'ArrowTrendingDownIcon',
+        'ArrowTrendingUpIcon',
+        'ArrowUpCircleIcon',
+        'ArrowUpIcon',
+        'ArrowUpLeftIcon',
+        'ArrowUpOnSquareIcon',
+        'ArrowUpOnSquareStackIcon',
+        'ArrowUpRightIcon',
+        'ArrowUpTrayIcon',
+        'ArrowUturnDownIcon',
+        'ArrowUturnLeftIcon',
+        'ArrowUturnRightIcon',
+        'ArrowUturnUpIcon',
+        'ArrowsPointingInIcon',
+        'ArrowsPointingOutIcon',
+        'ArrowsRightLeftIcon',
+        'ArrowsUpDownIcon',
+        'AtSymbolIcon',
+        'BackspaceIcon',
+        'BackwardIcon',
+        'BanknotesIcon',
+        'Bars2Icon',
+        'Bars3BottomLeftIcon',
+        'Bars3BottomRightIcon',
+        'Bars3CenterLeftIcon',
+        'Bars3Icon',
+        'Bars4Icon',
+        'BarsArrowDownIcon',
+        'BarsArrowUpIcon',
+        'Battery0Icon',
+        'Battery100Icon',
+        'Battery50Icon',
+        'BeakerIcon',
+        'BellAlertIcon',
+        'BellIcon',
+        'BellSlashIcon',
+        'BellSnoozeIcon',
+        'BoltIcon',
+        'BoltSlashIcon',
+        'BookOpenIcon',
+        'BookmarkIcon',
+        'BookmarkSlashIcon',
+        'BookmarkSquareIcon',
+        'BriefcaseIcon',
+        'BugAntIcon',
+        'BuildingLibraryIcon',
+        'BuildingOffice2Icon',
+        'BuildingOfficeIcon',
+        'BuildingStorefrontIcon',
+        'CakeIcon',
+        'CalculatorIcon',
+        'CalendarDaysIcon',
+        'CalendarIcon',
+        'CameraIcon',
+        'ChartBarIcon',
+        'ChartBarSquareIcon',
+        'ChartPieIcon',
+        'ChatBubbleBottomCenterIcon',
+        'ChatBubbleBottomCenterTextIcon',
+        'ChatBubbleLeftEllipsisIcon',
+        'ChatBubbleLeftIcon',
+        'ChatBubbleLeftRightIcon',
+        'ChatBubbleOvalLeftEllipsisIcon',
+        'ChatBubbleOvalLeftIcon',
+        'CheckBadgeIcon',
+        'CheckCircleIcon',
+        'CheckIcon',
+        'ChevronDoubleDownIcon',
+        'ChevronDoubleLeftIcon',
+        'ChevronDoubleRightIcon',
+        'ChevronDoubleUpIcon',
+        'ChevronDownIcon',
+        'ChevronLeftIcon',
+        'ChevronRightIcon',
+        'ChevronUpDownIcon',
+        'ChevronUpIcon',
+        'CircleStackIcon',
+        'ClipboardDocumentCheckIcon',
+        'ClipboardDocumentIcon',
+        'ClipboardDocumentListIcon',
+        'ClipboardIcon',
+        'ClockIcon',
+        'CloudArrowDownIcon',
+        'CloudArrowUpIcon',
+        'CloudIcon',
+        'CodeBracketIcon',
+        'CodeBracketSquareIcon',
+        'Cog6ToothIcon',
+        'Cog8ToothIcon',
+        'CogIcon',
+        'CommandLineIcon',
+        'ComputerDesktopIcon',
+        'CpuChipIcon',
+        'CreditCardIcon',
+        'CubeIcon',
+        'CubeTransparentIcon',
+        'CurrencyBangladeshiIcon',
+        'CurrencyDollarIcon',
+        'CurrencyEuroIcon',
+        'CurrencyPoundIcon',
+        'CurrencyRupeeIcon',
+        'CurrencyYenIcon',
+        'CursorArrowRaysIcon',
+        'CursorArrowRippleIcon',
+        'DevicePhoneMobileIcon',
+        'DeviceTabletIcon',
+        'DocumentArrowDownIcon',
+        'DocumentArrowUpIcon',
+        'DocumentChartBarIcon',
+        'DocumentCheckIcon',
+        'DocumentDuplicateIcon',
+        'DocumentIcon',
+        'DocumentMagnifyingGlassIcon',
+        'DocumentMinusIcon',
+        'DocumentPlusIcon',
+        'DocumentTextIcon',
+        'EllipsisHorizontalCircleIcon',
+        'EllipsisHorizontalIcon',
+        'EllipsisVerticalIcon',
+        'EnvelopeIcon',
+        'EnvelopeOpenIcon',
+        'ExclamationCircleIcon',
+        'ExclamationTriangleIcon',
+        'EyeDropperIcon',
+        'EyeIcon',
+        'EyeSlashIcon',
+        'FaceFrownIcon',
+        'FaceSmileIcon',
+        'FilmIcon',
+        'FingerPrintIcon',
+        'FireIcon',
+        'FlagIcon',
+        'FolderArrowDownIcon',
+        'FolderIcon',
+        'FolderMinusIcon',
+        'FolderOpenIcon',
+        'FolderPlusIcon',
+        'ForwardIcon',
+        'FunnelIcon',
+        'GifIcon',
+        'GiftIcon',
+        'GiftTopIcon',
+        'GlobeAltIcon',
+        'GlobeAmericasIcon',
+        'GlobeAsiaAustraliaIcon',
+        'GlobeEuropeAfricaIcon',
+        'HandRaisedIcon',
+        'HandThumbDownIcon',
+        'HandThumbUpIcon',
+        'HashtagIcon',
+        'HeartIcon',
+        'HomeIcon',
+        'HomeModernIcon',
+        'IdentificationIcon',
+        'InboxArrowDownIcon',
+        'InboxIcon',
+        'InboxStackIcon',
+        'InformationCircleIcon',
+        'KeyIcon',
+        'LanguageIcon',
+        'LifebuoyIcon',
+        'LightBulbIcon',
+        'LinkIcon',
+        'ListBulletIcon',
+        'LockClosedIcon',
+        'LockOpenIcon',
+        'MagnifyingGlassCircleIcon',
+        'MagnifyingGlassIcon',
+        'MagnifyingGlassMinusIcon',
+        'MagnifyingGlassPlusIcon',
+        'MapIcon',
+        'MapPinIcon',
+        'MegaphoneIcon',
+        'MicrophoneIcon',
+        'MinusCircleIcon',
+        'MinusIcon',
+        'MinusSmallIcon',
+        'MoonIcon',
+        'MusicalNoteIcon',
+        'NewspaperIcon',
+        'NoSymbolIcon',
+        'PaintBrushIcon',
+        'PaperAirplaneIcon',
+        'PaperClipIcon',
+        'PauseCircleIcon',
+        'PauseIcon',
+        'PencilIcon',
+        'PencilSquareIcon',
+        'PhoneArrowDownLeftIcon',
+        'PhoneArrowUpRightIcon',
+        'PhoneIcon',
+        'PhoneXMarkIcon',
+        'PhotoIcon',
+        'PlayCircleIcon',
+        'PlayIcon',
+        'PlayPauseIcon',
+        'PlusCircleIcon',
+        'PlusIcon',
+        'PlusSmallIcon',
+        'PowerIcon',
+        'PresentationChartBarIcon',
+        'PresentationChartLineIcon',
+        'PrinterIcon',
+        'PuzzlePieceIcon',
+        'QrCodeIcon',
+        'QuestionMarkCircleIcon',
+        'QueueListIcon',
+        'RadioIcon',
+        'ReceiptPercentIcon',
+        'ReceiptRefundIcon',
+        'RectangleGroupIcon',
+        'RectangleStackIcon',
+        'RocketLaunchIcon',
+        'RssIcon',
+        'ScaleIcon',
+        'ScissorsIcon',
+        'ServerIcon',
+        'ServerStackIcon',
+        'ShareIcon',
+        'ShieldCheckIcon',
+        'ShieldExclamationIcon',
+        'ShoppingBagIcon',
+        'ShoppingCartIcon',
+        'SignalIcon',
+        'SignalSlashIcon',
+        'SparklesIcon',
+        'SpeakerWaveIcon',
+        'SpeakerXMarkIcon',
+        'Square2StackIcon',
+        'Square3Stack3DIcon',
+        'Squares2X2Icon',
+        'SquaresPlusIcon',
+        'StarIcon',
+        'StopCircleIcon',
+        'StopIcon',
+        'SunIcon',
+        'SwatchIcon',
+        'TableCellsIcon',
+        'TagIcon',
+        'TicketIcon',
+        'TrashIcon',
+        'TrophyIcon',
+        'TruckIcon',
+        'TvIcon',
+        'UserCircleIcon',
+        'UserGroupIcon',
+        'UserIcon',
+        'UserMinusIcon',
+        'UserPlusIcon',
+        'UsersIcon',
+        'VariableIcon',
+        'VideoCameraIcon',
+        'VideoCameraSlashIcon',
+        'ViewColumnsIcon',
+        'ViewfinderCircleIcon',
+        'WalletIcon',
+        'WifiIcon',
+        'WindowIcon',
+        'WrenchIcon',
+        'WrenchScrewdriverIcon',
+        'XCircleIcon',
+        'XMarkIcon'
+      ]
+    >;
+    type: Attribute.Enumeration<['outline', 'solid']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'outline'>;
+  };
+}
+
+export interface ImageSectionsImageSimple extends Schema.Component {
+  collectionName: 'components_image_sections_image_simples';
+  info: {
+    displayName: 'image-simple';
+  };
+  attributes: {
     image: Attribute.Media & Attribute.Required;
   };
 }
 
-export interface HeroCenteredTextHero extends Schema.Component {
-  collectionName: 'components_hero_centered_text_heroes';
+export interface PartnerSectionsPartnerLogoSimpleWithTitle
+  extends Schema.Component {
+  collectionName: 'partner_logo_simple_with_titles';
   info: {
-    displayName: 'CenteredTextHero';
+    displayName: 'partner-logo-simple-with-title';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    partners: Attribute.Relation<
+      'partner-sections.partner-logo-simple-with-title',
+      'oneToMany',
+      'api::partner.partner'
+    >;
+  };
+}
+
+export interface SeoOpenGraph extends Schema.Component {
+  collectionName: 'components_seo_open_graphs';
+  info: {
+    displayName: 'open-graph';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
@@ -140,282 +523,106 @@ export interface HeroCenteredTextHero extends Schema.Component {
   };
 }
 
-export interface HeroFeaturesHero extends Schema.Component {
-  collectionName: 'components_hero_features_heroes';
+export interface ServiceSectionsServiceThreeColumnWithLargeIcons
+  extends Schema.Component {
+  collectionName: 'service_three_column_with_large_icons';
   info: {
-    displayName: 'FeaturesHero';
+    displayName: 'service-three-column-with-large-icons';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.String;
-    image: Attribute.Media & Attribute.Required;
-    features: Attribute.Relation<
-      'hero.features-hero',
-      'oneToMany',
-      'api::feature.feature'
-    >;
-  };
-}
-
-export interface HeroHeroWithImageTiles extends Schema.Component {
-  collectionName: 'components_hero_hero_with_image_tiles';
-  info: {
-    displayName: 'HeroWithImageTiles';
-    description: '';
-  };
-  attributes: {
-    images: Attribute.Media & Attribute.Required;
-    title: Attribute.Component<'title-section.title-section'>;
-  };
-}
-
-export interface HeroHomeHero extends Schema.Component {
-  collectionName: 'components_hero_home_heroes';
-  info: {
-    displayName: 'HomeHero';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    image: Attribute.Media;
-    button: Attribute.Component<'button.link'>;
-  };
-}
-
-export interface ListArticleList extends Schema.Component {
-  collectionName: 'components_list_article_lists';
-  info: {
-    displayName: 'ArticleList';
-  };
-  attributes: {
-    articles: Attribute.Relation<
-      'list.article-list',
-      'oneToMany',
-      'api::article.article'
-    >;
-  };
-}
-
-export interface ListCompanyList extends Schema.Component {
-  collectionName: 'components_list_company_lists';
-  info: {
-    displayName: 'CompanyList';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    companies: Attribute.Relation<
-      'list.company-list',
-      'oneToMany',
-      'api::company.company'
-    >;
-  };
-}
-
-export interface ListFeatureList extends Schema.Component {
-  collectionName: 'components_list_feature_lists';
-  info: {
-    displayName: 'FeatureList';
-  };
-  attributes: {
-    features: Attribute.Relation<
-      'list.feature-list',
-      'oneToMany',
-      'api::feature.feature'
-    >;
-    title: Attribute.String;
-    subtitle: Attribute.String;
-  };
-}
-
-export interface ListIllustrationCardList extends Schema.Component {
-  collectionName: 'components_card_list_illustration_card_lists';
-  info: {
-    displayName: 'IllustrationCardList';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    illustrationCards: Attribute.Component<'card.illustration-card', true>;
-    theme: Attribute.Enumeration<['dark', 'light']> &
-      Attribute.DefaultTo<'dark'>;
-  };
-}
-
-export interface ListPartnerList extends Schema.Component {
-  collectionName: 'components_list_partner_lists';
-  info: {
-    displayName: 'PartnerList';
-  };
-  attributes: {
-    title: Attribute.String;
-    partners: Attribute.Relation<
-      'list.partner-list',
-      'oneToMany',
-      'api::partner.partner'
-    >;
-  };
-}
-
-export interface ListRectangleCardList extends Schema.Component {
-  collectionName: 'components_list_rectangle_card_lists';
-  info: {
-    displayName: 'RectangleCardList';
-    description: '';
-  };
-  attributes: {
-    surtitle: Attribute.String & Attribute.Required;
-    cards: Attribute.Component<'card.rectangle-card', true>;
-  };
-}
-
-export interface ListServiceList extends Schema.Component {
-  collectionName: 'components_list_service_lists';
-  info: {
-    displayName: 'ServiceList';
-  };
-  attributes: {
+    subtitle: Attribute.Text & Attribute.Required;
     services: Attribute.Relation<
-      'list.service-list',
+      'service-sections.service-three-column-with-large-icons',
       'oneToMany',
       'api::service.service'
     >;
   };
 }
 
-export interface ListSolutionList extends Schema.Component {
-  collectionName: 'components_list_solution_lists';
+export interface SolutionSectionsSolutionThreeColumnWithLargeIcons
+  extends Schema.Component {
+  collectionName: 'solution_three_column_with_large_icons';
   info: {
-    displayName: 'SolutionList';
+    displayName: 'solution-three-column-with-large-icons';
   };
   attributes: {
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.Text & Attribute.Required;
     solutions: Attribute.Relation<
-      'list.solution-list',
+      'solution-sections.solution-three-column-with-large-icons',
       'oneToMany',
       'api::solution.solution'
     >;
   };
 }
 
-export interface ListTeamList extends Schema.Component {
-  collectionName: 'components_list_team_lists';
+export interface TeamSectionsTeamThreeColumn extends Schema.Component {
+  collectionName: 'team_three_columns';
   info: {
-    displayName: 'TeamList';
-    description: '';
+    displayName: 'team-three-column';
   };
   attributes: {
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.Text & Attribute.Required;
     teamMembers: Attribute.Relation<
-      'list.team-list',
+      'team-sections.team-three-column',
       'oneToMany',
       'api::team-member.team-member'
     >;
-    joinTeamTitle: Attribute.String & Attribute.Required;
-    joinTeamTextStart: Attribute.Text & Attribute.Required;
-    joinTeamCTATitle: Attribute.String & Attribute.Required;
-    joinTeamTextEnd: Attribute.Text & Attribute.Required;
   };
 }
 
-export interface TextH1 extends Schema.Component {
-  collectionName: 'components_text_h1s';
+export interface ValueSectionsValueTwoColumn extends Schema.Component {
+  collectionName: 'components_value_sections_value_two_columns';
   info: {
-    displayName: 'h1';
-  };
-  attributes: {
-    title: Attribute.String;
-  };
-}
-
-export interface TextMarkdown extends Schema.Component {
-  collectionName: 'components_text_markdowns';
-  info: {
-    displayName: 'Markdown';
+    displayName: 'value-two-column';
     description: '';
-  };
-  attributes: {
-    content: Attribute.RichText & Attribute.Required;
-  };
-}
-
-export interface TitleSectionLargeTitleSection extends Schema.Component {
-  collectionName: 'components_title_section_large_title_sections';
-  info: {
-    displayName: 'LargeTitleSection';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    leftSubtitle: Attribute.String & Attribute.Required;
-    rightSubtitle: Attribute.String & Attribute.Required;
+    subtitle: Attribute.Text & Attribute.Required;
+    values: Attribute.Component<'value-sections.value', true>;
   };
 }
 
-export interface TitleSectionMediumTitleSection extends Schema.Component {
-  collectionName: 'components_title_section_medium_title_sections';
+export interface ValueSectionsValue extends Schema.Component {
+  collectionName: 'components_value_sections_values';
   info: {
-    displayName: 'MediumTitleSection';
+    displayName: 'value';
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    subtitle: Attribute.String;
-  };
-}
-
-export interface TitleSectionSmallTitleSection extends Schema.Component {
-  collectionName: 'components_title_section_small_title_sections';
-  info: {
-    displayName: 'smallTitleSection';
-    description: '';
-  };
-  attributes: {
-    subtitle: Attribute.Text;
-    title: Attribute.String;
-  };
-}
-
-export interface TitleSectionTitleSection extends Schema.Component {
-  collectionName: 'components_title_section_title_sections';
-  info: {
-    displayName: 'TitleSection';
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    surtitle: Attribute.String & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
+    description: Attribute.Text;
   };
 }
 
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'article.article-author': ArticleArticleAuthor;
-      'article.article-content': ArticleArticleContent;
-      'background.background-image': BackgroundBackgroundImage;
-      'button.contact-us-cta': ButtonContactUsCta;
-      'button.link': ButtonLink;
-      'card.illustration-card': CardIllustrationCard;
-      'card.rectangle-card': CardRectangleCard;
-      'card.team-member-card': CardTeamMemberCard;
+      'benefit.benefit': BenefitBenefit;
+      'blog-sections.blog-three-column': BlogSectionsBlogThreeColumn;
+      'cards.card-with-icon': CardsCardWithIcon;
+      'contact-sections.contact-split-with-pattern': ContactSectionsContactSplitWithPattern;
+      'content-section.content-markdown': ContentSectionContentMarkdown;
+      'content-section.content-two-column': ContentSectionContentTwoColumn;
+      'cta-sections.join-our-team': CtaSectionsJoinOurTeam;
+      'cta.button': CtaButton;
+      'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle;
       'filter.tags-filter': FilterTagsFilter;
-      'hero.basic-hero': HeroBasicHero;
-      'hero.centered-text-hero': HeroCenteredTextHero;
-      'hero.features-hero': HeroFeaturesHero;
-      'hero.hero-with-image-tiles': HeroHeroWithImageTiles;
-      'hero.home-hero': HeroHomeHero;
-      'list.article-list': ListArticleList;
-      'list.company-list': ListCompanyList;
-      'list.feature-list': ListFeatureList;
-      'list.illustration-card-list': ListIllustrationCardList;
-      'list.partner-list': ListPartnerList;
-      'list.rectangle-card-list': ListRectangleCardList;
-      'list.service-list': ListServiceList;
-      'list.solution-list': ListSolutionList;
-      'list.team-list': ListTeamList;
-      'text.h1': TextH1;
-      'text.markdown': TextMarkdown;
-      'title-section.large-title-section': TitleSectionLargeTitleSection;
-      'title-section.medium-title-section': TitleSectionMediumTitleSection;
-      'title-section.small-title-section': TitleSectionSmallTitleSection;
-      'title-section.title-section': TitleSectionTitleSection;
+      'header-sections.header-with-cards': HeaderSectionsHeaderWithCards;
+      'hero-sections.hero-simple-center-with-background': HeroSectionsHeroSimpleCenterWithBackground;
+      'hero-sections.hero-simple-center': HeroSectionsHeroSimpleCenter;
+      'icon.icon': IconIcon;
+      'image-sections.image-simple': ImageSectionsImageSimple;
+      'partner-sections.partner-logo-simple-with-title': PartnerSectionsPartnerLogoSimpleWithTitle;
+      'seo.open-graph': SeoOpenGraph;
+      'service-sections.service-three-column-with-large-icons': ServiceSectionsServiceThreeColumnWithLargeIcons;
+      'solution-sections.solution-three-column-with-large-icons': SolutionSectionsSolutionThreeColumnWithLargeIcons;
+      'team-sections.team-three-column': TeamSectionsTeamThreeColumn;
+      'value-sections.value-two-column': ValueSectionsValueTwoColumn;
+      'value-sections.value': ValueSectionsValue;
     }
   }
 }
