@@ -13,13 +13,11 @@ export type SimpleCenteredWithBackgroundProps = {
 }
 
 export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWithBackgroundProps) {
-  console.log(props)
-
   return (
     <div className='relative pt-20 overflow-hidden isolate'>
       <div className='flex justify-between px-6 py-32 mx-auto max-w-7xl sm:py-48 lg:py-56'>
         <div className='max-w-[625px]'>
-          <h1 className='text-4xl font-normal tracking-tight text-white sm:text-[60px] sm:leading-[64px]'>
+          <h1 className='text-4xl font-normal text-white sm:text-[60px] sm:leading-[64px]'>
             {props.title}
           </h1>
           <p className='mt-6 text-lg font-light leading-8 sm:text-[24px] sm:leading-[34px] text-slate-400'>
