@@ -3,7 +3,7 @@ import {Work_Sans} from 'next/font/google'
 import type {AppProps} from 'next/app'
 
 const work_sans = Work_Sans({
-  weight: ['400', '500'],
+  weight: ['300', '400'],
   preload: false
 })
 

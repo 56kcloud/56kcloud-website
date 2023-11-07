@@ -45,7 +45,7 @@ export default function Header() {
             <a
               key={item.text}
               href={item.link}
-              className='text-base font-medium leading-6 text-white capitalize'>
+              className='text-base font-normal leading-6 text-white capitalize'>
               {item.text}
             </a>
           ))}
