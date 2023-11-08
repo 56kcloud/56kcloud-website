@@ -93,91 +93,93 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
     className='relative isolate sm:py-[104px]'
     id='contact-section'
   >
-    <div className='grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 bg-slate-800 rounded-xl'>
-      <div className='relative px-6 py-8 lg:static lg:pl-12 lg:pr-0 lg:py-14'>
-        <div className='!max-w-sm mx-auto lg:mx-0 lg:max-w-lg'>
-          <h2 className='text-3xl font-medium text-white sm:text-4xl'>{props.title}</h2>
-          <p className='mt-5 text-[20px] leading-8 text-slate-400 font-light'>
-            {props.subtitle}
-          </p>
-          <dl className='mt-10 space-y-5 text-base leading-[26px] font-light text-slate-400'>
-            {props.locations?.map((location) => (
-              <a
-                key={location.address}
-                href={location.gMap}
-                target='_blank'
-                className='flex gap-x-4'
-              >
-                <dt className='flex-none'>
-                  <span className='sr-only'>Address</span>
-                  <BuildingOffice2Icon
-                    className='w-6 h-6 translate-y-1 text-slate-400'
-                    aria-hidden='true'/>
-                </dt>
-                <dd>
-                  {location.address}
-                  <br/>
-                  {location.zipCode} {location.city}, {location.country}
-                </dd>
-              </a>
-            ))}
-          </dl>
-        </div>
-      </div>
-      <div
-        className='px-6 pt-20 pb-24 sm:pb-32 lg:pl-0 lg:pr-12 lg:py-14'
-      >
-        {isExploding && <ConfettiExplosion
-          force={0.8}
-          duration={3000}
-          width={1920}
-        />}
-        {showThanksMessage
-          ? <div className='flex flex-col items-center justify-center'>
-            <CheckCircleIcon className='mx-auto text-white w-14 h-14'/>
-            <h3 className='mt-2 text-sm font-semibold text-white'>Message Sent</h3>
-            <p className='max-w-xs text-sm text-center text-gray-300'>
-              Thanks for your message we will get back to you as soon as possible
+    <div className='mx-auto max-w-7xl'>
+      <div className='grid grid-cols-1 mx-6 lg:grid-cols-2 bg-slate-800 rounded-xl'>
+        <div className='relative px-6 py-8 lg:static lg:pl-12 lg:pr-0 lg:py-14'>
+          <div className='!max-w-sm mx-auto lg:mx-0 lg:max-w-lg'>
+            <h2 className='text-3xl font-medium text-white sm:text-4xl'>{props.title}</h2>
+            <p className='mt-5 text-[20px] leading-8 text-slate-400 font-light'>
+              {props.subtitle}
             </p>
-          </div>
-          : <form onSubmit={handleSubmit((data) => onSubmit(data as contactUsFormData))}>
-            <div className='!max-w-full space-y-4'>
-              {serverError ? (
-                <div
-                  className='p-2 sm:p-3 text-sm text-red-600 bg-red-500/10 border border-red-500/50 rounded-lg \
-                         pl-7 sm:pl-7 mt-5 min-[1700px]:mt-6 sm:text-sm min-[1700px]:text-base'
+            <dl className='mt-10 space-y-5 text-base leading-[26px] font-light text-slate-400'>
+              {props.locations?.map((location) => (
+                <a
+                  key={location.address}
+                  href={location.gMap}
+                  target='_blank'
+                  className='flex gap-x-4'
                 >
-                  {serverError}
-                </div>
-              ) : null}
-              <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
-                <Input {...firstNameInput}/>
-                <Input {...lastNameInput}/>
-                <Input
-                  {...emailInput}
-                  className='sm:col-span-2'
-                />
-                <TextArea
-                  {...messageInput}
-                  className='sm:col-span-2'
-                />
-                <Checkbox
-                  {...legalConsentInput}
-                  className='sm:col-span-2'
-                />
-              </div>
-              <div className='flex justify-end mt-8'>
-                <Button
-                  type='submit'
-                  shape='circle'
-                  size='large'
-                  className='px-5 text-md bg-sky-300 text-slate-900 hover:bg-purple-300'>
-                  Send Message
-                </Button>
-              </div>
+                  <dt className='flex-none'>
+                    <span className='sr-only'>Address</span>
+                    <BuildingOffice2Icon
+                      className='w-6 h-6 translate-y-1 text-slate-400'
+                      aria-hidden='true'/>
+                  </dt>
+                  <dd>
+                    {location.address}
+                    <br/>
+                    {location.zipCode} {location.city}, {location.country}
+                  </dd>
+                </a>
+              ))}
+            </dl>
+          </div>
+        </div>
+        <div
+          className='px-6 pt-20 pb-24 sm:pb-32 lg:pl-0 lg:pr-12 lg:py-14'
+        >
+          {isExploding && <ConfettiExplosion
+            force={0.8}
+            duration={3000}
+            width={1920}
+          />}
+          {showThanksMessage
+            ? <div className='flex flex-col items-center justify-center'>
+              <CheckCircleIcon className='mx-auto text-white w-14 h-14'/>
+              <h3 className='mt-2 text-sm font-semibold text-white'>Message Sent</h3>
+              <p className='max-w-xs text-sm text-center text-gray-300'>
+              Thanks for your message we will get back to you as soon as possible
+              </p>
             </div>
-          </form>
-        }
+            : <form onSubmit={handleSubmit((data) => onSubmit(data as contactUsFormData))}>
+              <div className='!max-w-full space-y-4'>
+                {serverError ? (
+                  <div
+                    className='p-2 sm:p-3 text-sm text-red-600 bg-red-500/10 border border-red-500/50 rounded-lg \
+                         pl-7 sm:pl-7 mt-5 min-[1700px]:mt-6 sm:text-sm min-[1700px]:text-base'
+                  >
+                    {serverError}
+                  </div>
+                ) : null}
+                <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
+                  <Input {...firstNameInput}/>
+                  <Input {...lastNameInput}/>
+                  <Input
+                    {...emailInput}
+                    className='sm:col-span-2'
+                  />
+                  <TextArea
+                    {...messageInput}
+                    className='sm:col-span-2'
+                  />
+                  <Checkbox
+                    {...legalConsentInput}
+                    className='sm:col-span-2'
+                  />
+                </div>
+                <div className='flex justify-end mt-8'>
+                  <Button
+                    type='submit'
+                    shape='circle'
+                    size='large'
+                    className='px-5 text-md bg-sky-300 text-slate-900 hover:bg-purple-300'>
+                  Send Message
+                  </Button>
+                </div>
+              </div>
+            </form>
+          }
+        </div>
       </div>
     </div>
   </div>)
