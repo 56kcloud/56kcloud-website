@@ -8,7 +8,7 @@ export type LogoCloudsSimpleWithTitleProps = {
 
 export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTitleProps) { 
   return (
-    <div className='py-24 sm:py-[104px]'>
+    <div className='py-20 lg:py-[104px]'>
       <div className='px-6 mx-auto max-w-7xl lg:px-8'>
         <h2 className='text-lg font-semibold leading-8 text-center text-white'>
           {props.title}

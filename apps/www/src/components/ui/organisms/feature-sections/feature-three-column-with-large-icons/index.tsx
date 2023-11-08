@@ -9,16 +9,16 @@ export type FeatureThreeColumnWithLargeIconsProps = {
 
 export default function FeatureThreeColumnWithLargeIcons(props: FeatureThreeColumnWithLargeIconsProps) { 
   return (
-    <div className='py-24 sm:py-[104px]'>
+    <div className='py-20 lg:py-[104px]'>
       <div className='px-6 mx-auto max-w-7xl lg:px-8'>
-        <div className='max-w-3xl mx-auto lg:mx-0'>
+        <div className='max-w-2xl mr-auto lg:max-w-3xl lg:mx-0'>
           <h2 className='text-3xl font-medium text-white sm:text-4xl'>{props.title}</h2>
           <p className='mt-8 text-[20px] leading-8 text-slate-400 font-light'>
             {props.subtitle}
           </p>
         </div>
-        <div className='max-w-2xl mx-auto mt-11 lg:max-w-none'>
-          <dl className='grid max-w-xl grid-cols-1 gap-x-6 gap-y-16 lg:max-w-none lg:grid-cols-3'>
+        <div className='mt-11'>
+          <dl className='grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-3'>
             {props.features?.map((feature, index) => (
               <div
                 key={index}

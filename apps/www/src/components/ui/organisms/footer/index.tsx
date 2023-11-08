@@ -67,8 +67,8 @@ export default function Footer(props: FooterProps) {
               ))}
             </div>
           </div>
-          <div className='flex max-w-3xl gap-16 lg:gap-28'>
-            <div className='flex gap-16 lg:gap-28'>
+          <div className='flex max-w-3xl gap-16 xl:gap-28'>
+            <div className='flex gap-16 xl:gap-28'>
               <div>
                 <h3 className='text-sm font-normal text-white capitalize'>{t('common:services')}</h3>
                 <ul

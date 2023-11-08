@@ -15,8 +15,10 @@ export type SimpleCenteredWithBackgroundProps = {
 export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWithBackgroundProps) {
   return (
     <div className='relative overflow-hidden pt-28 isolate'>
-      <div className='flex justify-between px-6 pt-32 mx-auto max-w-7xl sm:py-48 lg:pt-56 lg:pb-20'>
-        <div className='max-w-[625px]'>
+      <div
+        className='flex flex-col justify-between px-6 pt-32 pb-20 mx-auto lg:flex-row max-w-7xl lg:py-28 lg:pt-56 \
+        lg:pb-20 gap-y-24'>
+        <div className='max-w-2xl lg:max-w-[625px]'>
           <h1
             className='text-4xl font-normal text-transparent bg-clip-text bg-gradient-to-l from-purple-300 \
             via-sky-300 to-purple-300 sm:text-[60px] sm:leading-[64px] from-10% to-90%'>
@@ -61,7 +63,8 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
           blurDataURL={props.image.blurDataURL}
           width={props.image.width}
           height={props.image.height}
-          className='rounded-xl max-w-[525px] max-h-[390px] aspect-1 object-cover object-center'
+          className='rounded-xl max-w-full max-h-[500px] lg:max-w-[525px] lg:max-h-[390px] aspect-1 object-cover \
+          object-center'
         />
       </div>
     </div>
