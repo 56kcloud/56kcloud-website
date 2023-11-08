@@ -179,7 +179,6 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
           </form>
         }
       </div>
-      
     </div>
   </div>)
 }
