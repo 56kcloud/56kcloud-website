@@ -18,7 +18,7 @@ export function Input({register, name, options, label, className, type = 'text',
     <div className={className}>
       <label
         htmlFor={name}
-        className='block text-sm font-semibold leading-6 text-white'>
+        className='block text-base font-normal leading-6 text-white'>
         {label}
       </label>
       <div className='mt-2.5'>
@@ -27,8 +27,8 @@ export function Input({register, name, options, label, className, type = 'text',
           {...register(name, options)}
           id={name}
           className={cn(
-            'block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset \
-            ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6',
+            'block w-full rounded-md border-0 bg-slate-900 px-3.5 py-2 text-slate-400 font-light shadow-sm ring-1 \
+            ring-inset ring-slate-700/60 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6',
             error && 'text-red-900 ring-red-500 focus:ring-red-500'
           )}
         />

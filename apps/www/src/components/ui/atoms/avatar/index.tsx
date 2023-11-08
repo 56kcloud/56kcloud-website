@@ -4,12 +4,13 @@ import Image from 'next/image'
 export type AvatarProps = {
   image: string
   alt: string
-  size?: 'sm' | 'lg' | 'xl'
+  size?: 'sm' | 'md' | 'lg' | 'xl'
 }
 
 export default function Avatar({image, alt, size='sm'}: AvatarProps) {
   const sizes = {
     sm: 'w-8 h-8',
+    md: 'w-11 h-11',
     lg: 'w-32 h-32',
     xl: 'w-48 h-48'
   }

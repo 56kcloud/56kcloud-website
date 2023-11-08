@@ -17,10 +17,10 @@ export function Checkbox({register, id, name, label, options, className}: Checkb
         {...register(name, options)}
         type='checkbox'
         id={id} 
-        className='w-3 h-3 rounded-sm focus:ring-offset-0 focus:ring-1 bg-white/5'/>
+        className='w-3 h-3 rounded-sm focus:ring-offset-0 focus:ring-1 bg-slate-900'/>
       <label
         htmlFor={id}
-        className='pt-0.5 text-white/40'>
+        className='text-sm font-light text-slate-400'>
         {label}
       </label>
     </div>

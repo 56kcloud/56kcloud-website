@@ -36,7 +36,8 @@ module.exports = {
           medium: '#636e8e',
           dark: '#1d1e22'
         },
-        error: colors.red
+        error: colors.red,
+        background: '#0F172A'
       }
     }
   },

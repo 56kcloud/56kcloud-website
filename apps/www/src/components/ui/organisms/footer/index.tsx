@@ -33,19 +33,17 @@ export default function Footer(props: FooterProps) {
   ]
 
   return (
-    <footer
-      className='bg-gray-900'
-      aria-labelledby='footer-heading'>
+    <footer aria-labelledby='footer-heading'>
       <h2
         id='footer-heading'
         className='sr-only'>
         Footer
       </h2>
-      <div className='px-6 pt-16 pb-8 mx-auto max-w-7xl sm:pt-24 lg:px-8 lg:pt-32'>
-        <div className='xl:grid xl:grid-cols-3 xl:gap-8'>
-          <div className='space-y-8'>
-            <Logo className='text-white h-7'/>
-            <p className='text-sm leading-6 text-gray-300'>
+      <div className='px-6 pt-20 pb-8 mx-auto max-w-7xl lg:px-8 lg:pt-[104px]'>
+        <div className='flex flex-col xl:flex-row xl:justify-between'>
+          <div className='max-w-sm space-y-8'>
+            <Logo className='h-5 text-white'/>
+            <p className='text-sm leading-[26px] text-slate-400 font-light'>
               {props.text}
             </p>
             <div className='flex items-center space-x-6'>
@@ -62,63 +60,65 @@ export default function Footer(props: FooterProps) {
                   >
                     <span className='sr-only'>{item.text}</span>
                     <item.icon
-                      className='w-6 h-6 text-white'
+                      className='w-5 h-5 text-slate-400'
                       aria-hidden='true'/>
                   </a>
                 </Button>
               ))}
             </div>
           </div>
-          <div className='grid grid-cols-2 gap-8 mt-16 xl:col-span-2 xl:mt-0'>
-            <div className='md:grid md:grid-cols-2 md:gap-8'>
-              <div>
-                <h3 className='text-sm font-semibold leading-6 text-white capitalize'>{t('common:services')}</h3>
-                <ul
-                  role='list'
-                  className='mt-6 space-y-4'>
-                  {props.services.map((item) => (
-                    <li key={item.link}>
-                      <Button
-                        key={item.text}
-                        asChild
-                        tone='secondary'
-                        variant='link'
-                      >
-                        <a
-                          href={item.link}
-                          className='text-sm leading-6 text-gray-300 hover:text-white'>
-                          {item.text}
-                        </a>
-                      </Button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className='mt-10 md:mt-0'>
-                <h3 className='text-sm font-semibold leading-6 text-white capitalize'>{t('common:solutions')}</h3>
-                <ul
-                  role='list'
-                  className='mt-6 space-y-4'>
-                  {props.solutions.map((item) => (
-                    <li key={item.link}>
-                      <Button
-                        key={item.text}
-                        asChild
-                        tone='secondary'
-                        variant='link'
-                      >
-                        <a href={item.link}>
-                          {item.text}
-                        </a>
-                      </Button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          
+          <div className='flex gap-28'>
+            <div>
+              <h3 className='text-sm font-normal text-white capitalize'>{t('common:services')}</h3>
+              <ul
+                role='list'
+                className='mt-6 space-y-4'>
+                {props.services.map((item) => (
+                  <li key={item.link}>
+                    <Button
+                      key={item.text}
+                      asChild
+                      tone='secondary'
+                      variant='link'
+                      className='font-light text-slate-400'
+                    >
+                      <a
+                        href={item.link}
+                        className='text-sm leading-6 text-gray-300 hover:text-white'>
+                        {item.text}
+                      </a>
+                    </Button>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className='md:grid md:grid-cols-1 md:gap-8'>
+            <div className='mt-10 md:mt-0'>
+              <h3 className='text-sm font-normal text-white capitalize'>{t('common:solutions')}</h3>
+              <ul
+                role='list'
+                className='mt-6 space-y-4'>
+                {props.solutions.map((item) => (
+                  <li key={item.link}>
+                    <Button
+                      key={item.text}
+                      asChild
+                      tone='secondary'
+                      variant='link'
+                      className='font-light text-slate-400'
+                    >
+                      <a
+                        href={item.link}>
+                        {item.text}
+                      </a>
+                    </Button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className='w-fit md:grid md:grid-cols-1 md:gap-8'>
               <div>
-                <h3 className='text-sm font-semibold leading-6 text-white capitalize'>{t('common:company')}</h3>
+                <h3 className='text-sm font-normal text-white capitalize'>{t('common:company')}</h3>
                 <ul
                   role='list'
                   className='mt-6 space-y-4'>
@@ -129,6 +129,7 @@ export default function Footer(props: FooterProps) {
                         asChild
                         tone='secondary'
                         variant='link'
+                        className='font-light text-slate-400'
                       >
                         <a href={item.link}>
                           {item.text}
@@ -142,8 +143,8 @@ export default function Footer(props: FooterProps) {
             </div>
           </div>
         </div>
-        <div className='pt-8 mt-16 border-t border-white/10 sm:mt-20 lg:mt-24'>
-          <p className='text-xs leading-5 text-gray-400'>&copy; 2023 56k.Cloud</p>
+        <div className='pt-8 mt-16 border-t border-slate-800 sm:mt-20 lg:mt-20'>
+          <p className='text-xs font-light text-slate-400'>&copy; 56K.Cloud 2023 – All rights reserved.</p>
         </div>
       </div>
     </footer>

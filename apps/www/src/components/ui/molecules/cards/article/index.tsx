@@ -25,8 +25,7 @@ export default function ArticleCard({article, sameHeight}: ArticleCardProps) {
       <Link
         href={`/blog/${article.slug}`}
         className={cn(
-          'relative flex flex-col overflow-hidden duration-200 bg-white/5 rounded-lg shadow-lg cursor-pointer \
-           hover:shadow-2xl hover:scale-105',
+          'relative flex flex-col overflow-hidden cursor-pointer',
           sameHeight ? 'h-[500px]' : ''
         )}
       >
@@ -34,34 +33,32 @@ export default function ArticleCard({article, sameHeight}: ArticleCardProps) {
           image={article.image}
           sameHeight={sameHeight}
         />
-        <div
-          className='flex flex-col py-6 pl-6 space-y-4'>
-          <ArticleTagList tags={article.tags}/>
-          <div className='pr-6'>
+        <div className='flex flex-col mt-9'>
+          <div className='flex items-center gap-x-4'>
+            <span className='text-sm font-light text-slate-400'>{publishedOn}</span>
+            <ArticleTagList tags={article.tags}/>
+          </div>
+          <div>
             <h1
-              className='text-2xl text-white line-clamp-2 title'>
+              className='mt-5 text-xl font-normal leading-6 text-white line-clamp-2 title'>
               {article.title}
             </h1>
             <p 
-              className='mt-2 text-base text-grey-300 line-clamp-3'>
+              className='mt-6 text-base font-light leading-[26px] text-slate-400 line-clamp-3'>
               {article.description}
             </p>
             <div
-              className='flex flex-wrap items-center mt-8 text-sm gap-x-3 text-grey-300'>
+              className='flex flex-wrap items-center mt-8 text-sm gap-x-3 text-slate-400'>
               <Avatar
                 image={article.author.avatar.src}
                 alt={article.author.avatar.alt || 'author'}
+                size='md'
               />
-              <div className='flex flex-col'>
-                <span>
-                  by{' '}
-                  <span className='font-normal text-white'>
-                    {article.author.name}
-                  </span>
+              <div className='flex flex-col text-base'>
+                <span className='font-normal text-white'>
+                  {article.author.name}
                 </span>
-                <div className='flex gap-x-2'>
-                  <span>{publishedOn}</span>
-                  <span>|</span>
+                <div className='flex font-light gap-x-2'>
                   <span>{article.readTime} minute{article.readTime > 1 ? 's' : ''} read</span>
                 </div>
               </div>
