@@ -56,16 +56,18 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
               : null}
           </div>
         </div>
-        <Image
-          alt={'Background'}
-          src={props.image.src}
-          placeholder='blur'
-          blurDataURL={props.image.blurDataURL}
-          width={props.image.width}
-          height={props.image.height}
-          className='rounded-xl max-w-full max-h-[500px] lg:max-w-[525px] lg:max-h-[390px] aspect-1 object-cover \
-          object-center'
-        />
+        <div className='relative overflow-hidden rounded-xl'>
+          <div className='absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-sky-300/30 to-purple-300/60'/>
+          <Image
+            alt={'Background'}
+            src={props.image.src}
+            placeholder='blur'
+            blurDataURL={props.image.blurDataURL}
+            width={props.image.width}
+            height={props.image.height}
+            className='max-w-full max-h-[500px] lg:max-w-[525px] lg:max-h-[390px] aspect-1 object-cover object-center'
+          />
+        </div>
       </div>
     </div>
   )
