@@ -90,13 +90,13 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
   }
   
   return (<div
-    className='relative isolate sm:py-[104px]'
+    className='relative isolate py-20 lg:py-[104px]'
     id='contact-section'
   >
     <div className='mx-auto max-w-7xl'>
       <div className='grid grid-cols-1 mx-6 lg:grid-cols-2 bg-slate-800 rounded-xl'>
         <div className='relative px-6 py-8 lg:static lg:pl-12 lg:pr-0 lg:py-14'>
-          <div className='!max-w-sm mx-auto lg:mx-0 lg:max-w-lg'>
+          <div className='max-w-full mr-auto lg:mx-0 lg:max-w-sm'>
             <h2 className='text-3xl font-medium text-white sm:text-4xl'>{props.title}</h2>
             <p className='mt-5 text-[20px] leading-8 text-slate-400 font-light'>
               {props.subtitle}
@@ -126,7 +126,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
           </div>
         </div>
         <div
-          className='px-6 pt-20 pb-24 sm:pb-32 lg:pl-0 lg:pr-12 lg:py-14'
+          className='px-6 py-8 lg:pl-0 lg:pr-12 lg:py-14'
         >
           {isExploding && <ConfettiExplosion
             force={0.8}
@@ -151,7 +151,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                     {serverError}
                   </div>
                 ) : null}
-                <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
+                <div className='grid grid-cols-1 gap-x-5 gap-y-6 sm:grid-cols-2'>
                   <Input {...firstNameInput}/>
                   <Input {...lastNameInput}/>
                   <Input
