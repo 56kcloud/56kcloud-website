@@ -14,7 +14,7 @@ export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTit
           {props.title}
         </h2>
         <div
-          className='grid grid-cols-1 lg:grid-cols-4 mt-7 gap-x-6 gap-y-8'>
+          className='grid grid-cols-2 lg:grid-cols-4 mt-7 gap-x-6 gap-y-8'>
           {props.companies.map((company, index) => (
             <div
               key={index}
