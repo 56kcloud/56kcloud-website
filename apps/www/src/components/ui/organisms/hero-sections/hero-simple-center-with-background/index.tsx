@@ -57,12 +57,6 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
           </div>
         </div>
         <div className='relative overflow-hidden rounded-xl'>
-
-          
-          <div className='absolute h-px -top-px left-20 right-11 bg-gradient-to-r from-sky-300/0 via-sky-300/70 to-sky-300/0'/>
-          <div className='absolute h-px -bottom-px left-11 right-20 bg-gradient-to-r from-blue-400/0 via-blue-400 to-blue-400/0'/>
-
-
           <div className='absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-sky-300/30 to-purple-300/60'/>
           <Image
             alt={'Background'}
