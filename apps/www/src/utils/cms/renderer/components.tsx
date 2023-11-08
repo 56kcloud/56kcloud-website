@@ -65,9 +65,21 @@ export function pageRenderer(
   components: Array<ComponentBlueprint>,
   openGraph: PageOpenGraph
 ) {
+  const title = openGraph?.title
+  const description = openGraph?.description
   const children = renderComponents(components)
   return (<>
     <Head>
+      {title 
+        ? <title>{title}</title>
+        : null
+      }
+      {description
+        ? <meta
+          name='description'
+          content={description}/>
+        : null
+      }
       {openGraph && Object.keys(openGraph).map((key) => {
         const value = key === 'image'
           ? openGraph.image.src
@@ -76,7 +88,7 @@ export function pageRenderer(
           <meta
             property={`og:${key}`}
             content={value.toString()}
-            key={key}
+            key={`og:${key}`}
           />
         )
       })}
