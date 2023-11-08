@@ -24,7 +24,7 @@
     "humanize-duration": "^3.28.0",
     "next": "latest",
     "next-seo": "^6.0.0",
-    "next-translate": "^2.0.4",
+    "next-translate": "^2.6.1",
     "notion-to-tailwind": "0.0.12",
     "open-graph-scraper": "^5.2.3",
     "react": "^18.2.0",
