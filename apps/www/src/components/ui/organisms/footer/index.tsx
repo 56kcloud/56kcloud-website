@@ -1,14 +1,16 @@
 import {LinkProps, SocialLinks} from '@/models/link.model'
 import {Linkedin} from '../../svgs/logos/linkedin'
 import {Logo} from '../../svgs/logos/56k'
+import {Service} from '@/models/service.model'
+import {Solution} from '@/models/solution.model'
 import {X} from '../../svgs/logos/x'
 import Button from '../../atoms/button'
 import useTranslation from 'next-translate/useTranslation'
 
 export type FooterProps = {
   text: string
-  solutions: Array<LinkProps>
-  services: Array<LinkProps>  
+  solutions: Array<Pick<Solution, 'title' | 'slug'>>
+  services: Array<Pick<Service, 'title' | 'slug'>>
 }
 
 export default function Footer(props: FooterProps) {
@@ -75,18 +77,17 @@ export default function Footer(props: FooterProps) {
                 role='list'
                 className='mt-6 space-y-4'>
                 {props.services.map((item) => (
-                  <li key={item.link}>
+                  <li key={item.slug}>
                     <Button
-                      key={item.text}
                       asChild
                       tone='secondary'
                       variant='link'
                       className='font-light text-slate-400'
                     >
                       <a
-                        href={item.link}
+                        href={`/services/${item.slug}`}
                         className='text-sm leading-6 text-gray-300 hover:text-white'>
-                        {item.text}
+                        {item.title}
                       </a>
                     </Button>
                   </li>
@@ -99,17 +100,16 @@ export default function Footer(props: FooterProps) {
                 role='list'
                 className='mt-6 space-y-4'>
                 {props.solutions.map((item) => (
-                  <li key={item.link}>
+                  <li key={item.slug}>
                     <Button
-                      key={item.text}
                       asChild
                       tone='secondary'
                       variant='link'
                       className='font-light text-slate-400'
                     >
                       <a
-                        href={item.link}>
-                        {item.text}
+                        href={`/solutions/${item.slug}`}>
+                        {item.title}
                       </a>
                     </Button>
                   </li>
