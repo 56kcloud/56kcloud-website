@@ -26,7 +26,7 @@ export default function CardCover({image, sameHeight}: CardCoverProps) {
   }, [])
   return (
     <div
-      className='relative w-full rounded-lg max-h-96 bg-red-50'
+      className='relative w-full overflow-hidden rounded-xl max-h-96 bg-red-50'
       ref={coverParent}
       style={{height: sameHeight ? '200px' : `${image.width * (parseInt(height)/image.width)}px`}}
     >
