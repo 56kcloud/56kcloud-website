@@ -40,8 +40,8 @@ export default function Footer(props: FooterProps) {
         Footer
       </h2>
       <div className='px-6 pt-20 pb-8 mx-auto max-w-7xl lg:px-8 lg:pt-[104px]'>
-        <div className='flex flex-col xl:flex-row xl:justify-between'>
-          <div className='max-w-sm space-y-8'>
+        <div className='flex flex-col gap-y-[72px] xl:flex-row xl:justify-between'>
+          <div className='max-w-full space-y-8 xl:max-w-sm'>
             <Logo className='h-5 text-white'/>
             <p className='text-sm leading-[26px] text-slate-400 font-light'>
               {props.text}
@@ -68,7 +68,7 @@ export default function Footer(props: FooterProps) {
             </div>
           </div>
           
-          <div className='flex gap-28'>
+          <div className='flex flex-col gap-12 md:flex-row md:justify-between md:gap-28'>
             <div>
               <h3 className='text-sm font-normal text-white capitalize'>{t('common:services')}</h3>
               <ul
@@ -93,7 +93,7 @@ export default function Footer(props: FooterProps) {
                 ))}
               </ul>
             </div>
-            <div className='mt-10 md:mt-0'>
+            <div>
               <h3 className='text-sm font-normal text-white capitalize'>{t('common:solutions')}</h3>
               <ul
                 role='list'
@@ -116,30 +116,27 @@ export default function Footer(props: FooterProps) {
                 ))}
               </ul>
             </div>
-            <div className='w-fit md:grid md:grid-cols-1 md:gap-8'>
-              <div>
-                <h3 className='text-sm font-normal text-white capitalize'>{t('common:company')}</h3>
-                <ul
-                  role='list'
-                  className='mt-6 space-y-4'>
-                  {companyLinks.map((item) => (
-                    <li key={item.text}>
-                      <Button
-                        key={item.text}
-                        asChild
-                        tone='secondary'
-                        variant='link'
-                        className='font-light text-slate-400'
-                      >
-                        <a href={item.link}>
-                          {item.text}
-                        </a>
-                      </Button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div></div>
+            <div>
+              <h3 className='text-sm font-normal text-white capitalize'>{t('common:company')}</h3>
+              <ul
+                role='list'
+                className='mt-6 space-y-4'>
+                {companyLinks.map((item) => (
+                  <li key={item.text}>
+                    <Button
+                      key={item.text}
+                      asChild
+                      tone='secondary'
+                      variant='link'
+                      className='font-light text-slate-400'
+                    >
+                      <a href={item.link}>
+                        {item.text}
+                      </a>
+                    </Button>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
