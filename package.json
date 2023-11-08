@@ -19,7 +19,7 @@
     "buffer-image-size": "^0.6.4",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
-    "framer-motion": "^10.12.4",
+    "framer-motion": "^10.16.4",
     "gray-matter": "^4.0.3",
     "humanize-duration": "^3.28.0",
     "next": "latest",
