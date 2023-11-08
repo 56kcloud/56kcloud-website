@@ -18,7 +18,7 @@ export default function Header() {
   return (
     <header className='absolute inset-x-0 top-0 z-50 flex justify-center'>
       <nav
-        className='flex items-center justify-between w-full p-6 max-w-7xl'
+        className='flex items-center justify-between w-full p-6 pt-14 max-w-7xl'
         aria-label='Global'>
         <div className='flex lg:flex-1'>
           <Link
@@ -50,7 +50,6 @@ export default function Header() {
             </a>
           ))}
         </div>
-        <div className='hidden lg:flex lg:flex-1'/>
       </nav>
       <Dialog
         as='div'

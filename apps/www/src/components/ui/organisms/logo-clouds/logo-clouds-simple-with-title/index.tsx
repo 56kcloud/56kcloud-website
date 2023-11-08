@@ -8,7 +8,7 @@ export type LogoCloudsSimpleWithTitleProps = {
 
 export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTitleProps) { 
   return (
-    <div className='py-24 sm:py-32'>
+    <div className='py-24 sm:py-[104px]'>
       <div className='px-6 mx-auto max-w-7xl lg:px-8'>
         <h2 className='text-lg font-semibold leading-8 text-center text-white'>
           {props.title}
@@ -18,9 +18,9 @@ export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTit
           {props.companies.map((company, index) => (
             <div
               key={index}
-              className='flex items-center justify-center w-full h-36 bg-slate-800 rounded-xl'>
+              className='flex items-center justify-center w-full p-11 h-36 bg-slate-800 rounded-xl'>
               <Image
-                className='w-auto h-8'
+                className='max-h-11'
                 src={company.image.src}
                 alt={company.name}
                 width={company.image.width}

@@ -33,15 +33,13 @@ export default function Footer(props: FooterProps) {
   ]
 
   return (
-    <footer
-      className='bg-gray-900'
-      aria-labelledby='footer-heading'>
+    <footer aria-labelledby='footer-heading'>
       <h2
         id='footer-heading'
         className='sr-only'>
         Footer
       </h2>
-      <div className='px-6 pt-16 pb-8 mx-auto max-w-7xl sm:pt-24 lg:px-8 lg:pt-32'>
+      <div className='px-6 pt-16 pb-8 mx-auto max-w-7xl sm:pt-24 lg:px-8 lg:pt-[104px]'>
         <div className='flex justify-between'>
           <div className='max-w-sm space-y-8'>
             <Logo className='h-5 text-white'/>

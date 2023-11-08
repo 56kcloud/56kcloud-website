@@ -90,7 +90,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
   }
   
   return (<div
-    className='relative isolate'
+    className='relative isolate sm:py-[104px]'
     id='contact-section'
   >
     <div className='grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2 bg-slate-800 rounded-xl'>
@@ -171,7 +171,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                   type='submit'
                   shape='circle'
                   size='large'
-                  className='px-5 text-md bg-sky-300 text-slate-900'>
+                  className='px-5 text-md bg-sky-300 text-slate-900 hover:bg-purple-300'>
                   Send Message
                 </Button>
               </div>

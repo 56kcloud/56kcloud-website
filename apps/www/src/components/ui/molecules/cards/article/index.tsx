@@ -25,7 +25,7 @@ export default function ArticleCard({article, sameHeight}: ArticleCardProps) {
       <Link
         href={`/blog/${article.slug}`}
         className={cn(
-          'relative flex flex-col overflow-hidden duration-200 cursor-pointer hover:scale-105',
+          'relative flex flex-col overflow-hidden cursor-pointer',
           sameHeight ? 'h-[500px]' : ''
         )}
       >

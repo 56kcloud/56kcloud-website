@@ -14,21 +14,25 @@ export type SimpleCenteredWithBackgroundProps = {
 
 export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWithBackgroundProps) {
   return (
-    <div className='relative pt-20 overflow-hidden isolate'>
-      <div className='flex justify-between px-6 py-32 mx-auto max-w-7xl sm:py-48 lg:py-56'>
+    <div className='relative overflow-hidden pt-28 isolate'>
+      <div className='flex justify-between px-6 pt-32 mx-auto max-w-7xl sm:py-48 lg:pt-56 lg:pb-20'>
         <div className='max-w-[625px]'>
-          <h1 className='text-4xl font-normal text-white sm:text-[60px] sm:leading-[64px]'>
+          <h1
+            className='text-4xl font-normal text-transparent bg-clip-text bg-gradient-to-l from-purple-300 \
+            via-sky-300 to-purple-300 sm:text-[60px] sm:leading-[64px] from-10% to-90%'>
             {props.title}
           </h1>
           <p className='mt-6 text-lg font-light leading-8 sm:text-[24px] sm:leading-[34px] text-slate-400'>
             {props.subtitle}
           </p>
-          <div className='flex items-center justify-center mt-10 gap-x-6'>
+          <div className='flex items-center justify-start mt-10 gap-x-6'>
             {props.leftCTA.text
               ? <Button
                 asChild
                 size='large'
                 tone={props.leftCTA.tone}
+                shape='circle'
+                className='px-5 text-md bg-sky-300 text-slate-900 hover:bg-purple-300'
               >
                 <Link href={props.leftCTA.link}>
                   {props.leftCTA.text}

@@ -42,7 +42,7 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
   ))
   
   return (
-    <div className='py-24 sm:py-32'>
+    <div className='py-24 sm:py-[104px]'>
       <div className='px-6 mx-auto max-w-7xl lg:px-8'>
         <div className='max-w-2xl mx-auto lg:mx-0'>
           <h2 className='text-3xl font-medium text-white sm:text-4xl'>{props.title}</h2>
