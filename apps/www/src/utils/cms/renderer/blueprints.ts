@@ -88,14 +88,14 @@ export const footerBlueprint: ComponentBlueprint = {
     text: 'text',
     solutions: [
       {
-        text: 'title',
-        link: 'slug'
+        title: 'title',
+        slug: 'slug'
       }
     ],
     services: [
       {
-        text: 'title',
-        link: 'slug'
+        title: 'title',
+        slug: 'slug'
       }
     ]
   }
