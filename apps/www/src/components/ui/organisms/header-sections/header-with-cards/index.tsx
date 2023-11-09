@@ -1,6 +1,8 @@
 import {CardWithIcon} from '@/models/card.model'
 import {ImageProps} from '@/models/image.model'
 import Icon from '@/components/ui/atoms/icon'
+import Image from 'next/image'
+import blurCyanImage from '@/../public/images/backgrounds/blur-cyan.png'
 
 export type HeaderWithCardsProps = {
   title: string
@@ -12,7 +14,16 @@ export type HeaderWithCardsProps = {
 export default function HeaderWithCards(props: HeaderWithCardsProps) {  
   return (
     <div className='relative py-24 overflow-hidden isolate sm:py-32'>
-      <div className='px-6 pt-32 mx-auto lg:pt-56 max-w-7xl'>
+      <Image
+        className='absolute -top-20 -left-40 lg:-left-28 opacity-50 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px]'
+        src={blurCyanImage}
+        alt=''
+        width={530}
+        height={530}
+        unoptimized
+        priority
+      />
+      <div className='px-6 pt-32 mx-auto lg:pt-44 max-w-7xl'>
         <div className='flex flex-col justify-between lg:flex-row gap-x-16'>
           <div className='w-full lg:w-2/6'>
             <h2
