@@ -3,6 +3,8 @@ import {ImageProps} from '@/models/image.model'
 import Button from '@/components/ui/atoms/button'
 import Image from 'next/image'
 import Link from 'next/link'
+import blurCyanImage from '@/../public/images/backgrounds/blur-cyan.png'
+
 
 export type SimpleCenteredWithBackgroundProps = {
   title: string
@@ -15,17 +17,26 @@ export type SimpleCenteredWithBackgroundProps = {
 export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWithBackgroundProps) {
   return (
     <div className='relative overflow-hidden pt-28 isolate'>
+      <Image
+        className='absolute -top-20 -left-40 lg:-left-28 opacity-50 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px]'
+        src={blurCyanImage}
+        alt=''
+        width={530}
+        height={530}
+        unoptimized
+        priority
+      />
       <div
         className='flex flex-col gap-x-8 justify-between px-6 pt-32 pb-20 mx-auto lg:flex-row max-w-7xl lg:py-28 \
-        lg:pt-56 lg:pb-20 gap-y-24'>
+        lg:pt-48 lg:pb-20 gap-y-24'>
         <div className='w-full lg:w-3/5'>
           <div className='max-w-none lg:max-w-[700px]'>
             <h1
-              className='text-4xl font-normal text-transparent bg-clip-text bg-gradient-to-l from-purple-300 \
-            via-sky-300 to-purple-300 sm:text-[60px] sm:leading-[64px] from-10% to-90%'>
+              className='text-[44px] leading-[48px] font-normal text-transparent bg-clip-text bg-gradient-to-l \
+              from-purple-300 via-sky-300 to-purple-300 sm:text-[60px] sm:leading-[64px] from-10% to-90%'>
               {props.title}
             </h1>
-            <p className='mt-6 text-lg font-light leading-8 sm:text-[24px] sm:leading-[34px] text-slate-400'>
+            <p className='mt-6 text-xl font-light leading-8 sm:text-[24px] sm:leading-[34px] text-slate-400'>
               {props.subtitle}
             </p>
             <div className='flex items-center justify-start mt-10 gap-x-6'>

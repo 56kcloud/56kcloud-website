@@ -18,14 +18,14 @@ export default function Header() {
   return (
     <header className='absolute inset-x-0 top-0 z-50 flex justify-center'>
       <nav
-        className='flex items-center justify-between w-full p-6 pt-14 max-w-7xl'
+        className='flex items-center justify-between w-full p-6 pt-8 lg:pt-14 max-w-7xl'
         aria-label='Global'>
         <div className='flex lg:flex-1'>
           <Link
             href='/'
             className='-m-1.5 p-1.5 text-white'>
             <span className='sr-only'>56k Cloud</span>
-            <Logo className='h-8'/>
+            <Logo className='h-7 lg:h-8'/>
           </Link>
         </div>
         <div className='flex lg:hidden'>
@@ -36,7 +36,7 @@ export default function Header() {
           >
             <span className='sr-only'>Open main menu</span>
             <Bars3Icon
-              className='w-6 h-6'
+              className='w-7 h-7'
               aria-hidden='true'/>
           </button>
         </div>
