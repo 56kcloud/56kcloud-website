@@ -12,18 +12,20 @@ export type HeaderWithCardsProps = {
 export default function HeaderWithCards(props: HeaderWithCardsProps) {  
   return (
     <div className='relative py-24 overflow-hidden isolate sm:py-32'>
-      <div className='px-6 pt-32 mx-auto lg:pt-56 max-w-7xl lg:px-8'>
+      <div className='px-6 pt-32 mx-auto lg:pt-56 max-w-7xl'>
         <div className='flex flex-col justify-between lg:flex-row gap-x-16'>
           <div className='w-full lg:w-2/6'>
             <h2
-              className='w-full md:w-3/4 lg:w-full text-[44px] leading-[48px] xl:text-5xl xl:leading-[52px] \
-              font-normal text-transparent bg-clip-text bg-gradient-to-l from-purple-300 via-sky-300 to-purple-300 \
-              from-10% to-90%'>
+              className='w-full md:w-3/4 lg:w-full text-4xl sm:text-[44px] sm:leading-[48px] xl:text-5xl \
+              xl:leading-[52px] font-normal text-transparent bg-clip-text bg-gradient-to-l from-purple-300 \
+              via-sky-300 to-purple-300 from-10% to-90%'>
               {props.title}
             </h2>
           </div>
           <div className='w-full mt-10 lg:mt-0 lg:pl-8 lg:border-l lg:w-4/6 lg:border-slate-800'>
-            <p className='w-full md:w-3/4 text-[20px] leading-8 text-slate-400 font-light'>{props.subtitle}</p>
+            <p className='w-full md:w-3/4 lg:w-full text-[20px] leading-8 text-slate-400 font-light'>
+              {props.subtitle}
+            </p>
             <div
               className='flex flex-col mt-20 gap-y-6'>
               {props.cards.map((card) => (
