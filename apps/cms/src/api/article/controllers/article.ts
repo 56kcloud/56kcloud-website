@@ -15,15 +15,12 @@ async function getBySlug(ctx) {
       'author.avatar',
       'image',
       'tags',
-      'relatedArticles',
+      'openGraph.image',
       'relatedArticles.image',
       'relatedArticles.author',
       'relatedArticles.author.avatar',
-      'relatedPartners',
       'relatedPartners.logo',
-      'relatedServices',
       'relatedServices.image',
-      'relatedSolutions',
       'relatedSolutions.image'
     ]
   })
