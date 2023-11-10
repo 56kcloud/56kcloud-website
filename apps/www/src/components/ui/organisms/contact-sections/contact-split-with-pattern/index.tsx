@@ -172,7 +172,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                     type='submit'
                     shape='circle'
                     size='large'
-                    className='px-5 text-md bg-sky-300 text-slate-900 hover:bg-purple-300'>
+                    className='px-5 text-md bg-sky-300 text-slate-900 hover:bg-violet-300'>
                   Send Message
                   </Button>
                 </div>

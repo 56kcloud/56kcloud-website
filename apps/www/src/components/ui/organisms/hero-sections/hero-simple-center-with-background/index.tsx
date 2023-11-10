@@ -33,7 +33,7 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
           <div className='max-w-none lg:max-w-[700px]'>
             <h1
               className='text-[44px] leading-[48px] font-normal text-transparent bg-clip-text bg-gradient-to-l \
-              from-purple-300 via-sky-300 to-purple-300 sm:text-[60px] sm:leading-[64px] from-10% to-90%'>
+              from-violet-300 via-sky-300 to-violet-300 sm:text-[60px] sm:leading-[64px] from-10% to-90%'>
               {props.title}
             </h1>
             <p className='mt-6 text-xl font-light leading-8 sm:text-[24px] sm:leading-[34px] text-slate-400'>
@@ -46,7 +46,7 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
                   size='large'
                   tone={props.leftCTA.tone}
                   shape='circle'
-                  className='px-5 text-md bg-sky-300 text-slate-900 hover:bg-purple-300'
+                  className='px-5 text-md bg-sky-300 text-slate-900 hover:bg-violet-300'
                 >
                   <Link href={props.leftCTA.link}>
                     {props.leftCTA.text}
@@ -80,7 +80,7 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
               height={props.image.height}
               className='object-cover object-center'
             />
-            <div className='absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-sky-300/30 to-purple-300/60'/>
+            <div className='absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-sky-300/30 to-violet-300/60'/>
           </div>
         </div>
       </div>
