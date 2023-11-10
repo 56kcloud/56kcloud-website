@@ -27,13 +27,13 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
         priority
       />
       <div
-        className='flex flex-col gap-x-8 justify-between px-6 pt-32 pb-20 mx-auto lg:flex-row max-w-7xl lg:py-28 \
-        lg:pt-48 lg:pb-20 gap-y-24'>
+        className='flex flex-col gap-x-8 justify-between px-6 pt-14 sm:pt-32 pb-20 mx-auto lg:flex-row max-w-7xl \
+        lg:py-28 lg:pt-48 lg:pb-20 gap-y-24'>
         <div className='w-full lg:w-3/5'>
           <div className='max-w-none lg:max-w-[700px]'>
             <h1
               className='text-[44px] leading-[48px] font-normal text-transparent bg-clip-text bg-gradient-to-l \
-              from-purple-300 via-sky-300 to-purple-300 sm:text-[60px] sm:leading-[64px] from-10% to-90%'>
+              from-violet-300 via-sky-300 to-violet-300 sm:text-[60px] sm:leading-[64px] from-10% to-90%'>
               {props.title}
             </h1>
             <p className='mt-6 text-xl font-light leading-8 sm:text-[24px] sm:leading-[34px] text-slate-400'>
@@ -46,7 +46,7 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
                   size='large'
                   tone={props.leftCTA.tone}
                   shape='circle'
-                  className='px-5 text-md bg-sky-300 text-slate-900 hover:bg-purple-300'
+                  className='px-5 text-md bg-sky-300 text-slate-900 hover:bg-violet-300'
                 >
                   <Link href={props.leftCTA.link}>
                     {props.leftCTA.text}
@@ -70,7 +70,7 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
           </div>
         </div>
         <div className='w-full lg:w-2/5'>
-          <div className='relative overflow-hidden rounded-xl aspect-w-10 aspect-h-6 lg:aspect-h-8'>
+          <div className='relative overflow-hidden rounded-xl aspect-w-10 aspect-h-6 lg:aspect-h-8 lg:w-full h-96'>
             <Image
               alt={'Background'}
               src={props.image.src}
@@ -80,7 +80,7 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
               height={props.image.height}
               className='object-cover object-center'
             />
-            <div className='absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-sky-300/30 to-purple-300/60'/>
+            <div className='absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-sky-300/30 to-violet-300/60'/>
           </div>
         </div>
       </div>
