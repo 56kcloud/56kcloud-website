@@ -18,7 +18,7 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
   return (
     <div className='relative overflow-hidden pt-28 isolate'>
       <Image
-        className='absolute -top-20 -left-40 lg:-left-28 opacity-50 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px]'
+        className='absolute -top-20 -left-40 lg:-left-28 opacity-50 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px] -z-10'
         src={blurCyanImage}
         alt=''
         width={530}
