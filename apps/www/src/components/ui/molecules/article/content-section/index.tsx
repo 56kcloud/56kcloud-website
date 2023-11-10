@@ -22,7 +22,7 @@ export default function ArticleContentSection(
 ) {
   content = `# ${title} \n ${content}`
   return (<div className='flex items-center justify-center pt-24 sm:pt-32'>
-    <div className='px-6 mx-auto max-w-7xl lg:px-8'>
+    <div className='w-full px-6 mx-auto max-w-7xl lg:px-8'>
       <div 
         className='z-50 w-full h-full overflow-auto bg-white/5 max-w-7xl rounded-xl overscroll-contain'
       >
