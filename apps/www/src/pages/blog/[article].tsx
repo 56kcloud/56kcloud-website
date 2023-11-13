@@ -23,7 +23,16 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const article = context.params?.article || ''
-  const props = await getPageProps(`articles/${article}`, context.locale)
-  return {props}
+  try {
+    const article = context.params?.article || ''
+    const props = await getPageProps(`articles/${article}`, context.locale)
+    return {props}
+  } catch(err) {
+    return {
+      redirect: {
+        destination: '/blog',
+        permanent: false
+      }
+    }
+  }
 }
