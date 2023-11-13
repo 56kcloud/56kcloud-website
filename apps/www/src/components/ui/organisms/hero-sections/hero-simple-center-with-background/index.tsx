@@ -17,18 +17,19 @@ export type SimpleCenteredWithBackgroundProps = {
 export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWithBackgroundProps) {
   return (
     <div className='relative overflow-hidden pt-28 isolate'>
-      <Image
-        className='absolute -top-20 -left-40 lg:-left-28 opacity-50 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px] -z-10'
-        src={blurCyanImage}
-        alt=''
-        width={530}
-        height={530}
-        unoptimized
-        priority
-      />
       <div
-        className='flex flex-col gap-x-8 justify-between px-6 pt-14 sm:pt-32 pb-20 mx-auto lg:flex-row max-w-7xl \
-        lg:py-28 lg:pt-48 lg:pb-20 gap-y-24'>
+        className='relative flex flex-col justify-between px-6 pb-20 mx-auto gap-x-8 pt-14 sm:pt-32 lg:flex-row \
+        max-w-7xl lg:py-28 lg:pt-48 lg:pb-20 gap-y-24'>
+        <Image
+          className='absolute -top-48 -left-40 lg:-left-96 opacity-50 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px] \
+          -z-10'
+          src={blurCyanImage}
+          alt=''
+          width={530}
+          height={530}
+          unoptimized
+          priority
+        />
         <div className='w-full lg:w-3/5'>
           <div className='max-w-none lg:max-w-[700px]'>
             <h1
