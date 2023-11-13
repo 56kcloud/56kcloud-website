@@ -7,6 +7,17 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/',
+        has: [
+          {
+            type: 'host',
+            value: 'blog.56k.cloud',
+          },
+        ],
+        destination: 'https://www.56k.cloud/blog',
+        permanent: false
+      },
+      {
         source: '/:slug',
         has: [
           {
