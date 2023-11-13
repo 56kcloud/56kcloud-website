@@ -1,13 +1,13 @@
 import {Solution} from '@/models/solution.model'
-import FeatureThreeColumnWithLargeIcons from '../../feature-sections/feature-three-column-with-large-icons'
+import FeatureOneColumn from '@/components/ui/organisms/feature-sections/feature-one-column'
 
-export type SolutionThreeColumnWithLargeIcons = {
+export type SolutionOneColumnProps = {
   title: string
   subtitle: string
   solutions: Array<Solution>
 }
 
-export default function SolutionThreeColumnWithLargeIcons(props: SolutionThreeColumnWithLargeIcons) { 
+export default function SolutionOneColumn(props: SolutionOneColumnProps) { 
   const features = props.solutions.map((solution) => {
     return {
       icon: solution.icon,
@@ -18,7 +18,7 @@ export default function SolutionThreeColumnWithLargeIcons(props: SolutionThreeCo
   })
 
   return (
-    <FeatureThreeColumnWithLargeIcons
+    <FeatureOneColumn
       title={props.title}
       subtitle={props.subtitle}
       features={features}/>
