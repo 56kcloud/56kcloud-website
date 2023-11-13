@@ -1,5 +1,6 @@
 import {Article} from '@/models/article.model'
 import {DateTime} from 'luxon'
+import {cn} from '@/utils/toolbox'
 import {useEffect, useState} from 'react'
 import {useRouter} from 'next/router'
 import ArticleCard from '@/components/ui/molecules/cards/article'
@@ -43,7 +44,7 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
   
   return (
     <div className='py-20 lg:py-[104px]'>
-      <div className='px-6 pt-32 mx-auto lg:pt-44 max-w-7xl'>
+      <div className={cn(hasMoreThanOneRow && 'pt-32 lg:pt-44', 'px-6 mx-auto max-w-7xl')}>
         <div className='max-w-2xl mr-auto lg:max-w-3xl lg:mx-0'>
           <h2 className='text-3xl font-medium text-white sm:text-4xl'>{props.title}</h2>
           <p className='mt-8 text-[20px] leading-8 text-slate-400 font-light'>
