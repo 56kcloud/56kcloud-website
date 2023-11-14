@@ -23,7 +23,7 @@ export default function HeaderWithCards(props: HeaderWithCardsProps) {
         unoptimized
         priority
       />
-      <div className='px-6 pt-32 mx-auto lg:pt-44 max-w-7xl'>
+      <div className='px-6 pt-20 mx-auto lg:pt-44 max-w-7xl'>
         <div className='flex flex-col justify-between lg:flex-row gap-x-16'>
           <div className='w-full lg:w-2/6'>
             <h2
