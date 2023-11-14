@@ -71,6 +71,38 @@ const CardWithIconBlueprint = {
   icon: 'icon'
 }
 
+const authorBlueprint = {
+  name: 'author.name',
+  avatar: imageBlueprint('author.avatar')
+}
+
+const articleBlueprint = {
+  title: 'title',
+  description: 'description',
+  slug: 'slug',
+  readTime: 'readTime',
+  tags: [tagBlueprint],
+  publishedOn: 'publishedOn',
+  image: imageBlueprint(),
+  author: authorBlueprint
+}
+
+const solutionBlueprint = {
+  title: 'title',
+  description: 'description',
+  slug: 'slug',
+  icon: 'icon'
+}
+
+const serviceBlueprint = solutionBlueprint
+
+const footerSolutionsBlueprint = {
+  title: 'title',
+  slug: 'slug'
+}
+
+const footerServicesBlueprint = footerSolutionsBlueprint
+
 function teamMemberBlueprint(name='') {
   return {
     name: `${name}${name ? '.' : ''}name`,
@@ -87,18 +119,8 @@ export const footerBlueprint: ComponentBlueprint = {
   component: Footer,
   props: {
     text: 'text',
-    solutions: [
-      {
-        title: 'title',
-        slug: 'slug'
-      }
-    ],
-    services: [
-      {
-        title: 'title',
-        slug: 'slug'
-      }
-    ]
+    solutions: [footerSolutionsBlueprint],
+    services: [footerServicesBlueprint]
   }
 }
 
@@ -134,10 +156,7 @@ export const articleContentBlueprint: ComponentBlueprint = {
     title: 'title',
     content: 'content',
     publishedOn: 'publishedOn',
-    author: {
-      name: 'author.name',
-      avatar: imageBlueprint('author.avatar')
-    },
+    author: authorBlueprint,
     tags: [tagBlueprint],
     image: imageBlueprint()
   }
@@ -149,19 +168,7 @@ export const blogThreeColumnBlueprint: ComponentBlueprint = {
     title: 'title',
     subtitle: 'subtitle',
     articles: [
-      {
-        title: 'title',
-        description: 'description',
-        slug: 'slug',
-        readTime: 'readTime',
-        tags: [tagBlueprint],
-        publishedOn: 'publishedOn',
-        image: imageBlueprint(),
-        author: {
-          name: 'author.name',
-          avatar: imageBlueprint('author.avatar')
-        }
-      }
+      articleBlueprint
     ]
   }
 }
@@ -171,21 +178,7 @@ export const blogMasonryBlueprint: ComponentBlueprint = {
   props: {
     title: 'title',
     subtitle: 'subtitle',
-    articles: [
-      {
-        title: 'title',
-        description: 'description',
-        slug: 'slug',
-        readTime: 'readTime',
-        tags: [tagBlueprint],
-        publishedOn: 'publishedOn',
-        image: imageBlueprint(),
-        author: {
-          name: 'author.name',
-          avatar: imageBlueprint('author.avatar')
-        }
-      }
-    ]
+    articles: [articleBlueprint]
   }
 }
 
@@ -194,14 +187,7 @@ export const solutionThreeColumnWithLargeIconsBlueprint: ComponentBlueprint = {
   props: {
     title: 'title',
     subtitle: 'subtitle',
-    solutions: [
-      {
-        title: 'title',
-        description: 'description',
-        slug: 'slug',
-        icon: 'icon'
-      }
-    ]
+    solutions: [solutionBlueprint]
   }
 }
 
@@ -210,14 +196,7 @@ export const servicesThreeColumnWithLargeIconsBlueprint: ComponentBlueprint = {
   props: {
     title: 'title',
     subtitle: 'subtitle',
-    services: [
-      {
-        title: 'title',
-        description: 'description',
-        slug: 'slug',
-        icon: 'icon'
-      }
-    ]
+    services: [serviceBlueprint]
   }
 }
 

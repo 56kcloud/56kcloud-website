@@ -1,57 +1,78 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import {blurImageHostname} from '../../../../configs/server'
 import {deepFind} from '../../toolbox'
-import {getPlaiceholder} from 'plaiceholder'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function getPropsFromNestedObjects(schema: Record<string, any>, object: Record<string, any>) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const temp: Record<string, any> = {}
+type Schema = Record<string, any>;
+type ObjectType = Record<string, any>;
+type Props = Record<string, any>;
+
+type Keys = {
+  oldKey: string,
+  newKey: string,
+  value: any
+};
+
+export async function getComponentProps(schema: Schema, object: ObjectType): Promise<Props> {
+  const props: Props = {}
   const schemaDeepCopy = {...schema}
-  const keys = Object.keys(schemaDeepCopy).map((key) => {
+
+  const keys: Keys[] = Object.entries(schemaDeepCopy).map(([key, value]) => {
     const split = key.split('->')
-    if (split.length > 1) {
-      schemaDeepCopy[split[0]] = schemaDeepCopy[key]
-      delete schemaDeepCopy[key]
-    }
-    return split
+    const newKeyName = split.length > 1 ? split[1] : key
+
+    schemaDeepCopy[newKeyName] = split.length > 1 ? value : schemaDeepCopy[key]
+    if (split.length > 1) delete schemaDeepCopy[key]
+
+    return {oldKey: split[0], newKey: newKeyName, value: schemaDeepCopy[newKeyName]}
   })
-  for (const keyIndex in keys) {
-    const [oldKey, newKey] = keys[keyIndex]
-    const key = newKey || oldKey
-    if (typeof (schemaDeepCopy[oldKey]) !== 'object') {
-      const options = schemaDeepCopy[oldKey].split('||')
-      for (const optionIndex in options) {
-        const path = options[optionIndex].split('.')
-        const pathFirstKey = path[0]
-        path.shift()
-        const value = deepFind(object, options[optionIndex].trim()) 
-        || deepFind(object, `${pathFirstKey}.data.attributes.${path.join('.')}`)
-        || path.splice(path.length - 1, 1, oldKey) && deepFind(object, `${pathFirstKey}.${path.join('.')}`)
-        if (oldKey === 'blurDataURL' && value) {
-          try {
-            const res = await fetch(value, {method: 'GET'})
-            const buffer = Buffer.from(await res.arrayBuffer())
-            const {base64} = await getPlaiceholder(buffer)
-            temp[key] = base64
-          } catch (error) {
-            temp[key] = null
-          }
-          break
-        } else {
-          temp[key] = value || null
-          break
-        }
-      }
-    } else if (Array.isArray(schemaDeepCopy[oldKey])) {
-      const array = object[oldKey]?.data || object[oldKey]
-      temp[key] = []
-      for (const itemIndex in array) {
-        const item = array[itemIndex]
-        temp[key].push(await getPropsFromNestedObjects(schemaDeepCopy[oldKey][0], item.attributes || item))
-      }
-    } else {
-      temp[key] = {}
-      temp[key] = await getPropsFromNestedObjects(schemaDeepCopy[oldKey], object)
+
+  for (const entry of keys) {
+    const {oldKey, newKey, value} = entry
+    if (typeof value !== 'object') {
+      await processNonObject(object, props, oldKey, newKey, value)
+    }
+    else if (Array.isArray(value)) {
+      await processArray(schemaDeepCopy, object, props, oldKey, newKey)
+    }
+    else {
+      props[newKey] = await getComponentProps(value, object)
     }
   }
-  return temp
+  return props
+}
+
+async function processNonObject(
+  object: ObjectType, props: Props, oldKey: string, key: string, value: any
+): Promise<void> {
+  const options = value.split('||')
+  for (const option of options) {
+    const path = option.split('.')
+    const pathFirstKey = path.shift()
+    const foundValue = deepFind(object, option.trim())
+      || deepFind(object, `${pathFirstKey}.data.attributes.${path.join('.')}`)
+      || path.splice(path.length - 1, 1, oldKey) && deepFind(object, `${pathFirstKey}.${path.join('.')}`)
+    if (oldKey === 'blurDataURL' && foundValue) {
+      try {
+        const res = await fetch(`${blurImageHostname}/_next/image?url=${foundValue}&w=16&q=75`, {method: 'GET'})
+        const base64 = Buffer.from((await res.arrayBuffer())).toString('base64')
+        props[key] = base64
+      } catch (error) {
+        props[key] = null
+      }
+      break
+    } else {
+      props[key] = foundValue || null
+      break
+    }
+  }
+}
+
+async function processArray(
+  schema: Schema, object: ObjectType, props: Props, oldKey: string, newKey: string
+): Promise<void> {
+  const array = object[oldKey]?.data || object[oldKey]
+  props[newKey] = []
+  for (const item of array) {
+    props[newKey].push(await getComponentProps(schema[newKey][0], item.attributes || item))
+  }
 }
