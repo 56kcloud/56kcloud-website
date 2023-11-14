@@ -6,10 +6,11 @@ import Image from 'next/image'
 
 type CardCoverProps = {
   image: ImageProps
+  className?: string
   fixedHeight?: boolean
 }
 
-export default function CardCover({image, fixedHeight}: CardCoverProps) {
+export default function CardCover({image, fixedHeight, className}: CardCoverProps) {
   const [isLoaded, setIsLoaded] = useState(false)
   
   const [height, setHeight] = useState('200px')
@@ -26,7 +27,7 @@ export default function CardCover({image, fixedHeight}: CardCoverProps) {
   }, [])
   return (
     <div
-      className='relative w-full h-full overflow-hidden rounded-xl'
+      className={cn('relative w-full h-full overflow-hidden rounded-xl', className)}
       ref={coverParent}
       style={{height: fixedHeight ? '200px' : `${image.width * (parseInt(height)/image.width)}px`}}
     >
@@ -41,7 +42,7 @@ export default function CardCover({image, fixedHeight}: CardCoverProps) {
         alt={image.alt || 'post-cover'}
         onLoadingComplete={() => {setIsLoaded(true)}}
         fill
-        className={cn('object-cover bg-white')}
+        className={cn('object-cover', isLoaded && 'bg-white')}
       />
     </div>
   )

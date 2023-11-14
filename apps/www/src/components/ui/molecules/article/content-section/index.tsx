@@ -4,7 +4,7 @@ import {Tag} from '@/models/tag.model'
 import {TeamMember} from '@/models/team-member'
 import {formatDate} from '@/utils/toolbox'
 import Avatar from '@/components/ui/atoms/avatar'
-import PostCover from '../../cards/cover'
+import CardCover from '../../cards/cover'
 import PostTagList from '../../cards/article/tag-list'
 import React from 'react'
 
@@ -26,7 +26,8 @@ export default function ArticleContentSection(
       <div 
         className='z-50 w-full h-full overflow-auto bg-white/5 max-w-7xl rounded-xl overscroll-contain'
       >
-        <PostCover
+        <CardCover
+          className='rounded-b-none'
           image={image}
         />
         <div className='w-full p-6 md:p-10'>
