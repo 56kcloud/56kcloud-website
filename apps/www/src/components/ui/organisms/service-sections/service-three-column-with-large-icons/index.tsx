@@ -1,5 +1,5 @@
 import {Service} from '@/models/service.model'
-import FeatureThreeColumnWithLargeIcons from '../../feature-sections/feature-three-column-with-large-icons'
+import FeatureAlternatePositionIcon from '@/components/ui/organisms/feature-sections/feature-alternate-position-icon'
 
 export type ServiceThreeColumnWithLargeIcons = {
   title: string
@@ -18,7 +18,7 @@ export default function ServiceThreeColumnWithLargeIcons(props: ServiceThreeColu
   })
 
   return (
-    <FeatureThreeColumnWithLargeIcons
+    <FeatureAlternatePositionIcon
       title={props.title}
       subtitle={props.subtitle}
       features={features}/>
