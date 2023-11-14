@@ -794,7 +794,9 @@ export interface ApiBlogPageBlogPage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    body: Attribute.DynamicZone<['blog-sections.blog-three-column']>;
+    body: Attribute.DynamicZone<
+      ['blog-sections.blog-three-column', 'blog-sections.blog-masonry']
+    >;
     openGraph: Attribute.Component<'seo.open-graph'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

@@ -15,7 +15,8 @@
     "body": {
       "type": "dynamiczone",
       "components": [
-        "blog-sections.blog-three-column"
+        "blog-sections.blog-three-column",
+        "blog-sections.blog-masonry"
       ]
     },
     "openGraph": {

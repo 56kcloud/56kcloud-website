@@ -6,10 +6,10 @@ import Image from 'next/image'
 
 type CardCoverProps = {
   image: ImageProps
-  sameHeight?: boolean
+  fixedHeight?: boolean
 }
 
-export default function CardCover({image, sameHeight}: CardCoverProps) {
+export default function CardCover({image, fixedHeight}: CardCoverProps) {
   const [isLoaded, setIsLoaded] = useState(false)
   
   const [height, setHeight] = useState('200px')
@@ -28,7 +28,7 @@ export default function CardCover({image, sameHeight}: CardCoverProps) {
     <div
       className='relative w-full h-full overflow-hidden rounded-xl'
       ref={coverParent}
-      style={{height: sameHeight ? '200px' : `${image.width * (parseInt(height)/image.width)}px`}}
+      style={{height: fixedHeight ? '200px' : `${image.width * (parseInt(height)/image.width)}px`}}
     >
       {!isLoaded
         ? <div className='flex items-center justify-center w-full h-full p-10 bg-white/10 animate-pulse grayscale'>

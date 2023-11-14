@@ -3,15 +3,16 @@ import {DateTime} from 'luxon'
 import {useEffect, useState} from 'react'
 import {useRouter} from 'next/router'
 import ArticleCard from '@/components/ui/molecules/cards/article'
+import MasonryLayout from '@/components/ui/molecules/masonry'
 import slugify from 'slugify'
 
-export type BlogThreeColumnProps = {
+export type BlogMasonryProps = {
   title: string
   subtitle: string
   articles: Array<Article>
 }
 
-export default function BlogThreeColumn(props: BlogThreeColumnProps) {
+export default function BlogMasonry(props: BlogMasonryProps) {
   const router = useRouter()
   const queryTag = router.query.tag
   const [filteredPosts, setFilteredPosts] = useState<Array<Article>>([])
@@ -33,13 +34,13 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
     <ArticleCard
       key={article.slug}
       article={article}
-      fixedHeight
+      className='flex-1'
     />
   ))
   
   return (
     <div className='py-20 lg:py-[104px]'>
-      <div className='px-6 mx-auto max-w-7xl'>
+      <div className='px-6 pt-32 mx-auto max-w-7xl lg:pt-44'>
         <div className='max-w-2xl mr-auto lg:max-w-3xl lg:mx-0'>
           <h2 className='text-3xl font-medium text-white sm:text-4xl'>{props.title}</h2>
           <p className='mt-8 text-[20px] leading-8 text-slate-400 font-light'>
@@ -49,9 +50,9 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
         <div
           className='mt-10 sm:mt-16'
         >
-          <div className='grid grid-cols-1 gap-6 gap-y-10 md:grid-cols-2 lg:grid-cols-3'>
+          <MasonryLayout>
             {articles}
-          </div>
+          </MasonryLayout>
         </div>
       </div>
     </div>

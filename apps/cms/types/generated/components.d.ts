@@ -10,6 +10,22 @@ export interface BenefitBenefit extends Schema.Component {
   };
 }
 
+export interface BlogSectionsBlogMasonry extends Schema.Component {
+  collectionName: 'components_blog_sections_blog_masonries';
+  info: {
+    displayName: 'blog-masonry';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.Text & Attribute.Required;
+    articles: Attribute.Relation<
+      'blog-sections.blog-masonry',
+      'oneToMany',
+      'api::article.article'
+    >;
+  };
+}
+
 export interface BlogSectionsBlogThreeColumn extends Schema.Component {
   collectionName: 'components_blog_sections_blog_three_columns';
   info: {
@@ -602,6 +618,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'benefit.benefit': BenefitBenefit;
+      'blog-sections.blog-masonry': BlogSectionsBlogMasonry;
       'blog-sections.blog-three-column': BlogSectionsBlogThreeColumn;
       'cards.card-with-icon': CardsCardWithIcon;
       'contact-sections.contact-split-with-pattern': ContactSectionsContactSplitWithPattern;

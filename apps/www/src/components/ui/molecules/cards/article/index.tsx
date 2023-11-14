@@ -9,10 +9,10 @@ import Link from 'next/link'
 type ArticleCardProps = {
   article: Article
   className?: string
-  sameHeight?: boolean
+  fixedHeight?: boolean
 }
 
-export default function ArticleCard({article, sameHeight}: ArticleCardProps) {
+export default function ArticleCard({article, fixedHeight}: ArticleCardProps) {
   const publishedOn = formatDate(article.publishedOn)
   return (
     <motion.div
@@ -20,23 +20,25 @@ export default function ArticleCard({article, sameHeight}: ArticleCardProps) {
       animate={{opacity: 1}}
       exit={{opacity: 0}}
       transition={{duration: 0.2}}
-      className={cn(sameHeight ? 'flex-1' : '')}
+      className={cn(fixedHeight ? 'flex-1' : '')}
     >
       <Link
         href={`/blog/${article.slug}`}
         className={cn(
           'relative flex flex-col overflow-hidden cursor-pointer',
-          sameHeight ? 'h-[500px]' : ''
+          fixedHeight ? 'h-[500px]' : ''
         )}
       >
         <ArticleCover
           image={article.image}
-          sameHeight={sameHeight}
+          fixedHeight={fixedHeight}
         />
         <div className='flex flex-col flex-1 mt-9'>
-          <div className='flex items-center gap-x-4'>
+          <div className='flex items-center space-x-4'>
             <span className='text-sm font-light text-slate-400'>{publishedOn}</span>
-            <ArticleTagList tags={article.tags}/>
+            <div className='flex flex-1 h-10 overflow-x-auto'>
+              <ArticleTagList tags={article.tags}/>
+            </div>
           </div>
           <div>
             <h1
@@ -44,7 +46,10 @@ export default function ArticleCard({article, sameHeight}: ArticleCardProps) {
               {article.title}
             </h1>
             <p 
-              className='mt-6 text-base font-light leading-[26px] text-slate-400 line-clamp-3 h-20'>
+              className={cn(
+                'mt-6 text-base font-light leading-[26px] text-slate-400 line-clamp-3',
+                fixedHeight && 'h-20'
+              )}>
               {article.description}
             </p>
           </div>

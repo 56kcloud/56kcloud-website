@@ -1,6 +1,7 @@
 import {
   ComponentBlueprint,
   articleContentBlueprint,
+  blogMasonryBlueprint,
   blogThreeColumnBlueprint,
   contactSplitWithPatternBlueprint,
   contentMarkdownBlueprint,
@@ -32,6 +33,7 @@ export const componentBlueprints: ComponentBlueprints = {
   'hero-simple-center': heroSimpleCenterBlueprint,
   'hero-simple-center-with-background': heroSimpleCenterWithBackgroundBlueprint,
   'blog-three-column': blogThreeColumnBlueprint,
+  'blog-masonry': blogMasonryBlueprint,
   'contact-split-with-pattern': contactSplitWithPatternBlueprint,
   'service-three-column-with-large-icons': servicesThreeColumnWithLargeIconsBlueprint,
   'solution-three-column-with-large-icons': solutionThreeColumnWithLargeIconsBlueprint,

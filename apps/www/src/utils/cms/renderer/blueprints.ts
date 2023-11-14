@@ -1,6 +1,7 @@
 import {MarkdownViewer} from '@/components/ui/molecules/mardown'
 import {z} from 'zod'
 import ArticleContentSection from '@/components/ui/molecules/article/content-section'
+import BlogMasonry from '@/components/ui/organisms/blog-sections/blog-masonry'
 import BlogThreeColumn from '@/components/ui/organisms/blog-sections/blog-three-column'
 import ContactSplitWithPattern from '@/components/ui/organisms/contact-sections/contact-split-with-pattern'
 import ContentMarkdown from '@/components/ui/organisms/content-sections/content-markdown'
@@ -144,6 +145,29 @@ export const articleContentBlueprint: ComponentBlueprint = {
 
 export const blogThreeColumnBlueprint: ComponentBlueprint = {
   component: BlogThreeColumn,
+  props: {
+    title: 'title',
+    subtitle: 'subtitle',
+    articles: [
+      {
+        title: 'title',
+        description: 'description',
+        slug: 'slug',
+        readTime: 'readTime',
+        tags: [tagBlueprint],
+        publishedOn: 'publishedOn',
+        image: imageBlueprint(),
+        author: {
+          name: 'author.name',
+          avatar: imageBlueprint('author.avatar')
+        }
+      }
+    ]
+  }
+}
+
+export const blogMasonryBlueprint: ComponentBlueprint = {
+  component: BlogMasonry,
   props: {
     title: 'title',
     subtitle: 'subtitle',

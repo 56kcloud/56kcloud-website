@@ -23,7 +23,7 @@ export default function ArticleTagList({tags}: ArticleListProps) {
 
 
   return (
-    <div className='flex space-x-2 overflow-x-auto'>
+    <div className='flex items-center space-x-2'>
       {sortedTags?.map((tag) => {
         const tagName = slugify(tag.name).toLowerCase()
         const href = queryTag === tagName ? '/blog' : `/blog?tag=${tagName}`
