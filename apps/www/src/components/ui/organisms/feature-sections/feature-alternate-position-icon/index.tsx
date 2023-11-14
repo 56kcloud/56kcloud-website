@@ -13,13 +13,13 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
     <div className='py-20 lg:py-[104px]'>
       <div className='px-6 mx-auto max-w-7xl lg:px-8'>
         <div className='mt-11'>
-          <dl className='grid grid-cols-1 gap-x-6 gap-y-6'>
+          <dl className='grid grid-cols-1 gap-x-6 gap-y-36'>
             {props.features?.map((feature, index) => (
               <div
                 key={index}
                 className='max-w-5xl mx-auto'>
                 <a href={feature.link}>
-                  <div className={cn('flex flex-row', index % 2 !== 0 ? 'flex-row-reverse' : '')}>
+                  <div className={cn('flex flex-row gap-x-14', index % 2 !== 0 ? 'flex-row-reverse' : '')}>
                     <div>
                       <Icon
                         {...feature.icon}
