@@ -1,35 +1,9 @@
-type PathList = Array<string>
+import {Common} from '@strapi/strapi'
 
-export function pathMatch (url: string, path: string): boolean{
-  const urlParts = url.split('/').filter(Boolean)
-  const pathParts = path.split('/').filter(Boolean)
-  if (urlParts.length !== pathParts.length) return false
-  return pathParts.every((part, i) => part.startsWith('[') && part.endsWith(']') || part === urlParts[i])
-}
-
-export function closestMatch(url: string, paths: PathList): string | undefined {
-  return paths.find(path => pathMatch(url, path))
-}
-
-export function kebabToCamel(kebabCase: string): string {
-  return kebabCase.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())
-}
-
-export async function bodyHandler(contentType, locale = 'en', needRelatedSections = false) {
+export async function bodyHandler(contentType, locale = 'en') {
   contentType.body = Array.isArray(contentType.body) ? contentType.body : []
-  if (needRelatedSections) {
-    contentType.body = contentType.body.concat(addRelatedSections(contentType))
-  }
-  // const headerComponentName = 'header.header'
-  // const header = await strapi.entityService.findMany(`api::${headerComponentName}`, {
-  //   populate: 'deep' as any,
-  //   locale: locale
-  // })
-  // header['__component'] = headerComponentName
-  // contentType.body.unshift(header)
   const contactComponentIndex = contentType.body.map(el => el.__component)
     .indexOf('contact-sections.contact-split-with-pattern')
-  console.log(contactComponentIndex)
   if (contactComponentIndex >= 0) {
     const locations = await strapi.entityService.findMany('api::location.location', {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -48,36 +22,7 @@ export async function bodyHandler(contentType, locale = 'en', needRelatedSection
   contentType.body.push(footer)
 }
 
-export function addRelatedSections(contentType) {
-  const relatedSections = []
-  if (contentType.relatedArticles?.length > 0) {
-    relatedSections.push({
-      __component: 'list.related-articles',
-      articles: contentType.relatedArticles
-    })
-  }
-  if (contentType.relatedPartners?.length > 0) {
-    relatedSections.push({
-      __component: 'list.related-partners',
-      partners: contentType.relatedPartners
-    })
-  }
-  if (contentType.relatedServices?.length > 0) {
-    relatedSections.push({
-      __component: 'list.related-services',
-      services: contentType.relatedServices
-    })
-  }
-  if (contentType.relatedSolutions?.length > 0) {
-    relatedSections.push({
-      __component: 'list.related-solutions',
-      solutions: contentType.relatedSolutions
-    })
-  }
-  return relatedSections
-}
-
-function generatePaths(keys, options, depth) {
+function generatePaths(keys: Array<string>, options: Array<string>, depth: number) {
   if (depth === 0) {
     return []
   }
@@ -98,23 +43,18 @@ function generatePaths(keys, options, depth) {
   return paths
 }
 
-
-export function createPopulateArray(depth = 2) {
+export function createPopulateArray(depth=2) {
   let props = [
     'image',
     'cover',
-    'author',
     'author.avatar',
     'avatar',
-    'icon',
-    'logo',
-    'tags'
+    'icon'
   ]
   const basePaths = [
-    'relatedArticles',
-    'relatedPartners',
-    'relatedServices',
-    'relatedSolutions',
+    'image',
+    'author',
+    'tags',
     'body',
     'openGraph'
   ]
@@ -130,33 +70,55 @@ export function createPopulateArray(depth = 2) {
   return generatePaths(basePaths, props, depth)
 }
 
-export async function getContentTypeBySlug(ctx, uid) {
-  let contentType = await strapi.db.query(uid).findOne({where: {slug: ctx.params.id}, populate: ['localizations']})
-  const localeSlug = contentType.localizations?.find(localization => localization.locale === ctx.query.locale)?.slug ||
-   ctx.params.id
-  contentType = await strapi.db.query(uid).findOne({
-    where: {slug: localeSlug},
-    populate: createPopulateArray()
+const cleanUnnecessaryProps = (contentType) => {
+  const necessaryProps = ['id', 'slug', 'publishedAt', 'updatedAt', 'createdAt', 'body', 'openGraph']
+  Object.keys(contentType).filter(key => !necessaryProps.includes(key)).forEach(key => {
+    delete contentType[key]
   })
-  await bodyHandler(contentType, ctx.query.locale, true)
-  return contentType
 }
 
-export async function findSingleType(ctx, uid) {
-  let singleType = await strapi.service(uid).find({
-    populate: ['localizations']
-  })
-  const locale = 
-    singleType.localizations?.find(localization => localization.locale === ctx.query.locale)?.locale || 'en'
-  singleType = await strapi.service(uid).find({
-    populate: createPopulateArray(),
-    locale
-  })
-  await bodyHandler(singleType, locale)
-  return singleType
+// eslint-disable-next-line no-unused-vars
+export async function findOne(ctx, uid: string, contentTypeHandler?: (contentType: Record<string, unknown>) => void) {
+  try {
+    let contentType = await strapi.db.query(uid).findOne({where: {slug: ctx.params.id}, populate: ['localizations']})
+    const localeSlug = contentType.localizations?.find(
+      localization => localization.locale === ctx.query.locale
+    )?.slug || ctx.params.id
+    contentType = await strapi.db.query(uid).findOne({
+      where: {slug: localeSlug},
+      populate: createPopulateArray()
+    })
+    contentTypeHandler && contentTypeHandler(contentType)
+    await bodyHandler(contentType, ctx.query.locale)
+    cleanUnnecessaryProps(contentType)
+    return contentType
+  } catch (e) {
+    ctx.status = 404
+    ctx.body = {error: 'not found'}
+  }
 }
 
-export async function getAllPublishedSlugs(uid) {
+export async function findSingleType(ctx, uid: Common.UID.Service) {
+  try {
+    let contentType = await strapi.service(uid).find({
+      populate: ['localizations']
+    })
+    const locale = 
+    contentType.localizations?.find(localization => localization.locale === ctx.query.locale)?.locale || 'en'
+    contentType = await strapi.service(uid).find({
+      populate: createPopulateArray(),
+      locale
+    })
+    await bodyHandler(contentType, locale)
+    cleanUnnecessaryProps(contentType)
+    return contentType
+  } catch (e) {
+    ctx.status = 404
+    ctx.body = {error: 'not found'}
+  }
+}
+
+export async function getAllPublishedSlugs(uid: Common.UID.Service) {
   const contentType = await strapi.db.query(uid).findMany({
     select: ['slug'],
     where: {

@@ -2,29 +2,13 @@
  * article controller
  */
 
-import {bodyHandler, getAllPublishedSlugs} from '../../../utils/toolbox'
 import {factories} from '@strapi/strapi'
+import {findOne, getAllPublishedSlugs} from '../../../utils/toolbox'
 
 const uid = 'api::article.article'
 
-async function getBySlug(ctx) {
-  try {
-    const article = await strapi.db.query('api::article.article').findOne({
-      where: {slug: ctx.params.id},
-      populate: [
-        'content',
-        'author.avatar',
-        'image',
-        'tags',
-        'openGraph.image',
-        'relatedArticles.image',
-        'relatedArticles.author',
-        'relatedArticles.author.avatar',
-        'relatedPartners.logo',
-        'relatedServices.image',
-        'relatedSolutions.image'
-      ]
-    })
+export default factories.createCoreController(uid, () => ({
+  findOne: (ctx) => findOne(ctx, uid, (article) => {
     article.body = [
       {
         __component: 'article.article-content',
@@ -40,15 +24,6 @@ async function getBySlug(ctx) {
         teamMember: article.author
       }
     ]
-    await bodyHandler(article, 'en', true)
-    return article
-  } catch (e) {
-    ctx.status = 404
-    ctx.body = {error: 'not found'}
-  }
-}
-
-export default factories.createCoreController(uid, () => ({
-  findOne: getBySlug,
+  }),
   slugs: () => getAllPublishedSlugs(uid)
 }))
