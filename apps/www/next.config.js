@@ -15,7 +15,7 @@ const nextConfig = {
           },
         ],
         destination: 'https://www.56k.cloud/blog',
-        permanent: false
+        permanent: true
       },
       {
         source: '/blog',
@@ -26,7 +26,7 @@ const nextConfig = {
           },
         ],
         destination: 'https://www.56k.cloud/blog',
-        permanent: false
+        permanent: true
       },
       {
         source: '/blog/:slug',
@@ -37,7 +37,7 @@ const nextConfig = {
           },
         ],
         destination: 'https://www.56k.cloud/blog/:slug',
-        permanent: false
+        permanent: true
       },
       {
         source: '/:slug',
@@ -48,7 +48,7 @@ const nextConfig = {
           },
         ],
         destination: 'https://www.56k.cloud/blog/:slug',
-        permanent: false
+        permanent: true
       }
     ]
   },
