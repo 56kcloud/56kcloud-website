@@ -18,6 +18,28 @@ const nextConfig = {
         permanent: false
       },
       {
+        source: '/blog',
+        has: [
+          {
+            type: 'host',
+            value: 'blog.56k.cloud',
+          },
+        ],
+        destination: 'https://www.56k.cloud/blog',
+        permanent: false
+      },
+      {
+        source: '/blog/:slug',
+        has: [
+          {
+            type: 'host',
+            value: 'blog.56k.cloud',
+          },
+        ],
+        destination: 'https://www.56k.cloud/blog/:slug',
+        permanent: false
+      },
+      {
         source: '/:slug',
         has: [
           {
