@@ -19,12 +19,15 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
                 key={index}
                 className='max-w-5xl mx-auto'>
                 <a href={feature.link}>
-                  <div className={cn('flex flex-row gap-x-14', index % 2 !== 0 ? 'flex-row-reverse' : '')}>
+                  <div className={cn('flex flex-row items-center gap-x-10', index % 2 !== 0 ? 'flex-row-reverse' : '')}>
                     <div>
                       <Icon
                         {...feature.icon}
-                        className='w-auto h-48 text-sky-300'
-                      />
+                        className='w-auto h-60'
+                        strokeWidth={0.75}
+                        stroke='#7dd3fc'
+                      >
+                      </Icon>
                     </div>
                     <div>
                       <dt className='text-3xl font-medium text-white sm:text-4xl'>
