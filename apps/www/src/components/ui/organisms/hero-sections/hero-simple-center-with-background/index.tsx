@@ -19,7 +19,7 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
     <div className='relative overflow-hidden pt-28 isolate'>
       <div
         className='relative flex flex-col justify-between px-6 pb-20 mx-auto gap-x-8 pt-14 sm:pt-32 lg:flex-row \
-        max-w-7xl lg:py-28 lg:pt-48 lg:pb-20 gap-y-24'>
+        max-w-7xl lg:py-28 lg:pt-48 lg:pb-20 gap-y-14'>
         <Image
           className='absolute -top-48 -left-40 lg:-left-96 opacity-50 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px] \
           -z-10'
