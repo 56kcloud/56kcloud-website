@@ -14,8 +14,8 @@ const FeatureOneColumn = (props: FeatureOneColumnProps) => {
       <div className='px-6 mx-auto max-w-7xl lg:px-8'>
         <div className='flex flex-col justify-between lg:flex-row'>
           <div className='w-full lg:w-2/6'>
-            <h2 className='text-3xl font-medium text-white sm:text-4xl'>{props.title}</h2>
-            <p className='mt-8 text-[20px] leading-8 text-slate-400 font-light'>
+            <h2 className='text-3xl font-medium text-white sm:text-3xl'>{props.title}</h2>
+            <p className='mt-2 text-[18px] leading-8 text-slate-400 font-light'>
               {props.subtitle}
             </p>
           </div>
