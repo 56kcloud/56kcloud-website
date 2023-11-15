@@ -21,14 +21,14 @@ const FeatureOneColumn = (props: FeatureOneColumnProps) => {
               {props.subtitle}
             </p>
           </div>
-          <dl className='flex flex-col w-full mt-10 lg:mt-0 lg:w-3/6 gap-y-14'>
+          <dl className='flex flex-col w-full mt-16 lg:mt-0 lg:w-3/6 gap-y-14'>
             {props.features?.map((feature, index) => (
               <div key={index}>
                 <dt className='flex flex-row items-center text-lg font-normal text-white gap-x-4'>
                   <div className='flex items-center justify-center w-8 h-8 rounded-lg'>
                     <Icon
                       {...feature.icon}
-                      className='w-auto h-8 fill-sky-300'
+                      className='w-auto h-8 text-sky-300'
                     />
                   </div>
                   {feature.title}
