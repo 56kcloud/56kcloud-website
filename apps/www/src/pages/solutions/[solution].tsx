@@ -4,9 +4,11 @@ import {Solution} from '@/models/solution.model'
 import {getPageProps} from '@/utils/cms/endpoints'
 import {pageRenderer} from '@/utils/cms/renderer/components'
 import {strapiFetcher} from '../../../configs/server'
+import {useRouter} from 'next/router'
 
 export default function SolutionPage({components, seo}: PageProps) {
-  return pageRenderer(components, seo)
+  const router = useRouter()
+  return pageRenderer(components, seo, router.asPath)
 }
 
 export async function getStaticPaths() {

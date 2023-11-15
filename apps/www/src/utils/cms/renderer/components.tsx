@@ -65,36 +65,55 @@ export function renderComponents(components: Array<ComponentBlueprint>) {
 
 export function pageRenderer(
   components: Array<ComponentBlueprint>,
-  seo: Seo
+  seo: Seo,
+  asPath: string
 ) {
-  const title = seo?.title
-  const description = seo?.description
+  const appleTouchSizes = ['57x57', '60x60', '72x72', '76x76', '114x114', '120x120', '144x144', '152x152', '180x180']
   const children = renderComponents(components)
   return (<>
-    <Head>
-      {title 
-        ? <title>{title}</title>
-        : null
-      }
-      {description
-        ? <meta
+    {seo
+      ? <Head>
+        <title>{seo.title}</title>
+        <meta
           name='description'
-          content={description}/>
-        : null
-      }
-      {seo && Object.keys(seo).map((key) => {
-        const value = key === 'image'
-          ? seo.image.src
-          : seo[key as keyof Seo]
-        return value && (
-          <meta
-            property={`og:${key}`}
-            content={value.toString()}
-            key={`og:${key}`}
+          content={seo.description}
+        />
+        <meta
+          property='og:image'
+          content={seo.image.src}
+        />
+        <meta
+          property='og:title'
+          content={seo.title}
+        />
+        <meta
+          property='og:description'
+          content={seo.description}
+        />
+        <meta
+          content={`https://www.56k.cloud${asPath}`}
+          property='og:url'
+        />
+        <meta
+          content='summary'
+          name='twitter:card'
+        />
+        <meta
+          content='@56kCloud'
+          name='twitter:site'
+        />
+        {appleTouchSizes.map((size) => (
+          <link
+            key={size}
+            fetchPriority='low'
+            href={`/images/apple-touch/icon-${size}.png`}
+            rel='apple-touch-icon'
+            sizes={size}
           />
-        )
-      })}
-    </Head>
+        ))}
+      </Head>
+      : null
+    }
     <Header/>
     {children}
   </>
