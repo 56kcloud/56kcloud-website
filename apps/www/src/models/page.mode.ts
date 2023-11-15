@@ -1,7 +1,7 @@
 import {ComponentBlueprint} from '@/utils/cms/renderer/blueprints'
 import {ImageProps} from './image.model'
 
-export type PageOpenGraph = {
+export type Seo = {
   title: string
   description: string
   image: ImageProps
@@ -9,5 +9,5 @@ export type PageOpenGraph = {
 
 export type PageProps = {
   components: Array<ComponentBlueprint>
-  openGraph: PageOpenGraph
+  seo: Seo
 }

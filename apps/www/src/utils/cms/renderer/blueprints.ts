@@ -306,7 +306,7 @@ export const contentMarkdownBlueprint: ComponentBlueprint = {
   }
 }
 
-export const openGraphBlueprint: ComponentBlueprint = {
+export const seoBlueprint: ComponentBlueprint = {
   props: {
     title: 'title',
     description: 'description',

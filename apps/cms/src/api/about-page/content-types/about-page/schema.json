@@ -24,10 +24,10 @@
         "contact-sections.contact-split-with-pattern"
       ]
     },
-    "openGraph": {
+    "seo": {
       "type": "component",
       "repeatable": false,
-      "component": "seo.open-graph",
+      "component": "seo.seo",
       "required": true
     }
   }

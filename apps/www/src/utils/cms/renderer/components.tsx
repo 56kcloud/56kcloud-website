@@ -20,7 +20,7 @@ import {
   teamThreeColumnBlueprint,
   valueTwoColumnBlueprint
 } from './blueprints'
-import {PageOpenGraph} from '@/models/page.mode'
+import {Seo} from '@/models/page.mode'
 import Head from 'next/head'
 import Header from '@/components/ui/organisms/header'
 
@@ -65,10 +65,10 @@ export function renderComponents(components: Array<ComponentBlueprint>) {
 
 export function pageRenderer(
   components: Array<ComponentBlueprint>,
-  openGraph: PageOpenGraph
+  seo: Seo
 ) {
-  const title = openGraph?.title
-  const description = openGraph?.description
+  const title = seo?.title
+  const description = seo?.description
   const children = renderComponents(components)
   return (<>
     <Head>
@@ -82,10 +82,10 @@ export function pageRenderer(
           content={description}/>
         : null
       }
-      {openGraph && Object.keys(openGraph).map((key) => {
+      {seo && Object.keys(seo).map((key) => {
         const value = key === 'image'
-          ? openGraph.image.src
-          : openGraph[key as keyof PageOpenGraph]
+          ? seo.image.src
+          : seo[key as keyof Seo]
         return value && (
           <meta
             property={`og:${key}`}

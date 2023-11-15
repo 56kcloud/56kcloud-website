@@ -1,5 +1,24 @@
 import {Common} from '@strapi/strapi'
 
+function capitalizeFirstLetter(string: string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
+export async function seoHandler(contentType, uid: string) {
+  const isDynamicPage = ['article', 'solution', 'service']
+  let title = contentType.seo?.title || contentType.title
+  if (isDynamicPage.some(id => uid.endsWith(id))) {
+    const needSuffix = ['.solution', '.service'].some(id => uid.endsWith(id))
+    const suffix = needSuffix ? `${capitalizeFirstLetter(uid.slice(uid.lastIndexOf('.')+1))} - ` : ''
+    title = `${suffix}${title} - 56k.Cloud`
+  }
+  contentType.seo = {
+    title,
+    description: contentType.seo?.description || contentType.description,
+    image: contentType.image || await strapi.entityService.findOne('plugin::upload.file', 2335) //Default Image
+  }
+}
+
 export async function bodyHandler(contentType, locale = 'en') {
   contentType.body = Array.isArray(contentType.body) ? contentType.body : []
   const contactComponentIndex = contentType.body.map(el => el.__component)
@@ -56,7 +75,7 @@ export function createPopulateArray(depth=2) {
     'author',
     'tags',
     'body',
-    'openGraph'
+    'seo'
   ]
   Object.keys(strapi.components).forEach(key => {
     const component = strapi.components[key]
@@ -71,7 +90,7 @@ export function createPopulateArray(depth=2) {
 }
 
 const cleanUnnecessaryProps = (contentType) => {
-  const necessaryProps = ['id', 'slug', 'publishedAt', 'updatedAt', 'createdAt', 'body', 'openGraph']
+  const necessaryProps = ['id', 'slug', 'publishedAt', 'updatedAt', 'createdAt', 'body', 'seo']
   Object.keys(contentType).filter(key => !necessaryProps.includes(key)).forEach(key => {
     delete contentType[key]
   })
@@ -90,6 +109,7 @@ export async function findOne(ctx, uid: string, contentTypeHandler?: (contentTyp
     })
     contentTypeHandler && contentTypeHandler(contentType)
     await bodyHandler(contentType, ctx.query.locale)
+    await seoHandler(contentType, uid)
     cleanUnnecessaryProps(contentType)
     return contentType
   } catch (e) {
@@ -109,7 +129,8 @@ export async function findSingleType(ctx, uid: Common.UID.Service) {
       populate: createPopulateArray(),
       locale
     })
-    await bodyHandler(contentType, locale)
+    await seoHandler(contentType, uid.toString())
+    await bodyHandler(contentType, ctx.query.locale)
     cleanUnnecessaryProps(contentType)
     return contentType
   } catch (e) {

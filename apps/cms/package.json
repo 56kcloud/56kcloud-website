@@ -31,5 +31,10 @@
   },
   "strapi": {
     "uuid": "d69d5225-af2c-47d1-97f1-7f47e16e6ab8"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.10.9",
+    "dotenv": "^16.3.1",
+    "tsx": "^4.1.2"
   }
 }

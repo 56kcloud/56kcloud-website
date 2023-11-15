@@ -700,7 +700,7 @@ export interface ApiAboutPageAboutPage extends Schema.SingleType {
         'contact-sections.contact-split-with-pattern'
       ]
     >;
-    openGraph: Attribute.Component<'seo.open-graph'> & Attribute.Required;
+    seo: Attribute.Component<'seo.seo'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -731,7 +731,6 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    openGraph: Attribute.Component<'seo.open-graph'> & Attribute.Required;
     title: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     readTime: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<1>;
@@ -797,7 +796,7 @@ export interface ApiBlogPageBlogPage extends Schema.SingleType {
     body: Attribute.DynamicZone<
       ['blog-sections.blog-three-column', 'blog-sections.blog-masonry']
     >;
-    openGraph: Attribute.Component<'seo.open-graph'> & Attribute.Required;
+    seo: Attribute.Component<'seo.seo'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -940,7 +939,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
           localized: true;
         };
       }>;
-    openGraph: Attribute.Component<'seo.open-graph'> &
+    seo: Attribute.Component<'seo.seo'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1115,7 +1114,6 @@ export interface ApiServiceService extends Schema.CollectionType {
     };
   };
   attributes: {
-    openGraph: Attribute.Component<'seo.open-graph'> & Attribute.Required;
     title: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -1199,7 +1197,6 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
     };
   };
   attributes: {
-    openGraph: Attribute.Component<'seo.open-graph'> & Attribute.Required;
     slug: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{

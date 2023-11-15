@@ -34,7 +34,7 @@
       ],
       "required": true
     },
-    "openGraph": {
+    "seo": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -42,7 +42,7 @@
           "localized": true
         }
       },
-      "component": "seo.open-graph",
+      "component": "seo.seo",
       "required": true
     }
   }

@@ -1,7 +1,7 @@
-import {PageOpenGraph, PageProps} from '@/models/page.mode'
+import {PageProps, Seo} from '@/models/page.mode'
 import {componentBlueprints} from './renderer/components'
 import {getComponentProps} from './renderer/parser'
-import {openGraphBlueprint} from './renderer/blueprints'
+import {seoBlueprint} from './renderer/blueprints'
 import {snakeCaseObjectKeysToCamelCase} from '../toolbox'
 import {strapiFetcher} from '../../../configs/server'
 
@@ -25,12 +25,12 @@ export async function getPageProps(path='/', lang='en'): Promise<PageProps|undef
       props
     }
   }))
-  const openGraph = await getComponentProps(
-    openGraphBlueprint.props,
-    snakeCaseObjectKeysToCamelCase(element.openGraph)
-  ) as PageOpenGraph
+  const seo = await getComponentProps(
+    seoBlueprint.props,
+    snakeCaseObjectKeysToCamelCase(element.seo)
+  ) as Seo
   return {
     components,
-    openGraph
+    seo
   }
 }

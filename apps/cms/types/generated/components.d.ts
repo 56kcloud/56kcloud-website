@@ -531,11 +531,24 @@ export interface SeoOpenGraph extends Schema.Component {
   collectionName: 'components_seo_open_graphs';
   info: {
     displayName: 'open-graph';
+    description: '';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
+  };
+}
+
+export interface SeoSeo extends Schema.Component {
+  collectionName: 'components_seo_seos';
+  info: {
+    displayName: 'seo';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text;
   };
 }
 
@@ -635,6 +648,7 @@ declare module '@strapi/types' {
       'image-sections.image-simple': ImageSectionsImageSimple;
       'partner-sections.partner-logo-simple-with-title': PartnerSectionsPartnerLogoSimpleWithTitle;
       'seo.open-graph': SeoOpenGraph;
+      'seo.seo': SeoSeo;
       'service-sections.service-three-column-with-large-icons': ServiceSectionsServiceThreeColumnWithLargeIcons;
       'solution-sections.solution-three-column-with-large-icons': SolutionSectionsSolutionThreeColumnWithLargeIcons;
       'team-sections.team-three-column': TeamSectionsTeamThreeColumn;
