@@ -23,17 +23,17 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
                     <div>
                       <Icon
                         {...feature.icon}
-                        className='w-auto h-60'
+                        className='w-auto h-52'
                         strokeWidth={0.75}
                         stroke='#7dd3fc'
                       >
                       </Icon>
                     </div>
                     <div>
-                      <dt className='text-3xl font-medium text-white sm:text-4xl'>
+                      <dt className='text-3xl font-medium text-white sm:text-3xl'>
                         {feature.title}
                       </dt>
-                      <dd className='mt-2 text-[20px] leading-8 text-slate-400 font-light'>
+                      <dd className='mt-2 text-[18px] leading-8 text-slate-400 font-light'>
                         <p>{feature.description}</p>
                       </dd>
                     </div>
