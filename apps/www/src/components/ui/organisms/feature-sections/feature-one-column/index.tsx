@@ -28,7 +28,7 @@ const FeatureOneColumn = (props: FeatureOneColumnProps) => {
                   <div className='flex items-center justify-center w-8 h-8 rounded-lg'>
                     <Icon
                       {...feature.icon}
-                      className='w-auto h-8 fill-sky-300'
+                      className='w-auto h-8 text-sky-300'
                     />
                   </div>
                   {feature.title}
