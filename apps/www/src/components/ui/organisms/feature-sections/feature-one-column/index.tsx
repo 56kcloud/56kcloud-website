@@ -21,7 +21,7 @@ const FeatureOneColumn = (props: FeatureOneColumnProps) => {
               {props.subtitle}
             </p>
           </div>
-          <dl className='flex flex-col w-full mt-10 lg:mt-0 lg:w-3/6 gap-y-14'>
+          <dl className='flex flex-col w-full mt-16 lg:mt-0 lg:w-3/6 gap-y-14'>
             {props.features?.map((feature, index) => (
               <div key={index}>
                 <dt className='flex flex-row items-center text-lg font-normal text-white gap-x-4'>
