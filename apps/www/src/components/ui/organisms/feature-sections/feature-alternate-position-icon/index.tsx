@@ -43,7 +43,7 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
                     asChild
                     size='large'
                     variant='link'
-                    className='mt-1 text-lg text-sky-300 hover:text-violet-300'
+                    className='mt-1 text-lg text-sky-300 hover:text-purple-300'
                     leading={<ArrowLongRightIcon className='w-8 h-8'/>}
                   >
                     <Link href={feature.link}>

@@ -28,8 +28,8 @@ export default function HeaderWithCards(props: HeaderWithCardsProps) {
           <div className='w-full lg:w-2/6'>
             <h2
               className='w-full md:w-3/4 lg:w-full text-4xl sm:text-[44px] sm:leading-[48px] xl:text-5xl \
-              xl:leading-[52px] font-normal text-transparent bg-clip-text bg-gradient-to-l from-violet-300 \
-              via-sky-300 to-violet-300 from-10% to-90%'>
+              xl:leading-[52px] font-normal text-transparent bg-clip-text bg-gradient-to-l from-purple-300 \
+              via-sky-300 to-purple-300 from-10% to-90%'>
               {props.title}
             </h2>
           </div>

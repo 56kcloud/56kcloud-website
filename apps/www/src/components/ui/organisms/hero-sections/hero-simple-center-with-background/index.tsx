@@ -34,7 +34,7 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
           <div className='max-w-none lg:max-w-[700px]'>
             <h1
               className='text-[44px] leading-[48px] font-normal text-transparent bg-clip-text bg-gradient-to-l \
-              from-violet-300 via-sky-300 to-violet-300 sm:text-[60px] sm:leading-[64px] from-10% to-90%'>
+              from-purple-300 via-sky-300 to-purple-300 sm:text-[60px] sm:leading-[64px] from-10% to-90%'>
               {props.title}
             </h1>
             <p className='mt-6 text-xl font-light leading-8 sm:text-[24px] sm:leading-[34px] text-slate-400'>
@@ -48,7 +48,7 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
                   tone={props.leftCTA.tone}
                   shape='circle'
                   className='px-5 bg-transparent border-2 border-sky-300 text-sky-300 text-md \
-                  hover:border-violet-300 hover:bg-transparent hover:text-violet-300'
+                  hover:border-purple-300 hover:bg-transparent hover:text-purple-300'
                 >
                   <Link href={props.leftCTA.link}>
                     {props.leftCTA.text}
@@ -83,7 +83,7 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
               className='rounded-xl'
             />
             <div
-              className='absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-sky-300/30 to-violet-300/60 \
+              className='absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-sky-300/30 to-purple-300/60 \
              rounded-xl'/>
             <div
               className='absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-fuchsia-300/0 from-10% \

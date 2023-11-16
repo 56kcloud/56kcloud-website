@@ -40,7 +40,7 @@ const FeatureOneColumn = (props: FeatureOneColumnProps) => {
                   asChild
                   size='large'
                   variant='link'
-                  className='mt-1 text-base text-sky-300 hover:text-violet-300'
+                  className='mt-1 text-base text-sky-300 hover:text-purple-300'
                   leading={<ArrowLongRightIcon className='w-7 h-7'/>}
                 >
                   <Link href={feature.link}>
