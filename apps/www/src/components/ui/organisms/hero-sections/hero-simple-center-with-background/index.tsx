@@ -3,7 +3,7 @@ import {ImageProps} from '@/models/image.model'
 import Button from '@/components/ui/atoms/button'
 import Image from 'next/image'
 import Link from 'next/link'
-import blurCyanImage from '@/../public/images/backgrounds/blur-cyan.png'
+import gradientHero from '@/../public/images/backgrounds/gradient-hero.svg'
 
 
 export type SimpleCenteredWithBackgroundProps = {
@@ -21,9 +21,9 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
         className='relative flex flex-col justify-between px-6 pb-20 mx-auto gap-x-8 pt-14 sm:pt-32 lg:flex-row \
         max-w-7xl lg:py-28 lg:pt-48 lg:pb-20 gap-y-14'>
         <Image
-          className='absolute -top-48 -left-40 lg:-left-96 opacity-50 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px] \
-          -z-10'
-          src={blurCyanImage}
+          className='absolute -top-48 -right-40 sm:-top-80 lg:-top-[400px] sm:-right-64 lg:-right-[600px] opacity-80 \
+          w-[800px] lg:w-[1250px] h-auto -z-10'
+          src={gradientHero}
           alt=''
           width={530}
           height={530}
@@ -83,7 +83,7 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
               className='rounded-xl'
             />
             <div
-              className='absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-sky-300/30 to-purple-300/60 \
+              className='absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-sky-300/20 to-purple-300/30 \
              rounded-xl'/>
             <div
               className='absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-fuchsia-300/0 from-10% \
