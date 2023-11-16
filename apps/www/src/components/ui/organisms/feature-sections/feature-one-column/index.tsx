@@ -28,7 +28,7 @@ const FeatureOneColumn = (props: FeatureOneColumnProps) => {
                   <div className='flex items-center justify-center w-8 h-8 rounded-lg'>
                     <Icon
                       {...feature.icon}
-                      className='w-auto h-8 text-sky-300'
+                      className='w-auto h-16'
                     />
                   </div>
                   {feature.title}
@@ -40,7 +40,7 @@ const FeatureOneColumn = (props: FeatureOneColumnProps) => {
                   asChild
                   size='large'
                   variant='link'
-                  className='mt-1 text-base text-sky-300 hover:text-violet-300'
+                  className='mt-1 text-base text-sky-300 hover:text-purple-300'
                   leading={<ArrowLongRightIcon className='w-7 h-7'/>}
                 >
                   <Link href={feature.link}>

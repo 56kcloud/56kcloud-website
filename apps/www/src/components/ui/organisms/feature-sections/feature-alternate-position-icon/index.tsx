@@ -26,9 +26,8 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
                 <div>
                   <Icon
                     {...feature.icon}
-                    className='w-auto mb-4 sm:mb-6 h-14 sm:h-24 lg:h-40 lg:mb-0'
+                    className='w-auto mb-4 sm:mb-6 h-14 sm:h-24 lg:h-44 lg:mb-0'
                     strokeWidth={0.75}
-                    stroke='#7dd3fc'
                   >
                   </Icon>
                 </div>
@@ -43,7 +42,7 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
                     asChild
                     size='large'
                     variant='link'
-                    className='mt-1 text-lg text-sky-300 hover:text-violet-300'
+                    className='mt-1 text-lg text-sky-300 hover:text-purple-300'
                     leading={<ArrowLongRightIcon className='w-8 h-8'/>}
                   >
                     <Link href={feature.link}>
