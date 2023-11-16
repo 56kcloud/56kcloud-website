@@ -1182,7 +1182,9 @@ export default function Icon({name, type, ...props}: IconProps) {
   const Comp = icons[`${name}${type === 'solid' ? 'Solid' : 'Outline'}` as keyof typeof icons]
   return (
     type === 'outline'
-      ? <svg>
+      ? <svg
+        viewBox='0 0 24 24'
+        {...props}>
         <defs>
           <linearGradient
             id='gradient'
