@@ -10,7 +10,9 @@ import {useForm} from 'react-hook-form'
 import {useState} from 'react'
 import Button from '@/components/ui/atoms/button'
 import ConfettiExplosion from 'react-confetti-explosion'
+import Image from 'next/image'
 import Router from 'next/router'
+import gradientContact from '@/../public/images/backgrounds/gradient-contact.svg'
 import useTranslation from 'next-translate/useTranslation'
 
 export type ContactSplitWithPatternProps = {
@@ -172,7 +174,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                     type='submit'
                     shape='circle'
                     size='large'
-                    className='px-5 text-md bg-sky-300 text-slate-900 hover:bg-purple-300'>
+                    className='px-5 text-md bg-sky-300 text-slate-900 hover:bg-violet-300'>
                   Send Message
                   </Button>
                 </div>
@@ -182,5 +184,14 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
         </div>
       </div>
     </div>
+    <Image
+      className='absolute top-56 -left-40 opacity-70 w-[800px] lg:w-[1250px] h-auto -z-10'
+      src={gradientContact}
+      alt=''
+      width={530}
+      height={530}
+      unoptimized
+      priority
+    />
   </div>)
 }
