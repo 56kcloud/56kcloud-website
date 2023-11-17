@@ -21,8 +21,8 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
         className='relative flex flex-col justify-between px-6 pb-20 mx-auto gap-x-8 pt-14 sm:pt-32 lg:flex-row \
         max-w-7xl lg:py-28 lg:pt-48 lg:pb-20 gap-y-14'>
         <Image
-          className='absolute -top-80 -right-60 sm:-top-60 lg:-top-[400px] sm:-right-40 lg:-right-[600px] opacity-80 \
-          min-w-[1000px] sm:min-w-[1000px] lg:min-w-[1500px] h-auto -z-10'
+          className='absolute -top-80 -right-60 sm:-top-80 lg:-top-[400px] sm:-right-60 lg:-right-[600px] opacity-80 \
+          min-w-[1000px] sm:min-w-[1250px] lg:min-w-[1500px] h-auto -z-10'
           src={gradientHero}
           alt=''
           width={530}
