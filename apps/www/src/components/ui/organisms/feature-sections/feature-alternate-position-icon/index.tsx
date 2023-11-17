@@ -50,6 +50,23 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
                   </Button>
                 </div>
               </div>
+              <dt className='text-2xl font-medium text-white sm:text-3xl'>
+                {feature.title}
+              </dt>
+              <dd className='text-[18px] leading-8 text-slate-400 font-light'>
+                <p>{feature.description}</p>
+              </dd>
+              <Button
+                asChild
+                size='large'
+                variant='link'
+                className='mt-1 text-lg text-sky-300 hover:text-violet-300'
+                leading={<ArrowLongRightIcon className='w-8 h-8'/>}
+              >
+                <Link href={feature.link}>
+                  Learn more
+                </Link>
+              </Button>
             </div>
           ))}
         </div>
