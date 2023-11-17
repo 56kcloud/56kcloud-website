@@ -10,9 +10,7 @@ import {useForm} from 'react-hook-form'
 import {useState} from 'react'
 import Button from '@/components/ui/atoms/button'
 import ConfettiExplosion from 'react-confetti-explosion'
-import Image from 'next/image'
 import Router from 'next/router'
-import gradientContact from '@/../public/images/backgrounds/gradient-contact.svg'
 import useTranslation from 'next-translate/useTranslation'
 
 export type ContactSplitWithPatternProps = {
@@ -183,16 +181,6 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
           }
         </div>
       </div>
-      <Image
-        className='absolute -bottom-[450px] -left-72 sm:-bottom-[500px] sm:-left-60 lg:top-32 lg:-left-[500px] \
-        opacity-80 min-w-[1000px] sm:min-w-[1250px] lg:min-w-[1500px] h-auto -z-10'
-        src={gradientContact}
-        alt=''
-        width={530}
-        height={530}
-        unoptimized
-        priority
-      />
     </div>
   </div>)
 }
