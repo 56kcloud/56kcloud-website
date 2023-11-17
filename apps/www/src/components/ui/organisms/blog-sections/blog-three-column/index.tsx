@@ -35,7 +35,7 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
   ))
 
   return (
-    <div className='py-20 lg:py-[104px]'>
+    <div className='py-20 lg:py-[104px] bg-gradient-to-b from-slate-800 to-slate-900'>
       <div className='relative px-6 mx-auto max-w-7xl'>
         <div className='max-w-2xl mr-auto lg:max-w-3xl lg:mx-0'>
           <h2 className='text-2xl font-medium text-white sm:text-3xl'>{props.title}</h2>
