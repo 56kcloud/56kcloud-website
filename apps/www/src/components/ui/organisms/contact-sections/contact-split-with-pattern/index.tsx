@@ -184,8 +184,8 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
         </div>
       </div>
       <Image
-        className='absolute -bottom-96 -left-72 sm:-bottom-[500px] sm:-left-60 lg:top-32 lg:-left-[500px] opacity-80 \
-        min-w-[1250px] lg:min-w-[1500px] h-auto -z-10'
+        className='absolute -bottom-[450px] -left-72 sm:-bottom-[500px] sm:-left-60 lg:top-32 lg:-left-[500px] \
+        opacity-80 min-w-[1250px] lg:min-w-[1500px] h-auto -z-10'
         src={gradientContact}
         alt=''
         width={530}
