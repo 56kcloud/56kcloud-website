@@ -58,7 +58,7 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
         </dl>
         <Image
           className='absolute -left-80 -bottom-96 sm:-bottom-[450px] sm:-left-60 lg:-bottom-[650px] lg:-left-96 \
-          opacity-80 min-w-[1000px] sm:min-w-[1250px] lg:min-w-[1500px] h-auto -z-10'
+          opacity-80 w-[1000px] sm:min-w-[1250px] lg:min-w-[1500px] h-auto -z-10'
           src={gradientServices}
           alt=''
           width={530}

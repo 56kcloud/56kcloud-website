@@ -22,7 +22,7 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
         max-w-7xl lg:py-28 lg:pt-48 lg:pb-20 gap-y-14'>
         <Image
           className='absolute -top-80 -right-60 sm:-top-80 lg:-top-[400px] sm:-right-60 lg:-right-[600px] opacity-80 \
-          min-w-[1000px] sm:min-w-[1250px] lg:min-w-[1500px] h-auto -z-10'
+          w-[1000px] sm:min-w-[1250px] lg:min-w-[1500px] h-auto -z-10'
           src={gradientHero}
           alt=''
           width={530}
