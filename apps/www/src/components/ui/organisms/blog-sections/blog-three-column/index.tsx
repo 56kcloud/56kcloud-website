@@ -41,7 +41,7 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
     <div className='py-20 lg:py-[104px]'>
       <div className='px-6 mx-auto max-w-7xl'>
         <div className='max-w-2xl mr-auto lg:max-w-3xl lg:mx-0'>
-          <h2 className='text-3xl font-medium text-white sm:text-3xl'>{props.title}</h2>
+          <h2 className='text-2xl font-medium text-white sm:text-3xl'>{props.title}</h2>
           <p className='mt-2 text-[18px] leading-8 text-slate-400 font-light'>
             {props.subtitle}
           </p>

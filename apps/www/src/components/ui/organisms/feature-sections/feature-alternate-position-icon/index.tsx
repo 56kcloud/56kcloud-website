@@ -32,7 +32,7 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
                   </Icon>
                 </div>
                 <div className='flex flex-col gap-y-2'>
-                  <dt className='text-3xl font-medium text-white sm:text-3xl'>
+                  <dt className='text-2xl font-medium text-white sm:text-3xl'>
                     {feature.title}
                   </dt>
                   <dd className='text-[18px] leading-8 text-slate-400 font-light'>
