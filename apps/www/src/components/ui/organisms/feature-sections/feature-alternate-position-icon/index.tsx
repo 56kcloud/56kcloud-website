@@ -3,7 +3,9 @@ import {Feature} from '@/models/feature.model'
 import {cn} from '@/utils/toolbox'
 import Button from '@/components/ui/atoms/button'
 import Icon from '@/components/ui/atoms/icon'
+import Image from 'next/image'
 import Link from 'next/link'
+import gradientServices from '@/../public/images/backgrounds/gradient-services.svg'
 
 export type FeatureAlternatePositionIconProps = {
   title: string
@@ -14,7 +16,7 @@ export type FeatureAlternatePositionIconProps = {
 export default function FeatureAlternatePositionIcon(props: FeatureAlternatePositionIconProps) { 
   return (
     <div className='pb-20 pt-12 lg:pb-[104px] lg:pt-[120px]'>
-      <div className='px-6 mx-auto max-w-7xl lg:px-8'>
+      <div className='relative px-6 mx-auto max-w-7xl lg:px-8'>
         <dl className='grid grid-cols-1 gap-x-6 gap-y-14 lg:gap-y-36'>
           {props.features?.map((feature, index) => (
             <div
@@ -54,6 +56,15 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
             </div>
           ))}
         </dl>
+        <Image
+          className='absolute -bottom-[650px] -left-60 opacity-80 w-[800px] lg:w-[1250px] h-auto -z-10'
+          src={gradientServices}
+          alt=''
+          width={530}
+          height={530}
+          unoptimized
+          priority
+        />
       </div>
     </div>
   )

@@ -3,6 +3,8 @@ import {DateTime} from 'luxon'
 import {useEffect, useState} from 'react'
 import {useRouter} from 'next/router'
 import ArticleCard from '@/components/ui/molecules/cards/article'
+import Image from 'next/image'
+import gradientBlog from '@/../public/images/backgrounds/gradient-blog.svg'
 import slugify from 'slugify'
 
 export type BlogThreeColumnProps = {
@@ -39,7 +41,7 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
   
   return (
     <div className='py-20 lg:py-[104px]'>
-      <div className='px-6 mx-auto max-w-7xl'>
+      <div className='relative px-6 mx-auto max-w-7xl'>
         <div className='max-w-2xl mr-auto lg:max-w-3xl lg:mx-0'>
           <h2 className='text-2xl font-medium text-white sm:text-3xl'>{props.title}</h2>
           <p className='mt-2 text-[18px] leading-8 text-slate-400 font-light'>
@@ -53,7 +55,17 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
             {articles}
           </div>
         </div>
+        <Image
+          className='absolute -top-[550px] -right-[600px] opacity-80 w-[800px] lg:w-[1250px] h-auto -z-10'
+          src={gradientBlog}
+          alt=''
+          width={530}
+          height={530}
+          unoptimized
+          priority
+        />
       </div>
     </div>
   )
 }
+
