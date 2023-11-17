@@ -56,8 +56,8 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
           </div>
         </div>
         <Image
-          className='absolute -top-96 -right-80 sm:-top-[500px] sm:-right-72 lg:-top-[550px] lg:-right-[600px] \
-          opacity-80 min-w-[1000px] sm:min-w-[1250px] lg:w-[1250px] h-auto -z-10'
+          className='absolute -top-96 -right-80 sm:-top-[500px] sm:-right-72 lg:-top-[600px] lg:-right-[600px] \
+          opacity-80 min-w-[1000px] sm:min-w-[1250px] lg:min-w-[1500px] h-auto -z-10'
           src={gradientBlog}
           alt=''
           width={530}
