@@ -26,7 +26,7 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
                 <div>
                   <Icon
                     {...feature.icon}
-                    className='w-auto mb-4 sm:mb-6 h-14 sm:h-24 lg:h-44 lg:mb-0'
+                    className='w-auto mb-4 sm:mb-6 h-14 sm:h-24 lg:h-52 lg:mb-0'
                     strokeWidth={0.75}
                   >
                   </Icon>
