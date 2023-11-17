@@ -3,7 +3,9 @@ import {Feature} from '@/models/feature.model'
 import {cn} from '@/utils/toolbox'
 import Button from '@/components/ui/atoms/button'
 import Icon from '@/components/ui/atoms/icon'
+import Image from 'next/image'
 import Link from 'next/link'
+import gradientServices from '@/../public/images/backgrounds/gradient-services.svg'
 
 export type FeatureAlternatePositionIconProps = {
   title: string
@@ -14,7 +16,7 @@ export type FeatureAlternatePositionIconProps = {
 export default function FeatureAlternatePositionIcon(props: FeatureAlternatePositionIconProps) { 
   return (
     <div className='pb-20 pt-12 lg:pb-[104px] lg:pt-[120px]'>
-      <div className='px-6 mx-auto max-w-7xl lg:px-8'>
+      <div className='relative px-6 mx-auto max-w-7xl lg:px-8'>
         <dl className='grid grid-cols-1 gap-x-6 gap-y-14 lg:gap-y-36'>
           {props.features?.map((feature, index) => (
             <div
@@ -26,13 +28,13 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
                 <div>
                   <Icon
                     {...feature.icon}
-                    className='w-auto mb-4 sm:mb-6 h-14 sm:h-24 lg:h-44 lg:mb-0'
+                    className='w-auto mb-4 sm:mb-6 h-14 sm:h-24 lg:h-52 lg:mb-0'
                     strokeWidth={0.75}
                   >
                   </Icon>
                 </div>
                 <div className='flex flex-col gap-y-2'>
-                  <dt className='text-3xl font-medium text-white sm:text-3xl'>
+                  <dt className='text-2xl font-medium text-white sm:text-3xl'>
                     {feature.title}
                   </dt>
                   <dd className='text-[18px] leading-8 text-slate-400 font-light'>
@@ -54,6 +56,16 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
             </div>
           ))}
         </dl>
+        <Image
+          className='absolute -left-80 -bottom-96 sm:-bottom-[450px] sm:-left-60 lg:-bottom-[650px] lg:-left-96 \
+          opacity-80 min-w-[1000px] sm:min-w-[1250px] lg:min-w-[1500px] h-auto -z-10'
+          src={gradientServices}
+          alt=''
+          width={530}
+          height={530}
+          unoptimized
+          priority
+        />
       </div>
     </div>
   )

@@ -95,12 +95,12 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
     className='relative isolate py-20 lg:py-[104px]'
     id='contact-section'
   >
-    <div className='mx-auto max-w-7xl'>
+    <div className='relative mx-auto max-w-7xl'>
       <div className='grid grid-cols-1 mx-6 lg:grid-cols-2 bg-slate-800 rounded-xl'>
         <div className='relative px-6 py-8 lg:static lg:pl-12 lg:pr-0 lg:py-14'>
           <div className='max-w-full mr-auto lg:mx-0 lg:max-w-sm'>
-            <h2 className='text-3xl font-medium text-white sm:text-4xl'>{props.title}</h2>
-            <p className='mt-5 text-[20px] leading-8 text-slate-400 font-light'>
+            <h2 className='text-3xl font-medium text-white sm:text-3xl'>{props.title}</h2>
+            <p className='text-[18px] leading-8 text-slate-400 font-light mt-2'>
               {props.subtitle}
             </p>
             <dl className='mt-10 space-y-5 text-base leading-[26px] font-light text-slate-400'>
@@ -183,15 +183,16 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
           }
         </div>
       </div>
+      <Image
+        className='absolute -bottom-[450px] -left-72 sm:-bottom-[500px] sm:-left-60 lg:top-32 lg:-left-[500px] \
+        opacity-80 min-w-[1250px] lg:min-w-[1500px] h-auto -z-10'
+        src={gradientContact}
+        alt=''
+        width={530}
+        height={530}
+        unoptimized
+        priority
+      />
     </div>
-    <Image
-      className='absolute top-56 -left-40 opacity-70 w-[800px] lg:w-[1250px] h-auto -z-10'
-      src={gradientContact}
-      alt=''
-      width={530}
-      height={530}
-      unoptimized
-      priority
-    />
   </div>)
 }

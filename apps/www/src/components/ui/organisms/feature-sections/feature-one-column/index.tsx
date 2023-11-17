@@ -1,5 +1,6 @@
 import {ArrowLongRightIcon} from '@heroicons/react/24/solid'
 import {Feature} from '@/models/feature.model'
+import {cn} from '@/utils/toolbox'
 import Button from '@/components/ui/atoms/button'
 import Icon from '@/components/ui/atoms/icon'
 import Link from 'next/link'
@@ -16,14 +17,18 @@ const FeatureOneColumn = (props: FeatureOneColumnProps) => {
       <div className='px-6 mx-auto max-w-7xl lg:px-8'>
         <div className='flex flex-col justify-between lg:flex-row'>
           <div className='w-full lg:w-2/6'>
-            <h2 className='text-3xl font-medium text-white sm:text-3xl'>{props.title}</h2>
+            <h2 className='text-2xl font-medium text-white sm:text-3xl'>{props.title}</h2>
             <p className='mt-2 text-[18px] leading-8 text-slate-400 font-light'>
               {props.subtitle}
             </p>
           </div>
-          <dl className='flex flex-col w-full mt-16 lg:mt-0 lg:w-3/6 gap-y-14'>
+          <dl className='flex flex-col w-full mt-16 lg:mt-0 lg:w-3/6'>
             {props.features?.map((feature, index) => (
-              <div key={index}>
+              <div
+                key={index}
+                className={cn(
+                  index === props.features.length - 1 ? 'last:border-b-0 pb-0' : 'pb-7', 
+                  index === 0 ? 'pt-0' : '', 'border-b-[1px] border-slate-800 pt-7')}>
                 <dt className='flex flex-row items-center text-lg font-normal text-white gap-x-4'>
                   <div className='flex items-center justify-center w-8 h-8 rounded-lg'>
                     <Icon
