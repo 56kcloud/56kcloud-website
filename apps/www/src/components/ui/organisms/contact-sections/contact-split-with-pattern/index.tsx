@@ -95,7 +95,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
     className='relative isolate py-20 lg:py-[104px]'
     id='contact-section'
   >
-    <div className='mx-auto max-w-7xl'>
+    <div className='relative mx-auto max-w-7xl'>
       <div className='grid grid-cols-1 mx-6 lg:grid-cols-2 bg-slate-800 rounded-xl'>
         <div className='relative px-6 py-8 lg:static lg:pl-12 lg:pr-0 lg:py-14'>
           <div className='max-w-full mr-auto lg:mx-0 lg:max-w-sm'>
@@ -183,15 +183,15 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
           }
         </div>
       </div>
+      <Image
+        className='absolute top-32 -left-[500px] opacity-70 w-[800px] lg:w-[1250px] h-auto -z-10'
+        src={gradientContact}
+        alt=''
+        width={530}
+        height={530}
+        unoptimized
+        priority
+      />
     </div>
-    <Image
-      className='absolute top-56 -left-40 opacity-70 w-[800px] lg:w-[1250px] h-auto -z-10'
-      src={gradientContact}
-      alt=''
-      width={530}
-      height={530}
-      unoptimized
-      priority
-    />
   </div>)
 }
