@@ -7,7 +7,5 @@ export type Seo = {
   image: ImageProps
 }
 
-export type PageProps = {
-  components: Array<ComponentBlueprint>
-  seo: Seo
-}
+export type PageComponents = Array<ComponentBlueprint>
+export type PageSeo = Seo

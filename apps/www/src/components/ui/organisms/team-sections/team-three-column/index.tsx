@@ -1,4 +1,4 @@
-import {TeamMember} from '@/models/team-member'
+import {TeamMember} from '@/models/team-member.model'
 import Image from 'next/image'
 
 export type TeamThreeColumnProps = {

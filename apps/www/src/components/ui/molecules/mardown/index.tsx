@@ -1,3 +1,5 @@
+'use client'
+
 import {Bookmark} from '../bookmark'
 import {DynamicImage} from '../../atoms/dynamic-image'
 import {Tweet} from 'react-twitter-widgets'

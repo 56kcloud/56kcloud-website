@@ -1,13 +1,13 @@
-import {PageProps, Seo} from '@/models/page.mode'
+import {PageComponents, PageSeo, Seo} from '@/models/page.model'
 import {componentBlueprints} from './renderer/components'
 import {getComponentProps} from './renderer/parser'
 import {seoBlueprint} from './renderer/blueprints'
 import {snakeCaseObjectKeysToCamelCase} from '../toolbox'
 import {strapiFetcher} from '../../../configs/server'
 
-export async function getPageProps(path='/', lang='en'): Promise<PageProps|undefined> {
+export async function getPageComponents(path: string, lang='en'): Promise<PageComponents|undefined> {
   const res = await strapiFetcher.call({
-    path: `/api/${path}?populate=deep&locale=${lang}`
+    path: `/api/${path}?locale=${lang}`
   })
   const element = res.data?.attributes || res
   const availableComponents = element.body.filter((item: Record<string, string>) => 
@@ -25,12 +25,18 @@ export async function getPageProps(path='/', lang='en'): Promise<PageProps|undef
       props
     }
   }))
+  
+  return components
+}
+
+export async function getPageSeo(path: string, lang='en'): Promise<PageSeo|undefined> {
+  const res = await strapiFetcher.call({
+    path: `/api/${path}?seoOnly=true&locale=${lang}`
+  })
+  const element = res.data?.attributes || res
   const seo = await getComponentProps(
     seoBlueprint.props,
     snakeCaseObjectKeysToCamelCase(element.seo)
   ) as Seo
-  return {
-    components,
-    seo
-  }
+  return seo
 }

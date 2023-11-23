@@ -67,9 +67,9 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
               src={props.image.src}
               placeholder='blur'
               blurDataURL={props.image.blurDataURL}
-              layout='fill'
-              objectFit='cover'
-              className='rounded-xl'
+              width={props.image.width}
+              height={props.image.height}
+              className='object-cover h-full rounded-xl'
             />
             <div
               className='absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-sky-300/20 to-purple-300/30 \

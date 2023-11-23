@@ -1,5 +1,8 @@
+'use client'
+
 import {BuildingOffice2Icon, CheckCircleIcon} from '@heroicons/react/24/outline'
 import {Checkbox, CheckboxProps} from '@/components/ui/atoms/inputs/checkbox'
+import {Dictionary} from '@/models/dictionary.model'
 import {Input, InputProps} from '@/components/ui/atoms/inputs/input'
 import {LocationObject} from '@/models/location.model'
 import {TextArea, TextAreaProps} from '@/components/ui/atoms/inputs/textarea'
@@ -11,9 +14,9 @@ import {useState} from 'react'
 import Button from '@/components/ui/atoms/button'
 import ConfettiExplosion from 'react-confetti-explosion'
 import Router from 'next/router'
-import useTranslation from 'next-translate/useTranslation'
 
 export type ContactSplitWithPatternProps = {
+  dictionary: Dictionary
   title: string
   subtitle: string
   locations: Array<LocationObject>
@@ -22,7 +25,6 @@ export type ContactSplitWithPatternProps = {
 export default function ContactSplitWithPattern(props: ContactSplitWithPatternProps) {
   const {register, handleSubmit, reset, formState: {errors}} = useForm()
   const [serverError, setServerError] = useState<string | null>(null)
-  const {t} = useTranslation('modal')
   const [isExploding, setIsExploding] = useState(false)
   const [showThanksMessage, setShowThanksMessage] = useState(false)
 
@@ -33,7 +35,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
       required: 'Your first name is required'
     },
 
-    label: t('contact:inputFirstName'),
+    label: props.dictionary.inputFirstName,
     error: errors.firstName
   }
   const lastNameInput: InputProps = {
@@ -42,7 +44,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
     options: {
       required: 'Your last name is required'
     },
-    label: t('contact:inputLastName'),
+    label: props.dictionary.inputLastName,
     error: errors.lastName
   }
   const emailInput: InputProps = {
@@ -55,7 +57,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
         message: 'Email is invalid'
       }
     },
-    label: t('contact:inputEmail'),
+    label: props.dictionary.inputEmail,
     error: errors.email
   }
 
@@ -65,7 +67,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
     options: {
       required: 'A message is required'
     },
-    label: t('contact:inputMessage'),
+    label: props.dictionary.inputMessage,
     error: errors.message
   }
 
@@ -73,7 +75,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
     register,
     id: 'legalConsent',
     name:'legalConsent',
-    label: t('contact:checkboxLegalConsent')
+    label: props.dictionary.checkboxLegalConsent
   }
 
   async function onSubmit(data: contactUsFormData){

@@ -1,6 +1,6 @@
 import {TagSchema} from './tag.model'
 import {imageSchema} from './image.model'
-import {teamMemberSchema} from './team-member'
+import {teamMemberSchema} from './team-member.model'
 import {z} from 'zod'
 
 export const articleSchema = z.object({

@@ -1,3 +1,5 @@
+'use client'
+
 import {ImageProps} from '@/models/image.model'
 import {Logo} from '@/components/ui/svgs/logos/56k'
 import {cn} from '@/utils/toolbox'
@@ -11,9 +13,9 @@ type CardCoverProps = {
 }
 
 export default function CardCover({image, fixedHeight, className}: CardCoverProps) {
+  const maxFixedHeight = '200px'
   const [isLoaded, setIsLoaded] = useState(false)
-  
-  const [height, setHeight] = useState('200px')
+  const [height, setHeight] = useState(maxFixedHeight)
   const coverParent = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -25,11 +27,12 @@ export default function CardCover({image, fixedHeight, className}: CardCoverProp
       }
     }
   }, [])
+  
   return (
     <div
       className={cn('relative w-full h-full overflow-hidden rounded-xl', className)}
       ref={coverParent}
-      style={{height: fixedHeight ? '200px' : `${image.width * (parseInt(height)/image.width)}px`}}
+      style={{height: fixedHeight ? maxFixedHeight : `${image.width * (parseInt(height)/image.width)}px`}}
     >
       {!isLoaded
         ? <div className='flex items-center justify-center w-full h-full p-10 bg-white/10 animate-pulse grayscale'>
@@ -40,7 +43,7 @@ export default function CardCover({image, fixedHeight, className}: CardCoverProp
       <Image
         src={image.src}
         alt={image.alt || 'post-cover'}
-        onLoadingComplete={() => {setIsLoaded(true)}}
+        onLoad={() => {setIsLoaded(true)}}
         fill
         className={cn('object-cover', isLoaded && 'bg-white')}
       />

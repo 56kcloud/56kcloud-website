@@ -1,7 +1,7 @@
 import {articleSchema} from './article.model'
 import {iconSchema} from './icon.model'
 import {imageSchema} from './image.model'
-import {partnerSchema} from './partner'
+import {partnerSchema} from './partner.model'
 import {z} from 'zod'
 
 export const baseSolutionSchema = z.object({

@@ -1194,10 +1194,10 @@ export default function Icon({name, type, ...props}: IconProps) {
             y2='100%'>
             <stop
               offset='0%'
-              stop-color={color.sky[300]}/>
+              stopColor={color.sky[300]}/>
             <stop
               offset='100%'
-              stop-color={color.purple[300]}/>
+              stopColor={color.purple[300]}/>
           </linearGradient>
         </defs>
         <Comp

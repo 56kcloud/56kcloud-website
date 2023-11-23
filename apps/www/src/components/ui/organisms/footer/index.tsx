@@ -1,3 +1,4 @@
+import {Dictionary} from '@/models/dictionary.model'
 import {LinkProps, SocialLinks} from '@/models/link.model'
 import {Linkedin} from '../../svgs/logos/linkedin'
 import {Logo} from '../../svgs/logos/56k'
@@ -5,20 +6,19 @@ import {Service} from '@/models/service.model'
 import {Solution} from '@/models/solution.model'
 import {X} from '../../svgs/logos/x'
 import Button from '../../atoms/button'
-import useTranslation from 'next-translate/useTranslation'
 
 export type FooterProps = {
+  dictionary: Dictionary
   text: string
   solutions: Array<Pick<Solution, 'title' | 'slug'>>
   services: Array<Pick<Service, 'title' | 'slug'>>
 }
 
-export default function Footer(props: FooterProps) {
-  const {t} = useTranslation()
-  
+export default async function Footer(props: FooterProps) {
+
   const companyLinks: Array<LinkProps> = [
-    {text: 'About', link: '/about'},
-    {text: 'Blog', link: '/blog'}
+    {text: props.dictionary.about, link: '/about'},
+    {text: props.dictionary.blog, link: '/blog'}
   ]
 
   const socialLinks: Array<SocialLinks> = [
@@ -69,10 +69,9 @@ export default function Footer(props: FooterProps) {
               ))}
             </div>
           </div>
-          
           <div className='flex flex-col gap-12 md:flex-row md:justify-between md:gap-28'>
             <div>
-              <h3 className='text-sm font-normal text-white capitalize'>{t('common:services')}</h3>
+              <h3 className='text-sm font-normal text-white capitalize'>{props.dictionary.services}</h3>
               <ul
                 role='list'
                 className='mt-6 space-y-4'>
@@ -95,7 +94,7 @@ export default function Footer(props: FooterProps) {
               </ul>
             </div>
             <div>
-              <h3 className='text-sm font-normal text-white capitalize'>{t('common:solutions')}</h3>
+              <h3 className='text-sm font-normal text-white capitalize'>{props.dictionary.solutions}</h3>
               <ul
                 role='list'
                 className='mt-6 space-y-4'>
@@ -117,7 +116,7 @@ export default function Footer(props: FooterProps) {
               </ul>
             </div>
             <div>
-              <h3 className='text-sm font-normal text-white capitalize'>{t('common:company')}</h3>
+              <h3 className='text-sm font-normal text-white capitalize'>{props.dictionary.company}</h3>
               <ul
                 role='list'
                 className='mt-6 space-y-4'>

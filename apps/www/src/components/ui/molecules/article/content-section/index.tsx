@@ -1,10 +1,10 @@
 import {ImageProps} from '@/models/image.model'
 import {MarkdownViewer} from '../../mardown'
 import {Tag} from '@/models/tag.model'
-import {TeamMember} from '@/models/team-member'
+import {TeamMember} from '@/models/team-member.model'
 import {formatDate} from '@/utils/toolbox'
+import ArticleCover from '../cover'
 import Avatar from '@/components/ui/atoms/avatar'
-import CardCover from '../../cards/cover'
 import PostTagList from '../../cards/article/tag-list'
 import React from 'react'
 
@@ -26,8 +26,7 @@ export default function ArticleContentSection(
       <div 
         className='z-50 w-full h-full overflow-auto bg-white/5 max-w-7xl rounded-xl overscroll-contain'
       >
-        <CardCover
-          className='rounded-b-none'
+        <ArticleCover
           image={image}
         />
         <div className='w-full p-6 md:p-10'>
@@ -54,8 +53,8 @@ export default function ArticleContentSection(
                 </svg>
                 <div className='flex gap-x-2.5 items-center'>
                   <Avatar
-                    image={author.avatar.src}
-                    alt={author.avatar.alt || 'author'}
+                    size='sm'
+                    image={author.avatar}
                   />
                   {author.name}
                 </div>

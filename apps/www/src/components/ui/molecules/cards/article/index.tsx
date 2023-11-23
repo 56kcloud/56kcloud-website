@@ -56,8 +56,7 @@ export default function ArticleCard({article, fixedHeight}: ArticleCardProps) {
           <div
             className='flex flex-wrap items-center mt-8 text-sm gap-x-3 text-slate-400'>
             <Avatar
-              image={article.author.avatar.src}
-              alt={article.author.avatar.alt || 'author'}
+              image={article.author.avatar}
               size='md'
             />
             <div className='flex flex-col text-base'>

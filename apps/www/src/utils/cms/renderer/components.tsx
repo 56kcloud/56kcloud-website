@@ -20,8 +20,7 @@ import {
   teamThreeColumnBlueprint,
   valueTwoColumnBlueprint
 } from './blueprints'
-import {Seo} from '@/models/page.mode'
-import Head from 'next/head'
+import {Dictionary} from '@/models/dictionary.model'
 import Header from '@/components/ui/organisms/header'
 
 export type ComponentBlueprints = {
@@ -51,70 +50,23 @@ export const componentBlueprints: ComponentBlueprints = {
   'content-markdown': contentMarkdownBlueprint
 }
 
-export function renderComponents(components: Array<ComponentBlueprint>) {
+export function renderComponents(dictionary: Dictionary, components?: Array<ComponentBlueprint>) {
   return components?.map((item, index) => {
     const Component = componentBlueprints[item.component]?.component
     return Component && (
       <Component
         {...item.props}
+        dictionary={dictionary}
         key={index}
       />
     )
   })
 }
 
-export function pageRenderer(
-  components: Array<ComponentBlueprint>,
-  seo: Seo,
-  asPath: string
-) {
-  const appleTouchSizes = ['57x57', '60x60', '72x72', '76x76', '114x114', '120x120', '144x144', '152x152', '180x180']
-  const children = renderComponents(components)
+export function pageRenderer(dictionary: Dictionary, components?: Array<ComponentBlueprint>) {
+  const children = renderComponents(dictionary, components)
   return (<>
-    {seo
-      ? <Head>
-        <title>{seo.title}</title>
-        <meta
-          name='description'
-          content={seo.description}
-        />
-        <meta
-          property='og:image'
-          content={seo.image.src}
-        />
-        <meta
-          property='og:title'
-          content={seo.title}
-        />
-        <meta
-          property='og:description'
-          content={seo.description}
-        />
-        <meta
-          content={`https://www.56k.cloud${asPath}`}
-          property='og:url'
-        />
-        <meta
-          content='summary'
-          name='twitter:card'
-        />
-        <meta
-          content='@56kCloud'
-          name='twitter:site'
-        />
-        {appleTouchSizes.map((size) => (
-          <link
-            key={size}
-            fetchPriority='low'
-            href={`/images/apple-touch/icon-${size}.png`}
-            rel='apple-touch-icon'
-            sizes={size}
-          />
-        ))}
-      </Head>
-      : null
-    }
-    <Header/>
+    <Header dictionary={dictionary}/>
     {children}
   </>
   )

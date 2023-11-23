@@ -1,7 +1,9 @@
+'use client'
+
 import {Article} from '@/models/article.model'
 import {DateTime} from 'luxon'
 import {useEffect, useState} from 'react'
-import {useRouter} from 'next/router'
+import {useSearchParams} from 'next/navigation'
 import ArticleCard from '@/components/ui/molecules/cards/article'
 import MasonryLayout from '@/components/ui/molecules/masonry'
 import slugify from 'slugify'
@@ -13,22 +15,20 @@ export type BlogMasonryProps = {
 }
 
 export default function BlogMasonry(props: BlogMasonryProps) {
-  const router = useRouter()
-  const queryTag = router.query.tag
+  const searchParams = useSearchParams()
+  const queryTag = searchParams.get('tag')
   const [filteredPosts, setFilteredPosts] = useState<Array<Article>>([])
 
   useEffect(() => {
     setFilteredPosts([])
-    if (router.isReady) {
-      const filteredArticles = props.articles
-        .filter(article => queryTag ? article.tags.map(tag => slugify(tag.name).toLowerCase())
-          .includes(queryTag?.toString()) : true)
-      setTimeout(() => {
-        setFilteredPosts(filteredArticles.sort((a,b) => DateTime.fromISO(b.publishedOn).toMillis()
+    const filteredArticles = props.articles
+      .filter(article => queryTag ? article.tags.map(tag => slugify(tag.name).toLowerCase())
+        .includes(queryTag?.toString()) : true)
+    setTimeout(() => {
+      setFilteredPosts(filteredArticles.sort((a,b) => DateTime.fromISO(b.publishedOn).toMillis()
          - DateTime.fromISO(a.publishedOn).toMillis()))
-      }, 100)
-    }
-  }, [router.isReady, queryTag])
+    }, 100)
+  }, [queryTag])
 
   const articles = filteredPosts.map((article) => (
     <ArticleCard
