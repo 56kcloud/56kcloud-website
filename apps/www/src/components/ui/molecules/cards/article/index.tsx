@@ -1,4 +1,5 @@
 import {Article} from '@/models/article.model'
+import {Suspense} from 'react'
 import {cn, formatDate} from '@/utils/toolbox'
 import {motion} from 'framer-motion'
 import ArticleCover from '../cover'
@@ -37,7 +38,9 @@ export default function ArticleCard({article, fixedHeight}: ArticleCardProps) {
           <div className='flex items-center space-x-4'>
             <span className='text-sm font-light text-slate-400'>{publishedOn}</span>
             <div className='flex flex-1 h-10 overflow-x-auto'>
-              <ArticleTagList tags={article.tags}/>
+              <Suspense>
+                <ArticleTagList tags={article.tags}/>
+              </Suspense>
             </div>
           </div>
           <div>

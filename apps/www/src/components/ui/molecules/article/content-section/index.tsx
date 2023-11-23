@@ -6,7 +6,7 @@ import {formatDate} from '@/utils/toolbox'
 import ArticleCover from '../cover'
 import Avatar from '@/components/ui/atoms/avatar'
 import PostTagList from '../../cards/article/tag-list'
-import React from 'react'
+import React, {Suspense} from 'react'
 
 export type ArticleContentSectionProps = {
   image: ImageProps
@@ -31,9 +31,11 @@ export default function ArticleContentSection(
         />
         <div className='w-full p-6 md:p-10'>
           <div className='flex flex-col-reverse justify-between md:items-center md:flex-row'>
-            <PostTagList
-              tags={tags}
-            />
+            <Suspense>
+              <PostTagList
+                tags={tags}
+              />
+            </Suspense>
             <div
               className='flex flex-col md:flex-row items-center justify-center mb-10 overflow-hidden text-sm leading-6 \
              text-gray-300 md:mb-0 gap-y-6'>
