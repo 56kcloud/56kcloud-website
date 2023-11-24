@@ -2,14 +2,9 @@ import {BasePageProps} from '../page'
 import {Metadata} from 'next'
 import {getDictionary} from '../dictionaries'
 import {getPageComponents, getPageSeo} from '@/utils/cms/endpoints'
-import {locales} from '../../../../configs/server'
 import {pageRenderer} from '@/utils/cms/renderer/components'
 
 const pagePath = 'about-page'
-
-export async function generateStaticParams() {
-  return locales.map((locale) => ({locale}))
-}
 
 export async function generateMetadata({params}: BasePageProps): Promise<Metadata> {
   const props = await getPageSeo(pagePath, params.locale)
@@ -18,6 +13,7 @@ export async function generateMetadata({params}: BasePageProps): Promise<Metadat
       title: props.title,
       description: props.description,
       openGraph: {
+        url: '/about',
         images: [props.image.src]
       }
     }

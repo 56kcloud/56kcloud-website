@@ -1,15 +1,10 @@
 import {Metadata} from 'next'
 import {getDictionary} from './dictionaries'
 import {getPageComponents, getPageSeo} from '@/utils/cms/endpoints'
-import {locales} from '../../../configs/server'
 import {pageRenderer} from '@/utils/cms/renderer/components'
 
 export type BasePageProps = {
   params: {locale: string}
-}
-
-export async function generateStaticParams() {
-  return locales.map((locale) => ({locale}))
 }
 
 const pagePath = 'home-page'
@@ -21,6 +16,7 @@ export async function generateMetadata({params}: BasePageProps): Promise<Metadat
       title: props.title,
       description: props.description,
       openGraph: {
+        url: '/',
         images: [props.image.src]
       }
     }

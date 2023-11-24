@@ -27,6 +27,7 @@ export async function generateMetadata({params}: ArticlePageProps): Promise<Meta
       title: props.title,
       description: props.description,
       openGraph: {
+        url: `/blog/${params.slug}`,
         images: [props.image.src]
       }
     }

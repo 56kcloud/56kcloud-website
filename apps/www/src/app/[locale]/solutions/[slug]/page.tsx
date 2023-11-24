@@ -28,6 +28,7 @@ export async function generateMetadata({params}: SolutionPageProps): Promise<Met
       title: props.title,
       description: props.description,
       openGraph: {
+        url: `/solutions/${params.slug}`,
         images: [props.image.src]
       }
     }
