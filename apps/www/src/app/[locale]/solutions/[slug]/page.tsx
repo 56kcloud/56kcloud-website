@@ -1,10 +1,8 @@
 import {BasePageProps} from '../../page'
 import {Metadata} from 'next'
-// import {StaticParam} from '@/models/static-params.model'
 import {getDictionary} from '../../dictionaries'
-import {getPageComponents, getPageSeo} from '@/utils/cms/endpoints'
+import {getList, getPageComponents, getPageSeo} from '@/utils/cms/endpoints'
 import {pageRenderer} from '@/utils/cms/renderer/components'
-import {strapiFetcher} from '../../../../../configs/server'
 
 type SolutionPageProps = BasePageProps & {
   params: {
@@ -15,10 +13,7 @@ type SolutionPageProps = BasePageProps & {
 const basePath = 'solutions/'
 
 export async function generateStaticParams() {
-  const solutions = await strapiFetcher.call({
-    path: '/api/solutions-slugs'
-  })
-  return solutions
+  return await getList('solutions')
 }
 
 export async function generateMetadata({params}: SolutionPageProps): Promise<Metadata> {

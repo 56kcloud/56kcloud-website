@@ -1,6 +1,6 @@
-import {ItemLocale} from '@/models/locale.model'
 import {MetadataRoute} from 'next'
-import {hostname, strapiFetcher} from '../../configs/server'
+import {getList} from '@/utils/cms/endpoints'
+import {hostname} from '../../configs/server'
 
 const staticPaths = [
   '/',
@@ -9,31 +9,19 @@ const staticPaths = [
 ]
 
 async function getArticlePaths() {
-  const articles = await strapiFetcher.call({
-    path: '/api/articles-slugs'
-  })
-
-  return articles.map((article: ItemLocale) => {
+  return (await getList('articles')).map((article) => {
     return `${article.locale}/blog/${article.slug}`
   })
 }
 
 async function getSolutionsPaths() {
-  const solutions = await strapiFetcher.call({
-    path: '/api/solutions-slugs'
-  })
-  
-  return solutions.map((solution: ItemLocale) => {
+  return (await getList('solutions')).map((solution) => {
     return `${solution.locale}/solutions/${solution.slug}`
   })
 }
 
 async function getServicesPaths() {
-  const services = await strapiFetcher.call({
-    path: '/api/services-slugs'
-  })
-  
-  return services.map((service: ItemLocale) => {
+  return (await getList('services')).map((service) => {
     return `${service.locale}/services/${service.slug}`
   })
 }

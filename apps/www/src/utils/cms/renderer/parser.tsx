@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {blurImageHostname} from '../../../../configs/server'
 import {deepFind} from '../../toolbox'
+import {hostname} from '../../../../configs/server'
 
 type Schema = Record<string, any>;
 type ObjectType = Record<string, any>;
@@ -53,7 +53,7 @@ async function processNonObject(
       || path.splice(path.length - 1, 1, oldKey) && deepFind(object, `${pathFirstKey}.${path.join('.')}`)
     if (oldKey === 'blurDataURL' && foundValue) {
       try {
-        const res = await fetch(`${blurImageHostname}/_next/image?url=${foundValue}&w=16&q=75`, {method: 'GET'})
+        const res = await fetch(`${hostname}/_next/image?url=${foundValue}&w=16&q=75`, {method: 'GET'})
         const base64 = Buffer.from((await res.arrayBuffer())).toString('base64')
         props[key] = base64
       } catch (error) {

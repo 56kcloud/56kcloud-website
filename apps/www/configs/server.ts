@@ -8,7 +8,6 @@ export const strapiFetcher = new Fetcher(strapiAPI, {
 export const hostname = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}/` 
   : `http://localhost:${process.env.PORT || 3000}/`
-export const blurImageHostname = hostname
 export const defaultLocale = 'en'
 export const locales: Array<string> = [defaultLocale]
 // export const locales: Array<string> = [defaultLocale, 'fr', 'de']

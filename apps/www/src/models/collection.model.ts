@@ -1,4 +1,4 @@
-export type ItemLocale = {
+export type CollectionItem = {
   locale: string
   slug: string
 }

@@ -1,9 +1,8 @@
 import {BasePageProps} from '../../page'
 import {Metadata} from 'next'
 import {getDictionary} from '../../dictionaries'
-import {getPageComponents, getPageSeo} from '@/utils/cms/endpoints'
+import {getList, getPageComponents, getPageSeo} from '@/utils/cms/endpoints'
 import {pageRenderer} from '@/utils/cms/renderer/components'
-import {strapiFetcher} from '../../../../../configs/server'
 
 type ArticlePageProps = BasePageProps & {
   params: {
@@ -14,10 +13,7 @@ type ArticlePageProps = BasePageProps & {
 const basePath = 'articles/'
 
 export async function generateStaticParams() {
-  const articles = await strapiFetcher.call({
-    path: '/api/articles-slugs'
-  })
-  return articles
+  return await getList('articles')
 }
 
 export async function generateMetadata({params}: ArticlePageProps): Promise<Metadata> {

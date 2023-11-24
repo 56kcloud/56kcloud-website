@@ -1,3 +1,4 @@
+import {CollectionItem} from '@/models/collection.model'
 import {PageComponents, PageSeo, Seo} from '@/models/page.model'
 import {componentBlueprints} from './renderer/components'
 import {getComponentProps} from './renderer/parser'
@@ -39,4 +40,10 @@ export async function getPageSeo(path: string, lang='en'): Promise<PageSeo|undef
     snakeCaseObjectKeysToCamelCase(element.seo)
   ) as Seo
   return seo
+}
+
+export async function getList(collection: string): Promise<Array<CollectionItem>> {
+  return (await strapiFetcher.call({
+    path: `/api/${collection}-slugs`
+  })) as Array<CollectionItem>
 }
