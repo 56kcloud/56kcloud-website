@@ -36,6 +36,10 @@ export default function Root({children, params}: RootLayoutProps) {
           content='@56kCloud'
           name='twitter:site'
         />
+        <meta
+          content='summary'
+          name='twitter:card'
+        />
       </head>
       <body className='relative bg-background isolate'>
         {children}
