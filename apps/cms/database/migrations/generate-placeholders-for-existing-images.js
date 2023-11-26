@@ -6,6 +6,7 @@ const BATCH_SIZE = 1000
 async function up(trx) {
   let lastId = 0
 
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     const files = await trx
       .select(['id', 'url'])
@@ -18,6 +19,7 @@ async function up(trx) {
       .limit(BATCH_SIZE)
 
     for (const file of files) {
+      // eslint-disable-next-line no-undef
       const placeholder = await strapi
         .plugin('placeholder')
         .service('placeholder')
