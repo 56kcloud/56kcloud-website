@@ -30,7 +30,7 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
               {props.subtitle}
             </p>
             <div className='flex items-center justify-start mt-10 gap-x-6'>
-              {props.leftCTA.text
+              {props.leftCTA
                 ? <Button
                   asChild
                   size='large'
@@ -45,7 +45,7 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
                 </Button>
                 : null
               }
-              {props.rightCTA.text
+              {props.rightCTA
                 ? <Button
                   asChild
                   size='large'
@@ -64,12 +64,12 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
           <div className='relative lg:w-full h-96'>
             <Image
               alt={'Background'}
-              src={props.image.src}
+              src={props.image.url}
               placeholder='blur'
-              blurDataURL={props.image.blurDataURL}
-              layout='fill'
-              objectFit='cover'
-              className='rounded-xl'
+              blurDataURL={props.image.placeholder}
+              width={props.image.width}
+              height={props.image.height}
+              className='object-cover h-full rounded-xl'
             />
             <div
               className='absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-sky-300/20 to-purple-300/30 \

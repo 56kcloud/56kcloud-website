@@ -1,3 +1,5 @@
+'use client'
+
 import {ChevronLeftIcon, ChevronRightIcon} from 'lucide-react'
 import {Tag} from '@/models/tag.model'
 import {toQueryParam} from '@/utils/toolbox'

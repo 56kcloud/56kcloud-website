@@ -1,8 +1,16 @@
 /** @type {import('next').NextConfig} */
-const nextTranslate = require('next-translate-plugin')
 const nextConfig = {
   images: {
-    domains: ['56k-strapi.s3.eu-central-1.amazonaws.com', 'localhost']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '56k-strapi.s3.eu-central-1.amazonaws.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '56kcloud-cms-assets.s3.us-east-1.amazonaws.com',
+      }
+    ]
   },
   async redirects() {
     return [
@@ -51,8 +59,7 @@ const nextConfig = {
         permanent: true
       }
     ]
-  },
-  ...nextTranslate()
+  }
 }
 
 module.exports = nextConfig

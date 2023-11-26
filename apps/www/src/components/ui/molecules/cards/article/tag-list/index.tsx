@@ -1,6 +1,8 @@
+'use client'
+
 import {Tag} from '@/models/tag.model'
 import {useEffect, useState} from 'react'
-import {useRouter} from 'next/router'
+import {useSearchParams} from 'next/navigation'
 import Badge from '@/components/ui/atoms/badge'
 import Link from 'next/link'
 import slugify from 'slugify'
@@ -10,7 +12,7 @@ export type ArticleListProps = {
 }
 
 export default function ArticleTagList({tags}: ArticleListProps) {
-  const queryTag = useRouter().query.tag
+  const queryTag = useSearchParams().get('tag')
   const [sortedTags, setSortedTags] = useState<Array<Tag>>([])
 
   useEffect(() => {

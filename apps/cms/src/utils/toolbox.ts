@@ -1,5 +1,7 @@
 import {Common} from '@strapi/strapi'
 
+const defaultLocale = process.env.STRAPI_PLUGIN_I18N_INIT_LOCALE_CODE
+
 function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
@@ -100,19 +102,24 @@ const cleanUnnecessaryProps = (contentType) => {
 export async function findOne(ctx, uid: string, contentTypeHandler?: (contentType: Record<string, unknown>) => void) {
   try {
     let contentType = await strapi.db.query(uid).findOne({where: {slug: ctx.params.id}, populate: ['localizations']})
-    const localeSlug = contentType.localizations?.find(
-      localization => localization.locale === ctx.query.locale
-    )?.slug || ctx.params.id
+    const slug = ctx.query.locale !== contentType.locale 
+      ? contentType.localizations?.find(
+        localization => localization.locale === ctx.query.locale
+      )?.slug || ctx.params.id
+      : ctx.params.id
     contentType = await strapi.db.query(uid).findOne({
-      where: {slug: localeSlug},
+      where: {slug},
       populate: createPopulateArray()
     })
-    contentTypeHandler && contentTypeHandler(contentType)
-    await bodyHandler(contentType, ctx.query.locale)
+    if (!ctx.query.seoOnly) {
+      contentTypeHandler && contentTypeHandler(contentType)
+      await bodyHandler(contentType, ctx.query.locale)
+    }
     await seoHandler(contentType, uid)
     cleanUnnecessaryProps(contentType)
     return contentType
   } catch (e) {
+    console.log(e)
     ctx.status = 404
     ctx.body = {error: 'not found'}
   }
@@ -123,14 +130,17 @@ export async function findSingleType(ctx, uid: Common.UID.Service) {
     let contentType = await strapi.service(uid).find({
       populate: ['localizations']
     })
-    const locale = 
-    contentType.localizations?.find(localization => localization.locale === ctx.query.locale)?.locale || 'en'
+    const locale = contentType.localizations?.find(localization => {
+      return localization.locale === ctx.query.locale}
+    )?.locale || defaultLocale
     contentType = await strapi.service(uid).find({
       populate: createPopulateArray(),
       locale
     })
     await seoHandler(contentType, uid.toString())
-    await bodyHandler(contentType, ctx.query.locale)
+    if (!ctx.query.seoOnly) {
+      await bodyHandler(contentType, ctx.query.locale)
+    }
     cleanUnnecessaryProps(contentType)
     return contentType
   } catch (e) {
@@ -139,14 +149,28 @@ export async function findSingleType(ctx, uid: Common.UID.Service) {
   }
 }
 
-export async function getAllPublishedSlugs(uid: Common.UID.Service) {
-  const contentType = await strapi.db.query(uid).findMany({
-    select: ['slug'],
+async function findManyContentTypes(uid: string, select: Array<string>) {
+  return await strapi.db.query(uid).findMany({
+    select,
     where: {
       $not: {
         publishedAt: null
       }
     }
   })
-  return contentType.filter(content => content.slug)
+}
+
+export async function getAllPublishedSlugs(uid: Common.UID.Service) {
+  try {
+    const contentTypes = await findManyContentTypes(uid, ['slug', 'locale'])
+    return contentTypes.filter(content => content.slug)
+  } catch (e) {
+    const contentTypes = await findManyContentTypes(uid, ['slug'])
+    return contentTypes.filter(content => content.slug).map(content => (
+      {
+        slug: content.slug,
+        locale: defaultLocale
+      }
+    ))
+  }
 }

@@ -1,3 +1,5 @@
+'use client'
+
 import {cn} from '@/utils/toolbox'
 import {getImageSize} from 'react-image-size'
 import Image, {ImageProps} from 'next/image'

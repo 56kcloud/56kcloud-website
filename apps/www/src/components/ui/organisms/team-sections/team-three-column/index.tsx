@@ -1,4 +1,4 @@
-import {TeamMember} from '@/models/team-member'
+import {TeamMember} from '@/models/team-member.model'
 import Image from 'next/image'
 
 export type TeamThreeColumnProps = {
@@ -24,7 +24,11 @@ export default function TeamThreeColumn(props: TeamThreeColumnProps) {
         {props.teamMembers.map((TeamMember) => (
           <li key={TeamMember.name}>
             <Image
-              {...TeamMember.avatar}
+              src={TeamMember.avatar.url}
+              width={TeamMember.avatar.width}
+              height={TeamMember.avatar.height}
+              placeholder='blur'
+              blurDataURL={TeamMember.avatar.placeholder}
               alt={TeamMember.name}
               className='aspect-[14/13] w-full rounded-2xl object-cover'
             />

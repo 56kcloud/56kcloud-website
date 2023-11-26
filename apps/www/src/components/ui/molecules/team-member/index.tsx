@@ -1,5 +1,5 @@
 import {Link2} from 'lucide-react'
-import {TeamMember} from '@/models/team-member'
+import {TeamMember} from '@/models/team-member.model'
 import {X} from '../../svgs/logos/x'
 import Avatar from '@/components/ui/atoms/avatar'
 import Button from '@/components/ui/atoms/button'
@@ -19,8 +19,8 @@ export default function TeamMemberCard({teamMember}: TeamMemberCardProps) {
           <div>
             <Avatar
               size='lg'
-              image={teamMember.avatar.src}
-              alt={'postAvatarImageAlt'}
+              image={teamMember.avatar}
+              // {...teamMember.avatar}
             />
           </div>
           <div className='space-y-2'>

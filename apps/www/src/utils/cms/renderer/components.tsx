@@ -1,120 +1,77 @@
-import {
-  ComponentBlueprint,
-  articleContentBlueprint,
-  blogMasonryBlueprint,
-  blogThreeColumnBlueprint,
-  contactSplitWithPatternBlueprint,
-  contentMarkdownBlueprint,
-  contentTwoColumnBlueprint,
-  footerBlueprint,
-  headerWithCardsBlueprint,
-  heroSimpleCenterBlueprint,
-  heroSimpleCenterWithBackgroundBlueprint,
-  imageSimpleBlueprint,
-  joinOurTeamBlueprint,
-  logoCloudsSimpleWithTitleBlueprint,
-  servicesThreeColumnWithLargeIconsBlueprint,
-  solutionThreeColumnWithLargeIconsBlueprint,
-  tagFilterBlueprint,
-  teamMemberCardBlueprint,
-  teamThreeColumnBlueprint,
-  valueTwoColumnBlueprint
-} from './blueprints'
-import {Seo} from '@/models/page.mode'
-import Head from 'next/head'
+import {Dictionary} from '@/models/dictionary.model'
+import ArticleContentSection from '@/components/ui/molecules/article/content-section'
+import BlogMasonry from '@/components/ui/organisms/blog-sections/blog-masonry'
+import BlogThreeColumn from '@/components/ui/organisms/blog-sections/blog-three-column'
+import ContactSplitWithPattern from '@/components/ui/organisms/contact-sections/contact-split-with-pattern'
+import ContentMarkdown from '@/components/ui/organisms/content-sections/content-markdown'
+import ContentTwoColumn from '@/components/ui/organisms/content-sections/content-two-column'
+import CustomerLogosSimpleWithTitle from '@/components/ui/organisms/customer-sections/customer-logos-simple-with-title'
+import Footer from '@/components/ui/organisms/footer'
 import Header from '@/components/ui/organisms/header'
+import HeaderWithCards from '@/components/ui/organisms/header-sections/header-with-cards'
+import HeroSimpleCenter from '@/components/ui/organisms/hero-sections/hero-simple-center'
+import HeroSimpleCenterWithBackground from '@/components/ui/organisms/hero-sections/hero-simple-center-with-background'
+import ImageSimple from '@/components/ui/organisms/image-sections/image-simple'
+import JoinOurTeam from '@/components/ui/organisms/cta-sections/join-our-team'
+import PartnerLogosSimpleWithTitle from '@/components/ui/organisms/partner-sections/partner-logos-simple-with-title'
+import ServiceThreeColumnWithLargeIcons from
+  '@/components/ui/organisms/service-sections/service-three-column-with-large-icons'
+import SolutionThreeColumnWithLargeIcons from
+  '@/components/ui/organisms/solution-sections/solution-three-column-with-large-icons'
+import TagFilter from '@/components/ui/molecules/tag-filter'
+import TeamMemberCard from '@/components/ui/molecules/team-member'
+import TeamThreeColumn from '@/components/ui/organisms/team-sections/team-three-column'
+import ValueTwoColumn from '@/components/ui/organisms/value-sections/value-two-column'
 
 export type ComponentBlueprints = {
-  [key: string]: ComponentBlueprint
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any
 }
 
 export const componentBlueprints: ComponentBlueprints = {
-  'footer': footerBlueprint,
-  'hero-simple-center': heroSimpleCenterBlueprint,
-  'hero-simple-center-with-background': heroSimpleCenterWithBackgroundBlueprint,
-  'blog-three-column': blogThreeColumnBlueprint,
-  'blog-masonry': blogMasonryBlueprint,
-  'contact-split-with-pattern': contactSplitWithPatternBlueprint,
-  'service-three-column-with-large-icons': servicesThreeColumnWithLargeIconsBlueprint,
-  'solution-three-column-with-large-icons': solutionThreeColumnWithLargeIconsBlueprint,
-  'partner-logo-simple-with-title': logoCloudsSimpleWithTitleBlueprint('partners'),
-  'customer-logo-simple-with-title': logoCloudsSimpleWithTitleBlueprint('customers'),
-  'article-content': articleContentBlueprint,
-  'content-two-column': contentTwoColumnBlueprint,
-  'image-simple': imageSimpleBlueprint,
-  'value-two-column': valueTwoColumnBlueprint,
-  'team-three-column': teamThreeColumnBlueprint,
-  'join-our-team': joinOurTeamBlueprint,
-  'tag-filter': tagFilterBlueprint,
-  'team-member-card': teamMemberCardBlueprint,
-  'header-with-cards': headerWithCardsBlueprint,
-  'content-markdown': contentMarkdownBlueprint
+  'footer': Footer,
+  'hero-simple-center': HeroSimpleCenter,
+  'hero-simple-center-with-background': HeroSimpleCenterWithBackground,
+  'blog-three-column': BlogThreeColumn,
+  'blog-masonry': BlogMasonry,
+  'contact-split-with-pattern': ContactSplitWithPattern,
+  'service-three-column-with-large-icons': ServiceThreeColumnWithLargeIcons,
+  'solution-three-column-with-large-icons': SolutionThreeColumnWithLargeIcons,
+  'partner-logo-simple-with-title': PartnerLogosSimpleWithTitle,
+  'customer-logo-simple-with-title': CustomerLogosSimpleWithTitle,
+  'article-content': ArticleContentSection,
+  'content-two-column': ContentTwoColumn,
+  'image-simple': ImageSimple,
+  'value-two-column': ValueTwoColumn,
+  'team-three-column': TeamThreeColumn,
+  'join-our-team': JoinOurTeam,
+  'tag-filter': TagFilter,
+  'team-member-card': TeamMemberCard,
+  'header-with-cards': HeaderWithCards,
+  'content-markdown': ContentMarkdown
+}
+export type ComponentBlueprint = {
+  component: keyof ComponentBlueprints
+  props: Record<string, unknown>
 }
 
-export function renderComponents(components: Array<ComponentBlueprint>) {
+export function renderComponents(dictionary: Dictionary, components?: Array<ComponentBlueprint>) {
   return components?.map((item, index) => {
-    const Component = componentBlueprints[item.component]?.component
+    const Component = componentBlueprints[item.component]
     return Component && (
       <Component
         {...item.props}
+        dictionary={dictionary}
         key={index}
       />
     )
   })
 }
 
-export function pageRenderer(
-  components: Array<ComponentBlueprint>,
-  seo: Seo,
-  asPath: string
-) {
-  const appleTouchSizes = ['57x57', '60x60', '72x72', '76x76', '114x114', '120x120', '144x144', '152x152', '180x180']
-  const children = renderComponents(components)
+export function pageRenderer(dictionary: Dictionary, components?: Array<ComponentBlueprint>) {
+  const children = renderComponents(dictionary, components)
   return (<>
-    {seo
-      ? <Head>
-        <title>{seo.title}</title>
-        <meta
-          name='description'
-          content={seo.description}
-        />
-        <meta
-          property='og:image'
-          content={seo.image.src}
-        />
-        <meta
-          property='og:title'
-          content={seo.title}
-        />
-        <meta
-          property='og:description'
-          content={seo.description}
-        />
-        <meta
-          content={`https://www.56k.cloud${asPath}`}
-          property='og:url'
-        />
-        <meta
-          content='summary'
-          name='twitter:card'
-        />
-        <meta
-          content='@56kCloud'
-          name='twitter:site'
-        />
-        {appleTouchSizes.map((size) => (
-          <link
-            key={size}
-            fetchPriority='low'
-            href={`/images/apple-touch/icon-${size}.png`}
-            rel='apple-touch-icon'
-            sizes={size}
-          />
-        ))}
-      </Head>
-      : null
-    }
-    <Header/>
+    <Header dictionary={dictionary}/>
     {children}
   </>
   )

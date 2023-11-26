@@ -1,18 +1,22 @@
+'use client'
+
 import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import {Dialog} from '@headlessui/react'
+import {Dictionary} from '@/models/dictionary.model'
 import {LinkProps} from '@/models/link.model'
 import {Logo} from '../../svgs/logos/56k'
 import {useState} from 'react'
 import Link from 'next/link'
-import useTranslation from 'next-translate/useTranslation'
 
-export default function Header() {
-  const {t} = useTranslation()
+type HeaderProps = {
+  dictionary: Dictionary
+}
+
+export default function Header({dictionary}: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
   const navigation: Array<LinkProps> = [
-    {text: t('common:blog'), link: '/blog'},
-    {text: t('common:about'), link: '/about'}
+    {text: dictionary.blog, link: '/blog'},
+    {text: dictionary.about, link: '/about'}
   ]
 
   return (
