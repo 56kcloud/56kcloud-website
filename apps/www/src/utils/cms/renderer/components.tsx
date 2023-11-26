@@ -1,4 +1,5 @@
 import {Dictionary} from '@/models/dictionary.model'
+import {Suspense} from 'react'
 import ArticleContentSection from '@/components/ui/molecules/article/content-section'
 import BlogMasonry from '@/components/ui/organisms/blog-sections/blog-masonry'
 import BlogThreeColumn from '@/components/ui/organisms/blog-sections/blog-three-column'
@@ -28,6 +29,7 @@ export type ComponentBlueprints = {
   [key: string]: any
 }
 
+export const needSuspense = ['blog-masonry']
 export const componentBlueprints: ComponentBlueprints = {
   'footer': Footer,
   'hero-simple-center': HeroSimpleCenter,
@@ -58,13 +60,18 @@ export type ComponentBlueprint = {
 export function renderComponents(dictionary: Dictionary, components?: Array<ComponentBlueprint>) {
   return components?.map((item, index) => {
     const Component = componentBlueprints[item.component]
-    return Component && (
-      <Component
-        {...item.props}
-        dictionary={dictionary}
-        key={index}
-      />
-    )
+    if (!Component) {
+      return
+    }
+    const render = <Component
+      {...item.props}
+      dictionary={dictionary}
+      key={index}
+    />
+    return needSuspense.includes(item.component.toString())
+      ? <Suspense>{render}</Suspense>
+      : render
+    
   })
 }
 
