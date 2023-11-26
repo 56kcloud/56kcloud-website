@@ -25,6 +25,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^5.2.0",
     "strapi-plugin-multi-select": "^1.2.2",
+    "strapi-plugin-placeholder": "^4.4.0",
     "strapi-plugin-populate-deep": "^3.0.1",
     "styled-components": "^5.2.1"
   },

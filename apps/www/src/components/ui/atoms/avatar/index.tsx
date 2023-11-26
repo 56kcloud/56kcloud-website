@@ -18,8 +18,10 @@ export default function Avatar({size, image}: AvatarProps) {
     <div className={cn(sizes[size], 'flex items-center gap-x-4')}>
       <div className='relative w-full h-full overflow-hidden rounded-full bg-white/20'>
         {image && <Image
-          src={image.src}
-          alt={image.alt || 'avatar'}
+          src={image.url}
+          placeholder='blur'
+          blurDataURL={image.placeholder}
+          alt={image.alternateText || image.name}
           width={image.width}
           height={image.height}
           className='object-cover w-full h-full'/>}

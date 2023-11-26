@@ -1,4 +1,4 @@
-import {ComponentBlueprint} from '@/utils/cms/renderer/blueprints'
+import {ComponentBlueprint} from '@/utils/cms/renderer/components'
 import {ImageProps} from './image.model'
 
 export type Seo = {

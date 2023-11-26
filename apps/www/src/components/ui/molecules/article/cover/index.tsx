@@ -26,8 +26,8 @@ export default function ArticleCover({image, className}: ArticleCoverProps) {
         : null
       }
       <Image
-        src={image.src}
-        alt={image.alt || 'post-cover'}
+        src={image.url}
+        alt={image.alternateText || image.name}
         onLoad={() => {setIsLoaded(true)}}
         fill
         className={cn('object-cover w-full', isLoaded && 'bg-white')}

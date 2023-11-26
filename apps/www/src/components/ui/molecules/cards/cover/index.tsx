@@ -41,9 +41,11 @@ export default function CardCover({image, fixedHeight, className}: CardCoverProp
         : null
       }
       <Image
-        src={image.src}
-        alt={image.alt || 'post-cover'}
+        src={image.url}
+        alt={image.alternateText || image.name}
         onLoad={() => {setIsLoaded(true)}}
+        placeholder='blur'
+        blurDataURL={image.placeholder}
         fill
         className={cn('object-cover', isLoaded && 'bg-white')}
       />

@@ -15,7 +15,6 @@ export type FooterProps = {
 }
 
 export default async function Footer(props: FooterProps) {
-
   const companyLinks: Array<LinkProps> = [
     {text: props.dictionary.about, link: '/about'},
     {text: props.dictionary.blog, link: '/blog'}

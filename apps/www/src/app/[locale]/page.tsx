@@ -17,7 +17,7 @@ export async function generateMetadata({params}: BasePageProps): Promise<Metadat
       description: props.description,
       openGraph: {
         url: '/',
-        images: [props.image.src]
+        images: [props.image.url]
       }
     }
   }

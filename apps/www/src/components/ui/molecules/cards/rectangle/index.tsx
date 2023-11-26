@@ -18,7 +18,11 @@ export default function RectangleCard({number, image, title, className}: Rectang
         </div>
         <div className={cn('w-12 h-12 p-3 rounded-full flex items-center justify-center bg-primary-100', className)}>
           <Image
-            {...image}
+            src={image.url}
+            width={image.width}
+            height={image.height}
+            placeholder='blur'
+            blurDataURL={image.placeholder}
             alt={title}
           />
         </div>

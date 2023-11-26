@@ -20,5 +20,11 @@ export default ({env}) => ({
         delete: {}
       }
     }
+  },
+  placeholder: {
+    enabled: true,
+    config: {
+      size: 10
+    }
   }
 })

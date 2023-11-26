@@ -6,7 +6,7 @@ export type LogoCloudsSimpleWithTitleProps = {
   companies: Array<Company>
 }
 
-export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTitleProps) { 
+export default function LogoCloudSimpleWithTitle(props: LogoCloudsSimpleWithTitleProps) { 
   return (
     <div className='py-20 lg:py-[104px]'>
       <div className='px-6 mx-auto max-w-7xl lg:px-8'>
@@ -22,8 +22,8 @@ export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTit
               rounded-xl'>
               <Image
                 className='max-h-6 sm:max-h-8 lg:max-h-11'
-                src={company.image.src}
-                alt={company.name}
+                src={company.image.url}
+                alt={company.image.alternateText || company.name}
                 width={company.image.width}
                 height={company.image.height}
               />
