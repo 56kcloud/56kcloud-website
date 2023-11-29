@@ -27,7 +27,7 @@ export default function TeamThreeColumn(props: TeamThreeColumnProps) {
               src={TeamMember.avatar.url}
               width={TeamMember.avatar.width}
               height={TeamMember.avatar.height}
-              placeholder='blur'
+              placeholder={TeamMember.avatar.placeholder ? 'blur' : 'empty'}
               blurDataURL={TeamMember.avatar.placeholder}
               alt={TeamMember.name}
               className='aspect-[14/13] w-full rounded-2xl object-cover'

@@ -95,6 +95,18 @@ export interface ContentSectionContentTwoColumn extends Schema.Component {
   };
 }
 
+export interface ContentSectionIntroductionWithLogo extends Schema.Component {
+  collectionName: 'components_content_section_introduction_with_logos';
+  info: {
+    displayName: 'introduction-with-logo';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    logo: Attribute.Media & Attribute.Required;
+  };
+}
+
 export interface CtaSectionsJoinOurTeam extends Schema.Component {
   collectionName: 'components_cta_sections_join_our_teams';
   info: {
@@ -637,6 +649,7 @@ declare module '@strapi/types' {
       'contact-sections.contact-split-with-pattern': ContactSectionsContactSplitWithPattern;
       'content-section.content-markdown': ContentSectionContentMarkdown;
       'content-section.content-two-column': ContentSectionContentTwoColumn;
+      'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo;
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam;
       'cta.button': CtaButton;
       'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle;

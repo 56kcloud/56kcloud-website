@@ -19,7 +19,7 @@ export default function Avatar({size, image}: AvatarProps) {
       <div className='relative w-full h-full overflow-hidden rounded-full bg-white/20'>
         {image && <Image
           src={image.url}
-          placeholder='blur'
+          placeholder={image.placeholder ? 'blur' : 'empty'}
           blurDataURL={image.placeholder}
           alt={image.alternateText || image.name}
           width={image.width}

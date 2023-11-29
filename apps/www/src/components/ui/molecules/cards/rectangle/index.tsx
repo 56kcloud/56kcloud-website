@@ -21,7 +21,7 @@ export default function RectangleCard({number, image, title, className}: Rectang
             src={image.url}
             width={image.width}
             height={image.height}
-            placeholder='blur'
+            placeholder={image.placeholder ? 'blur' : 'empty'}
             blurDataURL={image.placeholder}
             alt={title}
           />

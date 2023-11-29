@@ -931,7 +931,8 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
         'partner-sections.partner-logo-simple-with-title',
         'customer-sections.customer-logo-simple-with-title',
         'blog-sections.blog-three-column',
-        'contact-sections.contact-split-with-pattern'
+        'contact-sections.contact-split-with-pattern',
+        'content-section.introduction-with-logo'
       ]
     > &
       Attribute.Required &

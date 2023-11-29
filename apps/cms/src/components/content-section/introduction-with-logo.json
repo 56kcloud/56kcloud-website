@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_content_section_introduction_with_logos",
+  "info": {
+    "displayName": "introduction-with-logo"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

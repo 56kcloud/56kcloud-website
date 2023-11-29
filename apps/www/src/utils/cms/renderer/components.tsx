@@ -13,6 +13,7 @@ import HeaderWithCards from '@/components/ui/organisms/header-sections/header-wi
 import HeroSimpleCenter from '@/components/ui/organisms/hero-sections/hero-simple-center'
 import HeroSimpleCenterWithBackground from '@/components/ui/organisms/hero-sections/hero-simple-center-with-background'
 import ImageSimple from '@/components/ui/organisms/image-sections/image-simple'
+import IntroductionWithLogo from '@/components/ui/organisms/content-sections/introduction-with-logo'
 import JoinOurTeam from '@/components/ui/organisms/cta-sections/join-our-team'
 import PartnerLogosSimpleWithTitle from '@/components/ui/organisms/partner-sections/partner-logos-simple-with-title'
 import ServiceThreeColumnWithLargeIcons from
@@ -50,7 +51,8 @@ export const componentBlueprints: ComponentBlueprints = {
   'tag-filter': TagFilter,
   'team-member-card': TeamMemberCard,
   'header-with-cards': HeaderWithCards,
-  'content-markdown': ContentMarkdown
+  'content-markdown': ContentMarkdown,
+  'introduction-with-logo': IntroductionWithLogo
 }
 export type ComponentBlueprint = {
   component: keyof ComponentBlueprints
