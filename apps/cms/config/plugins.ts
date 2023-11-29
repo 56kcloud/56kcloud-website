@@ -26,5 +26,29 @@ export default ({env}) => ({
     config: {
       size: 10
     }
+  },
+  translate: {
+    enabled: true,
+    config: {
+      provider: 'deepl',
+      providerOptions: {
+        apiKey: env('DEEPL_API_KEY'),
+        apiUrl: 'https://api-free.deepl.com',
+        localeMap: {
+          EN: 'EN-US'
+        },
+        apiOptions: {
+          formality: 'default'
+        }
+      },
+      translatedFieldTypes: [
+        'string',
+        {type: 'text', format: 'plain'},
+        {type: 'richtext', format: 'markdown'},
+        'component',
+        'dynamiczone'
+      ],
+      translateRelations: true
+    }
   }
 })

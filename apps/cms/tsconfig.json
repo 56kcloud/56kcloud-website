@@ -19,6 +19,8 @@
     ".tmp/",
     "src/admin/",
     "**/*.test.*",
-    "src/plugins/**"
+    "src/plugins/**",
+    "types/generated/**",
+    "scripts/add-relations.ts"
   ]
 }

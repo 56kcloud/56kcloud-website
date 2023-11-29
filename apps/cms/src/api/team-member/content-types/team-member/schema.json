@@ -28,27 +28,6 @@
         }
       }
     },
-    "role": {
-      "type": "enumeration",
-      "enum": [
-        "Co-Founder and CTO",
-        "Principle Engineer and Managing Partner",
-        "Cloud-Native Consultant and Partner",
-        "Senior Software Engineer",
-        "DevOps and Senior Software Engineer",
-        "Frontend Engineer",
-        "Software Engineer"
-      ],
-      "required": false,
-      "pluginOptions": {
-        "translate": {
-          "translate": "translate"
-        },
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "avatar": {
       "type": "media",
       "multiple": false,
@@ -117,6 +96,16 @@
         "i18n": {
           "localized": false
         },
+        "translate": {
+          "translate": "translate"
+        }
+      }
+    },
+    "role": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::team-role.team-role",
+      "pluginOptions": {
         "translate": {
           "translate": "translate"
         }
