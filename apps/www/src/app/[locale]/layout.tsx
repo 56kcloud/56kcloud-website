@@ -13,13 +13,13 @@ export async function generateStaticParams() {
 export type RootLayoutProps = {
   children: React.ReactNode
   params: {
-    lang: string
+    locale: string
   }
 }
 
 export default function Root({children, params}: RootLayoutProps) {
   return (
-    <html lang={params.lang}>
+    <html lang={params.locale}>
       <head>
         <link
           rel='icon'

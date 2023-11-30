@@ -21,6 +21,5 @@
     "**/*.test.*",
     "src/plugins/**",
     "types/generated/**",
-    "scripts/add-relations.ts"
   ]
 }

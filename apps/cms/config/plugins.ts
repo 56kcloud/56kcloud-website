@@ -33,7 +33,7 @@ export default ({env}) => ({
       provider: 'deepl',
       providerOptions: {
         apiKey: env('DEEPL_API_KEY'),
-        apiUrl: 'https://api-free.deepl.com',
+        apiUrl: 'https://api.deepl.com',
         localeMap: {
           EN: 'EN-US'
         },

@@ -25,5 +25,5 @@ export default factories.createCoreController(uid, () => ({
       }
     ]
   }),
-  slugs: () => getAllPublishedSlugs(uid)
+  slugs: (ctx) => getAllPublishedSlugs(ctx, uid)
 }))

@@ -889,14 +889,14 @@ export interface ApiArticleArticle extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    slug: Attribute.Text &
+    slug: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         translate: {
           translate: 'copy';
         };
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     image: Attribute.Media &

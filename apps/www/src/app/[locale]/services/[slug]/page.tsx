@@ -33,6 +33,6 @@ export async function generateMetadata({params}: ServicePageProps): Promise<Meta
 
 export default async function servicePage({params}: ServicePageProps) {
   const dict = await getDictionary(params.locale)
-  const components = await getPageComponents(`${basePath}${params.slug}`, params.locale)
+  const components = await getPageComponents(`${basePath}${params.slug}`)
   return pageRenderer(dict, components)
 }

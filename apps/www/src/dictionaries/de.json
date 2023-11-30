@@ -1,0 +1,22 @@
+{
+  "services": "Dienstleistungen",
+  "solutions": "Lösungen",
+  "blog": "Blog",
+  "about": "Über",
+  "company": "Unternehmen",
+  "relatedArticlesTitle": "Zugehörige Artikel",
+  "relatedArticlesSubtitle": "Artikel, die für Sie von Interesse sein können",
+  "relatedSolutionsTitle": "Verwandte Lösungen",
+  "relatedSolutionsSubtitle": "Lösungen, die für Sie von Interesse sein können",
+  "relatedServicesTitle": "Verwandte Dienstleistungen",
+  "relatedServicesSubtitle": "Dienste, die für Sie von Interesse sein können",
+  "relatedPartnersTitle": "Verwandte Partner",
+  "relatedPartnersSubtitle": "Partner, die für Sie von Interesse sein könnten",
+  "inputFirstName": "Vorname",
+  "inputLastName": "Letzter Name",
+  "inputEmail": "Email",
+  "inputMessage": "Nachricht",
+  "checkboxLegalConsent": "Ich stimme zu, zusätzliche Kommunikation von 56K zu erhalten. Cloud GmbH",
+  "textLegalConsent1": "56K. In den Warenkorb H verpflichtet sich, Ihre Privatsphäre zu schützen und zu respektieren. Wir verwenden Ihre personenbezogenen Daten nur, um Ihr Konto zu verwalten und Ihnen die von Ihnen gewünschten Produkte und Dienstleistungen zur Verfügung zu stellen. Wir möchten Sie von Zeit zu Zeit über unsere Produkte und Dienstleistungen und andere Inhalte, die für Sie von Interesse sein können, kontaktieren. Wenn Sie zu diesem Zweck mit uns in Kontakt treten, geben Sie bitte Ihre bevorzugte Kommunikationsmethode an, indem Sie die entsprechende Box oben überprüfen.",
+  "textLegalConsent2": "Sie können diese Kommunikation jederzeit abbestellen. Bitte sehen Sie unsere Datenschutzerklärung, um mehr über unsere Abmelderichtlinien, unsere Datenschutzrichtlinien und unser Engagement für Datenschutz und Respekt zu erfahren. Durch Anklicken von \"Absenden\" geben Sie 56K. In den Warenkorb H Erlaubnis, die oben übermittelten personenbezogenen Daten zu speichern und zu verarbeiten, um Ihnen die angeforderten Inhalte zur Verfügung zu stellen."
+}

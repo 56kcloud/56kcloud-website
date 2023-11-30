@@ -92,7 +92,7 @@ export function createPopulateArray(depth=2) {
 }
 
 const cleanUnnecessaryProps = (contentType) => {
-  const necessaryProps = ['id', 'slug', 'publishedAt', 'updatedAt', 'createdAt', 'body', 'seo']
+  const necessaryProps = ['id', 'slug', 'publishedAt', 'updatedAt', 'createdAt', 'body', 'seo', 'locale']
   Object.keys(contentType).filter(key => !necessaryProps.includes(key)).forEach(key => {
     delete contentType[key]
   })
@@ -127,9 +127,11 @@ export async function findOne(ctx, uid: string, contentTypeHandler?: (contentTyp
 
 export async function findSingleType(ctx, uid: Common.UID.Service) {
   try {
+    console.log(uid)
     let contentType = await strapi.service(uid).find({
       populate: ['localizations']
     })
+    console.log(contentType)
     const locale = contentType.localizations?.find(localization => {
       return localization.locale === ctx.query.locale}
     )?.locale || defaultLocale
@@ -149,23 +151,23 @@ export async function findSingleType(ctx, uid: Common.UID.Service) {
   }
 }
 
-async function findManyContentTypes(uid: string, select: Array<string>) {
+async function findManyContentTypes(uid: string, select: Array<string>, showDrafts: boolean = false) {
+  const publishedAt = showDrafts ? {} : {publishedAt: null}
   return await strapi.db.query(uid).findMany({
     select,
     where: {
-      $not: {
-        publishedAt: null
-      }
+      $not: publishedAt
     }
   })
 }
 
-export async function getAllPublishedSlugs(uid: Common.UID.Service) {
+export async function getAllPublishedSlugs(ctx, uid: Common.UID.Service) {
+  const showDrafts = ctx.query['show-drafts'] === 'true'
   try {
-    const contentTypes = await findManyContentTypes(uid, ['slug', 'locale'])
+    const contentTypes = await findManyContentTypes(uid, ['slug', 'locale'], showDrafts)
     return contentTypes.filter(content => content.slug)
   } catch (e) {
-    const contentTypes = await findManyContentTypes(uid, ['slug'])
+    const contentTypes = await findManyContentTypes(uid, ['slug'], showDrafts)
     return contentTypes.filter(content => content.slug).map(content => (
       {
         slug: content.slug,

@@ -1,49 +1,59 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import 'dotenv/config'
-// import {globSync} from 'glob'
 import {pool, query} from './share/db-connect'
 
-const attributeWithComponents = ['component', 'dynamiczone']
+function camelToSnake(str: string) {
+  return str.replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`)
+}
 
-async function checkIfComponentIsUsed(contentType: string, componentType: string, entityId: number) {
-  const components = await query(`
-    SELECT * FROM ${contentType}s_components 
-    WHERE component_type = '${componentType}'
-    AND entity_id = ${entityId}
-  `) as unknown as unknown[]
-  return components.length > 0
+function cleanUpObject(object: object) {
+  const keysToDelete = ['id', 'created_at', 'updated_at', 'published_at']
+  keysToDelete.forEach((key) => {
+    delete object[key]
+  })
+  Object.keys(object).forEach((key) => {
+    if (object[key] === null) {
+      delete object[key]
+    }
+  })
+  return object
+}
+async function insert(tableName, object) {
+  const cleanedObject = cleanUpObject({...object})
+  const keysToString = Object.keys(cleanedObject).map(key => JSON.stringify(key)).join(',')
+  const valueIndexes = Object.keys(cleanedObject).map((_, index) => `$${index+1}`).join(',')
+  
+  if (keysToString.length === 0) {
+    return (await query(`INSERT INTO ${tableName} DEFAULT VALUES RETURNING *`))[0]
+  } else {
+    return (await query(
+      `INSERT INTO ${tableName}(${keysToString}) VALUES(${valueIndexes}) RETURNING *`,
+      Object.values(cleanedObject)
+    ))[0]
+  }
+}
+
+async function checkIfAlreadyExists(tableName, object) {
+  const cleanedObject = cleanUpObject({...object})
+  const keysToString = Object.keys(cleanedObject).map(key => key)
+  return ((await query(
+    `SELECT * FROM ${tableName} WHERE ${keysToString.map((key) => `${key} = ${cleanedObject[key]}`).join(' AND ')}`
+  )) as unknown as Array<any>).length > 0
 }
 
 async function getAllContentTypeItems(contentType: string) {
   const items = await query(`
     SELECT * FROM ${contentType}s
-  `) as unknown as unknown[]
+  `) as unknown as any[]
   return items
 }
 
 async function getAllContentTypeLocalizationsLinks(contentType: string) {
   const items = await query(`
     SELECT * FROM ${contentType}s_localizations_links
-  `) as unknown as unknown[]
+  `) as unknown as any[]
   return items
 }
-
-async function handleComponent(component, path) {
-  const name = component.split('.')
-  const schema = await import(`../src/components/${name[0]}/${name[1]}.json`)
-  // console.log('🤯', schema)
-  await addMissingRelations(schema, `${path}/${schema.collectionName}`)
-}
-
-async function handleAttributesThatCanContainComponents(attribute, path) {
-  if (attribute.type === 'dynamiczone') {
-    await Promise.all(attribute.components.map(async (component: string) => {
-      await handleComponent(component, path)
-    }))
-  } else if (attribute.type === 'component') {
-    await handleComponent(attribute.component, path)
-  }
-}
-
 async function getItemComponents(contentType: string, entityId: number) {
   return await query(`
     SELECT * FROM ${contentType}s_components 
@@ -64,12 +74,11 @@ async function filterByComponentsThatHaveRelations(components: any[]) {
       schema,
       comp
     } : null
-  }))).filter(comp => comp !== null)
-  // const componentsWithRelations = components.filter(comp => comp.component_type === 'article')
-  // console.log(componentsWithRelations)
+  }))).filter(comp => comp !== null) as Array<{schema: any, comp: any}>
 }
 
 async function getGroupedItems(contentType: string) {
+  contentType = contentType.replaceAll('-', '_')
   const items = await getAllContentTypeItems(contentType)
   // console.log(items)
   const localizationsLinks = await getAllContentTypeLocalizationsLinks(contentType)
@@ -84,111 +93,96 @@ async function getGroupedItems(contentType: string) {
   return groupedItems
 }
 
-
-async function addMissingRelations(schema) {
-  const contentType = 'service'
-  const attributes = Object.keys(schema.attributes)
+async function addMissingRelations(contentType: string) {
   const groupedItems = await getGroupedItems(contentType)
-  // const item = items[0]
-  console.log(groupedItems)
-  await Promise.all((await filterByComponentsThatHaveRelations(await getItemComponents(contentType, groupedItems[0].default.id))).map(async comp => {
-    const defaultComponentId = (await query(`
-      SELECT * FROM ${contentType}s_components
-      WHERE entity_id = ${groupedItems[0].default.id}
-      AND component_type = '${comp.comp.component_type}' 
-    `) as unknown as unknown[])[0]
-    // console.log(defaultComponentId)
-    const localeComponentId = (await query(`
-      SELECT * FROM ${contentType}s_components
-      WHERE entity_id = ${groupedItems[0].localizations[0].id}
-      AND component_type = '${comp.comp.component_type}' 
-    `) as unknown as unknown[])[0]
-    // console.log(localeComponentId)
-
-    const relations = Object.keys(comp.schema.attributes).filter((attr: string) => comp.schema.attributes[attr].type === 'relation')
-    const relationGI = await getGroupedItems('solution')
-    // console.log(relationGI)
-    // GET LINKS
-    const compToSnake = comp.comp.component_type.split('.')[1].replaceAll('-', '_')
-    // console.log(compToSnake, defaultComponentId.component_id)
-    const defaultLinks = await query(`
-      SELECT * FROM ${compToSnake}_${relations[0]}_links
-      WHERE ${compToSnake}_id = ${defaultComponentId.component_id}
-    `) as unknown as unknown[]
-
-    // const 
-    console.log(defaultLinks)
-    defaultLinks.forEach(link => {
-      delete link.id
-      console.log(link.solution_id)
-      link[`${compToSnake}_id`] = localeComponentId.component_id
-      link['solution_id'] = relationGI.find(item => item.default.id === link['solution_id'])?.localizations[0].id
-    })
-    console.log(defaultLinks)
-    // console.log(comp)
-    // const originalLinkId = await query(`
-    //   SELECT * FROM ${comp.schema.collectionName}
-    //   WHERE id = ${comp.comp.component_id}
-    // `) as unknown as unknown[]
-    // console.log(relations)
-    // console.log(comp)
+  await Promise.all([groupedItems[0]].map(async item => {
+    await handleDirectRelations(contentType, item)
+    await handleComponentsRelations(contentType, item)
   }))
-  // Promise.all((await getItemComponents('service', items[0].id)).map(comp => {
-  //   filterByComponentsThatHaveRelations
-  // }) )
+ 
+}
 
+async function handleDirectRelations(contentType: string, item: any) {
+  const schema = await import(`../src/api/${contentType}/content-types/${contentType}/schema.json`)
+  contentType = contentType.replaceAll('-', '_')
+  const relations = Object.keys(schema.attributes)
+    .filter((attr: string) => schema.attributes[attr].type === 'relation')
+  await Promise.all(relations.map(async relation => {
+    const target = schema.attributes[relation].target.split('.')[1].replaceAll('-', '_')
+    relation = camelToSnake(relation)
+    const relationGI = (await getGroupedItems(`${target}`))
+    const defaultLinks = await query(`
+        SELECT * FROM ${contentType}s_${relation}_links
+        WHERE ${contentType}_id = ${item.default.id}
+      `) as unknown as any[]
+    console.log(defaultLinks)
+    if (defaultLinks) {
+      await Promise.all(defaultLinks?.map(async link => {
+        const linkTargetId = `${contentType === target ? 'inv_' : ''}${target}_id`
+        link[`${contentType}_id`] = item.localizations[0]?.id
+        link[linkTargetId] = relationGI.find(
+          item => item.default.id === link[linkTargetId]
+        )?.localizations[0]?.id || undefined
+        const tableLinks = `${contentType}s_${relation}_links`
+        console.log(link, tableLinks)
+        if (Object.values(link).some(value => value === undefined)) {
+          console.log(`${contentType} ${item.default.id} link not created because of undefined values!`)
+        } else {
+          if (await checkIfAlreadyExists(tableLinks, link)) {
+            console.log(`${contentType} ${item.default.id} link already exists.`)
+          } else {
+            await insert(tableLinks, link)
+            console.log(`${contentType} ${item.default.id} link created!`)
+          }  
+        }
+      }))
+    }
+  }))
+}
 
-
-  // const relations = attributes.filter((attr: string) => schema.attributes[attr].type === 'relation')
-
-  // const componentAttributes = attributes.filter((attr: string) => attributeWithComponents.includes(schema.attributes[attr].type))
-  // const pathOfPossibleRelations = getPathOfPossibleRelations(path)
-  // console.log('relations', relations)
-  
-  // if (componentAttributes.length > 0) {
-  //   await Promise.all(componentAttributes.map(async (attr: string) => {
-  //     // console.log('🚀', schema.attributes[attr])
-  //     await handleAttributesThatCanContainComponents(schema.attributes[attr], `${path}/${attr}`)
-  //   }))
-  // }
-
-  // if (relations.length > 0) {
-  //   await Promise.all(relations.map(async (attr: string) => {
-  //     // console.log(attr, path)
-      
-  //   }))
-  // }
-  // const items = await getAllContentTypeItems(contentType)
-  // if (componentAttributes.length > 0) {
-  //   await Promise.all(componentAttributes.map(async (attr: string) => {
-  //     if (schema.attributes[attr].type === 'dynamiczone') {
-  //       const components = schema.attributes[attr].components
-  //       await Promise.all(components.map(async (component: string) => {
-  //         await handleComponent(component)
-  //       }))
-  //       // console.log(components[0])
-  //       // console.log(contentType, components[0], items[0].id)
-
-  //       // if (await checkIfComponentIsUsed(contentType, components[0], items[0].id)) {
-          
-  //       // }
-  //     }
-  //   }))
-  // }
+async function handleComponentsRelations(contentType: string, item: any) {
+  const componentWithRelations = await filterByComponentsThatHaveRelations(
+    await getItemComponents(contentType, item.default.id)
+  )
+  await Promise.all(componentWithRelations.map(async component => {
+    const defaultComponentId = (await query(`
+        SELECT * FROM ${contentType}s_components
+        WHERE entity_id = ${item.default.id}
+        AND component_type = '${component.comp.component_type}' 
+      `) as unknown as any[])[0]
+    await Promise.all(item.localizations.map(async localization => {
+      const localeComponentId = (await query(`
+          SELECT * FROM ${contentType}s_components
+          WHERE entity_id = ${localization.id}
+          AND component_type = '${component.comp.component_type}' 
+        `) as unknown as any[])[0]
+      const relations = Object.keys(component.schema.attributes)
+        .filter((attr: string) => component.schema.attributes[attr].type === 'relation')
+      const target = component.schema.attributes[relations[0]].target.split('.')[1]
+      const relationGI = await getGroupedItems(`${target}`)
+      const compToSnake = component.comp.component_type.split('.')[1].replaceAll('-', '_')
+      const defaultLinks = await query(`
+        SELECT * FROM ${compToSnake}_${relations[0]}_links
+        WHERE ${compToSnake}_id = ${defaultComponentId.component_id}
+      `) as unknown as any[]
+      await Promise.all(defaultLinks.map(async link => {
+        link[`${compToSnake}_id`] = localeComponentId.component_id
+        link[`${target}_id`] = relationGI.find(item => item.default.id === link[`${target}_id`])?.localizations[0].id
+        const tableLinks = `${compToSnake}_${relations[0]}_links`
+        if (await checkIfAlreadyExists(tableLinks, link)) {
+          console.log(`${contentType} ${item.default.id} component link already exists.`)
+        } else {
+          await insert(tableLinks, link)
+          console.log(`${contentType} ${item.default.id} component link created!`)
+        }
+      }))
+    }))
+  }))
 }
 
 (async () => {
   const client = await pool.connect()
-  const schema = await import('../src/api/service/content-types/service/schema.json')
-  await addMissingRelations(schema)
-  // await translateContentTypes('solution')
-  // await translateContentTypes('team-member')
-  // await translateContentTypes('location')
-  // await translateContentTypes('home-page')
-  // await translateContentTypes('about-page')
-  // await translateContentTypes('footer')
-  // await translateContentTypes('blog-page')
-  // await translateContentTypes('article')
+  await addMissingRelations('service')
   await client.release()
   await pool.end()
 })()

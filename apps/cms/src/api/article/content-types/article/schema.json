@@ -59,14 +59,14 @@
       }
     },
     "slug": {
-      "type": "text",
+      "type": "string",
       "required": true,
       "pluginOptions": {
         "translate": {
           "translate": "copy"
         },
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "regex": "^[a-zA-Z0-9-]+$"
