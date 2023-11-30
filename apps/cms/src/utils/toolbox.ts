@@ -102,13 +102,18 @@ const cleanUnnecessaryProps = (contentType) => {
 export async function findOne(ctx, uid: string, contentTypeHandler?: (contentType: Record<string, unknown>) => void) {
   try {
     let contentType = await strapi.db.query(uid).findOne({where: {slug: ctx.params.id}, populate: ['localizations']})
-    const slug = ctx.query.locale !== contentType.locale 
-      ? contentType.localizations?.find(
+    let where: Record<string, string> = {slug: ctx.params.id}
+    if (ctx.query.locale !== contentType.locale) {
+      const localization = contentType.localizations?.find(
         localization => localization.locale === ctx.query.locale
-      )?.slug || ctx.params.id
-      : ctx.params.id
+      )
+      localization && (where = {
+        slug: localization.slug,
+        locale: localization.locale
+      })
+    }
     contentType = await strapi.db.query(uid).findOne({
-      where: {slug},
+      where,
       populate: createPopulateArray()
     })
     if (!ctx.query.seoOnly) {
@@ -127,7 +132,6 @@ export async function findOne(ctx, uid: string, contentTypeHandler?: (contentTyp
 
 export async function findSingleType(ctx, uid: Common.UID.Service) {
   try {
-    console.log(uid)
     let contentType = await strapi.service(uid).find({
       populate: ['localizations']
     })

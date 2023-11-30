@@ -4,8 +4,10 @@ export default ({env}) => ({
       provider: 'aws-s3',
       providerOptions: {
         s3Options: {
-          accessKeyId: env('AWS_ACCESS_KEY_ID'),
-          secretAccessKey: env('AWS_ACCESS_SECRET'),
+          credentials: {
+            accessKeyId: env('AWS_ACCESS_KEY_ID'),
+            secretAccessKey: env('AWS_ACCESS_SECRET')
+          },
           region: env('AWS_REGION'),
           params: {
             ACL: env('AWS_ACL', 'public-read'),
