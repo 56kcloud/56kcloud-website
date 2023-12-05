@@ -21,19 +21,19 @@ export default function TeamThreeColumn(props: TeamThreeColumnProps) {
         className='grid max-w-2xl grid-cols-1 mx-auto mt-20 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none \
                    lg:grid-cols-3 xl:grid-cols-4'
       >
-        {props.teamMembers.map((TeamMember) => (
-          <li key={TeamMember.name}>
+        {props.teamMembers.map((teamMember) => (
+          <li key={teamMember.name}>
             <Image
-              src={TeamMember.avatar.url}
-              width={TeamMember.avatar.width}
-              height={TeamMember.avatar.height}
+              src={teamMember.avatar.url}
+              width={teamMember.avatar.width}
+              height={teamMember.avatar.height}
               placeholder='blur'
-              blurDataURL={TeamMember.avatar.placeholder}
-              alt={TeamMember.name}
+              blurDataURL={teamMember.avatar.placeholder}
+              alt={teamMember.name}
               className='aspect-[14/13] w-full rounded-2xl object-cover'
             />
-            <h3 className='mt-6 text-lg font-semibold leading-8 tracking-tight text-white'>{TeamMember.name}</h3>
-            <p className='text-base leading-7 text-gray-300'>{TeamMember.role}</p>
+            <h3 className='mt-6 text-lg font-semibold leading-8 tracking-tight text-white'>{teamMember.name}</h3>
+            <p className='text-base leading-7 text-gray-300'>{teamMember.role}</p>
           </li>
         ))}
       </ul>
