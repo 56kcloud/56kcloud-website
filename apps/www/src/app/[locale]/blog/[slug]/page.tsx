@@ -2,6 +2,7 @@ import {BasePageProps} from '../../page'
 import {Metadata} from 'next'
 import {getDictionary} from '../../dictionaries'
 import {getList, getPageComponents, getPageSeo} from '@/utils/cms/endpoints'
+import {locales} from '../../../../../configs/shared'
 import {pageRenderer} from '@/utils/cms/renderer/components'
 
 type ArticlePageProps = BasePageProps & {
@@ -13,7 +14,17 @@ type ArticlePageProps = BasePageProps & {
 const basePath = 'articles/'
 
 export async function generateStaticParams() {
-  return await getList('articles')
+  const staticParams = [] as Array<Record<string, string>>
+  const articles = await getList('articles')
+  locales.forEach((locale) => {
+    staticParams.push(...articles.map((article) => {
+      return {
+        ...article,
+        locale: locale
+      }
+    }))
+  })
+  return staticParams
 }
 
 export async function generateMetadata({params}: ArticlePageProps): Promise<Metadata> {

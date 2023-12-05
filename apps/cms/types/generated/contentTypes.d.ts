@@ -849,126 +849,39 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    description: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    readTime: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.DefaultTo<1>;
-    publishedOn: Attribute.Date &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    slug: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'copy';
-        };
-        i18n: {
-          localized: false;
-        };
-      }>;
-    image: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    readTime: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<1>;
+    publishedOn: Attribute.Date;
+    slug: Attribute.String & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
     author: Attribute.Relation<
       'api::article.article',
       'oneToOne',
       'api::team-member.team-member'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
+    >;
     tags: Attribute.Relation<
       'api::article.article',
       'oneToMany',
       'api::tag.tag'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
+    >;
     relatedPartners: Attribute.Relation<
       'api::article.article',
       'manyToMany',
       'api::partner.partner'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
+    >;
     relatedArticles: Attribute.Relation<
       'api::article.article',
       'oneToMany',
       'api::article.article'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
-    content: Attribute.RichText &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
-        };
-      }>;
+    >;
+    content: Attribute.RichText & Attribute.Required;
     relatedSolutions: Attribute.Relation<
       'api::article.article',
       'oneToMany',
       'api::solution.solution'
-    > &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate';
-        };
-      }>;
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -984,12 +897,6 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::article.article',
-      'oneToMany',
-      'api::article.article'
-    >;
-    locale: Attribute.String;
   };
 }
 

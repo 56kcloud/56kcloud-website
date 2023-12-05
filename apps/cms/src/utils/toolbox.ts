@@ -135,7 +135,6 @@ export async function findSingleType(ctx, uid: Common.UID.Service) {
     let contentType = await strapi.service(uid).find({
       populate: ['localizations']
     })
-    console.log(contentType)
     const locale = contentType.localizations?.find(localization => {
       return localization.locale === ctx.query.locale}
     )?.locale || defaultLocale

@@ -10,65 +10,26 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
   "attributes": {
     "title": {
       "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        },
-        "translate": {
-          "translate": "translate"
-        }
-      }
+      "required": true
     },
     "description": {
       "type": "text",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        },
-        "translate": {
-          "translate": "translate"
-        }
-      }
+      "required": true
     },
     "readTime": {
       "type": "integer",
       "default": 1,
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "required": true
     },
     "publishedOn": {
-      "type": "date",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "type": "date"
     },
     "slug": {
       "type": "string",
       "required": true,
-      "pluginOptions": {
-        "translate": {
-          "translate": "copy"
-        },
-        "i18n": {
-          "localized": false
-        }
-      },
       "regex": "^[a-zA-Z0-9-]+$"
     },
     "image": {
@@ -77,78 +38,37 @@
       "required": true,
       "allowedTypes": [
         "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        },
-        "translate": {
-          "translate": "translate"
-        }
-      }
+      ]
     },
     "author": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::team-member.team-member",
-      "pluginOptions": {
-        "translate": {
-          "translate": "translate"
-        }
-      }
+      "target": "api::team-member.team-member"
     },
     "tags": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::tag.tag",
-      "pluginOptions": {
-        "translate": {
-          "translate": "translate"
-        }
-      }
+      "target": "api::tag.tag"
     },
     "relatedPartners": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::partner.partner",
-      "inversedBy": "relatedArticles",
-      "pluginOptions": {
-        "translate": {
-          "translate": "translate"
-        }
-      }
+      "inversedBy": "relatedArticles"
     },
     "relatedArticles": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::article.article",
-      "pluginOptions": {
-        "translate": {
-          "translate": "translate"
-        }
-      }
+      "target": "api::article.article"
     },
     "content": {
       "type": "richtext",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        },
-        "translate": {
-          "translate": "translate"
-        }
-      }
+      "required": true
     },
     "relatedSolutions": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::solution.solution",
-      "pluginOptions": {
-        "translate": {
-          "translate": "translate"
-        }
-      }
+      "target": "api::solution.solution"
     }
   }
 }
