@@ -65,7 +65,7 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
             <Image
               alt={'Background'}
               src={props.image.url}
-              placeholder={props.image.placeholder ? 'blur' : 'empty'}
+              placeholder='blur'
               blurDataURL={props.image.placeholder}
               width={props.image.width}
               height={props.image.height}

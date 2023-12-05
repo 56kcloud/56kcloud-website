@@ -12,7 +12,7 @@ export default function ImageSimple(props: ImageSimpleProps) {
         src={props.image.url}
         width={props.image.width}
         height={props.image.height}
-        placeholder={props.image.placeholder ? 'blur' : 'empty'}
+        placeholder='blur'
         blurDataURL={props.image.placeholder}
         alt={props.image.alternateText || props.image.name}
         className='aspect-[9/4] w-full object-cover xl:rounded-3xl'
