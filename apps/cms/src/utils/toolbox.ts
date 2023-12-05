@@ -70,7 +70,8 @@ export function createPopulateArray(depth=2) {
     'cover',
     'author.avatar',
     'avatar',
-    'icon'
+    'icon',
+    'role'
   ]
   const basePaths = [
     'image',

@@ -20,7 +20,6 @@ export default function TeamMemberCard({teamMember}: TeamMemberCardProps) {
             <Avatar
               size='lg'
               image={teamMember.avatar}
-              // {...teamMember.avatar}
             />
           </div>
           <div className='space-y-2'>

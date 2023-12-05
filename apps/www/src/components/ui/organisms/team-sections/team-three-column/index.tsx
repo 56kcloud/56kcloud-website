@@ -33,7 +33,7 @@ export default function TeamThreeColumn(props: TeamThreeColumnProps) {
               className='aspect-[14/13] w-full rounded-2xl object-cover'
             />
             <h3 className='mt-6 text-lg font-semibold leading-8 tracking-tight text-white'>{teamMember.name}</h3>
-            <p className='text-base leading-7 text-gray-300'>{teamMember.role}</p>
+            <p className='text-base leading-7 text-gray-300'>{teamMember.role?.name}</p>
           </li>
         ))}
       </ul>

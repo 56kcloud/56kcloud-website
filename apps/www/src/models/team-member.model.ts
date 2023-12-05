@@ -4,7 +4,9 @@ import {z} from 'zod'
 export const teamMemberSchema = z.object({
   slug: z.string(),
   name: z.string(),
-  role: z.string().optional(),
+  role: z.object({
+    name: z.string()
+  }).optional(),
   bio: z.string().optional(),
   twitter: z.string().optional(),
   website: z.string().optional(),

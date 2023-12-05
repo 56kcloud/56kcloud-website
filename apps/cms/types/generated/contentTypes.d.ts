@@ -1136,13 +1136,6 @@ export interface ApiLocationLocation extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    image: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     address: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{

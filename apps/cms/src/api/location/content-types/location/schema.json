@@ -25,19 +25,6 @@
         }
       }
     },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
     "address": {
       "type": "text",
       "pluginOptions": {
