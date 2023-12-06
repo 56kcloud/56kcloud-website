@@ -1,9 +1,14 @@
 import {NextRequest, NextResponse} from 'next/server'
-import {defaultLocale, locales} from '../configs/shared'
+import {defaultLocale, locales, localesMap} from '../configs/shared'
 
 function getLocale(request: NextRequest) {
   const acceptLanguages = request.headers.get('Accept-Language')?.split(',')
-  const locale = acceptLanguages?.find((locale) => locales.includes(locale))
+  const locale = acceptLanguages?.map((locale) => {
+    const keys = Object.keys(localesMap) as Array<keyof typeof localesMap>
+    return keys.find((key) => {
+      if (localesMap[key]?.includes(locale.toLowerCase())) return key
+    })
+  }).filter((locale) => locale)[0]
   if (locale) return locale
   return defaultLocale
 }
@@ -19,7 +24,7 @@ export function middleware(request: NextRequest) {
     response.cookies.set('NEXT_LOCALE', locale)
     return response
   } else {
-    const localeFromCookie = request.cookies.get('NEXT_LOCALE')?.value
+    const localeFromCookie = request.cookies.get('NEXT_LOCALE')?.value as keyof typeof localesMap
     localeFromCookie && locales.includes(localeFromCookie) && (locale = localeFromCookie)
     !locale && (locale = getLocale(request))
     request.nextUrl.pathname = `/${locale}${pathname}`
