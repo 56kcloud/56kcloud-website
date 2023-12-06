@@ -23,11 +23,15 @@ export async function getPageComponents(path: string, lang='en'): Promise<PageCo
 }
 
 export async function getPageSeo(path: string, lang='en'): Promise<PageSeo|undefined> {
-  const res = await strapiFetcher.call({
-    path: `/api/${path}?seoOnly=true&locale=${lang}`
-  })
-  const element = res.data?.attributes || res
-  return snakeCaseObjectKeysToCamelCase(element.seo) as PageSeo
+  try {
+    const res = await strapiFetcher.call({
+      path: `/api/${path}?seoOnly=true&locale=${lang}`
+    })
+    const element = res.data?.attributes || res
+    return snakeCaseObjectKeysToCamelCase(element.seo) as PageSeo
+  } catch (e) {
+    return undefined
+  }
 }
 
 export async function getList(collection: string): Promise<Array<CollectionItem>> {

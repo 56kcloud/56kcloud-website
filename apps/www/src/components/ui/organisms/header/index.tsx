@@ -66,12 +66,13 @@ export default function Header({dictionary}: HeaderProps) {
            sm:max-w-sm sm:ring-1 sm:ring-white/10'
         >
           <div className='flex items-center justify-between'>
-            <a
-              href='#'
-              className='-m-1.5 p-1.5 text-white'>
+            <Link
+              href='/'
+              className='-m-1.5 p-1.5 text-white'
+            >
               <span className='sr-only'>56k Cloud</span>
               <Logo className='h-8'/>
-            </a>
+            </Link>
             <button
               type='button'
               className='-m-2.5 rounded-md p-2.5 text-gray-400'

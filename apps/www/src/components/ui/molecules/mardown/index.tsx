@@ -23,7 +23,10 @@ export function MarkdownViewer({content, className}: {content: string, className
                   className='w-full rounded-lg h-[500px]'/>
               } else if (element?.type === 'img') {
                 return (
-                  <div className='flex flex-col items-center justify-center'>
+                  <div
+                    className='flex flex-col items-center justify-center'
+                    key={element.props['src']}
+                  >
                     <DynamicImage
                       src={element.props['src']}
                       className='!mb-0 bg-white'
@@ -34,10 +37,14 @@ export function MarkdownViewer({content, className}: {content: string, className
                 return (
                   isFromTwitter(element.props['href'])
                     ? <Tweet
+                      key={element.props['href']}
                       tweetId={getTweetId(element.props['href'])}
                       options={{align: 'center'}}
                     />
-                    : <Bookmark url={element.props['href'] as string}/>
+                    : <Bookmark
+                      url={element.props['href']}
+                      key={element.props['href']}
+                    />
                 )
               } 
               else {

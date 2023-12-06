@@ -3,6 +3,7 @@ import {Metadata} from 'next'
 import {getDictionary} from '../../dictionaries'
 import {getList, getPageComponents, getPageSeo} from '@/utils/cms/endpoints'
 import {locales} from '../../../../../configs/shared'
+import {notFound} from 'next/navigation'
 import {pageRenderer} from '@/utils/cms/renderer/components'
 
 type ArticlePageProps = BasePageProps & {
@@ -43,7 +44,11 @@ export async function generateMetadata({params}: ArticlePageProps): Promise<Meta
 }
 
 export default async function ArticlePage({params}: ArticlePageProps) {
-  const dict = await getDictionary(params.locale)
-  const components = await getPageComponents(`${basePath}${params.slug}`, params.locale)
-  return pageRenderer(dict, components)
+  try {
+    const dict = await getDictionary(params.locale)
+    const components = await getPageComponents(`${basePath}${params.slug}`, params.locale)
+    return pageRenderer(dict, components)
+  } catch (e) {
+    notFound()
+  }
 }

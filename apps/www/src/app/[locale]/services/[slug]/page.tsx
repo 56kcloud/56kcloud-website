@@ -2,6 +2,7 @@ import {BasePageProps} from '../../page'
 import {Metadata} from 'next'
 import {getDictionary} from '../../dictionaries'
 import {getList, getPageComponents, getPageSeo} from '@/utils/cms/endpoints'
+import {notFound} from 'next/navigation'
 import {pageRenderer} from '@/utils/cms/renderer/components'
 
 type ServicePageProps = BasePageProps & {
@@ -31,8 +32,12 @@ export async function generateMetadata({params}: ServicePageProps): Promise<Meta
   return {}
 }
 
-export default async function servicePage({params}: ServicePageProps) {
-  const dict = await getDictionary(params.locale)
-  const components = await getPageComponents(`${basePath}${params.slug}`, params.locale)
-  return pageRenderer(dict, components)
+export default async function ServicePage({params}: ServicePageProps) {
+  try {
+    const dict = await getDictionary(params.locale)
+    const components = await getPageComponents(`${basePath}${params.slug}`, params.locale)
+    return pageRenderer(dict, components)
+  } catch (e) {
+    notFound()
+  }
 }
