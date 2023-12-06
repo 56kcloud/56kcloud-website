@@ -1,6 +1,7 @@
 import {MetadataRoute} from 'next'
 import {getList} from '@/utils/cms/endpoints'
 import {hostname} from '../../configs/server'
+import {locales} from '../../configs/shared'
 
 const staticPaths = [
   '/',
@@ -10,8 +11,10 @@ const staticPaths = [
 
 async function getArticlePaths() {
   return (await getList('articles')).map((article) => {
-    return `${article.locale}/blog/${article.slug}`
-  })
+    return locales.map((locale) => {
+      return `${locale}/blog/${article.slug}`
+    })
+  }).flat(1)
 }
 
 async function getSolutionsPaths() {
@@ -26,10 +29,18 @@ async function getServicesPaths() {
   })
 }
 
+function getStaticPaths() {
+  return locales.map((locale) => {
+    return staticPaths.map((path) => {
+      return `${locale}${path}`
+    })
+  }).flat(1)
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const paths = [
-    ...staticPaths,
+    ...getStaticPaths(),
     ...await getArticlePaths(),
     ...await getSolutionsPaths(),
     ...await getServicesPaths()

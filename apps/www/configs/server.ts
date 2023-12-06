@@ -6,5 +6,5 @@ export const strapiFetcher = new Fetcher(strapiAPI, {
   next: {tags: ['strapi']}
 })
 export const hostname = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}/` 
+  ? 'https://www.56k.cloud/' 
   : `http://localhost:${process.env.PORT || 3000}/`
