@@ -20,7 +20,6 @@ export default function TeamMemberCard({teamMember}: TeamMemberCardProps) {
             <Avatar
               size='lg'
               image={teamMember.avatar}
-              // {...teamMember.avatar}
             />
           </div>
           <div className='space-y-2'>
@@ -28,7 +27,7 @@ export default function TeamMemberCard({teamMember}: TeamMemberCardProps) {
               {teamMember.name}
             </h1>
             <p className='max-w-2xl mt-2 text-base text-white/90'>
-              {teamMember.bio}
+              {teamMember.role?.name}
             </p>
             <div className='flex space-x-4'>
               {teamMember.twitter &&

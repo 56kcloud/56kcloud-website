@@ -483,6 +483,63 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   };
 }
 
+export interface PluginTranslateBatchTranslateJob
+  extends Schema.CollectionType {
+  collectionName: 'translate_batch_translate_jobs';
+  info: {
+    singularName: 'batch-translate-job';
+    pluralName: 'batch-translate-jobs';
+    displayName: 'Translate Batch Translate Job';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    contentType: Attribute.String;
+    sourceLocale: Attribute.String;
+    targetLocale: Attribute.String;
+    entityIds: Attribute.JSON;
+    status: Attribute.Enumeration<
+      [
+        'created',
+        'setup',
+        'running',
+        'paused',
+        'finished',
+        'cancelled',
+        'failed'
+      ]
+    > &
+      Attribute.DefaultTo<'created'>;
+    failureReason: Attribute.JSON;
+    progress: Attribute.Float & Attribute.DefaultTo<0>;
+    autoPublish: Attribute.Boolean & Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::translate.batch-translate-job',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::translate.batch-translate-job',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -678,6 +735,45 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface PluginSlugifySlug extends Schema.CollectionType {
+  collectionName: 'slugs';
+  info: {
+    singularName: 'slug';
+    pluralName: 'slugs';
+    displayName: 'slug';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    slug: Attribute.Text;
+    count: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::slugify.slug',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::slugify.slug',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiAboutPageAboutPage extends Schema.SingleType {
   collectionName: 'about_pages';
   info: {
@@ -688,6 +784,11 @@ export interface ApiAboutPageAboutPage extends Schema.SingleType {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
   };
   attributes: {
     body: Attribute.DynamicZone<
@@ -700,8 +801,19 @@ export interface ApiAboutPageAboutPage extends Schema.SingleType {
         'cta-sections.join-our-team',
         'contact-sections.contact-split-with-pattern'
       ]
-    >;
-    seo: Attribute.Component<'seo.seo'> & Attribute.Required;
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: Attribute.Component<'seo.seo'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -717,6 +829,12 @@ export interface ApiAboutPageAboutPage extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::about-page.about-page',
+      'oneToMany',
+      'api::about-page.about-page'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -736,7 +854,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     description: Attribute.Text & Attribute.Required;
     readTime: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<1>;
     publishedOn: Attribute.Date;
-    slug: Attribute.Text & Attribute.Required;
+    slug: Attribute.String & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
     author: Attribute.Relation<
       'api::article.article',
@@ -793,11 +911,27 @@ export interface ApiBlogPageBlogPage extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     body: Attribute.DynamicZone<
       ['blog-sections.blog-three-column', 'blog-sections.blog-masonry']
-    >;
-    seo: Attribute.Component<'seo.seo'> & Attribute.Required;
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: Attribute.Component<'seo.seo'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -813,6 +947,12 @@ export interface ApiBlogPageBlogPage extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::blog-page.blog-page',
+      'oneToMany',
+      'api::blog-page.blog-page'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -996,18 +1136,11 @@ export interface ApiLocationLocation extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    image: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     address: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     city: Attribute.String &
@@ -1021,7 +1154,7 @@ export interface ApiLocationLocation extends Schema.CollectionType {
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     country: Attribute.String &
@@ -1034,7 +1167,7 @@ export interface ApiLocationLocation extends Schema.CollectionType {
     gMap: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1126,6 +1259,9 @@ export interface ApiServiceService extends Schema.CollectionType {
     slug: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'copy';
+        };
         i18n: {
           localized: true;
         };
@@ -1202,6 +1338,9 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
     slug: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'copy';
+        };
         i18n: {
           localized: true;
         };
@@ -1276,19 +1415,8 @@ export interface ApiTagTag extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
-    name: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    name: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1296,12 +1424,6 @@ export interface ApiTagTag extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
       Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::tag.tag',
-      'oneToMany',
-      'api::tag.tag'
-    >;
-    locale: Attribute.String;
   };
 }
 
@@ -1326,31 +1448,20 @@ export interface ApiTeamMemberTeamMember extends Schema.CollectionType {
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
-      }>;
-    role: Attribute.Enumeration<
-      [
-        'Co-Founder and CTO',
-        'Principle Engineer and Managing Partner',
-        'Cloud-Native Consultant and Partner',
-        'Senior Software Engineer',
-        'DevOps and Senior Software Engineer',
-        'Frontend Engineer',
-        'Software Engineer'
-      ]
-    > &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
+        translate: {
+          translate: 'translate';
         };
       }>;
     avatar: Attribute.Media &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
+        };
+        translate: {
+          translate: 'translate';
         };
       }>;
     bio: Attribute.Text &
@@ -1359,30 +1470,55 @@ export interface ApiTeamMemberTeamMember extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
       }>;
     location: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
       }>;
     twitter: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
+        };
+        translate: {
+          translate: 'translate';
         };
       }>;
     website: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
+        };
+        translate: {
+          translate: 'translate';
         };
       }>;
     slug: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    role: Attribute.Relation<
+      'api::team-member.team-member',
+      'oneToOne',
+      'api::team-role.team-role'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1409,6 +1545,55 @@ export interface ApiTeamMemberTeamMember extends Schema.CollectionType {
   };
 }
 
+export interface ApiTeamRoleTeamRole extends Schema.CollectionType {
+  collectionName: 'team_roles';
+  info: {
+    singularName: 'team-role';
+    pluralName: 'team-roles';
+    displayName: 'Team Role';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::team-role.team-role',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::team-role.team-role',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::team-role.team-role',
+      'oneToMany',
+      'api::team-role.team-role'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1421,10 +1606,12 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
+      'plugin::translate.batch-translate-job': PluginTranslateBatchTranslateJob;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'plugin::slugify.slug': PluginSlugifySlug;
       'api::about-page.about-page': ApiAboutPageAboutPage;
       'api::article.article': ApiArticleArticle;
       'api::blog-page.blog-page': ApiBlogPageBlogPage;
@@ -1437,6 +1624,7 @@ declare module '@strapi/types' {
       'api::solution.solution': ApiSolutionSolution;
       'api::tag.tag': ApiTagTag;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
+      'api::team-role.team-role': ApiTeamRoleTeamRole;
     }
   }
 }

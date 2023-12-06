@@ -70,7 +70,8 @@ export function createPopulateArray(depth=2) {
     'cover',
     'author.avatar',
     'avatar',
-    'icon'
+    'icon',
+    'role'
   ]
   const basePaths = [
     'image',
@@ -92,7 +93,7 @@ export function createPopulateArray(depth=2) {
 }
 
 const cleanUnnecessaryProps = (contentType) => {
-  const necessaryProps = ['id', 'slug', 'publishedAt', 'updatedAt', 'createdAt', 'body', 'seo']
+  const necessaryProps = ['id', 'slug', 'publishedAt', 'updatedAt', 'createdAt', 'body', 'seo', 'locale']
   Object.keys(contentType).filter(key => !necessaryProps.includes(key)).forEach(key => {
     delete contentType[key]
   })
@@ -102,13 +103,18 @@ const cleanUnnecessaryProps = (contentType) => {
 export async function findOne(ctx, uid: string, contentTypeHandler?: (contentType: Record<string, unknown>) => void) {
   try {
     let contentType = await strapi.db.query(uid).findOne({where: {slug: ctx.params.id}, populate: ['localizations']})
-    const slug = ctx.query.locale !== contentType.locale 
-      ? contentType.localizations?.find(
+    let where: Record<string, string> = {slug: ctx.params.id}
+    if (ctx.query.locale !== contentType.locale) {
+      const localization = contentType.localizations?.find(
         localization => localization.locale === ctx.query.locale
-      )?.slug || ctx.params.id
-      : ctx.params.id
+      )
+      localization && (where = {
+        slug: localization.slug,
+        locale: localization.locale
+      })
+    }
     contentType = await strapi.db.query(uid).findOne({
-      where: {slug},
+      where,
       populate: createPopulateArray()
     })
     if (!ctx.query.seoOnly) {
@@ -149,23 +155,23 @@ export async function findSingleType(ctx, uid: Common.UID.Service) {
   }
 }
 
-async function findManyContentTypes(uid: string, select: Array<string>) {
+async function findManyContentTypes(uid: string, select: Array<string>, showDrafts: boolean = false) {
+  const publishedAt = showDrafts ? {} : {publishedAt: null}
   return await strapi.db.query(uid).findMany({
     select,
     where: {
-      $not: {
-        publishedAt: null
-      }
+      $not: publishedAt
     }
   })
 }
 
-export async function getAllPublishedSlugs(uid: Common.UID.Service) {
+export async function getAllPublishedSlugs(ctx, uid: Common.UID.Service) {
+  const showDrafts = ctx.query['show-drafts'] === 'true'
   try {
-    const contentTypes = await findManyContentTypes(uid, ['slug', 'locale'])
+    const contentTypes = await findManyContentTypes(uid, ['slug', 'locale'], showDrafts)
     return contentTypes.filter(content => content.slug)
   } catch (e) {
-    const contentTypes = await findManyContentTypes(uid, ['slug'])
+    const contentTypes = await findManyContentTypes(uid, ['slug'], showDrafts)
     return contentTypes.filter(content => content.slug).map(content => (
       {
         slug: content.slug,

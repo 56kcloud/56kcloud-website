@@ -20,10 +20,14 @@
       "type": "string",
       "required": true,
       "pluginOptions": {
+        "translate": {
+          "translate": "copy"
+        },
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "regex": "^[a-zA-Z0-9-]+$"
     },
     "title": {
       "type": "string",

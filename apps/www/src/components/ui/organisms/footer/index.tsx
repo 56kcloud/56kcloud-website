@@ -6,6 +6,7 @@ import {Service} from '@/models/service.model'
 import {Solution} from '@/models/solution.model'
 import {X} from '../../svgs/logos/x'
 import Button from '../../atoms/button'
+import LanguageSwitcher from '../../molecules/language-switcher'
 
 export type FooterProps = {
   dictionary: Dictionary
@@ -138,8 +139,11 @@ export default async function Footer(props: FooterProps) {
             </div>
           </div>
         </div>
-        <div className='pt-8 mt-16 border-t border-slate-800 sm:mt-20 lg:mt-20'>
-          <p className='text-xs font-light text-slate-400'>&copy; 56K.Cloud 2023 – All rights reserved.</p>
+        <div
+          className='flex flex-col-reverse items-center justify-between pt-8 mt-16 border-t sm:flex-row \
+         border-slate-800 sm:mt-20 lg:mt-20'>
+          <p className='mt-8 text-xs font-light text-slate-400 sm:mt-0'>&copy; 56K.Cloud 2023 – All rights reserved.</p>
+          <LanguageSwitcher/>
         </div>
       </div>
     </footer>

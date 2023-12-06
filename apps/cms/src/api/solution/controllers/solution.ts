@@ -9,5 +9,5 @@ const uid = 'api::solution.solution'
 
 export default factories.createCoreController(uid, () => ({
   findOne: (ctx) => findOne(ctx, uid),
-  slugs: () => getAllPublishedSlugs(uid)
+  slugs: (ctx) => getAllPublishedSlugs(ctx, uid)
 }))

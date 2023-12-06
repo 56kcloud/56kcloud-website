@@ -6,7 +6,7 @@ export type RootLayoutProps = {
 
 export default function Root({children}: RootLayoutProps) {
   return (
-    <html lang='en'>
+    <html>
       <body>
         {children}
       </body>

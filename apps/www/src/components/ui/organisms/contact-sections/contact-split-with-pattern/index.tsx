@@ -138,9 +138,9 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
           {showThanksMessage
             ? <div className='flex flex-col items-center justify-center'>
               <CheckCircleIcon className='mx-auto text-white w-14 h-14'/>
-              <h3 className='mt-2 text-sm font-semibold text-white'>Message Sent</h3>
+              <h3 className='mt-2 text-sm font-semibold text-white'>{props.dictionary.messageSent}</h3>
               <p className='max-w-xs text-sm text-center text-gray-300'>
-              Thanks for your message we will get back to you as soon as possible
+                {props.dictionary.messageSentThanks}
               </p>
             </div>
             : <form onSubmit={handleSubmit((data) => onSubmit(data as contactUsFormData))}>
@@ -175,7 +175,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                     shape='circle'
                     size='large'
                     className='px-5 text-md bg-sky-300 text-slate-900 hover:bg-violet-300'>
-                  Send Message
+                    {props.dictionary.sendMessage}
                   </Button>
                 </div>
               </div>

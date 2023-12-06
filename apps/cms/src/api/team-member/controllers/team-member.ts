@@ -41,5 +41,5 @@ async function getBySlug(ctx) {
 
 export default factories.createCoreController(uid, () => ({
   findOne: getBySlug,
-  slugs: () => getAllPublishedSlugs(uid)
+  slugs: (ctx) => getAllPublishedSlugs(ctx, uid)
 }))

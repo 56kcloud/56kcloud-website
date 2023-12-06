@@ -1,23 +1,32 @@
-import {NextRequest} from 'next/server'
-import {defaultLocale, locales} from '../configs/server'
+import {NextRequest, NextResponse} from 'next/server'
+import {defaultLocale, locales} from '../configs/shared'
 
 function getLocale(request: NextRequest) {
-  const locale = request.headers.get('Accept-Language')
-  if (locale && locales.includes(locale)) return locale
+  const acceptLanguages = request.headers.get('Accept-Language')?.split(',')
+  const locale = acceptLanguages?.find((locale) => locales.includes(locale))
+  if (locale) return locale
   return defaultLocale
 }
  
 export function middleware(request: NextRequest) {
   const {pathname} = request.nextUrl
-  const pathnameHasLocale = locales.some(
+  let locale = locales.find(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   )
- 
-  if (pathnameHasLocale) return
- 
-  const locale = getLocale(request)
-  request.nextUrl.pathname = `/${locale}${pathname}`
-  return Response.redirect(request.nextUrl)
+  
+  if (locale) {
+    const response = NextResponse.next()
+    response.cookies.set('NEXT_LOCALE', locale)
+    return response
+  } else {
+    const localeFromCookie = request.cookies.get('NEXT_LOCALE')?.value
+    localeFromCookie && locales.includes(localeFromCookie) && (locale = localeFromCookie)
+    !locale && (locale = getLocale(request))
+    request.nextUrl.pathname = `/${locale}${pathname}`
+    request.cookies.set('NEXT_LOCALE', locale)
+    const response = Response.redirect(request.nextUrl)
+    return response
+  }
 }
  
 export const config = {

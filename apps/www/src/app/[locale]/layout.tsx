@@ -1,6 +1,7 @@
 import '../../styles/global.css'
 import {Metadata} from 'next'
-import {hostname, locales} from '../../../configs/server'
+import {hostname} from '../../../configs/server'
+import {locales} from '../../../configs/shared'
 
 export const metadata: Metadata = {
   metadataBase: new URL(hostname)
@@ -13,13 +14,13 @@ export async function generateStaticParams() {
 export type RootLayoutProps = {
   children: React.ReactNode
   params: {
-    lang: string
+    locale: string
   }
 }
 
 export default function Root({children, params}: RootLayoutProps) {
   return (
-    <html lang={params.lang}>
+    <html lang={params.locale}>
       <head>
         <link
           rel='icon'

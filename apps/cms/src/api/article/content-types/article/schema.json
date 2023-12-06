@@ -10,7 +10,6 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
   "attributes": {
     "title": {
       "type": "string",
@@ -29,8 +28,9 @@
       "type": "date"
     },
     "slug": {
-      "type": "text",
-      "required": true
+      "type": "string",
+      "required": true,
+      "regex": "^[a-zA-Z0-9-]+$"
     },
     "image": {
       "type": "media",

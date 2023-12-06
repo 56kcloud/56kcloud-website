@@ -4,8 +4,10 @@ export default ({env}) => ({
       provider: 'aws-s3',
       providerOptions: {
         s3Options: {
-          accessKeyId: env('AWS_ACCESS_KEY_ID'),
-          secretAccessKey: env('AWS_ACCESS_SECRET'),
+          credentials: {
+            accessKeyId: env('AWS_ACCESS_KEY_ID'),
+            secretAccessKey: env('AWS_ACCESS_SECRET')
+          },
           region: env('AWS_REGION'),
           params: {
             ACL: env('AWS_ACL', 'public-read'),
@@ -25,6 +27,30 @@ export default ({env}) => ({
     enabled: true,
     config: {
       size: 10
+    }
+  },
+  translate: {
+    enabled: true,
+    config: {
+      provider: 'deepl',
+      providerOptions: {
+        apiKey: env('DEEPL_API_KEY'),
+        apiUrl: 'https://api.deepl.com',
+        localeMap: {
+          EN: 'EN-US'
+        },
+        apiOptions: {
+          formality: 'default'
+        }
+      },
+      translatedFieldTypes: [
+        'string',
+        {type: 'text', format: 'plain'},
+        {type: 'richtext', format: 'markdown'},
+        'component',
+        'dynamiczone'
+      ],
+      translateRelations: true
     }
   }
 })
