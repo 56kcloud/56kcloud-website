@@ -1,5 +1,6 @@
 import '../../styles/global.css'
 import {Metadata} from 'next'
+import {Work_Sans} from 'next/font/google'
 import {hostname} from '../../../configs/server'
 import {locales} from '../../../configs/shared'
 
@@ -17,6 +18,11 @@ export type RootLayoutProps = {
     locale: string
   }
 }
+
+const workSans = Work_Sans({
+  weight: ['300', '400'],
+  preload: false
+})
 
 export default function Root({children, params}: RootLayoutProps) {
   return (
@@ -42,7 +48,7 @@ export default function Root({children, params}: RootLayoutProps) {
           name='twitter:card'
         />
       </head>
-      <body className='relative bg-background isolate'>
+      <body className={`relative bg-background isolate ${workSans.className}`}>
         {children}
       </body>
     </html>

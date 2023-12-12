@@ -6,6 +6,7 @@ import {Dictionary} from '@/models/dictionary.model'
 import {LinkProps} from '@/models/link.model'
 import {Logo} from '../../svgs/logos/56k'
 import {useState} from 'react'
+import LanguageSwitcher from '../../molecules/language-switcher'
 import Link from 'next/link'
 
 type HeaderProps = {
@@ -44,15 +45,18 @@ export default function Header({dictionary}: HeaderProps) {
               aria-hidden='true'/>
           </button>
         </div>
-        <div className='hidden lg:flex lg:gap-x-16'>
-          {navigation.map((item) => (
-            <a
-              key={item.text}
-              href={item.link}
-              className='text-base font-normal leading-6 text-white capitalize'>
-              {item.text}
-            </a>
-          ))}
+        <div className='flex justify-between gap-x-16'>
+          <div className='hidden lg:flex lg:items-center lg:gap-x-8'>
+            {navigation.map((item) => (
+              <a
+                key={item.text}
+                href={item.link}
+                className='px-2 py-1 text-base font-normal leading-6 text-white capitalize'>
+                {item.text}
+              </a>
+            ))}
+          </div>
+          <LanguageSwitcher/>
         </div>
       </nav>
       <Dialog

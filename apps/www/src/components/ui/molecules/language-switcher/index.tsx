@@ -21,15 +21,14 @@ export default function LanguageSwitcher() {
     onValueChange={updateLanguage}
   >
     <SelectTrigger
-      className={'uppercase w-20 rounded-md border-0 bg-slate-900 px-3.5 py-2 text-slate-400 font-light shadow-sm \
-       ring-1 ring-inset ring-slate-700/60 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm \
-       sm:leading-6'}>
+      className={'uppercase w-[72px] border-0 bg-slate-900 text-white font-normal focus:ring-2 focus:ring-inset \
+      focus:ring-primary-500 sm:text-base sm:leading-6 px-3 py-1'}>
       <SelectValue/>
     </SelectTrigger>
-    <SelectContent>
+    <SelectContent className='min-w-0 border-0 bg-slate-800 text-slate-400'>
       {locales?.map((locale) => (
         <SelectItem
-          className='uppercase'
+          className='w-[72px] uppercase focus:text-slate-900 focus:bg-sky-400'
           key={locale}
           value={locale}>
           {locale}
