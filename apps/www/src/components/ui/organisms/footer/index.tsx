@@ -6,7 +6,6 @@ import {Service} from '@/models/service.model'
 import {Solution} from '@/models/solution.model'
 import {X} from '../../svgs/logos/x'
 import Button from '../../atoms/button'
-import LanguageSwitcher from '../../molecules/language-switcher'
 
 export type FooterProps = {
   dictionary: Dictionary

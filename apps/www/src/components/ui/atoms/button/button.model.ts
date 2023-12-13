@@ -18,7 +18,7 @@ const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVarian
   secondary: {
     default: 'text-white bg-secondary-500 hover:bg-secondary-600 focus-visible:ring-secondary-500 \
      focus-visible:outline-secondary-600',
-    link: 'text-white',
+    link: 'text-white data-[active=true]:text-white',
     ghost: 'text-secondary-500 hover:bg-secondary-50 focus-visible:outline-secondary-600'
   }
 }
