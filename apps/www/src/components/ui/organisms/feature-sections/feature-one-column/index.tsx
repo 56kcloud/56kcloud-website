@@ -1,6 +1,5 @@
 import {ArrowLongRightIcon} from '@heroicons/react/24/solid'
 import {Feature} from '@/models/feature.model'
-import {cn} from '@/utils/toolbox'
 import Button from '@/components/ui/atoms/button'
 import Icon from '@/components/ui/atoms/icon'
 import Link from 'next/link'
