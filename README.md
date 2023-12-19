@@ -1,5 +1,3 @@
-This is the source of the [56k.cloud)](https://56k.cloud/) website, a Next.js website using Strapi as a CMS.
-
 ## Getting Started
 
 Make sure you have Node v18 or better. Earlier versions were not tested.
@@ -23,3 +21,5 @@ Run the cms development server:
 ```bash
 $ npm run dev:cms
 ```
+
+# How to create content
