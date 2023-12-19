@@ -5,6 +5,7 @@
 import i18N from "@strapi/plugin-i18n/strapi-admin";
 import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
 import multiSelect from "strapi-plugin-multi-select/strapi-admin";
+import previewButton from "strapi-plugin-preview-button/strapi-admin";
 import translate from "strapi-plugin-translate/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
@@ -13,6 +14,7 @@ renderAdmin(document.getElementById("strapi"), {
     i18n: i18N,
     "users-permissions": usersPermissions,
     "multi-select": multiSelect,
+    "preview-button": previewButton,
     translate: translate,
   },
 });

@@ -52,5 +52,86 @@ export default ({env}) => ({
       ],
       translateRelations: true
     }
+  },
+  'preview-button': {
+    config: {
+      contentTypes: [
+        {
+          uid: 'api::article.article',
+          query: {
+            type: 'article',
+            locale: '{locale}',
+            slug: '{slug}'
+          },
+          draft: {
+            url: `${env('WEBSITE_HOST')}/api/draft?url=/{locale}/blog/{slug}`,
+            alwaysVisible: true
+          },
+          openTarget: '_blank'
+        },
+        {
+          uid: 'api::service.service',
+          query: {
+            type: 'service',
+            locale: '{locale}',
+            slug: '{slug}'
+          },
+          draft: {
+            url: `${env('WEBSITE_HOST')}/api/draft?url=/{locale}/services/{slug}`,
+            alwaysVisible: true
+          },
+          openTarget: '_blank'
+        },
+        {
+          uid: 'api::solution.solution',
+          query: {
+            type: 'solution',
+            locale: '{locale}',
+            slug: '{slug}'
+          },
+          draft: {
+            url: `${env('WEBSITE_HOST')}/api/draft?url=/{locale}/solutions/{slug}`,
+            alwaysVisible: true
+          },
+          openTarget: '_blank'
+        },
+        {
+          uid: 'api::home-page.home-page',
+          query: {
+            type: 'home-page',
+            locale: '{locale}'
+          },
+          draft: {
+            url: `${env('WEBSITE_HOST')}/api/draft?url=/{locale}`,
+            alwaysVisible: true
+          },
+          openTarget: '_blank'
+        },
+        {
+          uid: 'api::blog-page.blog-page',
+          query: {
+            type: 'blog-page',
+            locale: '{locale}'
+          },
+          draft: {
+            url: `${env('WEBSITE_HOST')}/api/draft?url=/{locale}/blog`,
+            alwaysVisible: true
+          },
+          openTarget: '_blank'
+        },
+        {
+          uid: 'api::about-page.about-page',
+          query: {
+            type: 'about-page',
+            locale: '{locale}'
+          },
+          draft: {
+            url: `${env('WEBSITE_HOST')}/api/draft?url=/{locale}/about`,
+            alwaysVisible: true
+          },
+          openTarget: '_blank'
+        }
+      ]
+    }
   }
 })

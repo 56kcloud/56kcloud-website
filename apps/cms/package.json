@@ -15,23 +15,26 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "^4.14.5",
-    "@strapi/plugin-users-permissions": "4.14.5",
-    "@strapi/provider-upload-aws-s3": "^4.14.5",
-    "@strapi/strapi": "4.14.5",
+    "@strapi/plugin-i18n": "^4.15.5",
+    "@strapi/plugin-users-permissions": "4.15.5",
+    "@strapi/provider-upload-aws-s3": "^4.15.5",
+    "@strapi/strapi": "4.15.5",
+    "@strapi/typescript-utils": "^4.15.5",
     "better-sqlite3": "9.1.1",
     "glob": "^10.3.10",
     "pg": "^8.11.3",
+    "pg-connection-string": "^2.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^5.2.0",
     "strapi-plugin-multi-select": "^1.2.2",
     "strapi-plugin-placeholder": "^4.4.0",
     "strapi-plugin-populate-deep": "^3.0.1",
+    "strapi-plugin-preview-button": "^2.2.1",
     "strapi-plugin-slugify": "^2.3.8",
     "strapi-plugin-translate": "^1.2.4",
     "strapi-provider-translate-deepl": "^1.1.12",
-    "styled-components": "^5.2.1"
+    "styled-components": "5.3.3"
   },
   "devDependencies": {
     "@types/pg": "^8.10.9",
