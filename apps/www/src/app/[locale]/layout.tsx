@@ -1,6 +1,7 @@
 import '../../styles/global.css'
 import {Metadata} from 'next'
 import {Work_Sans} from 'next/font/google'
+import {cn} from '@/utils/toolbox'
 import {hostname} from '../../../configs/server'
 import {locales} from '../../../configs/shared'
 
@@ -48,7 +49,7 @@ export default function Root({children, params}: RootLayoutProps) {
           name='twitter:card'
         />
       </head>
-      <body className={`relative bg-background isolate ${workSans.className}`}>
+      <body className={cn('relative bg-background isolate', workSans.className)}>
         {children}
       </body>
     </html>
