@@ -43,7 +43,6 @@ To create a new solution, for instance, proceed as follows:
   ![Creating an Entry in a Collection Type](readme-assets/creating-an-entry-in-a-collection-type.png)
 
 ## Updating a Single Type
-
 To update a single type, like creating a new solution:
 
 1. Navigate to: Content Manager -> 01 - Home page.
@@ -52,6 +51,9 @@ To update a single type, like creating a new solution:
     ![Updating a Single Type](readme-assets/updating-a-single-type.png)
 
 ## Disabling Draft Mode
-
-To disable the draft mode in your browser, visit: [https://www.56k.cloud/api/draft/disable](https://www.56k.cloud/api/draft/disable).
+By clicking the `Open Draft Preview` button, you will replace the currently cached content with the latest updates you've made in the CMS. To revert back to the original content in your browser, visit: [https://www.56k.cloud/api/draft/disable](https://www.56k.cloud/api/draft/disable).
 ![Disable Draft Mode](readme-assets/disable-draft-mode.png)
+
+## Revalidate Website content
+Once you're satisfied with the changes viewed in preview mode, proceed to confirm your content updates by clicking on 'Revalidate Website'.
+![Revalidate Website](<readme-assets/revalidate-website.png>)
