@@ -14,11 +14,11 @@
     "apps/cms"
   ],
   "scripts": {
-    "build": "cd apps/cms && strapi build",
+    "build": "cd apps/cms && npm run build",
     "dev:cms": "cd apps/cms && npm run dev",
     "dev:www": "cd apps/www && npm run dev",
     "lint": "cd apps/www && npm run lint && cd ../cms && npm run lint",
-    "start": "cd apps/cms && strapi start"
+    "start": "cd apps/cms && npm run start"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.2.0",
@@ -35,5 +35,12 @@
   },
   "engines": {
     "node": "18"
+  },
+  "dependencies": {
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.18",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^5.2.0"
   }
 }

@@ -133,5 +133,12 @@ export default ({env}) => ({
         }
       ]
     }
+  },
+  'revalidate-website': {
+    enabled: true,
+    resolve: './src/plugins/revalidate-website',
+    config: {
+      websiteUrl: env('WEBSITE_HOST')
+    }
   }
 })

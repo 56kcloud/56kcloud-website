@@ -8,7 +8,7 @@
     "name": "56kcloud"
   },
   "scripts": {
-    "build": "strapi build",
+    "build": "cd src/plugins/revalidate-website && npm run build && cd ../../../ && strapi build",
     "dev": "strapi develop",
     "lint": "eslint . --ext js,jsx,ts,tsx --max-warnings=0 --config .eslintrc.json --no-eslintrc --fix",
     "start": "strapi start",
@@ -24,8 +24,8 @@
     "glob": "^10.3.10",
     "pg": "^8.11.3",
     "pg-connection-string": "^2.6.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^x",
+    "react-dom": "^x",
     "react-router-dom": "^5.2.0",
     "strapi-plugin-multi-select": "^1.2.2",
     "strapi-plugin-placeholder": "^4.4.0",

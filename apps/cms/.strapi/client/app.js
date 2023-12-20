@@ -7,6 +7,7 @@ import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
 import multiSelect from "strapi-plugin-multi-select/strapi-admin";
 import previewButton from "strapi-plugin-preview-button/strapi-admin";
 import translate from "strapi-plugin-translate/strapi-admin";
+import revalidateWebsite from "../../src/plugins/revalidate-website/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
 renderAdmin(document.getElementById("strapi"), {
@@ -16,5 +17,6 @@ renderAdmin(document.getElementById("strapi"), {
     "multi-select": multiSelect,
     "preview-button": previewButton,
     translate: translate,
+    "revalidate-website": revalidateWebsite,
   },
 });

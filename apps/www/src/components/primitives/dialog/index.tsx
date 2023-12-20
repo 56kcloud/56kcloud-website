@@ -1,3 +1,5 @@
+'use client'
+
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 import * as React from 'react'
 import {X} from 'lucide-react'
@@ -58,10 +60,12 @@ const DialogContent = React.forwardRef<
                    transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary-900 \
                    focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-white \
                    data-[state=open]:text-muted-foreground'>
-        <X
-          className='w-4 h-4'
-          strokeWidth={3}
-        />
+        <div>
+          <X
+            className='w-4 h-4'
+            strokeWidth={3}
+          />
+        </div>
         <span className='sr-only'>Close</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>
