@@ -1,13 +1,14 @@
 import {Solution} from '@/models/solution.model'
-import FeatureOneColumn from '@/components/ui/organisms/feature-sections/feature-one-column'
+// eslint-disable-next-line max-len
+import FeatureThreeColumnWithLargeIcons from '@/components/ui/organisms/feature-sections/feature-three-column-with-large-icons'
 
-export type SolutionOneColumnProps = {
+export type SolutionThreeColumnWithLargeIconsProps = {
   title: string
   subtitle: string
   solutions: Array<Solution>
 }
 
-export default function SolutionOneColumn(props: SolutionOneColumnProps) { 
+export default function SolutionThreeColumnWithLargeIcons(props: SolutionThreeColumnWithLargeIconsProps) { 
   const features = props.solutions.map((solution) => {
     return {
       icon: solution.icon,
@@ -18,9 +19,11 @@ export default function SolutionOneColumn(props: SolutionOneColumnProps) {
   })
 
   return (
-    <FeatureOneColumn
+    <FeatureThreeColumnWithLargeIcons
       title={props.title}
       subtitle={props.subtitle}
-      features={features}/>
+      features={features}
+      titleAlignment='center'
+    />
   )
 }
