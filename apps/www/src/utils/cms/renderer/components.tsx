@@ -19,6 +19,7 @@ import PartnerLogosSimpleWithTitle from '@/components/ui/organisms/partner-secti
 import ServiceAlternatePositionIcon from '@/components/ui/organisms/service-sections/service-alternate-position-icon'
 import ServiceThreeColumnWithLargeIcons from
   '@/components/ui/organisms/service-sections/service-three-column-with-large-icons'
+import SolutionOneColumn from '@/components/ui/organisms/solution-sections/solution-one-column'
 import SolutionThreeColumnWithLargeIcons from
   '@/components/ui/organisms/solution-sections/solution-three-column-with-large-icons'
 import TagFilter from '@/components/ui/molecules/tag-filter'
@@ -41,6 +42,7 @@ export const componentBlueprints: ComponentBlueprints = {
   'contact-split-with-pattern': ContactSplitWithPattern,
   'service-alternate-position-icon': ServiceAlternatePositionIcon,
   'service-three-column-with-large-icons': ServiceThreeColumnWithLargeIcons,
+  'solution-one-column': SolutionOneColumn,
   'solution-three-column-with-large-icons': SolutionThreeColumnWithLargeIcons,
   'partner-logo-simple-with-title': PartnerLogosSimpleWithTitle,
   'customer-logo-simple-with-title': CustomerLogosSimpleWithTitle,

@@ -35,7 +35,8 @@
         "blog-sections.blog-three-column",
         "contact-sections.contact-split-with-pattern",
         "content-section.introduction-with-logo",
-        "service-sections.service-alternate-position-icon"
+        "service-sections.service-alternate-position-icon",
+        "solution-sections.solution-one-column"
       ],
       "required": true
     },
