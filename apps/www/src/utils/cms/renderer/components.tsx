@@ -16,6 +16,7 @@ import ImageSimple from '@/components/ui/organisms/image-sections/image-simple'
 import IntroductionWithLogo from '@/components/ui/organisms/content-sections/introduction-with-logo'
 import JoinOurTeam from '@/components/ui/organisms/cta-sections/join-our-team'
 import PartnerLogosSimpleWithTitle from '@/components/ui/organisms/partner-sections/partner-logos-simple-with-title'
+import ServiceAlternatePositionIcon from '@/components/ui/organisms/service-sections/service-alternate-position-icon'
 import ServiceThreeColumnWithLargeIcons from
   '@/components/ui/organisms/service-sections/service-three-column-with-large-icons'
 import SolutionThreeColumnWithLargeIcons from
@@ -38,6 +39,7 @@ export const componentBlueprints: ComponentBlueprints = {
   'blog-three-column': BlogThreeColumn,
   'blog-masonry': BlogMasonry,
   'contact-split-with-pattern': ContactSplitWithPattern,
+  'service-alternate-position-icon': ServiceAlternatePositionIcon,
   'service-three-column-with-large-icons': ServiceThreeColumnWithLargeIcons,
   'solution-three-column-with-large-icons': SolutionThreeColumnWithLargeIcons,
   'partner-logo-simple-with-title': PartnerLogosSimpleWithTitle,

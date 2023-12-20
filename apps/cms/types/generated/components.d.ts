@@ -564,6 +564,23 @@ export interface SeoSeo extends Schema.Component {
   };
 }
 
+export interface ServiceSectionsServiceAlternatePositionIcon
+  extends Schema.Component {
+  collectionName: 'service_alternate_position_icon';
+  info: {
+    displayName: 'service-alternate-position-icon';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    subtitle: Attribute.Text & Attribute.Required;
+    services: Attribute.Relation<
+      'service-sections.service-alternate-position-icon',
+      'oneToMany',
+      'api::service.service'
+    >;
+  };
+}
+
 export interface ServiceSectionsServiceThreeColumnWithLargeIcons
   extends Schema.Component {
   collectionName: 'service_three_column_with_large_icons';
@@ -662,6 +679,7 @@ declare module '@strapi/types' {
       'partner-sections.partner-logo-simple-with-title': PartnerSectionsPartnerLogoSimpleWithTitle;
       'seo.open-graph': SeoOpenGraph;
       'seo.seo': SeoSeo;
+      'service-sections.service-alternate-position-icon': ServiceSectionsServiceAlternatePositionIcon;
       'service-sections.service-three-column-with-large-icons': ServiceSectionsServiceThreeColumnWithLargeIcons;
       'solution-sections.solution-three-column-with-large-icons': SolutionSectionsSolutionThreeColumnWithLargeIcons;
       'team-sections.team-three-column': TeamSectionsTeamThreeColumn;

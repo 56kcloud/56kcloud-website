@@ -20,6 +20,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
       "type": "dynamiczone",
@@ -31,7 +34,8 @@
         "customer-sections.customer-logo-simple-with-title",
         "blog-sections.blog-three-column",
         "contact-sections.contact-split-with-pattern",
-        "content-section.introduction-with-logo"
+        "content-section.introduction-with-logo",
+        "service-sections.service-alternate-position-icon"
       ],
       "required": true
     },
@@ -41,6 +45,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
       "component": "seo.seo",
