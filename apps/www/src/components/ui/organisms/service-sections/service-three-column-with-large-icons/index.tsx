@@ -1,5 +1,6 @@
 import {Service} from '@/models/service.model'
-import FeatureAlternatePositionIcon from '@/components/ui/organisms/feature-sections/feature-alternate-position-icon'
+// eslint-disable-next-line max-len
+import FeatureThreeColumnWithLargeIcons from '@/components/ui/organisms/feature-sections/feature-three-column-with-large-icons'
 
 export type ServiceThreeColumnWithLargeIcons = {
   title: string
@@ -18,9 +19,11 @@ export default function ServiceThreeColumnWithLargeIcons(props: ServiceThreeColu
   })
 
   return (
-    <FeatureAlternatePositionIcon
+    <FeatureThreeColumnWithLargeIcons
       title={props.title}
       subtitle={props.subtitle}
-      features={features}/>
+      features={features}
+      titleAlignment='center'
+    />
   )
 }
