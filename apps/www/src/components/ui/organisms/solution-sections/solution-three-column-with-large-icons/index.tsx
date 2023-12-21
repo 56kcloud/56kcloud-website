@@ -1,5 +1,4 @@
 import {Solution} from '@/models/solution.model'
-// eslint-disable-next-line max-len
 import FeatureThreeColumnWithLargeIcons from '@/components/ui/organisms/feature-sections/feature-three-column-with-large-icons'
 
 export type SolutionThreeColumnWithLargeIconsProps = {
@@ -23,7 +22,6 @@ export default function SolutionThreeColumnWithLargeIcons(props: SolutionThreeCo
       title={props.title}
       subtitle={props.subtitle}
       features={features}
-      titleAlignment='center'
     />
   )
 }
