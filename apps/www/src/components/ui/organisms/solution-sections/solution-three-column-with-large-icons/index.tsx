@@ -1,5 +1,6 @@
 import {Solution} from '@/models/solution.model'
-import FeatureThreeColumnWithLargeIcons from '@/components/ui/organisms/feature-sections/feature-three-column-with-large-icons'
+import FeatureThreeColumnWithLargeIcons
+  from '@/components/ui/organisms/feature-sections/feature-three-column-with-large-icons'
 
 export type SolutionThreeColumnWithLargeIconsProps = {
   title: string

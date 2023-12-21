@@ -1,5 +1,6 @@
 import {Service} from '@/models/service.model'
-import FeatureThreeColumnWithLargeIcons from '@/components/ui/organisms/feature-sections/feature-three-column-with-large-icons'
+import FeatureThreeColumnWithLargeIcons
+  from '@/components/ui/organisms/feature-sections/feature-three-column-with-large-icons'
 
 export type ServiceThreeColumnWithLargeIcons = {
   title: string
