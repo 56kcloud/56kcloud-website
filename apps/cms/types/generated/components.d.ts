@@ -65,6 +65,32 @@ export interface ContactSectionsContactSplitWithPattern extends Schema.Component
   }
 }
 
+export interface ContentSectionContentAlternatePositionImageLeft
+  extends Schema.Component {
+  collectionName: 'content_alternate_position_image_left';
+  info: {
+    displayName: 'content-alternate-position-image-left';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+  };
+}
+
+export interface ContentSectionContentAlternatePositionImageRight
+  extends Schema.Component {
+  collectionName: 'content_alternate_position_image_right';
+  info: {
+    displayName: 'content-alternate-position-image-right';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+  };
+}
+
 export interface ContentSectionContentMarkdown extends Schema.Component {
   collectionName: 'components_content_section_content_markdowns'
   info: {
@@ -585,6 +611,21 @@ export interface ServiceSectionsServiceThreeColumnWithLargeIcons extends Schema.
       'api::service.service'
     >
   }
+}
+
+export interface SolutionSectionsSolutionAlternatePositionImage
+  extends Schema.Component {
+  collectionName: 'solution_alternate_position_image';
+  info: {
+    displayName: 'solution-alternate-position-image';
+  };
+  attributes: {
+    solutions: Attribute.Relation<
+      'solution-sections.solution-alternate-position-image',
+      'oneToMany',
+      'api::solution.solution'
+    >;
+  };
 }
 
 export interface SolutionSectionsSolutionOneColumn extends Schema.Component {

@@ -1034,7 +1034,9 @@ export interface ApiServiceService extends Schema.CollectionType {
         'content-section.content-markdown',
         'contact-sections.contact-split-with-pattern',
         'service-sections.service-alternate-position-icon',
-        'diagram-sections.diagram-full-width'
+        'diagram-sections.diagram-full-width',
+        'content-section.content-alternate-position-image-left',
+        'content-section.content-alternate-position-image-right'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1129,7 +1131,8 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
         'solution-sections.solution-three-column-with-large-icons',
         'content-section.content-markdown',
         'contact-sections.contact-split-with-pattern',
-        'solution-sections.solution-one-column'
+        'solution-sections.solution-one-column',
+        'solution-sections.solution-alternate-position-image'
       ]
     > &
       Attribute.SetPluginOptions<{

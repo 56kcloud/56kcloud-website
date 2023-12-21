@@ -1,0 +1,14 @@
+{
+  "collectionName": "solution_alternate_position_image",
+  "info": {
+    "displayName": "solution-alternate-position-image"
+    },
+  "options": {},
+  "attributes": {
+    "solutions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::solution.solution"
+    }
+  }
+}

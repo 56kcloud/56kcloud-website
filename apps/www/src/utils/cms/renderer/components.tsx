@@ -5,6 +5,10 @@ import ArticleContentSection from '@/components/ui/molecules/article/content-sec
 import BlogMasonry from '@/components/ui/organisms/blog-sections/blog-masonry'
 import BlogThreeColumn from '@/components/ui/organisms/blog-sections/blog-three-column'
 import ContactSplitWithPattern from '@/components/ui/organisms/contact-sections/contact-split-with-pattern'
+import ContentAlternatePositionImageLeft from 
+  '@/components/ui/organisms/content-sections/content-alternate-position-image-left'
+import ContentAlternatePositionImageRight from 
+  '@/components/ui/organisms/content-sections/content-alternate-position-image-right'
 import ContentMarkdown from '@/components/ui/organisms/content-sections/content-markdown'
 import ContentTwoColumn from '@/components/ui/organisms/content-sections/content-two-column'
 import CustomerLogosSimpleWithTitle from '@/components/ui/organisms/customer-sections/customer-logos-simple-with-title'
@@ -58,7 +62,9 @@ export const componentBlueprints: ComponentBlueprints = {
   'header-with-cards': HeaderWithCards,
   'content-markdown': ContentMarkdown,
   'introduction-with-logo': IntroductionWithLogo,
-  'diagram-full-width': DiagramFullWidth
+  'diagram-full-width': DiagramFullWidth,
+  'content-alternate-position-image-left': ContentAlternatePositionImageLeft,
+  'content-alternate-position-image-right': ContentAlternatePositionImageRight
 }
 export type ComponentBlueprint = {
   component: keyof ComponentBlueprints
