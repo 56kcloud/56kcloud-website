@@ -1,20 +1,12 @@
 import {DateTime} from 'luxon'
-import {NextResponse} from 'next/server'
+import {headers} from '@/utils/api/headers'
+import {options} from '@/utils/api/options'
+import {protectedAPI} from '@/utils/api/protected-api'
 import {revalidateTag} from 'next/cache'
-import {slackBotURL, strapiAPI} from '../../../../configs/server'
+import {slackBotURL} from '../../../../configs/server'
 
 export async function OPTIONS() {
-  return NextResponse.json(
-    {},
-    {
-      status: 200,
-      headers: {
-        'Access-Control-Allow-Origin': strapiAPI,
-        'Access-Control-Allow-Methods': 'OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization'
-      }
-    }
-  )
+  return options()
 }
 
 type RequestPayload = {
@@ -69,18 +61,18 @@ async function postMessageOnSlack(data: RequestPayload) {
 }
 
 export async function POST(request: Request) {
-  const data: RequestPayload = await request.json()
-  await revalidateTag('strapi')
-  await postMessageOnSlack(data)
-  return new Response(
-    'Strapi tag revalidated',
-    {
-      status: 200,
-      headers: {
-        'Access-Control-Allow-Origin': strapiAPI,
-        'Access-Control-Allow-Methods': 'POST',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+  return protectedAPI(request, async() => {
+    const data: RequestPayload = await request.json()
+    await revalidateTag('strapi')
+    await postMessageOnSlack(data)
+    return new Response(
+      JSON.stringify({
+        message: 'Strapi tag revalidated'
+      }),
+      {
+        status: 200,
+        headers: headers({methods: 'POST'})
       }
-    }
-  )
+    )
+  })
 }
