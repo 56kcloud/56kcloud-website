@@ -21,6 +21,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
       "required": true
@@ -43,6 +46,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
       "type": "text",
@@ -52,6 +58,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
       "type": "dynamiczone",
@@ -60,7 +69,8 @@
         "service-sections.service-three-column-with-large-icons",
         "solution-sections.solution-three-column-with-large-icons",
         "content-section.content-markdown",
-        "contact-sections.contact-split-with-pattern"
+        "contact-sections.contact-split-with-pattern",
+        "service-sections.service-alternate-position-icon"
       ]
     },
     "icon": {
@@ -69,6 +79,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
       "component": "icon.icon",

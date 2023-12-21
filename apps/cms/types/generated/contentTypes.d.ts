@@ -1072,7 +1072,9 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
         'customer-sections.customer-logo-simple-with-title',
         'blog-sections.blog-three-column',
         'contact-sections.contact-split-with-pattern',
-        'content-section.introduction-with-logo'
+        'content-section.introduction-with-logo',
+        'service-sections.service-alternate-position-icon',
+        'solution-sections.solution-one-column'
       ]
     > &
       Attribute.Required &
@@ -1080,12 +1082,18 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
       }>;
     seo: Attribute.Component<'seo.seo'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+        translate: {
+          translate: 'translate';
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1255,6 +1263,9 @@ export interface ApiServiceService extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
       }>;
     slug: Attribute.String &
       Attribute.Required &
@@ -1272,6 +1283,9 @@ export interface ApiServiceService extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
       }>;
     body: Attribute.DynamicZone<
       [
@@ -1279,12 +1293,16 @@ export interface ApiServiceService extends Schema.CollectionType {
         'service-sections.service-three-column-with-large-icons',
         'solution-sections.solution-three-column-with-large-icons',
         'content-section.content-markdown',
-        'contact-sections.contact-split-with-pattern'
+        'contact-sections.contact-split-with-pattern',
+        'service-sections.service-alternate-position-icon'
       ]
     > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+        translate: {
+          translate: 'translate';
         };
       }>;
     icon: Attribute.Component<'icon.icon'> &
@@ -1292,6 +1310,9 @@ export interface ApiServiceService extends Schema.CollectionType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+        translate: {
+          translate: 'translate';
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1351,12 +1372,18 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
       }>;
     description: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+        translate: {
+          translate: 'translate';
         };
       }>;
     icon: Attribute.Component<'icon.icon'> &
@@ -1365,6 +1392,9 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
       }>;
     body: Attribute.DynamicZone<
       [
@@ -1372,12 +1402,16 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
         'service-sections.service-three-column-with-large-icons',
         'solution-sections.solution-three-column-with-large-icons',
         'content-section.content-markdown',
-        'contact-sections.contact-split-with-pattern'
+        'contact-sections.contact-split-with-pattern',
+        'solution-sections.solution-one-column'
       ]
     > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+        translate: {
+          translate: 'translate';
         };
       }>;
     createdAt: Attribute.DateTime;
