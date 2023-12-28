@@ -16,7 +16,8 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
       <div className='relative px-6 mx-auto max-w-7xl lg:px-8'>
         <div className='grid grid-cols-1 gap-x-6 gap-y-14 lg:gap-y-36'>
           {props.features?.map((feature, index) => (
-            <div
+            <Link
+              href={feature.link}
               key={index}
               className='max-w-5xl mx-auto'
             >
@@ -49,24 +50,11 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
                   </Button>
                 </div>
               </div>
-              <dt className='text-2xl font-medium text-white sm:text-3xl'>
-                {feature.title}
-              </dt>
-              <dd className='text-[18px] leading-8 text-slate-400 font-light'>
-                <p>{feature.description}</p>
-              </dd>
-              <Button
-                asChild
-                size='large'
-                variant='link'
-                className='mt-1 text-lg text-sky-300 hover:text-violet-300'
-                leading={<ArrowLongRightIcon className='w-8 h-8'/>}
-              >
-                <Link href={feature.link}>
-                  Learn more
-                </Link>
-              </Button>
-            </div>
+              <div className='flex items-center gap-x-4 text-sky-300'>
+                <ArrowLongRightIcon className='w-8 h-8'/>
+                <span className='text-lg'>Learn more</span>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
