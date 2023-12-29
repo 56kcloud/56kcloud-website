@@ -1,7 +1,7 @@
 import {CTAProps} from '@/models/cta.model'
 import {ImageProps} from '@/models/image.model'
 import Button from '@/components/ui/atoms/button'
-import Gradient from '@/../public/images/backgrounds/gradient.png'
+import GradientTop from '@/../public/images/backgrounds/gradient-top.png'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -16,12 +16,17 @@ export type HeroSimpleCenterWithBackgroundProps = {
 export default function HeroSimpleCenterWithBackground(props: HeroSimpleCenterWithBackgroundProps) {
   return (
     <div className='relative overflow-hidden pt-28 isolate'>
-      <div className='absolute -right-20 -top-72'>
+      <div
+        // eslint-disable-next-line max-len
+        className='absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_45%_80%_at_50%_0%,#000_70%,transparent_110%)]'>
+      </div>
+      <div className='absolute w-full -top-12 opacity-60'>
         <Image
-          src={Gradient}
+          src={GradientTop}
           alt='Background'
           width={1000}
           height={1000}
+          className='w-full'
         />
       </div>
       <div
