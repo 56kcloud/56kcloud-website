@@ -141,6 +141,17 @@ export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Comp
   }
 }
 
+export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
+  collectionName: 'diagram_full_width';
+  info: {
+    displayName: 'diagram-full-width';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+  };
+}
+
 export interface FilterTagsFilter extends Schema.Component {
   collectionName: 'tag_filter'
   info: {

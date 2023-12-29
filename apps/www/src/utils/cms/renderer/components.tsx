@@ -8,6 +8,7 @@ import ContactSplitWithPattern from '@/components/ui/organisms/contact-sections/
 import ContentMarkdown from '@/components/ui/organisms/content-sections/content-markdown'
 import ContentTwoColumn from '@/components/ui/organisms/content-sections/content-two-column'
 import CustomerLogosSimpleWithTitle from '@/components/ui/organisms/customer-sections/customer-logos-simple-with-title'
+import DiagramFullWidth from '@/components/ui/organisms/diagram-sections/diagram-full-width'
 import DraftModal from '@/components/ui/organisms/draft-modal'
 import Footer from '@/components/ui/organisms/footer'
 import Header from '@/components/ui/organisms/header'
@@ -56,7 +57,8 @@ export const componentBlueprints: ComponentBlueprints = {
   'team-member-card': TeamMemberCard,
   'header-with-cards': HeaderWithCards,
   'content-markdown': ContentMarkdown,
-  'introduction-with-logo': IntroductionWithLogo
+  'introduction-with-logo': IntroductionWithLogo,
+  'diagram-full-width': DiagramFullWidth
 }
 export type ComponentBlueprint = {
   component: keyof ComponentBlueprints

@@ -964,7 +964,8 @@ export interface ApiServiceService extends Schema.CollectionType {
         'solution-sections.solution-three-column-with-large-icons',
         'content-section.content-markdown',
         'contact-sections.contact-split-with-pattern',
-        'service-sections.service-alternate-position-icon'
+        'service-sections.service-alternate-position-icon',
+        'diagram-sections.diagram-full-width'
       ]
     > &
       Attribute.SetPluginOptions<{
