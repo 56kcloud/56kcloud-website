@@ -38,7 +38,8 @@ export default {
           dark: '#1d1e22'
         },
         error: colors.red,
-        background: '#0F172A'
+        background: '#0F172A',
+        card: '#121e31'
       }
     }
   },

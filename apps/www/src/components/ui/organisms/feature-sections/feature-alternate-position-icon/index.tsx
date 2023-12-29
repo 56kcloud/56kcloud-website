@@ -1,6 +1,5 @@
 import {ArrowLongRightIcon} from '@heroicons/react/24/solid'
 import {Feature} from '@/models/feature.model'
-import Button from '@/components/ui/atoms/button'
 import Icon from '@/components/ui/atoms/icon'
 import Link from 'next/link'
 
@@ -50,9 +49,9 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
                   </Button>
                 </div>
               </div>
-              <div className='flex items-center gap-x-4 text-sky-300'>
+              <div className='flex items-center gap-x-3 text-sky-300'>
                 <ArrowLongRightIcon className='w-8 h-8'/>
-                <span className='text-lg'>Learn more</span>
+                <span className='text-base'>Learn more</span>
               </div>
             </Link>
           ))}
