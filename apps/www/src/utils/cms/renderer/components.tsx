@@ -1,12 +1,15 @@
 import {Dictionary} from '@/models/dictionary.model'
 import {Suspense} from 'react'
+import {draftMode} from 'next/headers'
 import ArticleContentSection from '@/components/ui/molecules/article/content-section'
 import BlogMasonry from '@/components/ui/organisms/blog-sections/blog-masonry'
 import BlogThreeColumn from '@/components/ui/organisms/blog-sections/blog-three-column'
+import Button from '@/components/ui/atoms/button'
 import ContactSplitWithPattern from '@/components/ui/organisms/contact-sections/contact-split-with-pattern'
 import ContentMarkdown from '@/components/ui/organisms/content-sections/content-markdown'
 import ContentTwoColumn from '@/components/ui/organisms/content-sections/content-two-column'
 import CustomerLogosSimpleWithTitle from '@/components/ui/organisms/customer-sections/customer-logos-simple-with-title'
+import DraftModal from '@/components/ui/organisms/draft-modal'
 import Footer from '@/components/ui/organisms/footer'
 import Header from '@/components/ui/organisms/header'
 import HeaderWithCards from '@/components/ui/organisms/header-sections/header-with-cards'
@@ -15,6 +18,7 @@ import HeroSimpleCenterWithBackground from '@/components/ui/organisms/hero-secti
 import ImageSimple from '@/components/ui/organisms/image-sections/image-simple'
 import IntroductionWithLogo from '@/components/ui/organisms/content-sections/introduction-with-logo'
 import JoinOurTeam from '@/components/ui/organisms/cta-sections/join-our-team'
+import Link from 'next/link'
 import PartnerLogosSimpleWithTitle from '@/components/ui/organisms/partner-sections/partner-logos-simple-with-title'
 import ServiceAlternatePositionIcon from '@/components/ui/organisms/service-sections/service-alternate-position-icon'
 import ServiceThreeColumnWithLargeIcons from
@@ -82,9 +86,11 @@ export function renderComponents(dictionary: Dictionary, components?: Array<Comp
 }
 
 export function pageRenderer(dictionary: Dictionary, components?: Array<ComponentBlueprint>) {
+  const {isEnabled} = draftMode()
   const children = renderComponents(dictionary, components)
   return (<>
     <Header dictionary={dictionary}/>
+    {isEnabled && <DraftModal/>}
     {children}
   </>
   )

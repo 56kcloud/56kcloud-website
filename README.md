@@ -58,7 +58,7 @@ To update a single type, like creating a new solution:
 
 
 ## Disabling Draft Mode
-By clicking the `Open Draft Preview` button, you will replace the currently cached content with the latest updates you've made in the CMS. To revert back to the original content in your browser, visit: [https://www.56k.cloud/api/draft/disable](https://www.56k.cloud/api/draft/disable).
+By clicking the `Open Draft Preview` button, you will replace the currently cached content with the latest updates you've made in the CMS. To revert back click on the back to normal button in the draft modal.
 ![Disable Draft Mode](readme-assets/disable-draft-mode.png)
 
 ## Revalidate Website content
