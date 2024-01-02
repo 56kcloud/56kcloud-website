@@ -1,7 +1,7 @@
 import {DateTime} from 'luxon'
 import {NextResponse} from 'next/server'
 import {revalidateTag} from 'next/cache'
-import {slackBotURL, strapiAPI} from '../../../../configs/server'
+import {slackBotURL} from '../../../../configs/server'
 
 export async function OPTIONS() {
   return NextResponse.json(
@@ -9,7 +9,7 @@ export async function OPTIONS() {
     {
       status: 200,
       headers: {
-        'Access-Control-Allow-Origin': strapiAPI,
+        'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type, Authorization'
       }
@@ -77,7 +77,7 @@ export async function POST(request: Request) {
     {
       status: 200,
       headers: {
-        'Access-Control-Allow-Origin': strapiAPI,
+        'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'POST',
         'Access-Control-Allow-Headers': 'Content-Type, Authorization'
       }
