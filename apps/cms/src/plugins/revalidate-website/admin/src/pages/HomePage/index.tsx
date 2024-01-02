@@ -37,9 +37,9 @@ const HomePage = () => {
       setIsSubmitting(true)
       request(`${config.websiteUrl}/api/revalidate`, {
         method: 'POST',
-        body: JSON.stringify({
+        body: {
           username: `${userInfo.firstname} ${userInfo.lastname}`
-        })
+        }
       })
       setTimeout(() => {
         setIsSubmitting(false)
