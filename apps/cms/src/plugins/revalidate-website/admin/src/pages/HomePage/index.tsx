@@ -32,10 +32,14 @@ const HomePage = () => {
   }, [])
 
   function revalidate() {
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo') || '')
     if (config?.websiteUrl) {
       setIsSubmitting(true)
       request(`${config.websiteUrl}/api/revalidate`, {
-        method: 'GET'
+        method: 'POST',
+        body: {
+          username: `${userInfo.firstname} ${userInfo.lastname}`
+        }
       })
       setTimeout(() => {
         setIsSubmitting(false)

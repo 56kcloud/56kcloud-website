@@ -1,5 +1,6 @@
 import {Dictionary} from '@/models/dictionary.model'
 import {Suspense} from 'react'
+import {draftMode} from 'next/headers'
 import ArticleContentSection from '@/components/ui/molecules/article/content-section'
 import BlogMasonry from '@/components/ui/organisms/blog-sections/blog-masonry'
 import BlogThreeColumn from '@/components/ui/organisms/blog-sections/blog-three-column'
@@ -7,6 +8,7 @@ import ContactSplitWithPattern from '@/components/ui/organisms/contact-sections/
 import ContentMarkdown from '@/components/ui/organisms/content-sections/content-markdown'
 import ContentTwoColumn from '@/components/ui/organisms/content-sections/content-two-column'
 import CustomerLogosSimpleWithTitle from '@/components/ui/organisms/customer-sections/customer-logos-simple-with-title'
+import DraftModal from '@/components/ui/organisms/draft-modal'
 import Footer from '@/components/ui/organisms/footer'
 import Header from '@/components/ui/organisms/header'
 import HeaderWithCards from '@/components/ui/organisms/header-sections/header-with-cards'
@@ -82,9 +84,11 @@ export function renderComponents(dictionary: Dictionary, components?: Array<Comp
 }
 
 export function pageRenderer(dictionary: Dictionary, components?: Array<ComponentBlueprint>) {
+  const {isEnabled} = draftMode()
   const children = renderComponents(dictionary, components)
   return (<>
     <Header dictionary={dictionary}/>
+    {isEnabled && <DraftModal/>}
     {children}
   </>
   )

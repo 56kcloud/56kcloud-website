@@ -1,6 +1,7 @@
 import {draftMode} from 'next/headers'
+import {permanentRedirect} from 'next/navigation'
  
 export async function GET() {
   draftMode().disable()
-  return new Response('Draft mode is disabled')
+  return permanentRedirect('/')
 }
