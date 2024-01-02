@@ -18,7 +18,7 @@ export async function OPTIONS() {
 }
 
 type RequestPayload = {
-  username: string,
+  username: string
 }
 
 async function postMessageOnSlack(data: RequestPayload) {
