@@ -99,59 +99,52 @@ const cleanUnnecessaryProps = (contentType) => {
   })
 }
 
-// eslint-disable-next-line no-unused-vars
-export async function findOne(ctx, uid: string, contentTypeHandler?: (contentType: Record<string, unknown>) => void) {
-  try {
-    let contentType = await strapi.db.query(uid).findOne({where: {slug: ctx.params.id}, populate: ['localizations']})
-    let where: Record<string, string> = {slug: ctx.params.id}
-    if (ctx.query.locale !== contentType.locale) {
-      const localization = contentType.localizations?.find(
-        localization => localization.locale === ctx.query.locale
-      )
-      localization && (where = {
-        slug: localization.slug,
-        locale: localization.locale
-      })
+async function queryByLocale(uid: string, locale: string, preview: string, where?: Record<string, string>) {
+  const populate = createPopulateArray()
+  let contentType = await strapi.db.query(uid).findOne({
+    populate,
+    where: {
+      ...where,
+      locale
     }
+  })
+  if (!contentType || (contentType.publishedAt === null && preview !== 'true')) {
     contentType = await strapi.db.query(uid).findOne({
-      where,
-      populate: createPopulateArray()
+      populate,
+      where: {
+        ...where,
+        locale: defaultLocale
+      }
     })
-    if (!ctx.query.seoOnly) {
-      contentTypeHandler && contentTypeHandler(contentType)
-      await bodyHandler(contentType, ctx.query.locale)
+  }
+  return contentType
+}
+
+type FindBaseProps = {
+  ctx,
+  uid: string
+}
+
+type FindOneProps = FindBaseProps & {
+  where?: Record<string, string>
+  // eslint-disable-next-line no-unused-vars
+  contentTypeHandler?: (contentType: Record<string, unknown>) => void
+}
+
+export async function findOne(props: FindOneProps) {
+  try {
+    const contentType = await queryByLocale(props.uid, props.ctx.query.locale, props.ctx.query.preview, props.where)
+    if (!props.ctx.query.seoOnly) {
+      props.contentTypeHandler && props.contentTypeHandler(contentType)
+      await bodyHandler(contentType, props.ctx.query.locale)
     }
-    await seoHandler(contentType, uid)
+    await seoHandler(contentType, props.uid)
     cleanUnnecessaryProps(contentType)
     return contentType
   } catch (e) {
     console.log(e)
-    ctx.status = 404
-    ctx.body = {error: 'not found'}
-  }
-}
-
-export async function findSingleType(ctx, uid: Common.UID.Service) {
-  try {
-    let contentType = await strapi.service(uid).find({
-      populate: ['localizations']
-    })
-    const locale = contentType.localizations?.find(localization => {
-      return localization.locale === ctx.query.locale}
-    )?.locale || defaultLocale
-    contentType = await strapi.service(uid).find({
-      populate: createPopulateArray(),
-      locale
-    })
-    await seoHandler(contentType, uid.toString())
-    if (!ctx.query.seoOnly) {
-      await bodyHandler(contentType, ctx.query.locale)
-    }
-    cleanUnnecessaryProps(contentType)
-    return contentType
-  } catch (e) {
-    ctx.status = 404
-    ctx.body = {error: 'not found'}
+    props.ctx.status = 404
+    props.ctx.body = {error: 'not found'}
   }
 }
 
@@ -178,5 +171,20 @@ export async function getAllPublishedSlugs(ctx, uid: Common.UID.Service) {
         locale: defaultLocale
       }
     ))
+  }
+}
+
+export async function getInfo({ctx, uid}: FindBaseProps) {
+  try {
+    const contentType = await strapi.db.query(uid).findOne({
+      where: {
+        id: ctx.params.id
+      },
+      populate: ['updatedBy', 'createdBy', 'localizations']
+    })
+    return contentType
+  } catch (e) {
+    ctx.status = 404
+    ctx.body = {error: 'not found'}
   }
 }

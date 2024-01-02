@@ -146,3 +146,7 @@ export function getTweetId(url: string) {
 export function isFromTwitter(url: string) {
   return url && (url.includes('twitter.com') || url.includes('x.com'))
 }
+
+export function capitalizeFirstLetter(string: string) {
+  return `${string.charAt(0).toUpperCase()}${string.slice(1)}`
+}

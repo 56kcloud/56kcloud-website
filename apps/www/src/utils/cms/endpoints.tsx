@@ -1,12 +1,14 @@
 import {CollectionItem} from '@/models/collection.model'
 import {ComponentBlueprint, componentBlueprints} from './renderer/components'
 import {PageComponents, PageSeo} from '@/models/page.model'
+import {draftMode} from 'next/headers'
 import {snakeCaseObjectKeysToCamelCase} from '../toolbox'
 import {strapiFetcher} from '../../../configs/server'
 
 export async function getPageComponents(path: string, lang='en'): Promise<PageComponents|undefined> {
+  const {isEnabled} = draftMode()
   const res = await strapiFetcher.call({
-    path: `/api/${path}?locale=${lang}`
+    path: `/api/${path}?locale=${lang}${isEnabled ? '&preview=true' : ''}`
   })
   const element = res
   const availableComponents = element.body.filter((item: Record<string, string>) => 

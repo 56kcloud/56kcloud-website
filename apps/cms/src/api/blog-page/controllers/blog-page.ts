@@ -3,9 +3,10 @@
  */
 
 import {factories} from '@strapi/strapi'
-import {findSingleType} from '../../../utils/toolbox'
+import {findOne, getInfo} from '../../../utils/toolbox'
 
 const uid = 'api::blog-page.blog-page'
 export default factories.createCoreController(uid, () => ({
-  find: (ctx) => findSingleType(ctx, uid)
+  find: (ctx) => findOne({ctx, uid}),
+  info: (ctx) => getInfo({ctx, uid})
 }))
