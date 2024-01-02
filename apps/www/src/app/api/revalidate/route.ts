@@ -78,7 +78,7 @@ export async function POST(request: Request) {
       status: 200,
       headers: {
         'Access-Control-Allow-Origin': strapiAPI,
-        'Access-Control-Allow-Methods': 'GET',
+        'Access-Control-Allow-Methods': 'POST',
         'Access-Control-Allow-Headers': 'Content-Type, Authorization'
       }
     }
