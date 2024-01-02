@@ -173,18 +173,3 @@ export async function getAllPublishedSlugs(ctx, uid: Common.UID.Service) {
     ))
   }
 }
-
-export async function getInfo({ctx, uid}: FindBaseProps) {
-  try {
-    const contentType = await strapi.db.query(uid).findOne({
-      where: {
-        id: ctx.params.id
-      },
-      populate: ['updatedBy', 'createdBy', 'localizations']
-    })
-    return contentType
-  } catch (e) {
-    ctx.status = 404
-    ctx.body = {error: 'not found'}
-  }
-}

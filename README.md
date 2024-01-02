@@ -39,21 +39,28 @@ To create a new solution, for instance, proceed as follows:
 
 1. Navigate to: Content Manager -> Solution -> Create new entry.
   ![Create new Entry](readme-assets/create-new-entry.png)
-2. Fill in the form and save. You can then publish it and preview your page before deploying the website, clicking on the `Open draft preview` button.
+2. Fill in the form and save. You can then preview it before deploying the website, clicking on the `Open draft preview` button.
+(If the type is already published, it will automatically revalidate the website when you save it)
   ![Creating an Entry in a Collection Type](readme-assets/creating-an-entry-in-a-collection-type.png)
+3. Click on the "Publish" button when you are happy with the result.
+![Publish collection type](readme-assets/publish-collection-type.png)
+
 
 ## Updating a Single Type
 To update a single type, like creating a new solution:
 
 1. Navigate to: Content Manager -> 01 - Home page.
-    ![Home Page](readme-assets/home-page.png)
+![Home Page](readme-assets/home-page.png)
 2. Make your desired changes to the fields and save your changes. Then you can preview your page before deploying, by clicking on the `Open draft preview` button.
-    ![Updating a Single Type](readme-assets/updating-a-single-type.png)
+![Updating a Single Type](readme-assets/updating-a-single-type.png)
+3. Click on the "Publish" button when you are happy with the result.
+![Publish single type](readme-assets/publish-single-type.png)
+
 
 ## Disabling Draft Mode
 By clicking the `Open Draft Preview` button, you will replace the currently cached content with the latest updates you've made in the CMS. To revert back to the original content in your browser, visit: [https://www.56k.cloud/api/draft/disable](https://www.56k.cloud/api/draft/disable).
 ![Disable Draft Mode](readme-assets/disable-draft-mode.png)
 
 ## Revalidate Website content
-Once you're satisfied with the changes viewed in preview mode, proceed to confirm your content updates by clicking on 'Revalidate Website'.
-![Revalidate Website](<readme-assets/revalidate-website.png>)
+Once you're satisfied with the changes viewed in preview mode and have published the elements you want to deploy, proceed to confirm your content updates by clicking on "Publish".
+![Revalidate website](readme-assets/revalidate-website.png)

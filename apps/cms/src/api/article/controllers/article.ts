@@ -3,7 +3,7 @@
  */
 
 import {factories} from '@strapi/strapi'
-import {findOne, getAllPublishedSlugs, getInfo} from '../../../utils/toolbox'
+import {findOne, getAllPublishedSlugs} from '../../../utils/toolbox'
 
 const uid = 'api::article.article'
 
@@ -32,6 +32,5 @@ export default factories.createCoreController(uid, () => ({
       slug: ctx.params.id
     }
   }),
-  slugs: (ctx) => getAllPublishedSlugs(ctx, uid),
-  info: (ctx) => getInfo({ctx, uid})
+  slugs: (ctx) => getAllPublishedSlugs(ctx, uid)
 }))
