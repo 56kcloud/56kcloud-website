@@ -1,10 +1,10 @@
 export default {
   default: {},
   validator(config) {
-    if (config.websiteUrl) {
+    if (config.revalidateEndpoint) {
       return
     } else {
-      throw new Error('websiteUrl is required')
+      throw new Error('revalidateEndpoint is required')
     }
   }
 }
