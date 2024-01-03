@@ -17,7 +17,10 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
       <div className='relative px-6 mx-auto max-w-7xl lg:px-8'>
         <dl className='grid grid-cols-1 gap-x-6 gap-y-14 lg:gap-y-36'>
           {props.features?.map((feature, index) => (
-            <div key={index} className='max-w-5xl mx-auto'>
+            <div
+              key={index}
+              className='max-w-5xl mx-auto'
+            >
               <div
                 className={cn(
                   'flex flex-col items-start lg:flex-row gap-x-10',

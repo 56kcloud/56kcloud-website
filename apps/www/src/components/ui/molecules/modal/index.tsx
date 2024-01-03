@@ -13,8 +13,16 @@ type ModalProps = {
 
 export default function Modal({isOpen, closeModal, header, title, children}: ModalProps) {
   return (
-    <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as='div' className='relative z-50' onClose={closeModal}>
+    <Transition
+      appear
+      show={isOpen}
+      as={Fragment}
+    >
+      <Dialog
+        as='div'
+        className='relative z-50'
+        onClose={closeModal}
+      >
         <Transition.Child
           as={Fragment}
           enter='ease-out duration-300'
@@ -51,7 +59,11 @@ export default function Modal({isOpen, closeModal, header, title, children}: Mod
                      focus:outline-primary-900 focus:outline-offset-2
                      rounded-full z-50'
                   >
-                    <Image src={plusWhite} alt={'altButton'} className='w-12 sm:w-14' />
+                    <Image
+                      src={plusWhite}
+                      alt={'altButton'}
+                      className='w-12 sm:w-14'
+                    />
                   </button>
                   {header}
                 </div>

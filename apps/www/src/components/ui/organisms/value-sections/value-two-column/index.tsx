@@ -18,7 +18,10 @@ export default function ValueTwoColumn(props: ValueTwoColumnProps) {
                    lg:mx-0 lg:max-w-none lg:gap-x-16'
       >
         {props.values.map((value) => (
-          <div key={value.name} className='relative'>
+          <div
+            key={value.name}
+            className='relative'
+          >
             <dt className='inline font-semibold text-white'>{value.name}</dt>{' '}
             <dd className='inline'>{value.description}</dd>
           </div>

@@ -69,7 +69,13 @@ export function renderComponents(dictionary: Dictionary, components?: Array<Comp
     if (!Component) {
       return
     }
-    const render = <Component {...item.props} dictionary={dictionary} key={index} />
+    const render = (
+      <Component
+        {...item.props}
+        dictionary={dictionary}
+        key={index}
+      />
+    )
     return needSuspense.includes(item.component.toString()) ? <Suspense>{render}</Suspense> : render
   })
 }

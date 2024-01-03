@@ -1,4 +1,5 @@
-const colors = require('tailwindcss/colors')
+import colors from 'tailwindcss/colors'
+
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}', './node_modules/notion-to-tailwind/**/*.{js,ts,jsx,tsx}'],
   theme: {

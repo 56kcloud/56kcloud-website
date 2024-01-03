@@ -214,7 +214,7 @@ async function handleComponentsRelations(contentType: string, item: any) {
   )
 }
 
-;(async () => {
+(async () => {
   const client = await pool.connect()
   await addMissingRelations('service')
   await client.release()

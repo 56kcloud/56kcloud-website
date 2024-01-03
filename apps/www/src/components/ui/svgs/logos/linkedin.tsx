@@ -11,10 +11,24 @@ export function Linkedin(props: IconProps) {
       {...props}
     >
       <defs>
-        <filter id='filter' x='1725.31' y='8517.34' width='27.69' height='29.13' filterUnits='userSpaceOnUse'>
+        <filter
+          id='filter'
+          x='1725.31'
+          y='8517.34'
+          width='27.69'
+          height='29.13'
+          filterUnits='userSpaceOnUse'
+        >
           <feFlood result='flood' />
-          <feComposite result='composite' operator='in' in2='SourceGraphic' />
-          <feBlend result='blend' in2='SourceGraphic' />
+          <feComposite
+            result='composite'
+            operator='in'
+            in2='SourceGraphic'
+          />
+          <feBlend
+            result='blend'
+            in2='SourceGraphic'
+          />
         </filter>
       </defs>
       <path

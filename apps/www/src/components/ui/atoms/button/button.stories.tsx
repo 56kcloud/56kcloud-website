@@ -57,7 +57,11 @@ export const Variants = {
   render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
       {buttonTones.map((tone) => (
-        <Button key={tone} {...args} tone={tone}>
+        <Button
+          key={tone}
+          {...args}
+          tone={tone}
+        >
           {tone}
         </Button>
       ))}
@@ -70,7 +74,12 @@ export const VariantsLinks = {
   render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
       {buttonTones.map((tone) => (
-        <Button key={tone} {...args} variant='link' tone={tone}>
+        <Button
+          key={tone}
+          {...args}
+          variant='link'
+          tone={tone}
+        >
           {tone}
         </Button>
       ))}
@@ -83,7 +92,12 @@ export const VariantsGhosts = {
   render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
       {buttonTones.map((tone) => (
-        <Button key={tone} {...args} variant='ghost' tone={tone}>
+        <Button
+          key={tone}
+          {...args}
+          variant='ghost'
+          tone={tone}
+        >
           {tone}
         </Button>
       ))}
@@ -96,7 +110,11 @@ export const Sizes = {
   render: (args: ButtonPropsImpl) => (
     <div className='flex items-center space-x-2'>
       {buttonSizes.map((size) => (
-        <Button key={size} {...args} size={size}>
+        <Button
+          key={size}
+          {...args}
+          size={size}
+        >
           {size}
         </Button>
       ))}
@@ -109,7 +127,11 @@ export const Shapes = {
   render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
       {buttonShapes.map((shape) => (
-        <Button key={shape} {...args} shape={shape}>
+        <Button
+          key={shape}
+          {...args}
+          shape={shape}
+        >
           {shape}
         </Button>
       ))}
@@ -123,14 +145,28 @@ export const Alignments = {
     <div className='flex flex-col'>
       {buttonAlignments.map((alignment, i) => {
         return (
-          <div key={i} className={`flex flex-col py-4 space-y-2 ${i < buttonAlignments.length - 1 ? 'border-b' : ''}`}>
-            <Button {...args} leading={<span className='pr-2'>leading</span>} align={alignment}>
+          <div
+            key={i}
+            className={`flex flex-col py-4 space-y-2 ${i < buttonAlignments.length - 1 ? 'border-b' : ''}`}
+          >
+            <Button
+              {...args}
+              leading={<span className='pr-2'>leading</span>}
+              align={alignment}
+            >
               {alignment}
             </Button>
-            <Button {...args} align={alignment}>
+            <Button
+              {...args}
+              align={alignment}
+            >
               {alignment}
             </Button>
-            <Button {...args} trailing={<span className='pl-2'>trailing</span>} align={alignment}>
+            <Button
+              {...args}
+              trailing={<span className='pl-2'>trailing</span>}
+              align={alignment}
+            >
               {alignment}
             </Button>
           </div>
@@ -143,7 +179,10 @@ export const Alignments = {
 export const leading = {
   name: 'With leading',
   render: (args: ButtonPropsImpl) => (
-    <Button {...args} leading={<span className='pr-2'>With leading</span>}>
+    <Button
+      {...args}
+      leading={<span className='pr-2'>With leading</span>}
+    >
       Button
     </Button>
   )
@@ -152,7 +191,10 @@ export const leading = {
 export const trailing = {
   name: 'With trailing',
   render: (args: ButtonPropsImpl) => (
-    <Button {...args} trailing={<span className='pl-2'>With trailing</span>}>
+    <Button
+      {...args}
+      trailing={<span className='pl-2'>With trailing</span>}
+    >
       Button
     </Button>
   )
@@ -163,7 +205,12 @@ export const Loading = {
   render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
       {buttonTones.map((tone) => (
-        <Button key={tone} {...args} tone={tone} loading>
+        <Button
+          key={tone}
+          {...args}
+          tone={tone}
+          loading
+        >
           {tone}
         </Button>
       ))}
@@ -176,7 +223,12 @@ export const Disabled = {
   render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
       {buttonTones.map((tone) => (
-        <Button key={tone} {...args} tone={tone} disabled>
+        <Button
+          key={tone}
+          {...args}
+          tone={tone}
+          disabled
+        >
           {tone}
         </Button>
       ))}

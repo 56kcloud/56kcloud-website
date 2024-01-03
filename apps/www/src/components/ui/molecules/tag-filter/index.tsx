@@ -44,7 +44,11 @@ export default function TagFilter({tags}: TagFilterProps) {
           </button>
           <div className='top-0 z-30 w-10 h-full left-10 2xl:right-14 bg-gradient-to-r from-primary-50' />
         </div>
-        <div id='tags-slider' ref={slider} className='flex h-full px-4 mx-12 overflow-x-auto 2xl:mx-16 gap-x-3'>
+        <div
+          id='tags-slider'
+          ref={slider}
+          className='flex h-full px-4 mx-12 overflow-x-auto 2xl:mx-16 gap-x-3'
+        >
           {tagsList.map((tag, idx) => (
             <Link
               shallow={true}

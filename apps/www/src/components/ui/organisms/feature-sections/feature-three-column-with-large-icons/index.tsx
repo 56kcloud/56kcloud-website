@@ -32,11 +32,17 @@ export default function FeatureThreeColumnWithLargeIcons({
         <div className='mt-11'>
           <dl className='grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-3'>
             {features?.map((feature, index) => (
-              <div key={index} className='flex flex-col p-6 border border-slate-800 rounded-xl'>
+              <div
+                key={index}
+                className='flex flex-col p-6 border border-slate-800 rounded-xl'
+              >
                 <a href={feature.link}>
                   <dt className='text-lg font-normal text-white'>
                     <div className='flex items-center justify-center w-8 h-8 mb-6 rounded-lg'>
-                      <Icon {...feature.icon} className='w-auto h-8 fill-sky-300' />
+                      <Icon
+                        {...feature.icon}
+                        className='w-auto h-8 fill-sky-300'
+                      />
                     </div>
                     {feature.title}
                   </dt>

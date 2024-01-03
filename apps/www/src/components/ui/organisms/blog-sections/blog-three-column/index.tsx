@@ -26,7 +26,13 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
     }, 100)
   }, [])
 
-  const articles = filteredPosts.map((article) => <ArticleCard key={article.slug} article={article} fixedHeight />)
+  const articles = filteredPosts.map((article) => (
+    <ArticleCard
+      key={article.slug}
+      article={article}
+      fixedHeight
+    />
+  ))
 
   return (
     <div className='py-20 lg:py-[104px]'>

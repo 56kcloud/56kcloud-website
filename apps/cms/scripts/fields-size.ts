@@ -31,7 +31,7 @@ async function updateConfigs(size: number) {
   }
 }
 
-;(async () => {
+(async () => {
   const client = await pool.connect()
   await updateConfigs(size)
   await client.release()

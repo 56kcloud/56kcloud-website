@@ -42,7 +42,11 @@ export default function HeaderWithCards(props: HeaderWithCardsProps) {
               {props.cards.map((card) => (
                 <div key={card.title}>
                   <div className='flex flex-row items-center gap-x-3'>
-                    <Icon {...card.icon} className='flex-none text-sky-300 w-7 h-7' aria-hidden='true' />
+                    <Icon
+                      {...card.icon}
+                      className='flex-none text-sky-300 w-7 h-7'
+                      aria-hidden='true'
+                    />
                     <h3 className='font-medium text-[18px] leading-10 text-white'>{card.title}</h3>
                   </div>
                   <p className='text-base font-light leading-7 text-slate-400'>{card.description}</p>

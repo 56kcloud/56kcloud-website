@@ -17,7 +17,10 @@ export default function DraftModal() {
       )}
     >
       {isMinimized ? (
-        <div className='flex items-center justify-center w-10 h-10' onClick={() => setIsMinimized(false)}>
+        <div
+          className='flex items-center justify-center w-10 h-10'
+          onClick={() => setIsMinimized(false)}
+        >
           🚧
         </div>
       ) : (
@@ -28,7 +31,12 @@ export default function DraftModal() {
             <Button size='small'>
               <Link href={'/api/draft/disable'}>Back to normal</Link>
             </Button>
-            <Button tone='secondary' variant='link' size='small' onClick={() => setIsMinimized(true)}>
+            <Button
+              tone='secondary'
+              variant='link'
+              size='small'
+              onClick={() => setIsMinimized(true)}
+            >
               Minimize me
             </Button>
           </div>

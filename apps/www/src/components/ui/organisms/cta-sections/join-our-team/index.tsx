@@ -33,15 +33,29 @@ export default function JoinOurTeam(props: JoinOurTeamProps) {
               className='grid grid-cols-1 mt-10 text-base leading-7 text-white gap-x-8 gap-y-3 sm:grid-cols-2'
             >
               {props.benefits.map((benefit) => (
-                <li key={benefit.name} className='flex gap-x-3'>
-                  <CheckCircleIcon className='flex-none w-5 h-7' aria-hidden='true' />
+                <li
+                  key={benefit.name}
+                  className='flex gap-x-3'
+                >
+                  <CheckCircleIcon
+                    className='flex-none w-5 h-7'
+                    aria-hidden='true'
+                  />
                   {benefit.name}
                 </li>
               ))}
             </ul>
             <div className='flex mt-10'>
-              <Button asChild size='large' variant='link' tone={props.cta.tone}>
-                <a href={props.cta.link} target='_blank'>
+              <Button
+                asChild
+                size='large'
+                variant='link'
+                tone={props.cta.tone}
+              >
+                <a
+                  href={props.cta.link}
+                  target='_blank'
+                >
                   {props.cta.text} <span aria-hidden='true'>&rarr;</span>
                 </a>
               </Button>

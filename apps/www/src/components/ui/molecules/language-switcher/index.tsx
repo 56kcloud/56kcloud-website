@@ -34,14 +34,20 @@ export default function LanguageSwitcher({mobileMenuOpen}: {mobileMenuOpen: bool
           className='p-0 text-base text-gray-400 uppercase data-[state=active]:text-white hover:text-white'
           data-active={pathMatcher(locale)}
         >
-          <Link href={locale} onClick={(e) => updateLanguage(locale, e)}>
+          <Link
+            href={locale}
+            onClick={(e) => updateLanguage(locale, e)}
+          >
             {locale}
           </Link>
         </Button>
       ))}
     </div>
   ) : (
-    <Select defaultValue={locale.toString()} onValueChange={updateLanguage}>
+    <Select
+      defaultValue={locale.toString()}
+      onValueChange={updateLanguage}
+    >
       <SelectTrigger
         className={
           'uppercase w-[72px] border-0 bg-slate-900 text-white font-normal focus:ring-2 focus:ring-inset \
@@ -52,7 +58,11 @@ export default function LanguageSwitcher({mobileMenuOpen}: {mobileMenuOpen: bool
       </SelectTrigger>
       <SelectContent className='min-w-0 border-0 bg-slate-800 text-slate-400'>
         {locales?.map((locale) => (
-          <SelectItem className='w-[72px] uppercase focus:text-slate-900 focus:bg-sky-400' key={locale} value={locale}>
+          <SelectItem
+            className='w-[72px] uppercase focus:text-slate-900 focus:bg-sky-400'
+            key={locale}
+            value={locale}
+          >
             {locale}
           </SelectItem>
         ))}

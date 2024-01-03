@@ -16,7 +16,10 @@ export type InputProps = {
 export function Input({register, name, options, label, className, type = 'text', error}: InputProps) {
   return (
     <div className={className}>
-      <label htmlFor={name} className='block text-base font-normal leading-6 text-white'>
+      <label
+        htmlFor={name}
+        className='block text-base font-normal leading-6 text-white'
+      >
         {label}
       </label>
       <div className='mt-2.5'>
@@ -31,7 +34,10 @@ export function Input({register, name, options, label, className, type = 'text',
           )}
         />
         {error ? (
-          <p className='mt-2 text-sm text-red-600' id='email-error'>
+          <p
+            className='mt-2 text-sm text-red-600'
+            id='email-error'
+          >
             {error.message?.toString()}
           </p>
         ) : null}

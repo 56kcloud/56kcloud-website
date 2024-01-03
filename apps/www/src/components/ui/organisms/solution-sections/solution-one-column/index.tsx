@@ -17,5 +17,11 @@ export default function SolutionOneColumn(props: SolutionOneColumnProps) {
     }
   })
 
-  return <FeatureOneColumn title={props.title} subtitle={props.subtitle} features={features} />
+  return (
+    <FeatureOneColumn
+      title={props.title}
+      subtitle={props.subtitle}
+      features={features}
+    />
+  )
 }

@@ -81,7 +81,10 @@ const HomePage = () => {
 
   return (
     <Main>
-      <HeaderLayout title='Revalidate Website' subtitle='Rebuild your website with new content' />
+      <HeaderLayout
+        title='Revalidate Website'
+        subtitle='Rebuild your website with new content'
+      />
       <ContentLayout>
         {showAlert && (
           <Portal
@@ -91,7 +94,10 @@ const HomePage = () => {
               right: '10px'
             }}
           >
-            <Alert {...alertProps} onClose={() => setShowAlert(false)} />
+            <Alert
+              {...alertProps}
+              onClose={() => setShowAlert(false)}
+            />
           </Portal>
         )}
         {isSubmitting && config?.revalidateEndpoint ? (

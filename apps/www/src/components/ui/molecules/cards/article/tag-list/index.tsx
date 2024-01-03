@@ -31,7 +31,10 @@ export default function ArticleTagList({tags}: ArticleListProps) {
         const tagName = slugify(tag.name).toLowerCase()
         const href = queryTag === tagName ? '/blog' : `/blog?tag=${tagName}`
         return (
-          <Link key={tag.name} href={href}>
+          <Link
+            key={tag.name}
+            href={href}
+          >
             <Badge className={queryTag ? (slugify(tag.name).toLowerCase() === queryTag ? '' : 'opacity-30') : ''}>
               {tag.name}
             </Badge>

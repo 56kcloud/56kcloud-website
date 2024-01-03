@@ -21,7 +21,11 @@ function Button(props: ButtonPropsImpl, ref: React.ForwardedRef<HTMLButtonElemen
   }
 
   return (
-    <Comp ref={ref} className={cn(buttonProps.buttonVariants(), buttonProps.className)} {...buttonProps.HTMLProps}>
+    <Comp
+      ref={ref}
+      className={cn(buttonProps.buttonVariants(), buttonProps.className)}
+      {...buttonProps.HTMLProps}
+    >
       <ChildType {...childProps}>
         {buttonProps.loading ? (
           <div className='pr-2'>

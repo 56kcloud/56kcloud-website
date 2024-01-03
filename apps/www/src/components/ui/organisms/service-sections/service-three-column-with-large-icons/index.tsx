@@ -17,5 +17,11 @@ export default function ServiceThreeColumnWithLargeIcons(props: ServiceThreeColu
     }
   })
 
-  return <FeatureThreeColumnWithLargeIcons title={props.title} subtitle={props.subtitle} features={features} />
+  return (
+    <FeatureThreeColumnWithLargeIcons
+      title={props.title}
+      subtitle={props.subtitle}
+      features={features}
+    />
+  )
 }

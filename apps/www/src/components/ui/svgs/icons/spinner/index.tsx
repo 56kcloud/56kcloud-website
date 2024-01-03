@@ -2,9 +2,23 @@ import {cn} from '@/utils/toolbox'
 
 export function Spinner({className = 'w-5 h-5'}: {className?: string}) {
   return (
-    <div aria-label='Loading...' role='status'>
-      <svg className={cn(className, 'stroke-current animate-[spin_1.5s_linear_infinite]')} viewBox='0 0 256 256'>
-        <line x1='128' y1='32' x2='128' y2='64' strokeLinecap='round' strokeLinejoin='round' strokeWidth='24'></line>
+    <div
+      aria-label='Loading...'
+      role='status'
+    >
+      <svg
+        className={cn(className, 'stroke-current animate-[spin_1.5s_linear_infinite]')}
+        viewBox='0 0 256 256'
+      >
+        <line
+          x1='128'
+          y1='32'
+          x2='128'
+          y2='64'
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='24'
+        ></line>
         <line
           x1='195.9'
           y1='60.1'
@@ -14,7 +28,15 @@ export function Spinner({className = 'w-5 h-5'}: {className?: string}) {
           strokeLinejoin='round'
           strokeWidth='24'
         ></line>
-        <line x1='224' y1='128' x2='192' y2='128' strokeLinecap='round' strokeLinejoin='round' strokeWidth='24'></line>
+        <line
+          x1='224'
+          y1='128'
+          x2='192'
+          y2='128'
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='24'
+        ></line>
         <line
           x1='195.9'
           y1='195.9'
@@ -24,7 +46,15 @@ export function Spinner({className = 'w-5 h-5'}: {className?: string}) {
           strokeLinejoin='round'
           strokeWidth='24'
         ></line>
-        <line x1='128' y1='224' x2='128' y2='192' strokeLinecap='round' strokeLinejoin='round' strokeWidth='24'></line>
+        <line
+          x1='128'
+          y1='224'
+          x2='128'
+          y2='192'
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='24'
+        ></line>
         <line
           x1='60.1'
           y1='195.9'
@@ -34,7 +64,15 @@ export function Spinner({className = 'w-5 h-5'}: {className?: string}) {
           strokeLinejoin='round'
           strokeWidth='24'
         ></line>
-        <line x1='32' y1='128' x2='64' y2='128' strokeLinecap='round' strokeLinejoin='round' strokeWidth='24'></line>
+        <line
+          x1='32'
+          y1='128'
+          x2='64'
+          y2='128'
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='24'
+        ></line>
         <line
           x1='60.1'
           y1='60.1'

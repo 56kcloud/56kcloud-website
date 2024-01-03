@@ -27,7 +27,10 @@ export default function ArticleCard({article, fixedHeight}: ArticleCardProps) {
         href={`/blog/${article.slug}`}
         className={cn('relative flex flex-col overflow-hidden cursor-pointer', fixedHeight ? 'h-[500px]' : '')}
       >
-        <ArticleCover image={article.image} fixedHeight={fixedHeight} />
+        <ArticleCover
+          image={article.image}
+          fixedHeight={fixedHeight}
+        />
         <div className='flex flex-col flex-1 mt-9'>
           <div className='flex items-center space-x-4'>
             <span className='text-sm font-light text-slate-400'>{publishedOn}</span>
@@ -49,7 +52,10 @@ export default function ArticleCard({article, fixedHeight}: ArticleCardProps) {
             </p>
           </div>
           <div className='flex flex-wrap items-center mt-8 text-sm gap-x-3 text-slate-400'>
-            <Avatar image={article.author.avatar} size='md' />
+            <Avatar
+              image={article.author.avatar}
+              size='md'
+            />
             <div className='flex flex-col text-base'>
               <span className='font-normal text-white'>{article.author.name}</span>
               <div className='flex font-light gap-x-2'>

@@ -34,7 +34,11 @@ export default function BlogMasonry(props: BlogMasonryProps) {
   }, [queryTag])
 
   const articles = filteredPosts.map((article) => (
-    <ArticleCard key={article.slug} article={article} className='flex-1' />
+    <ArticleCard
+      key={article.slug}
+      article={article}
+      className='flex-1'
+    />
   ))
 
   return (

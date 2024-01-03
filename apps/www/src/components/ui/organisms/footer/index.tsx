@@ -35,7 +35,10 @@ export default async function Footer(props: FooterProps) {
 
   return (
     <footer aria-labelledby='footer-heading'>
-      <h2 id='footer-heading' className='sr-only'>
+      <h2
+        id='footer-heading'
+        className='sr-only'
+      >
         Footer
       </h2>
       <div className='px-6 pt-20 pb-8 mx-auto max-w-7xl lg:px-8 lg:pt-[104px]'>
@@ -45,10 +48,21 @@ export default async function Footer(props: FooterProps) {
             <p className='text-sm leading-[26px] text-slate-400 font-light'>{props.text}</p>
             <div className='flex items-center space-x-6'>
               {socialLinks.map((item) => (
-                <Button key={item.text} asChild tone='secondary' variant='link'>
-                  <a href={item.link} target='_blank'>
+                <Button
+                  key={item.text}
+                  asChild
+                  tone='secondary'
+                  variant='link'
+                >
+                  <a
+                    href={item.link}
+                    target='_blank'
+                  >
                     <span className='sr-only'>{item.text}</span>
-                    <item.icon className='w-5 h-5 text-slate-400' aria-hidden='true' />
+                    <item.icon
+                      className='w-5 h-5 text-slate-400'
+                      aria-hidden='true'
+                    />
                   </a>
                 </Button>
               ))}
@@ -57,11 +71,22 @@ export default async function Footer(props: FooterProps) {
           <div className='flex flex-col gap-12 md:flex-row md:justify-between md:gap-28'>
             <div>
               <h3 className='text-sm font-normal text-white capitalize'>{props.dictionary.services}</h3>
-              <ul role='list' className='mt-6 space-y-4'>
+              <ul
+                role='list'
+                className='mt-6 space-y-4'
+              >
                 {props.services.map((item) => (
                   <li key={item.slug}>
-                    <Button asChild tone='secondary' variant='link' className='font-light text-slate-400'>
-                      <a href={`/services/${item.slug}`} className='text-sm leading-6 text-gray-300 hover:text-white'>
+                    <Button
+                      asChild
+                      tone='secondary'
+                      variant='link'
+                      className='font-light text-slate-400'
+                    >
+                      <a
+                        href={`/services/${item.slug}`}
+                        className='text-sm leading-6 text-gray-300 hover:text-white'
+                      >
                         {item.title}
                       </a>
                     </Button>
@@ -71,10 +96,18 @@ export default async function Footer(props: FooterProps) {
             </div>
             <div>
               <h3 className='text-sm font-normal text-white capitalize'>{props.dictionary.solutions}</h3>
-              <ul role='list' className='mt-6 space-y-4'>
+              <ul
+                role='list'
+                className='mt-6 space-y-4'
+              >
                 {props.solutions.map((item) => (
                   <li key={item.slug}>
-                    <Button asChild tone='secondary' variant='link' className='font-light text-slate-400'>
+                    <Button
+                      asChild
+                      tone='secondary'
+                      variant='link'
+                      className='font-light text-slate-400'
+                    >
                       <a href={`/solutions/${item.slug}`}>{item.title}</a>
                     </Button>
                   </li>
@@ -83,7 +116,10 @@ export default async function Footer(props: FooterProps) {
             </div>
             <div>
               <h3 className='text-sm font-normal text-white capitalize'>{props.dictionary.company}</h3>
-              <ul role='list' className='mt-6 space-y-4'>
+              <ul
+                role='list'
+                className='mt-6 space-y-4'
+              >
                 {companyLinks.map((item) => (
                   <li key={item.text}>
                     <Button

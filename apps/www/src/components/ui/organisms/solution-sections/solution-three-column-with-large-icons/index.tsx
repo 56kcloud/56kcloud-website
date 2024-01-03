@@ -17,5 +17,11 @@ export default function SolutionThreeColumnWithLargeIcons(props: SolutionThreeCo
     }
   })
 
-  return <FeatureThreeColumnWithLargeIcons title={props.title} subtitle={props.subtitle} features={features} />
+  return (
+    <FeatureThreeColumnWithLargeIcons
+      title={props.title}
+      subtitle={props.subtitle}
+      features={features}
+    />
+  )
 }

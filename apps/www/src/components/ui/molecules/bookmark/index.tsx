@@ -53,16 +53,29 @@ export function Bookmark({url}: BookmarkProps) {
               {bookmark.ogDescription && <p className='text-sm font-normal line-clamp-3'>{bookmark.ogDescription}</p>}
               <div className='flex items-center mt-1 space-x-2'>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                {bookmark.favicon && <img alt={bookmark.ogTitle} src={bookmark.favicon} className='w-5 h-5'></img>}
+                {bookmark.favicon && (
+                  <img
+                    alt={bookmark.ogTitle}
+                    src={bookmark.favicon}
+                    className='w-5 h-5'
+                  ></img>
+                )}
                 {url && <p className='text-xs text-gray-500 truncate w-44 md:w-96'>{url}</p>}
               </div>
             </div>
           </div>
           {bookmark.ogImage ? (
             bookmark.ogImage[0]?.url ? (
-              <div className='relative hidden w-full h-[160px] max-w-sm overflow-hidden border-l md:flex border-gray-700'>
+              <div
+                className='relative hidden w-full h-[160px] max-w-sm overflow-hidden border-l md:flex \
+               border-gray-700'
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt={bookmark.ogTitle} className='object-cover w-full' src={bookmark.ogImage[0].url} />
+                <img
+                  alt={bookmark.ogTitle}
+                  className='object-cover w-full'
+                  src={bookmark.ogImage[0].url}
+                />
               </div>
             ) : null
           ) : null}
@@ -70,7 +83,11 @@ export function Bookmark({url}: BookmarkProps) {
       )}
     </a>
   ) : (
-    <a href={url} target='_blank' className='text-sm text-gray-500 underline'>
+    <a
+      href={url}
+      target='_blank'
+      className='text-sm text-gray-500 underline'
+    >
       {url}
     </a>
   )

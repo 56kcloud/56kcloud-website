@@ -44,7 +44,12 @@ export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWith
                 </Button>
               ) : null}
               {props.rightCTA ? (
-                <Button asChild size='large' variant='link' tone={props.rightCTA.tone}>
+                <Button
+                  asChild
+                  size='large'
+                  variant='link'
+                  tone={props.rightCTA.tone}
+                >
                   <Link href={props.rightCTA.link}>{props.rightCTA.text}</Link>
                 </Button>
               ) : null}

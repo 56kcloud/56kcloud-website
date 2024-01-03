@@ -17,5 +17,11 @@ export default function ServiceAlternatePositionIcon(props: ServiceAlternatePosi
     }
   })
 
-  return <FeatureAlternatePositionIcon title={props.title} subtitle={props.subtitle} features={features} />
+  return (
+    <FeatureAlternatePositionIcon
+      title={props.title}
+      subtitle={props.subtitle}
+      features={features}
+    />
+  )
 }

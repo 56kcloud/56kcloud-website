@@ -97,7 +97,10 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
   }
 
   return (
-    <div className='relative isolate py-20 lg:py-[104px]' id='contact-section'>
+    <div
+      className='relative isolate py-20 lg:py-[104px]'
+      id='contact-section'
+    >
       <div className='relative mx-auto max-w-7xl'>
         <div className='grid grid-cols-1 mx-6 lg:grid-cols-2 bg-slate-800 rounded-xl'>
           <div className='relative px-6 py-8 overflow-hidden lg:static lg:pl-12 lg:pr-0 lg:py-14'>
@@ -106,10 +109,18 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
               <p className='text-[18px] leading-8 text-slate-400 font-light mt-2'>{props.subtitle}</p>
               <dl className='mt-10 space-y-5 text-base leading-[26px] font-light text-slate-400'>
                 {props.locations?.map((location) => (
-                  <a key={location.address} href={location.gMap} target='_blank' className='flex gap-x-4'>
+                  <a
+                    key={location.address}
+                    href={location.gMap}
+                    target='_blank'
+                    className='flex gap-x-4'
+                  >
                     <dt className='flex-none'>
                       <span className='sr-only'>Address</span>
-                      <BuildingOffice2Icon className='w-6 h-6 translate-y-1 text-slate-400' aria-hidden='true' />
+                      <BuildingOffice2Icon
+                        className='w-6 h-6 translate-y-1 text-slate-400'
+                        aria-hidden='true'
+                      />
                     </dt>
                     <dd>
                       {location.address}
@@ -122,7 +133,13 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
             </div>
           </div>
           <div className='px-6 py-8 lg:pl-0 lg:pr-12 lg:py-14'>
-            {isExploding && <ConfettiExplosion force={0.8} duration={3000} width={1920} />}
+            {isExploding && (
+              <ConfettiExplosion
+                force={0.8}
+                duration={3000}
+                width={1920}
+              />
+            )}
             {showThanksMessage ? (
               <div className='flex flex-col items-center justify-center'>
                 <CheckCircleIcon className='mx-auto text-white w-14 h-14' />
@@ -143,9 +160,18 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                   <div className='grid grid-cols-1 gap-x-5 gap-y-6 sm:grid-cols-2'>
                     <Input {...firstNameInput} />
                     <Input {...lastNameInput} />
-                    <Input {...emailInput} className='sm:col-span-2' />
-                    <TextArea {...messageInput} className='sm:col-span-2' />
-                    <Checkbox {...legalConsentInput} className='sm:col-span-2' />
+                    <Input
+                      {...emailInput}
+                      className='sm:col-span-2'
+                    />
+                    <TextArea
+                      {...messageInput}
+                      className='sm:col-span-2'
+                    />
+                    <Checkbox
+                      {...legalConsentInput}
+                      className='sm:col-span-2'
+                    />
                   </div>
                   <div className='flex justify-end mt-8'>
                     <Button
