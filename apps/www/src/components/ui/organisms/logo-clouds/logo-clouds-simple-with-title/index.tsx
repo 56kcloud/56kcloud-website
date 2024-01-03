@@ -28,6 +28,10 @@ export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTit
             </div>
           ))}
         </div>
+        <div
+          className='absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-sky-300/0 from-40% via-sky-300 \
+          to-sky-300/0 to-60%'
+        />
       </div>
     </div>
   )
