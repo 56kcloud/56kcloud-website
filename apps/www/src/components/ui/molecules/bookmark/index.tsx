@@ -52,8 +52,8 @@ export function Bookmark({url}: BookmarkProps) {
               {bookmark.ogTitle && <p className='text-lg font-bold line-clamp-1'>{bookmark.ogTitle}</p>}
               {bookmark.ogDescription && <p className='text-sm font-normal line-clamp-3'>{bookmark.ogDescription}</p>}
               <div className='flex items-center mt-1 space-x-2'>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 {bookmark.favicon && (
+                  // eslint-disable-next-line @next/next/no-img-element
                   <img
                     alt={bookmark.ogTitle}
                     src={bookmark.favicon}
