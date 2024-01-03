@@ -7,7 +7,7 @@ export type SolutionOneColumnProps = {
   solutions: Array<Solution>
 }
 
-export default function SolutionOneColumn(props: SolutionOneColumnProps) { 
+export default function SolutionOneColumn(props: SolutionOneColumnProps) {
   const features = props.solutions.map((solution) => {
     return {
       icon: solution.icon,
@@ -17,11 +17,5 @@ export default function SolutionOneColumn(props: SolutionOneColumnProps) {
     }
   })
 
-  return (
-    <FeatureOneColumn
-      title={props.title}
-      subtitle={props.subtitle}
-      features={features}
-    />
-  )
+  return <FeatureOneColumn title={props.title} subtitle={props.subtitle} features={features} />
 }

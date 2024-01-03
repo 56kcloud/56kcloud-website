@@ -4,11 +4,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '56k-strapi.s3.eu-central-1.amazonaws.com',
+        hostname: '56k-strapi.s3.eu-central-1.amazonaws.com'
       },
       {
         protocol: 'https',
-        hostname: '56kcloud-cms-assets.s3.us-east-1.amazonaws.com',
+        hostname: '56kcloud-cms-assets.s3.us-east-1.amazonaws.com'
       }
     ]
   },
@@ -19,8 +19,8 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'blog.56k.cloud',
-          },
+            value: 'blog.56k.cloud'
+          }
         ],
         destination: 'https://www.56k.cloud/blog',
         permanent: true
@@ -30,8 +30,8 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'blog.56k.cloud',
-          },
+            value: 'blog.56k.cloud'
+          }
         ],
         destination: 'https://www.56k.cloud/blog',
         permanent: true
@@ -41,8 +41,8 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'blog.56k.cloud',
-          },
+            value: 'blog.56k.cloud'
+          }
         ],
         destination: 'https://www.56k.cloud/blog/:slug',
         permanent: true
@@ -52,8 +52,8 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'blog.56k.cloud',
-          },
+            value: 'blog.56k.cloud'
+          }
         ],
         destination: 'https://www.56k.cloud/blog/:slug',
         permanent: true

@@ -15,9 +15,9 @@ export default function TagFilter({tags}: TagFilterProps) {
   const router = useRouter()
   const slider = useRef<HTMLDivElement>(null)
   const tagsList = [{name: 'all'}, ...tags]
-  
+
   function slide(direction: 'left' | 'right') {
-    const scroll =  direction === 'right' ? 400 : -400
+    const scroll = direction === 'right' ? 400 : -400
     slider.current?.scrollBy({left: scroll, behavior: 'smooth'})
   }
 
@@ -25,29 +25,26 @@ export default function TagFilter({tags}: TagFilterProps) {
     if (router.query.tag) {
       const element = document.getElementById(router.query.tag.toString())
       if (element) {
-        const scroll = element.offsetLeft - (element.offsetWidth + element.offsetWidth/2)
+        const scroll = element.offsetLeft - (element.offsetWidth + element.offsetWidth / 2)
         slider.current?.scrollTo({left: scroll, behavior: 'smooth'})
       }
     }
   }, [router.query.tag])
-  
+
   return (
     <div className='flex items-center justify-center w-full'>
       <div className='relative flex w-full mt-10 border-b max-w-7xl'>
         <div className='absolute left-0 flex h-full'>
           <button
-            onClick={() => slide('left')} 
+            onClick={() => slide('left')}
             aria-label='left'
             className='h-full px-3 text-primary-500/50 hover:text-primary-500'
           >
-            <ChevronLeftIcon className='w-5 h-5'/>
+            <ChevronLeftIcon className='w-5 h-5' />
           </button>
-          <div className='top-0 z-30 w-10 h-full left-10 2xl:right-14 bg-gradient-to-r from-primary-50'/>
+          <div className='top-0 z-30 w-10 h-full left-10 2xl:right-14 bg-gradient-to-r from-primary-50' />
         </div>
-        <div
-          id='tags-slider'
-          ref={slider}
-          className='flex h-full px-4 mx-12 overflow-x-auto 2xl:mx-16 gap-x-3'>
+        <div id='tags-slider' ref={slider} className='flex h-full px-4 mx-12 overflow-x-auto 2xl:mx-16 gap-x-3'>
           {tagsList.map((tag, idx) => (
             <Link
               shallow={true}
@@ -64,13 +61,13 @@ export default function TagFilter({tags}: TagFilterProps) {
           ))}
         </div>
         <div className='absolute right-0 flex h-full'>
-          <div className='top-0 z-30 w-10 h-full right-12 2xl:right-14 bg-gradient-to-l from-primary-50'/>
+          <div className='top-0 z-30 w-10 h-full right-12 2xl:right-14 bg-gradient-to-l from-primary-50' />
           <button
-            onClick={() => slide('right')} 
+            onClick={() => slide('right')}
             aria-label='right'
             className='h-full px-3 text-primary-500/50 hover:text-primary-500'
           >
-            <ChevronRightIcon className='w-5 h-5'/>
+            <ChevronRightIcon className='w-5 h-5' />
           </button>
         </div>
       </div>

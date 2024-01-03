@@ -3,22 +3,22 @@ import {defaultLocale, locales, localesMap} from '../configs/shared'
 
 function getLocale(request: NextRequest) {
   const acceptLanguages = request.headers.get('Accept-Language')?.split(',')
-  const locale = acceptLanguages?.map((locale) => {
-    const keys = Object.keys(localesMap) as Array<keyof typeof localesMap>
-    return keys.find((key) => {
-      if (localesMap[key]?.includes(locale.toLowerCase())) return key
+  const locale = acceptLanguages
+    ?.map((locale) => {
+      const keys = Object.keys(localesMap) as Array<keyof typeof localesMap>
+      return keys.find((key) => {
+        if (localesMap[key]?.includes(locale.toLowerCase())) return key
+      })
     })
-  }).filter((locale) => locale)[0]
+    .filter((locale) => locale)[0]
   if (locale) return locale
   return defaultLocale
 }
- 
+
 export function middleware(request: NextRequest) {
   const {pathname} = request.nextUrl
-  let locale = locales.find(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  )
-  
+  let locale = locales.find((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`)
+
   if (locale) {
     const response = NextResponse.next()
     response.cookies.set('NEXT_LOCALE', locale)
@@ -33,9 +33,7 @@ export function middleware(request: NextRequest) {
     return response
   }
 }
- 
+
 export const config = {
-  matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico|sitemap|apple-icon.png).*)'
-  ]
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|sitemap|apple-icon.png).*)']
 }

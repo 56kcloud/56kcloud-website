@@ -6,8 +6,7 @@ export type BadgeProps = {
   className?: string
 }
 
-export default function Badge({children, color='default', className=''}: BadgeProps) {
-
+export default function Badge({children, color = 'default', className = ''}: BadgeProps) {
   const colors = {
     default: 'bg-gray-400/10 text-gray-400 ring-gray-500/10 hover:bg-gray-400 hover:text-gray-600',
     red: 'bg-red-400/10 text-red-400 ring-red-600/10 hover:bg-red-400 hover:text-red-600',
@@ -19,13 +18,16 @@ export default function Badge({children, color='default', className=''}: BadgePr
     purple: 'bg-purple-400/10 text-purple-400 ring-purple-400/10 hover:bg-purple-400 hover:text-purple-600',
     pink: 'bg-pink-400/10 text-pink-400 ring-pink-400/10 hover:bg-pink-400 hover:text-pink-600'
   }
-  
+
   return (
     <span
-      className={cn('inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ring-1 ring-inset \
+      className={cn(
+        'inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ring-1 ring-inset \
                      hover:opacity-100',
-      colors[color] || colors.default,
-      className)}>
+        colors[color] || colors.default,
+        className
+      )}
+    >
       <p className='text-xs font-medium whitespace-nowrap'>{children}</p>
     </span>
   )

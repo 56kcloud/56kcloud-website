@@ -6,11 +6,6 @@ export type PartnerLogosSimpleWithTitleProps = {
   partners: Array<Partner>
 }
 
-export default function PartnerLogosSimpleWithTitle(props: PartnerLogosSimpleWithTitleProps) { 
-  return (
-    <LogoCloudsSimpleWithTitle
-      title={props.title}
-      companies={props.partners}
-    />
-  )
+export default function PartnerLogosSimpleWithTitle(props: PartnerLogosSimpleWithTitleProps) {
+  return <LogoCloudsSimpleWithTitle title={props.title} companies={props.partners} />
 }

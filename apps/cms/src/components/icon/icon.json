@@ -305,10 +305,7 @@
     },
     "type": {
       "type": "enumeration",
-      "enum": [
-        "outline",
-        "solid"
-      ],
+      "enum": ["outline", "solid"],
       "default": "outline",
       "required": true
     }

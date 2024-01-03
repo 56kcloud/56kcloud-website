@@ -23,27 +23,28 @@ export default function CardCover({image, fixedHeight, className}: CardCoverProp
     const {width, height} = image
     if (parentWidth) {
       if (coverParent.current && parseInt(coverParent.current.style.height) !== height) {
-        setHeight(`${parentWidth * (height/width)}px`)
+        setHeight(`${parentWidth * (height / width)}px`)
       }
     }
   }, [])
-  
+
   return (
     <div
       className={cn('relative w-full h-full overflow-hidden rounded-xl', className)}
       ref={coverParent}
-      style={{height: fixedHeight ? maxFixedHeight : `${image.width * (parseInt(height)/image.width)}px`}}
+      style={{height: fixedHeight ? maxFixedHeight : `${image.width * (parseInt(height) / image.width)}px`}}
     >
-      {!isLoaded
-        ? <div className='flex items-center justify-center w-full h-full p-10 bg-white/10 animate-pulse grayscale'>
-          <Logo className='w-32 text-gray-900'/>
+      {!isLoaded ? (
+        <div className='flex items-center justify-center w-full h-full p-10 bg-white/10 animate-pulse grayscale'>
+          <Logo className='w-32 text-gray-900' />
         </div>
-        : null
-      }
+      ) : null}
       <Image
         src={image.url}
         alt={image.alternateText || image.name}
-        onLoad={() => {setIsLoaded(true)}}
+        onLoad={() => {
+          setIsLoaded(true)
+        }}
         placeholder='blur'
         blurDataURL={image.placeholder}
         fill

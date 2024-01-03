@@ -19,11 +19,9 @@ import IntroductionWithLogo from '@/components/ui/organisms/content-sections/int
 import JoinOurTeam from '@/components/ui/organisms/cta-sections/join-our-team'
 import PartnerLogosSimpleWithTitle from '@/components/ui/organisms/partner-sections/partner-logos-simple-with-title'
 import ServiceAlternatePositionIcon from '@/components/ui/organisms/service-sections/service-alternate-position-icon'
-import ServiceThreeColumnWithLargeIcons from
-  '@/components/ui/organisms/service-sections/service-three-column-with-large-icons'
+import ServiceThreeColumnWithLargeIcons from '@/components/ui/organisms/service-sections/service-three-column-with-large-icons'
 import SolutionOneColumn from '@/components/ui/organisms/solution-sections/solution-one-column'
-import SolutionThreeColumnWithLargeIcons from
-  '@/components/ui/organisms/solution-sections/solution-three-column-with-large-icons'
+import SolutionThreeColumnWithLargeIcons from '@/components/ui/organisms/solution-sections/solution-three-column-with-large-icons'
 import TagFilter from '@/components/ui/molecules/tag-filter'
 import TeamMemberCard from '@/components/ui/molecules/team-member'
 import TeamThreeColumn from '@/components/ui/organisms/team-sections/team-three-column'
@@ -36,7 +34,7 @@ export type ComponentBlueprints = {
 
 export const needSuspense = ['blog-masonry']
 export const componentBlueprints: ComponentBlueprints = {
-  'footer': Footer,
+  footer: Footer,
   'hero-simple-center': HeroSimpleCenter,
   'hero-simple-center-with-background': HeroSimpleCenterWithBackground,
   'blog-three-column': BlogThreeColumn,
@@ -71,27 +69,19 @@ export function renderComponents(dictionary: Dictionary, components?: Array<Comp
     if (!Component) {
       return
     }
-    const render = <Component
-      {...item.props}
-      dictionary={dictionary}
-      key={index}
-    />
-    return needSuspense.includes(item.component.toString())
-      ? <Suspense>{render}</Suspense>
-      : render
-    
+    const render = <Component {...item.props} dictionary={dictionary} key={index} />
+    return needSuspense.includes(item.component.toString()) ? <Suspense>{render}</Suspense> : render
   })
 }
 
 export function pageRenderer(dictionary: Dictionary, components?: Array<ComponentBlueprint>) {
   const {isEnabled} = draftMode()
   const children = renderComponents(dictionary, components)
-  return (<>
-    <Header dictionary={dictionary}/>
-    {isEnabled && <DraftModal/>}
-    {children}
-  </>
+  return (
+    <>
+      <Header dictionary={dictionary} />
+      {isEnabled && <DraftModal />}
+      {children}
+    </>
   )
 }
-
-

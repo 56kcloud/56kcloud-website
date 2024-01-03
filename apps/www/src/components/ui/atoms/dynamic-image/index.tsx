@@ -16,7 +16,7 @@ export function DynamicImage(props: DynamicImageProps) {
     if (typeof props.src === 'string') {
       getImageSize(props.src).then((size) => {
         setDimensions(size)
-      })  
+      })
     }
   }, [props.src])
 
@@ -28,10 +28,7 @@ export function DynamicImage(props: DynamicImageProps) {
         height={dimensions.height}
         src={props.src as string}
         {...props}
-        className={cn(
-          props.className,
-          dimensions.height > (props.maxHeight || 418) ? 'md:h-[418px] w-auto' : ''
-        )}
+        className={cn(props.className, dimensions.height > (props.maxHeight || 418) ? 'md:h-[418px] w-auto' : '')}
       />
     </>
   )

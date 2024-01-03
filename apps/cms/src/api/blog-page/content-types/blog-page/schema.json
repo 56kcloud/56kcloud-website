@@ -18,10 +18,7 @@
   "attributes": {
     "body": {
       "type": "dynamiczone",
-      "components": [
-        "blog-sections.blog-three-column",
-        "blog-sections.blog-masonry"
-      ],
+      "components": ["blog-sections.blog-three-column", "blog-sections.blog-masonry"],
       "pluginOptions": {
         "i18n": {
           "localized": true

@@ -6,9 +6,7 @@ export type TextAreaProps = InputProps
 export function TextArea({register, name, options, label, className, error}: TextAreaProps) {
   return (
     <div className={className}>
-      <label
-        htmlFor={name}
-        className='block text-base font-normal leading-6 text-white'>
+      <label htmlFor={name} className='block text-base font-normal leading-6 text-white'>
         {label}
       </label>
       <div className='mt-2.5'>
@@ -22,14 +20,11 @@ export function TextArea({register, name, options, label, className, error}: Tex
             error && 'text-red-900 ring-red-500 focus:ring-red-500'
           )}
         />
-        {error 
-          ? <p
-            className='mt-2 text-sm text-red-600'
-            id='email-error'>
+        {error ? (
+          <p className='mt-2 text-sm text-red-600' id='email-error'>
             {error.message?.toString()}
           </p>
-          : null
-        }
+        ) : null}
       </div>
     </div>
   )

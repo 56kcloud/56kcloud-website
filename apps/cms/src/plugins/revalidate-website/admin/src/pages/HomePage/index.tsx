@@ -50,7 +50,7 @@ const HomePage = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': config.revalidateToken || ''
+            Authorization: config.revalidateToken || ''
           },
           body: {
             username: `${userInfo.firstname} ${userInfo.lastname}`
@@ -81,34 +81,26 @@ const HomePage = () => {
 
   return (
     <Main>
-      <HeaderLayout
-        title='Revalidate Website'
-        subtitle='Rebuild your website with new content'
-      />
+      <HeaderLayout title='Revalidate Website' subtitle='Rebuild your website with new content' />
       <ContentLayout>
-        {showAlert && <Portal style={{
-          position: 'fixed',
-          top: '10px',
-          right: '10px'
-        }}
-        >
-          <Alert
-            {...alertProps}
-            onClose={() => setShowAlert(false)}
-          />
-        </Portal>
-        }
-        {(isSubmitting && config?.revalidateEndpoint) ? (
+        {showAlert && (
+          <Portal
+            style={{
+              position: 'fixed',
+              top: '10px',
+              right: '10px'
+            }}
+          >
+            <Alert {...alertProps} onClose={() => setShowAlert(false)} />
+          </Portal>
+        )}
+        {isSubmitting && config?.revalidateEndpoint ? (
           <>
             <Loader>Revalidating...</Loader>
-            <Typography variant="omega">
-              The site is currently rebuilding, please wait.
-            </Typography>
+            <Typography variant='omega'>The site is currently rebuilding, please wait.</Typography>
           </>
         ) : (
-          <Button onClick={revalidate}>
-            Revalidate Website
-          </Button>
+          <Button onClick={revalidate}>Revalidate Website</Button>
         )}
       </ContentLayout>
     </Main>

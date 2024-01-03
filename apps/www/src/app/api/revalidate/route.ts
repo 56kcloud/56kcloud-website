@@ -16,42 +16,42 @@ type RequestPayload = {
 async function postMessageOnSlack(data: RequestPayload) {
   const updatedAt = DateTime.now().toUTC().toLocaleString(DateTime.DATETIME_FULL)
   const user = data.username
-  
+
   await fetch(slackBotURL, {
     method: 'POST',
     body: JSON.stringify({
       blocks: [
         {
-          'type': 'header',
-          'text': {
-            'type': 'plain_text',
-            'text': 'Revalidation triggered 🚀',
-            'emoji': true
+          type: 'header',
+          text: {
+            type: 'plain_text',
+            text: 'Revalidation triggered 🚀',
+            emoji: true
           }
         },
         {
-          'type': 'section',
-          'fields': [
+          type: 'section',
+          fields: [
             {
-              'type': 'mrkdwn',
-              'text': `*Revalidated at:*\n${updatedAt}`
+              type: 'mrkdwn',
+              text: `*Revalidated at:*\n${updatedAt}`
             },
             {
-              'type': 'mrkdwn',
-              'text': `*Revalidated by:*\n${user}`
+              type: 'mrkdwn',
+              text: `*Revalidated by:*\n${user}`
             }
           ]
         },
         {
-          'type': 'section',
-          'fields': [
+          type: 'section',
+          fields: [
             {
-              'type': 'mrkdwn',
-              'text': '<https://www.56k.cloud|Website>'
+              type: 'mrkdwn',
+              text: '<https://www.56k.cloud|Website>'
             },
             {
-              'type': 'mrkdwn',
-              'text': '<https://cms.56k.cloud|CMS>'
+              type: 'mrkdwn',
+              text: '<https://cms.56k.cloud|CMS>'
             }
           ]
         }
@@ -61,7 +61,7 @@ async function postMessageOnSlack(data: RequestPayload) {
 }
 
 export async function POST(request: Request) {
-  return protectedAPI(request, async() => {
+  return protectedAPI(request, async () => {
     const data: RequestPayload = await request.json()
     await revalidateTag('strapi')
     await postMessageOnSlack(data)

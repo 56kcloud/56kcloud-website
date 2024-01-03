@@ -3,18 +3,16 @@ import {getList} from '@/utils/cms/endpoints'
 import {hostname} from '../../configs/server'
 import {locales} from '../../configs/shared'
 
-const staticPaths = [
-  '/',
-  '/blog',
-  '/about'
-]
+const staticPaths = ['/', '/blog', '/about']
 
 async function getArticlePaths() {
-  return (await getList('articles')).map((article) => {
-    return locales.map((locale) => {
-      return `${locale}/blog/${article.slug}`
+  return (await getList('articles'))
+    .map((article) => {
+      return locales.map((locale) => {
+        return `${locale}/blog/${article.slug}`
+      })
     })
-  }).flat(1)
+    .flat(1)
 }
 
 async function getSolutionsPaths() {
@@ -30,23 +28,24 @@ async function getServicesPaths() {
 }
 
 function getStaticPaths() {
-  return locales.map((locale) => {
-    return staticPaths.map((path) => {
-      return `${locale}${path}`
+  return locales
+    .map((locale) => {
+      return staticPaths.map((path) => {
+        return `${locale}${path}`
+      })
     })
-  }).flat(1)
+    .flat(1)
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-
   const paths = [
     ...getStaticPaths(),
-    ...await getArticlePaths(),
-    ...await getSolutionsPaths(),
-    ...await getServicesPaths()
+    ...(await getArticlePaths()),
+    ...(await getSolutionsPaths()),
+    ...(await getServicesPaths())
   ]
 
-  return paths.map(path => ({
+  return paths.map((path) => ({
     url: `${hostname}${path}`,
     lastModified: new Date()
   }))

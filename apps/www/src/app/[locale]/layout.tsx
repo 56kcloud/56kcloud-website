@@ -29,29 +29,12 @@ export default function Root({children, params}: RootLayoutProps) {
   return (
     <html lang={params.locale}>
       <head>
-        <link
-          rel='icon'
-          href='/favicon.ico'
-          sizes='any'
-        />
-        <link
-          rel='apple-touch-icon'
-          href='/apple-icon?<generated>'
-          type='image/<generated>'
-          sizes='<generated>'
-        />
-        <meta
-          content='@56kCloud'
-          name='twitter:site'
-        />
-        <meta
-          content='summary'
-          name='twitter:card'
-        />
+        <link rel='icon' href='/favicon.ico' sizes='any' />
+        <link rel='apple-touch-icon' href='/apple-icon?<generated>' type='image/<generated>' sizes='<generated>' />
+        <meta content='@56kCloud' name='twitter:site' />
+        <meta content='summary' name='twitter:card' />
       </head>
-      <body className={cn('relative bg-background isolate', workSans.className)}>
-        {children}
-      </body>
+      <body className={cn('relative bg-background isolate', workSans.className)}>{children}</body>
     </html>
   )
 }

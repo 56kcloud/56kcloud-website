@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-#tags-slider::-webkit-scrollbar{
+#tags-slider::-webkit-scrollbar {
   display: none;
 }
 
@@ -12,5 +12,5 @@ html {
 }
 
 .prose-config {
-  @apply prose-h1:leading-10 prose-h2:leading-[30px] prose-h3:leading-6 prose-h4:leading-6 prose-h1:mt-8
+  @apply prose-h1:leading-10 prose-h2:leading-[30px] prose-h3:leading-6 prose-h4:leading-6 prose-h1:mt-8;
 }

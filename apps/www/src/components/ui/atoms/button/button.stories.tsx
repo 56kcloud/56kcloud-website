@@ -7,31 +7,31 @@ const meta = {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    tone: { 
+    tone: {
       options: buttonTones,
-      control: {type: 'select'} 
+      control: {type: 'select'}
     },
-    variant: { 
+    variant: {
       options: buttonVariants,
-      control: {type: 'select'} 
+      control: {type: 'select'}
     },
-    size: { 
+    size: {
       options: buttonSizes,
-      control: {type: 'select'} 
+      control: {type: 'select'}
     },
-    shape: { 
+    shape: {
       options: buttonShapes,
-      control: {type: 'select'} 
+      control: {type: 'select'}
     },
-    align: { 
+    align: {
       options: buttonAlignments,
-      control: {type: 'select'} 
+      control: {type: 'select'}
     },
-    disabled: { 
-      control: {type: 'boolean'} 
+    disabled: {
+      control: {type: 'boolean'}
     },
-    loading: { 
-      control: {type: 'boolean'} 
+    loading: {
+      control: {type: 'boolean'}
     }
   },
   args: {
@@ -56,15 +56,11 @@ export const Variants = {
   name: 'Variants',
   render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
-      {buttonTones.map(tone => 
-        <Button
-          key={tone}
-          {...args}
-          tone={tone}
-        >
+      {buttonTones.map((tone) => (
+        <Button key={tone} {...args} tone={tone}>
           {tone}
         </Button>
-      )}
+      ))}
     </div>
   )
 }
@@ -73,15 +69,11 @@ export const VariantsLinks = {
   name: 'Variants - Link',
   render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
-      {buttonTones.map(tone => 
-        <Button
-          key={tone}
-          {...args}
-          variant='link'
-          tone={tone}
-        >
+      {buttonTones.map((tone) => (
+        <Button key={tone} {...args} variant='link' tone={tone}>
           {tone}
-        </Button>)}
+        </Button>
+      ))}
     </div>
   )
 }
@@ -90,16 +82,11 @@ export const VariantsGhosts = {
   name: 'Variants - Ghost',
   render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
-      {buttonTones.map(tone => 
-        <Button
-          key={tone}
-          {...args}
-          variant='ghost'
-          tone={tone}
-        >
+      {buttonTones.map((tone) => (
+        <Button key={tone} {...args} variant='ghost' tone={tone}>
           {tone}
         </Button>
-      )}
+      ))}
     </div>
   )
 }
@@ -108,15 +95,11 @@ export const Sizes = {
   name: 'Sizes',
   render: (args: ButtonPropsImpl) => (
     <div className='flex items-center space-x-2'>
-      {buttonSizes.map(size => 
-        <Button
-          key={size}
-          {...args}
-          size={size}
-        >
+      {buttonSizes.map((size) => (
+        <Button key={size} {...args} size={size}>
           {size}
         </Button>
-      )}
+      ))}
     </div>
   )
 }
@@ -125,14 +108,11 @@ export const Shapes = {
   name: 'Shapes',
   render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
-      {buttonShapes.map(shape => 
-        <Button
-          key={shape}
-          {...args}
-          shape={shape}
-        >
+      {buttonShapes.map((shape) => (
+        <Button key={shape} {...args} shape={shape}>
           {shape}
-        </Button>)}
+        </Button>
+      ))}
     </div>
   )
 }
@@ -143,61 +123,50 @@ export const Alignments = {
     <div className='flex flex-col'>
       {buttonAlignments.map((alignment, i) => {
         return (
-          <div
-            key={i}
-            className={`flex flex-col py-4 space-y-2 ${i < buttonAlignments.length - 1 ? 'border-b' : ''}`}>
-            <Button
-              {...args}
-              leading={<span className='pr-2'>leading</span>}
-              align={alignment}>{alignment}
+          <div key={i} className={`flex flex-col py-4 space-y-2 ${i < buttonAlignments.length - 1 ? 'border-b' : ''}`}>
+            <Button {...args} leading={<span className='pr-2'>leading</span>} align={alignment}>
+              {alignment}
             </Button>
-            <Button
-              {...args}
-              align={alignment}>{alignment}
+            <Button {...args} align={alignment}>
+              {alignment}
             </Button>
-            <Button
-              {...args}
-              trailing={<span className='pl-2'>trailing</span>}
-              align={alignment}>{alignment}
+            <Button {...args} trailing={<span className='pl-2'>trailing</span>} align={alignment}>
+              {alignment}
             </Button>
           </div>
-        )})}
+        )
+      })}
     </div>
   )
 }
 
 export const leading = {
   name: 'With leading',
-  render: (args: ButtonPropsImpl) => 
-    <Button
-      {...args}
-      leading={<span className='pr-2'>With leading</span>}>Button
+  render: (args: ButtonPropsImpl) => (
+    <Button {...args} leading={<span className='pr-2'>With leading</span>}>
+      Button
     </Button>
+  )
 }
 
 export const trailing = {
   name: 'With trailing',
-  render: (args: ButtonPropsImpl) => 
-    <Button
-      {...args}
-      trailing={<span className='pl-2'>With trailing</span>}>Button
+  render: (args: ButtonPropsImpl) => (
+    <Button {...args} trailing={<span className='pl-2'>With trailing</span>}>
+      Button
     </Button>
+  )
 }
 
 export const Loading = {
   name: 'Loading',
   render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
-      {buttonTones.map(tone => 
-        <Button
-          key={tone}
-          {...args}
-          tone={tone}
-          loading
-        >
+      {buttonTones.map((tone) => (
+        <Button key={tone} {...args} tone={tone} loading>
           {tone}
         </Button>
-      )}
+      ))}
     </div>
   )
 }
@@ -206,14 +175,11 @@ export const Disabled = {
   name: 'Disabled',
   render: (args: ButtonPropsImpl) => (
     <div className='flex space-x-2'>
-      {buttonTones.map(tone => 
-        <Button
-          key={tone}
-          {...args}
-          tone={tone}
-          disabled>{tone}
+      {buttonTones.map((tone) => (
+        <Button key={tone} {...args} tone={tone} disabled>
+          {tone}
         </Button>
-      )}
+      ))}
     </div>
   )
 }

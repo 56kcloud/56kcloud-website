@@ -2,7 +2,7 @@ import {NextRequest} from 'next/server'
 import {defaultLocale} from '../../../../configs/shared'
 import {draftMode} from 'next/headers'
 import {redirect} from 'next/navigation'
- 
+
 export async function GET(request: NextRequest) {
   const params = new URL(request.url).searchParams
   let url = params.get('url')

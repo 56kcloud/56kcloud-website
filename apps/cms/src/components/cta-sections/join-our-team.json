@@ -25,9 +25,7 @@
       "component": "benefit.benefit"
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
+      "allowedTypes": ["images"],
       "type": "media",
       "multiple": false,
       "required": true

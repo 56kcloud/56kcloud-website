@@ -5,7 +5,7 @@ export type ImageSimpleProps = {
   image: ImageProps
 }
 
-export default function ImageSimple(props: ImageSimpleProps) {  
+export default function ImageSimple(props: ImageSimpleProps) {
   return (
     <div className='mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8'>
       <Image
