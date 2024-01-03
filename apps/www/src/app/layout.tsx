@@ -7,9 +7,7 @@ export type RootLayoutProps = {
 export default function Root({children}: RootLayoutProps) {
   return (
     <html>
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   )
 }

@@ -8,21 +8,9 @@ export default ({env}) => {
         contentSecurityPolicy: {
           useDefaults: true,
           directives: {
-            'connect-src': ['\'self\'', 'https:'],
-            'img-src': [
-              '\'self\'',
-              'data:',
-              'blob:',
-              'dl.airtable.com',
-              s3URL
-            ],
-            'media-src': [
-              '\'self\'',
-              'data:',
-              'blob:',
-              'dl.airtable.com',
-              s3URL
-            ],
+            'connect-src': ["'self'", 'https:'],
+            'img-src': ["'self'", 'data:', 'blob:', 'dl.airtable.com', s3URL],
+            'media-src': ["'self'", 'data:', 'blob:', 'dl.airtable.com', s3URL],
             upgradeInsecureRequests: null
           }
         }

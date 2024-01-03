@@ -9,21 +9,22 @@ function capitalizeFirstLetter(string: string) {
 export async function seoHandler(contentType, uid: string) {
   const isDynamicPage = ['article', 'solution', 'service']
   let title = contentType.seo?.title || contentType.title
-  if (isDynamicPage.some(id => uid.endsWith(id))) {
-    const needSuffix = ['.solution', '.service'].some(id => uid.endsWith(id))
-    const suffix = needSuffix ? `${capitalizeFirstLetter(uid.slice(uid.lastIndexOf('.')+1))} - ` : ''
+  if (isDynamicPage.some((id) => uid.endsWith(id))) {
+    const needSuffix = ['.solution', '.service'].some((id) => uid.endsWith(id))
+    const suffix = needSuffix ? `${capitalizeFirstLetter(uid.slice(uid.lastIndexOf('.') + 1))} - ` : ''
     title = `${suffix}${title} - 56k.Cloud`
   }
   contentType.seo = {
     title,
     description: contentType.seo?.description || contentType.description,
-    image: contentType.image || await strapi.entityService.findOne('plugin::upload.file', 2335) //Default Image
+    image: contentType.image || (await strapi.entityService.findOne('plugin::upload.file', 2335)) //Default Image
   }
 }
 
 export async function bodyHandler(contentType, locale = 'en') {
   contentType.body = Array.isArray(contentType.body) ? contentType.body : []
-  const contactComponentIndex = contentType.body.map(el => el.__component)
+  const contactComponentIndex = contentType.body
+    .map((el) => el.__component)
     .indexOf('contact-sections.contact-split-with-pattern')
   if (contactComponentIndex >= 0) {
     const locations = await strapi.entityService.findMany('api::location.location', {
@@ -64,25 +65,12 @@ function generatePaths(keys: Array<string>, options: Array<string>, depth: numbe
   return paths
 }
 
-export function createPopulateArray(depth=2) {
-  let props = [
-    'image',
-    'cover',
-    'author.avatar',
-    'avatar',
-    'icon',
-    'role'
-  ]
-  const basePaths = [
-    'image',
-    'author',
-    'tags',
-    'body',
-    'seo'
-  ]
-  Object.keys(strapi.components).forEach(key => {
+export function createPopulateArray(depth = 2) {
+  let props = ['image', 'cover', 'author.avatar', 'avatar', 'icon', 'role']
+  const basePaths = ['image', 'author', 'tags', 'body', 'seo']
+  Object.keys(strapi.components).forEach((key) => {
     const component = strapi.components[key]
-    Object.keys(component.attributes).forEach(attribute => {
+    Object.keys(component.attributes).forEach((attribute) => {
       if (!attribute.includes('related')) {
         props.push(`${attribute}`)
       }
@@ -94,9 +82,11 @@ export function createPopulateArray(depth=2) {
 
 const cleanUnnecessaryProps = (contentType) => {
   const necessaryProps = ['id', 'slug', 'publishedAt', 'updatedAt', 'createdAt', 'body', 'seo', 'locale']
-  Object.keys(contentType).filter(key => !necessaryProps.includes(key)).forEach(key => {
-    delete contentType[key]
-  })
+  Object.keys(contentType)
+    .filter((key) => !necessaryProps.includes(key))
+    .forEach((key) => {
+      delete contentType[key]
+    })
 }
 
 async function queryByLocale(uid: string, locale: string, preview: string, where?: Record<string, string>) {
@@ -121,7 +111,7 @@ async function queryByLocale(uid: string, locale: string, preview: string, where
 }
 
 type FindBaseProps = {
-  ctx,
+  ctx
   uid: string
 }
 
@@ -162,14 +152,14 @@ export async function getAllPublishedSlugs(ctx, uid: Common.UID.Service) {
   const showDrafts = ctx.query['show-drafts'] === 'true'
   try {
     const contentTypes = await findManyContentTypes(uid, ['slug', 'locale'], showDrafts)
-    return contentTypes.filter(content => content.slug)
+    return contentTypes.filter((content) => content.slug)
   } catch (e) {
     const contentTypes = await findManyContentTypes(uid, ['slug'], showDrafts)
-    return contentTypes.filter(content => content.slug).map(content => (
-      {
+    return contentTypes
+      .filter((content) => content.slug)
+      .map((content) => ({
         slug: content.slug,
         locale: defaultLocale
-      }
-    ))
+      }))
   }
 }

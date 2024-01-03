@@ -3,7 +3,7 @@ export type ContentTwoColumnProps = {
   contentRight: string
 }
 
-export default function ContentTwoColumn(props: ContentTwoColumnProps) {  
+export default function ContentTwoColumn(props: ContentTwoColumnProps) {
   return (
     <div className='px-6 mx-auto mt-20 max-w-7xl lg:px-8'>
       <div className='max-w-2xl mx-auto lg:mx-0 lg:max-w-none'>

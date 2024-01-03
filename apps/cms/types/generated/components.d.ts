@@ -1,215 +1,202 @@
-import type { Schema, Attribute } from '@strapi/strapi';
+import type {Attribute, Schema} from '@strapi/strapi'
 
 export interface BenefitBenefit extends Schema.Component {
-  collectionName: 'components_benefit_benefits';
+  collectionName: 'components_benefit_benefits'
   info: {
-    displayName: 'benefit';
-  };
+    displayName: 'benefit'
+  }
   attributes: {
-    name: Attribute.String & Attribute.Required;
-  };
+    name: Attribute.String & Attribute.Required
+  }
 }
 
 export interface BlogSectionsBlogMasonry extends Schema.Component {
-  collectionName: 'components_blog_sections_blog_masonries';
+  collectionName: 'components_blog_sections_blog_masonries'
   info: {
-    displayName: 'blog-masonry';
-  };
+    displayName: 'blog-masonry'
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.Text & Attribute.Required;
-    articles: Attribute.Relation<
-      'blog-sections.blog-masonry',
-      'oneToMany',
-      'api::article.article'
-    >;
-  };
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    articles: Attribute.Relation<'blog-sections.blog-masonry', 'oneToMany', 'api::article.article'>
+  }
 }
 
 export interface BlogSectionsBlogThreeColumn extends Schema.Component {
-  collectionName: 'components_blog_sections_blog_three_columns';
+  collectionName: 'components_blog_sections_blog_three_columns'
   info: {
-    displayName: 'blog-three-column';
-    description: '';
-  };
+    displayName: 'blog-three-column'
+    description: ''
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    articles: Attribute.Relation<
-      'blog-sections.blog-three-column',
-      'oneToMany',
-      'api::article.article'
-    >;
-    subtitle: Attribute.Text & Attribute.Required;
-  };
+    title: Attribute.String & Attribute.Required
+    articles: Attribute.Relation<'blog-sections.blog-three-column', 'oneToMany', 'api::article.article'>
+    subtitle: Attribute.Text & Attribute.Required
+  }
 }
 
 export interface CardsCardWithIcon extends Schema.Component {
-  collectionName: 'components_cards_card_with_icons';
+  collectionName: 'components_cards_card_with_icons'
   info: {
-    displayName: 'card-with-icon';
-    description: '';
-  };
+    displayName: 'card-with-icon'
+    description: ''
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
+    title: Attribute.String & Attribute.Required
+    description: Attribute.Text & Attribute.Required
     icon: Attribute.Component<'icon.icon'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
-        };
-      }>;
-  };
+          localized: true
+        }
+      }>
+  }
 }
 
-export interface ContactSectionsContactSplitWithPattern
-  extends Schema.Component {
-  collectionName: 'contact_split_with_patterns';
+export interface ContactSectionsContactSplitWithPattern extends Schema.Component {
+  collectionName: 'contact_split_with_patterns'
   info: {
-    displayName: 'contact-split-with-pattern';
-  };
+    displayName: 'contact-split-with-pattern'
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.String & Attribute.Required;
-  };
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.String & Attribute.Required
+  }
 }
 
 export interface ContentSectionContentMarkdown extends Schema.Component {
-  collectionName: 'components_content_section_content_markdowns';
+  collectionName: 'components_content_section_content_markdowns'
   info: {
-    displayName: 'content-markdown';
-  };
+    displayName: 'content-markdown'
+  }
   attributes: {
-    content: Attribute.RichText & Attribute.Required;
-  };
+    content: Attribute.RichText & Attribute.Required
+  }
 }
 
 export interface ContentSectionContentTwoColumn extends Schema.Component {
-  collectionName: 'components_content_section_content_two_columns';
+  collectionName: 'components_content_section_content_two_columns'
   info: {
-    displayName: 'Content-two-column';
-  };
+    displayName: 'Content-two-column'
+  }
   attributes: {
-    contentLeft: Attribute.Text & Attribute.Required;
-    contentRight: Attribute.Text & Attribute.Required;
-  };
+    contentLeft: Attribute.Text & Attribute.Required
+    contentRight: Attribute.Text & Attribute.Required
+  }
 }
 
 export interface ContentSectionIntroductionWithLogo extends Schema.Component {
-  collectionName: 'components_content_section_introduction_with_logos';
+  collectionName: 'components_content_section_introduction_with_logos'
   info: {
-    displayName: 'introduction-with-logo';
-  };
+    displayName: 'introduction-with-logo'
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-    logo: Attribute.Media & Attribute.Required;
-  };
+    title: Attribute.String & Attribute.Required
+    description: Attribute.Text & Attribute.Required
+    logo: Attribute.Media & Attribute.Required
+  }
 }
 
 export interface CtaSectionsJoinOurTeam extends Schema.Component {
-  collectionName: 'components_cta_sections_join_our_teams';
+  collectionName: 'components_cta_sections_join_our_teams'
   info: {
-    displayName: 'join-our-team';
-    description: '';
-  };
+    displayName: 'join-our-team'
+    description: ''
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.Text & Attribute.Required;
-    cta: Attribute.Component<'cta.button'>;
-    benefits: Attribute.Component<'benefit.benefit', true>;
-    image: Attribute.Media & Attribute.Required;
-  };
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    cta: Attribute.Component<'cta.button'>
+    benefits: Attribute.Component<'benefit.benefit', true>
+    image: Attribute.Media & Attribute.Required
+  }
 }
 
 export interface CtaButton extends Schema.Component {
-  collectionName: 'components_cta_buttons';
+  collectionName: 'components_cta_buttons'
   info: {
-    displayName: 'button';
-    description: '';
-  };
+    displayName: 'button'
+    description: ''
+  }
   attributes: {
-    text: Attribute.String & Attribute.Required;
-    link: Attribute.String & Attribute.Required;
-    tone: Attribute.Enumeration<['primary', 'secondary']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'primary'>;
-  };
+    text: Attribute.String & Attribute.Required
+    link: Attribute.String & Attribute.Required
+    tone: Attribute.Enumeration<['primary', 'secondary']> & Attribute.Required & Attribute.DefaultTo<'primary'>
+  }
 }
 
-export interface CustomerSectionsCustomerLogoSimpleWithTitle
-  extends Schema.Component {
-  collectionName: 'customer_logo_simple_with_titles';
+export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Component {
+  collectionName: 'customer_logo_simple_with_titles'
   info: {
-    displayName: 'customer-logo-simple-with-title';
-  };
+    displayName: 'customer-logo-simple-with-title'
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
+    title: Attribute.String & Attribute.Required
     customers: Attribute.Relation<
       'customer-sections.customer-logo-simple-with-title',
       'oneToMany',
       'api::customer.customer'
-    >;
-  };
+    >
+  }
 }
 
 export interface FilterTagsFilter extends Schema.Component {
-  collectionName: 'tag_filter';
+  collectionName: 'tag_filter'
   info: {
-    displayName: 'tag-filter';
-    description: '';
-  };
+    displayName: 'tag-filter'
+    description: ''
+  }
   attributes: {
-    tags: Attribute.Relation<'filter.tags-filter', 'oneToMany', 'api::tag.tag'>;
-  };
+    tags: Attribute.Relation<'filter.tags-filter', 'oneToMany', 'api::tag.tag'>
+  }
 }
 
 export interface HeaderSectionsHeaderWithCards extends Schema.Component {
-  collectionName: 'components_header_sections_header_with_cards';
+  collectionName: 'components_header_sections_header_with_cards'
   info: {
-    displayName: 'header-with-cards';
-  };
+    displayName: 'header-with-cards'
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.Text & Attribute.Required;
-    image: Attribute.Media & Attribute.Required;
-    cards: Attribute.Component<'cards.card-with-icon', true>;
-  };
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    image: Attribute.Media & Attribute.Required
+    cards: Attribute.Component<'cards.card-with-icon', true>
+  }
 }
 
-export interface HeroSectionsHeroSimpleCenterWithBackground
-  extends Schema.Component {
-  collectionName: 'hero_simple_center_with_backgrounds';
+export interface HeroSectionsHeroSimpleCenterWithBackground extends Schema.Component {
+  collectionName: 'hero_simple_center_with_backgrounds'
   info: {
-    displayName: 'hero-simple-center-with-background';
-    description: '';
-  };
+    displayName: 'hero-simple-center-with-background'
+    description: ''
+  }
   attributes: {
-    image: Attribute.Media & Attribute.Required;
-    title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.Text;
-    leftCTA: Attribute.Component<'cta.button'>;
-    rightCTA: Attribute.Component<'cta.button'>;
-  };
+    image: Attribute.Media & Attribute.Required
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text
+    leftCTA: Attribute.Component<'cta.button'>
+    rightCTA: Attribute.Component<'cta.button'>
+  }
 }
 
 export interface HeroSectionsHeroSimpleCenter extends Schema.Component {
-  collectionName: 'components_hero_sections_hero_simple_centers';
+  collectionName: 'components_hero_sections_hero_simple_centers'
   info: {
-    displayName: 'hero-simple-center';
-  };
+    displayName: 'hero-simple-center'
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.Text;
-  };
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text
+  }
 }
 
 export interface IconIcon extends Schema.Component {
-  collectionName: 'components_icon_icons';
+  collectionName: 'components_icon_icons'
   info: {
-    displayName: 'icon';
-    description: '';
-  };
+    displayName: 'icon'
+    description: ''
+  }
   attributes: {
     name: Attribute.Enumeration<
       [
@@ -506,202 +493,184 @@ export interface IconIcon extends Schema.Component {
         'XCircleIcon',
         'XMarkIcon'
       ]
-    >;
-    type: Attribute.Enumeration<['outline', 'solid']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'outline'>;
-  };
+    >
+    type: Attribute.Enumeration<['outline', 'solid']> & Attribute.Required & Attribute.DefaultTo<'outline'>
+  }
 }
 
 export interface ImageSectionsImageSimple extends Schema.Component {
-  collectionName: 'components_image_sections_image_simples';
+  collectionName: 'components_image_sections_image_simples'
   info: {
-    displayName: 'image-simple';
-  };
+    displayName: 'image-simple'
+  }
   attributes: {
-    image: Attribute.Media & Attribute.Required;
-  };
+    image: Attribute.Media & Attribute.Required
+  }
 }
 
-export interface PartnerSectionsPartnerLogoSimpleWithTitle
-  extends Schema.Component {
-  collectionName: 'partner_logo_simple_with_titles';
+export interface PartnerSectionsPartnerLogoSimpleWithTitle extends Schema.Component {
+  collectionName: 'partner_logo_simple_with_titles'
   info: {
-    displayName: 'partner-logo-simple-with-title';
-  };
+    displayName: 'partner-logo-simple-with-title'
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    partners: Attribute.Relation<
-      'partner-sections.partner-logo-simple-with-title',
-      'oneToMany',
-      'api::partner.partner'
-    >;
-  };
+    title: Attribute.String & Attribute.Required
+    partners: Attribute.Relation<'partner-sections.partner-logo-simple-with-title', 'oneToMany', 'api::partner.partner'>
+  }
 }
 
 export interface SeoOpenGraph extends Schema.Component {
-  collectionName: 'components_seo_open_graphs';
+  collectionName: 'components_seo_open_graphs'
   info: {
-    displayName: 'open-graph';
-    description: '';
-  };
+    displayName: 'open-graph'
+    description: ''
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-    image: Attribute.Media & Attribute.Required;
-  };
+    title: Attribute.String & Attribute.Required
+    description: Attribute.Text & Attribute.Required
+    image: Attribute.Media & Attribute.Required
+  }
 }
 
 export interface SeoSeo extends Schema.Component {
-  collectionName: 'components_seo_seos';
+  collectionName: 'components_seo_seos'
   info: {
-    displayName: 'seo';
-    description: '';
-  };
+    displayName: 'seo'
+    description: ''
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Text;
-  };
+    title: Attribute.String & Attribute.Required
+    description: Attribute.Text
+  }
 }
 
-export interface ServiceSectionsServiceAlternatePositionIcon
-  extends Schema.Component {
-  collectionName: 'service_alternate_position_icon';
+export interface ServiceSectionsServiceAlternatePositionIcon extends Schema.Component {
+  collectionName: 'service_alternate_position_icon'
   info: {
-    displayName: 'service-alternate-position-icon';
-  };
+    displayName: 'service-alternate-position-icon'
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.Text & Attribute.Required;
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
     services: Attribute.Relation<
       'service-sections.service-alternate-position-icon',
       'oneToMany',
       'api::service.service'
-    >;
-  };
+    >
+  }
 }
 
-export interface ServiceSectionsServiceThreeColumnWithLargeIcons
-  extends Schema.Component {
-  collectionName: 'service_three_column_with_large_icons';
+export interface ServiceSectionsServiceThreeColumnWithLargeIcons extends Schema.Component {
+  collectionName: 'service_three_column_with_large_icons'
   info: {
-    displayName: 'service-three-column-with-large-icons';
-  };
+    displayName: 'service-three-column-with-large-icons'
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.Text & Attribute.Required;
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
     services: Attribute.Relation<
       'service-sections.service-three-column-with-large-icons',
       'oneToMany',
       'api::service.service'
-    >;
-  };
+    >
+  }
 }
 
 export interface SolutionSectionsSolutionOneColumn extends Schema.Component {
-  collectionName: 'solution_one_column';
+  collectionName: 'solution_one_column'
   info: {
-    displayName: 'solution-one-column';
-  };
+    displayName: 'solution-one-column'
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.Text & Attribute.Required;
-    solutions: Attribute.Relation<
-      'solution-sections.solution-one-column',
-      'oneToMany',
-      'api::solution.solution'
-    >;
-  };
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    solutions: Attribute.Relation<'solution-sections.solution-one-column', 'oneToMany', 'api::solution.solution'>
+  }
 }
 
-export interface SolutionSectionsSolutionThreeColumnWithLargeIcons
-  extends Schema.Component {
-  collectionName: 'solution_three_column_with_large_icons';
+export interface SolutionSectionsSolutionThreeColumnWithLargeIcons extends Schema.Component {
+  collectionName: 'solution_three_column_with_large_icons'
   info: {
-    displayName: 'solution-three-column-with-large-icons';
-  };
+    displayName: 'solution-three-column-with-large-icons'
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.Text & Attribute.Required;
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
     solutions: Attribute.Relation<
       'solution-sections.solution-three-column-with-large-icons',
       'oneToMany',
       'api::solution.solution'
-    >;
-  };
+    >
+  }
 }
 
 export interface TeamSectionsTeamThreeColumn extends Schema.Component {
-  collectionName: 'team_three_columns';
+  collectionName: 'team_three_columns'
   info: {
-    displayName: 'team-three-column';
-  };
+    displayName: 'team-three-column'
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.Text & Attribute.Required;
-    teamMembers: Attribute.Relation<
-      'team-sections.team-three-column',
-      'oneToMany',
-      'api::team-member.team-member'
-    >;
-  };
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    teamMembers: Attribute.Relation<'team-sections.team-three-column', 'oneToMany', 'api::team-member.team-member'>
+  }
 }
 
 export interface ValueSectionsValueTwoColumn extends Schema.Component {
-  collectionName: 'components_value_sections_value_two_columns';
+  collectionName: 'components_value_sections_value_two_columns'
   info: {
-    displayName: 'value-two-column';
-    description: '';
-  };
+    displayName: 'value-two-column'
+    description: ''
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    subtitle: Attribute.Text & Attribute.Required;
-    values: Attribute.Component<'value-sections.value', true>;
-  };
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    values: Attribute.Component<'value-sections.value', true>
+  }
 }
 
 export interface ValueSectionsValue extends Schema.Component {
-  collectionName: 'components_value_sections_values';
+  collectionName: 'components_value_sections_values'
   info: {
-    displayName: 'value';
-    description: '';
-  };
+    displayName: 'value'
+    description: ''
+  }
   attributes: {
-    name: Attribute.String & Attribute.Required;
-    description: Attribute.Text;
-  };
+    name: Attribute.String & Attribute.Required
+    description: Attribute.Text
+  }
 }
 
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'benefit.benefit': BenefitBenefit;
-      'blog-sections.blog-masonry': BlogSectionsBlogMasonry;
-      'blog-sections.blog-three-column': BlogSectionsBlogThreeColumn;
-      'cards.card-with-icon': CardsCardWithIcon;
-      'contact-sections.contact-split-with-pattern': ContactSectionsContactSplitWithPattern;
-      'content-section.content-markdown': ContentSectionContentMarkdown;
-      'content-section.content-two-column': ContentSectionContentTwoColumn;
-      'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo;
-      'cta-sections.join-our-team': CtaSectionsJoinOurTeam;
-      'cta.button': CtaButton;
-      'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle;
-      'filter.tags-filter': FilterTagsFilter;
-      'header-sections.header-with-cards': HeaderSectionsHeaderWithCards;
-      'hero-sections.hero-simple-center-with-background': HeroSectionsHeroSimpleCenterWithBackground;
-      'hero-sections.hero-simple-center': HeroSectionsHeroSimpleCenter;
-      'icon.icon': IconIcon;
-      'image-sections.image-simple': ImageSectionsImageSimple;
-      'partner-sections.partner-logo-simple-with-title': PartnerSectionsPartnerLogoSimpleWithTitle;
-      'seo.open-graph': SeoOpenGraph;
-      'seo.seo': SeoSeo;
-      'service-sections.service-alternate-position-icon': ServiceSectionsServiceAlternatePositionIcon;
-      'service-sections.service-three-column-with-large-icons': ServiceSectionsServiceThreeColumnWithLargeIcons;
-      'solution-sections.solution-one-column': SolutionSectionsSolutionOneColumn;
-      'solution-sections.solution-three-column-with-large-icons': SolutionSectionsSolutionThreeColumnWithLargeIcons;
-      'team-sections.team-three-column': TeamSectionsTeamThreeColumn;
-      'value-sections.value-two-column': ValueSectionsValueTwoColumn;
-      'value-sections.value': ValueSectionsValue;
+      'benefit.benefit': BenefitBenefit
+      'blog-sections.blog-masonry': BlogSectionsBlogMasonry
+      'blog-sections.blog-three-column': BlogSectionsBlogThreeColumn
+      'cards.card-with-icon': CardsCardWithIcon
+      'contact-sections.contact-split-with-pattern': ContactSectionsContactSplitWithPattern
+      'content-section.content-markdown': ContentSectionContentMarkdown
+      'content-section.content-two-column': ContentSectionContentTwoColumn
+      'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo
+      'cta-sections.join-our-team': CtaSectionsJoinOurTeam
+      'cta.button': CtaButton
+      'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
+      'filter.tags-filter': FilterTagsFilter
+      'header-sections.header-with-cards': HeaderSectionsHeaderWithCards
+      'hero-sections.hero-simple-center-with-background': HeroSectionsHeroSimpleCenterWithBackground
+      'hero-sections.hero-simple-center': HeroSectionsHeroSimpleCenter
+      'icon.icon': IconIcon
+      'image-sections.image-simple': ImageSectionsImageSimple
+      'partner-sections.partner-logo-simple-with-title': PartnerSectionsPartnerLogoSimpleWithTitle
+      'seo.open-graph': SeoOpenGraph
+      'seo.seo': SeoSeo
+      'service-sections.service-alternate-position-icon': ServiceSectionsServiceAlternatePositionIcon
+      'service-sections.service-three-column-with-large-icons': ServiceSectionsServiceThreeColumnWithLargeIcons
+      'solution-sections.solution-one-column': SolutionSectionsSolutionOneColumn
+      'solution-sections.solution-three-column-with-large-icons': SolutionSectionsSolutionThreeColumnWithLargeIcons
+      'team-sections.team-three-column': TeamSectionsTeamThreeColumn
+      'value-sections.value-two-column': ValueSectionsValueTwoColumn
+      'value-sections.value': ValueSectionsValue
     }
   }
 }

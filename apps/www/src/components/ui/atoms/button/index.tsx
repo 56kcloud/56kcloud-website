@@ -4,10 +4,7 @@ import {Slot} from '@radix-ui/react-slot'
 import {Spinner} from '@/components/ui/svgs/icons/spinner'
 import {cn} from '@/utils/toolbox'
 
-function Button(
-  props: ButtonPropsImpl,
-  ref: React.ForwardedRef<HTMLButtonElement>
-) {
+function Button(props: ButtonPropsImpl, ref: React.ForwardedRef<HTMLButtonElement>) {
   const buttonProps = new ButtonProps(props)
   const Comp = buttonProps.asChild ? Slot : 'button'
 
@@ -22,28 +19,28 @@ function Button(
     childProps = buttonPropsChildren.props
     children = childProps.children
   }
-  
-  return <Comp
-    ref={ref}
-    className={cn(buttonProps.buttonVariants(), buttonProps.className)}
-    {...buttonProps.HTMLProps}
-  >
-    <ChildType {...childProps}>
-      {buttonProps.loading 
-        ? <div className='pr-2'><Spinner/></div> 
-        : buttonProps.leading 
-          ? <span className='pr-2'>{buttonProps.leading}</span> 
-          : null
-      }
-      <div className={buttonProps.alignmentClasses()}>{children}</div>
-      {buttonProps.loading 
-        ? null
-        : buttonProps.trailing 
-          ? <span className='pl-2'>{buttonProps.trailing}</span> 
-          : null 
-      }
-    </ChildType>
-  </Comp>
+
+  return (
+    <Comp
+      ref={ref}
+      className={cn(buttonProps.buttonVariants(), buttonProps.className)}
+      {...buttonProps.HTMLProps}
+    >
+      <ChildType {...childProps}>
+        {buttonProps.loading ? (
+          <div className='pr-2'>
+            <Spinner />
+          </div>
+        ) : buttonProps.leading ? (
+          <span className='pr-2'>{buttonProps.leading}</span>
+        ) : null}
+        <div className={buttonProps.alignmentClasses()}>{children}</div>
+        {buttonProps.loading ? null : buttonProps.trailing ? (
+          <span className='pl-2'>{buttonProps.trailing}</span>
+        ) : null}
+      </ChildType>
+    </Comp>
+  )
 }
 
 export default forwardRef(Button)

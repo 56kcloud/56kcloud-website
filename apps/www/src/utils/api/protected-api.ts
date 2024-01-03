@@ -5,12 +5,9 @@ export async function protectedAPI(request: Request, success: () => Promise<Resp
   if (token === nextAPIToken) {
     return await success()
   } else {
-    return new Response(
-      'Unauthorized',
-      {
-        status: 401,
-        statusText: 'Unauthorized'
-      }
-    )
+    return new Response('Unauthorized', {
+      status: 401,
+      statusText: 'Unauthorized'
+    })
   }
 }

@@ -1,0 +1,7 @@
+.next/
+_next/
+__tmp__/
+dist/
+node_modules/
+.strapi/
+pnpm-lock.yaml

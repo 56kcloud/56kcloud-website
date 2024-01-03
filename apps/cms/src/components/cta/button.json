@@ -16,10 +16,7 @@
     },
     "tone": {
       "type": "enumeration",
-      "enum": [
-        "primary",
-        "secondary"
-      ],
+      "enum": ["primary", "secondary"],
       "default": "primary",
       "required": true
     }

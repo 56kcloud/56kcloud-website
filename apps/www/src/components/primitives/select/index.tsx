@@ -5,7 +5,6 @@ import * as SelectPrimitive from '@radix-ui/react-select'
 import {Check, ChevronDown} from 'lucide-react'
 import {cn} from '@/utils/toolbox'
 
-
 const Select = SelectPrimitive.Root
 
 const SelectGroup = SelectPrimitive.Group
@@ -28,7 +27,7 @@ const SelectTrigger = React.forwardRef<
   >
     {children}
     <SelectPrimitive.Icon asChild>
-      <ChevronDown className='w-4 h-4 -mt-0.5 opacity-50'/>
+      <ChevronDown className='w-4 h-4 -mt-0.5 opacity-50' />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ))
@@ -55,9 +54,7 @@ const SelectContent = React.forwardRef<
       position={position}
       {...props}
     >
-      <SelectPrimitive.Viewport className='p-1'>
-        {children}
-      </SelectPrimitive.Viewport>
+      <SelectPrimitive.Viewport className='p-1'>{children}</SelectPrimitive.Viewport>
     </SelectPrimitive.Content>
   </SelectPrimitive.Portal>
 ))
@@ -90,7 +87,7 @@ const SelectItem = React.forwardRef<
   >
     <span className='absolute left-2 flex h-3.5 w-3.5 items-center justify-center'>
       <SelectPrimitive.ItemIndicator>
-        <Check className='w-4 h-4'/>
+        <Check className='w-4 h-4' />
       </SelectPrimitive.ItemIndicator>
     </span>
 
@@ -111,13 +108,4 @@ const SelectSeparator = React.forwardRef<
 ))
 SelectSeparator.displayName = SelectPrimitive.Separator.displayName
 
-export {
-  Select,
-  SelectGroup,
-  SelectValue,
-  SelectTrigger,
-  SelectContent,
-  SelectLabel,
-  SelectItem,
-  SelectSeparator
-}
+export {Select, SelectGroup, SelectValue, SelectTrigger, SelectContent, SelectLabel, SelectItem, SelectSeparator}

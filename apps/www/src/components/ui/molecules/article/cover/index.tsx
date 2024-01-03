@@ -13,22 +13,23 @@ type ArticleCoverProps = {
 
 export default function ArticleCover({image, className}: ArticleCoverProps) {
   const [isLoaded, setIsLoaded] = useState(false)
-  
+
   return (
     <div
       className={cn('relative w-full overflow-hidden rounded-t-xl min-h-[200px] max-h-96', className)}
       style={{height: `${image.height}px`}}
     >
-      {!isLoaded
-        ? <div className='flex items-center justify-center w-full h-full p-10 bg-white/10 animate-pulse grayscale'>
-          <Logo className='w-32 text-gray-900'/>
+      {!isLoaded ? (
+        <div className='flex items-center justify-center w-full h-full p-10 bg-white/10 animate-pulse grayscale'>
+          <Logo className='w-32 text-gray-900' />
         </div>
-        : null
-      }
+      ) : null}
       <Image
         src={image.url}
         alt={image.alternateText || image.name}
-        onLoad={() => {setIsLoaded(true)}}
+        onLoad={() => {
+          setIsLoaded(true)
+        }}
         fill
         className={cn('object-cover w-full', isLoaded && 'bg-white')}
       />

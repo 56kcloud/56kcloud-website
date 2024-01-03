@@ -21,7 +21,7 @@ export function Logo(props: IconProps) {
         />
         <path
           className='st0'
-          d='M116.3,33.1H98.8V9.7h4.6V29h9.7C113.9,30.6,114.9,31.8,116.3,33.1z' 
+          d='M116.3,33.1H98.8V9.7h4.6V29h9.7C113.9,30.6,114.9,31.8,116.3,33.1z'
         />
         <path
           className='st0'
@@ -44,11 +44,11 @@ export function Logo(props: IconProps) {
           y='19.4'
           className='st0'
           width='4.1'
-          height='13.8' 
+          height='13.8'
         />
         <path
           className='st0'
-          d='M64.3,19.4h-4.9l-5.3,6.8l5.3,6.9h4.9l-5.6-6.9C58.8,26.2,64.3,19.4,64.3,19.4z' 
+          d='M64.3,19.4h-4.9l-5.3,6.8l5.3,6.9h4.9l-5.6-6.9C58.8,26.2,64.3,19.4,64.3,19.4z'
         />
         <path
           className='st0'

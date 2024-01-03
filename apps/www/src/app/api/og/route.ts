@@ -4,7 +4,7 @@ import ogs from 'open-graph-scraper'
 export async function GET(request: Request) {
   const urlParam = new URL(request.url).searchParams.get('url')
   let url: string | undefined | URL = Array.isArray(urlParam) ? urlParam[0] : urlParam
-  
+
   if (!url) {
     return new Response('Missing url parameter', {
       status: 400

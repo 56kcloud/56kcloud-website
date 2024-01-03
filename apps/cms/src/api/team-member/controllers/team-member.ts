@@ -9,9 +9,7 @@ const uid = 'api::team-member.team-member'
 async function getBySlug(ctx) {
   const teamMember = await strapi.db.query(uid).findOne({
     where: {slug: ctx.params.id},
-    populate: [
-      'avatar'
-    ]
+    populate: ['avatar']
   })
   // const relatedArticles = await strapi.db.query('api::article.article').findMany({
   //   where: {author: teamMember.id},

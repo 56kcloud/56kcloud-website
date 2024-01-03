@@ -49,9 +49,7 @@ export default function Root({children, params}: RootLayoutProps) {
           name='twitter:card'
         />
       </head>
-      <body className={cn('relative bg-background isolate', workSans.className)}>
-        {children}
-      </body>
+      <body className={cn('relative bg-background isolate', workSans.className)}>{children}</body>
     </html>
   )
 }

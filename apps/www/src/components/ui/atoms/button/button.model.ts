@@ -6,36 +6,39 @@ export const buttonVariants = ['default', 'link', 'ghost'] as const
 export const buttonTones = ['primary', 'secondary'] as const
 export const buttonAlignments = ['start', 'center', 'end'] as const
 
-const toneClasses: Record<typeof buttonTones[number], Record<typeof buttonVariants[number], string>> = {
+const toneClasses: Record<(typeof buttonTones)[number], Record<(typeof buttonVariants)[number], string>> = {
   primary: {
-    default: 'bg-primary-800 text-white hover:bg-white hover:text-primary-800 focus-visible:ring-primary-800 \
+    default:
+      'bg-primary-800 text-white hover:bg-white hover:text-primary-800 focus-visible:ring-primary-800 \
     focus-visible:outline-primary-200',
     link: 'text-primary-800 focus-visible:outline-primary-600 focus-visible:underline',
-    ghost: 'text-primary-800 hover:bg-primary-100/30 focus-visible:outline-primary-600  \
+    ghost:
+      'text-primary-800 hover:bg-primary-100/30 focus-visible:outline-primary-600  \
     data-[active=true]:underline data-[active=true]:decoration-primary-200 data-[active=true]:underline-offset-4	\
     data-[active=true]:decoration-2'
   },
   secondary: {
-    default: 'text-white bg-secondary-500 hover:bg-secondary-600 focus-visible:ring-secondary-500 \
+    default:
+      'text-white bg-secondary-500 hover:bg-secondary-600 focus-visible:ring-secondary-500 \
      focus-visible:outline-secondary-600',
     link: 'text-white data-[active=true]:text-white',
     ghost: 'text-secondary-500 hover:bg-secondary-50 focus-visible:outline-secondary-600'
   }
 }
 
-const sizeClasses: Record<typeof buttonSizes[number], string> = {
+const sizeClasses: Record<(typeof buttonSizes)[number], string> = {
   small: 'px-2.5 py-1.5 text-sm',
   medium: 'px-3 py-2 text-sm',
   large: 'px-3.5 py-2.5 text-sm'
 }
 
-const shapeClasses: Record<typeof buttonShapes[number], string> = {
+const shapeClasses: Record<(typeof buttonShapes)[number], string> = {
   square: 'rounded-none',
   rounded: 'rounded-md',
   circle: 'rounded-full'
 }
 
-const alignmentClasses: Record<typeof buttonAlignments[number], string> = {
+const alignmentClasses: Record<(typeof buttonAlignments)[number], string> = {
   start: 'justify-start',
   center: 'justify-center',
   end: 'justify-end'
@@ -43,11 +46,11 @@ const alignmentClasses: Record<typeof buttonAlignments[number], string> = {
 
 export type ButtonPropsImpl = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   asChild?: boolean
-  size?: typeof buttonSizes[number]
-  shape?: typeof buttonShapes[number]
-  align?: typeof buttonAlignments[number]
-  tone?: typeof buttonTones[number]
-  variant?: typeof buttonVariants[number]
+  size?: (typeof buttonSizes)[number]
+  shape?: (typeof buttonShapes)[number]
+  align?: (typeof buttonAlignments)[number]
+  tone?: (typeof buttonTones)[number]
+  variant?: (typeof buttonVariants)[number]
   width?: number | 'auto'
   loading?: boolean
   leading?: React.ReactNode
@@ -57,11 +60,11 @@ export type ButtonPropsImpl = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 export class ButtonProps {
   children: React.ReactNode
   asChild: boolean
-  size: typeof buttonSizes[number]
-  shape: typeof buttonShapes[number]
-  align: typeof buttonAlignments[number]
-  tone: typeof buttonTones[number]
-  variant: typeof buttonVariants[number]
+  size: (typeof buttonSizes)[number]
+  shape: (typeof buttonShapes)[number]
+  align: (typeof buttonAlignments)[number]
+  tone: (typeof buttonTones)[number]
+  variant: (typeof buttonVariants)[number]
   className: string
   loading?: boolean
   disabled?: boolean
@@ -81,10 +84,9 @@ export class ButtonProps {
     this.loading = props.loading || false
     this.disabled = props.disabled || false
     this.leading = props.leading
-    this.trailing = props.trailing  
+    this.trailing = props.trailing
     this.HTMLProps = this.HTMLPropsIntegration(props)
   }
-  
 
   public buttonVariants() {
     return cn(
@@ -103,10 +105,10 @@ export class ButtonProps {
 
   HTMLPropsIntegration(props: ButtonPropsImpl) {
     const HTMLProps: typeof this.HTMLProps = {}
-    const HTMLPropsKeys = Object.keys(props).filter(prop => !Object.keys(this).includes(prop))
-    HTMLPropsKeys.forEach(specificProp => {
+    const HTMLPropsKeys = Object.keys(props).filter((prop) => !Object.keys(this).includes(prop))
+    HTMLPropsKeys.forEach((specificProp) => {
       const value = props[specificProp as keyof ButtonPropsImpl]
-      Object.assign(HTMLProps , {[specificProp]: value})
+      Object.assign(HTMLProps, {[specificProp]: value})
     })
     HTMLProps['disabled'] = props.loading || props['disabled']
     return HTMLProps

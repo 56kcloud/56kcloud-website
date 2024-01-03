@@ -16,11 +16,13 @@ export default function Modal({isOpen, closeModal, header, title, children}: Mod
     <Transition
       appear
       show={isOpen}
-      as={Fragment}>
+      as={Fragment}
+    >
       <Dialog
         as='div'
         className='relative z-50'
-        onClose={closeModal}>
+        onClose={closeModal}
+      >
         <Transition.Child
           as={Fragment}
           enter='ease-out duration-300'
@@ -30,12 +32,13 @@ export default function Modal({isOpen, closeModal, header, title, children}: Mod
           leaveFrom='opacity-100'
           leaveTo='opacity-0'
         >
-          <div className='fixed inset-0 bg-white bg-opacity-90'/>
+          <div className='fixed inset-0 bg-white bg-opacity-90' />
         </Transition.Child>
         <div className='fixed inset-0 overflow-y-auto'>
           <div
             className='flex items-center justify-center min-h-full px-8 text-center -translate-y-6 \
-            sm:-translate-y-0  sm:px-0'>
+            sm:-translate-y-0  sm:px-0'
+          >
             <Transition.Child
               as={Fragment}
               enter='ease-out duration-300'
@@ -47,7 +50,8 @@ export default function Modal({isOpen, closeModal, header, title, children}: Mod
             >
               <Dialog.Panel
                 className='relative w-full sm:max-w-xl px-6 py-7 sm:py-10 sm:p-8 text-left top-7 
-                align-middle sm:pt-20 min-[1700px]:pt-40 transition-all transform bg-white shadow-xl rounded-2xl'>
+                align-middle sm:pt-20 min-[1700px]:pt-40 transition-all transform bg-white shadow-xl rounded-2xl'
+              >
                 <div>
                   <button
                     onClick={closeModal}
@@ -58,7 +62,8 @@ export default function Modal({isOpen, closeModal, header, title, children}: Mod
                     <Image
                       src={plusWhite}
                       alt={'altButton'}
-                      className='w-12 sm:w-14'/>
+                      className='w-12 sm:w-14'
+                    />
                   </button>
                   {header}
                 </div>

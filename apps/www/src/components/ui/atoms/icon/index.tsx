@@ -1180,30 +1180,35 @@ import color from 'tailwindcss/colors'
 
 export default function Icon({name, type, ...props}: IconProps) {
   const Comp = icons[`${name}${type === 'solid' ? 'Solid' : 'Outline'}` as keyof typeof icons]
-  return (
-    type === 'outline'
-      ? <svg
-        viewBox='0 0 24 24'
-        {...props}>
-        <defs>
-          <linearGradient
-            id='gradient'
-            x1='0%'
-            y1='0%'
-            x2='0%'
-            y2='100%'>
-            <stop
-              offset='0%'
-              stopColor={color.sky[300]}/>
-            <stop
-              offset='100%'
-              stopColor={color.purple[300]}/>
-          </linearGradient>
-        </defs>
-        <Comp
-          {...props}
-          className={`[&>path]:stroke-[url(#gradient)] ${props.className}`}/>
-      </svg>
-      : <Comp {...props}/>
+  return type === 'outline' ? (
+    <svg
+      viewBox='0 0 24 24'
+      {...props}
+    >
+      <defs>
+        <linearGradient
+          id='gradient'
+          x1='0%'
+          y1='0%'
+          x2='0%'
+          y2='100%'
+        >
+          <stop
+            offset='0%'
+            stopColor={color.sky[300]}
+          />
+          <stop
+            offset='100%'
+            stopColor={color.purple[300]}
+          />
+        </linearGradient>
+      </defs>
+      <Comp
+        {...props}
+        className={`[&>path]:stroke-[url(#gradient)] ${props.className}`}
+      />
+    </svg>
+  ) : (
+    <Comp {...props} />
   )
 }

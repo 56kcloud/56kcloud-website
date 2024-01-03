@@ -20,13 +20,9 @@ async function up(trx) {
 
     for (const file of files) {
       // eslint-disable-next-line no-undef
-      const placeholder = await strapi
-        .plugin('placeholder')
-        .service('placeholder')
-        .generate(file.url)
+      const placeholder = await strapi.plugin('placeholder').service('placeholder').generate(file.url)
 
-      if (placeholder)
-        await trx.update('placeholder', placeholder).from(FILES_TABLE).where('id', file.id)
+      if (placeholder) await trx.update('placeholder', placeholder).from(FILES_TABLE).where('id', file.id)
     }
 
     if (files.length < BATCH_SIZE) {

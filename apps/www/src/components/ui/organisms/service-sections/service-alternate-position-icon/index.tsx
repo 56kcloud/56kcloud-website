@@ -7,7 +7,7 @@ export type ServiceAlternatePositionIconProps = {
   services: Array<Service>
 }
 
-export default function ServiceAlternatePositionIcon(props: ServiceAlternatePositionIconProps) { 
+export default function ServiceAlternatePositionIcon(props: ServiceAlternatePositionIconProps) {
   const features = props.services.map((service) => {
     return {
       icon: service.icon,

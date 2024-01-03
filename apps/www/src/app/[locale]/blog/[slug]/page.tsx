@@ -18,12 +18,14 @@ export async function generateStaticParams() {
   const staticParams = [] as Array<Record<string, string>>
   const articles = await getList('articles')
   locales.forEach((locale) => {
-    staticParams.push(...articles.map((article) => {
-      return {
-        ...article,
-        locale: locale
-      }
-    }))
+    staticParams.push(
+      ...articles.map((article) => {
+        return {
+          ...article,
+          locale: locale
+        }
+      })
+    )
   })
   return staticParams
 }

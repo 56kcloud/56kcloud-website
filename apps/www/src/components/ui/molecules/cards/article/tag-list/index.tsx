@@ -16,13 +16,14 @@ export default function ArticleTagList({tags}: ArticleListProps) {
   const [sortedTags, setSortedTags] = useState<Array<Tag>>([])
 
   useEffect(() => {
-    setSortedTags(tags 
-      ? tags.sort((a,b) => 
-        slugify(a.name).toLowerCase() === queryTag ? -1 : slugify(b.name).toLowerCase() === queryTag ? 1 : 0)
-      : []
+    setSortedTags(
+      tags
+        ? tags.sort((a, b) =>
+            slugify(a.name).toLowerCase() === queryTag ? -1 : slugify(b.name).toLowerCase() === queryTag ? 1 : 0
+          )
+        : []
     )
   }, [tags])
-
 
   return (
     <div className='flex items-center space-x-2'>
@@ -34,7 +35,7 @@ export default function ArticleTagList({tags}: ArticleListProps) {
             key={tag.name}
             href={href}
           >
-            <Badge className={queryTag ? slugify(tag.name).toLowerCase() === queryTag ? '' : 'opacity-30' : ''}>
+            <Badge className={queryTag ? (slugify(tag.name).toLowerCase() === queryTag ? '' : 'opacity-30') : ''}>
               {tag.name}
             </Badge>
           </Link>

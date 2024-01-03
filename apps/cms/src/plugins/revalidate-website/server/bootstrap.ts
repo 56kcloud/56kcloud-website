@@ -2,6 +2,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {Strapi} from '@strapi/strapi'
 
-export default ({strapi}: { strapi: Strapi }) => {
+export default ({strapi}: {strapi: Strapi}) => {
   // bootstrap phase
 }

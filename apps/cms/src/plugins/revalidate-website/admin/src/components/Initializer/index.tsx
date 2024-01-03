@@ -9,8 +9,8 @@ import pluginId from '../../pluginId'
 
 type InitializerProps = {
   // eslint-disable-next-line no-unused-vars
-  setPlugin: (id: string) => void;
-};
+  setPlugin: (id: string) => void
+}
 
 const Initializer = ({setPlugin}: InitializerProps) => {
   const ref = useRef(setPlugin)

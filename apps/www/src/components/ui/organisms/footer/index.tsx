@@ -37,16 +37,15 @@ export default async function Footer(props: FooterProps) {
     <footer aria-labelledby='footer-heading'>
       <h2
         id='footer-heading'
-        className='sr-only'>
+        className='sr-only'
+      >
         Footer
       </h2>
       <div className='px-6 pt-20 pb-8 mx-auto max-w-7xl lg:px-8 lg:pt-[104px]'>
         <div className='flex flex-col gap-y-[72px] xl:flex-row xl:justify-between'>
           <div className='max-w-full space-y-8 xl:max-w-sm'>
-            <Logo className='h-5 text-white'/>
-            <p className='text-sm leading-[26px] text-slate-400 font-light'>
-              {props.text}
-            </p>
+            <Logo className='h-5 text-white' />
+            <p className='text-sm leading-[26px] text-slate-400 font-light'>{props.text}</p>
             <div className='flex items-center space-x-6'>
               {socialLinks.map((item) => (
                 <Button
@@ -62,7 +61,8 @@ export default async function Footer(props: FooterProps) {
                     <span className='sr-only'>{item.text}</span>
                     <item.icon
                       className='w-5 h-5 text-slate-400'
-                      aria-hidden='true'/>
+                      aria-hidden='true'
+                    />
                   </a>
                 </Button>
               ))}
@@ -73,7 +73,8 @@ export default async function Footer(props: FooterProps) {
               <h3 className='text-sm font-normal text-white capitalize'>{props.dictionary.services}</h3>
               <ul
                 role='list'
-                className='mt-6 space-y-4'>
+                className='mt-6 space-y-4'
+              >
                 {props.services.map((item) => (
                   <li key={item.slug}>
                     <Button
@@ -84,7 +85,8 @@ export default async function Footer(props: FooterProps) {
                     >
                       <a
                         href={`/services/${item.slug}`}
-                        className='text-sm leading-6 text-gray-300 hover:text-white'>
+                        className='text-sm leading-6 text-gray-300 hover:text-white'
+                      >
                         {item.title}
                       </a>
                     </Button>
@@ -96,7 +98,8 @@ export default async function Footer(props: FooterProps) {
               <h3 className='text-sm font-normal text-white capitalize'>{props.dictionary.solutions}</h3>
               <ul
                 role='list'
-                className='mt-6 space-y-4'>
+                className='mt-6 space-y-4'
+              >
                 {props.solutions.map((item) => (
                   <li key={item.slug}>
                     <Button
@@ -105,10 +108,7 @@ export default async function Footer(props: FooterProps) {
                       variant='link'
                       className='font-light text-slate-400'
                     >
-                      <a
-                        href={`/solutions/${item.slug}`}>
-                        {item.title}
-                      </a>
+                      <a href={`/solutions/${item.slug}`}>{item.title}</a>
                     </Button>
                   </li>
                 ))}
@@ -118,7 +118,8 @@ export default async function Footer(props: FooterProps) {
               <h3 className='text-sm font-normal text-white capitalize'>{props.dictionary.company}</h3>
               <ul
                 role='list'
-                className='mt-6 space-y-4'>
+                className='mt-6 space-y-4'
+              >
                 {companyLinks.map((item) => (
                   <li key={item.text}>
                     <Button
@@ -128,9 +129,7 @@ export default async function Footer(props: FooterProps) {
                       variant='link'
                       className='font-light text-slate-400'
                     >
-                      <a href={item.link}>
-                        {item.text}
-                      </a>
+                      <a href={item.link}>{item.text}</a>
                     </Button>
                   </li>
                 ))}
@@ -138,8 +137,7 @@ export default async function Footer(props: FooterProps) {
             </div>
           </div>
         </div>
-        <div
-          className='pt-8 mt-16 border-t border-slate-800 sm:mt-20'>
+        <div className='pt-8 mt-16 border-t border-slate-800 sm:mt-20'>
           <p className='text-xs font-light text-slate-400'>&copy; 56K.Cloud 2023 – All rights reserved.</p>
         </div>
       </div>
