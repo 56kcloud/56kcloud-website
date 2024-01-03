@@ -138,7 +138,8 @@ export default ({env}) => ({
     enabled: true,
     resolve: './src/plugins/revalidate-website',
     config: {
-      websiteUrl: env('WEBSITE_HOST')
+      revalidateEndpoint: env('REVALIDATE_ENDPOINT'),
+      revalidateToken: env('REVALIDATE_TOKEN')
     }
   }
 })
