@@ -64,7 +64,7 @@ export default ({env}) => ({
             slug: '{slug}'
           },
           draft: {
-            url: `${env('WEBSITE_HOST')}/api/draft?url=/{locale}/blog/{slug}`,
+            url: `${env('PREVIEW_HOST')}/api/draft?url=/{locale}/blog/{slug}`,
             alwaysVisible: true
           },
           openTarget: '_blank'
@@ -77,7 +77,7 @@ export default ({env}) => ({
             slug: '{slug}'
           },
           draft: {
-            url: `${env('WEBSITE_HOST')}/api/draft?url=/{locale}/services/{slug}`,
+            url: `${env('PREVIEW_HOST')}/api/draft?url=/{locale}/services/{slug}`,
             alwaysVisible: true
           },
           openTarget: '_blank'
@@ -90,7 +90,7 @@ export default ({env}) => ({
             slug: '{slug}'
           },
           draft: {
-            url: `${env('WEBSITE_HOST')}/api/draft?url=/{locale}/solutions/{slug}`,
+            url: `${env('PREVIEW_HOST')}/api/draft?url=/{locale}/solutions/{slug}`,
             alwaysVisible: true
           },
           openTarget: '_blank'
@@ -102,7 +102,7 @@ export default ({env}) => ({
             locale: '{locale}'
           },
           draft: {
-            url: `${env('WEBSITE_HOST')}/api/draft?url=/{locale}`,
+            url: `${env('PREVIEW_HOST')}/api/draft?url=/{locale}`,
             alwaysVisible: true
           },
           openTarget: '_blank'
@@ -114,7 +114,7 @@ export default ({env}) => ({
             locale: '{locale}'
           },
           draft: {
-            url: `${env('WEBSITE_HOST')}/api/draft?url=/{locale}/blog`,
+            url: `${env('PREVIEW_HOST')}/api/draft?url=/{locale}/blog`,
             alwaysVisible: true
           },
           openTarget: '_blank'
@@ -126,7 +126,7 @@ export default ({env}) => ({
             locale: '{locale}'
           },
           draft: {
-            url: `${env('WEBSITE_HOST')}/api/draft?url=/{locale}/about`,
+            url: `${env('PREVIEW_HOST')}/api/draft?url=/{locale}/about`,
             alwaysVisible: true
           },
           openTarget: '_blank'
