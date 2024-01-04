@@ -1,4 +1,4 @@
-import {ContentAlternatePositionWithImage} from '@/models/content-alternate-position-with-image'
+import {ContentAlternatePositionWithImage} from '@/components/ui/organisms/content-sections/content-alternate-position-with-image-item/content-alternate-position-with-image.model'
 import ContentAlternatePositionWithImageItem from '@/components/ui/organisms/content-sections/content-alternate-position-with-image-item'
 
 export type ContentAlternatePositionWithImageListProps = {
@@ -6,15 +6,16 @@ export type ContentAlternatePositionWithImageListProps = {
 }
 
 export default function ContentAlternatePositionWithImageList(props: ContentAlternatePositionWithImageListProps) {
-  const items = props.items.map((item) => {
-    return {
-      image: item.image,
-      title: item.title,
-      description: item.description,
-      imagePosition: item.imagePosition,
-      slug: item.slug
-    }
-  })
-
-  return <ContentAlternatePositionWithImageItem items={items} />
+  return (
+    <div className='py-20 lg:py-[104px]'>
+      <div className='relative px-6 mx-auto max-w-7xl lg:px-8'>
+        {props.items.map((item, index) => (
+          <ContentAlternatePositionWithImageItem
+            key={index}
+            {...item}
+          />
+        ))}
+      </div>
+    </div>
+  )
 }

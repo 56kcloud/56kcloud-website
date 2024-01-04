@@ -1,4 +1,4 @@
-import {imageSchema} from './image.model'
+import {imageSchema} from '@/models/image.model'
 import {z} from 'zod'
 
 export const contentAlternatePositionWithImageSchema = z.object({
