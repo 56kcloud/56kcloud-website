@@ -33,9 +33,7 @@ export default function ArticleContentSection({
           <ArticleCover image={image} />
           <div className='w-full p-6 md:p-10'>
             <div className='flex flex-col-reverse justify-between md:items-center md:flex-row'>
-              <Suspense>
-                <PostTagList tags={tags} />
-              </Suspense>
+              <Suspense>{/* <PostTagList tags={tags} /> */}</Suspense>
               <div
                 className='flex flex-col items-center justify-center mb-10 overflow-hidden text-sm leading-6 \
                  text-gray-300 md:flex-row md:mb-0 gap-y-6'
