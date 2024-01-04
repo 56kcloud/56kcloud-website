@@ -23,8 +23,6 @@
     "start": "cd apps/cms && npm run start"
   },
   "dependencies": {
-    "@types/react": "^18.2.33",
-    "@types/react-dom": "^18.2.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^5.2.0"
@@ -32,6 +30,8 @@
   "devDependencies": {
     "@faker-js/faker": "^8.2.0",
     "@types/node": "20.8.7",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.18",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
     "eslint": "^8.44.0",
