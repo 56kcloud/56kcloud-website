@@ -698,6 +698,8 @@ declare module '@strapi/types' {
       'blog-sections.blog-three-column': BlogSectionsBlogThreeColumn
       'cards.card-with-icon': CardsCardWithIcon
       'contact-sections.contact-split-with-pattern': ContactSectionsContactSplitWithPattern
+      'content-section.content-alternate-position-image-left': ContentSectionContentAlternatePositionImageLeft
+      'content-section.content-alternate-position-image-right': ContentSectionContentAlternatePositionImageRight
       'content-section.content-markdown': ContentSectionContentMarkdown
       'content-section.content-two-column': ContentSectionContentTwoColumn
       'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo
@@ -716,6 +718,7 @@ declare module '@strapi/types' {
       'seo.seo': SeoSeo
       'service-sections.service-alternate-position-icon': ServiceSectionsServiceAlternatePositionIcon
       'service-sections.service-three-column-with-large-icons': ServiceSectionsServiceThreeColumnWithLargeIcons
+      'solution-sections.solution-alternate-position-image': SolutionSectionsSolutionAlternatePositionImage
       'solution-sections.solution-one-column': SolutionSectionsSolutionOneColumn
       'solution-sections.solution-three-column-with-large-icons': SolutionSectionsSolutionThreeColumnWithLargeIcons
       'team-sections.team-three-column': TeamSectionsTeamThreeColumn
