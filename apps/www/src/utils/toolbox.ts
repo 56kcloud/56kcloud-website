@@ -40,7 +40,7 @@ export function formatFormDataToHsforms(data: contactUsFormData) {
       ({
         name: key,
         value: data[key as keyof contactUsFormData]
-      } as HsformsPayloadItem)
+      }) as HsformsPayloadItem
   )
 }
 
