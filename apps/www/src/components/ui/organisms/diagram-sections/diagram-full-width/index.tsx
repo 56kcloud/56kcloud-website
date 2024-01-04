@@ -7,12 +7,12 @@ export type DiagramFullWidthProps = {
   image: ImageProps
 }
 
-export default function DiagramFullWidth(props: DiagramFullWidthProps) { 
+export default function DiagramFullWidth(props: DiagramFullWidthProps) {
   return (
     <div className='relative isolate py-20 lg:py-[104px]'>
       <div className='relative mx-auto max-w-7xl'>
         <div className='flex items-center justify-center p-20 bg-black border rounded-xl border-slate-800'>
-          <Image 
+          <Image
             src={props.image.url}
             placeholder='blur'
             blurDataURL={props.image.placeholder}
