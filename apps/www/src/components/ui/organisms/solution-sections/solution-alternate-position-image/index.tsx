@@ -7,7 +7,7 @@ export type SolutionAlternatePositionImageProps = {
   solutions: Array<Solution>
 }
 
-export default function SolutionAlternatePositionImage(props: SolutionAlternatePositionImageProps) { 
+export default function SolutionAlternatePositionImage(props: SolutionAlternatePositionImageProps) {
   const features = props.solutions.map((solution) => {
     return {
       icon: solution.icon,
