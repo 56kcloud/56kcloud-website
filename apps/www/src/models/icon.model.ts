@@ -1,6 +1,6 @@
 import {z} from 'zod'
 
-export const IconNames = [
+export const iconNames = [
   'AcademicCapIcon',
   'AdjustmentsHorizontalIcon',
   'AdjustmentsVerticalIcon',
@@ -295,13 +295,15 @@ export const IconNames = [
   'XMarkIcon'
 ] as const
 
+export const iconTypes = ['outline', 'solid'] as const
+
 export type IconProps = {
   className?: string
 }
 
 export const iconSchema = z.object({
-  name: z.enum(IconNames),
-  type: z.enum(['outline', 'solid'])
+  name: z.enum(iconNames),
+  type: z.enum(iconTypes)
 })
 
 export type IconType = z.infer<typeof iconSchema>

@@ -1,19 +1,19 @@
 'use client'
 
 import {BuildingOffice2Icon, CheckCircleIcon} from '@heroicons/react/24/outline'
-import {Checkbox, CheckboxProps} from '@/components/ui/atoms/inputs/checkbox'
+import {Controller, FieldValues, RegisterOptions, useForm} from 'react-hook-form'
 import {Dictionary} from '@/models/dictionary.model'
-import {Input, InputProps} from '@/components/ui/atoms/inputs/input'
 import {LocationObject} from '@/models/location.model'
-import {TextArea, TextAreaProps} from '@/components/ui/atoms/inputs/textarea'
 import {contactUsFormData} from '@/models/contact-us-form-data.model'
 import {createHsformsPayload} from '@/utils/toolbox'
 import {sendEmail} from '@/utils/hubspot'
-import {useForm} from 'react-hook-form'
+import {useRouter} from 'next/navigation'
 import {useState} from 'react'
 import Button from '@/components/ui/atoms/button'
+import Checkbox, {CheckboxProps} from '@/components/ui/atoms/inputs/checkbox'
 import ConfettiExplosion from 'react-confetti-explosion'
-import Router from 'next/router'
+import Input, {InputProps} from '@/components/ui/atoms/inputs/input'
+import TextArea, {TextAreaProps} from '@/components/ui/atoms/inputs/textarea'
 
 export type ContactSplitWithPatternProps = {
   dictionary: Dictionary
@@ -23,67 +23,77 @@ export type ContactSplitWithPatternProps = {
 }
 
 export default function ContactSplitWithPattern(props: ContactSplitWithPatternProps) {
+  const Router = useRouter()
   const {
-    register,
+    control,
     handleSubmit,
     reset,
     formState: {errors}
-  } = useForm()
+  } = useForm({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      message: '',
+      legalConsent: false
+    }
+  })
   const [serverError, setServerError] = useState<string | null>(null)
   const [isExploding, setIsExploding] = useState(false)
   const [showThanksMessage, setShowThanksMessage] = useState(false)
 
-  const firstNameInput: InputProps = {
-    register,
-    name: 'firstName',
-    options: {
-      required: 'Your first name is required'
-    },
-
+  const firstNameInputName = 'firstName'
+  const firstNameInputProps: InputProps = {
+    id: firstNameInputName,
     label: props.dictionary.inputFirstName,
-    error: errors.firstName
+    error: errors.lastName?.message?.toString()
   }
-  const lastNameInput: InputProps = {
-    register,
-    name: 'lastName',
-    options: {
-      required: 'Your last name is required'
-    },
+  const firstNameInputRules: RegisterOptions<FieldValues, string> = {
+    required: 'Your first name is required'
+  }
+
+  const lastNameInputName = 'lastName'
+  const lastNameInputProps: InputProps = {
+    id: lastNameInputName,
     label: props.dictionary.inputLastName,
-    error: errors.lastName
+    error: errors.lastName?.message?.toString()
   }
-  const emailInput: InputProps = {
-    register,
-    name: 'email',
-    options: {
-      required: 'An email is required',
-      pattern: {
-        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-        message: 'Email is invalid'
-      }
-    },
+  const lastNameInputRules: RegisterOptions<FieldValues, string> = {
+    required: 'Your last name is required'
+  }
+
+  const emailInputName = 'email'
+  const emailInputProps: InputProps = {
+    id: emailInputName,
     label: props.dictionary.inputEmail,
-    error: errors.email
+    error: errors.email?.message?.toString()
+  }
+  const emailInputRules: RegisterOptions<FieldValues, string> = {
+    required: 'An email is required',
+    pattern: {
+      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+      message: 'Email is invalid'
+    }
   }
 
-  const messageInput: TextAreaProps = {
-    register,
-    name: 'message',
-    options: {
-      required: 'A message is required'
-    },
+  const messageInputName = 'message'
+  const messageInputProps: TextAreaProps = {
+    id: messageInputName,
     label: props.dictionary.inputMessage,
-    error: errors.message
+    error: errors.message?.message?.toString()
+  }
+  const messageInputRules: RegisterOptions<FieldValues, string> = {
+    required: 'A message is required'
   }
 
-  const legalConsentInput: CheckboxProps = {
-    register,
-    id: 'legalConsent',
-    name: 'legalConsent',
+  const legalConsentInputName = 'legalConsent'
+  const legalConsentInputProps: CheckboxProps = {
+    id: legalConsentInputName,
     label: props.dictionary.checkboxLegalConsent
   }
 
   async function onSubmit(data: contactUsFormData) {
+    console.log(data)
     try {
       await sendEmail(createHsformsPayload(data))
       Router.push('#contact-section')
@@ -158,19 +168,63 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                     </div>
                   ) : null}
                   <div className='grid grid-cols-1 gap-x-5 gap-y-6 sm:grid-cols-2'>
-                    <Input {...firstNameInput} />
-                    <Input {...lastNameInput} />
-                    <Input
-                      {...emailInput}
-                      className='sm:col-span-2'
+                    <Controller
+                      name={firstNameInputName}
+                      rules={firstNameInputRules}
+                      control={control}
+                      render={({field}) => (
+                        <Input
+                          {...field}
+                          {...firstNameInputProps}
+                        />
+                      )}
                     />
-                    <TextArea
-                      {...messageInput}
-                      className='sm:col-span-2'
+                    <Controller
+                      name={lastNameInputName}
+                      rules={lastNameInputRules}
+                      control={control}
+                      render={({field}) => (
+                        <Input
+                          {...field}
+                          {...lastNameInputProps}
+                        />
+                      )}
                     />
-                    <Checkbox
-                      {...legalConsentInput}
-                      className='sm:col-span-2'
+                    <Controller
+                      name={emailInputName}
+                      rules={emailInputRules}
+                      control={control}
+                      render={({field}) => (
+                        <Input
+                          {...field}
+                          {...emailInputProps}
+                          className='sm:col-span-2'
+                        />
+                      )}
+                    />
+                    <Controller
+                      name={messageInputName}
+                      rules={messageInputRules}
+                      control={control}
+                      render={({field}) => (
+                        <TextArea
+                          {...field}
+                          {...messageInputProps}
+                          className='sm:col-span-2'
+                        />
+                      )}
+                    />
+                    <Controller
+                      name={legalConsentInputName}
+                      control={control}
+                      render={({field: {value, ...other}}) => (
+                        <Checkbox
+                          checked={value}
+                          {...other}
+                          {...legalConsentInputProps}
+                          className='sm:col-span-2'
+                        />
+                      )}
                     />
                   </div>
                   <div className='flex justify-end mt-8'>
