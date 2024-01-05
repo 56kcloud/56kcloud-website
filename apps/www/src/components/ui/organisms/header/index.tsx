@@ -12,7 +12,7 @@ import Button from '../../atoms/button'
 import LanguageSwitcher from '../../molecules/language-switcher'
 import Link from 'next/link'
 
-type HeaderProps = {
+export type HeaderProps = {
   dictionary: Dictionary
 }
 

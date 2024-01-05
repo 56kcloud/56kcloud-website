@@ -1,6 +1,6 @@
-import {CardWithIcon} from '@/models/card.model'
+import {CardWithIconProps} from '@/models/card.model'
 import {ImageProps} from '@/models/image.model'
-import Icon from '@/components/ui/atoms/icon'
+import CardWithIcon from '@/components/ui/molecules/cards/with-icon'
 import Image from 'next/image'
 import blurCyanImage from '@/../public/images/backgrounds/blur-cyan.png'
 
@@ -8,7 +8,7 @@ export type HeaderWithCardsProps = {
   title: string
   subtitle: string
   image: ImageProps
-  cards: Array<CardWithIcon>
+  cards: Array<CardWithIconProps>
 }
 
 export default function HeaderWithCards(props: HeaderWithCardsProps) {
@@ -40,17 +40,10 @@ export default function HeaderWithCards(props: HeaderWithCardsProps) {
             </p>
             <div className='flex flex-col mt-20 gap-y-6'>
               {props.cards.map((card) => (
-                <div key={card.title}>
-                  <div className='flex flex-row items-center gap-x-3'>
-                    <Icon
-                      {...card.icon}
-                      className='flex-none text-sky-300 w-7 h-7'
-                      aria-hidden='true'
-                    />
-                    <h3 className='font-medium text-[18px] leading-10 text-white'>{card.title}</h3>
-                  </div>
-                  <p className='text-base font-light leading-7 text-slate-400'>{card.description}</p>
-                </div>
+                <CardWithIcon
+                  key={card.title}
+                  {...card}
+                />
               ))}
             </div>
           </div>

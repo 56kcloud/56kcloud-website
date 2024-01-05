@@ -1,8 +1,9 @@
 import {Benefit} from '@/models/benefit.model'
 import {CTAProps} from '@/models/cta.model'
 import {CheckCircleIcon} from '@heroicons/react/24/solid'
+import {ImageProps} from '@/models/image.model'
 import Button from '@/components/ui/atoms/button'
-import Image, {ImageProps} from 'next/image'
+import Image from 'next/image'
 
 export type JoinOurTeamProps = {
   title: string
@@ -22,8 +23,10 @@ export default function JoinOurTeam(props: JoinOurTeamProps) {
         >
           <Image
             className='flex-none object-cover w-full shadow-xl h-96 rounded-2xl lg:aspect-square lg:h-auto lg:max-w-sm'
-            {...props.image}
-            alt='join team'
+            src={props.image.url}
+            alt={props.image.alternateText || props.image.name}
+            width={props.image.width}
+            height={props.image.height}
           />
           <div className='flex-auto w-full'>
             <h2 className='text-3xl font-bold tracking-tight text-white sm:text-4xl'>{props.title}</h2>

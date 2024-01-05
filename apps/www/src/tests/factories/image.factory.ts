@@ -15,6 +15,10 @@ export function imageFactory(props?: ImageFactoryProps): ImageProps {
     height,
     category: props?.category || 'nature'
   }
+  const url =
+    props?.category === 'logo'
+      ? 'https://56k-strapi.s3.eu-central-1.amazonaws.com/56k_cloud_logo_mark_white_7d3c136095.svg'
+      : faker.image.urlLoremFlickr(options)
   return {
     id: faker.number.int(),
     name: faker.system.fileName(),
@@ -26,13 +30,13 @@ export function imageFactory(props?: ImageFactoryProps): ImageProps {
     caption: faker.lorem.words(3),
     height,
     width,
-    url: faker.image.urlLoremFlickr(options),
+    url,
     folderPath: faker.system.filePath(),
     createdAt: faker.date.past().toISOString(),
     updatedAt: faker.date.past().toISOString(),
     previewUrl: faker.image.urlLoremFlickr(options),
     provider: 'faker',
     providerMetadata: faker.lorem.words(3),
-    placeholder: faker.image.urlLoremFlickr(options)
+    placeholder: 'empty'
   }
 }

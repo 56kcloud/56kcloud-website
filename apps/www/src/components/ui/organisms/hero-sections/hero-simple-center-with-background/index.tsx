@@ -4,7 +4,7 @@ import Button from '@/components/ui/atoms/button'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export type SimpleCenteredWithBackgroundProps = {
+export type HeroSimpleCenterWithBackgroundProps = {
   title: string
   subtitle: string
   image: ImageProps
@@ -12,7 +12,7 @@ export type SimpleCenteredWithBackgroundProps = {
   rightCTA: CTAProps
 }
 
-export default function HeroSimpleCenterWithBackground(props: SimpleCenteredWithBackgroundProps) {
+export default function HeroSimpleCenterWithBackground(props: HeroSimpleCenterWithBackgroundProps) {
   return (
     <div className='relative overflow-hidden pt-28 isolate'>
       <div

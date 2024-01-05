@@ -1,9 +1,9 @@
-export type SimpleCenteredProps = {
+export type HeroSimpleCenterProps = {
   title: string
   subtitle: string
 }
 
-export default function HeroSimpleCenter(props: SimpleCenteredProps) {
+export default function HeroSimpleCenter(props: HeroSimpleCenterProps) {
   return (
     <div className='overflow-hidden pt-14'>
       <div
