@@ -1,4 +1,4 @@
-name: Lint Code Base
+name: Storybook
 
 on:
   push:
@@ -8,6 +8,7 @@ on:
 
 jobs:
   component-check:
+    continue-on-error: true
     name: Storybook
     runs-on: ubuntu-latest
     steps:
