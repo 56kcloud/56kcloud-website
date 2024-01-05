@@ -21,4 +21,4 @@ jobs:
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: ${{steps.table.outputs.summary}}
+          message: ${{steps.check.outputs.summary}}
