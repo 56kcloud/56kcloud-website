@@ -89,16 +89,19 @@ const cleanUnnecessaryProps = (contentType) => {
     })
 }
 
-async function queryByLocale(uid: string, locale: string, preview: string, where?: Record<string, string>) {
+async function queryByLocale(uid: string, query: Record<string, string>, where?: Record<string, string>) {
   const populate = createPopulateArray()
+  if (query.locale) {
+    where = {
+      ...where,
+      locale: query.locale
+    }
+  }
   let contentType = await strapi.db.query(uid).findOne({
     populate,
-    where: {
-      ...where,
-      locale
-    }
+    where
   })
-  if (!contentType || (contentType.publishedAt === null && preview !== 'true')) {
+  if (query.locale && (!contentType || (contentType.publishedAt === null && query.preview !== 'true'))) {
     contentType = await strapi.db.query(uid).findOne({
       populate,
       where: {
@@ -123,7 +126,7 @@ type FindOneProps = FindBaseProps & {
 
 export async function findOne(props: FindOneProps) {
   try {
-    const contentType = await queryByLocale(props.uid, props.ctx.query.locale, props.ctx.query.preview, props.where)
+    const contentType = await queryByLocale(props.uid, props.ctx.query, props.where)
     if (!props.ctx.query.seoOnly) {
       props.contentTypeHandler && props.contentTypeHandler(contentType)
       await bodyHandler(contentType, props.ctx.query.locale)

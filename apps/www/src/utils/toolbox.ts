@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {ClassValue, clsx} from 'clsx'
 import {HsformsPayload, HsformsPayloadItem, contactUsFormData} from '@/models/contact-us-form-data.model'
 import {format} from 'date-fns'
@@ -11,6 +12,12 @@ export function cn(...inputs: ClassValue[]) {
 
 export function toQueryParam(string: string) {
   return slugify(string.toLowerCase())
+}
+
+export function removeUndefinedProperties(record: Record<string, string | undefined>) {
+  return Object.entries(record)
+    .filter(([_, val]) => val !== undefined)
+    .reduce((obj, [key, val]) => Object.assign(obj, {[key]: val}), {})
 }
 
 export function createHsformsPayload(data: contactUsFormData) {

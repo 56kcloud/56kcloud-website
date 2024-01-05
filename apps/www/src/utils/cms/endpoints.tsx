@@ -5,10 +5,14 @@ import {draftMode} from 'next/headers'
 import {snakeCaseObjectKeysToCamelCase} from '../toolbox'
 import {strapiFetcher} from '../../../configs/server'
 
-export async function getPageComponents(path: string, lang = 'en'): Promise<PageComponents | undefined> {
+export async function getPageComponents(path: string, locale?: string): Promise<PageComponents | undefined> {
   const {isEnabled} = draftMode()
   const res = await strapiFetcher.call({
-    path: `/api/${path}?locale=${lang}${isEnabled ? '&preview=true' : ''}`
+    path: `/api/${path}`,
+    params: {
+      locale,
+      preview: isEnabled ? 'true' : undefined
+    }
   })
   const element = res
   const availableComponents = element.body.filter((item: Record<string, string>) =>
@@ -26,10 +30,14 @@ export async function getPageComponents(path: string, lang = 'en'): Promise<Page
   return components
 }
 
-export async function getPageSeo(path: string, lang = 'en'): Promise<PageSeo | undefined> {
+export async function getPageSeo(path: string, locale?: string): Promise<PageSeo | undefined> {
   try {
     const res = await strapiFetcher.call({
-      path: `/api/${path}?seoOnly=true&locale=${lang}`
+      path: `/api/${path}`,
+      params: {
+        seoOnly: 'true',
+        locale
+      }
     })
     const element = res.data?.attributes || res
     return snakeCaseObjectKeysToCamelCase(element.seo) as PageSeo

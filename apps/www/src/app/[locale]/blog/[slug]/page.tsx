@@ -31,7 +31,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({params}: ArticlePageProps): Promise<Metadata> {
-  const props = await getPageSeo(`${basePath}${params.slug}`, params.locale)
+  const props = await getPageSeo(`${basePath}${params.slug}`)
   if (props) {
     return {
       title: props.title,
@@ -48,7 +48,7 @@ export async function generateMetadata({params}: ArticlePageProps): Promise<Meta
 export default async function ArticlePage({params}: ArticlePageProps) {
   try {
     const dict = await getDictionary(params.locale)
-    const components = await getPageComponents(`${basePath}${params.slug}`, params.locale)
+    const components = await getPageComponents(`${basePath}${params.slug}`)
     return pageRenderer(dict, components)
   } catch (e) {
     notFound()

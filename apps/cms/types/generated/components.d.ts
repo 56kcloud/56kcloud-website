@@ -1,4 +1,4 @@
-import type {Attribute, Schema} from '@strapi/strapi'
+import type {Schema, Attribute} from '@strapi/strapi'
 
 export interface BenefitBenefit extends Schema.Component {
   collectionName: 'components_benefit_benefits'
@@ -666,6 +666,7 @@ declare module '@strapi/types' {
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam
       'cta.button': CtaButton
       'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
+      'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
       'filter.tags-filter': FilterTagsFilter
       'header-sections.header-with-cards': HeaderSectionsHeaderWithCards
       'hero-sections.hero-simple-center-with-background': HeroSectionsHeroSimpleCenterWithBackground
