@@ -11,14 +11,13 @@ import fs from 'fs'
       const name = parent.split('/').pop()
       const fileExists = fs.existsSync(`${parent}/${name}.stories.tsx`)
       if (fileExists) {
-        console.log(`✅ - ${name} -> ${parent}`)
-        return {name, hasStory: '✅'}
+        return {name, hasStory: '✅', path: `${parent}/${name}.stories.tsx`}
       } else {
-        console.log(`❌ - ${name} -> ${parent}`)
-        return {name, hasStory: '❌'}
+        return {name, hasStory: '❌', path: ''}
       }
     })
   )
+  console.log(JSON.stringify(componentsStories))
   const componentsWithoutStories = componentsStories.filter((c) => c.hasStory === '❌').length
   const componentsWithStories = componentsStories.filter((c) => c.hasStory === '✅').length
   console.log('components with stories', `${componentsWithStories}/${componentsStories.length}`)
