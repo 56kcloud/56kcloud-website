@@ -1,4 +1,4 @@
-import MarkdownViewer from '@/components/ui/molecules/mardown'
+import MarkdownViewer from '@/components/ui/molecules/markdown'
 
 export type ContentMarkdownProps = {
   content: string

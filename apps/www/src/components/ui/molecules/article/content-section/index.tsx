@@ -4,7 +4,7 @@ import {TeamMember} from '@/models/team-member.model'
 import {formatDate} from '@/utils/toolbox'
 import ArticleCover from '../cover'
 import Avatar from '@/components/ui/atoms/avatar'
-import MarkdownViewer from '../../mardown'
+import MarkdownViewer from '../../markdown'
 import PostTagList from '../../tag-list'
 import React, {Suspense} from 'react'
 
