@@ -1,6 +1,7 @@
 import {join} from 'path'
 import fg from 'fast-glob'
 import fs from 'fs'
+import tablemark from 'tablemark'
 ;(async () => {
   const uiComponents = fg.sync(join(__dirname, `../src/components/ui/**/*/index.tsx`))
   const componentsStories = await Promise.all(
@@ -17,7 +18,7 @@ import fs from 'fs'
       }
     })
   )
-  console.log(JSON.stringify(componentsStories))
+  console.log(tablemark(componentsStories))
   const componentsWithoutStories = componentsStories.filter((c) => c.hasStory === '❌').length
   if (componentsWithoutStories > 0) {
     throw new Error(
