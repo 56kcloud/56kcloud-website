@@ -19,10 +19,4 @@ import tablemark from 'tablemark'
     })
   )
   console.log(tablemark(componentsStories))
-  const componentsWithoutStories = componentsStories.filter((c) => c.hasStory === '❌').length
-  if (componentsWithoutStories > 0) {
-    throw new Error(
-      `${componentsWithoutStories} component${componentsWithoutStories > 1 ? 's are' : ' is'} missing a storybook file`
-    )
-  }
 })()

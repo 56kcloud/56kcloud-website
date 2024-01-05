@@ -4,7 +4,6 @@ on: pull_request
 
 jobs:
   component-check:
-    continue-on-error: true
     name: Storybook
     runs-on: ubuntu-latest
     steps:
