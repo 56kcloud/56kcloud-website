@@ -1,4 +1,3 @@
-import {exec} from 'child_process'
 import {join} from 'path'
 import fg from 'fast-glob'
 import fs from 'fs'
@@ -20,10 +19,6 @@ import fs from 'fs'
   )
   console.log(JSON.stringify(componentsStories))
   const componentsWithoutStories = componentsStories.filter((c) => c.hasStory === '❌').length
-  const componentsWithStories = componentsStories.filter((c) => c.hasStory === '✅').length
-  console.log('components with stories', `${componentsWithStories}/${componentsStories.length}`)
-  console.log('components without stories', `${componentsWithoutStories}/${componentsStories.length}`)
-  exec(`echo "summary=${JSON.stringify(componentsStories)}\n' >> $GITHUB_OUTPUT`)
   if (componentsWithoutStories > 0) {
     throw new Error(
       `${componentsWithoutStories} component${componentsWithoutStories > 1 ? 's are' : ' is'} missing a storybook file`
