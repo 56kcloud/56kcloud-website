@@ -1,13 +1,18 @@
 'use client'
 
-import {Bookmark} from '../bookmark'
-import {DynamicImage} from '../../atoms/dynamic-image'
 import {Tweet} from 'react-twitter-widgets'
 import {cn, getTweetId, isFromTwitter} from '@/utils/toolbox'
+import Bookmark from '../bookmark'
+import DynamicImage from '../../atoms/dynamic-image'
 import Markdown from 'markdown-to-jsx'
 import React from 'react'
 
-export function MarkdownViewer({content, className}: {content: string; className?: string}) {
+export type MarkdownViewerProps = {
+  content: string
+  className?: string
+}
+
+export default function MarkdownViewer({content, className}: MarkdownViewerProps) {
   return (
     <div className='flex justify-center w-full'>
       <div className={cn('w-full px-4 leading-6 prose prose-invert max-w-7xl prose-config', className)}>

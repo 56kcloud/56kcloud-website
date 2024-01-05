@@ -25,12 +25,12 @@ const config: StorybookConfig = {
     autodocs: 'tag'
   },
   webpackFinal: async (config) => {
-    config.resolve.plugins = config.resolve.plugins || []
-    config.resolve.plugins.push(
+    config.resolve.plugins = [
       new TsconfigPathsPlugin({
         configFile: resolve(__dirname, '../tsconfig.json')
       })
-    )
+    ]
+
     return config
   }
 }

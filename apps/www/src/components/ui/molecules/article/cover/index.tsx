@@ -6,7 +6,7 @@ import {cn} from '@/utils/toolbox'
 import {useState} from 'react'
 import Image from 'next/image'
 
-type ArticleCoverProps = {
+export type ArticleCoverProps = {
   image: ImageProps
   className?: string
 }

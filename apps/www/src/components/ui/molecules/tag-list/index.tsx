@@ -7,12 +7,12 @@ import Badge from '@/components/ui/atoms/badge'
 import Link from 'next/link'
 import slugify from 'slugify'
 
-export type ArticleListProps = {
+export type TagListProps = {
   tags: Array<Tag>
 }
 
-export default function ArticleTagList({tags}: ArticleListProps) {
-  const queryTag = useSearchParams().get('tag')
+export default function TagList({tags}: TagListProps) {
+  const queryTag = useSearchParams()?.get('tag')
   const [sortedTags, setSortedTags] = useState<Array<Tag>>([])
 
   useEffect(() => {

@@ -1,12 +1,16 @@
 'use client'
 
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from '@/components/primitives/select'
-import {locales} from '../../../../../configs/shared'
+import {defaultLocale, locales} from '../../../../../configs/shared'
 import {useParams, usePathname, useRouter} from 'next/navigation'
 import Button from '../../atoms/button'
 import Link from 'next/link'
 
-export default function LanguageSwitcher({mobileMenuOpen}: {mobileMenuOpen: boolean}) {
+export type LanguageSwitcherProps = {
+  mobileMenuOpen: boolean
+}
+
+export default function LanguageSwitcher({mobileMenuOpen}: LanguageSwitcherProps) {
   const {locale} = useParams()
   const pathname = usePathname()
   const router = useRouter()
@@ -45,7 +49,7 @@ export default function LanguageSwitcher({mobileMenuOpen}: {mobileMenuOpen: bool
     </div>
   ) : (
     <Select
-      defaultValue={locale.toString()}
+      defaultValue={locale?.toString() || defaultLocale}
       onValueChange={updateLanguage}
     >
       <SelectTrigger

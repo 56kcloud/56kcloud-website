@@ -2,7 +2,7 @@
 
 import {useEffect, useState} from 'react'
 
-type BookmarkProps = {
+export type BookmarkProps = {
   url: string
 }
 
@@ -14,7 +14,7 @@ type OgResponse = {
   favicon?: string
 }
 
-export function Bookmark({url}: BookmarkProps) {
+export default function Bookmark({url}: BookmarkProps) {
   const [bookmark, setBookmark] = useState<OgResponse>()
   const [isValid, setIsValid] = useState<boolean>(true)
 

@@ -6,7 +6,7 @@ import {cn} from '@/utils/toolbox'
 import {useEffect, useRef, useState} from 'react'
 import Image from 'next/image'
 
-type CardCoverProps = {
+export type CardCoverProps = {
   image: ImageProps
   className?: string
   fixedHeight?: boolean
