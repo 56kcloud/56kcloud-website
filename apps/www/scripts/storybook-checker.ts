@@ -18,5 +18,5 @@ import tablemark from 'tablemark'
       }
     })
   )
-  console.log(tablemark(componentsStories))
+  console.log(JSON.stringify(componentsStories))
 })()
