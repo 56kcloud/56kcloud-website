@@ -16,7 +16,7 @@ jobs:
         run: npm i
       - name: Check for missing stories
         id: check
-        run: echo "::set-output name=summary::$(npx tsx apps/www/scripts/storybook-checker.ts)"
+        run: echo "summary=$(npx tsx apps/www/scripts/storybook-checker.ts)" >> $GITHUB_OUTPUT
       - name: Test
         run: echo ${{ steps.check.outputs.summary }}
         # - name: Comment PR
