@@ -42,7 +42,6 @@
     "fs": "0.0.1-security",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.1.1",
-    "tablemark": "^3.0.0",
     "ts-node": "^10.9.1",
     "tsx": "^4.3.0"
   },
