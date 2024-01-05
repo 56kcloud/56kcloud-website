@@ -17,13 +17,8 @@ jobs:
       - name: Check for missing stories
         id: check
         run: echo "summary=$(npx tsx apps/www/scripts/storybook-checker.ts)" >> $GITHUB_OUTPUT
-      - name: Test
-        run: echo ${{ steps.check.outputs.summary }}
-        # - name: Comment PR
-        # uses: thollander/actions-comment-pull-request@v2
-        # if: steps.breaking.outcome == 'failure'
-        # with:
-        #   message: |
-        #     # Breaking changes 🛑
-        #     This PR introduces breaking changes. Please make sure this will not break the different clients, whether they are other services or mobile apps.
-        #     ${{ steps.table.outputs.table }}
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            ${{ steps.table.outputs.summary }}
