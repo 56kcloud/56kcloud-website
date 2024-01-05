@@ -13,8 +13,12 @@ jobs:
       - name: Check for missing stories
         id: check
         run: echo "::set-output name=summary::$(npx tsx apps/www/scripts/storybook-checker.ts)"
+      - uses: buildingcash/json-to-markdown-table-action@v1
+        id: table
+        with:
+          json: ${{ steps.check.outputs.summary }}
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            ${{steps.check.outputs.summary}}
+            ${{steps.table.outputs.table}}
