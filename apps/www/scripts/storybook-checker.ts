@@ -18,4 +18,10 @@ import fs from 'fs'
     })
   )
   console.log(JSON.stringify(componentsStories))
+  const componentsWithoutStories = componentsStories.filter((c) => c.hasStory === '❌').length
+  if (componentsWithoutStories > 0) {
+    throw new Error(
+      `${componentsWithoutStories} component${componentsWithoutStories > 1 ? 's are' : ' is'} missing a storybook file`
+    )
+  }
 })()
