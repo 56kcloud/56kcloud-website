@@ -1,8 +1,9 @@
 import {exec} from 'child_process'
+import {join} from 'path'
 import fg from 'fast-glob'
 import fs from 'fs'
 ;(async () => {
-  const uiComponents = fg.sync('src/components/ui/**/*/index.tsx')
+  const uiComponents = fg.sync(join(__dirname, `../src/components/ui/**/*/index.tsx`))
   const componentsStories = await Promise.all(
     uiComponents.map(async (path) => {
       const splitedPath = path.split('/')
