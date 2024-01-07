@@ -23,9 +23,7 @@ jobs:
         id: check
         run: echo "::set-output name=summary::$(npx tsx ./scripts/storybook-checker.ts)"
       - name: Comment PR
-        run: echo ${{steps.check.outputs.summary}}
-      # - name: Comment PR
-      #   uses: thollander/actions-comment-pull-request@v2
-      #   with:
-      #     message: |
-      #       ${{steps.check.outputs.summary}}
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            ${{steps.check.outputs.summary}}
