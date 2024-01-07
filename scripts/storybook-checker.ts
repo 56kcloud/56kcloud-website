@@ -69,6 +69,6 @@ const fileName = 'storybook-check.md'
   if (missingStories.length > 0) {
     console.log(tablemark(missingStories))
     exec(`echo "## Missing stories:" >> ${fileName}`)
-    exec(`echo "${tablemark(categoriesSummaryTable)}" >> ${fileName}`)
+    exec(`echo "${tablemark(missingStories)}" >> ${fileName}`)
   }
 })()
