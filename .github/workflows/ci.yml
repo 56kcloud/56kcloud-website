@@ -1,8 +1,32 @@
-name: Storybook
+name: CI
 
 on: pull_request
 
 jobs:
+  linter:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: true
+      - name: Run linter
+        run: pnpm run lint
+  build:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: true
+      - name: Run build
+        run: pnpm run build && pnpm run build:www
   component-check:
     name: Storybook
     runs-on: ubuntu-latest

@@ -15,6 +15,7 @@
   ],
   "scripts": {
     "build": "cd apps/cms && npm run build",
+    "build:www": "cd apps/www && npm run build",
     "dev:cms": "cd apps/cms && npm run dev",
     "dev:www": "cd apps/www && npm run dev",
     "lint": "run-p lint-eslint prettier-check",
