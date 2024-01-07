@@ -68,7 +68,7 @@ const fileName = 'storybook-check.md'
   const missingStories = componentsStories.filter(({hasStory}) => !hasStory)
   if (missingStories.length > 0) {
     console.log(tablemark(missingStories))
-    exec(`echo "## Missing stories:" > ${fileName}`)
+    exec(`echo "## Missing stories:" >> ${fileName}`)
     exec(`echo "${tablemark(categoriesSummaryTable)}" >> ${fileName}`)
   }
 })()
