@@ -21,7 +21,7 @@
     "lint-eslint": "eslint . --ext js,jsx,ts,tsx --max-warnings=0 --config .eslintrc.json --no-eslintrc",
     "prettier-check": "prettier --check .",
     "start": "cd apps/cms && npm run start",
-    "storybook-check": "npx tsx ./scripts/storybook-checker.ts"
+    "storybook:check": "npx tsx ./scripts/storybook-checker.ts"
   },
   "dependencies": {
     "react": "^18.2.0",
