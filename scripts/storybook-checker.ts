@@ -63,15 +63,17 @@ const basePath = '../apps/www/src/components/ui'
   //   console.log(tablemark(missingStories))
   // }
 
-  console.log(`| Category  | Total components | Has story |\n
-  | :-------- | :--------------- | :-------- |\n
-  | atoms     | 8                | 8 - 100%  |\n
-  | molecules | 12               | 12 - 100% |\n
-  | organisms | 26               | 26 - 100% |\n
-  | svgs      | 1                | 0 - 0%    |\n
-\n
-  | Name  | Has story | Path         |\n
-  | :---- | :-------- | :----------- |\n
-  | icons | false     | ./svgs/icons |\n
-`)
+  console.log(
+    `| Category  | Total components | Has story |
+  | :-------- | :--------------- | :-------- |
+  | atoms     | 8                | 8 - 100%  |
+  | molecules | 12               | 12 - 100% |
+  | organisms | 26               | 26 - 100% |
+  | svgs      | 1                | 0 - 0%    |
+
+  | Name  | Has story | Path         |
+  | :---- | :-------- | :----------- |
+  | icons | false     | ./svgs/icons |
+`.replaceAll(/[\r\n]/gm, '<br>')
+  )
 })()
