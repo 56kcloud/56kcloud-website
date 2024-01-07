@@ -21,9 +21,12 @@ jobs:
         run: pnpm install -w www
       - name: Check for missing stories
         id: check
-        run: echo "::set-output name=summary::$(npx tsx ./scripts/storybook-checker.ts)"
+        run: echo "::set-output name=summary::$(npx tsx ./scripts/storybook-checker.ts | base64 | tr -d '\n')"
+      - name: Decode Output
+        id: decode
+        run: echo "$(echo "${{ steps.check.outputs.summary }}" | base64 --decode)"
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            ${{steps.check.outputs.summary}}
+            ${{steps.decode.outputs.stdout}}

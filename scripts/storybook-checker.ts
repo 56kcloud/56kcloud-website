@@ -74,6 +74,6 @@ const basePath = '../apps/www/src/components/ui'
   | Name  | Has story | Path         |
   | :---- | :-------- | :----------- |
   | icons | false     | ./svgs/icons |
-`.replaceAll(/[\r\n]/gm, '\\r\\n')
+  `
   )
 })()
