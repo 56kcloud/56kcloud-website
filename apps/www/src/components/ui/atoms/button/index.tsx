@@ -1,8 +1,8 @@
 import {ButtonProps, ButtonPropsImpl} from './button.model'
 import {Fragment, JSXElementConstructor, forwardRef, isValidElement} from 'react'
 import {Slot} from '@radix-ui/react-slot'
-import {Spinner} from '@/components/ui/svgs/icons/spinner'
 import {cn} from '@/utils/toolbox'
+import Spinner from '@/components/ui/svgs/icons/spinner'
 
 function Button(props: ButtonPropsImpl, ref: React.ForwardedRef<HTMLButtonElement>) {
   const buttonProps = new ButtonProps(props)

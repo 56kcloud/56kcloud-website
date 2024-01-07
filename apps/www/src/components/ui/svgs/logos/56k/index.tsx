@@ -1,6 +1,6 @@
-import {IconProps} from '../../../../models/icon.model'
+import {IconProps} from '../../../../../models/icon.model'
 
-export function Logo(props: IconProps) {
+export default function Logo(props: IconProps) {
   return (
     <svg
       version='1.1'

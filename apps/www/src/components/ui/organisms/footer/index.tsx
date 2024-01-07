@@ -1,11 +1,11 @@
 import {Dictionary} from '@/models/dictionary.model'
 import {LinkProps, SocialLinks} from '@/models/link.model'
-import {Linkedin} from '../../svgs/logos/linkedin'
-import {Logo} from '../../svgs/logos/56k'
 import {Service} from '@/models/service.model'
 import {Solution} from '@/models/solution.model'
-import {X} from '../../svgs/logos/x'
 import Button from '../../atoms/button'
+import Linkedin from '../../svgs/logos/linkedin'
+import Logo from '../../svgs/logos/56k'
+import X from '../../svgs/logos/x'
 
 export type FooterProps = {
   dictionary: Dictionary

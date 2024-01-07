@@ -1,6 +1,6 @@
-import {IconProps} from '../../../../models/icon.model'
+import {IconProps} from '../../../../../models/icon.model'
 
-export function Linkedin(props: IconProps) {
+export default function Linkedin(props: IconProps) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'

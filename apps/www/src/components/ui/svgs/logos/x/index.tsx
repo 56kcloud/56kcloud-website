@@ -1,6 +1,6 @@
-import {IconProps} from '../../../../models/icon.model'
+import {IconProps} from '../../../../../models/icon.model'
 
-export function X(props: IconProps) {
+export default function X(props: IconProps) {
   return (
     <svg
       width='1200'
