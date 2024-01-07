@@ -25,8 +25,11 @@ jobs:
         with:
           version: 8
           run_install: true
-      - name: Run build
-        run: pnpm run build && pnpm run build:www
+      - name: Build cms
+        run: pnpm run build
+      # Already done by vercel
+      # - name: Build www
+      #   run: pnpm run build:www
   component-check:
     name: Storybook
     runs-on: ubuntu-latest
