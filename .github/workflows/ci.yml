@@ -16,7 +16,7 @@ jobs:
       - name: Run linter
         run: pnpm run lint
   build:
-    name: Lint Code Base
+    name: Build Code Base
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
