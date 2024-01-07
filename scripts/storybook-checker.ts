@@ -63,8 +63,7 @@ const basePath = '../apps/www/src/components/ui'
   //   console.log(tablemark(missingStories))
   // }
 
-  console.log(`
-  | Category  | Total components | Has story |
+  console.log(`| Category  | Total components | Has story |
   | :-------- | :--------------- | :-------- |
   | atoms     | 8                | 8 - 100%  |
   | molecules | 12               | 12 - 100% |
