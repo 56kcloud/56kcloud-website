@@ -21,7 +21,7 @@ jobs:
         run: pnpm install -w www
       - name: Check for missing stories
         id: check
-        run: pnpm run storybook-check
+        run: pnpm run storybook:check
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
