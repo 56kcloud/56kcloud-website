@@ -7,16 +7,21 @@ jobs:
     name: Storybook
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install modules
-        run: npm i tsx
+      - uses: actions/checkout@v3
+      - name: 'Install Node'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+      - name: Install dependencies
+        run: pnpm install -w www
       - name: Check for missing stories
         id: check
         run: echo "::set-output name=summary::$(npx tsx ./scripts/storybook-checker.ts)"
-      # - uses: buildingcash/json-to-markdown-table-action@v1
-      #   id: table
-      #   with:
-      #     json: ${{ steps.check.outputs.summary }}
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
