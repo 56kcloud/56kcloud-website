@@ -125,3 +125,4 @@ public/blog
 .env
 .vscode
 *.dump
+storybook-check.md
