@@ -1,7 +1,7 @@
-import {join} from 'path'
-import fg from 'fast-glob'
-import fs from 'fs'
-import tablemark from 'tablemark'
+// import {join} from 'path'
+// import fg from 'fast-glob'
+// import fs from 'fs'
+// import tablemark from 'tablemark'
 
 const basePath = '../apps/www/src/components/ui'
 ;(async () => {
