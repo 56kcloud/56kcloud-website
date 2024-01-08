@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_content_alternate_pos_w_image_lists",
+  "info": {
+    "displayName": "Content-alternate-position-with-image-list"
+  },
+  "options": {},
+  "attributes": {
+    "ContentAlternatePositionWithImageItem": {
+      "displayName": "Content-alternate-position-with-image-item",
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.content-alternate-position-with-image-item",
+      "required": true
+    }
+  }
+}

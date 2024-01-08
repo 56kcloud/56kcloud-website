@@ -54,6 +54,14 @@ export interface CardsCardWithIcon extends Schema.Component {
   }
 }
 
+export interface CardsContentAlternatePositionWithImageItem extends Schema.Component {
+  collectionName: 'components_content_alternate_pos_w_image_items'
+  info: {
+    displayName: 'Content-alternate-position-with-image-item'
+  }
+  attributes: {}
+}
+
 export interface ContactSectionsContactSplitWithPattern extends Schema.Component {
   collectionName: 'contact_split_with_patterns'
   info: {
@@ -86,6 +94,20 @@ export interface ContentSectionContentAlternatePositionImageRight extends Schema
     title: Attribute.String & Attribute.Required
     description: Attribute.Text & Attribute.Required
     image: Attribute.Media & Attribute.Required
+  }
+}
+
+export interface ContentSectionContentAlternatePositionWithImageList extends Schema.Component {
+  collectionName: 'components_content_alternate_pos_w_image_lists'
+  info: {
+    displayName: 'Content-alternate-position-with-image-list'
+  }
+  attributes: {
+    ContentAlternatePositionWithImageItem: Attribute.Component<
+      'cards.content-alternate-position-with-image-item',
+      true
+    > &
+      Attribute.Required
   }
 }
 
@@ -697,9 +719,11 @@ declare module '@strapi/types' {
       'blog-sections.blog-masonry': BlogSectionsBlogMasonry
       'blog-sections.blog-three-column': BlogSectionsBlogThreeColumn
       'cards.card-with-icon': CardsCardWithIcon
+      'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem
       'contact-sections.contact-split-with-pattern': ContactSectionsContactSplitWithPattern
       'content-section.content-alternate-position-image-left': ContentSectionContentAlternatePositionImageLeft
       'content-section.content-alternate-position-image-right': ContentSectionContentAlternatePositionImageRight
+      'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
       'content-section.content-markdown': ContentSectionContentMarkdown
       'content-section.content-two-column': ContentSectionContentTwoColumn
       'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo
