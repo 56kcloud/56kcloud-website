@@ -65,10 +65,11 @@ const fileName = 'storybook-check.md'
   exec(`echo "## Storybook check summary:" > ${fileName}`)
   exec(`echo "${tablemark(categoriesSummaryTable)}" >> ${fileName}`)
 
-  const missingStories = componentsStories.filter(({hasStory}) => !hasStory)
+  let missingStories = componentsStories.filter(({hasStory}) => !hasStory)
   if (missingStories.length > 0) {
-    console.log(tablemark(missingStories))
+    missingStories = tablemark(missingStories)
     exec(`echo "## Missing stories:" >> ${fileName}`)
-    exec(`echo "${tablemark(missingStories)}" >> ${fileName}`)
+    exec(`echo "${missingStories}" >> ${fileName}`)
+    throw `Missing stories: ${missingStories}`
   }
 })()

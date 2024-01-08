@@ -33,6 +33,7 @@ jobs:
   component-check:
     name: Storybook
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v3
       - name: 'Install Node'
@@ -53,3 +54,6 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           filePath: './storybook-check.md'
+      - name: Fail if stories are missing
+        if: ${{failure()}}
+        run: exit 1
