@@ -58,11 +58,12 @@ export interface CardsContentAlternatePositionWithImageItem extends Schema.Compo
   collectionName: 'components_content_alternate_pos_w_image_items'
   info: {
     displayName: 'Content-alternate-position-with-image-item'
+    description: ''
   }
   attributes: {
-    image: Attribute.Media
-    title: Attribute.String
-    description: Attribute.Text
+    image: Attribute.Media & Attribute.Required
+    title: Attribute.String & Attribute.Required
+    description: Attribute.Text & Attribute.Required
   }
 }
 

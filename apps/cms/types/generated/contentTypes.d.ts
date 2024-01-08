@@ -968,8 +968,7 @@ export interface ApiServiceService extends Schema.CollectionType {
         'diagram-sections.diagram-full-width',
         'content-section.content-alternate-position-image-left',
         'content-section.content-alternate-position-image-right',
-        'content-section.content-alternate-position-with-image-list',
-        'cards.content-alternate-position-with-image-item'
+        'content-section.content-alternate-position-with-image-list'
       ]
     > &
       Attribute.SetPluginOptions<{
