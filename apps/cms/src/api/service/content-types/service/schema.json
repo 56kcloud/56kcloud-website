@@ -73,7 +73,9 @@
         "service-sections.service-alternate-position-icon",
         "diagram-sections.diagram-full-width",
         "content-section.content-alternate-position-image-left",
-        "content-section.content-alternate-position-image-right"
+        "content-section.content-alternate-position-image-right",
+        "content-section.content-alternate-position-with-image-list",
+        "cards.content-alternate-position-with-image-item"
       ]
     },
     "icon": {

@@ -59,7 +59,11 @@ export interface CardsContentAlternatePositionWithImageItem extends Schema.Compo
   info: {
     displayName: 'Content-alternate-position-with-image-item'
   }
-  attributes: {}
+  attributes: {
+    image: Attribute.Media
+    title: Attribute.String
+    description: Attribute.Text
+  }
 }
 
 export interface ContactSectionsContactSplitWithPattern extends Schema.Component {

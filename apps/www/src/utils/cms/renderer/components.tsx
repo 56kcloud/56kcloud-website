@@ -7,6 +7,8 @@ import BlogThreeColumn from '@/components/ui/organisms/blog-sections/blog-three-
 import ContactSplitWithPattern from '@/components/ui/organisms/contact-sections/contact-split-with-pattern'
 import ContentAlternatePositionImageLeft from '@/components/ui/organisms/content-sections/content-alternate-position-image-left'
 import ContentAlternatePositionImageRight from '@/components/ui/organisms/content-sections/content-alternate-position-image-right'
+import ContentAlternatePositionWithImageItem from '@/components/ui/organisms/content-sections/content-alternate-position-with-image-item'
+import ContentAlternatePositionWithImageList from '@/components/ui/organisms/content-sections/content-alternate-position-with-image-list'
 import ContentMarkdown from '@/components/ui/organisms/content-sections/content-markdown'
 import ContentTwoColumn from '@/components/ui/organisms/content-sections/content-two-column'
 import CustomerLogosSimpleWithTitle from '@/components/ui/organisms/customer-sections/customer-logos-simple-with-title'
@@ -62,7 +64,9 @@ export const componentBlueprints: ComponentBlueprints = {
   'introduction-with-logo': IntroductionWithLogo,
   'diagram-full-width': DiagramFullWidth,
   'content-alternate-position-image-left': ContentAlternatePositionImageLeft,
-  'content-alternate-position-image-right': ContentAlternatePositionImageRight
+  'content-alternate-position-image-right': ContentAlternatePositionImageRight,
+  'content-alternate-position-with-image-list': ContentAlternatePositionWithImageList,
+  'content-alternate-position-with-image-item': ContentAlternatePositionWithImageItem
 }
 export type ComponentBlueprint = {
   component: keyof ComponentBlueprints
