@@ -51,6 +51,7 @@ jobs:
         id: check
         run: pnpm run storybook:check
       - name: Comment PR
+        if: ${{failure() || success()}}
         uses: thollander/actions-comment-pull-request@v2
         with:
           filePath: './storybook-check.md'
