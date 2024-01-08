@@ -70,6 +70,6 @@ const fileName = 'storybook-check.md'
     missingStories = tablemark(missingStories)
     exec(`echo "## Missing stories:" >> ${fileName}`)
     exec(`echo "${missingStories}" >> ${fileName}`)
-    throw `Missing stories: ${missingStories}`
+    throw Error(`Missing stories: ${missingStories}`)
   }
 })()
