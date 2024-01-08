@@ -25,7 +25,7 @@ export default function ContentAlternatePositionWithImageItem(props: ContentAlte
           shape='circle'
           className='px-5 mt-4 text-md bg-sky-300 text-slate-900 hover:bg-violet-300'
         >
-          <Link href={props.slug}>Learn more</Link>
+          {/* <Link href={props.slug}>Learn more</Link> */}
         </Button>
       </div>
     </div>

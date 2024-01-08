@@ -786,8 +786,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
         'contact-sections.contact-split-with-pattern',
         'content-section.introduction-with-logo',
         'service-sections.service-alternate-position-icon',
-        'solution-sections.solution-one-column',
-        'content-section.content-alternate-position-with-image-list'
+        'solution-sections.solution-one-column'
       ]
     > &
       Attribute.Required &
@@ -967,8 +966,6 @@ export interface ApiServiceService extends Schema.CollectionType {
         'contact-sections.contact-split-with-pattern',
         'service-sections.service-alternate-position-icon',
         'diagram-sections.diagram-full-width',
-        'content-section.content-alternate-position-image-left',
-        'content-section.content-alternate-position-image-right',
         'content-section.content-alternate-position-with-image-list'
       ]
     > &

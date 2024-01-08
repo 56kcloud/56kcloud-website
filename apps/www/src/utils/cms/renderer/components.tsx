@@ -63,8 +63,6 @@ export const componentBlueprints: ComponentBlueprints = {
   'content-markdown': ContentMarkdown,
   'introduction-with-logo': IntroductionWithLogo,
   'diagram-full-width': DiagramFullWidth,
-  'content-alternate-position-image-left': ContentAlternatePositionImageLeft,
-  'content-alternate-position-image-right': ContentAlternatePositionImageRight,
   'content-alternate-position-with-image-list': ContentAlternatePositionWithImageList,
   'content-alternate-position-with-image-item': ContentAlternatePositionWithImageItem
 }
