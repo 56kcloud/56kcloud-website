@@ -57,7 +57,7 @@ export interface CardsCardWithIcon extends Schema.Component {
 export interface CardsContentAlternatePositionWithImageItem extends Schema.Component {
   collectionName: 'components_content_alternate_pos_w_image_items'
   info: {
-    displayName: 'Content-alternate-position-with-image-item'
+    displayName: 'content-alternate-position-with-image-item'
     description: ''
   }
   attributes: {
@@ -90,29 +90,14 @@ export interface ContentSectionContentAlternatePositionImageLeft extends Schema.
   }
 }
 
-export interface ContentSectionContentAlternatePositionImageRight extends Schema.Component {
-  collectionName: 'content_alternate_position_image_right'
-  info: {
-    displayName: 'content-alternate-position-image-right'
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    description: Attribute.Text & Attribute.Required
-    image: Attribute.Media & Attribute.Required
-  }
-}
-
 export interface ContentSectionContentAlternatePositionWithImageList extends Schema.Component {
   collectionName: 'components_content_alternate_pos_w_image_lists'
   info: {
-    displayName: 'Content-alternate-position-with-image-list'
+    displayName: 'content-alternate-position-with-image-list'
+    description: ''
   }
   attributes: {
-    ContentAlternatePositionWithImageItem: Attribute.Component<
-      'cards.content-alternate-position-with-image-item',
-      true
-    > &
-      Attribute.Required
+    items: Attribute.Component<'cards.content-alternate-position-with-image-item', true> & Attribute.Required
   }
 }
 
@@ -727,7 +712,6 @@ declare module '@strapi/types' {
       'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem
       'contact-sections.contact-split-with-pattern': ContactSectionsContactSplitWithPattern
       'content-section.content-alternate-position-image-left': ContentSectionContentAlternatePositionImageLeft
-      'content-section.content-alternate-position-image-right': ContentSectionContentAlternatePositionImageRight
       'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
       'content-section.content-markdown': ContentSectionContentMarkdown
       'content-section.content-two-column': ContentSectionContentTwoColumn

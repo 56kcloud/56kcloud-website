@@ -786,7 +786,8 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
         'contact-sections.contact-split-with-pattern',
         'content-section.introduction-with-logo',
         'service-sections.service-alternate-position-icon',
-        'solution-sections.solution-one-column'
+        'solution-sections.solution-one-column',
+        'content-section.content-alternate-position-with-image-list'
       ]
     > &
       Attribute.Required &
