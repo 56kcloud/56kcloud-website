@@ -91,12 +91,11 @@ const cleanUnnecessaryProps = (contentType) => {
 
 async function queryByLocale(uid: string, query: Record<string, string>, where?: Record<string, string>) {
   const populate = createPopulateArray()
-  if (query.locale) {
-    where = {
-      ...where,
-      locale: query.locale
-    }
+  where = {
+    ...where,
+    locale: query.locale || defaultLocale
   }
+
   let contentType = await strapi.db.query(uid).findOne({
     populate,
     where
@@ -130,8 +129,9 @@ export async function findOne(props: FindOneProps) {
     if (!props.ctx.query.seoOnly) {
       props.contentTypeHandler && props.contentTypeHandler(contentType)
       await bodyHandler(contentType, props.ctx.query.locale)
+    } else {
+      await seoHandler(contentType, props.uid)
     }
-    await seoHandler(contentType, props.uid)
     cleanUnnecessaryProps(contentType)
     return contentType
   } catch (e) {
