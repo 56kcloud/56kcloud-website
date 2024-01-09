@@ -93,7 +93,6 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
   }
 
   async function onSubmit(data: contactUsFormData) {
-    console.log(data)
     try {
       await sendEmail(createHsformsPayload(data))
       Router.push('#contact-section')
@@ -151,7 +150,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
               />
             )}
             {showThanksMessage ? (
-              <div className='flex flex-col items-center justify-center'>
+              <div className='flex flex-col items-center justify-center h-full'>
                 <CheckCircleIcon className='mx-auto text-white w-14 h-14' />
                 <h3 className='mt-2 text-sm font-semibold text-white'>{props.dictionary.messageSent}</h3>
                 <p className='max-w-xs text-sm text-center text-gray-300'>{props.dictionary.messageSentThanks}</p>

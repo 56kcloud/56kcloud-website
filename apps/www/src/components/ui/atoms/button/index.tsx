@@ -1,5 +1,6 @@
 import {ButtonProps, ButtonPropsImpl} from './button.model'
 import {Fragment, JSXElementConstructor, forwardRef, isValidElement} from 'react'
+import {PropsWithChildren} from 'react'
 import {Slot} from '@radix-ui/react-slot'
 import {cn} from '@/utils/toolbox'
 import Spinner from '@/components/ui/svgs/icons/spinner'
@@ -16,7 +17,7 @@ function Button(props: ButtonPropsImpl, ref: React.ForwardedRef<HTMLButtonElemen
 
   if (isValidElement(buttonPropsChildren) && buttonProps.asChild) {
     ChildType = buttonPropsChildren.type
-    childProps = buttonPropsChildren.props
+    childProps = buttonPropsChildren.props as PropsWithChildren<unknown>
     children = childProps.children
   }
 
