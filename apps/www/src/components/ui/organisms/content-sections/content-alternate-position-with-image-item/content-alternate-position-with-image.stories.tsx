@@ -8,6 +8,11 @@ const meta = {
   title: 'components/Organisms/ContentSections/ContentAlternatePositionWithImageItem',
   component: ContentAlternatePositionWithImageItem,
   tags: ['autodocs'],
+  argTypes: {
+    imagePosition: {
+      options: ['left', 'right']
+    }
+  },
   args: {
     title: faker.lorem.sentence(),
     description: faker.lorem.sentence(),
