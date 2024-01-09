@@ -60,13 +60,13 @@ export default function Header({dictionary}: HeaderProps) {
         <div className='hidden lg:flex lg:justify-between lg:gap-x-16'>
           <div className='flex items-center gap-x-8'>
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.text}
                 href={item.link}
                 className='px-2 py-1 text-base font-normal leading-6 text-white'
               >
                 {item.text}
-              </a>
+              </Link>
             ))}
           </div>
           <LanguageSwitcher mobileMenuOpen={mobileMenuOpen} />
