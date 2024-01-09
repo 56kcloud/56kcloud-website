@@ -6,8 +6,8 @@ import Link from 'next/link'
 
 export default function ContentAlternatePositionWithImageItem(props: ContentAlternatePositionWithImage) {
   return (
-    <div className='flex flex-col items-center lg:flex-row gap-y-10 lg:gap-x-16'>
-      <div className={cn(props.imagePosition === 'left' ? 'order-1' : 'order-2', 'w-full lg:w-1/3 h-72')}>
+    <div className='flex flex-col items-center lg:flex-row lg:gap-x-16 space-y-10 lg:space-y-0'>
+      <div className={cn(props.imagePosition === 'left' ? '' : 'lg:order-last', 'w-full lg:w-1/3 h-72')}>
         <Image
           className='object-cover w-full h-full rounded-xl'
           src={props.image.url}
@@ -25,7 +25,7 @@ export default function ContentAlternatePositionWithImageItem(props: ContentAlte
           shape='circle'
           className='px-5 mt-4 text-md bg-sky-300 text-slate-900 hover:bg-violet-300'
         >
-          {/* <Link href={props.slug}>Learn more</Link> */}
+          <Link href={props.link}>Learn more</Link>
         </Button>
       </div>
     </div>

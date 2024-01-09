@@ -8,11 +8,12 @@ export type ContentAlternatePositionWithImageListProps = {
 export default function ContentAlternatePositionWithImageList(props: ContentAlternatePositionWithImageListProps) {
   return (
     <div className='py-20 lg:py-[104px]'>
-      <div className='relative px-6 mx-auto max-w-7xl lg:px-8'>
+      <div className='relative px-6 mx-auto max-w-7xl lg:px-8 space-y-20 lg:space-y-28'>
         {props.items.map((item, index) => (
           <ContentAlternatePositionWithImageItem
             key={index}
             {...item}
+            imagePosition={index % 2 === 0 ? 'left' : 'right'}
           />
         ))}
       </div>
