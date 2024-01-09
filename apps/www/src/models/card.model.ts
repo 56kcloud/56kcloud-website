@@ -10,4 +10,4 @@ export type Card = z.infer<typeof cardSchema>
 export const cardWithIconSchema = cardSchema.extend({
   icon: iconSchema
 })
-export type CardWithIcon = z.infer<typeof cardWithIconSchema>
+export type CardWithIconProps = z.infer<typeof cardWithIconSchema>

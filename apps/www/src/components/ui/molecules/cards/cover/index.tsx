@@ -1,12 +1,12 @@
 'use client'
 
 import {ImageProps} from '@/models/image.model'
-import {Logo} from '@/components/ui/svgs/logos/56k'
 import {cn} from '@/utils/toolbox'
 import {useEffect, useRef, useState} from 'react'
 import Image from 'next/image'
+import Logo from '@/components/ui/svgs/logos/56k'
 
-type CardCoverProps = {
+export type CardCoverProps = {
   image: ImageProps
   className?: string
   fixedHeight?: boolean

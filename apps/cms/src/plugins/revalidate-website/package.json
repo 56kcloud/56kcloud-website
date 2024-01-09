@@ -16,21 +16,20 @@
     "develop": "tsc -p tsconfig.server.json -w"
   },
   "dependencies": {
-    "@strapi/design-system": "^1.6.3",
-    "@strapi/helper-plugin": "^4.6.0",
-    "@strapi/icons": "^1.6.3",
-    "prop-types": "^15.7.2"
+    "@strapi/design-system": "^1.13.1",
+    "@strapi/helper-plugin": "^4.16.2",
+    "@strapi/icons": "^1.13.0",
+    "prop-types": "^15.8.1"
   },
   "devDependencies": {
-    "@strapi/typescript-utils": "^4.6.0",
+    "@strapi/typescript-utils": "^4.16.2",
     "@types/react": "x",
     "@types/react-dom": "x",
     "@types/react-router-dom": "^5.3.3",
-    "@types/styled-components": "^5.1.26",
+    "@types/styled-components": "^5.1.34",
     "react": "x",
     "react-dom": "x",
     "react-router-dom": "^x",
-    "styled-components": "^5.3.6",
     "typescript": "x"
   },
   "peerDependencies": {

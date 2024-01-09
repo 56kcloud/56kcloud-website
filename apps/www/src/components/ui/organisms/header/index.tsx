@@ -4,15 +4,15 @@ import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import {Dialog} from '@headlessui/react'
 import {Dictionary} from '@/models/dictionary.model'
 import {LinkProps} from '@/models/link.model'
-import {Logo} from '../../svgs/logos/56k'
 import {cn} from '@/utils/toolbox'
 import {usePathname} from 'next/navigation'
 import {useState} from 'react'
 import Button from '../../atoms/button'
 import LanguageSwitcher from '../../molecules/language-switcher'
 import Link from 'next/link'
+import Logo from '../../svgs/logos/56k'
 
-type HeaderProps = {
+export type HeaderProps = {
   dictionary: Dictionary
 }
 

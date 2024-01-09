@@ -1,11 +1,11 @@
 import {ImageProps} from '@/models/image.model'
-import {MarkdownViewer} from '../../mardown'
 import {Tag} from '@/models/tag.model'
 import {TeamMember} from '@/models/team-member.model'
 import {formatDate} from '@/utils/toolbox'
 import ArticleCover from '../cover'
 import Avatar from '@/components/ui/atoms/avatar'
-import PostTagList from '../../cards/article/tag-list'
+import MarkdownViewer from '../../markdown'
+import PostTagList from '../../tag-list'
 import React, {Suspense} from 'react'
 
 export type ArticleContentSectionProps = {

@@ -587,6 +587,7 @@ import {
   XMarkIcon as XMarkIconSolid
 } from '@heroicons/react/24/solid'
 import {IconType} from '@/models/icon.model'
+import color from 'tailwindcss/colors'
 
 export type IconProps = IconType & React.ComponentPropsWithoutRef<'svg'>
 
@@ -1176,7 +1177,6 @@ const icons = {
   XCircleIconSolid,
   XMarkIconSolid
 }
-import color from 'tailwindcss/colors'
 
 export default function Icon({name, type, ...props}: IconProps) {
   const Comp = icons[`${name}${type === 'solid' ? 'Solid' : 'Outline'}` as keyof typeof icons]

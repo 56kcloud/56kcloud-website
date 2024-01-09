@@ -3,11 +3,11 @@ import {Suspense} from 'react'
 import {cn, formatDate} from '@/utils/toolbox'
 import {motion} from 'framer-motion'
 import ArticleCover from '../cover'
-import ArticleTagList from './tag-list'
 import Avatar from '@/components/ui/atoms/avatar'
 import Link from 'next/link'
+import TagList from '../../tag-list'
 
-type ArticleCardProps = {
+export type ArticleCardProps = {
   article: Article
   className?: string
   fixedHeight?: boolean
@@ -36,7 +36,7 @@ export default function ArticleCard({article, fixedHeight}: ArticleCardProps) {
             <span className='text-sm font-light text-slate-400'>{publishedOn}</span>
             <div className='flex flex-1 h-10 overflow-x-auto'>
               <Suspense>
-                <ArticleTagList tags={article.tags} />
+                <TagList tags={article.tags} />
               </Suspense>
             </div>
           </div>

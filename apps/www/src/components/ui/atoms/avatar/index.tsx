@@ -2,8 +2,10 @@ import {ImageProps} from '@/models/image.model'
 import {cn} from '@/utils/toolbox'
 import Image from 'next/image'
 
+export const avatarSizes = ['sm', 'md', 'lg', 'xl'] as const
+
 export type AvatarProps = {
-  size: 'sm' | 'md' | 'lg' | 'xl'
+  size: (typeof avatarSizes)[number]
   image: ImageProps
 }
 

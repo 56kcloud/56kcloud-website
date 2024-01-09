@@ -1,6 +1,6 @@
 import colors from 'tailwindcss/colors'
 
-module.exports = {
+export default {
   content: ['./src/**/*.{js,ts,jsx,tsx}', './node_modules/notion-to-tailwind/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {

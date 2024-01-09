@@ -1,13 +1,13 @@
 import {Service} from '@/models/service.model'
 import FeatureThreeColumnWithLargeIcons from '@/components/ui/organisms/feature-sections/feature-three-column-with-large-icons'
 
-export type ServiceThreeColumnWithLargeIcons = {
+export type ServiceThreeColumnWithLargeIconsProps = {
   title: string
   subtitle: string
   services: Array<Service>
 }
 
-export default function ServiceThreeColumnWithLargeIcons(props: ServiceThreeColumnWithLargeIcons) {
+export default function ServiceThreeColumnWithLargeIcons(props: ServiceThreeColumnWithLargeIconsProps) {
   const features = props.services.map((service) => {
     return {
       icon: service.icon,

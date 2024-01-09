@@ -1,8 +1,11 @@
+import {ReactNode} from 'react'
 import {cn} from '@/utils/toolbox'
 
+export const badgeColors = ['default', 'red', 'green', 'blue', 'yellow', 'brown', 'orange', 'purple', 'pink'] as const
+
 export type BadgeProps = {
-  children: string
-  color?: 'default' | 'red' | 'green' | 'blue' | 'yellow' | 'brown' | 'orange' | 'purple' | 'pink'
+  children: ReactNode
+  color?: (typeof badgeColors)[number]
   className?: string
 }
 

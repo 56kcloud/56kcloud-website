@@ -1,6 +1,10 @@
 import {cn} from '@/utils/toolbox'
 
-export function Spinner({className = 'w-5 h-5'}: {className?: string}) {
+export type SpinnerProps = {
+  className?: string
+}
+
+export default function Spinner({className = 'w-5 h-5'}: SpinnerProps) {
   return (
     <div
       aria-label='Loading...'

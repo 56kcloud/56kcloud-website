@@ -9,7 +9,7 @@ export type DynamicImageProps = Partial<ImageProps> & {
   maxHeight?: number
 }
 
-export function DynamicImage(props: DynamicImageProps) {
+export default function DynamicImage(props: DynamicImageProps) {
   const [dimensions, setDimensions] = React.useState({width: 0, height: 0})
 
   useEffect(() => {

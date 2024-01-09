@@ -24,7 +24,7 @@ import ServiceThreeColumnWithLargeIcons from '@/components/ui/organisms/service-
 import SolutionOneColumn from '@/components/ui/organisms/solution-sections/solution-one-column'
 import SolutionThreeColumnWithLargeIcons from '@/components/ui/organisms/solution-sections/solution-three-column-with-large-icons'
 import TagFilter from '@/components/ui/molecules/tag-filter'
-import TeamMemberCard from '@/components/ui/molecules/team-member'
+import TeamMemberCard from '@/components/ui/molecules/cards/team-member'
 import TeamThreeColumn from '@/components/ui/organisms/team-sections/team-three-column'
 import ValueTwoColumn from '@/components/ui/organisms/value-sections/value-two-column'
 

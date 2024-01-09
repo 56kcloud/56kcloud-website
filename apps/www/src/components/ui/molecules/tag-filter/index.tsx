@@ -4,7 +4,7 @@ import {ChevronLeftIcon, ChevronRightIcon} from 'lucide-react'
 import {Tag} from '@/models/tag.model'
 import {toQueryParam} from '@/utils/toolbox'
 import {useEffect, useRef} from 'react'
-import {useRouter} from 'next/router'
+import {useSearchParams} from 'next/navigation'
 import Link from 'next/link'
 
 export type TagFilterProps = {
@@ -12,7 +12,8 @@ export type TagFilterProps = {
 }
 
 export default function TagFilter({tags}: TagFilterProps) {
-  const router = useRouter()
+  const searchParams = useSearchParams()
+  const queryTag = searchParams.get('tag')
   const slider = useRef<HTMLDivElement>(null)
   const tagsList = [{name: 'all'}, ...tags]
 
@@ -22,14 +23,14 @@ export default function TagFilter({tags}: TagFilterProps) {
   }
 
   useEffect(() => {
-    if (router.query.tag) {
-      const element = document.getElementById(router.query.tag.toString())
+    if (queryTag) {
+      const element = document.getElementById(queryTag.toString())
       if (element) {
         const scroll = element.offsetLeft - (element.offsetWidth + element.offsetWidth / 2)
         slider.current?.scrollTo({left: scroll, behavior: 'smooth'})
       }
     }
-  }, [router.query.tag])
+  }, [queryTag])
 
   return (
     <div className='flex items-center justify-center w-full'>
@@ -38,7 +39,7 @@ export default function TagFilter({tags}: TagFilterProps) {
           <button
             onClick={() => slide('left')}
             aria-label='left'
-            className='h-full px-3 text-primary-500/50 hover:text-primary-500'
+            className='h-full px-3 text-white'
           >
             <ChevronLeftIcon className='w-5 h-5' />
           </button>
@@ -55,10 +56,9 @@ export default function TagFilter({tags}: TagFilterProps) {
               key={idx}
               id={toQueryParam(tag.name)}
               href={`/blog${idx > 0 ? `?tag=${toQueryParam(tag.name)}` : ''}`}
-              data-active={router.query.tag ? router.query.tag === toQueryParam(tag.name) : idx === 0}
+              data-active={queryTag ? queryTag === toQueryParam(tag.name) : idx === 0}
               className='capitalize rounded-none whitespace-nowrap border-b border-transparent / 
-              py-2 px-3 font-normal text-primary-500/50 hover:text-primary-500
-              data-[active=true]:border-primary-500 data-[active=true]:text-primary-500'
+              py-2 px-3 font-normal text-white'
             >
               {tag.name.replace(/-/g, ' ')}
             </Link>
@@ -69,7 +69,7 @@ export default function TagFilter({tags}: TagFilterProps) {
           <button
             onClick={() => slide('right')}
             aria-label='right'
-            className='h-full px-3 text-primary-500/50 hover:text-primary-500'
+            className='h-full px-3 text-white'
           >
             <ChevronRightIcon className='w-5 h-5' />
           </button>
