@@ -91,9 +91,11 @@ const cleanUnnecessaryProps = (contentType) => {
 
 async function queryByLocale(uid: string, query: Record<string, string>, where?: Record<string, string>) {
   const populate = createPopulateArray()
-  where = {
-    ...where,
-    locale: query.locale || defaultLocale
+  if (query.locale) {
+    where = {
+      ...where,
+      locale: query.locale
+    }
   }
 
   let contentType = await strapi.db.query(uid).findOne({
