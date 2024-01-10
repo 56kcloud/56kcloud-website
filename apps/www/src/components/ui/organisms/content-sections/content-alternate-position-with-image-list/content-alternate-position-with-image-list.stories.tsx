@@ -1,5 +1,4 @@
-import {faker} from '@faker-js/faker'
-import {imageFactory} from '@/tests/factories/image.factory'
+import {contentAlternatePositionWithImageItemFactory} from '@/tests/factories/content-alternate-position-with-image-item.factory'
 import ContentAlternatePositionWithImageList, {ContentAlternatePositionWithImageListProps} from './index'
 import type {Meta} from '@storybook/react'
 
@@ -8,13 +7,7 @@ const meta = {
   component: ContentAlternatePositionWithImageList,
   tags: ['autodocs'],
   args: {
-    items: Array.from({length: 3}, () => ({
-      title: faker.lorem.sentence(),
-      description: faker.lorem.sentence(),
-      link: faker.internet.url(),
-      image: imageFactory(),
-      imagePosition: 'left'
-    }))
+    items: Array.from({length: 3}, () => contentAlternatePositionWithImageItemFactory())
   }
 } satisfies Meta<typeof ContentAlternatePositionWithImageList>
 

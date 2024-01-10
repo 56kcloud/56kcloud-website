@@ -13,7 +13,7 @@ export default function ContentAlternatePositionWithImageList(props: ContentAlte
           <ContentAlternatePositionWithImageItem
             key={index}
             {...item}
-            imagePosition={index % 2 === 0 ? 'left' : 'right'}
+            imagePosition={item.imagePosition || index % 2 === 0 ? 'left' : 'right'}
           />
         ))}
       </div>

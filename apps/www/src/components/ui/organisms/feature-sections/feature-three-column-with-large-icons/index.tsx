@@ -39,12 +39,10 @@ export default function FeatureThreeColumnWithLargeIcons({
                 <a href={feature.link}>
                   <dt className='text-lg font-normal text-white'>
                     <div className='flex items-center justify-center w-8 h-8 mb-6 rounded-lg'>
-                      {feature.icon && (
-                        <Icon
-                          {...feature.icon}
-                          className='w-auto h-8 fill-sky-300'
-                        />
-                      )}
+                      <Icon
+                        {...feature.icon}
+                        className='w-auto h-8 fill-sky-300'
+                      />
                     </div>
                     {feature.title}
                   </dt>

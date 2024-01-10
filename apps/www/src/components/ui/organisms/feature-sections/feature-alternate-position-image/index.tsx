@@ -28,15 +28,13 @@ export default function FeatureAlternatePositionImage(props: FeatureAlternatePos
                 )}
               >
                 <div className='w-1/2 sm:w-1/3'>
-                  {feature.image && (
-                    <Image
-                      className='object-cover aspect-1 rounded-xl'
-                      src={feature.image.url}
-                      width={feature.image.width}
-                      height={feature.image.height}
-                      alt={feature.image.alternateText || feature.image.name}
-                    ></Image>
-                  )}
+                  <Image
+                    className='object-cover aspect-1 rounded-xl'
+                    src={feature.image.url}
+                    width={feature.image.width}
+                    height={feature.image.height}
+                    alt={feature.image.alternateText || feature.image.name}
+                  ></Image>
                 </div>
                 <div className='flex flex-col gap-y-2 w-full'>
                   <dt className='text-2xl font-medium text-white sm:text-3xl'>{feature.title}</dt>

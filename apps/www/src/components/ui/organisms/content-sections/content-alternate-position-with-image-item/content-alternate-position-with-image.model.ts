@@ -6,7 +6,7 @@ export const contentAlternatePositionWithImageSchema = z.object({
   image: imageSchema,
   title: z.string(),
   description: z.string(),
-  imagePosition: z.enum(['left', 'right'])
+  imagePosition: z.enum(['left', 'right']).optional()
 })
 
 export type ContentAlternatePositionWithImage = z.infer<typeof contentAlternatePositionWithImageSchema>
