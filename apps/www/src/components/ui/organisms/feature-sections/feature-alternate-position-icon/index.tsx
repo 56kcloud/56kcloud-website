@@ -28,11 +28,13 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
                 )}
               >
                 <div>
-                  <Icon
-                    {...feature.icon}
-                    className='w-auto mb-4 sm:mb-6 h-14 sm:h-24 lg:h-52 lg:mb-0'
-                    strokeWidth={0.75}
-                  ></Icon>
+                  {feature.icon && (
+                    <Icon
+                      {...feature.icon}
+                      className='w-auto mb-4 sm:mb-6 h-14 sm:h-24 lg:h-52 lg:mb-0'
+                      strokeWidth={0.75}
+                    ></Icon>
+                  )}
                 </div>
                 <div className='flex flex-col gap-y-2'>
                   <dt className='text-2xl font-medium text-white sm:text-3xl'>{feature.title}</dt>
