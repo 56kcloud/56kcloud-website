@@ -1130,8 +1130,7 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
         'solution-sections.solution-three-column-with-large-icons',
         'content-section.content-markdown',
         'contact-sections.contact-split-with-pattern',
-        'solution-sections.solution-one-column',
-        'solution-sections.solution-alternate-position-image'
+        'solution-sections.solution-one-column'
       ]
     > &
       Attribute.SetPluginOptions<{

@@ -6,7 +6,7 @@ export type FeatureThreeColumnWithLargeIconsProps = {
   title: string
   subtitle: string
   titleAlignment?: 'left' | 'center'
-  features: Array<Feature>
+  features: Array<Feature<'icon'>>
 }
 
 export default function FeatureThreeColumnWithLargeIcons({

@@ -1,3 +1,4 @@
+import {Feature} from '@/models/feature.model'
 import {faker} from '@faker-js/faker'
 import {featureFactory} from '@/tests/factories/feature.factory'
 import FeatureAlternatePositionIcon, {FeatureAlternatePositionIconProps} from './index'
@@ -10,7 +11,7 @@ const meta = {
   args: {
     title: faker.lorem.sentence(),
     subtitle: faker.lorem.sentence(),
-    features: Array.from({length: 3}, () => featureFactory({type: 'outline'}))
+    features: Array.from({length: 3}, () => featureFactory({type: 'icon'}) as Feature<'icon'>)
   }
 } satisfies Meta<typeof FeatureAlternatePositionIcon>
 

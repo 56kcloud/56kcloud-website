@@ -612,20 +612,6 @@ export interface ServiceSectionsServiceThreeColumnWithLargeIcons extends Schema.
   }
 }
 
-export interface SolutionSectionsSolutionAlternatePositionImage extends Schema.Component {
-  collectionName: 'solution_alternate_position_image'
-  info: {
-    displayName: 'solution-alternate-position-image'
-  }
-  attributes: {
-    solutions: Attribute.Relation<
-      'solution-sections.solution-alternate-position-image',
-      'oneToMany',
-      'api::solution.solution'
-    >
-  }
-}
-
 export interface SolutionSectionsSolutionOneColumn extends Schema.Component {
   collectionName: 'solution_one_column'
   info: {
@@ -719,7 +705,6 @@ declare module '@strapi/types' {
       'seo.seo': SeoSeo
       'service-sections.service-alternate-position-icon': ServiceSectionsServiceAlternatePositionIcon
       'service-sections.service-three-column-with-large-icons': ServiceSectionsServiceThreeColumnWithLargeIcons
-      'solution-sections.solution-alternate-position-image': SolutionSectionsSolutionAlternatePositionImage
       'solution-sections.solution-one-column': SolutionSectionsSolutionOneColumn
       'solution-sections.solution-three-column-with-large-icons': SolutionSectionsSolutionThreeColumnWithLargeIcons
       'team-sections.team-three-column': TeamSectionsTeamThreeColumn

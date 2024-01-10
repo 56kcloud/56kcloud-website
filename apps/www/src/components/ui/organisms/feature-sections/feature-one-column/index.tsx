@@ -8,7 +8,7 @@ import Link from 'next/link'
 export type FeatureOneColumnProps = {
   title: string
   subtitle: string
-  features: Array<Feature>
+  features: Array<Feature<'icon'>>
 }
 
 const FeatureOneColumn = (props: FeatureOneColumnProps) => {

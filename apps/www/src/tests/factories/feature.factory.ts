@@ -1,7 +1,7 @@
-import {Feature} from '@/models/feature.model'
+import {Feature, FeatureBase} from '@/models/feature.model'
 import {faker} from '@faker-js/faker'
 import {iconFactory} from './icon.factory'
-import {iconNames, iconTypes} from '@/models/icon.model'
+import {iconTypes} from '@/models/icon.model'
 import {imageFactory} from './image.factory'
 
 export type FeatureFactoryProps = {
@@ -9,13 +9,22 @@ export type FeatureFactoryProps = {
   iconType?: (typeof iconTypes)[number]
 }
 
-export function featureFactory(props: FeatureFactoryProps): Feature {
-  return {
+export function featureFactory<T extends 'icon' | 'image'>(props: FeatureFactoryProps): Feature<T> {
+  const base: FeatureBase = {
     title: faker.lorem.sentence(),
     description: faker.lorem.sentence(),
-    type: props.type,
-    icon: iconFactory(),
-    image: imageFactory(),
     link: faker.internet.url()
+  }
+
+  if (props.type === 'icon') {
+    return {
+      ...base,
+      icon: iconFactory({type: props.iconType ?? iconTypes[0]})
+    } as Feature<'icon'>
+  } else {
+    return {
+      ...base,
+      image: imageFactory()
+    } as Feature<'image'>
   }
 }

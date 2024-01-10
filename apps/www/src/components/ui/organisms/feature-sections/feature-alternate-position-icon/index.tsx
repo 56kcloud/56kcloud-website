@@ -8,7 +8,7 @@ import Link from 'next/link'
 export type FeatureAlternatePositionIconProps = {
   title: string
   subtitle: string
-  features: Array<Feature>
+  features: Array<Feature<'icon'>>
 }
 
 export default function FeatureAlternatePositionIcon(props: FeatureAlternatePositionIconProps) {

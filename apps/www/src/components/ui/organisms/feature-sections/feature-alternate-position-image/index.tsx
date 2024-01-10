@@ -8,7 +8,7 @@ import Link from 'next/link'
 export type FeatureAlternatePositionImageProps = {
   title: string
   subtitle: string
-  features: Array<Feature>
+  features: Array<Feature<'image'>>
 }
 
 export default function FeatureAlternatePositionImage(props: FeatureAlternatePositionImageProps) {
