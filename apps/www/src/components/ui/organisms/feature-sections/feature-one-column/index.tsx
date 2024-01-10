@@ -32,10 +32,12 @@ const FeatureOneColumn = (props: FeatureOneColumnProps) => {
               >
                 <dt className='flex flex-row items-center text-lg font-normal text-white gap-x-4'>
                   <div className='flex items-center justify-center w-8 h-8 rounded-lg'>
-                    <Icon
-                      {...feature.icon}
-                      className='w-auto h-16'
-                    />
+                    {feature.icon && (
+                      <Icon
+                        {...feature.icon}
+                        className='w-auto h-16'
+                      />
+                    )}
                   </div>
                   {feature.title}
                 </dt>
