@@ -1,4 +1,3 @@
-import {Feature} from '@/models/feature.model'
 import {faker} from '@faker-js/faker'
 import {featureFactory} from '@/tests/factories/feature.factory'
 import FeatureAlternatePositionImage, {FeatureAlternatePositionImageProps} from './index'
@@ -11,7 +10,7 @@ const meta = {
   args: {
     title: faker.lorem.sentence(),
     subtitle: faker.lorem.sentence(),
-    features: Array.from({length: 3}, () => featureFactory({type: 'image'}) as Feature<'image'>)
+    features: Array.from({length: 3}, () => featureFactory<'image'>({imageProps: {category: 'logo'}}))
   }
 } satisfies Meta<typeof FeatureAlternatePositionImage>
 

@@ -1,4 +1,3 @@
-import {Feature} from '@/models/feature.model'
 import {faker} from '@faker-js/faker'
 import {featureFactory} from '@/tests/factories/feature.factory'
 import FeatureThreeColumnWithLargeIcons, {FeatureThreeColumnWithLargeIconsProps} from './index'
@@ -17,7 +16,7 @@ const meta = {
   args: {
     title: faker.lorem.sentence(),
     subtitle: faker.lorem.sentence(),
-    features: Array.from({length: 3}, () => featureFactory({type: 'icon'}) as Feature<'icon'>),
+    features: Array.from({length: 3}, () => featureFactory<'icon'>({iconType: 'outline'})),
     titleAlignment: 'left'
   }
 } satisfies Meta<typeof FeatureThreeColumnWithLargeIcons>
