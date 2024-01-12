@@ -1,7 +1,7 @@
 import {ImageProps} from '@/models/image.model'
 import {faker} from '@faker-js/faker'
 
-type ImageFactoryProps = {
+export type ImageFactoryProps = {
   width?: number
   height?: number
   category?: string

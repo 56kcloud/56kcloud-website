@@ -10,7 +10,7 @@ const meta = {
   args: {
     title: faker.lorem.sentence(),
     subtitle: faker.lorem.sentence(),
-    features: Array.from({length: 3}, () => featureFactory({type: 'outline'}))
+    features: Array.from({length: 3}, () => featureFactory<'icon'>({iconType: 'outline'}))
   }
 } satisfies Meta<typeof FeatureOneColumn>
 

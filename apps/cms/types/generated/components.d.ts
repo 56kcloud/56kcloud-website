@@ -54,6 +54,20 @@ export interface CardsCardWithIcon extends Schema.Component {
   }
 }
 
+export interface CardsContentAlternatePositionWithImageItem extends Schema.Component {
+  collectionName: 'components_content_alternate_pos_w_image_items'
+  info: {
+    displayName: 'content-alternate-position-with-image-item'
+    description: ''
+  }
+  attributes: {
+    image: Attribute.Media & Attribute.Required
+    title: Attribute.String & Attribute.Required
+    description: Attribute.Text & Attribute.Required
+    link: Attribute.String & Attribute.Required
+  }
+}
+
 export interface ContactSectionsContactSplitWithPattern extends Schema.Component {
   collectionName: 'contact_split_with_patterns'
   info: {
@@ -62,6 +76,17 @@ export interface ContactSectionsContactSplitWithPattern extends Schema.Component
   attributes: {
     title: Attribute.String & Attribute.Required
     subtitle: Attribute.String & Attribute.Required
+  }
+}
+
+export interface ContentSectionContentAlternatePositionWithImageList extends Schema.Component {
+  collectionName: 'components_content_alternate_pos_w_image_lists'
+  info: {
+    displayName: 'content-alternate-position-with-image-list'
+    description: ''
+  }
+  attributes: {
+    items: Attribute.Component<'cards.content-alternate-position-with-image-item', true> & Attribute.Required
   }
 }
 
@@ -659,7 +684,9 @@ declare module '@strapi/types' {
       'blog-sections.blog-masonry': BlogSectionsBlogMasonry
       'blog-sections.blog-three-column': BlogSectionsBlogThreeColumn
       'cards.card-with-icon': CardsCardWithIcon
+      'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem
       'contact-sections.contact-split-with-pattern': ContactSectionsContactSplitWithPattern
+      'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
       'content-section.content-markdown': ContentSectionContentMarkdown
       'content-section.content-two-column': ContentSectionContentTwoColumn
       'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo

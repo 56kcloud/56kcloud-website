@@ -1034,7 +1034,8 @@ export interface ApiServiceService extends Schema.CollectionType {
         'content-section.content-markdown',
         'contact-sections.contact-split-with-pattern',
         'service-sections.service-alternate-position-icon',
-        'diagram-sections.diagram-full-width'
+        'diagram-sections.diagram-full-width',
+        'content-section.content-alternate-position-with-image-list'
       ]
     > &
       Attribute.SetPluginOptions<{
