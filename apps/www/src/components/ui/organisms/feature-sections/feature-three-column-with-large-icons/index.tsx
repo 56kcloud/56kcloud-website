@@ -30,14 +30,14 @@ export default function FeatureThreeColumnWithLargeIcons({
           </div>
         </div>
         <div className='mt-11'>
-          <dl className='grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-3'>
+          <div className='grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-3'>
             {features?.map((feature, index) => (
               <div
                 key={index}
                 className='flex flex-col p-6 border border-slate-800 rounded-xl'
               >
                 <a href={feature.link}>
-                  <dt className='text-lg font-normal text-white'>
+                  <div className='text-lg font-normal text-white'>
                     <div className='flex items-center justify-center w-8 h-8 mb-6 rounded-lg'>
                       <Icon
                         {...feature.icon}
@@ -45,14 +45,14 @@ export default function FeatureThreeColumnWithLargeIcons({
                       />
                     </div>
                     {feature.title}
-                  </dt>
-                  <dd className='flex flex-col flex-auto mt-1 text-base font-light leading-[26px] text-slate-400'>
+                  </div>
+                  <div className='flex flex-col flex-auto mt-1 text-base font-light leading-[26px] text-slate-400'>
                     <p className='flex-auto'>{feature.description}</p>
-                  </dd>
+                  </div>
                 </a>
               </div>
             ))}
-          </dl>
+          </div>
         </div>
       </div>
     </div>

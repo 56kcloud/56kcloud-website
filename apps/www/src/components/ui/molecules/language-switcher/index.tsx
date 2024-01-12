@@ -53,6 +53,7 @@ export default function LanguageSwitcher({mobileMenuOpen}: LanguageSwitcherProps
       onValueChange={updateLanguage}
     >
       <SelectTrigger
+        aria-label='Language Switcher'
         className={
           'uppercase w-[72px] border-0 bg-slate-900 text-white font-normal focus:ring-2 focus:ring-inset \
       focus:ring-primary-500 sm:text-base sm:leading-6 px-3 py-1'

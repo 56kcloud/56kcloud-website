@@ -15,7 +15,7 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
   return (
     <div className='pb-20 pt-12 lg:pb-[104px] lg:pt-[120px]'>
       <div className='relative px-6 mx-auto max-w-7xl lg:px-8'>
-        <dl className='grid grid-cols-1 gap-x-6 gap-y-14 lg:gap-y-36'>
+        <div className='grid grid-cols-1 gap-x-6 gap-y-14 lg:gap-y-36'>
           {props.features?.map((feature, index) => (
             <div
               key={index}
@@ -35,10 +35,10 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
                   ></Icon>
                 </div>
                 <div className='flex flex-col gap-y-2'>
-                  <dt className='text-2xl font-medium text-white sm:text-3xl'>{feature.title}</dt>
-                  <dd className='text-[18px] leading-8 text-slate-400 font-light'>
+                  <div className='text-2xl font-medium text-white sm:text-3xl'>{feature.title}</div>
+                  <div className='text-[18px] leading-8 text-slate-400 font-light'>
                     <p>{feature.description}</p>
-                  </dd>
+                  </div>
                   <Button
                     asChild
                     size='large'
@@ -52,7 +52,7 @@ export default function FeatureAlternatePositionIcon(props: FeatureAlternatePosi
               </div>
             </div>
           ))}
-        </dl>
+        </div>
       </div>
     </div>
   )

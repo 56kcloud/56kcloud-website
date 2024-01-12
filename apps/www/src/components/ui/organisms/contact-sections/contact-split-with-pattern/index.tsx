@@ -116,7 +116,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
             <div className='max-w-full mr-auto lg:mx-0 lg:max-w-sm'>
               <h2 className='text-3xl font-medium text-white sm:text-3xl'>{props.title}</h2>
               <p className='text-[18px] leading-8 text-slate-400 font-light mt-2'>{props.subtitle}</p>
-              <dl className='mt-10 space-y-5 text-base leading-[26px] font-light text-slate-400'>
+              <div className='mt-10 space-y-5 text-base leading-[26px] font-light text-slate-400'>
                 {props.locations?.map((location) => (
                   <a
                     key={location.address}
@@ -124,21 +124,21 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                     target='_blank'
                     className='flex gap-x-4'
                   >
-                    <dt className='flex-none'>
+                    <div className='flex-none'>
                       <span className='sr-only'>Address</span>
                       <BuildingOffice2Icon
                         className='w-6 h-6 translate-y-1 text-slate-400'
                         aria-hidden='true'
                       />
-                    </dt>
-                    <dd>
+                    </div>
+                    <div>
                       {location.address}
                       <br />
                       {location.zipCode} {location.city}, {location.country}
-                    </dd>
+                    </div>
                   </a>
                 ))}
-              </dl>
+              </div>
             </div>
           </div>
           <div className='px-6 py-8 lg:pl-0 lg:pr-12 lg:py-14'>

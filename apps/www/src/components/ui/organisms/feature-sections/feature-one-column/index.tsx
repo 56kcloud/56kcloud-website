@@ -20,7 +20,7 @@ const FeatureOneColumn = (props: FeatureOneColumnProps) => {
             <h2 className='text-2xl font-medium text-white sm:text-3xl'>{props.title}</h2>
             <p className='mt-2 text-[18px] leading-8 text-slate-400 font-light'>{props.subtitle}</p>
           </div>
-          <dl className='flex flex-col w-full mt-16 lg:mt-0 lg:w-3/6'>
+          <div className='flex flex-col w-full mt-16 lg:mt-0 lg:w-3/6'>
             {props.features?.map((feature, index) => (
               <div
                 key={index}
@@ -30,7 +30,7 @@ const FeatureOneColumn = (props: FeatureOneColumnProps) => {
                   'border-b-[1px] border-slate-800 pt-7'
                 )}
               >
-                <dt className='flex flex-row items-center text-lg font-normal text-white gap-x-4'>
+                <div className='flex flex-row items-center text-lg font-normal text-white gap-x-4'>
                   <div className='flex items-center justify-center w-8 h-8 rounded-lg'>
                     <Icon
                       {...feature.icon}
@@ -38,10 +38,10 @@ const FeatureOneColumn = (props: FeatureOneColumnProps) => {
                     />
                   </div>
                   {feature.title}
-                </dt>
-                <dd className='flex flex-col flex-auto mt-1 text-base font-light leading-[26px] text-slate-400'>
+                </div>
+                <div className='flex flex-col flex-auto mt-1 text-base font-light leading-[26px] text-slate-400'>
                   <p className='flex-auto'>{feature.description}</p>
-                </dd>
+                </div>
                 <Button
                   asChild
                   size='large'
@@ -53,7 +53,7 @@ const FeatureOneColumn = (props: FeatureOneColumnProps) => {
                 </Button>
               </div>
             ))}
-          </dl>
+          </div>
         </div>
       </div>
     </div>

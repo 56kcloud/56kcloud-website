@@ -13,7 +13,7 @@ export default function ValueTwoColumn(props: ValueTwoColumnProps) {
         <h2 className='text-3xl font-bold tracking-tight text-white sm:text-4xl'>{props.title}</h2>
         <p className='mt-6 text-lg leading-8 text-gray-300'>{props.subtitle}</p>
       </div>
-      <dl
+      <div
         className='grid max-w-2xl grid-cols-1 gap-8 mx-auto mt-16 text-base leading-7 text-gray-300 sm:grid-cols-2 \
                    lg:mx-0 lg:max-w-none lg:gap-x-16'
       >
@@ -22,11 +22,11 @@ export default function ValueTwoColumn(props: ValueTwoColumnProps) {
             key={value.name}
             className='relative'
           >
-            <dt className='inline font-semibold text-white'>{value.name}</dt>{' '}
-            <dd className='inline'>{value.description}</dd>
+            <div className='inline font-semibold text-white'>{value.name}</div>{' '}
+            <div className='inline'>{value.description}</div>
           </div>
         ))}
-      </dl>
+      </div>
     </div>
   )
 }
