@@ -18,8 +18,8 @@ export default function HeroSimpleCenterWithBackground(props: HeroSimpleCenterWi
     <div className='relative overflow-hidden pt-28 isolate'>
       <div
         // eslint-disable-next-line max-len
-        className='absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_45%_80%_at_50%_0%,#000_70%,transparent_110%)]'>
-      </div>
+        className='absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_45%_80%_at_50%_0%,#000_70%,transparent_110%)]'
+      ></div>
       <div className='absolute w-full -top-12 opacity-60'>
         <Image
           src={GradientTop}
