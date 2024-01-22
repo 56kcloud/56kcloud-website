@@ -1,7 +1,9 @@
 'use client'
 
 import {ReactNode} from 'react'
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {Tweet} from 'react-twitter-widgets'
+import {atomDark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 import {cn, getTweetId, isFromTwitter} from '@/utils/toolbox'
 import Bookmark from '../bookmark'
 import DynamicImage from '../../atoms/dynamic-image'
@@ -22,7 +24,22 @@ export default function MarkdownViewer({content, className}: MarkdownViewerProps
             createElement(type, props: React.HTMLProps<HTMLDivElement>, children) {
               const element = Array.isArray(children) ? children[0] : children
               props.className = cn(props.className, element?.type === 'img' ? 'bg-white' : '')
-              if (element === 'video') {
+              if (type === 'pre') {
+                const language = (children as React.ReactElement).props.className?.replace('lang-', '')
+                return (
+                  <pre
+                    className='not-prose'
+                    key={props.key}
+                  >
+                    <SyntaxHighlighter
+                      language={language}
+                      style={atomDark}
+                    >
+                      {element.props.children}
+                    </SyntaxHighlighter>
+                  </pre>
+                )
+              } else if (element === 'video') {
                 return (
                   <iframe
                     key={props['href']}
