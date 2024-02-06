@@ -51,15 +51,13 @@ export default function NewsletterForm(props: {dictionary: Dictionary}) {
   return (
     <div className='mt-10 flex flex-col xl:flex-row xl:items-center xl:justify-between'>
       <div>
-        <h3 className='text-sm font-semibold leading-6 text-white'>Subscribe to our newsletter</h3>
-        <p className='mt-2 text-sm leading-6 text-slate-400'>
-          The latest news, articles, and resources, sent to your inbox weekly.
-        </p>
+        <h3 className='text-sm font-semibold leading-6 text-white'>{props.dictionary.subscribeToNewsletter}</h3>
+        <p className='mt-2 text-sm leading-6 text-slate-400'>{props.dictionary.subscribeToNewsletterSubtitle}</p>
       </div>
       {showThanksMessage ? (
         <div className='text-white flex space-x-1 items-center'>
           <CheckCircleIcon className='w-6 h-6' />
-          <h3 className='text-sm font-semibold leading-6'>Thank you for subscribing!</h3>
+          <h3 className='text-sm font-semibold leading-6'>{props.dictionary.subscribeToNewsletterThanks}</h3>
         </div>
       ) : (
         <form
@@ -88,7 +86,7 @@ export default function NewsletterForm(props: {dictionary: Dictionary}) {
                 type='submit'
                 className='w-full md:w-auto'
               >
-                Subscribe
+                {props.dictionary.subscribe}
               </Button>
             </div>
           </div>
