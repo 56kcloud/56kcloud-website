@@ -46,7 +46,8 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
   const firstNameInputProps: InputProps = {
     id: firstNameInputName,
     label: props.dictionary.inputFirstName,
-    error: errors.lastName?.message?.toString()
+    error: errors.lastName?.message?.toString(),
+    placeholder: props.dictionary.inputFirstNamePlaceholder
   }
   const firstNameInputRules: RegisterOptions<FieldValues, string> = {
     required: 'Your first name is required'
@@ -56,7 +57,8 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
   const lastNameInputProps: InputProps = {
     id: lastNameInputName,
     label: props.dictionary.inputLastName,
-    error: errors.lastName?.message?.toString()
+    error: errors.lastName?.message?.toString(),
+    placeholder: props.dictionary.inputLastNamePlaceholder
   }
   const lastNameInputRules: RegisterOptions<FieldValues, string> = {
     required: 'Your last name is required'
@@ -66,7 +68,8 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
   const emailInputProps: InputProps = {
     id: emailInputName,
     label: props.dictionary.inputEmail,
-    error: errors.email?.message?.toString()
+    error: errors.email?.message?.toString(),
+    placeholder: props.dictionary.inputEmailPlaceholder
   }
   const emailInputRules: RegisterOptions<FieldValues, string> = {
     required: 'An email is required',
@@ -80,7 +83,8 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
   const messageInputProps: TextAreaProps = {
     id: messageInputName,
     label: props.dictionary.inputMessage,
-    error: errors.message?.message?.toString()
+    error: errors.message?.message?.toString(),
+    placeholder: props.dictionary.inputMessagePlaceholder
   }
   const messageInputRules: RegisterOptions<FieldValues, string> = {
     required: 'A message is required'

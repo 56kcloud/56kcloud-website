@@ -80,7 +80,7 @@ export default function Footer(props: FooterProps) {
                   <li key={item.slug}>
                     <Button
                       asChild
-                      tone='secondary'
+                      tone='slate'
                       variant='link'
                       className='font-light text-slate-400'
                     >
@@ -105,7 +105,7 @@ export default function Footer(props: FooterProps) {
                   <li key={item.slug}>
                     <Button
                       asChild
-                      tone='secondary'
+                      tone='slate'
                       variant='link'
                       className='font-light text-slate-400'
                     >
@@ -126,9 +126,8 @@ export default function Footer(props: FooterProps) {
                     <Button
                       key={item.text}
                       asChild
-                      tone='secondary'
+                      tone='slate'
                       variant='link'
-                      className='font-light text-slate-400'
                     >
                       <a href={item.link}>{item.text}</a>
                     </Button>

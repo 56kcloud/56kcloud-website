@@ -49,7 +49,7 @@ export default function NewsletterForm(props: {dictionary: Dictionary}) {
   }
 
   return (
-    <div className='mt-10 flex flex-col xl:flex-row xl:items-center xl:justify-between border-t border-slate-800 pt-8'>
+    <div className='mt-24 flex flex-col xl:flex-row xl:items-center xl:justify-between border-t border-slate-800 pt-8'>
       <div>
         <h3 className='text-sm font-semibold leading-6 text-white'>{props.dictionary.subscribeToNewsletter}</h3>
         <p className='mt-2 text-sm font-light leading-6 text-slate-400'>
@@ -78,7 +78,7 @@ export default function NewsletterForm(props: {dictionary: Dictionary}) {
                   label='Email'
                   labelSrOnly
                   className='md:w-full [&>div>input]:rounded-full'
-                  placeholder='Enter your email'
+                  placeholder={props.dictionary.inputEmailPlaceholder}
                 />
               )}
             />
