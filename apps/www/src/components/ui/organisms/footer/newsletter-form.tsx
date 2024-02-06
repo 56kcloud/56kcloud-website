@@ -49,10 +49,12 @@ export default function NewsletterForm(props: {dictionary: Dictionary}) {
   }
 
   return (
-    <div className='mt-10 flex flex-col xl:flex-row xl:items-center xl:justify-between'>
+    <div className='mt-10 flex flex-col xl:flex-row xl:items-center xl:justify-between border-t border-slate-800 pt-8'>
       <div>
         <h3 className='text-sm font-semibold leading-6 text-white'>{props.dictionary.subscribeToNewsletter}</h3>
-        <p className='mt-2 text-sm leading-6 text-slate-400'>{props.dictionary.subscribeToNewsletterSubtitle}</p>
+        <p className='mt-2 text-sm font-light leading-6 text-slate-400'>
+          {props.dictionary.subscribeToNewsletterSubtitle}
+        </p>
       </div>
       {showThanksMessage ? (
         <div className='text-white flex space-x-1 items-center'>
@@ -61,7 +63,7 @@ export default function NewsletterForm(props: {dictionary: Dictionary}) {
         </div>
       ) : (
         <form
-          className='mt-6 md:max-w-sm'
+          className='mt-6 md:mt-0 md:max-w-sm'
           onSubmit={handleSubmit((data) => onSubscribe(data))}
         >
           <div className='md:flex'>
@@ -75,7 +77,7 @@ export default function NewsletterForm(props: {dictionary: Dictionary}) {
                   {...emailInputProps}
                   label='Email'
                   labelSrOnly
-                  className='md:w-full'
+                  className='md:w-full [&>div>input]:rounded-full'
                   placeholder='Enter your email'
                 />
               )}
@@ -84,7 +86,8 @@ export default function NewsletterForm(props: {dictionary: Dictionary}) {
               <Button
                 tone='primary'
                 type='submit'
-                className='w-full md:w-auto'
+                shape='circle'
+                className='w-full md:w-auto px-5'
               >
                 {props.dictionary.subscribe}
               </Button>
