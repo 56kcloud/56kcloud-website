@@ -5,6 +5,7 @@ import {Solution} from '@/models/solution.model'
 import Button from '../../atoms/button'
 import Linkedin from '../../svgs/logos/linkedin'
 import Logo from '../../svgs/logos/56k'
+import NewsletterForm from '@/components/ui/organisms/footer/newsletter-form'
 import X from '../../svgs/logos/x'
 
 export type FooterProps = {
@@ -137,8 +138,9 @@ export default function Footer(props: FooterProps) {
             </div>
           </div>
         </div>
-        <div className='pt-8 mt-16 border-t border-slate-800 sm:mt-20'>
-          <p className='text-xs font-light text-slate-400'>&copy; 56K.Cloud 2023 – All rights reserved.</p>
+        <NewsletterForm dictionary={props.dictionary} />
+        <div className='pt-8 mt-10 border-t border-slate-800 sm:mt-14'>
+          <p className='text-xs font-light text-slate-400'>&copy; 56K.Cloud 2023 – All rights reserved.</p>N
         </div>
       </div>
     </footer>

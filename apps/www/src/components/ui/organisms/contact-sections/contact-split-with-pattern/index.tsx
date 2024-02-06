@@ -3,10 +3,10 @@
 import {BuildingOffice2Icon, CheckCircleIcon} from '@heroicons/react/24/outline'
 import {Controller, FieldValues, RegisterOptions, useForm} from 'react-hook-form'
 import {Dictionary} from '@/models/dictionary.model'
+import {EmailRegex, createHsformsPayload} from '@/utils/toolbox'
 import {LocationObject} from '@/models/location.model'
 import {contactUsFormData} from '@/models/contact-us-form-data.model'
-import {createHsformsPayload} from '@/utils/toolbox'
-import {sendEmail} from '@/utils/hubspot'
+import {getInTouch} from '@/utils/hubspot'
 import {useRouter} from 'next/navigation'
 import {useState} from 'react'
 import Button from '@/components/ui/atoms/button'
@@ -71,7 +71,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
   const emailInputRules: RegisterOptions<FieldValues, string> = {
     required: 'An email is required',
     pattern: {
-      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+      value: EmailRegex,
       message: 'Email is invalid'
     }
   }
@@ -94,7 +94,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
 
   async function onSubmit(data: contactUsFormData) {
     try {
-      await sendEmail(createHsformsPayload(data))
+      await getInTouch(createHsformsPayload(data))
       Router.push('#contact-section')
       setIsExploding(true)
       setShowThanksMessage(true)
@@ -231,7 +231,6 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                       type='submit'
                       shape='circle'
                       size='large'
-                      className='px-5 text-md bg-sky-300 text-slate-900 hover:bg-violet-300'
                     >
                       {props.dictionary.sendMessage}
                     </Button>

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {ClassValue, clsx} from 'clsx'
+import {FieldValues} from 'react-hook-form'
 import {HsformsPayload, HsformsPayloadItem, contactUsFormData} from '@/models/contact-us-form-data.model'
 import {format} from 'date-fns'
 import {twMerge} from 'tailwind-merge'
@@ -20,12 +21,15 @@ export function removeUndefinedProperties(record: Record<string, string | undefi
     .reduce((obj, [key, val]) => Object.assign(obj, {[key]: val}), {})
 }
 
-export function createHsformsPayload(data: contactUsFormData) {
+export function createHsformsPayload(data: FieldValues) {
   const legalConsent = data.legalConsent
+  const addLegalConsent = legalConsent !== undefined
   delete data.legalConsent
-  return {
-    fields: formatFormDataToHsforms(data),
-    legalConsentOptions: {
+  const payload = {
+    fields: formatFormDataToHsforms(data)
+  } as HsformsPayload
+  if (addLegalConsent) {
+    payload.legalConsentOptions = {
       consent: {
         consentToProcess: true,
         text: 'Text that gives consent to process',
@@ -38,15 +42,16 @@ export function createHsformsPayload(data: contactUsFormData) {
         ]
       }
     }
-  } as HsformsPayload
+  }
+  return payload
 }
 
-export function formatFormDataToHsforms(data: contactUsFormData) {
+export function formatFormDataToHsforms(data: FieldValues) {
   return Object.keys(data).map(
     (key) =>
       ({
         name: key,
-        value: data[key as keyof contactUsFormData]
+        value: data[key]
       }) as HsformsPayloadItem
   )
 }
@@ -156,3 +161,5 @@ export function isFromTwitter(url: string) {
 export function capitalizeFirstLetter(string: string) {
   return `${string.charAt(0).toUpperCase()}${string.slice(1)}`
 }
+
+export const EmailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i

@@ -5,22 +5,23 @@ import React, {forwardRef} from 'react'
 export type InputProps = {
   id: string
   label: string
+  labelSrOnly?: boolean
   className?: string
   type?: HTMLInputTypeAttribute
   error?: string
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps & Omit<JSX.IntrinsicElements['input'], 'type'>>(
-  ({id, label, className, type = 'text', error, ...other}, ref) => {
+  ({id, label, className, type = 'text', error, labelSrOnly, ...other}, ref) => {
     return (
       <div className={className}>
         <label
           htmlFor={id}
-          className='block text-base font-normal leading-6 text-white'
+          className={cn('block text-base font-normal leading-6 text-white', labelSrOnly ? 'sr-only' : 'mb-2.5')}
         >
           {label}
         </label>
-        <div className='mt-2.5'>
+        <div>
           <input
             type={type}
             id={id}
