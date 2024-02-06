@@ -140,7 +140,7 @@ export default function Footer(props: FooterProps) {
         </div>
         <NewsletterForm dictionary={props.dictionary} />
         <div className='pt-8 mt-10 border-t border-slate-800 sm:mt-14'>
-          <p className='text-xs font-light text-slate-400'>&copy; 56K.Cloud 2023 – All rights reserved.</p>N
+          <p className='text-xs font-light text-slate-400'>&copy; 56K.Cloud 2023 – All rights reserved.</p>
         </div>
       </div>
     </footer>
