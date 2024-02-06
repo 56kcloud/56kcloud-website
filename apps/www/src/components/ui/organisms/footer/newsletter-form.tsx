@@ -93,12 +93,12 @@ export default function NewsletterForm(props: {dictionary: Dictionary}) {
             </div>
           </div>
           <div>
-            {!serverError ? (
+            {serverError ? (
               <div
                 className='p-2 sm:p-3 text-sm text-red-600 bg-red-500/10 border border-red-500/50 rounded-lg \
                          pl-7 sm:pl-7 mt-5 min-[1700px]:mt-6 sm:text-sm min-[1700px]:text-base'
               >
-                HELLO WORLD
+                {serverError}
               </div>
             ) : null}
           </div>
