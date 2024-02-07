@@ -17,7 +17,7 @@ export default function NewsletterForm(props: {dictionary: Dictionary}) {
     control,
     handleSubmit,
     reset,
-    formState: {errors}
+    formState: {errors, isSubmitting}
   } = useForm({
     defaultValues: {
       email: ''
@@ -71,6 +71,7 @@ export default function NewsletterForm(props: {dictionary: Dictionary}) {
               name={emailInputName}
               rules={emailInputRules}
               control={control}
+              disabled={isSubmitting}
               render={({field}) => (
                 <Input
                   {...field}
@@ -87,6 +88,7 @@ export default function NewsletterForm(props: {dictionary: Dictionary}) {
                 tone='primary'
                 type='submit'
                 shape='circle'
+                disabled={isSubmitting}
                 className='w-full md:w-auto px-5'
               >
                 {props.dictionary.subscribe}

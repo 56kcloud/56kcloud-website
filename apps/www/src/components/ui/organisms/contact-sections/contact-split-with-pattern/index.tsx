@@ -28,7 +28,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
     control,
     handleSubmit,
     reset,
-    formState: {errors}
+    formState: {errors, isSubmitting}
   } = useForm({
     defaultValues: {
       firstName: '',
@@ -175,6 +175,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                       name={firstNameInputName}
                       rules={firstNameInputRules}
                       control={control}
+                      disabled={isSubmitting}
                       render={({field}) => (
                         <Input
                           {...field}
@@ -186,6 +187,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                       name={lastNameInputName}
                       rules={lastNameInputRules}
                       control={control}
+                      disabled={isSubmitting}
                       render={({field}) => (
                         <Input
                           {...field}
@@ -197,6 +199,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                       name={emailInputName}
                       rules={emailInputRules}
                       control={control}
+                      disabled={isSubmitting}
                       render={({field}) => (
                         <Input
                           {...field}
@@ -209,6 +212,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                       name={messageInputName}
                       rules={messageInputRules}
                       control={control}
+                      disabled={isSubmitting}
                       render={({field}) => (
                         <TextArea
                           {...field}
@@ -220,6 +224,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                     <Controller
                       name={legalConsentInputName}
                       control={control}
+                      disabled={isSubmitting}
                       render={({field: {value, ...other}}) => (
                         <Checkbox
                           checked={value}
@@ -235,6 +240,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                       type='submit'
                       shape='circle'
                       size='large'
+                      disabled={isSubmitting}
                     >
                       {props.dictionary.sendMessage}
                     </Button>
