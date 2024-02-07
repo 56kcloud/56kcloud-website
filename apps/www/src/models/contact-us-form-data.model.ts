@@ -29,5 +29,5 @@ export type HsformsPayloadlegalConsentOptionsContent = {
 
 export type HsformsPayload = {
   fields: Array<HsformsPayloadItem>
-  legalConsentOptions: HsformsPayloadlegalConsentOptions
+  legalConsentOptions?: HsformsPayloadlegalConsentOptions
 }

@@ -3,33 +3,36 @@ import {cn} from '@/utils/toolbox'
 export const buttonSizes = ['small', 'medium', 'large'] as const
 export const buttonShapes = ['square', 'rounded', 'circle'] as const
 export const buttonVariants = ['default', 'link', 'ghost'] as const
-export const buttonTones = ['primary', 'secondary'] as const
+export const buttonTones = ['primary', 'secondary', 'slate'] as const
 export const buttonAlignments = ['start', 'center', 'end'] as const
 
 const toneClasses: Record<(typeof buttonTones)[number], Record<(typeof buttonVariants)[number], string>> = {
   primary: {
     default:
-      'bg-primary-800 text-white hover:bg-white hover:text-primary-800 focus-visible:ring-primary-800 \
-    focus-visible:outline-primary-200',
-    link: 'text-primary-800 focus-visible:outline-primary-600 focus-visible:underline',
+      'bg-sky-300 text-white text-slate-900 hover:bg-violet-300 focus-visible:ring-sky-300  focus-visible:outline-sky-300',
+    link: 'text-sky-300 focus-visible:outline-sky-200 focus-visible:underline',
     ghost:
-      'text-primary-800 hover:bg-primary-100/30 focus-visible:outline-primary-600  \
-    data-[active=true]:underline data-[active=true]:decoration-primary-200 data-[active=true]:underline-offset-4	\
-    data-[active=true]:decoration-2'
+      'bg-transparent border-2 border-sky-300 text-sky-300 text-md \
+      hover:border-violet-300 hover:bg-transparent hover:text-violet-300'
   },
   secondary: {
     default:
-      'text-white bg-secondary-500 hover:bg-secondary-600 focus-visible:ring-secondary-500 \
-     focus-visible:outline-secondary-600',
+      'text-white bg-secondary-500 hover:bg-secondary-600 focus-visible:ring-secondary-500 focus-visible:outline-secondary-600',
     link: 'text-white data-[active=true]:text-white',
     ghost: 'text-secondary-500 hover:bg-secondary-50 focus-visible:outline-secondary-600'
+  },
+  slate: {
+    default:
+      'text-slate-900 bg-slate-100 hover:bg-slate-200 focus-visible:ring-slate-100 focus-visible:outline-slate-100',
+    link: 'text-slate-400 data-[active=true]:text-white font-light',
+    ghost: 'text-slate-400 hover:bg-slate-50 focus-visible:outline-slate-100'
   }
 }
 
 const sizeClasses: Record<(typeof buttonSizes)[number], string> = {
   small: 'px-2.5 py-1.5 text-sm',
-  medium: 'px-3 py-2 text-sm',
-  large: 'px-3.5 py-2.5 text-sm'
+  medium: 'px-3 py-2.5 text-sm',
+  large: 'px-5 py-2.5 text-sm'
 }
 
 const shapeClasses: Record<(typeof buttonShapes)[number], string> = {

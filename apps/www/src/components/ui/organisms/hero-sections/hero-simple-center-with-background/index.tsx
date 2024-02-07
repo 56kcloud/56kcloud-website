@@ -37,8 +37,8 @@ export default function HeroSimpleCenterWithBackground(props: HeroSimpleCenterWi
                   size='large'
                   tone={props.leftCTA.tone}
                   shape='circle'
-                  className='px-5 bg-transparent border-2 border-sky-300 text-sky-300 text-md \
-                  hover:border-violet-300 hover:bg-transparent hover:text-violet-300'
+                  variant='ghost'
+                  className='px-5'
                 >
                   <Link href={props.leftCTA.link}>{props.leftCTA.text}</Link>
                 </Button>

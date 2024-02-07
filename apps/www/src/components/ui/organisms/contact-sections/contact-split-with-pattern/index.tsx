@@ -3,10 +3,10 @@
 import {BuildingOffice2Icon, CheckCircleIcon} from '@heroicons/react/24/outline'
 import {Controller, FieldValues, RegisterOptions, useForm} from 'react-hook-form'
 import {Dictionary} from '@/models/dictionary.model'
+import {EmailRegex, createHsformsPayload} from '@/utils/toolbox'
 import {LocationObject} from '@/models/location.model'
 import {contactUsFormData} from '@/models/contact-us-form-data.model'
-import {createHsformsPayload} from '@/utils/toolbox'
-import {sendEmail} from '@/utils/hubspot'
+import {getInTouch} from '@/utils/hubspot'
 import {useRouter} from 'next/navigation'
 import {useState} from 'react'
 import Button from '@/components/ui/atoms/button'
@@ -28,7 +28,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
     control,
     handleSubmit,
     reset,
-    formState: {errors}
+    formState: {errors, isSubmitting}
   } = useForm({
     defaultValues: {
       firstName: '',
@@ -46,7 +46,8 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
   const firstNameInputProps: InputProps = {
     id: firstNameInputName,
     label: props.dictionary.inputFirstName,
-    error: errors.lastName?.message?.toString()
+    error: errors.lastName?.message?.toString(),
+    placeholder: props.dictionary.inputFirstNamePlaceholder
   }
   const firstNameInputRules: RegisterOptions<FieldValues, string> = {
     required: 'Your first name is required'
@@ -56,7 +57,8 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
   const lastNameInputProps: InputProps = {
     id: lastNameInputName,
     label: props.dictionary.inputLastName,
-    error: errors.lastName?.message?.toString()
+    error: errors.lastName?.message?.toString(),
+    placeholder: props.dictionary.inputLastNamePlaceholder
   }
   const lastNameInputRules: RegisterOptions<FieldValues, string> = {
     required: 'Your last name is required'
@@ -66,12 +68,13 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
   const emailInputProps: InputProps = {
     id: emailInputName,
     label: props.dictionary.inputEmail,
-    error: errors.email?.message?.toString()
+    error: errors.email?.message?.toString(),
+    placeholder: props.dictionary.inputEmailPlaceholder
   }
   const emailInputRules: RegisterOptions<FieldValues, string> = {
     required: 'An email is required',
     pattern: {
-      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+      value: EmailRegex,
       message: 'Email is invalid'
     }
   }
@@ -80,7 +83,8 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
   const messageInputProps: TextAreaProps = {
     id: messageInputName,
     label: props.dictionary.inputMessage,
-    error: errors.message?.message?.toString()
+    error: errors.message?.message?.toString(),
+    placeholder: props.dictionary.inputMessagePlaceholder
   }
   const messageInputRules: RegisterOptions<FieldValues, string> = {
     required: 'A message is required'
@@ -94,7 +98,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
 
   async function onSubmit(data: contactUsFormData) {
     try {
-      await sendEmail(createHsformsPayload(data))
+      await getInTouch(createHsformsPayload(data))
       Router.push('#contact-section')
       setIsExploding(true)
       setShowThanksMessage(true)
@@ -171,6 +175,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                       name={firstNameInputName}
                       rules={firstNameInputRules}
                       control={control}
+                      disabled={isSubmitting}
                       render={({field}) => (
                         <Input
                           {...field}
@@ -182,6 +187,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                       name={lastNameInputName}
                       rules={lastNameInputRules}
                       control={control}
+                      disabled={isSubmitting}
                       render={({field}) => (
                         <Input
                           {...field}
@@ -193,6 +199,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                       name={emailInputName}
                       rules={emailInputRules}
                       control={control}
+                      disabled={isSubmitting}
                       render={({field}) => (
                         <Input
                           {...field}
@@ -205,6 +212,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                       name={messageInputName}
                       rules={messageInputRules}
                       control={control}
+                      disabled={isSubmitting}
                       render={({field}) => (
                         <TextArea
                           {...field}
@@ -216,6 +224,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                     <Controller
                       name={legalConsentInputName}
                       control={control}
+                      disabled={isSubmitting}
                       render={({field: {value, ...other}}) => (
                         <Checkbox
                           checked={value}
@@ -231,7 +240,7 @@ export default function ContactSplitWithPattern(props: ContactSplitWithPatternPr
                       type='submit'
                       shape='circle'
                       size='large'
-                      className='px-5 text-md bg-sky-300 text-slate-900 hover:bg-violet-300'
+                      disabled={isSubmitting}
                     >
                       {props.dictionary.sendMessage}
                     </Button>
