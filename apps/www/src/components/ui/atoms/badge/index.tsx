@@ -25,8 +25,7 @@ export default function Badge({children, color = 'default', className = ''}: Bad
   return (
     <span
       className={cn(
-        'inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ring-1 ring-inset \
-                     hover:opacity-100',
+        'inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ring-1 ring-inset hover:opacity-100',
         colors[color] || colors.default,
         className
       )}

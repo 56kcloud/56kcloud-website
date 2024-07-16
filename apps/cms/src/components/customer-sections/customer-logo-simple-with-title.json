@@ -1,10 +1,15 @@
 {
   "collectionName": "customer_logo_simple_with_titles",
   "info": {
-    "displayName": "customer-logo-simple-with-title"
+    "displayName": "customer-logo-simple-with-title",
+    "description": ""
   },
   "options": {},
   "attributes": {
+    "surtitle": {
+      "type": "string",
+      "required": true
+    },
     "title": {
       "type": "string",
       "required": true

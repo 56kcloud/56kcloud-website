@@ -25,29 +25,32 @@ export default function ArticleCard({article, fixedHeight}: ArticleCardProps) {
     >
       <Link
         href={`/blog/${article.slug}`}
-        className={cn('relative flex flex-col overflow-hidden cursor-pointer', fixedHeight ? 'h-[500px]' : '')}
+        className={cn(
+          'relative flex flex-col overflow-hidden cursor-pointer border border-slate-800 rounded-3xl w-full h-full \
+          gap-x-10 gap-y-6 p-8 bg-gradient-to-t from-slate-800 to-slate-900',
+          fixedHeight ? 'h-[576px]' : ''
+        )}
       >
         <ArticleCover
           image={article.image}
           fixedHeight={fixedHeight}
         />
-        <div className='flex flex-col flex-1 mt-9'>
+        <div className='flex flex-col flex-1'>
           <div className='flex items-center space-x-4'>
-            <span className='text-sm font-light text-slate-400'>{publishedOn}</span>
             <div className='flex flex-1 h-10 overflow-x-auto'>
               <Suspense>
                 <TagList tags={article.tags} />
               </Suspense>
             </div>
           </div>
-          <div>
-            <h1 className='mt-5 text-xl font-normal leading-6 text-white line-clamp-2 title'>{article.title}</h1>
-            <p
-              className={cn(
-                'mt-6 text-base font-light leading-[26px] text-slate-400 line-clamp-3',
-                fixedHeight && 'h-20'
-              )}
+          <div className='mt-5 space-y-3'>
+            <h3
+              className='text-lg leading-6 font-semibold w-fit text-transparent bg-clip-text bg-text-gradient-blue \
+              line-clamp-2'
             >
+              {article.title}
+            </h3>
+            <p className={cn('text-sm font-light leading-6 text-slate-400 line-clamp-4', fixedHeight && 'h-24')}>
               {article.description}
             </p>
           </div>
@@ -57,10 +60,10 @@ export default function ArticleCard({article, fixedHeight}: ArticleCardProps) {
               size='md'
             />
             <div className='flex flex-col text-base'>
-              <span className='font-normal text-white'>{article.author.name}</span>
-              <div className='flex font-light gap-x-2'>
+              <span className='text-sm leading-6 font-medium text-slate-50'>{article.author.name}</span>
+              <div className='text-sm leading-6 flex font-light gap-x-2'>
                 <span>
-                  {article.readTime} minute{article.readTime > 1 ? 's' : ''} read
+                  {publishedOn} – {article.readTime} minute{article.readTime > 1 ? 's' : ''} read
                 </span>
               </div>
             </div>

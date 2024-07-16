@@ -25,7 +25,7 @@ export async function bodyHandler(contentType, locale = 'en') {
   contentType.body = Array.isArray(contentType.body) ? contentType.body : []
   const contactComponentIndex = contentType.body
     .map((el) => el.__component)
-    .indexOf('contact-sections.contact-split-with-pattern')
+    .indexOf('contact-sections.contact-with-gradient')
   if (contactComponentIndex >= 0) {
     const locations = await strapi.entityService.findMany('api::location.location', {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

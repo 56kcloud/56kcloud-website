@@ -196,8 +196,9 @@ async function handleComponentsRelations(contentType: string, item: any) {
           await Promise.all(
             defaultLinks.map(async (link) => {
               link[`${compToSnake}_id`] = localeComponentId.component_id
-              link[`${target}_id`] = relationGI.find((item) => item.default.id === link[`${target}_id`])
-                ?.localizations[0].id
+              link[`${target}_id`] = relationGI.find(
+                (item) => item.default.id === link[`${target}_id`]
+              )?.localizations[0].id
               const tableLinks = `${compToSnake}_${relations[0]}_links`
               if (await checkIfAlreadyExists(tableLinks, link)) {
                 console.log(`${contentType} ${item.default.id} component link already exists.`)

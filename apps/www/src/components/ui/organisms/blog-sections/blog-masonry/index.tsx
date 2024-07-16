@@ -5,6 +5,7 @@ import {DateTime} from 'luxon'
 import {useEffect, useState} from 'react'
 import {useSearchParams} from 'next/navigation'
 import ArticleCard from '@/components/ui/molecules/cards/article'
+import ComponentLayout from '@/components/ui/atoms/component-layout'
 import MasonryLayout from '@/components/ui/molecules/masonry'
 import slugify from 'slugify'
 
@@ -42,16 +43,10 @@ export default function BlogMasonry(props: BlogMasonryProps) {
   ))
 
   return (
-    <div className='py-20 lg:py-[104px]'>
-      <div className='px-6 pt-32 mx-auto max-w-7xl lg:pt-44'>
-        <div className='max-w-2xl mr-auto lg:max-w-3xl lg:mx-0'>
-          <h2 className='text-3xl font-medium text-white sm:text-4xl'>{props.title}</h2>
-          <p className='mt-8 text-[20px] leading-8 text-slate-400 font-light'>{props.subtitle}</p>
-        </div>
-        <div className='mt-10 sm:mt-16'>
-          <MasonryLayout>{articles}</MasonryLayout>
-        </div>
+    <ComponentLayout>
+      <div className='pb-20 pt-9 lg:pb-[104px] lg:pt-[120px]'>
+        <MasonryLayout>{articles}</MasonryLayout>
       </div>
-    </div>
+    </ComponentLayout>
   )
 }

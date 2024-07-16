@@ -3,7 +3,7 @@ import {getList} from '@/utils/cms/endpoints'
 import {hostname} from '../../configs/server'
 import {locales} from '../../configs/shared'
 
-const staticPaths = ['/', '/blog', '/about']
+const staticPaths = ['/', '/blog', '/about-us']
 
 async function getArticlePaths() {
   return (await getList('articles'))

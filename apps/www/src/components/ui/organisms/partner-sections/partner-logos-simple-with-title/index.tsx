@@ -2,6 +2,7 @@ import {Partner} from '@/models/partner.model'
 import LogoCloudsSimpleWithTitle from '../../logo-clouds/logo-clouds-simple-with-title'
 
 export type PartnerLogosSimpleWithTitleProps = {
+  surtitle: string
   title: string
   partners: Array<Partner>
 }
@@ -9,6 +10,7 @@ export type PartnerLogosSimpleWithTitleProps = {
 export default function PartnerLogosSimpleWithTitle(props: PartnerLogosSimpleWithTitleProps) {
   return (
     <LogoCloudsSimpleWithTitle
+      surtitle={props.surtitle}
       title={props.title}
       images={props.partners.map((partner) => partner.image)}
     />

@@ -18,7 +18,12 @@ export type MarkdownViewerProps = {
 export default function MarkdownViewer({content, className}: MarkdownViewerProps) {
   return (
     <div className='flex justify-center w-full'>
-      <div className={cn('w-full px-4 leading-6 prose prose-invert max-w-7xl prose-config', className)}>
+      <div
+        className={cn(
+          'w-full px-4 text-base leading-[26px] text-slate-400 font-light prose prose-invert max-w-7xl prose-config',
+          className
+        )}
+      >
         <Markdown
           options={{
             createElement(type, props: React.HTMLProps<HTMLDivElement>, children) {

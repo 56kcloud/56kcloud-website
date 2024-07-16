@@ -23,7 +23,7 @@
         }
       },
       "component": "icon.icon",
-      "required": true
+      "required": false
     }
   }
 }

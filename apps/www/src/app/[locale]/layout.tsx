@@ -1,6 +1,6 @@
 import '../../styles/global.css'
+import {Inter} from 'next/font/google'
 import {Metadata} from 'next'
-import {Work_Sans} from 'next/font/google'
 import {cn} from '@/utils/toolbox'
 import {hostname} from '../../../configs/server'
 import {locales} from '../../../configs/shared'
@@ -20,8 +20,8 @@ export type RootLayoutProps = {
   }
 }
 
-const workSans = Work_Sans({
-  weight: ['300', '400'],
+const inter = Inter({
+  weight: ['300', '400', '500', '600', '800'],
   preload: false
 })
 
@@ -49,7 +49,7 @@ export default function Root({children, params}: RootLayoutProps) {
           name='twitter:card'
         />
       </head>
-      <body className={cn('relative bg-background isolate', workSans.className)}>{children}</body>
+      <body className={cn('relative bg-background isolate', inter.className)}>{children}</body>
     </html>
   )
 }

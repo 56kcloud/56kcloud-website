@@ -7,7 +7,7 @@ export const pool = new Pool({
   password: process.env.DATABASE_PASSWORD,
   port: Number(process.env.DATABASE_PORT),
   ssl:
-    (process.env.DATABASE_USE_SSL ? JSON.parse(process.env.DATABASE_USE_SSL) : null) ?? true
+    ((process.env.DATABASE_USE_SSL ? JSON.parse(process.env.DATABASE_USE_SSL) : null) ?? true)
       ? {rejectUnauthorized: false}
       : false
 })

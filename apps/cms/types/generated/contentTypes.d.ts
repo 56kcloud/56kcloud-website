@@ -321,9 +321,12 @@ export interface PluginUploadFile extends Schema.CollectionType {
     folderPath: Attribute.String &
       Attribute.Required &
       Attribute.Private &
-      Attribute.SetMinMax<{
-        min: 1
-      }>
+      Attribute.SetMinMax<
+        {
+          min: 1
+        },
+        number
+      >
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     createdBy: Attribute.Relation<'plugin::upload.file', 'oneToOne', 'admin::user'> & Attribute.Private
@@ -350,18 +353,24 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   attributes: {
     name: Attribute.String &
       Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 1
-      }>
+      Attribute.SetMinMax<
+        {
+          min: 1
+        },
+        number
+      >
     pathId: Attribute.Integer & Attribute.Required & Attribute.Unique
     parent: Attribute.Relation<'plugin::upload.folder', 'manyToOne', 'plugin::upload.folder'>
     children: Attribute.Relation<'plugin::upload.folder', 'oneToMany', 'plugin::upload.folder'>
     files: Attribute.Relation<'plugin::upload.folder', 'oneToMany', 'plugin::upload.file'>
     path: Attribute.String &
       Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 1
-      }>
+      Attribute.SetMinMax<
+        {
+          min: 1
+        },
+        number
+      >
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     createdBy: Attribute.Relation<'plugin::upload.folder', 'oneToOne', 'admin::user'> & Attribute.Private
@@ -390,6 +399,9 @@ export interface PluginContentReleasesRelease extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required
     releasedAt: Attribute.DateTime
+    scheduledAt: Attribute.DateTime
+    timezone: Attribute.String
+    status: Attribute.Enumeration<['ready', 'blocked', 'failed', 'done', 'empty']> & Attribute.Required
     actions: Attribute.Relation<
       'plugin::content-releases.release',
       'oneToMany',
@@ -424,11 +436,13 @@ export interface PluginContentReleasesReleaseAction extends Schema.CollectionTyp
     type: Attribute.Enumeration<['publish', 'unpublish']> & Attribute.Required
     entry: Attribute.Relation<'plugin::content-releases.release-action', 'morphToOne'>
     contentType: Attribute.String & Attribute.Required
+    locale: Attribute.String
     release: Attribute.Relation<
       'plugin::content-releases.release-action',
       'manyToOne',
       'plugin::content-releases.release'
     >
+    isEntryValid: Attribute.Boolean
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     createdBy: Attribute.Relation<'plugin::content-releases.release-action', 'oneToOne', 'admin::user'> &
@@ -498,10 +512,13 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   }
   attributes: {
     name: Attribute.String &
-      Attribute.SetMinMax<{
-        min: 1
-        max: 50
-      }>
+      Attribute.SetMinMax<
+        {
+          min: 1
+          max: 50
+        },
+        number
+      >
     code: Attribute.String & Attribute.Unique
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
@@ -647,12 +664,12 @@ export interface PluginSlugifySlug extends Schema.CollectionType {
   }
 }
 
-export interface ApiAboutPageAboutPage extends Schema.SingleType {
-  collectionName: 'about_pages'
+export interface ApiAboutUsPageAboutUsPage extends Schema.SingleType {
+  collectionName: 'about_us_pages'
   info: {
-    singularName: 'about-page'
-    pluralName: 'about-pages'
-    displayName: '03 - About page'
+    singularName: 'about-us-page'
+    pluralName: 'about-us-pages'
+    displayName: '03 - About Us Page'
     description: ''
   }
   options: {
@@ -664,35 +681,45 @@ export interface ApiAboutPageAboutPage extends Schema.SingleType {
     }
   }
   attributes: {
-    body: Attribute.DynamicZone<
-      [
-        'hero-sections.hero-simple-center',
-        'content-section.content-two-column',
-        'image-sections.image-simple',
-        'value-sections.value-two-column',
-        'team-sections.team-three-column',
-        'cta-sections.join-our-team',
-        'contact-sections.contact-split-with-pattern'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
     seo: Attribute.Component<'seo.seo'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true
         }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    body: Attribute.DynamicZone<
+      [
+        'hero-sections.hero-with-gradient',
+        'team-sections.team-three-column',
+        'contact-sections.contact-with-gradient',
+        'value-sections.value',
+        'value-sections.value-two-column',
+        'certifications-sections.certifications-badges-with-title'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
       }>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
-    createdBy: Attribute.Relation<'api::about-page.about-page', 'oneToOne', 'admin::user'> & Attribute.Private
-    updatedBy: Attribute.Relation<'api::about-page.about-page', 'oneToOne', 'admin::user'> & Attribute.Private
-    localizations: Attribute.Relation<'api::about-page.about-page', 'oneToMany', 'api::about-page.about-page'>
+    createdBy: Attribute.Relation<'api::about-us-page.about-us-page', 'oneToOne', 'admin::user'> & Attribute.Private
+    updatedBy: Attribute.Relation<'api::about-us-page.about-us-page', 'oneToOne', 'admin::user'> & Attribute.Private
+    localizations: Attribute.Relation<
+      'api::about-us-page.about-us-page',
+      'oneToMany',
+      'api::about-us-page.about-us-page'
+    >
     locale: Attribute.String
   }
 }
@@ -714,7 +741,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     readTime: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<1>
     publishedOn: Attribute.Date
     slug: Attribute.String & Attribute.Required
-    image: Attribute.Media & Attribute.Required
+    image: Attribute.Media<'images'> & Attribute.Required
     author: Attribute.Relation<'api::article.article', 'oneToOne', 'api::team-member.team-member'>
     tags: Attribute.Relation<'api::article.article', 'oneToMany', 'api::tag.tag'>
     relatedPartners: Attribute.Relation<'api::article.article', 'manyToMany', 'api::partner.partner'>
@@ -746,10 +773,15 @@ export interface ApiBlogPageBlogPage extends Schema.SingleType {
     }
   }
   attributes: {
-    body: Attribute.DynamicZone<['blog-sections.blog-three-column', 'blog-sections.blog-masonry']> &
+    body: Attribute.DynamicZone<
+      ['hero-sections.hero-with-gradient', 'blog-sections.blog-three-column', 'blog-sections.blog-masonry']
+    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true
+        }
+        translate: {
+          translate: 'translate'
         }
       }>
     seo: Attribute.Component<'seo.seo'> &
@@ -757,6 +789,9 @@ export interface ApiBlogPageBlogPage extends Schema.SingleType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true
+        }
+        translate: {
+          translate: 'translate'
         }
       }>
     createdAt: Attribute.DateTime
@@ -782,7 +817,7 @@ export interface ApiCustomerCustomer extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required
     link: Attribute.String
-    image: Attribute.Media & Attribute.Required
+    image: Attribute.Media<'images'> & Attribute.Required
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
@@ -846,16 +881,18 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   attributes: {
     body: Attribute.DynamicZone<
       [
-        'hero-sections.hero-simple-center-with-background',
+        'hero-sections.hero-with-floating-gradients',
         'service-sections.service-three-column-with-large-icons',
         'solution-sections.solution-three-column-with-large-icons',
         'partner-sections.partner-logo-simple-with-title',
         'customer-sections.customer-logo-simple-with-title',
         'blog-sections.blog-three-column',
-        'contact-sections.contact-split-with-pattern',
+        'contact-sections.contact-with-gradient',
         'content-section.introduction-with-logo',
         'service-sections.service-alternate-position-icon',
-        'solution-sections.solution-one-column'
+        'solution-sections.solution-one-column',
+        'service-sections.service-masonry-card',
+        'solution-sections.solution-three-columns-with-image'
       ]
     > &
       Attribute.Required &
@@ -969,7 +1006,7 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required
     link: Attribute.String
-    image: Attribute.Media & Attribute.Required
+    image: Attribute.Media<'images'> & Attribute.Required
     relatedArticles: Attribute.Relation<'api::partner.partner', 'manyToMany', 'api::article.article'>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
@@ -1026,18 +1063,7 @@ export interface ApiServiceService extends Schema.CollectionType {
           translate: 'translate'
         }
       }>
-    body: Attribute.DynamicZone<
-      [
-        'header-sections.header-with-cards',
-        'service-sections.service-three-column-with-large-icons',
-        'solution-sections.solution-three-column-with-large-icons',
-        'content-section.content-markdown',
-        'contact-sections.contact-split-with-pattern',
-        'service-sections.service-alternate-position-icon',
-        'diagram-sections.diagram-full-width',
-        'content-section.content-alternate-position-with-image-list'
-      ]
-    > &
+    image: Attribute.Media<'images'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true
@@ -1047,7 +1073,37 @@ export interface ApiServiceService extends Schema.CollectionType {
         }
       }>
     icon: Attribute.Component<'icon.icon'> &
-      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    cta: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    body: Attribute.DynamicZone<
+      [
+        'header-sections.header-with-cards-with-icon',
+        'header-sections.header-with-text-cards',
+        'service-sections.service-three-column-with-large-icons',
+        'solution-sections.solution-three-column-with-large-icons',
+        'content-section.content-markdown',
+        'contact-sections.contact-with-gradient',
+        'service-sections.service-alternate-position-icon',
+        'diagram-sections.diagram-full-width',
+        'content-section.content-alternate-position-with-image-list',
+        'solution-sections.solution-three-columns-with-image'
+      ]
+    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true
@@ -1114,7 +1170,6 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
         }
       }>
     icon: Attribute.Component<'icon.icon'> &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true
@@ -1125,14 +1180,33 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
       }>
     body: Attribute.DynamicZone<
       [
-        'header-sections.header-with-cards',
+        'header-sections.header-with-cards-with-icon',
+        'header-sections.header-with-text-cards',
         'service-sections.service-three-column-with-large-icons',
         'solution-sections.solution-three-column-with-large-icons',
         'content-section.content-markdown',
-        'contact-sections.contact-split-with-pattern',
+        'contact-sections.contact-with-gradient',
         'solution-sections.solution-one-column'
       ]
     > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    image: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    cta: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true
@@ -1199,7 +1273,7 @@ export interface ApiTeamMemberTeamMember extends Schema.CollectionType {
           translate: 'translate'
         }
       }>
-    avatar: Attribute.Media &
+    avatar: Attribute.Media<'images'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1327,7 +1401,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole
       'plugin::users-permissions.user': PluginUsersPermissionsUser
       'plugin::slugify.slug': PluginSlugifySlug
-      'api::about-page.about-page': ApiAboutPageAboutPage
+      'api::about-us-page.about-us-page': ApiAboutUsPageAboutUsPage
       'api::article.article': ApiArticleArticle
       'api::blog-page.blog-page': ApiBlogPageBlogPage
       'api::customer.customer': ApiCustomerCustomer

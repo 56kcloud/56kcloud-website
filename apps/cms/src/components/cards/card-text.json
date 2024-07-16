@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_cards_card_texts",
+  "info": {
+    "displayName": "Card-text",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

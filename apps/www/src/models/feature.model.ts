@@ -5,7 +5,8 @@ import {z} from 'zod'
 export const featureSchema = z.object({
   title: z.string(),
   description: z.string(),
-  link: z.string().url()
+  link: z.string().url(),
+  cta: z.string()
 })
 
 export type FeatureBase = z.infer<typeof featureSchema>

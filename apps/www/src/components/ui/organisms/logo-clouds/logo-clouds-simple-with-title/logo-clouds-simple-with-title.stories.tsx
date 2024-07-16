@@ -8,6 +8,7 @@ const meta = {
   component: LogoCloudsSimpleWithTitle,
   tags: ['autodocs'],
   args: {
+    surtitle: faker.lorem.sentence(),
     title: faker.lorem.sentence(),
     images: Array.from({length: 4}, () => imageFactory({category: 'logo'}))
   }

@@ -2,7 +2,8 @@ import {IconProps} from './icon.model'
 
 export type LinkProps = {
   link: string
-  text: string
+  links?: never
+  title: string
 }
 
 export type SocialLinks = {

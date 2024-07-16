@@ -1,18 +1,11 @@
 {
   "collectionName": "components_blog_sections_blog_masonries",
   "info": {
-    "displayName": "blog-masonry"
+    "displayName": "blog-masonry",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "subtitle": {
-      "type": "text",
-      "required": true
-    },
     "articles": {
       "type": "relation",
       "relation": "oneToMany",

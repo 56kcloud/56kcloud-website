@@ -4,7 +4,8 @@ import {draftMode} from 'next/headers'
 import ArticleContentSection from '@/components/ui/molecules/article/content-section'
 import BlogMasonry from '@/components/ui/organisms/blog-sections/blog-masonry'
 import BlogThreeColumn from '@/components/ui/organisms/blog-sections/blog-three-column'
-import ContactSplitWithPattern from '@/components/ui/organisms/contact-sections/contact-split-with-pattern'
+import CertificationsBadgesWithTitle from '@/components/ui/organisms/certifications-sections/certifications-badges-with-title'
+import ContactWithGradient from '@/components/ui/organisms/contact-sections/contact-with-gradient'
 import ContentAlternatePositionWithImageItem from '@/components/ui/organisms/content-sections/content-alternate-position-with-image-item'
 import ContentAlternatePositionWithImageList from '@/components/ui/organisms/content-sections/content-alternate-position-with-image-list'
 import ContentMarkdown from '@/components/ui/organisms/content-sections/content-markdown'
@@ -14,17 +15,21 @@ import DiagramFullWidth from '@/components/ui/organisms/diagram-sections/diagram
 import DraftModal from '@/components/ui/organisms/draft-modal'
 import Footer from '@/components/ui/organisms/footer'
 import Header from '@/components/ui/organisms/header'
-import HeaderWithCards from '@/components/ui/organisms/header-sections/header-with-cards'
+import HeaderWithCardsWithIcon from '@/components/ui/organisms/header-sections/header-with-cards-with-icon'
+import HeaderWithTextCards from '@/components/ui/organisms/header-sections/header-with-text-cards'
 import HeroSimpleCenter from '@/components/ui/organisms/hero-sections/hero-simple-center'
-import HeroSimpleCenterWithBackground from '@/components/ui/organisms/hero-sections/hero-simple-center-with-background'
+import HeroWithFloatingGradients from '@/components/ui/organisms/hero-sections/hero-with-floating-gradients'
+import HeroWithGradient from '@/components/ui/organisms/hero-sections/hero-with-gradient'
 import ImageSimple from '@/components/ui/organisms/image-sections/image-simple'
 import IntroductionWithLogo from '@/components/ui/organisms/content-sections/introduction-with-logo'
 import JoinOurTeam from '@/components/ui/organisms/cta-sections/join-our-team'
 import PartnerLogosSimpleWithTitle from '@/components/ui/organisms/partner-sections/partner-logos-simple-with-title'
 import ServiceAlternatePositionIcon from '@/components/ui/organisms/service-sections/service-alternate-position-icon'
+import ServiceMasonryCard from '@/components/ui/organisms/service-sections/service-masonry-card'
 import ServiceThreeColumnWithLargeIcons from '@/components/ui/organisms/service-sections/service-three-column-with-large-icons'
 import SolutionOneColumn from '@/components/ui/organisms/solution-sections/solution-one-column'
 import SolutionThreeColumnWithLargeIcons from '@/components/ui/organisms/solution-sections/solution-three-column-with-large-icons'
+import SolutionThreeColumnsWithImage from '@/components/ui/organisms/solution-sections/solution-three-columns-with-image'
 import TagFilter from '@/components/ui/molecules/tag-filter'
 import TeamMemberCard from '@/components/ui/molecules/cards/team-member'
 import TeamThreeColumn from '@/components/ui/organisms/team-sections/team-three-column'
@@ -39,14 +44,17 @@ export const needSuspense = ['blog-masonry']
 export const componentBlueprints: ComponentBlueprints = {
   footer: Footer,
   'hero-simple-center': HeroSimpleCenter,
-  'hero-simple-center-with-background': HeroSimpleCenterWithBackground,
+  'hero-with-gradient': HeroWithGradient,
+  'hero-with-floating-gradients': HeroWithFloatingGradients,
   'blog-three-column': BlogThreeColumn,
   'blog-masonry': BlogMasonry,
-  'contact-split-with-pattern': ContactSplitWithPattern,
+  'contact-with-gradient': ContactWithGradient,
   'service-alternate-position-icon': ServiceAlternatePositionIcon,
   'service-three-column-with-large-icons': ServiceThreeColumnWithLargeIcons,
+  'service-masonry-card': ServiceMasonryCard,
   'solution-one-column': SolutionOneColumn,
   'solution-three-column-with-large-icons': SolutionThreeColumnWithLargeIcons,
+  'solution-three-columns-with-image': SolutionThreeColumnsWithImage,
   'partner-logo-simple-with-title': PartnerLogosSimpleWithTitle,
   'customer-logo-simple-with-title': CustomerLogosSimpleWithTitle,
   'article-content': ArticleContentSection,
@@ -57,12 +65,14 @@ export const componentBlueprints: ComponentBlueprints = {
   'join-our-team': JoinOurTeam,
   'tag-filter': TagFilter,
   'team-member-card': TeamMemberCard,
-  'header-with-cards': HeaderWithCards,
+  'header-with-cards-with-icon': HeaderWithCardsWithIcon,
+  'header-with-text-cards': HeaderWithTextCards,
   'content-markdown': ContentMarkdown,
   'introduction-with-logo': IntroductionWithLogo,
   'diagram-full-width': DiagramFullWidth,
   'content-alternate-position-with-image-list': ContentAlternatePositionWithImageList,
-  'content-alternate-position-with-image-item': ContentAlternatePositionWithImageItem
+  'content-alternate-position-with-image-item': ContentAlternatePositionWithImageItem,
+  'certifications-badges-with-title': CertificationsBadgesWithTitle
 }
 export type ComponentBlueprint = {
   component: keyof ComponentBlueprints
