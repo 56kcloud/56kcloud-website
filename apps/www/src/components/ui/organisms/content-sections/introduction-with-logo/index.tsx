@@ -16,7 +16,7 @@ export default function IntroductionWithLogo(props: IntroductionWithLogoProps) {
   return (
     <ComponentLayout
       gradient={true}
-      gradientPosition='left'
+      gradientPosition='right'
     >
       <div className='py-20 lg:py-[104px]'>
         <div className='mx-auto max-w-6xl lg:px-8'>
