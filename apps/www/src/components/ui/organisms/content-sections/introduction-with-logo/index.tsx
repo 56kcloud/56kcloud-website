@@ -19,7 +19,7 @@ export default function IntroductionWithLogo(props: IntroductionWithLogoProps) {
       gradientPosition='left'
     >
       <div className='py-20 lg:py-[104px]'>
-        <div className='mx-auto max-w-6xl lg:px-8'>
+        <div className='mx-auto max-w-6xl'>
           <div className='w-full relative overflow-hidden border border-slate-800 rounded-3xl lg:rounded-[48px]'>
             <div className='absolute w-full h-full -z-10'>
               <IntroductionCardGradient />
