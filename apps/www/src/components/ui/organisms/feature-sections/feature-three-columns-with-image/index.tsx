@@ -17,7 +17,7 @@ export default function FeatureThreeColumnsWithImage(props: FeatureThreeColumnsW
       gradientPosition='right'
     >
       <div className='py-20 pt-6 lg:py-[104px]'>
-        <div className='px-6 mx-auto max-w-7xl space-y-10 lg:space-y-20 lg:px-8'>
+        <div className='mx-auto max-w-7xl space-y-10 lg:space-y-20'>
           <div className='mr-auto space-y-4 max-w-4xl'>
             <h2
               className='w-fit text-[44px] leading-[48px] font-extrabold tracking-tight text-transparent bg-clip-text \

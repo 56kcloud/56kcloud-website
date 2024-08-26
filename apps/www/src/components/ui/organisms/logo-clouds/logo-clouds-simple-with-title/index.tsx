@@ -16,7 +16,7 @@ export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTit
       gradientPosition='left'
     >
       <div className='pt-9 pb-0 lg:pt-[104px] lg:pb-6'>
-        <div className='px-6 mx-auto max-w-7xl lg:px-8'>
+        <div className='mx-auto max-w-7xl'>
           <div className='relative w-full h-full rounded-3xl p-8 pb-32 bg-radial-gradient lg:rounded-[48px] lg:px-12 lg:pt-20'>
             <div className='absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-slate-900 to-transparent' />
             <div className='flex flex-col items-center space-y-4'>

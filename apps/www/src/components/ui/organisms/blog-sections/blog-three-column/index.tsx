@@ -41,7 +41,7 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
       gradientPosition='right'
     >
       <div className='py-20 pt-6 lg:py-[104px]'>
-        <div className='relative px-6 mx-auto max-w-7xl space-y-10 lg:space-y-20'>
+        <div className='mx-auto max-w-7xl space-y-10 lg:space-y-20'>
           <div className='space-y-4 max-w-4xl'>
             <h2
               className='w-fit text-[44px] leading-[48px] font-extrabold tracking-tight text-transparent \
