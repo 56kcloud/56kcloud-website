@@ -21,7 +21,7 @@ export default function ComponentLayout(props: ComponentLayoutProps) {
   ) : null
 
   return (
-    <div className={cn('flex justify-center w-full overflow-hidden relative', props.className)}>
+    <div className={cn('flex justify-center w-full relative', props.className)}>
       <div className={cn('max-w-7xl mx-auto w-full px-6', props.childrenClassName)}>
         {props.children}
         {props.gradient && (

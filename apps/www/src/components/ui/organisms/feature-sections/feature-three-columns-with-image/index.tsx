@@ -13,6 +13,7 @@ export type FeatureThreeColumnsWithImageProps = {
 export default function FeatureThreeColumnsWithImage(props: FeatureThreeColumnsWithImageProps) {
   return (
     <ComponentLayout
+      className='overflow-hidden'
       gradient={true}
       gradientPosition='right'
     >

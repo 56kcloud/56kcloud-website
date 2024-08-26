@@ -15,6 +15,7 @@ export type IntroductionWithLogoProps = {
 export default function IntroductionWithLogo(props: IntroductionWithLogoProps) {
   return (
     <ComponentLayout
+      className='overflow-hidden'
       gradient={true}
       gradientPosition='left'
     >

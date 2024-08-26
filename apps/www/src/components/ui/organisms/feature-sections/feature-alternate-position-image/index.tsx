@@ -14,6 +14,7 @@ export type FeatureAlternatePositionImageProps = {
 export default function FeatureAlternatePositionImage(props: FeatureAlternatePositionImageProps) {
   return (
     <ComponentLayout
+      className='overflow-hidden'
       gradient={true}
       gradientPosition='right'
     >

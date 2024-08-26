@@ -37,6 +37,7 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
 
   return (
     <ComponentLayout
+      className='overflow-hidden'
       gradient={true}
       gradientPosition='right'
     >
