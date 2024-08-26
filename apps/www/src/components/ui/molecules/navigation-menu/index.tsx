@@ -21,7 +21,6 @@ export type NavigationMenuProps = {
 }
 
 export function NavigationMenu({navigationItems, orientation = 'horizontal', onLinkClick}: NavigationMenuProps) {
-  console.log(navigationItems)
   return orientation === 'horizontal' ? (
     <NavigationMenuContainer className='gap-x-16'>
       {navigationItems.map((navigationItem, index) =>
