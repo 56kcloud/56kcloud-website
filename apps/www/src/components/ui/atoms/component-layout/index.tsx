@@ -21,11 +21,16 @@ export default function ComponentLayout(props: ComponentLayoutProps) {
   ) : null
 
   return (
-    <div className={cn('flex justify-center w-full overflow-visible relative', props.className)}>
+    <div className={cn('flex justify-center w-full overflow-hidden relative', props.className)}>
       <div className={cn('max-w-7xl mx-auto w-full px-6', props.childrenClassName)}>
         {props.children}
         {props.gradient && (
-          <div className={cn('absolute', props.gradientPosition === 'left' ? 'inset-0' : 'top-0 right-0')}>
+          <div
+            className={cn(
+              'absolute -z-50',
+              props.gradientPosition === 'left' ? 'top-0 -left-20' : '-top-10 -right-[416px]'
+            )}
+          >
             {gradient}
           </div>
         )}

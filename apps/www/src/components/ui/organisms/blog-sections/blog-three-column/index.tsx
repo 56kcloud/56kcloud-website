@@ -4,6 +4,7 @@ import {Article} from '@/models/article.model'
 import {DateTime} from 'luxon'
 import {useEffect, useState} from 'react'
 import ArticleCard from '@/components/ui/molecules/cards/article'
+import ComponentLayout from '@/components/ui/atoms/component-layout'
 
 export type BlogThreeColumnProps = {
   title: string
@@ -35,19 +36,24 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
   ))
 
   return (
-    <div className='py-20 pt-6 lg:py-[104px]'>
-      <div className='relative px-6 mx-auto max-w-7xl space-y-10 lg:space-y-20'>
-        <div className='space-y-4 max-w-4xl'>
-          <h2
-            className='w-fit text-[44px] leading-[48px] font-extrabold tracking-tight text-transparent \
+    <ComponentLayout
+      gradient={true}
+      gradientPosition='right'
+    >
+      <div className='py-20 pt-6 lg:py-[104px]'>
+        <div className='relative px-6 mx-auto max-w-7xl space-y-10 lg:space-y-20'>
+          <div className='space-y-4 max-w-4xl'>
+            <h2
+              className='w-fit text-[44px] leading-[48px] font-extrabold tracking-tight text-transparent \
             bg-clip-text bg-text-gradient-gray lg:leading-[58px]'
-          >
-            {props.title}
-          </h2>
-          <p className='text-base leading-7 text-slate-400 font-light'>{props.subtitle}</p>
+            >
+              {props.title}
+            </h2>
+            <p className='text-base leading-7 text-slate-400 font-light'>{props.subtitle}</p>
+          </div>
+          <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>{articles}</div>
         </div>
-        <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>{articles}</div>
       </div>
-    </div>
+    </ComponentLayout>
   )
 }
