@@ -8,11 +8,16 @@ export type IntroductionWithLogoProps = {
   title: string
   description: string
   logo: ImageProps
+  gradient?: boolean
+  gradientPosition?: 'left' | 'right'
 }
 
 export default function IntroductionWithLogo(props: IntroductionWithLogoProps) {
   return (
-    <ComponentLayout>
+    <ComponentLayout
+      gradient={true}
+      gradientPosition='left'
+    >
       <div className='py-20 lg:py-[104px]'>
         <div className='mx-auto max-w-6xl lg:px-8'>
           <div className='w-full relative overflow-hidden border border-slate-800 rounded-3xl lg:rounded-[48px]'>

@@ -20,19 +20,7 @@ export default function HeroWithFloatingGradients(props: HeroWithFloatingGradien
   const subtitle = replaceBrTagWithNewline(props.subtitle)
 
   return (
-    <ComponentLayout
-      className='overflow-hidden'
-      floatingGradients={[
-        <FloatingGradientLeft
-          key='1'
-          className='absolute -top-20 -left-40'
-        />,
-        <FloatingGradientRight
-          key='2'
-          className='absolute -right-96 hidden lg:block'
-        />
-      ]}
-    >
+    <ComponentLayout className='overflow-hidden'>
       <div className='pb-8 pt-36 lg:pt-64 lg:pb-20'>
         <h1
           className='w-fit mx-auto text-center text-5xl leading-[1.1875] font-extrabold tracking-tight text-transparent \
