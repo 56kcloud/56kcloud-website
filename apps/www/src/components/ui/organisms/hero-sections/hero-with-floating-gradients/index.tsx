@@ -21,6 +21,7 @@ export default function HeroWithFloatingGradients(props: HeroWithFloatingGradien
 
   return (
     <ComponentLayout
+      className='overflow-hidden'
       floatingGradients={[
         <FloatingGradientLeft
           key='1'
