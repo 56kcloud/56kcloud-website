@@ -1,12 +1,12 @@
 import {faker} from '@faker-js/faker'
 import {locationFactory} from '@/tests/factories/location.factory'
-import ContactWithGradient, {ContactWithGradientProps} from './index'
+import Contact, {ContactProps} from './index'
 import dictionary from '@/dictionaries/en.json'
 import type {Meta} from '@storybook/react'
 
 const meta = {
-  title: 'components/Organisms/ContactSections/ContactWithGradient',
-  component: ContactWithGradient,
+  title: 'components/Organisms/ContactSections/Contact',
+  component: Contact,
   tags: ['autodocs'],
   args: {
     dictionary,
@@ -14,11 +14,11 @@ const meta = {
     subtitle: faker.lorem.paragraph(),
     locations: Array.from({length: 3}, () => locationFactory())
   }
-} satisfies Meta<typeof ContactWithGradient>
+} satisfies Meta<typeof Contact>
 
 export default meta
 
 export const Default = {
   name: 'Default',
-  render: (args: ContactWithGradientProps) => <ContactWithGradient {...args} />
+  render: (args: ContactProps) => <Contact {...args} />
 }

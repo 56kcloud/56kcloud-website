@@ -658,10 +658,10 @@ export interface ContentSectionContentAlternatePositionWithImageList extends Sch
   }
 }
 
-export interface ContactSectionsContactWithGradient extends Schema.Component {
-  collectionName: 'contact_with_gradients'
+export interface ContactSectionsContact extends Schema.Component {
+  collectionName: 'contacts'
   info: {
-    displayName: 'contact-with-gradient'
+    displayName: 'contact'
     description: ''
   }
   attributes: {
@@ -793,7 +793,7 @@ declare module '@strapi/types' {
       'content-section.content-two-column': ContentSectionContentTwoColumn
       'content-section.content-markdown': ContentSectionContentMarkdown
       'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
-      'contact-sections.contact-with-gradient': ContactSectionsContactWithGradient
+      'contact-sections.contact': ContactSectionsContact
       'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
       'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem
       'cards.card-with-icon': CardsCardWithIcon

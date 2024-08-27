@@ -43,7 +43,7 @@
       "components": [
         "hero-sections.hero-with-gradient",
         "team-sections.team-three-column",
-        "contact-sections.contact-with-gradient",
+        "contact-sections.contact",
         "value-sections.value",
         "value-sections.value-two-column",
         "certifications-sections.certifications-badges-with-title"

@@ -695,7 +695,7 @@ export interface ApiAboutUsPageAboutUsPage extends Schema.SingleType {
       [
         'hero-sections.hero-with-gradient',
         'team-sections.team-three-column',
-        'contact-sections.contact-with-gradient',
+        'contact-sections.contact',
         'value-sections.value',
         'value-sections.value-two-column',
         'certifications-sections.certifications-badges-with-title'
@@ -887,7 +887,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
         'partner-sections.partner-logo-simple-with-title',
         'customer-sections.customer-logo-simple-with-title',
         'blog-sections.blog-three-column',
-        'contact-sections.contact-with-gradient',
+        'contact-sections.contact',
         'content-section.introduction-with-logo',
         'service-sections.service-alternate-position-icon',
         'solution-sections.solution-one-column',
@@ -1097,7 +1097,7 @@ export interface ApiServiceService extends Schema.CollectionType {
         'service-sections.service-three-column-with-large-icons',
         'solution-sections.solution-three-column-with-large-icons',
         'content-section.content-markdown',
-        'contact-sections.contact-with-gradient',
+        'contact-sections.contact',
         'service-sections.service-alternate-position-icon',
         'diagram-sections.diagram-full-width',
         'content-section.content-alternate-position-with-image-list',
@@ -1185,7 +1185,7 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
         'service-sections.service-three-column-with-large-icons',
         'solution-sections.solution-three-column-with-large-icons',
         'content-section.content-markdown',
-        'contact-sections.contact-with-gradient',
+        'contact-sections.contact',
         'solution-sections.solution-one-column'
       ]
     > &

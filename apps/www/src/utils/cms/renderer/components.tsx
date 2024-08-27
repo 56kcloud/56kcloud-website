@@ -5,7 +5,7 @@ import ArticleContentSection from '@/components/ui/molecules/article/content-sec
 import BlogMasonry from '@/components/ui/organisms/blog-sections/blog-masonry'
 import BlogThreeColumn from '@/components/ui/organisms/blog-sections/blog-three-column'
 import CertificationsBadgesWithTitle from '@/components/ui/organisms/certifications-sections/certifications-badges-with-title'
-import ContactWithGradient from '@/components/ui/organisms/contact-sections/contact-with-gradient'
+import Contact from '@/components/ui/organisms/contact-sections/contact'
 import ContentAlternatePositionWithImageItem from '@/components/ui/organisms/content-sections/content-alternate-position-with-image-item'
 import ContentAlternatePositionWithImageList from '@/components/ui/organisms/content-sections/content-alternate-position-with-image-list'
 import ContentMarkdown from '@/components/ui/organisms/content-sections/content-markdown'
@@ -48,7 +48,7 @@ export const componentBlueprints: ComponentBlueprints = {
   'hero-with-floating-gradients': HeroWithFloatingGradients,
   'blog-three-column': BlogThreeColumn,
   'blog-masonry': BlogMasonry,
-  'contact-with-gradient': ContactWithGradient,
+  contact: Contact,
   'service-alternate-position-icon': ServiceAlternatePositionIcon,
   'service-three-column-with-large-icons': ServiceThreeColumnWithLargeIcons,
   'service-masonry-card': ServiceMasonryCard,

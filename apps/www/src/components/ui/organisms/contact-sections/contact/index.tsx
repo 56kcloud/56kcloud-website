@@ -16,14 +16,14 @@ import ContactGradient from '@/components/ui/svgs/gradients/contact-gradient'
 import Input, {InputProps} from '@/components/ui/atoms/inputs/input'
 import TextArea, {TextAreaProps} from '@/components/ui/atoms/inputs/textarea'
 
-export type ContactWithGradientProps = {
+export type ContactProps = {
   dictionary: Dictionary
   title: string
   subtitle: string
   locations: Array<LocationObject>
 }
 
-export default function ContactWithGradient(props: ContactWithGradientProps) {
+export default function Contact(props: ContactProps) {
   const Router = useRouter()
   const {
     control,
