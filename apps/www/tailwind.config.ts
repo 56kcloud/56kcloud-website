@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import colors from 'tailwindcss/colors'
 import type {Config} from 'tailwindcss'
 

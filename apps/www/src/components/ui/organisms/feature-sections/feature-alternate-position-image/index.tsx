@@ -1,9 +1,9 @@
 import {ArrowRightIcon} from '@heroicons/react/24/solid'
 import {Feature} from '@/models/feature.model'
 import {cn} from '@/utils/toolbox'
+import ComponentLayout from '@/components/ui/atoms/component-layout'
 import Image from 'next/image'
 import Link from 'next/link'
-import ComponentLayout from '@/components/ui/atoms/component-layout'
 
 export type FeatureAlternatePositionImageProps = {
   title: string
@@ -12,11 +12,17 @@ export type FeatureAlternatePositionImageProps = {
 }
 
 export default function FeatureAlternatePositionImage(props: FeatureAlternatePositionImageProps) {
+  const positionInGrid = [
+    'lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-5',
+    'lg:col-start-2 lg:col-end-4 lg:row-start-1 lg:row-end-3',
+    'lg:col-start-2 lg:col-end-4 lg:row-start-3 lg:row-end-5'
+  ]
+
   return (
     <ComponentLayout
       className='overflow-hidden'
-      gradient={true}
       gradientPosition='right'
+      gradient
     >
       <div className='pb-20 pt-9 lg:pb-[104px] lg:pt-[120px] space-y-10 lg:space-y-20'>
         <div className='text-center space-y-4 max-w-4xl mx-auto'>
@@ -32,11 +38,7 @@ export default function FeatureAlternatePositionImage(props: FeatureAlternatePos
           {props.features?.map((feature, index) => (
             <div
               key={index}
-              className={cn(
-                index === 0 ? 'lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-5' : '',
-                index === 1 ? 'lg:col-start-2 lg:col-end-4 lg:row-start-1 lg:row-end-3' : '',
-                index === 2 ? 'lg:col-start-2 lg:col-end-4 lg:row-start-3 lg:row-end-5' : ''
-              )}
+              className={cn(positionInGrid[index] || '')}
             >
               <Link href={feature.link}>
                 <div

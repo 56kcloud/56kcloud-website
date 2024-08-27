@@ -5,7 +5,6 @@ import {Dialog} from '@headlessui/react'
 import {Dictionary} from '@/models/dictionary.model'
 import {NavigationMenu} from '../../molecules/navigation-menu'
 import {cn, getNavigationLinks} from '@/utils/toolbox'
-import {usePathname} from 'next/navigation'
 import {useState} from 'react'
 import LanguageSwitcher from '../../molecules/language-switcher'
 import Link from 'next/link'
@@ -18,12 +17,6 @@ export type HeaderProps = {
 export default function Header({dictionary}: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const navigation = getNavigationLinks(dictionary)
-
-  const pathname = usePathname()
-
-  const pathMatcher = (path: string) => {
-    return pathname.includes(path)
-  }
 
   return (
     <header className='absolute inset-x-0 top-0 z-10 flex justify-center'>

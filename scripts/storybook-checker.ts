@@ -27,6 +27,7 @@ const fileName = 'storybook-check.md'
       .map((key) => path.includes(componentsCategories[key].path))
       .indexOf(true)
     componentsCategories[Object.keys(componentsCategories)[index]].total++
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     hasStory && componentsCategories[Object.keys(componentsCategories)[index]].hasStory++
   }
 

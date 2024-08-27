@@ -4,7 +4,6 @@ import {Service} from '@/models/service.model'
 import {Solution} from '@/models/solution.model'
 import Button from '../../atoms/button'
 import ComponentLayout from '../../atoms/component-layout'
-// import FloatingGradient from '../../svgs/gradients/floating-gradient/floating-gradient-left'
 import Linkedin from '../../svgs/logos/linkedin'
 import Logo from '../../svgs/logos/56k'
 import X from '../../svgs/logos/x'
@@ -38,15 +37,7 @@ export default function Footer(props: FooterProps) {
   const currentYear = new Date().getFullYear()
 
   return (
-    <ComponentLayout
-    // className='overflow-hidden'
-    // floatingGradients={[
-    //   <FloatingGradient
-    //     key='1'
-    //     className='absolute -right-[480px] -bottom-72'
-    //   />
-    // ]}
-    >
+    <ComponentLayout>
       <footer aria-labelledby='footer-heading'>
         <h2
           id='footer-heading'

@@ -129,6 +129,7 @@ export async function findOne(props: FindOneProps) {
   try {
     const contentType = await queryByLocale(props.uid, props.ctx.query, props.where)
     if (!props.ctx.query.seoOnly) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       props.contentTypeHandler && props.contentTypeHandler(contentType)
       await bodyHandler(contentType, props.ctx.query.locale)
     } else {
@@ -158,6 +159,7 @@ export async function getAllPublishedSlugs(ctx, uid: Common.UID.Service) {
   try {
     const contentTypes = await findManyContentTypes(uid, ['slug', 'locale'], showDrafts)
     return contentTypes.filter((content) => content.slug)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     const contentTypes = await findManyContentTypes(uid, ['slug'], showDrafts)
     return contentTypes

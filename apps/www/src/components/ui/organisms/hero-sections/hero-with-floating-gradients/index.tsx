@@ -21,6 +21,14 @@ export default function HeroWithFloatingGradients(props: HeroWithFloatingGradien
 
   return (
     <ComponentLayout className='overflow-hidden'>
+      <div className='absolute inset-0'>
+        <div className='absolute -z-50 -top-40 left-0 lg:left-40'>
+          <FloatingGradientLeft />
+        </div>
+        <div className='absolute -z-50 -right-80 hidden lg:block'>
+          <FloatingGradientRight />
+        </div>
+      </div>
       <div className='pb-8 pt-36 lg:pt-64 lg:pb-20'>
         <h1
           className='w-fit mx-auto text-center text-5xl leading-[1.1875] font-extrabold tracking-tight text-transparent \

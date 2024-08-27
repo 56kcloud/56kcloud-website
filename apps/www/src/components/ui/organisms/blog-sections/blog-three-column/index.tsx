@@ -38,8 +38,8 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
   return (
     <ComponentLayout
       className='overflow-hidden'
-      gradient={true}
       gradientPosition='right'
+      gradient
     >
       <div className='py-20 pt-6 lg:py-[104px]'>
         <div className='mx-auto max-w-7xl space-y-10 lg:space-y-20'>

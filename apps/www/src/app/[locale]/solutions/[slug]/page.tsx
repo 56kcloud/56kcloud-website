@@ -37,6 +37,7 @@ export default async function SolutionPage({params}: SolutionPageProps) {
     const dict = await getDictionary(params.locale)
     const components = await getPageComponents(`${basePath}${params.slug}`, params.locale)
     return pageRenderer(dict, components)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     notFound()
   }

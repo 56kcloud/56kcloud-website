@@ -1,7 +1,7 @@
 'use client'
 
 import {ArrowRightIcon, CheckCircleIcon} from '@heroicons/react/24/outline'
-import {Controller, FieldValues, RegisterOptions, useForm} from 'react-hook-form'
+import {Controller, RegisterOptions, useForm} from 'react-hook-form'
 import {Dictionary} from '@/models/dictionary.model'
 import {LocationObject} from '@/models/location.model'
 import {contactUsFormData} from '@/models/contact-us-form-data.model'
@@ -30,7 +30,7 @@ export default function ContactWithGradient(props: ContactWithGradientProps) {
     handleSubmit,
     reset,
     formState: {errors}
-  } = useForm({
+  } = useForm<contactUsFormData>({
     defaultValues: {
       firstName: '',
       lastName: '',
@@ -47,9 +47,9 @@ export default function ContactWithGradient(props: ContactWithGradientProps) {
   const firstNameInputProps: InputProps = {
     id: firstNameInputName,
     label: props.dictionary.inputFirstName,
-    error: errors.lastName?.message?.toString()
+    error: errors.firstName?.message?.toString()
   }
-  const firstNameInputRules: RegisterOptions<FieldValues, string> = {
+  const firstNameInputRules: RegisterOptions<contactUsFormData, 'firstName'> = {
     required: 'Your first name is required'
   }
 
@@ -59,7 +59,7 @@ export default function ContactWithGradient(props: ContactWithGradientProps) {
     label: props.dictionary.inputLastName,
     error: errors.lastName?.message?.toString()
   }
-  const lastNameInputRules: RegisterOptions<FieldValues, string> = {
+  const lastNameInputRules: RegisterOptions<contactUsFormData, 'lastName'> = {
     required: 'Your last name is required'
   }
 
@@ -69,7 +69,7 @@ export default function ContactWithGradient(props: ContactWithGradientProps) {
     label: props.dictionary.inputEmail,
     error: errors.email?.message?.toString()
   }
-  const emailInputRules: RegisterOptions<FieldValues, string> = {
+  const emailInputRules: RegisterOptions<contactUsFormData, 'email'> = {
     required: 'An email is required',
     pattern: {
       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -83,7 +83,7 @@ export default function ContactWithGradient(props: ContactWithGradientProps) {
     label: props.dictionary.inputMessage,
     error: errors.message?.message?.toString()
   }
-  const messageInputRules: RegisterOptions<FieldValues, string> = {
+  const messageInputRules: RegisterOptions<contactUsFormData, 'message'> = {
     required: 'A message is required'
   }
 

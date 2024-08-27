@@ -1,6 +1,5 @@
 import {ImageProps} from '../../../../../models/image.model'
 import ComponentLayout from '@/components/ui/atoms/component-layout'
-import FloatingGradientLeft from '@/components/ui/svgs/gradients/floating-gradient/floating-gradient-left'
 import Image from 'next/image'
 
 export type CertificationsBadgesWithTitleProps = {
@@ -11,14 +10,7 @@ export type CertificationsBadgesWithTitleProps = {
 
 export default function CertificationsBadgesWithTitle(props: CertificationsBadgesWithTitleProps) {
   return (
-    <ComponentLayout
-      floatingGradients={[
-        <FloatingGradientLeft
-          key='1'
-          className='absolute top-0 left-0'
-        />
-      ]}
-    >
+    <ComponentLayout>
       <div className='py-20 lg:pb-[104px] lg:pt-[120px]'>
         <div className='mx-auto space-y-12 max-w-4xl'>
           <h2

@@ -1,6 +1,6 @@
-import ComponentLayout from '@/components/ui/atoms/component-layout'
 import {ImageProps} from '@/models/image.model'
 import {cn} from '@/utils/toolbox'
+import ComponentLayout from '@/components/ui/atoms/component-layout'
 import Image from 'next/image'
 
 export type LogoCloudsSimpleWithTitleProps = {
@@ -13,8 +13,8 @@ export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTit
   return (
     <ComponentLayout
       className='overflow-hidden'
-      gradient={true}
       gradientPosition='left'
+      gradient
     >
       <div className='pt-9 pb-0 lg:pt-[104px] lg:pb-6'>
         <div className='mx-auto max-w-7xl'>

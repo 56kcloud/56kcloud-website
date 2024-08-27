@@ -41,6 +41,7 @@ export async function getPageSeo(path: string, locale?: string): Promise<PageSeo
     })
     const element = res.data?.attributes || res
     return snakeCaseObjectKeysToCamelCase(element.seo) as PageSeo
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     return undefined
   }

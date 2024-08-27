@@ -20,7 +20,8 @@ export function featureFactory<T extends 'icon' | 'image'>(props: FeatureFactory
   const base: FeatureBase = {
     title: faker.lorem.sentence(),
     description: faker.lorem.sentence(),
-    link: faker.internet.url()
+    link: faker.internet.url(),
+    cta: faker.lorem.words()
   }
 
   if (props.iconType) {

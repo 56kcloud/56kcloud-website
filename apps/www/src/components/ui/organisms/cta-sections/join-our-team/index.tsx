@@ -59,7 +59,7 @@ export default function JoinOurTeam(props: JoinOurTeamProps) {
                   href={props.cta.link}
                   target='_blank'
                 >
-                  {props.cta.text} <span aria-hidden='true'>&rarr;</span>
+                  {props.cta.title} <span aria-hidden='true'>&rarr;</span>
                 </a>
               </Button>
             </div>

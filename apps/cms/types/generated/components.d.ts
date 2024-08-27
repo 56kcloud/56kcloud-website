@@ -520,17 +520,6 @@ export interface HeroSectionsHeroSimpleCenter extends Schema.Component {
   }
 }
 
-export interface FilterTagsFilter extends Schema.Component {
-  collectionName: 'tag_filter'
-  info: {
-    displayName: 'tag-filter'
-    description: ''
-  }
-  attributes: {
-    tags: Attribute.Relation<'filter.tags-filter', 'oneToMany', 'api::tag.tag'>
-  }
-}
-
 export interface HeaderSectionsHeaderWithTextCards extends Schema.Component {
   collectionName: 'components_header_sections_header_with_text_cards'
   info: {
@@ -553,6 +542,17 @@ export interface HeaderSectionsHeaderWithCardsWithIcon extends Schema.Component 
     title: Attribute.String & Attribute.Required
     subtitle: Attribute.Text & Attribute.Required
     cards: Attribute.Component<'cards.card-with-icon', true>
+  }
+}
+
+export interface FilterTagsFilter extends Schema.Component {
+  collectionName: 'tag_filter'
+  info: {
+    displayName: 'tag-filter'
+    description: ''
+  }
+  attributes: {
+    tags: Attribute.Relation<'filter.tags-filter', 'oneToMany', 'api::tag.tag'>
   }
 }
 
@@ -584,19 +584,6 @@ export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Comp
   }
 }
 
-export interface CtaButton extends Schema.Component {
-  collectionName: 'components_cta_buttons'
-  info: {
-    displayName: 'button'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    link: Attribute.String & Attribute.Required
-    tone: Attribute.Enumeration<['primary', 'secondary']> & Attribute.Required & Attribute.DefaultTo<'primary'>
-  }
-}
-
 export interface CtaSectionsJoinOurTeam extends Schema.Component {
   collectionName: 'components_cta_sections_join_our_teams'
   info: {
@@ -612,28 +599,16 @@ export interface CtaSectionsJoinOurTeam extends Schema.Component {
   }
 }
 
-export interface ContactSectionsContactWithGradient extends Schema.Component {
-  collectionName: 'contact_with_gradients'
+export interface CtaButton extends Schema.Component {
+  collectionName: 'components_cta_buttons'
   info: {
-    displayName: 'contact-with-gradient'
+    displayName: 'button'
     description: ''
   }
   attributes: {
     title: Attribute.String & Attribute.Required
-    subtitle: Attribute.String & Attribute.Required
-  }
-}
-
-export interface CertificationsSectionsCertificationsBadgesWithTitle extends Schema.Component {
-  collectionName: 'certifications_badges_with_titles'
-  info: {
-    displayName: 'certifications-badges-with-title'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    horizontalBadgesImage: Attribute.Media<'images'> & Attribute.Required
-    verticalBadgesImage: Attribute.Media<'images'> & Attribute.Required
+    link: Attribute.String & Attribute.Required
+    tone: Attribute.Enumeration<['primary', 'secondary']> & Attribute.Required & Attribute.DefaultTo<'primary'>
   }
 }
 
@@ -683,6 +658,31 @@ export interface ContentSectionContentAlternatePositionWithImageList extends Sch
   }
 }
 
+export interface ContactSectionsContactWithGradient extends Schema.Component {
+  collectionName: 'contact_with_gradients'
+  info: {
+    displayName: 'contact-with-gradient'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.String & Attribute.Required
+  }
+}
+
+export interface CertificationsSectionsCertificationsBadgesWithTitle extends Schema.Component {
+  collectionName: 'certifications_badges_with_titles'
+  info: {
+    displayName: 'certifications-badges-with-title'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    horizontalBadgesImage: Attribute.Media<'images'> & Attribute.Required
+    verticalBadgesImage: Attribute.Media<'images'> & Attribute.Required
+  }
+}
+
 export interface CardsContentAlternatePositionWithImageItem extends Schema.Component {
   collectionName: 'components_content_alternate_pos_w_image_items'
   info: {
@@ -718,7 +718,7 @@ export interface CardsCardWithIcon extends Schema.Component {
 export interface CardsCardText extends Schema.Component {
   collectionName: 'components_cards_card_texts'
   info: {
-    displayName: 'Card-text'
+    displayName: 'card-text'
     description: ''
   }
   attributes: {
@@ -781,19 +781,19 @@ declare module '@strapi/types' {
       'hero-sections.hero-with-gradient': HeroSectionsHeroWithGradient
       'hero-sections.hero-with-floating-gradients': HeroSectionsHeroWithFloatingGradients
       'hero-sections.hero-simple-center': HeroSectionsHeroSimpleCenter
-      'filter.tags-filter': FilterTagsFilter
       'header-sections.header-with-text-cards': HeaderSectionsHeaderWithTextCards
       'header-sections.header-with-cards-with-icon': HeaderSectionsHeaderWithCardsWithIcon
+      'filter.tags-filter': FilterTagsFilter
       'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
       'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
-      'cta.button': CtaButton
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam
-      'contact-sections.contact-with-gradient': ContactSectionsContactWithGradient
-      'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
+      'cta.button': CtaButton
       'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo
       'content-section.content-two-column': ContentSectionContentTwoColumn
       'content-section.content-markdown': ContentSectionContentMarkdown
       'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
+      'contact-sections.contact-with-gradient': ContactSectionsContactWithGradient
+      'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
       'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem
       'cards.card-with-icon': CardsCardWithIcon
       'cards.card-text': CardsCardText

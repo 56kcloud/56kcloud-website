@@ -16,8 +16,8 @@ export default function IntroductionWithLogo(props: IntroductionWithLogoProps) {
   return (
     <ComponentLayout
       className='overflow-hidden'
-      gradient={true}
       gradientPosition='left'
+      gradient
     >
       <div className='py-20 lg:py-[104px]'>
         <div className='mx-auto max-w-6xl'>

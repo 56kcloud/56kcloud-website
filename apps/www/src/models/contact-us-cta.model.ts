@@ -1,7 +1,7 @@
 import {modalSchema} from './modal.model'
 import {z} from 'zod'
 
-const contactUsCTASchema = z.object({
+export const contactUsCTASchema = z.object({
   title: z.string(),
   modal: modalSchema
 })

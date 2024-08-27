@@ -13,6 +13,7 @@ export async function GET(request: Request) {
 
   try {
     url = new URL(url)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     return new Response('Invalid url parameter', {
       status: 400

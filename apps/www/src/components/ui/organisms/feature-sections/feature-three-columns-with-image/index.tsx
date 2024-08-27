@@ -1,8 +1,8 @@
 import {ArrowRightIcon} from '@heroicons/react/24/solid'
 import {Feature} from '@/models/feature.model'
+import ComponentLayout from '@/components/ui/atoms/component-layout'
 import Image from 'next/image'
 import Link from 'next/link'
-import ComponentLayout from '@/components/ui/atoms/component-layout'
 
 export type FeatureThreeColumnsWithImageProps = {
   title: string
@@ -14,8 +14,8 @@ export default function FeatureThreeColumnsWithImage(props: FeatureThreeColumnsW
   return (
     <ComponentLayout
       className='overflow-hidden'
-      gradient={true}
       gradientPosition='right'
+      gradient
     >
       <div className='py-20 pt-6 lg:py-[104px]'>
         <div className='mx-auto max-w-7xl space-y-10 lg:space-y-20'>
