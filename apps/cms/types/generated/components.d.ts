@@ -707,6 +707,7 @@ export interface CardsCardWithIcon extends Schema.Component {
     title: Attribute.String & Attribute.Required
     description: Attribute.Text & Attribute.Required
     icon: Attribute.Component<'icon.icon'> &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true

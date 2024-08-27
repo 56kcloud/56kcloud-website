@@ -16,9 +16,6 @@ export type HeroWithFloatingGradientsProps = {
 }
 
 export default function HeroWithFloatingGradients(props: HeroWithFloatingGradientsProps) {
-  const title = replaceBrTagWithNewline(props.title)
-  const subtitle = replaceBrTagWithNewline(props.subtitle)
-
   return (
     <ComponentLayout className='overflow-hidden'>
       <div className='absolute inset-0'>
@@ -34,10 +31,10 @@ export default function HeroWithFloatingGradients(props: HeroWithFloatingGradien
           className='w-fit mx-auto text-center text-5xl leading-[1.1875] font-extrabold tracking-tight text-transparent \
           bg-clip-text bg-text-gradient-gray lg:text-7xl lg:leading-[1.125]'
         >
-          {title}
+          {props.title}
         </h1>
         <div className='text-lg font-light text-center mt-7 text-slate-400'>
-          <p>{subtitle}</p>
+          <p>{props.subtitle}</p>
         </div>
         <div className='flex items-center justify-center mt-10'>
           <Button
