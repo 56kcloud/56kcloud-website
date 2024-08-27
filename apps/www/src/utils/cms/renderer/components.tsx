@@ -90,8 +90,6 @@ export function renderComponents(dictionary: Dictionary, components?: Array<Comp
         {...item.props}
         dictionary={dictionary}
         key={index}
-        gradient={item.props.gradient}
-        gradientPosition={item.props.gradientPosition}
       />
     )
     return needSuspense.includes(item.component.toString()) ? <Suspense>{render}</Suspense> : render

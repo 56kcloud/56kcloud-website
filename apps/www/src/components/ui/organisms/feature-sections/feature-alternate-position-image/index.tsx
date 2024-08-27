@@ -19,11 +19,7 @@ export default function FeatureAlternatePositionImage(props: FeatureAlternatePos
   ]
 
   return (
-    <ComponentLayout
-      className='overflow-hidden'
-      gradientPosition='right'
-      gradient
-    >
+    <ComponentLayout>
       <div className='pb-20 pt-9 lg:pb-[104px] lg:pt-[120px] space-y-10 lg:space-y-20'>
         <div className='text-center space-y-4 max-w-4xl mx-auto'>
           <h2

@@ -1,5 +1,5 @@
 import {cn} from '@/utils/toolbox'
-import FloatingGradientLeft from '../../svgs/gradients/floating-gradient/floating-gradient-left'
+import HeroGradient from '../../svgs/gradients/hero-gradient'
 import FloatingGradientRight from '../../svgs/gradients/floating-gradient/floating-gradient-right'
 import React from 'react'
 
@@ -7,33 +7,22 @@ export type ComponentLayoutProps = {
   children: React.ReactNode
   className?: string
   childrenClassName?: string
-  gradient?: boolean
-  gradientPosition?: 'left' | 'right'
+  gradientVariant?: 'heroGradient' | 'floatingGradient'
 }
 
 export default function ComponentLayout(props: ComponentLayoutProps) {
-  const gradient = props.gradient ? (
-    props.gradientPosition === 'left' ? (
-      <FloatingGradientLeft />
-    ) : (
+  const gradient =
+    props.gradientVariant === 'heroGradient' ? (
+      <HeroGradient />
+    ) : props.gradientVariant === 'floatingGradient' ? (
       <FloatingGradientRight />
-    )
-  ) : null
+    ) : null
 
   return (
     <div className={cn('flex justify-center w-full relative', props.className)}>
       <div className={cn('max-w-7xl mx-auto w-full px-6', props.childrenClassName)}>
         {props.children}
-        {props.gradient && (
-          <div
-            className={cn(
-              'absolute -z-50',
-              props.gradientPosition === 'left' ? 'top-0 -left-20' : '-top-10 -right-[416px]'
-            )}
-          >
-            {gradient}
-          </div>
-        )}
+        {gradient && <div className={cn('absolute -z-50 inset-0')}>{gradient}</div>}
       </div>
     </div>
   )

@@ -11,11 +11,7 @@ export type LogoCloudsSimpleWithTitleProps = {
 
 export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTitleProps) {
   return (
-    <ComponentLayout
-      className='overflow-hidden'
-      gradientPosition='left'
-      gradient
-    >
+    <ComponentLayout>
       <div className='pt-9 pb-0 lg:pt-[104px] lg:pb-6'>
         <div className='mx-auto max-w-7xl'>
           <div className='relative w-full h-full rounded-3xl p-8 pb-32 bg-radial-gradient lg:rounded-[48px] lg:px-12 lg:pt-20'>

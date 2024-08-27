@@ -13,10 +13,7 @@ export default function HeroWithGradient(props: HeroWithGradientProps) {
   const subtitle = replaceBrTagWithNewline(props.subtitle)
 
   return (
-    <ComponentLayout>
-      <div className='absolute -z-10 inset-x-0'>
-        <HeroGradient />
-      </div>
+    <ComponentLayout gradientVariant='heroGradient'>
       <div className='pb-8 pt-40 lg:pb-20'>
         <div className='space-y-8'>
           <div className='flex justify-center w-full'>

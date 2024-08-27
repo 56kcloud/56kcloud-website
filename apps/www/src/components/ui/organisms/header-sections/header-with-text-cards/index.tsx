@@ -11,10 +11,7 @@ export type HeaderWithTextCardsProps = {
 
 export default function HeaderWithTextCards(props: HeaderWithTextCardsProps) {
   return (
-    <ComponentLayout>
-      <div className='absolute -z-10 inset-x-0'>
-        <HeroGradient />
-      </div>
+    <ComponentLayout gradientVariant='heroGradient'>
       <div className='pb-8 pt-40 lg:pt-60 lg:pb-20'>
         <div className='flex flex-col justify-between lg:flex-row gap-x-16'>
           <div className='w-full lg:w-2/6'>
