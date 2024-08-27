@@ -36,7 +36,7 @@ export default function BlogThreeColumn(props: BlogThreeColumnProps) {
   ))
 
   return (
-    <ComponentLayout>
+    <ComponentLayout gradientVariant='floatingGradient'>
       <div className='py-20 pt-6 lg:py-[104px]'>
         <div className='mx-auto max-w-7xl space-y-10 lg:space-y-20'>
           <div className='space-y-4 max-w-4xl'>

@@ -2,6 +2,7 @@ import {cn} from '@/utils/toolbox'
 import HeroGradient from '../../svgs/gradients/hero-gradient'
 import FloatingGradientRight from '../../svgs/gradients/floating-gradient/floating-gradient-right'
 import React from 'react'
+import FloatingGradientLeft from '../../svgs/gradients/floating-gradient/floating-gradient-left'
 
 export type ComponentLayoutProps = {
   children: React.ReactNode
@@ -15,7 +16,10 @@ export default function ComponentLayout(props: ComponentLayoutProps) {
     props.gradientVariant === 'heroGradient' ? (
       <HeroGradient />
     ) : props.gradientVariant === 'floatingGradient' ? (
-      <FloatingGradientRight />
+      <div className='absolute inset-0 overflow-hidden'>
+        <FloatingGradientLeft className='absolute -left-20 top-0' />
+        <FloatingGradientRight className='absolute -right-96 -bottom-0' />
+      </div>
     ) : null
 
   return (

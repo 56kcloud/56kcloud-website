@@ -12,7 +12,7 @@ export type FeatureThreeColumnsWithImageProps = {
 
 export default function FeatureThreeColumnsWithImage(props: FeatureThreeColumnsWithImageProps) {
   return (
-    <ComponentLayout>
+    <ComponentLayout gradientVariant='floatingGradient'>
       <div className='py-20 pt-6 lg:py-[104px]'>
         <div className='mx-auto max-w-7xl space-y-10 lg:space-y-20'>
           <div className='mr-auto space-y-4 max-w-4xl'>
