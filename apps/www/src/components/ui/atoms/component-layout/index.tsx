@@ -1,8 +1,8 @@
 import {cn} from '@/utils/toolbox'
-import HeroGradient from '../../svgs/gradients/hero-gradient'
-import FloatingGradientRight from '../../svgs/gradients/floating-gradient/floating-gradient-right'
-import React from 'react'
 import FloatingGradientLeft from '../../svgs/gradients/floating-gradient/floating-gradient-left'
+import FloatingGradientRight from '../../svgs/gradients/floating-gradient/floating-gradient-right'
+import HeroGradient from '../../svgs/gradients/hero-gradient'
+import React from 'react'
 
 export type ComponentLayoutProps = {
   children: React.ReactNode

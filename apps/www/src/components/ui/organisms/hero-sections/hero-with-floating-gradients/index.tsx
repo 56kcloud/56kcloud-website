@@ -1,7 +1,6 @@
 import {ArrowRightIcon} from '@heroicons/react/24/outline'
 import {CTAProps} from '@/models/cta.model'
 import {ImageProps} from '@/models/image.model'
-import {replaceBrTagWithNewline} from '@/utils/toolbox'
 import Button from '@/components/ui/atoms/button'
 import ComponentLayout from '@/components/ui/atoms/component-layout'
 import FloatingGradientLeft from '@/components/ui/svgs/gradients/floating-gradient/floating-gradient-left'

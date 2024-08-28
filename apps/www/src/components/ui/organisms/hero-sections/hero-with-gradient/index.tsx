@@ -1,6 +1,5 @@
 import {replaceBrTagWithNewline} from '@/utils/toolbox'
 import ComponentLayout from '@/components/ui/atoms/component-layout'
-import HeroGradient from '@/components/ui/svgs/gradients/hero-gradient'
 
 export type HeroWithGradientProps = {
   surtitle: string

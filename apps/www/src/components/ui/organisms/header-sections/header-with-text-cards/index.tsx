@@ -1,6 +1,5 @@
 import {CardProps} from '@/models/card.model'
 import ComponentLayout from '@/components/ui/atoms/component-layout'
-import HeroGradient from '@/components/ui/svgs/gradients/hero-gradient'
 import TextCard from '@/components/ui/molecules/cards/text'
 
 export type HeaderWithTextCardsProps = {
