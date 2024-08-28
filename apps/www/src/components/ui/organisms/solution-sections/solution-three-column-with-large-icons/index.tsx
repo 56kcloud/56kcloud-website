@@ -13,7 +13,8 @@ export default function SolutionThreeColumnWithLargeIcons(props: SolutionThreeCo
       icon: solution.icon,
       title: solution.title,
       description: solution.description,
-      link: `/solutions/${solution.slug}`
+      link: `/solutions/${solution.slug}`,
+      cta: solution.cta
     }
   })
 

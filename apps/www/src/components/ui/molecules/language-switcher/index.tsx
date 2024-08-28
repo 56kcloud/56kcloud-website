@@ -1,6 +1,13 @@
 'use client'
 
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from '@/components/primitives/select'
+import {ListItem} from '../navigation-menu'
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger
+} from '@/components/primitives/navigation-menu'
 import {defaultLocale, locales} from '../../../../../configs/shared'
 import {useParams, usePathname, useRouter} from 'next/navigation'
 import Button from '../../atoms/button'
@@ -35,7 +42,7 @@ export default function LanguageSwitcher({mobileMenuOpen}: LanguageSwitcherProps
           key={locale}
           tone='secondary'
           variant='link'
-          className='p-0 text-base text-gray-400 uppercase data-[state=active]:text-white hover:text-white'
+          className='p-0 text-base text-gray-400 uppercase data-[state=active]:text-white hover:text-slate-50'
           data-active={pathMatcher(locale)}
         >
           <Link
@@ -48,30 +55,47 @@ export default function LanguageSwitcher({mobileMenuOpen}: LanguageSwitcherProps
       ))}
     </div>
   ) : (
-    <Select
+    <NavigationMenu
       defaultValue={locale?.toString() || defaultLocale}
-      onValueChange={updateLanguage}
+      aria-label='Language Switcher'
     >
-      <SelectTrigger
-        aria-label='Language Switcher'
-        className={
-          'uppercase w-[72px] border-0 bg-slate-900 text-white font-normal focus:ring-2 focus:ring-inset \
-      focus:ring-primary-500 sm:text-base sm:leading-6 px-3 py-1'
-        }
-      >
-        <SelectValue />
-      </SelectTrigger>
-      <SelectContent className='min-w-0 border-0 bg-slate-800 text-slate-400'>
-        {locales?.map((locale) => (
-          <SelectItem
-            className='w-[72px] uppercase focus:text-slate-900 focus:bg-sky-400'
-            key={locale}
-            value={locale}
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <Button
+            asChild
+            tone='primary'
+            variant='link'
+            className='text-slate-50 !px-0 !py-0 text-sm font-medium'
           >
-            {locale}
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
+            <NavigationMenuTrigger className='uppercase gap-1'>{locale}</NavigationMenuTrigger>
+          </Button>
+          <NavigationMenuContent
+            className='!w-24 px-6 py-5 bg-gradient-to-t from-slate-800 to-slate-900 border \
+            border-slate-800'
+          >
+            <ul className='space-y-3 w-52'>
+              {locales.map((localeItem) => (
+                <ListItem key={localeItem}>
+                  <Button
+                    asChild
+                    tone='secondary'
+                    variant='link'
+                    className='p-0 text-sm text-gray-400 uppercase data-[state=active]:text-white hover:text-slate-50'
+                    data-active={pathMatcher(localeItem)}
+                  >
+                    <Link
+                      href={`/${locale}`}
+                      onClick={(e) => updateLanguage(localeItem, e)}
+                    >
+                      {localeItem}
+                    </Link>
+                  </Button>
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
   )
 }

@@ -5,13 +5,13 @@ import {faker} from '@faker-js/faker'
 export type CtaFactoryProps = {
   tone?: (typeof buttonTones)[number]
   link?: string
-  text?: string
+  title?: string
 }
 
 export function ctaFactory(props?: CtaFactoryProps): CTAProps {
   return {
     tone: props?.tone || faker.helpers.arrayElement(buttonTones),
     link: props?.link || '/',
-    text: props?.text || faker.lorem.words(2)
+    title: props?.title || faker.lorem.words(2)
   }
 }

@@ -50,6 +50,7 @@ export default async function ArticlePage({params}: ArticlePageProps) {
     const dict = await getDictionary(params.locale)
     const components = await getPageComponents(`${basePath}${params.slug}`)
     return pageRenderer(dict, components)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     notFound()
   }

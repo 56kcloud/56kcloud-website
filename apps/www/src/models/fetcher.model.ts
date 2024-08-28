@@ -38,6 +38,7 @@ export class Fetcher {
       if (res.status >= 200 && res.status < 300) {
         try {
           return await res.json()
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
           return {}
         }
@@ -45,6 +46,7 @@ export class Fetcher {
         let detail = res.statusText
         try {
           detail = JSON.stringify((await res.json())?.detail)
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
           /* empty */
         }

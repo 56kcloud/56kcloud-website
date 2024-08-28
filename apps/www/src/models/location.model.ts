@@ -1,6 +1,6 @@
 import {z} from 'zod'
 
-const locationSchema = z.object({
+export const locationSchema = z.object({
   name: z.string(),
   address: z.string(),
   city: z.string(),

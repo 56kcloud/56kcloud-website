@@ -18,10 +18,17 @@
   "attributes": {
     "body": {
       "type": "dynamiczone",
-      "components": ["blog-sections.blog-three-column", "blog-sections.blog-masonry"],
+      "components": [
+        "hero-sections.hero-with-gradient",
+        "blog-sections.blog-three-column",
+        "blog-sections.blog-masonry"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       }
     },
@@ -33,6 +40,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       }
     }

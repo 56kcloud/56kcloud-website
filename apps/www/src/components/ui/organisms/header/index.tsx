@@ -3,14 +3,12 @@
 import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import {Dialog} from '@headlessui/react'
 import {Dictionary} from '@/models/dictionary.model'
-import {LinkProps} from '@/models/link.model'
-import {cn} from '@/utils/toolbox'
-import {usePathname} from 'next/navigation'
+import {cn, getNavigationLinks} from '@/utils/toolbox'
 import {useState} from 'react'
-import Button from '../../atoms/button'
 import LanguageSwitcher from '../../molecules/language-switcher'
 import Link from 'next/link'
 import Logo from '../../svgs/logos/56k'
+import NavigationMenu from '../../molecules/navigation-menu'
 
 export type HeaderProps = {
   dictionary: Dictionary
@@ -18,30 +16,21 @@ export type HeaderProps = {
 
 export default function Header({dictionary}: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const navigation: Array<LinkProps> = [
-    {text: dictionary.blog, link: '/blog'},
-    {text: dictionary.about, link: '/about'}
-  ]
-
-  const pathname = usePathname()
-
-  const pathMatcher = (path: string) => {
-    return pathname.includes(path)
-  }
+  const navigation = getNavigationLinks(dictionary)
 
   return (
-    <header className='absolute inset-x-0 top-0 z-50 flex justify-center'>
+    <header className='absolute inset-x-0 top-0 z-10 flex justify-center'>
       <nav
-        className='flex items-center justify-between w-full p-6 pt-8 lg:pt-14 max-w-7xl'
+        className='flex items-center justify-between w-full p-6 max-w-7xl'
         aria-label='Global'
       >
         <div className='flex lg:flex-1'>
           <Link
             href='/'
-            className='-m-1.5 p-1.5 text-white'
+            className='-m-1.5 p-1.5 text-slate-50'
           >
             <span className='sr-only'>56k Cloud</span>
-            <Logo className='h-7 lg:h-8' />
+            <Logo className='h-7' />
           </Link>
         </div>
         <div className='flex lg:hidden'>
@@ -59,15 +48,10 @@ export default function Header({dictionary}: HeaderProps) {
         </div>
         <div className='hidden lg:flex lg:justify-between lg:gap-x-16'>
           <div className='flex items-center gap-x-8'>
-            {navigation.map((item) => (
-              <Link
-                key={item.text}
-                href={item.link}
-                className='px-2 py-1 text-base font-normal leading-6 text-white'
-              >
-                {item.text}
-              </Link>
-            ))}
+            <NavigationMenu
+              navigationItems={navigation}
+              orientation='horizontal'
+            />
           </div>
           <LanguageSwitcher mobileMenuOpen={mobileMenuOpen} />
         </div>
@@ -82,7 +66,7 @@ export default function Header({dictionary}: HeaderProps) {
         <Dialog.Panel
           className={cn(
             mobileMenuOpen ? 'animate-in slide-in-from-right-full' : 'animate-out slide-out-to-right-full',
-            'fixed flex flex-col justify-between inset-y-0 right-0 z-50 w-full px-6 py-8 overflow-y-auto \
+            'fixed flex flex-col justify-between inset-y-0 right-0 z-50 w-full p-6 overflow-y-auto \
           bg-gray-900 sm:max-w-sm sm:ring-1 sm:ring-white/10 duration-500 ease-in-out'
           )}
         >
@@ -108,18 +92,10 @@ export default function Header({dictionary}: HeaderProps) {
               </button>
             </div>
             <div className='flex flex-col gap-y-3'>
-              {navigation.map((item) => (
-                <Button
-                  asChild
-                  key={item.text}
-                  tone='secondary'
-                  variant='link'
-                  className='text-base text-slate-400 hover:text-white'
-                  data-active={pathMatcher(item.link)}
-                >
-                  <Link href={item.link}>{item.text}</Link>
-                </Button>
-              ))}
+              <NavigationMenu
+                navigationItems={navigation}
+                orientation='vertical'
+              />
             </div>
           </div>
           <LanguageSwitcher mobileMenuOpen={mobileMenuOpen} />

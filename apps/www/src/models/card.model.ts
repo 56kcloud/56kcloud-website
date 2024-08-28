@@ -5,7 +5,7 @@ export const cardSchema = z.object({
   title: z.string(),
   description: z.string()
 })
-export type Card = z.infer<typeof cardSchema>
+export type CardProps = z.infer<typeof cardSchema>
 
 export const cardWithIconSchema = cardSchema.extend({
   icon: iconSchema

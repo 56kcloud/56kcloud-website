@@ -65,7 +65,7 @@
         }
       },
       "component": "icon.icon",
-      "required": true
+      "required": false
     },
     "body": {
       "pluginOptions": {
@@ -78,13 +78,39 @@
       },
       "type": "dynamiczone",
       "components": [
-        "header-sections.header-with-cards",
+        "header-sections.header-with-cards-with-icon",
+        "header-sections.header-with-text-cards",
         "service-sections.service-three-column-with-large-icons",
         "solution-sections.solution-three-column-with-large-icons",
         "content-section.content-markdown",
-        "contact-sections.contact-split-with-pattern",
+        "contact-sections.contact",
         "solution-sections.solution-one-column"
       ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      }
+    },
+    "cta": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "type": "string"
     }
   }
 }

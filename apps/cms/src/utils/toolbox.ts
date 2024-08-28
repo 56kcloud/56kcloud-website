@@ -25,7 +25,7 @@ export async function bodyHandler(contentType, locale = 'en') {
   contentType.body = Array.isArray(contentType.body) ? contentType.body : []
   const contactComponentIndex = contentType.body
     .map((el) => el.__component)
-    .indexOf('contact-sections.contact-split-with-pattern')
+    .indexOf('contact-sections.contact-with-gradient')
   if (contactComponentIndex >= 0) {
     const locations = await strapi.entityService.findMany('api::location.location', {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -129,6 +129,7 @@ export async function findOne(props: FindOneProps) {
   try {
     const contentType = await queryByLocale(props.uid, props.ctx.query, props.where)
     if (!props.ctx.query.seoOnly) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       props.contentTypeHandler && props.contentTypeHandler(contentType)
       await bodyHandler(contentType, props.ctx.query.locale)
     } else {
@@ -158,6 +159,7 @@ export async function getAllPublishedSlugs(ctx, uid: Common.UID.Service) {
   try {
     const contentTypes = await findManyContentTypes(uid, ['slug', 'locale'], showDrafts)
     return contentTypes.filter((content) => content.slug)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     const contentTypes = await findManyContentTypes(uid, ['slug'], showDrafts)
     return contentTypes

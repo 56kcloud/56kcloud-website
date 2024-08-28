@@ -25,7 +25,9 @@ export function middleware(request: NextRequest) {
     return response
   } else {
     const localeFromCookie = request.cookies.get('NEXT_LOCALE')?.value as keyof typeof localesMap
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     localeFromCookie && locales.includes(localeFromCookie) && (locale = localeFromCookie)
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     !locale && (locale = getLocale(request))
     request.nextUrl.pathname = `/${locale}${pathname}`
     request.cookies.set('NEXT_LOCALE', locale)

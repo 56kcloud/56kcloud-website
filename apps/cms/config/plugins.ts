@@ -120,13 +120,13 @@ export default ({env}) => ({
           openTarget: '_blank'
         },
         {
-          uid: 'api::about-page.about-page',
+          uid: 'api::about-us-page.about-us-page',
           query: {
-            type: 'about-page',
+            type: 'about-us-page',
             locale: '{locale}'
           },
           draft: {
-            url: `${env('PREVIEW_HOST')}/api/draft?url=/{locale}/about`,
+            url: `${env('PREVIEW_HOST')}/api/draft?url=/{locale}/about-us`,
             alwaysVisible: true
           },
           openTarget: '_blank'

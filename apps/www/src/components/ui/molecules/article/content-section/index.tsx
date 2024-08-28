@@ -67,7 +67,7 @@ export default function ArticleContentSection({
                 </div>
               </div>
             </div>
-            <div className='max-w-full'>
+            <div className='max-w-full mt-10'>
               <MarkdownViewer
                 content={content}
                 className='px-0'

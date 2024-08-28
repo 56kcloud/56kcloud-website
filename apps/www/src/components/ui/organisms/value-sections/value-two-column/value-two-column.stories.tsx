@@ -1,4 +1,5 @@
 import {faker} from '@faker-js/faker'
+import {imageFactory} from '@/tests/factories/image.factory'
 import ValueTwoColumn, {ValueTwoColumnProps} from './index'
 import type {Meta} from '@storybook/react'
 
@@ -9,9 +10,10 @@ const meta = {
   args: {
     title: faker.lorem.sentence(),
     subtitle: faker.lorem.sentence(),
-    values: Array.from({length: 2}, () => ({
+    values: Array.from({length: 3}, () => ({
       name: faker.lorem.sentence(),
-      description: faker.lorem.sentence()
+      description: faker.lorem.sentence(),
+      background: imageFactory()
     }))
   }
 } satisfies Meta<typeof ValueTwoColumn>

@@ -5,7 +5,14 @@
     "es2021": true
   },
   "extends": ["next/core-web-vitals", "eslint:recommended", "plugin:@typescript-eslint/recommended"],
-  "ignorePatterns": ["**/dist", "package-lock.json", "**/node_modules", "**/types/generated"],
+  "ignorePatterns": [
+    "**/dist",
+    "package-lock.json",
+    "**/node_modules",
+    "**/types/generated",
+    "**/cdk.out",
+    "**/storybook-static"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -23,6 +30,7 @@
       }
     ],
     "import/no-anonymous-default-export": "off",
-    "no-extra-semi": "off"
+    "no-extra-semi": "off",
+    "@next/next/no-html-link-for-pages": "off"
   }
 }

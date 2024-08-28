@@ -13,7 +13,8 @@ export default function SolutionOneColumn(props: SolutionOneColumnProps) {
       icon: solution.icon,
       title: solution.title,
       description: solution.description,
-      link: `/solutions/${solution.slug}`
+      link: `/solutions/${solution.slug}`,
+      cta: solution.cta
     }
   })
 

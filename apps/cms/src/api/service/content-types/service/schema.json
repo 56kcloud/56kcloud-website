@@ -54,7 +54,11 @@
       "type": "text",
       "required": true
     },
-    "body": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -62,18 +66,7 @@
         "translate": {
           "translate": "translate"
         }
-      },
-      "type": "dynamiczone",
-      "components": [
-        "header-sections.header-with-cards",
-        "service-sections.service-three-column-with-large-icons",
-        "solution-sections.solution-three-column-with-large-icons",
-        "content-section.content-markdown",
-        "contact-sections.contact-split-with-pattern",
-        "service-sections.service-alternate-position-icon",
-        "diagram-sections.diagram-full-width",
-        "content-section.content-alternate-position-with-image-list"
-      ]
+      }
     },
     "icon": {
       "type": "component",
@@ -87,7 +80,41 @@
         }
       },
       "component": "icon.icon",
-      "required": true
+      "required": false
+    },
+    "cta": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "type": "string"
+    },
+    "body": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "header-sections.header-with-cards-with-icon",
+        "header-sections.header-with-text-cards",
+        "service-sections.service-three-column-with-large-icons",
+        "solution-sections.solution-three-column-with-large-icons",
+        "content-section.content-markdown",
+        "contact-sections.contact",
+        "service-sections.service-alternate-position-icon",
+        "diagram-sections.diagram-full-width",
+        "content-section.content-alternate-position-with-image-list",
+        "solution-sections.solution-three-columns-with-image"
+      ]
     }
   }
 }

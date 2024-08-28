@@ -10,6 +10,7 @@ export function solutionFactory(): Solution {
     description: faker.lorem.paragraph(),
     image: imageFactory(),
     icon: iconFactory({type: 'outline'}),
+    cta: faker.lorem.words(),
     relatedArticles: [],
     relatedPartners: [],
     relatedServices: [],

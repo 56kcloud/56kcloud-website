@@ -13,7 +13,8 @@ export default function ServiceThreeColumnWithLargeIcons(props: ServiceThreeColu
       icon: service.icon,
       title: service.title,
       description: service.description,
-      link: `/services/${service.slug}`
+      link: `/services/${service.slug}`,
+      cta: service.cta
     }
   })
 

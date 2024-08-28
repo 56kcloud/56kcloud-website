@@ -60,6 +60,7 @@ const HomePage = () => {
           title: 'Website Revalidated Successfully',
           variant: 'success'
         })
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (e) {
         setAlertProps({
           title: 'Website Revalidation Failed',
