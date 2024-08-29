@@ -42,7 +42,7 @@ const HomePage = () => {
   }, [])
 
   async function revalidate() {
-    const userInfo = JSON.parse(sessionStorage.getItem('userInfo') || '')
+    const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}')
     if (config?.revalidateEndpoint) {
       setIsSubmitting(true)
       try {
