@@ -17,8 +17,8 @@ export default function FloatingGradientRight({className}: FloatingGradientProps
     >
       <g filter='url(#filter0_f_1004_3)'>
         <path
-          fill-rule='evenodd'
-          clip-rule='evenodd'
+          fillRule='evenodd'
+          clipRule='evenodd'
           d='M136 521.553L750.667 188.37L372 136L136 521.553Z'
           fill='url(#paint0_linear_1004_3)'
         ></path>
@@ -31,10 +31,10 @@ export default function FloatingGradientRight({className}: FloatingGradientProps
           width='886.495'
           height='657.381'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
           <feFlood
-            flood-opacity='0'
+            floodOpacity='0'
             result='BackgroundImageFix'
           ></feFlood>
           <feBlend
@@ -56,11 +56,11 @@ export default function FloatingGradientRight({className}: FloatingGradientProps
           y2='53.3368'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#0EA5E9'></stop>
+          <stop stopColor='#0EA5E9'></stop>
           <stop
             offset='1'
-            stop-color='#0F172A'
-            stop-opacity='0.01'
+            stopColor='#0F172A'
+            stopOpacity='0.01'
           ></stop>
         </linearGradient>
       </defs>

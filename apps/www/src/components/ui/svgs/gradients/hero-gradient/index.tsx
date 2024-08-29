@@ -37,8 +37,8 @@ export default function HeroGradient({className}: HeroGradientProps) {
       <g mask='url(#mask0_302_170)'>
         <g filter='url(#filter0_f_302_170)'>
           <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
+            fillRule='evenodd'
+            clipRule='evenodd'
             d='M1547.41 -107.698L1091.36 445.473L1090.14 62.3922L1547.41 -107.698Z'
             fill='url(#paint1_linear_302_170)'
           ></path>
@@ -52,10 +52,10 @@ export default function HeroGradient({className}: HeroGradientProps) {
           width='729.097'
           height='824.999'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
           <feFlood
-            flood-opacity='0'
+            floodOpacity='0'
             result='BackgroundImageFix'
           ></feFlood>
           <feBlend
@@ -78,18 +78,18 @@ export default function HeroGradient({className}: HeroGradientProps) {
           gradientTransform='translate(932.167) rotate(90) scale(688.45 2102.29)'
         >
           <stop
-            stop-color='#38BDF8'
-            stop-opacity='0.72'
+            stopColor='#38BDF8'
+            stopOpacity='0.72'
           ></stop>
           <stop
             offset='0.223497'
-            stop-color='#0EA5E9'
-            stop-opacity='0.4'
+            stopColor='#0EA5E9'
+            stopOpacity='0.4'
           ></stop>
           <stop
             offset='1'
-            stop-color='#0F172A'
-            stop-opacity='0.01'
+            stopColor='#0F172A'
+            stopOpacity='0.01'
           ></stop>
         </radialGradient>
         <linearGradient
@@ -100,11 +100,11 @@ export default function HeroGradient({className}: HeroGradientProps) {
           y2='92.2741'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#0F172A'></stop>
+          <stop stopColor='#0F172A'></stop>
           <stop
             offset='1'
-            stop-color='#0EA5E9'
-            stop-opacity='0.01'
+            stopColor='#0EA5E9'
+            stopOpacity='0.01'
           ></stop>
         </linearGradient>
       </defs>

@@ -19,14 +19,14 @@ export default function ContactGradient() {
       <g>
         <g filter='url(#filter0_f_500_448)'>
           <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
+            fillRule='evenodd'
+            clipRule='evenodd'
             d='M1 1196.28L444.462 511.406L171.266 403.756L1 1196.28Z'
             fill='url(#paint1_linear_500_448)'
           ></path>
           <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
+            fillRule='evenodd'
+            clipRule='evenodd'
             d='M1 1196.28L444.462 511.406L171.266 403.756L1 1196.28Z'
           ></path>
         </g>
@@ -39,10 +39,10 @@ export default function ContactGradient() {
           width='716.531'
           height='1065.3'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
           <feFlood
-            flood-opacity='0'
+            floodOpacity='0'
             result='BackgroundImageFix'
           ></feFlood>
           <feBlend
@@ -64,16 +64,16 @@ export default function ContactGradient() {
           gradientUnits='userSpaceOnUse'
           gradientTransform='translate(532 1.00001) rotate(89.932) scale(422.416 632.731)'
         >
-          <stop stop-color='#60A5FA'></stop>
+          <stop stopColor='#60A5FA'></stop>
           <stop
             offset='0.223497'
-            stop-color='#0EA5E9'
-            stop-opacity='0.64'
+            stopColor='#0EA5E9'
+            stopOpacity='0.64'
           ></stop>
           <stop
             offset='1'
-            stop-color='#0F172A'
-            stop-opacity='0.01'
+            stopColor='#0F172A'
+            stopOpacity='0.01'
           ></stop>
         </radialGradient>
         <linearGradient
@@ -84,11 +84,11 @@ export default function ContactGradient() {
           y2='417.175'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#3B82F6'></stop>
+          <stop stopColor='#3B82F6'></stop>
           <stop
             offset='1'
-            stop-color='#0EA5E9'
-            stop-opacity='0.01'
+            stopColor='#0EA5E9'
+            stopOpacity='0.01'
           ></stop>
         </linearGradient>
       </defs>
