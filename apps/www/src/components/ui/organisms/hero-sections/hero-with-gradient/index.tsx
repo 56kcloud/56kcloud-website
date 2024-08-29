@@ -22,7 +22,7 @@ export default function HeroWithGradient(props: HeroWithGradientProps) {
           </div>
           <h2
             className='w-fit max-w-5xl mx-auto text-center text-5xl leading-[1.1875] font-extrabold tracking-tight text-transparent \
-            bg-clip-text bg-text-gradient-gray lg:text-[58px] lg:leading-[1.125]'
+            bg-clip-text bg-text-gradient-gray lg:text-[58px]'
           >
             {title}
           </h2>

@@ -17,8 +17,8 @@ export default function FeatureThreeColumnsWithImage(props: FeatureThreeColumnsW
         <div className='mx-auto max-w-7xl space-y-10 lg:space-y-20'>
           <div className='mr-auto space-y-4 max-w-4xl'>
             <h2
-              className='w-fit text-[44px] leading-[48px] font-extrabold tracking-tight text-transparent bg-clip-text \
-            bg-text-gradient-gray lg:leading-[58px]'
+              className='w-fit text-[44px] leading-[1.1875] font-extrabold tracking-tight text-transparent bg-clip-text \
+              bg-text-gradient-gray'
             >
               {props.title}
             </h2>

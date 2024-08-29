@@ -15,8 +15,8 @@ export default function ValueTwoColumn(props: ValueTwoColumnProps) {
       <div className='pb-20 pt-9 lg:pb-[104px] lg:pt-[120px]'>
         <div className='mx-auto text-center space-y-4 max-w-4xl'>
           <h2
-            className='w-fit text-[44px] leading-[48px] font-extrabold tracking-tight text-transparent bg-clip-text \
-            bg-text-gradient-gray lg:leading-[58px] lg:mx-auto'
+            className='w-fit text-[44px] leading-[1.1875] font-extrabold tracking-tight text-transparent bg-clip-text \
+              bg-text-gradient-gray lg:mx-auto'
           >
             {props.title}
           </h2>

@@ -24,7 +24,7 @@ export default function TeamMemberCard({teamMember}: TeamMemberCardProps) {
             />
           </div>
           <div className='space-y-2'>
-            <h1 className='text-2xl font-semibold text-white title line-clamp-2'>{teamMember.name}</h1>
+            <h3 className='text-2xl font-semibold text-white title line-clamp-2'>{teamMember.name}</h3>
             <p className='max-w-2xl mt-2 text-base text-white/90'>{teamMember.role?.name}</p>
             <div className='flex space-x-4'>
               {teamMember.twitter && (

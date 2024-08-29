@@ -21,8 +21,8 @@ export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTit
                 {props.surtitle}
               </span>
               <h2
-                className='w-fit text-[44px] leading-[48px] font-extrabold text-center tracking-tight text-transparent \
-              bg-clip-text bg-text-gradient-gray lg:leading-[58px]'
+                className='w-fit text-[44px] leading-[1.1875] font-extrabold text-center tracking-tight text-transparent \
+              bg-clip-text bg-text-gradient-gray'
               >
                 {props.title}
               </h2>

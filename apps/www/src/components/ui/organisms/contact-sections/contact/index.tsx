@@ -119,8 +119,8 @@ export default function Contact(props: ContactProps) {
           <div className='p-8 py-12 space-y-12 lg:px-28 lg:py-16'>
             <div className='space-y-4 max-w-4xl'>
               <h2
-                className='w-fit text-[44px] leading-[48px] font-extrabold tracking-tight text-transparent bg-clip-text \
-              bg-text-gradient-gray mx-auto lg:leading-[58px]'
+                className='w-fit text-[44px] leading-[1.1875] font-extrabold tracking-tight text-transparent \
+                bg-clip-text bg-text-gradient-gray mx-auto text-center'
               >
                 {props.title}
               </h2>
