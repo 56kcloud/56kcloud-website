@@ -10,7 +10,7 @@ export type CertificationsBadgesWithTitleProps = {
 
 export default function CertificationsBadgesWithTitle(props: CertificationsBadgesWithTitleProps) {
   return (
-    <ComponentLayout>
+    <ComponentLayout gradientVariant='floatingGradient'>
       <div className='py-20 lg:pb-[104px] lg:pt-[120px]'>
         <div className='mx-auto space-y-12 max-w-4xl'>
           <h2

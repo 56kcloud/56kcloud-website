@@ -11,7 +11,7 @@ export type ValueTwoColumnProps = {
 
 export default function ValueTwoColumn(props: ValueTwoColumnProps) {
   return (
-    <ComponentLayout gradientVariant='floatingGradient'>
+    <ComponentLayout>
       <div className='pb-20 pt-9 lg:pb-[104px] lg:pt-[120px]'>
         <div className='mx-auto text-center space-y-4 max-w-4xl'>
           <h2

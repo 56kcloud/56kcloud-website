@@ -10,7 +10,7 @@ export type TeamThreeColumnProps = {
 
 export default function TeamThreeColumn(props: TeamThreeColumnProps) {
   return (
-    <ComponentLayout>
+    <ComponentLayout gradientVariant='floatingGradient'>
       <div className='pb-20 pt-9 lg:pb-[104px] lg:pt-[120px]'>
         <div className='mr-auto space-y-4 max-w-4xl'>
           <h2
