@@ -1,5 +1,5 @@
 import {Value} from '@/models/value.model'
-import {cn, replaceBrTagWithNewline} from '@/utils/toolbox'
+import {cn} from '@/utils/toolbox'
 import ComponentLayout from '@/components/ui/atoms/component-layout'
 import Image from 'next/image'
 
@@ -36,9 +36,7 @@ export default function ValueTwoColumn(props: ValueTwoColumnProps) {
                 <h3 className='text-2xl leading-7 font-semibold text-center w-fit text-transparent bg-clip-text bg-text-gradient-blue'>
                   {value.name}
                 </h3>
-                <p className='text-center text-base leading-7 text-slate-50 font-light'>
-                  {replaceBrTagWithNewline(value.description)}
-                </p>
+                <p className='text-center text-base leading-7 text-slate-50 font-light'>{value.description}</p>
               </div>
               <div className='relative w-full'>
                 <Image
