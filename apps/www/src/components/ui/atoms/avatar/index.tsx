@@ -18,16 +18,16 @@ export default function Avatar({size, image}: AvatarProps) {
   }
   return (
     <div className={cn(sizes[size], 'flex items-center gap-x-4')}>
-      <div className='relative w-full h-full overflow-hidden rounded-full bg-white/20'>
+      <div className='relative w-full h-full overflow-hidden rounded-full'>
         {image && (
           <Image
             src={image.url}
             placeholder='blur'
             blurDataURL={image.placeholder}
             alt={image.alternateText || image.name}
-            width={image.width}
-            height={image.height}
-            className='object-cover w-full h-full'
+            width={80}
+            height={80}
+            className='object-cover w-20 h-20 -translate-y-3'
           />
         )}
       </div>

@@ -694,7 +694,7 @@ export interface ApiAboutUsPageAboutUsPage extends Schema.SingleType {
     body: Attribute.DynamicZone<
       [
         'hero-sections.hero-with-gradient',
-        'team-sections.team-three-column',
+        'team-sections.team-two-column',
         'contact-sections.contact',
         'value-sections.value',
         'value-sections.value-two-column',
@@ -1311,7 +1311,7 @@ export interface ApiTeamMemberTeamMember extends Schema.CollectionType {
           translate: 'translate'
         }
       }>
-    location: Attribute.String &
+    linkedin: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true
@@ -1329,10 +1329,28 @@ export interface ApiTeamMemberTeamMember extends Schema.CollectionType {
           translate: 'translate'
         }
       }>
+    email: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
     website: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    location: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
         }
         translate: {
           translate: 'translate'

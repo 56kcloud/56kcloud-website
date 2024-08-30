@@ -1,22 +1,22 @@
 import {faker} from '@faker-js/faker'
 import {teamMemberFactory} from '@/tests/factories/team-member.factory'
-import TeamThreeColumn, {TeamThreeColumnProps} from './index'
+import TeamTwoColumn, {TeamTwoColumnProps} from './index'
 import type {Meta} from '@storybook/react'
 
 const meta = {
-  title: 'components/Organisms/TeamSections/TeamThreeColumn',
-  component: TeamThreeColumn,
+  title: 'components/Organisms/TeamSections/TeamTwoColumn',
+  component: TeamTwoColumn,
   tags: ['autodocs'],
   args: {
     title: faker.lorem.sentence(),
     subtitle: faker.lorem.sentence(),
     teamMembers: Array.from({length: 6}, () => teamMemberFactory())
   }
-} satisfies Meta<typeof TeamThreeColumn>
+} satisfies Meta<typeof TeamTwoColumn>
 
 export default meta
 
 export const Default = {
   name: 'Default',
-  render: (args: TeamThreeColumnProps) => <TeamThreeColumn {...args} />
+  render: (args: TeamTwoColumnProps) => <TeamTwoColumn {...args} />
 }

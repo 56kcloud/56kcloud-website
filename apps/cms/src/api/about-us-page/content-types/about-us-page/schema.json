@@ -42,7 +42,7 @@
       "type": "dynamiczone",
       "components": [
         "hero-sections.hero-with-gradient",
-        "team-sections.team-three-column",
+        "team-sections.team-two-column",
         "contact-sections.contact",
         "value-sections.value",
         "value-sections.value-two-column",

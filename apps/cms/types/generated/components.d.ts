@@ -26,15 +26,15 @@ export interface ValueSectionsValueTwoColumn extends Schema.Component {
   }
 }
 
-export interface TeamSectionsTeamThreeColumn extends Schema.Component {
-  collectionName: 'team_three_columns'
+export interface TeamSectionsTeamTwoColumn extends Schema.Component {
+  collectionName: 'team_two_columns'
   info: {
-    displayName: 'team-three-column'
+    displayName: 'team-two-column'
   }
   attributes: {
     title: Attribute.String & Attribute.Required
     subtitle: Attribute.Text & Attribute.Required
-    teamMembers: Attribute.Relation<'team-sections.team-three-column', 'oneToMany', 'api::team-member.team-member'>
+    teamMembers: Attribute.Relation<'team-sections.team-two-column', 'oneToMany', 'api::team-member.team-member'>
   }
 }
 
@@ -767,7 +767,7 @@ declare module '@strapi/types' {
     export interface Components {
       'value-sections.value': ValueSectionsValue
       'value-sections.value-two-column': ValueSectionsValueTwoColumn
-      'team-sections.team-three-column': TeamSectionsTeamThreeColumn
+      'team-sections.team-two-column': TeamSectionsTeamTwoColumn
       'solution-sections.solution-three-columns-with-image': SolutionSectionsSolutionThreeColumnsWithImage
       'solution-sections.solution-three-column-with-large-icons': SolutionSectionsSolutionThreeColumnWithLargeIcons
       'solution-sections.solution-one-column': SolutionSectionsSolutionOneColumn

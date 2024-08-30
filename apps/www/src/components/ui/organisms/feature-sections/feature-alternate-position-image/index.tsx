@@ -58,7 +58,7 @@ export default function FeatureAlternatePositionImage(props: FeatureAlternatePos
                     <div className='space-y-4'>
                       <h3
                         className='text-2xl leading-7 font-semibold w-fit text-transparent bg-clip-text \
-                      bg-text-gradient-blue'
+                        bg-text-gradient-blue'
                       >
                         {feature.title}
                       </h3>

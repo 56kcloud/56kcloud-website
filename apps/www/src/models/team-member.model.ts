@@ -11,6 +11,8 @@ export const teamMemberSchema = z.object({
     .optional(),
   bio: z.string().optional(),
   twitter: z.string().optional(),
+  linkedin: z.string().optional(),
+  email: z.string().optional(),
   website: z.string().optional(),
   avatar: imageSchema
 })

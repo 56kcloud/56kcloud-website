@@ -54,8 +54,7 @@
         }
       }
     },
-    "location": {
-      "type": "string",
+    "linkedin": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -63,7 +62,8 @@
         "translate": {
           "translate": "translate"
         }
-      }
+      },
+      "type": "string"
     },
     "twitter": {
       "type": "string",
@@ -76,11 +76,33 @@
         }
       }
     },
+    "email": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "type": "string"
+    },
     "website": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": false
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      }
+    },
+    "location": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
         },
         "translate": {
           "translate": "translate"

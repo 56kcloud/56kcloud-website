@@ -32,7 +32,7 @@ import SolutionThreeColumnWithLargeIcons from '@/components/ui/organisms/solutio
 import SolutionThreeColumnsWithImage from '@/components/ui/organisms/solution-sections/solution-three-columns-with-image'
 import TagFilter from '@/components/ui/molecules/tag-filter'
 import TeamMemberCard from '@/components/ui/molecules/cards/team-member'
-import TeamThreeColumn from '@/components/ui/organisms/team-sections/team-three-column'
+import TeamTwoColumn from '@/components/ui/organisms/team-sections/team-two-column'
 import ValueTwoColumn from '@/components/ui/organisms/value-sections/value-two-column'
 
 export type ComponentBlueprints = {
@@ -61,7 +61,7 @@ export const componentBlueprints: ComponentBlueprints = {
   'content-two-column': ContentTwoColumn,
   'image-simple': ImageSimple,
   'value-two-column': ValueTwoColumn,
-  'team-three-column': TeamThreeColumn,
+  'team-two-column': TeamTwoColumn,
   'join-our-team': JoinOurTeam,
   'tag-filter': TagFilter,
   'team-member-card': TeamMemberCard,
