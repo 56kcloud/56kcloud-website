@@ -21,6 +21,9 @@
       "relation": "oneToMany",
       "target": "api::location.location",
       "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
         "translate": {
           "translate": "translate"
         }
@@ -31,6 +34,9 @@
       "relation": "oneToMany",
       "target": "api::service.service",
       "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
         "translate": {
           "translate": "translate"
         }
@@ -41,6 +47,9 @@
       "relation": "oneToMany",
       "target": "api::solution.solution",
       "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
         "translate": {
           "translate": "translate"
         }
