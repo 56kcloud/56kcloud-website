@@ -843,15 +843,24 @@ export interface ApiFooterFooter extends Schema.SingleType {
     }
   }
   attributes: {
-    text: Attribute.Text &
-      Attribute.Required &
+    locations: Attribute.Relation<'api::footer.footer', 'oneToMany', 'api::location.location'> &
       Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
+        translate: {
+          translate: 'translate'
         }
       }>
-    services: Attribute.Relation<'api::footer.footer', 'oneToMany', 'api::service.service'>
-    solutions: Attribute.Relation<'api::footer.footer', 'oneToMany', 'api::solution.solution'>
+    services: Attribute.Relation<'api::footer.footer', 'oneToMany', 'api::service.service'> &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    solutions: Attribute.Relation<'api::footer.footer', 'oneToMany', 'api::solution.solution'> &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime

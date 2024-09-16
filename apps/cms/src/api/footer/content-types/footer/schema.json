@@ -16,24 +16,35 @@
     }
   },
   "attributes": {
-    "text": {
-      "type": "text",
-      "required": true,
+    "locations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::location.location",
       "pluginOptions": {
-        "i18n": {
-          "localized": true
+        "translate": {
+          "translate": "translate"
         }
       }
     },
     "services": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::service.service"
+      "target": "api::service.service",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "solutions": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::solution.solution"
+      "target": "api::solution.solution",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     }
   }
 }
