@@ -66,7 +66,7 @@ export default function Footer(props: FooterProps) {
                         />
                       </div>
                       <p className='text-sm leading-6 text-slate-400 font-light'>
-                        {`${location.address} – ${location.city} – ${location.country}`}
+                        {`${location.address}, ${location.city}, ${location.country}`}
                       </p>
                     </div>
                   ))}
