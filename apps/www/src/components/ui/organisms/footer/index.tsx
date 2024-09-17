@@ -1,5 +1,7 @@
+import {BuildingOffice2Icon} from '@heroicons/react/24/outline'
 import {Dictionary} from '@/models/dictionary.model'
 import {LinkProps, SocialLinks} from '@/models/link.model'
+import {LocationObject} from '@/models/location.model'
 import {Service} from '@/models/service.model'
 import {Solution} from '@/models/solution.model'
 import Button from '../../atoms/button'
@@ -10,7 +12,7 @@ import X from '../../svgs/logos/x'
 
 export type FooterProps = {
   dictionary: Dictionary
-  text: string
+  locations: Array<LocationObject>
   solutions: Array<Pick<Solution, 'title' | 'slug'>>
   services: Array<Pick<Service, 'title' | 'slug'>>
 }
@@ -47,10 +49,29 @@ export default function Footer(props: FooterProps) {
         </h2>
         <div className='pt-9 pb-8 mx-auto max-w-7xl lg:pt-[104px]'>
           <div className='flex flex-col gap-y-[72px] xl:flex-row xl:justify-between'>
-            <div className='max-w-full space-y-8 xl:max-w-sm'>
+            <div className='max-w-full xl:max-w-sm'>
               <Logo className='h-5 text-slate-50' />
-              <p className='text-sm leading-[26px] text-slate-400 font-light'>{props.text}</p>
-              <div className='flex items-center space-x-6'>
+              <div className='mt-6 space-y-4 sm:space-y-2'>
+                {props.locations &&
+                  props.locations.length > 0 &&
+                  props.locations.map((location, index) => (
+                    <div
+                      key={index}
+                      className='flex gap-x-2'
+                    >
+                      <div className='flex items-start sm:items-center'>
+                        <BuildingOffice2Icon
+                          className='w-5 h-5 text-slate-400'
+                          strokeWidth={1.5}
+                        />
+                      </div>
+                      <p className='text-sm leading-6 text-slate-400 font-light'>
+                        {`${location.address}, ${location.city}, ${location.country}`}
+                      </p>
+                    </div>
+                  ))}
+              </div>
+              <div className='flex items-center mt-8 space-x-6'>
                 {socialLinks.map((item) => (
                   <Button
                     key={item.title}
