@@ -42,7 +42,7 @@ export default function LanguageSwitcher({mobileMenuOpen}: LanguageSwitcherProps
           key={locale}
           tone='secondary'
           variant='link'
-          className='p-0 text-base text-gray-400 uppercase data-[state=active]:text-white hover:text-slate-50'
+          className='p-0 text-base text-slate-400 uppercase data-[state=active]:text-slate-50 hover:text-slate-50'
           data-active={pathMatcher(locale)}
         >
           <Link
@@ -64,8 +64,9 @@ export default function LanguageSwitcher({mobileMenuOpen}: LanguageSwitcherProps
           <Button
             asChild
             tone='primary'
-            variant='link'
-            className='text-slate-50 !px-0 !py-0 text-sm font-medium'
+            variant='default'
+            className='px-5 text-slate-50 text-sm font-medium bg-transparent hover:text-slate-50 \
+            hover:bg-slate-800'
           >
             <NavigationMenuTrigger className='uppercase gap-1'>{locale}</NavigationMenuTrigger>
           </Button>
@@ -80,7 +81,8 @@ export default function LanguageSwitcher({mobileMenuOpen}: LanguageSwitcherProps
                     asChild
                     tone='secondary'
                     variant='link'
-                    className='p-0 text-sm text-gray-400 uppercase data-[state=active]:text-white hover:text-slate-50'
+                    className='p-0 text-sm text-gray-400 uppercase data-[state=active]:text-slate-50 \
+                    hover:text-slate-50'
                     data-active={pathMatcher(localeItem)}
                   >
                     <Link

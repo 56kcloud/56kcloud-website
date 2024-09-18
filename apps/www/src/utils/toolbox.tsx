@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {ClassValue, clsx} from 'clsx'
+import {CloudArrowDownIcon} from '@heroicons/react/24/outline'
 import {Dictionary} from '@/models/dictionary.model'
 import {HsformsPayload, HsformsPayloadItem, contactUsFormData} from '@/models/contact-us-form-data.model'
 import {NavigationItem} from '@/models/navigation-item.model'
@@ -165,25 +166,49 @@ export function getNavigationLinks(dico: Dictionary): Array<NavigationItem> {
     {
       title: dico.services,
       links: [
-        {title: dico.cloudMigrationAndModernization, link: '/services/cloud-migration-and-modernization'},
-        {title: dico.cloudNativeApplicationDevelopment, link: '/services/cloud-native-application-development'},
-        {title: dico.consultingAndTraining, link: '/services/consulting-and-training'}
-      ]
+        {
+          title: dico.cloudMigrationAndModernization,
+          link: '/services/cloud-migration-and-modernization',
+          icon: {name: 'CloudIcon', type: 'outline'}
+        },
+        {
+          title: dico.cloudNativeApplicationDevelopment,
+          link: '/services/cloud-native-application-development',
+          icon: {name: 'WrenchIcon', type: 'outline'}
+        },
+
+        {
+          title: dico.consultingAndTraining,
+          link: '/services/consulting-and-training',
+          icon: {name: 'AcademicCapIcon', type: 'outline'}
+        }
+      ],
+      dropdownWidth: 'w-[272px]'
     },
     {
       title: dico.solutions,
       links: [
-        {title: dico.platformEngineering, link: '/solutions/platform-engineering'},
-        {title: dico.edgeIoT, link: '/solutions/edge-iot'},
-        {title: dico.generativeAI, link: '/solutions/generative-ai'}
-      ]
+        {
+          title: dico.platformEngineering,
+          link: '/solutions/platform-engineering',
+          icon: {name: 'RocketLaunchIcon', type: 'outline'}
+        },
+        {title: dico.edgeIoT, link: '/solutions/edge-iot', icon: {name: 'CpuChipIcon', type: 'outline'}},
+        {
+          title: dico.generativeAI,
+          link: '/solutions/generative-ai',
+          icon: {name: 'ChatBubbleLeftEllipsisIcon', type: 'outline'}
+        }
+      ],
+      dropdownWidth: 'w-64'
     },
     {
       title: dico.company,
       links: [
-        {title: dico.aboutUs, link: '/about-us'},
-        {title: dico.blog, link: '/blog'}
-      ]
+        {title: dico.aboutUs, link: '/about-us', icon: {name: 'BuildingOfficeIcon', type: 'outline'}},
+        {title: dico.blog, link: '/blog', icon: {name: 'BookOpenIcon', type: 'outline'}}
+      ],
+      dropdownWidth: 'w-40'
     }
   ]
 }

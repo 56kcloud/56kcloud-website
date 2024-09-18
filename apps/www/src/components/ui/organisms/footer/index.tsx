@@ -27,12 +27,12 @@ export default function Footer(props: FooterProps) {
     {
       title: 'X',
       link: 'https://x.com/56kcloud',
-      icon: X
+      socialIcon: X
     },
     {
       title: 'Linkedin',
       link: 'https://www.linkedin.com/company/56kcloud',
-      icon: Linkedin
+      socialIcon: Linkedin
     }
   ]
 
@@ -84,7 +84,7 @@ export default function Footer(props: FooterProps) {
                       target='_blank'
                     >
                       <span className='sr-only'>{item.title}</span>
-                      <item.icon
+                      <item.socialIcon
                         className='w-5 h-5 text-sky-500'
                         aria-hidden='true'
                       />

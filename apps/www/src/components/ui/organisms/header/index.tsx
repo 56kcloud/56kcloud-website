@@ -46,7 +46,7 @@ export default function Header({dictionary}: HeaderProps) {
             />
           </button>
         </div>
-        <div className='hidden lg:flex lg:justify-between lg:gap-x-16'>
+        <div className='hidden lg:flex lg:justify-between'>
           <div className='flex items-center gap-x-8'>
             <NavigationMenu
               navigationItems={navigation}
