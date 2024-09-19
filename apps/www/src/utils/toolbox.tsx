@@ -189,8 +189,8 @@ export function getNavigationLinks(dico: Dictionary): Array<NavigationItem> {
       title: dico.solutions,
       links: [
         {
-          title: dico.platformEngineering,
-          link: '/solutions/platform-engineering',
+          title: dico.landingZones,
+          link: '/solutions/landing-zones',
           icon: {name: 'RocketLaunchIcon', type: 'outline'}
         },
         {title: dico.edgeIoT, link: '/solutions/edge-iot', icon: {name: 'CpuChipIcon', type: 'outline'}},
