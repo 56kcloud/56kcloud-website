@@ -1,3 +1,4 @@
+import {Dictionary} from '@/models/dictionary.model'
 import {TeamMember} from '@/models/team-member.model'
 import ComponentLayout from '@/components/ui/atoms/component-layout'
 import TeamMemberCard from '@/components/ui/molecules/cards/team-member'
@@ -6,6 +7,7 @@ export type TeamTwoColumnProps = {
   title: string
   subtitle: string
   teamMembers: TeamMember[]
+  dictionary: Dictionary
 }
 
 export default function TeamTwoColumn(props: TeamTwoColumnProps) {
@@ -15,7 +17,7 @@ export default function TeamTwoColumn(props: TeamTwoColumnProps) {
         <div className='mr-auto space-y-4 max-w-4xl'>
           <h2
             className='w-fit text-[44px] leading-[1.1875] font-extrabold tracking-tight text-transparent bg-clip-text \
-              bg-text-gradient-gray'
+            bg-text-gradient-gray'
           >
             {props.title}
           </h2>
@@ -23,13 +25,14 @@ export default function TeamTwoColumn(props: TeamTwoColumnProps) {
         </div>
         <ul
           role='list'
-          className='grid grid-cols-1 mx-auto mt-10 gap-8 min-[672px]:mt-20 min-[672px]:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2'
+          className='grid grid-cols-1 mx-auto mt-10 gap-8 sm:mt-20 sm:grid-cols-2 lg:mx-0 lg:max-w-none'
         >
           {props.teamMembers.map((teamMember) => (
             <TeamMemberCard
               key={teamMember.name}
               teamMember={teamMember}
               cardWithPadding={false}
+              usedLanguage={props.dictionary.locale}
             />
           ))}
         </ul>
