@@ -167,13 +167,13 @@ export function getNavigationLinks(dico: Dictionary): Array<NavigationItem> {
       title: dico.services,
       links: [
         {
-          title: dico.cloudMigrationAndModernization,
-          link: '/services/cloud-migration-and-modernization',
+          title: dico.migrationAndModernization,
+          link: '/services/migration-and-modernization',
           icon: {name: 'CloudIcon', type: 'outline'}
         },
         {
-          title: dico.cloudNativeApplicationDevelopment,
-          link: '/services/cloud-native-application-development',
+          title: dico.applicationDevelopment,
+          link: '/services/application-development',
           icon: {name: 'WrenchIcon', type: 'outline'}
         },
 

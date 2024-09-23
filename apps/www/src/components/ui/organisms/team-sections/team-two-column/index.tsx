@@ -23,7 +23,7 @@ export default function TeamTwoColumn(props: TeamTwoColumnProps) {
         </div>
         <ul
           role='list'
-          className='grid grid-cols-1 mx-auto mt-10 gap-8 sm:mt-20 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2'
+          className='grid grid-cols-1 mx-auto mt-10 gap-8 min-[672px]:mt-20 min-[672px]:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2'
         >
           {props.teamMembers.map((teamMember) => (
             <TeamMemberCard
