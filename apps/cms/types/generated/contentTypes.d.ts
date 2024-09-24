@@ -698,7 +698,8 @@ export interface ApiAboutUsPageAboutUsPage extends Schema.SingleType {
         'contact-sections.contact',
         'value-sections.value',
         'value-sections.value-two-column',
-        'certifications-sections.certifications-badges-with-title'
+        'certifications-sections.certifications-badges-with-title',
+        'map-sections.map-with-title'
       ]
     > &
       Attribute.Required &
@@ -843,7 +844,8 @@ export interface ApiFooterFooter extends Schema.SingleType {
     }
   }
   attributes: {
-    locations: Attribute.Relation<'api::footer.footer', 'oneToMany', 'api::location.location'> &
+    text: Attribute.Text &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true

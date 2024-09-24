@@ -1,4 +1,4 @@
-import {locationFactory} from '@/tests/factories/location.factory'
+import {faker} from '@faker-js/faker'
 import {serviceFactory} from '@/tests/factories/service.factory'
 import {solutionFactory} from '@/tests/factories/solution.factory'
 import Footer, {FooterProps} from './index'
@@ -11,7 +11,7 @@ const meta = {
   tags: ['autodocs'],
   args: {
     dictionary,
-    locations: Array.from({length: 2}, () => locationFactory()),
+    text: faker.lorem.sentence(),
     services: Array.from({length: 3}, () => serviceFactory()),
     solutions: Array.from({length: 3}, () => solutionFactory())
   }

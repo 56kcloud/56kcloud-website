@@ -46,7 +46,8 @@
         "contact-sections.contact",
         "value-sections.value",
         "value-sections.value-two-column",
-        "certifications-sections.certifications-badges-with-title"
+        "certifications-sections.certifications-badges-with-title",
+        "map-sections.map-with-title"
       ],
       "required": true
     }

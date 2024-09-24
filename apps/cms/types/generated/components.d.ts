@@ -166,6 +166,19 @@ export interface PartnerSectionsPartnerLogoSimpleWithTitle extends Schema.Compon
   }
 }
 
+export interface MapSectionsMapWithTitle extends Schema.Component {
+  collectionName: 'components_map_sections_map_with_titles'
+  info: {
+    displayName: 'map-with-title'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String
+    subtitle: Attribute.Text
+    locations: Attribute.Relation<'map-sections.map-with-title', 'oneToMany', 'api::location.location'>
+  }
+}
+
 export interface ImageSectionsImageSimple extends Schema.Component {
   collectionName: 'components_image_sections_image_simples'
   info: {
@@ -728,6 +741,16 @@ export interface CardsCardText extends Schema.Component {
   }
 }
 
+export interface BenefitBenefit extends Schema.Component {
+  collectionName: 'components_benefit_benefits'
+  info: {
+    displayName: 'benefit'
+  }
+  attributes: {
+    name: Attribute.String & Attribute.Required
+  }
+}
+
 export interface BlogSectionsBlogThreeColumn extends Schema.Component {
   collectionName: 'components_blog_sections_blog_three_columns'
   info: {
@@ -752,16 +775,6 @@ export interface BlogSectionsBlogMasonry extends Schema.Component {
   }
 }
 
-export interface BenefitBenefit extends Schema.Component {
-  collectionName: 'components_benefit_benefits'
-  info: {
-    displayName: 'benefit'
-  }
-  attributes: {
-    name: Attribute.String & Attribute.Required
-  }
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -777,6 +790,7 @@ declare module '@strapi/types' {
       'seo.seo': SeoSeo
       'seo.open-graph': SeoOpenGraph
       'partner-sections.partner-logo-simple-with-title': PartnerSectionsPartnerLogoSimpleWithTitle
+      'map-sections.map-with-title': MapSectionsMapWithTitle
       'image-sections.image-simple': ImageSectionsImageSimple
       'icon.icon': IconIcon
       'hero-sections.hero-with-gradient': HeroSectionsHeroWithGradient
@@ -798,9 +812,9 @@ declare module '@strapi/types' {
       'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem
       'cards.card-with-icon': CardsCardWithIcon
       'cards.card-text': CardsCardText
+      'benefit.benefit': BenefitBenefit
       'blog-sections.blog-three-column': BlogSectionsBlogThreeColumn
       'blog-sections.blog-masonry': BlogSectionsBlogMasonry
-      'benefit.benefit': BenefitBenefit
     }
   }
 }

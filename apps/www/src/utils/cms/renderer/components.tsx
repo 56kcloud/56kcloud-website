@@ -23,6 +23,7 @@ import HeroWithGradient from '@/components/ui/organisms/hero-sections/hero-with-
 import ImageSimple from '@/components/ui/organisms/image-sections/image-simple'
 import IntroductionWithLogo from '@/components/ui/organisms/content-sections/introduction-with-logo'
 import JoinOurTeam from '@/components/ui/organisms/cta-sections/join-our-team'
+import MapWithTitle from '@/components/ui/organisms/map-sections/map-with-title'
 import PartnerLogosSimpleWithTitle from '@/components/ui/organisms/partner-sections/partner-logos-simple-with-title'
 import ServiceAlternatePositionIcon from '@/components/ui/organisms/service-sections/service-alternate-position-icon'
 import ServiceMasonryCard from '@/components/ui/organisms/service-sections/service-masonry-card'
@@ -72,7 +73,8 @@ export const componentBlueprints: ComponentBlueprints = {
   'diagram-full-width': DiagramFullWidth,
   'content-alternate-position-with-image-list': ContentAlternatePositionWithImageList,
   'content-alternate-position-with-image-item': ContentAlternatePositionWithImageItem,
-  'certifications-badges-with-title': CertificationsBadgesWithTitle
+  'certifications-badges-with-title': CertificationsBadgesWithTitle,
+  'map-with-title': MapWithTitle
 }
 export type ComponentBlueprint = {
   component: keyof ComponentBlueprints
