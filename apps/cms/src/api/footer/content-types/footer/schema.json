@@ -16,10 +16,9 @@
     }
   },
   "attributes": {
-    "locations": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::location.location",
+    "text": {
+      "type": "text",
+      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
