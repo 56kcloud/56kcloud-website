@@ -37,12 +37,13 @@ export function MapLocationCard({location}: {location: LocationObject}) {
 }
 
 export default function MapWithTitle(props: MapWithTitleProps) {
-  function getLocationIndexByCity(locations: LocationObject[], city: string) {
-    return locations.map((location) => location.city).indexOf(city)
+  function getLocationByCity(locations: LocationObject[], city: string) {
+    const index = locations.map((location) => location.city).indexOf(city)
+    return locations[index] || null
   }
 
-  const sionLocation = props.locations[getLocationIndexByCity(props.locations, 'Sion')] || null
-  const winterthurLocation = props.locations[getLocationIndexByCity(props.locations, 'Winterthur')] || null
+  const sionLocation = getLocationByCity(props.locations, 'Sion')
+  const winterthurLocation = getLocationByCity(props.locations, 'Winterthur')
 
   return (
     <ComponentLayout>
