@@ -12,7 +12,7 @@ export default function PartnerLogosSimpleWithTitle(props: PartnerLogosSimpleWit
     <LogoCloudsSimpleWithTitle
       surtitle={props.surtitle}
       title={props.title}
-      images={props.partners.map((partner) => partner.image)}
+      logos={props.partners.map((partner) => partner.image)}
     />
   )
 }

@@ -1,12 +1,11 @@
 import {ImageProps} from '@/models/image.model'
-import {cn} from '@/utils/toolbox'
 import ComponentLayout from '@/components/ui/atoms/component-layout'
-import Image from 'next/image'
+import InfiniteSliderLogos from '@/components/ui/molecules/infinite-slider-logos'
 
 export type LogoCloudsSimpleWithTitleProps = {
   surtitle: string
   title: string
-  images: Array<ImageProps>
+  logos: Array<ImageProps>
 }
 
 export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTitleProps) {
@@ -27,23 +26,7 @@ export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTit
                 {props.title}
               </h2>
             </div>
-            <div className='grid grid-cols-1 gap-x-6 gap-y-3 mt-8  mx-auto max-w-5xl lg:grid-cols-4 lg:mt-12'>
-              {props.images.map((image, index) => (
-                <div
-                  key={index}
-                  className='flex items-center justify-center w-full p-7 sm:p-8 lg:p-10 sm:h-28 lg:h-32 bg-[#151E31] \
-                rounded-2xl border border-slate-800'
-                >
-                  <Image
-                    className={cn(index === 0 ? 'max-h-5 sm:max-h-7 lg:max-h-6' : 'max-h-6 sm:max-h-8 lg:max-h-10')}
-                    src={image.url}
-                    alt={image.alternateText || image.name}
-                    width={image.width}
-                    height={image.height}
-                  />
-                </div>
-              ))}
-            </div>
+            <InfiniteSliderLogos logos={props.logos} />
           </div>
         </div>
       </div>

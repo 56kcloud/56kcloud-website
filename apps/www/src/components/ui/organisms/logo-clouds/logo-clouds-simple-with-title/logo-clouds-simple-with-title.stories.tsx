@@ -10,7 +10,7 @@ const meta = {
   args: {
     surtitle: faker.lorem.sentence(),
     title: faker.lorem.sentence(),
-    images: Array.from({length: 4}, () => imageFactory({category: 'logo'}))
+    logos: Array.from({length: 4}, () => imageFactory({category: 'logo'}))
   }
 } satisfies Meta<typeof LogoCloudsSimpleWithTitle>
 
