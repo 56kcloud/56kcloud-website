@@ -35,7 +35,7 @@ export default function InfiniteSliderLogos(props: InfiniteSliderLogosProps) {
     <div
       className='relative mt-12 overflow-hidden whitespace-nowrap sm:mx-12 /
       [mask-image:_linear-gradient(to_right,_transparent_0,_white_32px,white_calc(100%-32px),_transparent_100%)]
-      sm:[mask-image:_linear-gradient(to_right,_transparent_0,_white_96px,white_calc(100%-96px),_transparent_100%)]'
+      sm:[mask-image:_linear-gradient(to_right,_transparent_0,_white_80px,white_calc(100%-80px),_transparent_100%)]'
     >
       <div
         className={cn(!shouldAnimate && '!w-full justify-center', 'flex')}
