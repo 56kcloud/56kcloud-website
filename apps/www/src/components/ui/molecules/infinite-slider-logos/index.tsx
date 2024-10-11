@@ -47,14 +47,8 @@ export default function InfiniteSliderLogos(props: InfiniteSliderLogosProps) {
           animationDuration: `${animationSpeed}s`
         }}
       >
-        {shouldAnimate ? (
-          <>
-            {logosRow}
-            {logosRow}
-          </>
-        ) : (
-          <>{logosRow}</>
-        )}
+        {logosRow}
+        {shouldAnimate ? logosRow : null}
       </div>
       <style>{`
         @keyframes infiniteSliderAnimationFor${logosLength} {
