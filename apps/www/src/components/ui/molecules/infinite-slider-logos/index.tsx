@@ -8,7 +8,7 @@ export type InfiniteSliderLogosProps = {
 
 export default function InfiniteSliderLogos(props: InfiniteSliderLogosProps) {
   const logosLength = props.logos.length
-  const pixelsPerSecond = 100
+  const pixelsPerSecond = 50
   const animationSpeed = (500 * logosLength) / 2 / pixelsPerSecond
   const shouldAnimate = logosLength > 3
   const logosRow = (
