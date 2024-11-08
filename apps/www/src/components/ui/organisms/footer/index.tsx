@@ -1,5 +1,7 @@
+import {BuildingOffice2Icon} from '@heroicons/react/24/outline'
 import {Dictionary} from '@/models/dictionary.model'
 import {LinkProps, SocialLinks} from '@/models/link.model'
+import {LocationObject} from '@/models/location.model'
 import {Service} from '@/models/service.model'
 import {Solution} from '@/models/solution.model'
 import Button from '../../atoms/button'
@@ -13,6 +15,8 @@ export type FooterProps = {
   text: string
   solutions: Array<Pick<Solution, 'title' | 'slug'>>
   services: Array<Pick<Service, 'title' | 'slug'>>
+  locations: Array<LocationObject>
+  mwstNumber?: string
 }
 
 export default function Footer(props: FooterProps) {
@@ -47,10 +51,31 @@ export default function Footer(props: FooterProps) {
         </h2>
         <div className='pt-9 pb-8 mx-auto max-w-7xl lg:pt-[104px]'>
           <div className='flex flex-col gap-y-[72px] xl:flex-row xl:justify-between'>
-            <div className='max-w-full space-y-8 xl:max-w-sm'>
+            <div className='max-w-full space-y-4 xl:max-w-sm'>
               <Logo className='h-5 text-slate-50' />
-              <p className='text-sm leading-[26px] text-slate-400 font-light'>{props.text}</p>
-              <div className='flex items-center space-x-6'>
+              <p className='text-sm leading-[26px] text-slate-400 font-light !mt-6'>{props.text}</p>
+              <div className='space-y-2 min-[432px]:space-y-0'>
+                {props.locations &&
+                  props.locations.map((location, index) => (
+                    <div
+                      key={index}
+                      className='text-sm leading-[26px] text-slate-400 font-light'
+                    >
+                      <div className='flex flex-row gap-x-2'>
+                        <BuildingOffice2Icon className='w-5 h-5 translate-y-[2px]' />
+                        <p>{`${location.address}, ${location.zipCode} ${location.city}, ${location.country}`}</p>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+              {props.mwstNumber && (
+                <div>
+                  <p className='text-sm leading-[26px] text-slate-400 font-light'>
+                    {props.dictionary.mwstNumber}: {props.mwstNumber}
+                  </p>
+                </div>
+              )}
+              <div className='flex items-center space-x-6 !mt-8'>
                 {socialLinks.map((item) => (
                   <Button
                     key={item.title}
@@ -141,8 +166,10 @@ export default function Footer(props: FooterProps) {
               </div>
             </div>
           </div>
-          <div className='pt-8 mt-16 border-t border-slate-800 sm:mt-20'>
-            <p className='text-xs font-light text-slate-400'>&copy; 56K.Cloud {currentYear} – All rights reserved.</p>
+          <div className='pt-8 mt-16 border-t border-slate-800'>
+            <p className='text-xs font-light text-slate-400 text-center'>
+              &copy; 56K.Cloud {currentYear} – All rights reserved.
+            </p>
           </div>
         </div>
       </footer>

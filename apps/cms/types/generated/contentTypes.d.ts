@@ -872,6 +872,21 @@ export interface ApiFooterFooter extends Schema.SingleType {
           translate: 'translate'
         }
       }>
+    locations: Attribute.Relation<'api::footer.footer', 'oneToMany', 'api::location.location'> &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    mwstNumber: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
