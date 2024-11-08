@@ -50,32 +50,33 @@ export default function Footer(props: FooterProps) {
           Footer
         </h2>
         <div className='pt-9 pb-8 mx-auto max-w-7xl lg:pt-[104px]'>
-          <div className='flex flex-col gap-y-[72px] xl:flex-row xl:justify-between'>
-            <div className='max-w-full space-y-4 xl:max-w-sm'>
+          <div className='flex flex-col gap-y-12 lg:flex-row lg:justify-between'>
+            <div className='max-w-full space-y-8 xl:max-w-sm'>
               <Logo className='h-5 text-slate-50' />
-              <p className='text-sm leading-[26px] text-slate-400 font-light !mt-6'>{props.text}</p>
-              <div className='space-y-2 min-[432px]:space-y-0'>
+              <div className='flex flex-col gap-y-6 min-[432px]:flex-row min-[432px]:space-x-20'>
                 {props.locations &&
                   props.locations.map((location, index) => (
                     <div
                       key={index}
-                      className='text-sm leading-[26px] text-slate-400 font-light'
+                      className='flex flex-col gap-y-2'
                     >
-                      <div className='flex flex-row gap-x-2'>
-                        <BuildingOffice2Icon className='w-5 h-5 translate-y-[2px]' />
-                        <p>{`${location.address}, ${location.zipCode} ${location.city}, ${location.country}`}</p>
+                      <BuildingOffice2Icon className='w-6 h-6 translate-y-[2px] text-slate-400' />
+                      <div className='flex flex-col text-sm leading-6 text-slate-400 font-light'>
+                        <p>{location.address}</p>
+                        <p>{`${location.zipCode} ${location.city}`}</p>
+                        <p>{location.country}</p>
                       </div>
                     </div>
                   ))}
               </div>
               {props.mwstNumber && (
                 <div>
-                  <p className='text-sm leading-[26px] text-slate-400 font-light'>
+                  <p className='text-sm leading-6 text-slate-400 font-light'>
                     {props.dictionary.mwstNumber}: {props.mwstNumber}
                   </p>
                 </div>
               )}
-              <div className='flex items-center space-x-6 !mt-8'>
+              <div className='flex items-center space-x-6 !mt-10'>
                 {socialLinks.map((item) => (
                   <Button
                     key={item.title}
@@ -89,7 +90,7 @@ export default function Footer(props: FooterProps) {
                     >
                       <span className='sr-only'>{item.title}</span>
                       <item.socialIcon
-                        className='w-5 h-5 text-sky-500'
+                        className='w-[18px] h-[18px] text-sky-500'
                         aria-hidden='true'
                       />
                     </a>
@@ -97,12 +98,12 @@ export default function Footer(props: FooterProps) {
                 ))}
               </div>
             </div>
-            <div className='flex flex-col gap-12 md:flex-row md:justify-between md:gap-28'>
+            <div className='flex flex-col gap-y-10 sm:flex-row sm:justify-between sm:gap-28'>
               <div>
                 <h3 className='text-sm font-normal text-slate-50 capitalize'>{props.dictionary.services}</h3>
                 <ul
                   role='list'
-                  className='mt-6 space-y-4'
+                  className='mt-4 space-y-3 lg:mt-8'
                 >
                   {props.services.map((item) => (
                     <li key={item.slug}>
@@ -127,7 +128,7 @@ export default function Footer(props: FooterProps) {
                 <h3 className='text-sm font-normal text-slate-50 capitalize'>{props.dictionary.solutions}</h3>
                 <ul
                   role='list'
-                  className='mt-6 space-y-4'
+                  className='mt-4 space-y-3 lg:mt-8'
                 >
                   {props.solutions.map((item) => (
                     <li key={item.slug}>
@@ -147,7 +148,7 @@ export default function Footer(props: FooterProps) {
                 <h3 className='text-sm font-normal text-slate-50 capitalize'>{props.dictionary.company}</h3>
                 <ul
                   role='list'
-                  className='mt-6 space-y-4'
+                  className='mt-4 space-y-3 lg:mt-8'
                 >
                   {companyLinks.map((item) => (
                     <li key={item.title}>
@@ -166,7 +167,7 @@ export default function Footer(props: FooterProps) {
               </div>
             </div>
           </div>
-          <div className='pt-8 mt-16 border-t border-slate-800'>
+          <div className='pt-8 mt-14 border-t border-slate-800'>
             <p className='text-xs font-light text-slate-400 text-center'>
               &copy; 56K.Cloud {currentYear} – All rights reserved.
             </p>

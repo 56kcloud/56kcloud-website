@@ -569,17 +569,6 @@ export interface FilterTagsFilter extends Schema.Component {
   }
 }
 
-export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
-  collectionName: 'diagram_full_width'
-  info: {
-    displayName: 'diagram-full-width'
-    description: ''
-  }
-  attributes: {
-    image: Attribute.Media<'images'> & Attribute.Required
-  }
-}
-
 export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Component {
   collectionName: 'customer_logo_simple_with_titles'
   info: {
@@ -594,6 +583,17 @@ export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Comp
       'oneToMany',
       'api::customer.customer'
     >
+  }
+}
+
+export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
+  collectionName: 'diagram_full_width'
+  info: {
+    displayName: 'diagram-full-width'
+    description: ''
+  }
+  attributes: {
+    image: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -622,18 +622,6 @@ export interface CtaButton extends Schema.Component {
     title: Attribute.String & Attribute.Required
     link: Attribute.String & Attribute.Required
     tone: Attribute.Enumeration<['primary', 'secondary']> & Attribute.Required & Attribute.DefaultTo<'primary'>
-  }
-}
-
-export interface ContactSectionsContact extends Schema.Component {
-  collectionName: 'contacts'
-  info: {
-    displayName: 'contact'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.String & Attribute.Required
   }
 }
 
@@ -680,6 +668,18 @@ export interface ContentSectionContentAlternatePositionWithImageList extends Sch
   }
   attributes: {
     items: Attribute.Component<'cards.content-alternate-position-with-image-item', true> & Attribute.Required
+  }
+}
+
+export interface ContactSectionsContact extends Schema.Component {
+  collectionName: 'contacts'
+  info: {
+    displayName: 'contact'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.String & Attribute.Required
   }
 }
 
@@ -799,15 +799,15 @@ declare module '@strapi/types' {
       'header-sections.header-with-text-cards': HeaderSectionsHeaderWithTextCards
       'header-sections.header-with-cards-with-icon': HeaderSectionsHeaderWithCardsWithIcon
       'filter.tags-filter': FilterTagsFilter
-      'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
       'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
+      'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam
       'cta.button': CtaButton
-      'contact-sections.contact': ContactSectionsContact
       'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo
       'content-section.content-two-column': ContentSectionContentTwoColumn
       'content-section.content-markdown': ContentSectionContentMarkdown
       'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
+      'contact-sections.contact': ContactSectionsContact
       'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
       'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem
       'cards.card-with-icon': CardsCardWithIcon

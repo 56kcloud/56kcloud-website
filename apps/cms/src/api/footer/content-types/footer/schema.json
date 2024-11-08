@@ -16,18 +16,6 @@
     }
   },
   "attributes": {
-    "text": {
-      "type": "text",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        },
-        "translate": {
-          "translate": "translate"
-        }
-      }
-    },
     "services": {
       "type": "relation",
       "relation": "oneToMany",
