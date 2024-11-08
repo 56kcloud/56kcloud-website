@@ -625,6 +625,18 @@ export interface CtaButton extends Schema.Component {
   }
 }
 
+export interface ContactSectionsContact extends Schema.Component {
+  collectionName: 'contacts'
+  info: {
+    displayName: 'contact'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.String & Attribute.Required
+  }
+}
+
 export interface ContentSectionIntroductionWithLogo extends Schema.Component {
   collectionName: 'components_content_section_introduction_with_logos'
   info: {
@@ -668,18 +680,6 @@ export interface ContentSectionContentAlternatePositionWithImageList extends Sch
   }
   attributes: {
     items: Attribute.Component<'cards.content-alternate-position-with-image-item', true> & Attribute.Required
-  }
-}
-
-export interface ContactSectionsContact extends Schema.Component {
-  collectionName: 'contacts'
-  info: {
-    displayName: 'contact'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.String & Attribute.Required
   }
 }
 
@@ -741,16 +741,6 @@ export interface CardsCardText extends Schema.Component {
   }
 }
 
-export interface BenefitBenefit extends Schema.Component {
-  collectionName: 'components_benefit_benefits'
-  info: {
-    displayName: 'benefit'
-  }
-  attributes: {
-    name: Attribute.String & Attribute.Required
-  }
-}
-
 export interface BlogSectionsBlogThreeColumn extends Schema.Component {
   collectionName: 'components_blog_sections_blog_three_columns'
   info: {
@@ -772,6 +762,16 @@ export interface BlogSectionsBlogMasonry extends Schema.Component {
   }
   attributes: {
     articles: Attribute.Relation<'blog-sections.blog-masonry', 'oneToMany', 'api::article.article'>
+  }
+}
+
+export interface BenefitBenefit extends Schema.Component {
+  collectionName: 'components_benefit_benefits'
+  info: {
+    displayName: 'benefit'
+  }
+  attributes: {
+    name: Attribute.String & Attribute.Required
   }
 }
 
@@ -803,18 +803,18 @@ declare module '@strapi/types' {
       'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam
       'cta.button': CtaButton
+      'contact-sections.contact': ContactSectionsContact
       'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo
       'content-section.content-two-column': ContentSectionContentTwoColumn
       'content-section.content-markdown': ContentSectionContentMarkdown
       'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
-      'contact-sections.contact': ContactSectionsContact
       'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
       'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem
       'cards.card-with-icon': CardsCardWithIcon
       'cards.card-text': CardsCardText
-      'benefit.benefit': BenefitBenefit
       'blog-sections.blog-three-column': BlogSectionsBlogThreeColumn
       'blog-sections.blog-masonry': BlogSectionsBlogMasonry
+      'benefit.benefit': BenefitBenefit
     }
   }
 }
