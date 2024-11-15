@@ -116,7 +116,7 @@ export default function Contact(props: ContactProps) {
           <div className='absolute w-full h-full -z-10'>
             <ContactGradient />
           </div>
-          <div className='p-8 py-12 space-y-12 lg:px-28 lg:py-16'>
+          <div className='px-6 py-12 space-y-12 sm:px-8 lg:px-28 lg:py-16'>
             <div className='space-y-4 max-w-4xl'>
               <h2
                 className='w-fit text-[44px] leading-[1.1875] font-extrabold tracking-tight text-transparent \

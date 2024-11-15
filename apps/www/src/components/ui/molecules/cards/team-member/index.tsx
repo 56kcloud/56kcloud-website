@@ -37,7 +37,7 @@ export default function TeamMemberCard({teamMember, cardWithPadding = true, used
               className='object-cover w-[368px] h-[368px] lg:w-64 lg:h-64'
             />
           </div>
-          <div className='flex flex-col justify-between h-full gap-y-5 p-8 pt-56 z-50 lg:pl-52 lg:pt-8'>
+          <div className='flex flex-col justify-between h-full gap-y-5 p-6 pt-56 z-50 sm:p-8 lg:pl-52 lg:pt-8'>
             <div className='space-y-1'>
               <h3 className='text-2xl leading-7 font-semibold w-fit text-transparent bg-clip-text bg-text-gradient-blue'>
                 {teamMember.name}

@@ -27,7 +27,7 @@ export default function ArticleCard({article, fixedHeight}: ArticleCardProps) {
         href={`/blog/${article.slug}`}
         className={cn(
           'relative flex flex-col overflow-hidden cursor-pointer border border-slate-800 rounded-3xl w-full h-full \
-          gap-x-10 gap-y-6 p-8 bg-gradient-to-t from-slate-800 to-slate-900',
+          gap-x-10 gap-y-6 p-6 bg-gradient-to-t from-slate-800 to-slate-900 sm:p-8',
           fixedHeight ? 'h-[576px]' : ''
         )}
       >

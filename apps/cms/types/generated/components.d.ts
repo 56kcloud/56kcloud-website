@@ -569,6 +569,17 @@ export interface FilterTagsFilter extends Schema.Component {
   }
 }
 
+export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
+  collectionName: 'diagram_full_width'
+  info: {
+    displayName: 'diagram-full-width'
+    description: ''
+  }
+  attributes: {
+    image: Attribute.Media<'images'> & Attribute.Required
+  }
+}
+
 export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Component {
   collectionName: 'customer_logo_simple_with_titles'
   info: {
@@ -583,17 +594,6 @@ export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Comp
       'oneToMany',
       'api::customer.customer'
     >
-  }
-}
-
-export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
-  collectionName: 'diagram_full_width'
-  info: {
-    displayName: 'diagram-full-width'
-    description: ''
-  }
-  attributes: {
-    image: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -799,8 +799,8 @@ declare module '@strapi/types' {
       'header-sections.header-with-text-cards': HeaderSectionsHeaderWithTextCards
       'header-sections.header-with-cards-with-icon': HeaderSectionsHeaderWithCardsWithIcon
       'filter.tags-filter': FilterTagsFilter
-      'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
       'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
+      'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam
       'cta.button': CtaButton
       'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo

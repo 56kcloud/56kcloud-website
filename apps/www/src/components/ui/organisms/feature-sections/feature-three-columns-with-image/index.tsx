@@ -45,7 +45,7 @@ export default function FeatureThreeColumnsWithImage(props: FeatureThreeColumnsW
                       via-slate-900 via-[58%] to-slate-900'
                       />
                     </div>
-                    <div className='absolute left-0 bottom-0 flex flex-col p-8 pt-0'>
+                    <div className='absolute left-0 bottom-0 flex flex-col p-6 pt-0 sm:p-8'>
                       <div className='space-y-4'>
                         <h3
                           className='text-2xl leading-7 font-semibold w-fit text-transparent bg-clip-text \

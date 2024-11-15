@@ -40,7 +40,7 @@ export default function FeatureAlternatePositionImage(props: FeatureAlternatePos
                 <div
                   className={cn(
                     'border border-slate-800 rounded-3xl w-full h-full flex flex-col items-start gap-x-10 gap-y-6 \
-                    sm:gap-y-8 p-8 bg-gradient-to-t from-slate-800 to-slate-900',
+                    sm:gap-y-8 p-6 sm:p-8 bg-gradient-to-t from-slate-800 to-slate-900',
                     index === 0 ? 'lg:flex-col' : 'lg:flex-row',
                     index % 2 !== 0 && index !== 0 ? 'lg:flex-row-reverse' : ''
                   )}
