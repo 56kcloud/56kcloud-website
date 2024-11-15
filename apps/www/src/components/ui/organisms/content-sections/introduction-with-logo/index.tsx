@@ -13,14 +13,14 @@ export type IntroductionWithLogoProps = {
 
 export default function IntroductionWithLogo(props: IntroductionWithLogoProps) {
   return (
-    <ComponentLayout childrenClassName='px-0 sm:px-6'>
+    <ComponentLayout>
       <div className='py-20 lg:py-[104px]'>
         <div className='mx-auto max-w-6xl'>
-          <div className='w-full relative overflow-hidden border-0 sm:border sm:border-slate-800 rounded-none sm:rounded-3xl lg:rounded-[48px]'>
+          <div className='w-full relative overflow-hidden border border-slate-800 rounded-3xl lg:rounded-[48px]'>
             <div className='absolute w-full h-full -z-10'>
               <IntroductionCardGradient />
             </div>
-            <div className='flex flex-col gap-x-20 gap-y-10 px-7 py-14 sm:px-8 lg:p-20 lg:flex-row'>
+            <div className='flex flex-col gap-x-20 gap-y-10 p-6 pt-12 pb-8 lg:p-20 lg:flex-row'>
               <div className='w-full space-y-5 lg:w-3/4'>
                 <span className='text-base font-semibold text-transparent bg-clip-text bg-text-gradient-blue'>
                   {props.surtitle}

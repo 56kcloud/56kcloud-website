@@ -42,7 +42,7 @@ export default function HeroWithFloatingGradients(props: HeroWithFloatingGradien
             tone={props.cta.tone}
             shape='circle'
             className='text-slate-950 bg-gradient-to-tl from-slate-50/85 via-slate-50 to-slate-50/85 \
-                from-10% to-90% px-6 z-50 hover:bg-current hover:text-current'
+                from-10% to-90% px-6 hover:bg-current hover:text-current'
             trailing={
               <ArrowRightIcon
                 className='w-4 h-4 text-sky-500'
