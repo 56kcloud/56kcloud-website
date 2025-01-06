@@ -17,11 +17,11 @@ export type HeroWithFloatingGradientsProps = {
 export default function HeroWithFloatingGradients(props: HeroWithFloatingGradientsProps) {
   return (
     <ComponentLayout className='overflow-hidden'>
-      <div className='absolute inset-0'>
-        <div className='absolute -z-50 -top-40 left-0 lg:left-40'>
+      <div className='absolute -z-50 inset-0'>
+        <div className='absolute -top-40 left-0 lg:left-40'>
           <FloatingGradientLeft />
         </div>
-        <div className='absolute -z-50 -right-80 hidden lg:block'>
+        <div className='absolute -right-80 hidden lg:block'>
           <FloatingGradientRight />
         </div>
       </div>
