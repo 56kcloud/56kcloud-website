@@ -1041,6 +1041,62 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
   }
 }
 
+export interface ApiPartnerPagePartnerPage extends Schema.SingleType {
+  collectionName: 'partner_pages'
+  info: {
+    singularName: 'partner-page'
+    pluralName: 'partner-pages'
+    displayName: '04 - Partner Page'
+    description: ''
+  }
+  options: {
+    draftAndPublish: true
+  }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
+  attributes: {
+    seo: Attribute.Component<'seo.seo'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    body: Attribute.DynamicZone<
+      [
+        'contact-sections.contact',
+        'content-section.content-markdown',
+        'header-sections.header-with-text-cards',
+        'hero-sections.hero-with-gradient',
+        'image-sections.image-simple',
+        'content-section.introduction-with-logo'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    createdAt: Attribute.DateTime
+    updatedAt: Attribute.DateTime
+    publishedAt: Attribute.DateTime
+    createdBy: Attribute.Relation<'api::partner-page.partner-page', 'oneToOne', 'admin::user'> & Attribute.Private
+    updatedBy: Attribute.Relation<'api::partner-page.partner-page', 'oneToOne', 'admin::user'> & Attribute.Private
+    localizations: Attribute.Relation<'api::partner-page.partner-page', 'oneToMany', 'api::partner-page.partner-page'>
+    locale: Attribute.String
+  }
+}
+
 export interface ApiServiceService extends Schema.CollectionType {
   collectionName: 'services'
   info: {
@@ -1452,6 +1508,7 @@ declare module '@strapi/types' {
       'api::home-page.home-page': ApiHomePageHomePage
       'api::location.location': ApiLocationLocation
       'api::partner.partner': ApiPartnerPartner
+      'api::partner-page.partner-page': ApiPartnerPagePartnerPage
       'api::service.service': ApiServiceService
       'api::solution.solution': ApiSolutionSolution
       'api::tag.tag': ApiTagTag
