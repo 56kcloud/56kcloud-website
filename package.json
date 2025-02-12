@@ -50,21 +50,7 @@
     "typescript": "^5.3.3"
   },
   "engines": {
-    "node": "18"
-  },
-  "pnpm": {
-    "supportedArchitectures": {
-      "os": [
-        "linux",
-        "darwin"
-      ],
-      "libc": [
-        "musl"
-      ],
-      "cpu": [
-        "arm64",
-        "x64"
-      ]
-    }
+    "node": "18",
+    "pnpm": "9"
   }
 }
