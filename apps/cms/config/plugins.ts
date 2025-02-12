@@ -130,6 +130,18 @@ export default ({env}) => ({
             alwaysVisible: true
           },
           openTarget: '_blank'
+        },
+        {
+          uid: 'api::partners-page.partners-page',
+          query: {
+            type: 'partners-page',
+            locale: '{locale}'
+          },
+          draft: {
+            url: `${env('PREVIEW_HOST')}/api/draft?url=/{locale}/partners`,
+            alwaysVisible: true
+          },
+          openTarget: '_blank'
         }
       ]
     }

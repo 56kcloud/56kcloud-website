@@ -4,7 +4,7 @@ import {getDictionary} from '../dictionaries'
 import {getPageComponents, getPageSeo} from '@/utils/cms/endpoints'
 import {pageRenderer} from '@/utils/cms/renderer/components'
 
-const pagePath = 'partner-page'
+const pagePath = 'partners-page'
 
 export async function generateMetadata({params}: BasePageProps): Promise<Metadata> {
   const props = await getPageSeo(pagePath, params.locale)
@@ -13,7 +13,7 @@ export async function generateMetadata({params}: BasePageProps): Promise<Metadat
       title: props.title,
       description: props.description,
       openGraph: {
-        url: '/partner',
+        url: '/partners',
         images: [props.image.url]
       }
     }

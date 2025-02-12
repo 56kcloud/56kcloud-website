@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "partner_pages",
+  "collectionName": "partners_pages",
   "info": {
-    "singularName": "partner-page",
-    "pluralName": "partner-pages",
-    "displayName": "04 - Partner Page",
+    "singularName": "partners-page",
+    "pluralName": "partners-pages",
+    "displayName": "04 - Partners Page",
     "description": ""
   },
   "options": {
