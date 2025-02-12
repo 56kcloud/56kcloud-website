@@ -1,0 +1,54 @@
+{
+  "kind": "singleType",
+  "collectionName": "partner_pages",
+  "info": {
+    "singularName": "partner-page",
+    "pluralName": "partner-pages",
+    "displayName": "04 - Partner Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "component": "seo.seo",
+      "required": true
+    },
+    "body": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "contact-sections.contact",
+        "content-section.content-markdown",
+        "header-sections.header-with-text-cards",
+        "hero-sections.hero-with-gradient",
+        "image-sections.image-simple",
+        "content-section.introduction-with-logo"
+      ],
+      "required": true
+    }
+  }
+}
