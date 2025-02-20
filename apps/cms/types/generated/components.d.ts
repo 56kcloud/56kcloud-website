@@ -1,5 +1,17 @@
 import type {Schema, Attribute} from '@strapi/strapi'
 
+export interface TeamSectionsTeamTwoColumn extends Schema.Component {
+  collectionName: 'team_two_columns'
+  info: {
+    displayName: 'team-two-column'
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    teamMembers: Attribute.Relation<'team-sections.team-two-column', 'oneToMany', 'api::team-member.team-member'>
+  }
+}
+
 export interface ValueSectionsValue extends Schema.Component {
   collectionName: 'components_value_sections_values'
   info: {
@@ -23,18 +35,6 @@ export interface ValueSectionsValueTwoColumn extends Schema.Component {
     title: Attribute.String & Attribute.Required
     subtitle: Attribute.Text & Attribute.Required
     values: Attribute.Component<'value-sections.value', true>
-  }
-}
-
-export interface TeamSectionsTeamTwoColumn extends Schema.Component {
-  collectionName: 'team_two_columns'
-  info: {
-    displayName: 'team-two-column'
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.Text & Attribute.Required
-    teamMembers: Attribute.Relation<'team-sections.team-two-column', 'oneToMany', 'api::team-member.team-member'>
   }
 }
 
@@ -778,9 +778,9 @@ export interface BenefitBenefit extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'team-sections.team-two-column': TeamSectionsTeamTwoColumn
       'value-sections.value': ValueSectionsValue
       'value-sections.value-two-column': ValueSectionsValueTwoColumn
-      'team-sections.team-two-column': TeamSectionsTeamTwoColumn
       'solution-sections.solution-three-columns-with-image': SolutionSectionsSolutionThreeColumnsWithImage
       'solution-sections.solution-three-column-with-large-icons': SolutionSectionsSolutionThreeColumnWithLargeIcons
       'solution-sections.solution-one-column': SolutionSectionsSolutionOneColumn
