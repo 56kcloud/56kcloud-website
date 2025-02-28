@@ -1,5 +1,7 @@
 import {imageFactory} from '@/tests/factories/image.factory'
-import CaseStudyContentSection, {CaseStudyContentSectionProps} from './index'
+import CaseStudyContentSection, {
+  CaseStudyContentSectionProps
+} from '@/components/ui/molecules/case-study/content-section'
 import type {Meta} from '@storybook/react'
 
 const meta = {

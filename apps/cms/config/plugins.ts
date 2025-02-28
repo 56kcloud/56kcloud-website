@@ -70,6 +70,19 @@ export default ({env}) => ({
           openTarget: '_blank'
         },
         {
+          uid: 'api::case-study.case-study',
+          query: {
+            type: 'case-study',
+            locale: '{locale}',
+            slug: '{slug}'
+          },
+          draft: {
+            url: `${env('PREVIEW_HOST')}/api/draft?url=/{locale}/case-studies/{slug}`,
+            alwaysVisible: true
+          },
+          openTarget: '_blank'
+        },
+        {
           uid: 'api::service.service',
           query: {
             type: 'service',
@@ -139,6 +152,18 @@ export default ({env}) => ({
           },
           draft: {
             url: `${env('PREVIEW_HOST')}/api/draft?url=/{locale}/partners`,
+            alwaysVisible: true
+          },
+          openTarget: '_blank'
+        },
+        {
+          uid: 'api::case-studies-page.case-studies-page',
+          query: {
+            type: 'case-studies-page',
+            locale: '{locale}'
+          },
+          draft: {
+            url: `${env('PREVIEW_HOST')}/api/draft?url=/{locale}/case-studies`,
             alwaysVisible: true
           },
           openTarget: '_blank'
