@@ -30,8 +30,9 @@
       "required": true,
       "allowedTypes": ["images"]
     },
-    "annexeParagraph": {
-      "type": "richtext"
+    "attachedText": {
+      "type": "richtext",
+      "required": true
     },
     "content": {
       "type": "richtext",

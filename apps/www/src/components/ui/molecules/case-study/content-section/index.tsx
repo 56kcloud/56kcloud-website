@@ -12,7 +12,7 @@ export type CaseStudyContentSectionProps = {
   title: string
   description: string
   image: ImageProps
-  annexeParagraph?: string
+  attachedText: string
   content: string
 }
 
@@ -21,13 +21,13 @@ export default function CaseStudyContentSection({
   description,
   content,
   image,
-  annexeParagraph
+  attachedText
 }: CaseStudyContentSectionProps) {
   const [isLoaded, setIsLoaded] = useState(false)
 
   return (
     <ComponentLayout gradientVariant='heroGradient'>
-      <div className='space-y-14 pb-8 pt-40 lg:space-y-20 lg:pb-20 lg:pt-60'>
+      <div className='space-y-14 pb-16 pt-40 lg:space-y-20 lg:pb-20 lg:pt-60'>
         <div className='flex flex-col gap-y-20 lg:gap-y-24'>
           <div className='flex flex-col'>
             <div className='space-y-8'>
@@ -60,20 +60,20 @@ export default function CaseStudyContentSection({
             />
           </div>
         </div>
-        <div className={annexeParagraph ? 'flex flex-col lg:flex-row lg:gap-x-36' : ''}>
-          {annexeParagraph && (
+        <div className={attachedText ? 'flex flex-col lg:flex-row lg:gap-x-36' : ''}>
+          {attachedText && (
             <div className='w-full lg:w-3/12 order-2 lg:order-1'>
               <MarkdownViewer
-                content={annexeParagraph}
+                content={attachedText}
                 className='text-sm leading-6 p-0 [&_h3]:w-fit [&_h3]:text-transparent [&_h3]:bg-clip-text [&_h3]:bg-text-gradient-blue'
               />
             </div>
           )}
-          <div className={annexeParagraph ? 'w-full lg:w-9/12 order-1 lg:order-2' : 'w-full'}>
+          <div className={attachedText ? 'w-full lg:w-9/12 order-1 lg:order-2' : 'w-full'}>
             <MarkdownViewer
               content={content}
               className='p-0'
-              imageClassName='!w-full !h-auto mt-0'
+              imageClassName='!h-[416px] !aspect-auto mt-0'
             />
           </div>
         </div>

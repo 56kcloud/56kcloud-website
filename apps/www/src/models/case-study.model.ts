@@ -7,7 +7,7 @@ export const caseStudySchema = z.object({
   title: z.string(),
   description: z.string(),
   image: imageSchema,
-  annexeParagraph: z.string().optional(),
+  attachedText: z.string(),
   content: z.string()
 })
 

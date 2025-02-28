@@ -69,7 +69,7 @@ export default function MarkdownViewer({content, className, imageClassName}: Mar
                   <div
                     className={cn(
                       'flex flex-col items-center justify-center',
-                      imageClassName ? 'my-16 overflow-hidden rounded-3xl' : ''
+                      imageClassName ? 'w-fit items-start my-16 overflow-hidden rounded-3xl' : ''
                     )}
                     key={element.props['src']}
                   >

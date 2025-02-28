@@ -876,7 +876,7 @@ export interface ApiCaseStudyCaseStudy extends Schema.CollectionType {
     title: Attribute.String & Attribute.Required
     description: Attribute.Text & Attribute.Required
     image: Attribute.Media<'images'> & Attribute.Required
-    annexeParagraph: Attribute.RichText
+    attachedText: Attribute.RichText & Attribute.Required
     content: Attribute.RichText & Attribute.Required
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime

@@ -19,7 +19,7 @@ export default factories.createCoreController(uid, () => ({
             title: caseStudy.title,
             description: caseStudy.description,
             image: caseStudy.image,
-            annexeParagraph: caseStudy.annexeParagraph,
+            attachedText: caseStudy.attachedText,
             content: caseStudy.content
           }
         ]
