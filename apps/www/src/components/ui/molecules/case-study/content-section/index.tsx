@@ -73,7 +73,7 @@ export default function CaseStudyContentSection({
             <MarkdownViewer
               content={content}
               className='p-0'
-              imageClassName='!h-[416px] !aspect-auto mt-0'
+              imageClassName='!w-full !h-auto mt-0'
             />
           </div>
         </div>

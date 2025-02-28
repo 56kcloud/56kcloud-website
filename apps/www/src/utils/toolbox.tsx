@@ -199,16 +199,33 @@ export function getNavigationLinks(dico: Dictionary): Array<NavigationItem> {
           icon: {name: 'ChatBubbleLeftEllipsisIcon', type: 'outline'}
         }
       ],
-      dropdownWidth: 'w-64'
+      dropdownWidth: 'w-44'
+    },
+    {
+      title: dico.caseStudies,
+      links: [
+        {
+          title: 'Eurotech IoT gateway',
+          link: '/case-studies/connected-industrial-asset-manufacturer-solution'
+        },
+        {
+          title: 'Little Legends GenAI',
+          link: '/case-studies/little-legends-revolutionizing-childrens-storytelling-with-generative-ai-on-aws'
+        },
+        {
+          title: 'Aviator club serverless SaaS',
+          link: '/case-studies/gvm-sion-transforms-its-aircraft-reservation-software'
+        }
+      ],
+      dropdownWidth: 'w-60'
     },
     {
       title: dico.company,
       links: [
         {title: dico.aboutUs, link: '/about-us', icon: {name: 'BuildingOfficeIcon', type: 'outline'}},
-        {title: dico.caseStudies, link: '/case-studies', icon: {name: 'MagnifyingGlassIcon', type: 'outline'}},
         {title: dico.blog, link: '/blog', icon: {name: 'BookOpenIcon', type: 'outline'}}
       ],
-      dropdownWidth: 'w-40'
+      dropdownWidth: 'w-32'
     }
   ]
 }

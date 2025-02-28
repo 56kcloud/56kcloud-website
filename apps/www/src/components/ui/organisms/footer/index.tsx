@@ -22,8 +22,22 @@ export type FooterProps = {
 export default function Footer(props: FooterProps) {
   const companyLinks: Array<LinkProps> = [
     {title: props.dictionary.aboutUs, link: '/about-us'},
-    {title: props.dictionary.caseStudies, link: '/case-studies'},
     {title: props.dictionary.blog, link: '/blog'}
+  ]
+
+  const caseStudiesLinks: Array<LinkProps> = [
+    {
+      title: 'Eurotech IoT gateway',
+      link: '/case-studies/connected-industrial-asset-manufacturer-solution'
+    },
+    {
+      title: 'Little Legends GenAI',
+      link: '/case-studies/little-legends-revolutionizing-childrens-storytelling-with-generative-ai-on-aws'
+    },
+    {
+      title: 'Aviator club serverless SaaS',
+      link: '/case-studies/gvm-sion-transforms-its-aircraft-reservation-software'
+    }
   ]
 
   const socialLinks: Array<SocialLinks> = [
@@ -51,7 +65,7 @@ export default function Footer(props: FooterProps) {
           Footer
         </h2>
         <div className='pt-9 pb-8 mx-auto max-w-7xl lg:pt-[104px]'>
-          <div className='flex flex-col gap-y-12 lg:flex-row lg:justify-between'>
+          <div className='flex flex-col gap-y-12 min-[1200px]:flex-row min-[1200px]:justify-between'>
             <div className='max-w-full space-y-8 xl:max-w-sm'>
               <Logo className='h-5 text-slate-50' />
               <div className='flex flex-col gap-y-6 min-[432px]:flex-row min-[432px]:space-x-20'>
@@ -99,9 +113,9 @@ export default function Footer(props: FooterProps) {
                 ))}
               </div>
             </div>
-            <div className='flex flex-col gap-y-10 sm:flex-row sm:justify-between sm:gap-28'>
+            <div className='flex flex-col gap-y-10 md:flex-row md:justify-between md:gap-20'>
               <div>
-                <h3 className='text-sm font-normal text-slate-50 capitalize'>{props.dictionary.services}</h3>
+                <h3 className='text-sm font-normal text-slate-50'>{props.dictionary.services}</h3>
                 <ul
                   role='list'
                   className='mt-4 space-y-3 lg:mt-8'
@@ -126,7 +140,7 @@ export default function Footer(props: FooterProps) {
                 </ul>
               </div>
               <div>
-                <h3 className='text-sm font-normal text-slate-50 capitalize'>{props.dictionary.solutions}</h3>
+                <h3 className='text-sm font-normal text-slate-50'>{props.dictionary.solutions}</h3>
                 <ul
                   role='list'
                   className='mt-4 space-y-3 lg:mt-8'
@@ -146,7 +160,27 @@ export default function Footer(props: FooterProps) {
                 </ul>
               </div>
               <div>
-                <h3 className='text-sm font-normal text-slate-50 capitalize'>{props.dictionary.company}</h3>
+                <h3 className='text-sm font-normal text-slate-50'>{props.dictionary.caseStudies}</h3>
+                <ul
+                  role='list'
+                  className='mt-4 space-y-3 lg:mt-8'
+                >
+                  {caseStudiesLinks.map((item) => (
+                    <li key={item.title}>
+                      <Button
+                        asChild
+                        tone='secondary'
+                        variant='link'
+                        className='font-light text-slate-400 hover:text-slate-50'
+                      >
+                        <a href={item.link}>{item.title}</a>
+                      </Button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className='text-sm font-normal text-slate-50'>{props.dictionary.company}</h3>
                 <ul
                   role='list'
                   className='mt-4 space-y-3 lg:mt-8'

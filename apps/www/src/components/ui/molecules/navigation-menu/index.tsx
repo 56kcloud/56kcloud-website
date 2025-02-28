@@ -37,7 +37,7 @@ export default function NavigationMenu({
   return orientation === 'horizontal' ? (
     <NavigationMenuContainer>
       {navigationItems.map((navigationItem, index) =>
-        navigationItem.links && navigationItem.links.length > 1 ? (
+        navigationItem.links && navigationItem.links.length >= 1 ? (
           <NavigationMenuList key={index}>
             <NavigationMenuItem>
               <Button
