@@ -1,10 +1,9 @@
 'use client'
 
-import ComponentLayout from '@/components/ui/atoms/component-layout'
-
 import {ImageProps} from '@/models/image.model'
 import {cn} from '@/utils/toolbox'
 import {useState} from 'react'
+import ComponentLayout from '@/components/ui/atoms/component-layout'
 import Image from 'next/image'
 import MarkdownViewer from '../../markdown'
 
@@ -65,7 +64,8 @@ export default function CaseStudyContentSection({
             <div className='w-full lg:w-3/12 order-2 lg:order-1'>
               <MarkdownViewer
                 content={attachedText}
-                className='text-sm leading-6 p-0 [&_h3]:w-fit [&_h3]:text-transparent [&_h3]:bg-clip-text [&_h3]:bg-text-gradient-blue'
+                className='text-sm leading-6 p-0 [&_h3]:w-fit [&_h3]:text-transparent [&_h3]:bg-clip-text \
+                [&_h3]:bg-text-gradient-blue'
               />
             </div>
           )}
