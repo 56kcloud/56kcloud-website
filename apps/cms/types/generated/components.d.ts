@@ -696,6 +696,21 @@ export interface CertificationsSectionsCertificationsBadgesWithTitle extends Sch
   }
 }
 
+export interface CaseStudiesSectionsCaseStudiesGridCards extends Schema.Component {
+  collectionName: 'case_studies_grid_cards'
+  info: {
+    displayName: 'case-studies-grid-cards'
+    description: ''
+  }
+  attributes: {
+    case_studies: Attribute.Relation<
+      'case-studies-sections.case-studies-grid-cards',
+      'oneToMany',
+      'api::case-study.case-study'
+    >
+  }
+}
+
 export interface CardsContentAlternatePositionWithImageItem extends Schema.Component {
   collectionName: 'components_content_alternate_pos_w_image_items'
   info: {
@@ -809,6 +824,7 @@ declare module '@strapi/types' {
       'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
       'contact-sections.contact': ContactSectionsContact
       'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
+      'case-studies-sections.case-studies-grid-cards': CaseStudiesSectionsCaseStudiesGridCards
       'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem
       'cards.card-with-icon': CardsCardWithIcon
       'cards.card-text': CardsCardText
