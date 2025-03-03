@@ -65,7 +65,7 @@ export default function Footer(props: FooterProps) {
           Footer
         </h2>
         <div className='pt-9 pb-8 mx-auto max-w-7xl lg:pt-[104px]'>
-          <div className='flex flex-col gap-y-12 min-[1200px]:flex-row min-[1200px]:justify-between'>
+          <div className='flex flex-col gap-y-12 xl:flex-row xl:justify-between'>
             <div className='max-w-full space-y-8 xl:max-w-sm'>
               <Logo className='h-5 text-slate-50' />
               <div className='flex flex-col gap-y-6 min-[432px]:flex-row min-[432px]:space-x-20'>
@@ -113,7 +113,7 @@ export default function Footer(props: FooterProps) {
                 ))}
               </div>
             </div>
-            <div className='flex flex-col gap-y-10 md:flex-row md:justify-between md:gap-20'>
+            <div className='flex flex-col gap-y-10 min-[848px]:flex-row min-[848px]:justify-between min-[848px]:gap-20'>
               <div>
                 <h3 className='text-sm font-normal text-slate-50'>{props.dictionary.services}</h3>
                 <ul
