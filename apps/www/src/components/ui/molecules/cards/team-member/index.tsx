@@ -8,44 +8,42 @@ import Mail from '@/components/ui/svgs/logos/mail'
 
 export type TeamMemberCardProps = {
   teamMember: TeamMember
-  cardWithPadding?: boolean
   usedLanguage: string
 }
 
-export default function TeamMemberCard({teamMember, cardWithPadding = true, usedLanguage}: TeamMemberCardProps) {
+export default function TeamMemberCard({teamMember, usedLanguage}: TeamMemberCardProps) {
   return (
     <div className='flex items-center justify-center'>
-      <div className={cn(cardWithPadding ? 'px-8 mt-8' : '', 'w-full mx-auto max-w-7xl')}>
+      <div className='w-full h-full mx-auto max-w-7xl'>
         <div
-          className={cn(
-            usedLanguage === 'fr'
-              ? 'sm:h-[644px] min-[768px]:h-[568px] min-[896px]:h-[512px] lg:h-[424px] min-[1152px]:h-[342px] xl:h-[312px]'
-              : 'sm:h-[544px] min-[768px]:h-[492px] min-[896px]:h-[464px] lg:h-[324px] min-[1152px]:h-[292px] xl:h-[274px]',
-            'relative h-full border border-slate-800 rounded-3xl w-full flex flex-row bg-gradient-to-t \
-            from-slate-800 to-slate-900 overflow-hidden'
-          )}
+          className='relative w-full h-full flex flex-col border border-slate-800 rounded-3xl bg-gradient-to-t \
+            from-slate-800 to-slate-900 overflow-hidden xl:flex-row'
         >
-          <div
-            className='absolute left-1/2 -translate-x-1/2 -translate-y-[17%] w-max lg:top-1/2 lg:left-0 transform \
-            lg:-translate-y-[55%] lg:-translate-x-[10%]'
-          >
+          <div className='w-full h-full p-6 pb-0 overflow-hidden xl:w-[37%] xl:pb-6'>
             <Image
               src={teamMember.avatar.url}
               alt={teamMember.name}
               width={teamMember.avatar.width}
               height={teamMember.avatar.height}
-              className='object-cover w-[368px] h-[368px] lg:w-64 lg:h-64'
+              className='w-full h-full object-cover rounded-xl'
             />
           </div>
-          <div className='flex flex-col justify-between h-full gap-y-5 p-6 pt-56 z-50 sm:p-8 lg:pl-52 lg:pt-8'>
+          <div className='w-full flex flex-col gap-y-5 p-6 xl:w-[63%] xl:pl-0'>
             <div className='space-y-1'>
               <h3 className='text-2xl leading-7 font-semibold w-fit text-transparent bg-clip-text bg-text-gradient-blue'>
                 {teamMember.name}
               </h3>
               <p className='text-base leading-[26px] text-slate-400 font-light'>{teamMember.role?.name}</p>
             </div>
-            <div className='flex-grow flex flex-col justify-between gap-y-6 sm:gap-y-0'>
-              <p className='text-base leading-[26px] text-slate-50 font-light italic'>{`"${teamMember.bio}"`}</p>
+            <div className='flex flex-col justify-between gap-y-6'>
+              <p
+                className={cn(
+                  usedLanguage === 'fr'
+                    ? 'sm:h-[152px] min-[768px]:h-32 min-[848px]:h-24 min-[1056px]:h-[72px]'
+                    : 'sm:h-[124px] min-[768px]:h-24 min-[880px]:h-20 min-[1200px]:h-[72px] min-[1232px]:h-14',
+                  'h-fit text-base leading-[26px] text-slate-50 font-light italic xl:h-fit'
+                )}
+              >{`"${teamMember.bio}"`}</p>
               <div className='flex gap-x-6'>
                 {teamMember.email && (
                   <Button
