@@ -35,7 +35,7 @@ export default function LanguageSwitcher({mobileMenuOpen}: LanguageSwitcherProps
   }
 
   return mobileMenuOpen ? (
-    <div className='flex justify-start w-full h-auto p-0 pt-4 border-t rounded-none border-slate-800 gap-x-8'>
+    <div className='w-full h-auto flex justify-start gap-x-8 mt-8 p-0 pt-4 border-t rounded-none border-slate-800'>
       {locales.map((locale) => (
         <Button
           asChild
