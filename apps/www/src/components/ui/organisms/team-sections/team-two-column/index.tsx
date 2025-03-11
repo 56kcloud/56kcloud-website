@@ -31,7 +31,6 @@ export default function TeamTwoColumn(props: TeamTwoColumnProps) {
             <TeamMemberCard
               key={teamMember.name}
               teamMember={teamMember}
-              cardWithPadding={false}
               usedLanguage={props.dictionary.locale}
             />
           ))}
