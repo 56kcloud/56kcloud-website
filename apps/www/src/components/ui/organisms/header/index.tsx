@@ -5,6 +5,7 @@ import {Dialog} from '@headlessui/react'
 import {Dictionary} from '@/models/dictionary.model'
 import {cn, getNavigationLinks} from '@/utils/toolbox'
 import {useState} from 'react'
+import Acp from '../../svgs/logos/acp'
 import Banner, { BannerProps } from '../../molecules/banner'
 import LanguageSwitcher from '../../molecules/language-switcher'
 import Link from 'next/link'
@@ -42,7 +43,9 @@ export default function Header({dictionary, bannerProps}: HeaderProps) {
             className='flex items-center h-full bg-red-600 px-2 py-1 rounded-md -rotate-[5deg] -translate-x-32 \
             translate-y-8'
           >
-            <p className='text-sm font-light text-slate-50'>an ACP company</p>
+            <p className='text-sm font-light text-slate-50'>an </p>
+            <Acp className='h-4 w-auto mx-1 text-slate-50' />
+            <p className='text-sm font-light text-slate-50'> company</p>
           </Link>
         </div>
         <div className='flex lg:hidden'>

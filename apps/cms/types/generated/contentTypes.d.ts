@@ -736,24 +736,158 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   options: {
     draftAndPublish: true
   }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
   attributes: {
-    title: Attribute.String & Attribute.Required
-    description: Attribute.Text & Attribute.Required
-    readTime: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<1>
-    publishedOn: Attribute.Date
-    slug: Attribute.String & Attribute.Required
-    image: Attribute.Media<'images'> & Attribute.Required
-    author: Attribute.Relation<'api::article.article', 'oneToOne', 'api::team-member.team-member'>
-    tags: Attribute.Relation<'api::article.article', 'oneToMany', 'api::tag.tag'>
-    relatedPartners: Attribute.Relation<'api::article.article', 'manyToMany', 'api::partner.partner'>
-    relatedArticles: Attribute.Relation<'api::article.article', 'oneToMany', 'api::article.article'>
-    content: Attribute.RichText & Attribute.Required
-    relatedSolutions: Attribute.Relation<'api::article.article', 'oneToMany', 'api::solution.solution'>
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    readTime: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }> &
+      Attribute.DefaultTo<1>
+    publishedOn: Attribute.Date &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+      }>
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    image: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    author: Attribute.Relation<'api::article.article', 'oneToOne', 'api::team-member.team-member'> &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    tags: Attribute.Relation<'api::article.article', 'oneToMany', 'api::tag.tag'> &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    relatedPartners: Attribute.Relation<'api::article.article', 'manyToMany', 'api::partner.partner'> &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    relatedArticles: Attribute.Relation<'api::article.article', 'oneToMany', 'api::article.article'> &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    content: Attribute.RichText &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    relatedSolutions: Attribute.Relation<'api::article.article', 'oneToMany', 'api::solution.solution'> &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
     createdBy: Attribute.Relation<'api::article.article', 'oneToOne', 'admin::user'> & Attribute.Private
     updatedBy: Attribute.Relation<'api::article.article', 'oneToOne', 'admin::user'> & Attribute.Private
+    localizations: Attribute.Relation<'api::article.article', 'oneToMany', 'api::article.article'>
+    locale: Attribute.String
+  }
+}
+
+export interface ApiBannerBanner extends Schema.SingleType {
+  collectionName: 'banners'
+  info: {
+    singularName: 'banner'
+    pluralName: 'banners'
+    displayName: '91 - Banner'
+    description: ''
+  }
+  options: {
+    draftAndPublish: true
+  }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
+  attributes: {
+    cta: Attribute.Component<'cta.button'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    createdAt: Attribute.DateTime
+    updatedAt: Attribute.DateTime
+    publishedAt: Attribute.DateTime
+    createdBy: Attribute.Relation<'api::banner.banner', 'oneToOne', 'admin::user'> & Attribute.Private
+    updatedBy: Attribute.Relation<'api::banner.banner', 'oneToOne', 'admin::user'> & Attribute.Private
+    localizations: Attribute.Relation<'api::banner.banner', 'oneToMany', 'api::banner.banner'>
+    locale: Attribute.String
   }
 }
 
@@ -871,18 +1005,79 @@ export interface ApiCaseStudyCaseStudy extends Schema.CollectionType {
   options: {
     draftAndPublish: true
   }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
   attributes: {
-    slug: Attribute.String & Attribute.Required
-    title: Attribute.String & Attribute.Required
-    description: Attribute.Text & Attribute.Required
-    image: Attribute.Media<'images'> & Attribute.Required
-    attachedText: Attribute.RichText & Attribute.Required
-    content: Attribute.RichText & Attribute.Required
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    image: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    attachedText: Attribute.RichText &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    content: Attribute.RichText &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
     createdBy: Attribute.Relation<'api::case-study.case-study', 'oneToOne', 'admin::user'> & Attribute.Private
     updatedBy: Attribute.Relation<'api::case-study.case-study', 'oneToOne', 'admin::user'> & Attribute.Private
+    localizations: Attribute.Relation<'api::case-study.case-study', 'oneToMany', 'api::case-study.case-study'>
+    locale: Attribute.String
   }
 }
 
@@ -1462,7 +1657,7 @@ export interface ApiTeamMemberTeamMember extends Schema.CollectionType {
     linkedin: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
+          localized: false
         }
         translate: {
           translate: 'translate'
@@ -1480,7 +1675,7 @@ export interface ApiTeamMemberTeamMember extends Schema.CollectionType {
     email: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true
+          localized: false
         }
         translate: {
           translate: 'translate'
@@ -1587,6 +1782,7 @@ declare module '@strapi/types' {
       'plugin::slugify.slug': PluginSlugifySlug
       'api::about-us-page.about-us-page': ApiAboutUsPageAboutUsPage
       'api::article.article': ApiArticleArticle
+      'api::banner.banner': ApiBannerBanner
       'api::blog-page.blog-page': ApiBlogPageBlogPage
       'api::case-studies-page.case-studies-page': ApiCaseStudiesPageCaseStudiesPage
       'api::case-study.case-study': ApiCaseStudyCaseStudy
