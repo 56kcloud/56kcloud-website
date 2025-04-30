@@ -28,10 +28,10 @@ export default function Header({dictionary, bannerProps}: HeaderProps) {
         className='flex items-center justify-between w-full p-6 max-w-7xl'
         aria-label='Global'
       >
-        <div className='flex lg:flex-1 lg:gap-x-8'>
+        <div className='relative'>
           <Link
             href='/'
-            className='-m-1.5 p-1.5 text-slate-50'
+            className='text-slate-50'
           >
             <span className='sr-only'>56k Cloud</span>
             <Logo className='h-10' />
@@ -40,12 +40,11 @@ export default function Header({dictionary, bannerProps}: HeaderProps) {
             href='https://www.acp-gruppe.com/en/'
             target='_blank'
             rel='noopener noreferrer'
-            className='flex items-center h-full bg-red-600 px-2 py-1 rounded-md -rotate-[5deg] -translate-x-32 \
-            translate-y-8'
+            className='absolute flex items-center text-slate-50 left-1/2 -translate-x-1/2 translate-y-1'
           >
-            <p className='text-sm font-light text-slate-50'>an </p>
-            <Acp className='h-4 w-auto mx-1 text-slate-50' />
-            <p className='text-sm font-light text-slate-50'> company</p>
+            <p className='text-[10px] font-light'>an </p>
+            <Acp className='h-[10px] w-auto mx-[3px]' />
+            <p className='text-[10px] font-light'> company</p>
           </Link>
         </div>
         <div className='flex lg:hidden'>
