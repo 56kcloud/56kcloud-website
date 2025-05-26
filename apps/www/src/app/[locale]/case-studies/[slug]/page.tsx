@@ -48,7 +48,7 @@ export async function generateMetadata({params}: CaseStudyPageProps): Promise<Me
 export default async function CaseStudyPage({params}: CaseStudyPageProps) {
   try {
     const dict = await getDictionary(params.locale)
-    const components = await getPageComponents(`${basePath}${params.slug}`)
+    const components = await getPageComponents(`${basePath}${params.slug}`, params.locale)
     return pageRenderer(dict, components)
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {

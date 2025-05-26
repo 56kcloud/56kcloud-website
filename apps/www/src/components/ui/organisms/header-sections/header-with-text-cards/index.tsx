@@ -16,7 +16,7 @@ export default function HeaderWithTextCards(props: HeaderWithTextCardsProps) {
           <div className='w-full lg:w-2/6'>
             <h2
               className='w-fit text-[44px] leading-[52px] font-extrabold tracking-tight text-transparent \
-              bg-clip-text bg-text-gradient-gray'
+              bg-clip-text bg-text-gradient-gray !break-words max-w-96'
             >
               {props.title}
             </h2>
