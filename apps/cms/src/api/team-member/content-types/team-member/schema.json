@@ -32,7 +32,9 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images"],
+      "allowedTypes": [
+        "images"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": false
@@ -57,7 +59,7 @@
     "linkedin": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         },
         "translate": {
           "translate": "translate"
@@ -79,7 +81,7 @@
     "email": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         },
         "translate": {
           "translate": "translate"

@@ -2,6 +2,7 @@ import {Dictionary} from '@/models/dictionary.model'
 import {Suspense} from 'react'
 import {draftMode} from 'next/headers'
 import ArticleContentSection from '@/components/ui/molecules/article/content-section'
+import Banner, { BannerProps } from '@/components/ui/molecules/banner'
 import BlogMasonry from '@/components/ui/organisms/blog-sections/blog-masonry'
 import BlogThreeColumn from '@/components/ui/organisms/blog-sections/blog-three-column'
 import CaseStudiesGridCards from '@/components/ui/organisms/case-studies-sections/case-studies-grid-cards'
@@ -46,6 +47,7 @@ export type ComponentBlueprints = {
 export const needSuspense = ['blog-masonry']
 export const componentBlueprints: ComponentBlueprints = {
   footer: Footer,
+  banner: Banner,
   'hero-simple-center': HeroSimpleCenter,
   'hero-with-gradient': HeroWithGradient,
   'hero-with-floating-gradients': HeroWithFloatingGradients,
@@ -104,10 +106,12 @@ export function renderComponents(dictionary: Dictionary, components?: Array<Comp
 
 export function pageRenderer(dictionary: Dictionary, components?: Array<ComponentBlueprint>) {
   const {isEnabled} = draftMode()
+  const banner = components?.[0]?.component === 'banner' ? components.shift() : null
   const children = renderComponents(dictionary, components)
+
   return (
     <>
-      <Header dictionary={dictionary} />
+      <Header dictionary={dictionary} bannerProps={banner?.props as BannerProps} />
       {isEnabled && <DraftModal />}
       {children}
     </>

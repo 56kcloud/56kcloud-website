@@ -42,6 +42,18 @@ export async function bodyHandler(contentType, locale = 'en') {
   })
   footer['__component'] = footerComponentName
   contentType.body.push(footer)
+
+  try {
+    const bannerComponentName = 'banner.banner'
+    const banner = await strapi.entityService.findMany(`api::${bannerComponentName}`, {
+      populate: '*',
+      locale: locale
+    })
+    banner['__component'] = bannerComponentName
+    contentType.body.unshift(banner)
+  } catch {
+    // no banner
+  }
 }
 
 function generatePaths(keys: Array<string>, options: Array<string>, depth: number) {

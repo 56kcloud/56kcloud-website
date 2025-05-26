@@ -5,6 +5,7 @@ import {Dialog} from '@headlessui/react'
 import {Dictionary} from '@/models/dictionary.model'
 import {cn, getNavigationLinks} from '@/utils/toolbox'
 import {useState} from 'react'
+import Banner, { BannerProps } from '../../molecules/banner'
 import LanguageSwitcher from '../../molecules/language-switcher'
 import Link from 'next/link'
 import Logo from '../../svgs/logos/56k'
@@ -12,14 +13,16 @@ import NavigationMenu from '../../molecules/navigation-menu'
 
 export type HeaderProps = {
   dictionary: Dictionary
+  bannerProps?: BannerProps
 }
 
-export default function Header({dictionary}: HeaderProps) {
+export default function Header({dictionary, bannerProps}: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const navigation = getNavigationLinks(dictionary)
 
   return (
-    <header className='absolute inset-x-0 top-0 z-10 flex justify-center'>
+    <header className='absolute inset-x-0 top-0 z-10 flex flex-col justify-center items-center'>
+      {bannerProps ? <Banner {...bannerProps} /> : null}
       <nav
         className='flex items-center justify-between w-full p-6 max-w-7xl'
         aria-label='Global'
