@@ -16,18 +16,6 @@
     }
   },
   "attributes": {
-    "description": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        },
-        "translate": {
-          "translate": "translate"
-        }
-      },
-      "type": "richtext",
-      "required": false
-    },
     "cta": {
       "type": "component",
       "repeatable": false,
@@ -40,6 +28,17 @@
         }
       },
       "component": "cta.button"
+    },
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "type": "text"
     }
   }
 }
