@@ -127,10 +127,11 @@ export default function Footer(props: FooterProps) {
                         tone='secondary'
                         variant='link'
                         className='font-light text-slate-400'
+                        align='start'
                       >
                         <a
                           href={`/services/${item.slug}`}
-                          className='text-sm leading-6 text-slate-400 hover:text-slate-50'
+                          className='text-sm leading-6 text-slate-400 hover:text-slate-50 !w-44 !break-words'
                         >
                           {item.title}
                         </a>
