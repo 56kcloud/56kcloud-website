@@ -26,7 +26,7 @@ export default function CaseStudyContentSection({
 
   return (
     <ComponentLayout gradientVariant='heroGradient'>
-      <div className='space-y-14 pb-16 pt-44 lg:space-y-20 lg:pb-20 lg:pt-60'>
+      <div className='space-y-14 pb-16 pt-52 lg:space-y-20 lg:pb-20 lg:pt-60'>
         <div className='flex flex-col gap-y-20 lg:gap-y-24'>
           <div className='flex flex-col'>
             <div className='space-y-8'>

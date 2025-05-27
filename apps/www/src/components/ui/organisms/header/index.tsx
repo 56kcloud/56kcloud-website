@@ -34,7 +34,7 @@ export default function Header({dictionary, bannerProps}: HeaderProps) {
             className='text-slate-50'
           >
             <span className='sr-only'>56k Cloud</span>
-            <Logo className='h-10' />
+            <Logo className='h-8 xl:h-10' />
           </Link>
           <Link
             href='https://www.acp-gruppe.com/en/'
@@ -42,9 +42,9 @@ export default function Header({dictionary, bannerProps}: HeaderProps) {
             rel='noopener noreferrer'
             className='absolute flex items-center text-slate-50 left-1/2 -translate-x-1/2 translate-y-1'
           >
-            <p className='text-[10px] font-light'>an </p>
-            <Acp className='h-[10px] w-auto mx-[3px]' />
-            <p className='text-[10px] font-light'> company</p>
+            <p className='text-[8px] xl:text-[10px] font-light'>an </p>
+            <Acp className='h-[8px] xl:h-[10px] w-auto mx-[3px]' />
+            <p className='text-[8px] xl:text-[10px] font-light'> company</p>
           </Link>
         </div>
         <div className='flex lg:hidden'>

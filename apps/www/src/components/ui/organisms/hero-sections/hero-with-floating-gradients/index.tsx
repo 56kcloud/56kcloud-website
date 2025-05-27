@@ -25,7 +25,7 @@ export default function HeroWithFloatingGradients(props: HeroWithFloatingGradien
           <FloatingGradientRight />
         </div>
       </div>
-      <div className='pb-8 pt-44 lg:pt-64 lg:pb-20'>
+      <div className='pb-8 pt-52 lg:pt-64 lg:pb-20'>
         <h1
           className='w-fit mx-auto text-center text-5xl leading-[1.1875] font-extrabold tracking-tight text-transparent \
           bg-clip-text bg-text-gradient-gray lg:text-7xl lg:leading-[1.2]'

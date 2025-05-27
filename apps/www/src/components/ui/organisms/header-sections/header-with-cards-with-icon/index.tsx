@@ -10,7 +10,7 @@ export type HeaderWithCardsWithIconProps = {
 export default function HeaderWithCardsWithIcon(props: HeaderWithCardsWithIconProps) {
   return (
     <div className='relative py-24 overflow-hidden isolate sm:py-32'>
-      <div className='px-6 pt-20 mx-auto lg:pt-44 max-w-7xl'>
+      <div className='px-6 pt-20 mx-auto lg:pt-52 max-w-7xl'>
         <div className='flex flex-col justify-between lg:flex-row gap-x-16'>
           <div className='w-full lg:w-2/6'>
             <h2
