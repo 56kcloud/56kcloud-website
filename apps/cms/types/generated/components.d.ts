@@ -597,18 +597,6 @@ export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Comp
   }
 }
 
-export interface ContactSectionsContact extends Schema.Component {
-  collectionName: 'contacts'
-  info: {
-    displayName: 'contact'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.String & Attribute.Required
-  }
-}
-
 export interface CtaButton extends Schema.Component {
   collectionName: 'components_cta_buttons'
   info: {
@@ -680,6 +668,18 @@ export interface ContentSectionContentAlternatePositionWithImageList extends Sch
   }
   attributes: {
     items: Attribute.Component<'cards.content-alternate-position-with-image-item', true> & Attribute.Required
+  }
+}
+
+export interface ContactSectionsContact extends Schema.Component {
+  collectionName: 'contacts'
+  info: {
+    displayName: 'contact'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.String & Attribute.Required
   }
 }
 
@@ -816,13 +816,13 @@ declare module '@strapi/types' {
       'filter.tags-filter': FilterTagsFilter
       'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
       'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
-      'contact-sections.contact': ContactSectionsContact
       'cta.button': CtaButton
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam
       'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo
       'content-section.content-two-column': ContentSectionContentTwoColumn
       'content-section.content-markdown': ContentSectionContentMarkdown
       'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
+      'contact-sections.contact': ContactSectionsContact
       'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
       'case-studies-sections.case-studies-grid-cards': CaseStudiesSectionsCaseStudiesGridCards
       'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem
