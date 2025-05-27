@@ -21,7 +21,8 @@ export async function seoHandler(contentType, uid: string) {
   }
 }
 
-export async function bodyHandler(contentType, locale = 'en') {
+export async function bodyHandler(contentType, query) {
+  const locale = query.locale || 'en'
   contentType.body = Array.isArray(contentType.body) ? contentType.body : []
   const contactComponentIndex = contentType.body
     .map((el) => el.__component)
@@ -30,7 +31,7 @@ export async function bodyHandler(contentType, locale = 'en') {
     const locations = await strapi.entityService.findMany('api::location.location', {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       populate: 'deep' as any,
-      locale: locale
+      locale
     })
     contentType.body[contactComponentIndex].locations = locations
   }
@@ -38,7 +39,7 @@ export async function bodyHandler(contentType, locale = 'en') {
   const footerComponentName = 'footer.footer'
   const footer = await strapi.entityService.findMany(`api::${footerComponentName}`, {
     populate: '*',
-    locale: locale
+    locale
   })
   footer['__component'] = footerComponentName
   contentType.body.push(footer)
@@ -47,7 +48,8 @@ export async function bodyHandler(contentType, locale = 'en') {
     const bannerComponentName = 'banner.banner'
     const banner = await strapi.entityService.findMany(`api::${bannerComponentName}`, {
       populate: '*',
-      locale: locale
+      locale,
+      publicationState: query.preview === 'true' ? 'preview' : 'live'
     })
     banner['__component'] = bannerComponentName
     contentType.body.unshift(banner)
@@ -143,7 +145,7 @@ export async function findOne(props: FindOneProps) {
     if (!props.ctx.query.seoOnly) {
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       props.contentTypeHandler && props.contentTypeHandler(contentType)
-      await bodyHandler(contentType, props.ctx.query.locale)
+      await bodyHandler(contentType, props.ctx.query)
     } else {
       await seoHandler(contentType, props.uid)
     }
