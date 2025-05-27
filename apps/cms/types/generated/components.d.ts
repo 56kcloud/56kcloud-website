@@ -597,18 +597,15 @@ export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Comp
   }
 }
 
-export interface CtaSectionsJoinOurTeam extends Schema.Component {
-  collectionName: 'components_cta_sections_join_our_teams'
+export interface ContactSectionsContact extends Schema.Component {
+  collectionName: 'contacts'
   info: {
-    displayName: 'join-our-team'
+    displayName: 'contact'
     description: ''
   }
   attributes: {
     title: Attribute.String & Attribute.Required
-    subtitle: Attribute.Text & Attribute.Required
-    cta: Attribute.Component<'cta.button'>
-    benefits: Attribute.Component<'benefit.benefit', true>
-    image: Attribute.Media<'images'> & Attribute.Required
+    subtitle: Attribute.String & Attribute.Required
   }
 }
 
@@ -622,6 +619,21 @@ export interface CtaButton extends Schema.Component {
     title: Attribute.String & Attribute.Required
     link: Attribute.String & Attribute.Required
     tone: Attribute.Enumeration<['primary', 'secondary']> & Attribute.Required & Attribute.DefaultTo<'primary'>
+  }
+}
+
+export interface CtaSectionsJoinOurTeam extends Schema.Component {
+  collectionName: 'components_cta_sections_join_our_teams'
+  info: {
+    displayName: 'join-our-team'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    cta: Attribute.Component<'cta.button'>
+    benefits: Attribute.Component<'benefit.benefit', true>
+    image: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -668,18 +680,6 @@ export interface ContentSectionContentAlternatePositionWithImageList extends Sch
   }
   attributes: {
     items: Attribute.Component<'cards.content-alternate-position-with-image-item', true> & Attribute.Required
-  }
-}
-
-export interface ContactSectionsContact extends Schema.Component {
-  collectionName: 'contacts'
-  info: {
-    displayName: 'contact'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.String & Attribute.Required
   }
 }
 
@@ -816,13 +816,13 @@ declare module '@strapi/types' {
       'filter.tags-filter': FilterTagsFilter
       'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
       'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
-      'cta-sections.join-our-team': CtaSectionsJoinOurTeam
+      'contact-sections.contact': ContactSectionsContact
       'cta.button': CtaButton
+      'cta-sections.join-our-team': CtaSectionsJoinOurTeam
       'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo
       'content-section.content-two-column': ContentSectionContentTwoColumn
       'content-section.content-markdown': ContentSectionContentMarkdown
       'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
-      'contact-sections.contact': ContactSectionsContact
       'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
       'case-studies-sections.case-studies-grid-cards': CaseStudiesSectionsCaseStudiesGridCards
       'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem

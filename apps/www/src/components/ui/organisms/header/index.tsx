@@ -5,6 +5,7 @@ import {Dialog} from '@headlessui/react'
 import {Dictionary} from '@/models/dictionary.model'
 import {cn, getNavigationLinks} from '@/utils/toolbox'
 import {useState} from 'react'
+import Acp from '../../svgs/logos/acp'
 import Banner, { BannerProps } from '../../molecules/banner'
 import LanguageSwitcher from '../../molecules/language-switcher'
 import Link from 'next/link'
@@ -27,13 +28,23 @@ export default function Header({dictionary, bannerProps}: HeaderProps) {
         className='flex items-center justify-between w-full p-6 max-w-7xl'
         aria-label='Global'
       >
-        <div className='flex lg:flex-1'>
+        <div className='relative'>
           <Link
             href='/'
-            className='-m-1.5 p-1.5 text-slate-50'
+            className='text-slate-50'
           >
             <span className='sr-only'>56k Cloud</span>
-            <Logo className='h-7' />
+            <Logo className='h-10' />
+          </Link>
+          <Link
+            href='https://www.acp-gruppe.com/en/'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='absolute flex items-center text-slate-50 left-1/2 -translate-x-1/2 translate-y-1'
+          >
+            <p className='text-[10px] font-light'>an </p>
+            <Acp className='h-[10px] w-auto mx-[3px]' />
+            <p className='text-[10px] font-light'> company</p>
           </Link>
         </div>
         <div className='flex lg:hidden'>
