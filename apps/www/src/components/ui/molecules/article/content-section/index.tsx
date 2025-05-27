@@ -28,18 +28,18 @@ export default function ArticleContentSection({
 }: ArticleContentSectionProps) {
   content = `# ${title} \n ${content}`
   return (
-    <div className='flex items-center justify-center pt-32 sm:pt-52 pb-14'>
+    <div className='flex items-center justify-center pt-48 sm:pt-52 pb-14'>
       <div className='w-full px-6 mx-auto max-w-7xl lg:px-8'>
         <div className='z-50 w-full h-full overflow-auto bg-white/5 max-w-7xl rounded-xl overscroll-contain'>
           <ArticleCover image={image} />
-          <div className='w-full p-6 md:p-10'>
-            <div className='flex flex-col-reverse justify-between md:items-center md:flex-row'>
+          <div className='w-full p-6 pt-10 md:p-10'>
+            <div className='flex flex-col-reverse justify-between gap-y-4 md:items-center md:flex-row'>
               <Suspense>
                 <PostTagList tags={tags} />
               </Suspense>
               <div
-                className='flex flex-col items-center justify-center mb-10 overflow-hidden text-sm leading-6 \
-                 text-gray-300 md:flex-row md:mb-0 gap-y-6'
+                className='flex flex-row items-center justify-start overflow-hidden text-sm leading-6 \
+                 text-gray-300 gap-y-4'
               >
                 <time
                   dateTime={publishedOn}
@@ -47,10 +47,10 @@ export default function ArticleContentSection({
                 >
                   {formatDate(publishedOn)}
                 </time>
-                <div className='flex items-center -ml-4 gap-x-4'>
+                <div className='flex items-center gap-x-4 ml-4 md:-ml-4'>
                   <svg
                     viewBox='0 0 2 2'
-                    className='-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50 hidden md:flex'
+                    className='-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50 flex'
                   >
                     <circle
                       cx={1}
@@ -58,7 +58,10 @@ export default function ArticleContentSection({
                       r={1}
                     />
                   </svg>
-                  <Link href={`/about-us#${author.slug}`} className='flex gap-x-2.5 items-center hover:underline'>
+                  <Link
+                    href={`/about-us#${author.slug}`}
+                    className='flex gap-x-2.5 items-center hover:underline'
+                  >
                     <Avatar
                       size='sm'
                       image={author.avatar}
@@ -68,7 +71,7 @@ export default function ArticleContentSection({
                 </div>
               </div>
             </div>
-            <div className='max-w-full mt-10'>
+            <div className='max-w-full mt-16'>
               <MarkdownViewer
                 content={content}
                 className='px-0'
