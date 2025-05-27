@@ -4,6 +4,7 @@ import {TeamMember} from '@/models/team-member.model'
 import {formatDate} from '@/utils/toolbox'
 import ArticleCover from '../cover'
 import Avatar from '@/components/ui/atoms/avatar'
+import Link from 'next/link'
 import MarkdownViewer from '../../markdown'
 import PostTagList from '../../tag-list'
 import React, {Suspense} from 'react'
@@ -57,13 +58,13 @@ export default function ArticleContentSection({
                       r={1}
                     />
                   </svg>
-                  <div className='flex gap-x-2.5 items-center'>
+                  <Link href={`/about-us#${author.slug}`} className='flex gap-x-2.5 items-center hover:underline'>
                     <Avatar
                       size='sm'
                       image={author.avatar}
                     />
                     {author.name}
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>

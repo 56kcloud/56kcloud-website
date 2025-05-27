@@ -13,7 +13,7 @@ export type TeamMemberCardProps = {
 
 export default function TeamMemberCard({teamMember, usedLanguage}: TeamMemberCardProps) {
   return (
-    <div className='flex items-center justify-center'>
+    <div className='flex items-center justify-center' id={teamMember.slug}>
       <div className='w-full h-full mx-auto max-w-7xl'>
         <div
           className='relative w-full h-full flex flex-col border border-slate-800 rounded-3xl bg-gradient-to-t \

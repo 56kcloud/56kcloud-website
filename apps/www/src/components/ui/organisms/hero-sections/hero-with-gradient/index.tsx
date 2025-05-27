@@ -13,7 +13,7 @@ export default function HeroWithGradient(props: HeroWithGradientProps) {
 
   return (
     <ComponentLayout gradientVariant='heroGradient'>
-      <div className='pb-8 pt-40 lg:pb-20 lg:pt-60'>
+      <div className='pb-8 pt-44 lg:pb-20 lg:pt-60'>
         <div className='space-y-8'>
           <div className='flex justify-center w-full'>
             <span className='text-base font-semibold text-transparent bg-clip-text bg-text-gradient-blue'>

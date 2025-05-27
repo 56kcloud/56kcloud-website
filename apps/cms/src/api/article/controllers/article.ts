@@ -23,10 +23,11 @@ export default factories.createCoreController(uid, () => ({
             publishedOn: article.publishedOn,
             author: article.author
           },
-          {
-            __component: 'team-member-section.team-member-card',
-            teamMember: article.author
-          }
+          // Until component is ready
+          // {
+          //   __component: 'team-member-section.team-member-card',
+          //   teamMember: article.author
+          // }
         ]
       },
       where: {
