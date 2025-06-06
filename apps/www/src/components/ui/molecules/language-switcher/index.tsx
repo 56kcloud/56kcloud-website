@@ -9,9 +9,10 @@ import {
   NavigationMenuTrigger
 } from '@/components/primitives/navigation-menu'
 import {defaultLocale, locales} from '../../../../../configs/shared'
-import {useParams, usePathname, useRouter} from 'next/navigation'
+import {useParams, usePathname} from 'next/navigation'
 import Button from '../../atoms/button'
 import Link from 'next/link'
+
 
 export type LanguageSwitcherProps = {
   mobileMenuOpen: boolean
@@ -20,18 +21,17 @@ export type LanguageSwitcherProps = {
 export default function LanguageSwitcher({mobileMenuOpen}: LanguageSwitcherProps) {
   const {locale} = useParams()
   const pathname = usePathname()
-  const router = useRouter()
 
-  function updateLanguage(lang: string, event?: React.MouseEvent<HTMLElement>) {
+  async function updateLanguage(lang: string, event?: React.MouseEvent<HTMLElement>) {
     if (event) event.preventDefault()
     let updatedPathname: string | string[] = pathname.split('/')
     updatedPathname.splice(1, 1, lang)
     updatedPathname = updatedPathname.join('/')
-    router.push(updatedPathname)
+    window.location.href = updatedPathname as string
   }
 
   const pathMatcher = (path: string) => {
-    return pathname.includes(path)
+    return pathname.startsWith(`/${path}/`)
   }
 
   return mobileMenuOpen ? (
