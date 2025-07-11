@@ -167,6 +167,18 @@ export default ({env}) => ({
             alwaysVisible: true
           },
           openTarget: '_blank'
+        },
+        {
+          uid: 'api::foundations-page.foundations-page',
+          query: {
+            type: 'foundations-page',
+            locale: '{locale}'
+          },
+          draft: {
+            url: `${env('PREVIEW_HOST')}/api/draft?url=/{locale}/foundations`,
+            alwaysVisible: true
+          },
+          openTarget: '_blank'
         }
       ]
     }

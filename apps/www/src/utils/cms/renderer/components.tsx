@@ -17,6 +17,10 @@ import CustomerLogosSimpleWithTitle from '@/components/ui/organisms/customer-sec
 import DiagramFullWidth from '@/components/ui/organisms/diagram-sections/diagram-full-width'
 import DraftModal from '@/components/ui/organisms/draft-modal'
 import Footer from '@/components/ui/organisms/footer'
+import FoundationsPackage from '@/components/ui/organisms/foundations-sections/foundations-packages'
+import FoundationsProcess from '@/components/ui/organisms/foundations-sections/foundations-process'
+import FoundationsServiceBreakdown from '@/components/ui/organisms/foundations-sections/foundations-services-breakdown'
+import FoundationsSteps from '@/components/ui/organisms/foundations-sections/foundations-steps'
 import Header from '@/components/ui/organisms/header'
 import HeaderWithCardsWithIcon from '@/components/ui/organisms/header-sections/header-with-cards-with-icon'
 import HeaderWithTextCards from '@/components/ui/organisms/header-sections/header-with-text-cards'
@@ -80,7 +84,11 @@ export const componentBlueprints: ComponentBlueprints = {
   'certifications-badges-with-title': CertificationsBadgesWithTitle,
   'map-with-title': MapWithTitle,
   'case-studies-grid-cards': CaseStudiesGridCards,
-  'case-study-content': CaseStudyContentSection
+  'case-study-content': CaseStudyContentSection,
+  'foundations-steps': FoundationsSteps,
+  'foundations-process': FoundationsProcess,
+  'foundations-services-breakdown': FoundationsServiceBreakdown,
+  'foundations-package': FoundationsPackage,
 }
 export type ComponentBlueprint = {
   component: keyof ComponentBlueprints

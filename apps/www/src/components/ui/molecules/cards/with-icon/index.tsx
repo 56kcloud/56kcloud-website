@@ -10,7 +10,9 @@ export default function CardWithIcon({title, icon, description}: CardWithIconPro
           className='flex-none text-sky-300 w-7 h-7'
           aria-hidden='true'
         />
-        <h3 className='font-medium text-[18px] leading-10 text-white'>{title}</h3>
+        <h3 className='font-medium text-[18px] leading-10 w-fit text-transparent bg-clip-text bg-text-gradient-blue'>
+          {title}
+        </h3>
       </div>
       <p className='text-base font-light leading-7 text-slate-400'>{description}</p>
     </div>

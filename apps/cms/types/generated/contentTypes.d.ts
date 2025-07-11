@@ -1163,6 +1163,344 @@ export interface ApiFooterFooter extends Schema.SingleType {
   }
 }
 
+export interface ApiFoundationsPageFoundationsPage extends Schema.SingleType {
+  collectionName: 'foundations_pages'
+  info: {
+    singularName: 'foundations-page'
+    pluralName: 'foundations-pages'
+    displayName: '06 - Foundations Page'
+    description: ''
+  }
+  options: {
+    draftAndPublish: true
+  }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
+  attributes: {
+    seo: Attribute.Component<'seo.seo'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    body: Attribute.DynamicZone<
+      [
+        'hero-sections.hero-with-floating-gradients',
+        'partner-sections.partner-logo-simple-with-title',
+        'case-studies-sections.case-studies-grid-cards',
+        'solution-sections.solution-three-column-with-large-icons',
+        'foundations-sections.foundations-steps',
+        'foundations-sections.foundations-services-breakdown',
+        'foundations-sections.foundations-process',
+        'foundations-sections.foundations-package'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    createdAt: Attribute.DateTime
+    updatedAt: Attribute.DateTime
+    publishedAt: Attribute.DateTime
+    createdBy: Attribute.Relation<'api::foundations-page.foundations-page', 'oneToOne', 'admin::user'> &
+      Attribute.Private
+    updatedBy: Attribute.Relation<'api::foundations-page.foundations-page', 'oneToOne', 'admin::user'> &
+      Attribute.Private
+    localizations: Attribute.Relation<
+      'api::foundations-page.foundations-page',
+      'oneToMany',
+      'api::foundations-page.foundations-page'
+    >
+    locale: Attribute.String
+  }
+}
+
+export interface ApiFoundationsProcessFoundationsProcess extends Schema.CollectionType {
+  collectionName: 'foundations_processes'
+  info: {
+    singularName: 'foundations-process'
+    pluralName: 'foundations-processes'
+    displayName: 'Foundations Process'
+  }
+  options: {
+    draftAndPublish: true
+  }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    badge: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    items: Attribute.Relation<
+      'api::foundations-process.foundations-process',
+      'oneToMany',
+      'api::foundations-process-solution.foundations-process-solution'
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    createdAt: Attribute.DateTime
+    updatedAt: Attribute.DateTime
+    publishedAt: Attribute.DateTime
+    createdBy: Attribute.Relation<'api::foundations-process.foundations-process', 'oneToOne', 'admin::user'> &
+      Attribute.Private
+    updatedBy: Attribute.Relation<'api::foundations-process.foundations-process', 'oneToOne', 'admin::user'> &
+      Attribute.Private
+    localizations: Attribute.Relation<
+      'api::foundations-process.foundations-process',
+      'oneToMany',
+      'api::foundations-process.foundations-process'
+    >
+    locale: Attribute.String
+  }
+}
+
+export interface ApiFoundationsProcessSolutionFoundationsProcessSolution extends Schema.CollectionType {
+  collectionName: 'foundations_process_solutions'
+  info: {
+    singularName: 'foundations-process-solution'
+    pluralName: 'foundations-process-solutions'
+    displayName: 'Foundations Process Solution'
+  }
+  options: {
+    draftAndPublish: true
+  }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
+  attributes: {
+    text: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    createdAt: Attribute.DateTime
+    updatedAt: Attribute.DateTime
+    publishedAt: Attribute.DateTime
+    createdBy: Attribute.Relation<
+      'api::foundations-process-solution.foundations-process-solution',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private
+    updatedBy: Attribute.Relation<
+      'api::foundations-process-solution.foundations-process-solution',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private
+    localizations: Attribute.Relation<
+      'api::foundations-process-solution.foundations-process-solution',
+      'oneToMany',
+      'api::foundations-process-solution.foundations-process-solution'
+    >
+    locale: Attribute.String
+  }
+}
+
+export interface ApiFoundationsStatFoundationsStat extends Schema.CollectionType {
+  collectionName: 'foundations_stats'
+  info: {
+    singularName: 'foundations-stat'
+    pluralName: 'foundations-stats'
+    displayName: 'Foundations Stat'
+  }
+  options: {
+    draftAndPublish: true
+  }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    stats: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    solution: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    outcomeStats: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    icon: Attribute.Component<'icon.icon'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    createdAt: Attribute.DateTime
+    updatedAt: Attribute.DateTime
+    publishedAt: Attribute.DateTime
+    createdBy: Attribute.Relation<'api::foundations-stat.foundations-stat', 'oneToOne', 'admin::user'> &
+      Attribute.Private
+    updatedBy: Attribute.Relation<'api::foundations-stat.foundations-stat', 'oneToOne', 'admin::user'> &
+      Attribute.Private
+    localizations: Attribute.Relation<
+      'api::foundations-stat.foundations-stat',
+      'oneToMany',
+      'api::foundations-stat.foundations-stat'
+    >
+    locale: Attribute.String
+  }
+}
+
+export interface ApiFoundationsStepFoundationsStep extends Schema.CollectionType {
+  collectionName: 'foundations_steps'
+  info: {
+    singularName: 'foundations-step'
+    pluralName: 'foundations-steps'
+    displayName: 'Foundations Step'
+  }
+  options: {
+    draftAndPublish: true
+  }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    icon: Attribute.Component<'icon.icon'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    createdAt: Attribute.DateTime
+    updatedAt: Attribute.DateTime
+    publishedAt: Attribute.DateTime
+    createdBy: Attribute.Relation<'api::foundations-step.foundations-step', 'oneToOne', 'admin::user'> &
+      Attribute.Private
+    updatedBy: Attribute.Relation<'api::foundations-step.foundations-step', 'oneToOne', 'admin::user'> &
+      Attribute.Private
+    localizations: Attribute.Relation<
+      'api::foundations-step.foundations-step',
+      'oneToMany',
+      'api::foundations-step.foundations-step'
+    >
+    locale: Attribute.String
+  }
+}
+
 export interface ApiHomePageHomePage extends Schema.SingleType {
   collectionName: 'home_pages'
   info: {
@@ -1788,6 +2126,11 @@ declare module '@strapi/types' {
       'api::case-study.case-study': ApiCaseStudyCaseStudy
       'api::customer.customer': ApiCustomerCustomer
       'api::footer.footer': ApiFooterFooter
+      'api::foundations-page.foundations-page': ApiFoundationsPageFoundationsPage
+      'api::foundations-process.foundations-process': ApiFoundationsProcessFoundationsProcess
+      'api::foundations-process-solution.foundations-process-solution': ApiFoundationsProcessSolutionFoundationsProcessSolution
+      'api::foundations-stat.foundations-stat': ApiFoundationsStatFoundationsStat
+      'api::foundations-step.foundations-step': ApiFoundationsStepFoundationsStep
       'api::home-page.home-page': ApiHomePageHomePage
       'api::location.location': ApiLocationLocation
       'api::partner.partner': ApiPartnerPartner

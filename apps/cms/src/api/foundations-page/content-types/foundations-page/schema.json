@@ -1,0 +1,56 @@
+{
+  "kind": "singleType",
+  "collectionName": "foundations_pages",
+  "info": {
+    "singularName": "foundations-page",
+    "pluralName": "foundations-pages",
+    "displayName": "06 - Foundations Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "component": "seo.seo",
+      "required": true
+    },
+    "body": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        },
+        "translate": {
+          "translate": "translate"
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "hero-sections.hero-with-floating-gradients",
+        "partner-sections.partner-logo-simple-with-title",
+        "case-studies-sections.case-studies-grid-cards",
+        "solution-sections.solution-three-column-with-large-icons",
+        "foundations-sections.foundations-steps",
+        "foundations-sections.foundations-services-breakdown",
+        "foundations-sections.foundations-process",
+        "foundations-sections.foundations-package"
+      ],
+      "required": true
+    }
+  }
+}
