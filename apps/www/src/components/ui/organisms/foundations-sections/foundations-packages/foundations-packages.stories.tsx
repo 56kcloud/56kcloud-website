@@ -1,5 +1,5 @@
 import {faker} from '@faker-js/faker'
-import { featureFactory } from '@/tests/factories/feature.factory'
+import {featureFactory} from '@/tests/factories/feature.factory'
 import FoundationsPackage, {FoundationsPackageProps} from './index'
 import type {Meta} from '@storybook/react'
 

@@ -1,10 +1,10 @@
-"use client"
+'use client'
 
 import {ArrowRightIcon, Check, TrendingUp} from 'lucide-react'
 import {CTAProps} from '@/models/cta.model'
-import { Dictionary } from '@/models/dictionary.model'
-import { IconType } from '@/models/icon.model'
-import { cn } from '@/utils/toolbox'
+import {Dictionary} from '@/models/dictionary.model'
+import {IconType} from '@/models/icon.model'
+import {cn} from '@/utils/toolbox'
 import {useState} from 'react'
 import Button from '@/components/ui/atoms/button'
 import ComponentLayout from '@/components/ui/atoms/component-layout'
@@ -34,14 +34,16 @@ const PainPointCard = (props: PainPointCardProps) => {
   return (
     <div className='relative h-[350px] perspective-1000'>
       <div
-        className={cn('relative w-full h-full transition-transform duration-500',
+        className={cn(
+          'relative w-full h-full transition-transform duration-500',
           '[transform-style:preserve-3d]',
           isFlipped ? '[transform:rotateY(180deg)]' : ''
         )}
         onClick={() => setIsFlipped(!isFlipped)}
       >
         <div
-          className={cn('p-6 rounded-3xl h-full absolute w-full bg-black/10 border border-slate-800',
+          className={cn(
+            'p-6 rounded-3xl h-full absolute w-full bg-black/10 border border-slate-800',
             '[backface-visibility:hidden] hover:shadow-lg transition-all duration-300 cursor-pointer',
             !isFlipped ? 'z-10' : 'z-0'
           )}

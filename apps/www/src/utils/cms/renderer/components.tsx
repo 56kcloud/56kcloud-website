@@ -2,7 +2,7 @@ import {Dictionary} from '@/models/dictionary.model'
 import {Suspense} from 'react'
 import {draftMode} from 'next/headers'
 import ArticleContentSection from '@/components/ui/molecules/article/content-section'
-import Banner, { BannerProps } from '@/components/ui/molecules/banner'
+import Banner, {BannerProps} from '@/components/ui/molecules/banner'
 import BlogMasonry from '@/components/ui/organisms/blog-sections/blog-masonry'
 import BlogThreeColumn from '@/components/ui/organisms/blog-sections/blog-three-column'
 import CaseStudiesGridCards from '@/components/ui/organisms/case-studies-sections/case-studies-grid-cards'
@@ -88,7 +88,7 @@ export const componentBlueprints: ComponentBlueprints = {
   'foundations-steps': FoundationsSteps,
   'foundations-process': FoundationsProcess,
   'foundations-services-breakdown': FoundationsServiceBreakdown,
-  'foundations-package': FoundationsPackage,
+  'foundations-package': FoundationsPackage
 }
 export type ComponentBlueprint = {
   component: keyof ComponentBlueprints
@@ -119,7 +119,10 @@ export function pageRenderer(dictionary: Dictionary, components?: Array<Componen
 
   return (
     <>
-      <Header dictionary={dictionary} bannerProps={banner?.props as BannerProps} />
+      <Header
+        dictionary={dictionary}
+        bannerProps={banner?.props as BannerProps}
+      />
       {isEnabled && <DraftModal />}
       {children}
     </>

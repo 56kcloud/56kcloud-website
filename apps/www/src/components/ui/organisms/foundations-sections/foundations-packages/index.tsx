@@ -7,11 +7,7 @@ export type FoundationsPackageProps = {
   features: Array<Feature<'icon'>>
 }
 
-export default function FoundationsPackage({
-  title,
-  subtitle,
-  features,
-}: FoundationsPackageProps) {
+export default function FoundationsPackage({title, subtitle, features}: FoundationsPackageProps) {
   return (
     <div className='py-20 lg:py-[104px]'>
       <div className='px-6 mx-auto max-w-7xl lg:px-8'>
@@ -35,10 +31,10 @@ export default function FoundationsPackage({
               >
                 <div className='text-lg font-normal text-white'>
                   <div className='flex items-center justify-center w-8 h-8 mb-6 rounded-lg'>
-                      <Icon
-                        {...feature.icon}
-                        className='w-auto h-8 fill-sky-300'
-                      />
+                    <Icon
+                      {...feature.icon}
+                      className='w-auto h-8 fill-sky-300'
+                    />
                   </div>
                   {feature.title}
                 </div>

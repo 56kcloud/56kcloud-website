@@ -1,7 +1,7 @@
 'use client'
 
 import {Feature} from '@/models/feature.model'
-import { cn } from '@/utils/toolbox'
+import {cn} from '@/utils/toolbox'
 import Icon from '@/components/ui/atoms/icon'
 
 export type FoundationsStepsProps = {
@@ -12,18 +12,18 @@ export type FoundationsStepsProps = {
 }
 
 export default function FoundationsSteps(props: FoundationsStepsProps) {
-  const firstStep = props.cards.slice(0, 3);
-  const secondStep = props.cards.slice(3, 5);
+  const firstStep = props.cards.slice(0, 3)
+  const secondStep = props.cards.slice(3, 5)
   return (
     <div className='py-20 lg:py-[104px]'>
       <div className='px-6 mx-auto max-w-7xl lg:px-8'>
         <div className='w-full mx-auto text-center mb-16'>
-            <h2
-              className='w-fit mx-auto text-center text-[44px] leading-[1.1875] font-extrabold tracking-tight text-transparent bg-clip-text \
+          <h2
+            className='w-fit mx-auto text-center text-[44px] leading-[1.1875] font-extrabold tracking-tight text-transparent bg-clip-text \
               bg-text-gradient-gray'
-            >
-              {props.title}
-            </h2>
+          >
+            {props.title}
+          </h2>
           <p className='mt-2 text-[18px] leading-8 text-slate-400 font-light'>{props.description}</p>
         </div>
 
@@ -63,14 +63,14 @@ export default function FoundationsSteps(props: FoundationsStepsProps) {
                 })}
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-4 auto-rows-auto mb-4">
+            <div className='grid grid-cols-3 gap-4 auto-rows-auto mb-4'>
               {firstStep.map((step, i) => (
                 <div
                   key={i}
                   className={cn(
-                    "h-32 border border-slate-800 rounded-3xl",
-                    "bg-gradient-to-t from-slate-800 to-slate-900",
-                    "transform transition-all duration-300 ease-out",
+                    'h-32 border border-slate-800 rounded-3xl',
+                    'bg-gradient-to-t from-slate-800 to-slate-900',
+                    'transform transition-all duration-300 ease-out'
                   )}
                 >
                   <div className='p-4 h-full flex flex-col justify-between text-white'>
@@ -78,21 +78,21 @@ export default function FoundationsSteps(props: FoundationsStepsProps) {
                     <div className='flex items-end justify-between'>
                       <Icon
                         {...step.icon}
-                        className="w-auto h-8 transition-all duration-300"
+                        className='w-auto h-8 transition-all duration-300'
                       />
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="grid grid-cols-2 gap-4 auto-rows-auto">
+            <div className='grid grid-cols-2 gap-4 auto-rows-auto'>
               {secondStep.map((step, i) => (
                 <div
                   key={i}
                   className={cn(
-                    "h-32 border border-slate-800 rounded-3xl",
-                    "bg-gradient-to-t from-slate-800 to-slate-900",
-                    "transform transition-all duration-300 ease-out",
+                    'h-32 border border-slate-800 rounded-3xl',
+                    'bg-gradient-to-t from-slate-800 to-slate-900',
+                    'transform transition-all duration-300 ease-out'
                   )}
                 >
                   <div className='p-4 h-full flex flex-col justify-between text-white'>
@@ -100,7 +100,7 @@ export default function FoundationsSteps(props: FoundationsStepsProps) {
                     <div className='flex items-end justify-between'>
                       <Icon
                         {...step.icon}
-                        className="w-auto h-8 transition-all duration-300"
+                        className='w-auto h-8 transition-all duration-300'
                       />
                     </div>
                   </div>

@@ -3,7 +3,6 @@ import {featureFactory} from '@/tests/factories/feature.factory'
 import FoundationsSteps, {FoundationsStepsProps} from './index'
 import type {Meta} from '@storybook/react'
 
-
 const meta = {
   title: 'components/Organisms/FoundationsSections/FoundationsSteps',
   component: FoundationsSteps,
@@ -11,7 +10,7 @@ const meta = {
   args: {
     title: faker.lorem.sentence(),
     description: faker.lorem.sentence(),
-    steps: Array.from({length: 9}, () => featureFactory<'icon'>({iconType: 'outline'})),
+    steps: Array.from({length: 9}, () => featureFactory<'icon'>({iconType: 'outline'}))
   }
 } satisfies Meta<typeof FoundationsSteps>
 

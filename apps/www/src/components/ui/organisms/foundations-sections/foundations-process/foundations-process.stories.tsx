@@ -3,7 +3,7 @@ import {featureFactory} from '@/tests/factories/feature.factory'
 import FoundationsProcess, {type FoundationsProcessProps} from './index'
 import type {Meta} from '@storybook/react'
 
-const process = Array.from({length: 3}, (_,i) => ({
+const process = Array.from({length: 3}, (_, i) => ({
   number: i + 1,
   title: faker.lorem.slug(),
   description: faker.lorem.sentence(),
