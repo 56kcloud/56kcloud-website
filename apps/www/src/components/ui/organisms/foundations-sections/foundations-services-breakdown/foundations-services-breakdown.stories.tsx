@@ -10,7 +10,8 @@ const points = Array.from({length: 3}, () => ({
   description: faker.lorem.sentence(),
   stats: faker.lorem.sentence(4),
   solution: faker.lorem.sentence(),
-  outcomeStats: faker.lorem.sentence(4)
+  outcomeStats: faker.lorem.sentence(4),
+  dictionary: {}
 }))
 
 const meta = {
