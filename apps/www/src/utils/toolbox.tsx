@@ -197,12 +197,7 @@ export function getNavigationLinks(dico: Dictionary): Array<NavigationItem> {
           title: dico.generativeAI,
           link: '/solutions/generative-ai',
           icon: {name: 'ChatBubbleLeftEllipsisIcon', type: 'outline'}
-        },
-        // {
-        //   title: dico.foundations,
-        //   link: '/foundations',
-        //   icon: {name: 'BuildingLibraryIcon', type: 'outline'}
-        // }
+        }
       ],
       dropdownWidth: 'w-44'
     },
