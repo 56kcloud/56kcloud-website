@@ -12,6 +12,7 @@ export function caseStudyFactory(): CaseStudy {
     description: faker.lorem.paragraph(),
     image: imageFactory({width: 800, height: 600}),
     attachedText: faker.lorem.paragraph(),
-    content: faker.lorem.paragraphs(3)
+    content: faker.lorem.paragraphs(3),
+    cta: faker.lorem.words(3)
   }
 }

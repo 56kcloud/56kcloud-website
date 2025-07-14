@@ -1163,6 +1163,72 @@ export interface ApiFooterFooter extends Schema.SingleType {
   }
 }
 
+export interface ApiFoundationsPageFoundationsPage extends Schema.SingleType {
+  collectionName: 'foundations_pages'
+  info: {
+    singularName: 'foundations-page'
+    pluralName: 'foundations-pages'
+    displayName: '06 - Foundations Page'
+    description: ''
+  }
+  options: {
+    draftAndPublish: true
+  }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
+  attributes: {
+    seo: Attribute.Component<'seo.seo'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    body: Attribute.DynamicZone<
+      [
+        'hero-sections.hero-with-floating-gradients',
+        'partner-sections.partner-logo-simple-with-title',
+        'case-studies-sections.case-studies-grid-cards',
+        'case-studies-sections.case-studies-three-column-with-image',
+        'solution-sections.solution-three-columns-with-image',
+        'step-sections.steps-with-cards',
+        'pricing-sections.pricing-three-column',
+        'feature-sections.feature-three-column-with-icons-and-ctas',
+        'challenge-sections.challenge-three-column',
+        'cta-sections.cta-simple-centered'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    createdAt: Attribute.DateTime
+    updatedAt: Attribute.DateTime
+    publishedAt: Attribute.DateTime
+    createdBy: Attribute.Relation<'api::foundations-page.foundations-page', 'oneToOne', 'admin::user'> &
+      Attribute.Private
+    updatedBy: Attribute.Relation<'api::foundations-page.foundations-page', 'oneToOne', 'admin::user'> &
+      Attribute.Private
+    localizations: Attribute.Relation<
+      'api::foundations-page.foundations-page',
+      'oneToMany',
+      'api::foundations-page.foundations-page'
+    >
+    locale: Attribute.String
+  }
+}
+
 export interface ApiHomePageHomePage extends Schema.SingleType {
   collectionName: 'home_pages'
   info: {
@@ -1788,6 +1854,7 @@ declare module '@strapi/types' {
       'api::case-study.case-study': ApiCaseStudyCaseStudy
       'api::customer.customer': ApiCustomerCustomer
       'api::footer.footer': ApiFooterFooter
+      'api::foundations-page.foundations-page': ApiFoundationsPageFoundationsPage
       'api::home-page.home-page': ApiHomePageHomePage
       'api::location.location': ApiLocationLocation
       'api::partner.partner': ApiPartnerPartner

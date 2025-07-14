@@ -13,7 +13,6 @@ import {useParams, usePathname} from 'next/navigation'
 import Button from '../../atoms/button'
 import Link from 'next/link'
 
-
 export type LanguageSwitcherProps = {
   mobileMenuOpen: boolean
 }

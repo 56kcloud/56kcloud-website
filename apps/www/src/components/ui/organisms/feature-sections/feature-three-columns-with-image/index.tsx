@@ -53,7 +53,9 @@ export default function FeatureThreeColumnsWithImage(props: FeatureThreeColumnsW
                         >
                           {feature.title}
                         </h3>
-                        <p className='text-sm leading-6 text-slate-400 font-light'>{feature.description}</p>
+                        <p className='text-sm leading-6 text-slate-400 font-light line-clamp-4'>
+                          {feature.description}
+                        </p>
                       </div>
                       <div className='flex flex-row items-center gap-2 mt-4 ml-auto'>
                         <p className='text-sm font-normal text-slate-50'>{feature.cta}</p>

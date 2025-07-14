@@ -22,7 +22,7 @@ export default factories.createCoreController(uid, () => ({
             tags: article.tags,
             publishedOn: article.publishedOn,
             author: article.author
-          },
+          }
           // Until component is ready
           // {
           //   __component: 'team-member-section.team-member-card',

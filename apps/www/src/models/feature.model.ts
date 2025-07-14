@@ -19,6 +19,19 @@ export const featureImageSchema = featureSchema.extend({
   image: imageSchema
 })
 
+export const flipableFeatureIconSchema = featureIconSchema.extend({
+  solution: z.object({
+    title: z.string(),
+    description: z.string(),
+    stats: z.string(),
+    outcomeStats: z.string()
+  })
+})
+
 export type Feature<T extends 'icon' | 'image'> = z.infer<
+  T extends 'icon' ? typeof featureIconSchema : typeof featureImageSchema
+>
+
+export type FlipableFeature<T extends 'icon' | 'image'> = z.infer<
   T extends 'icon' ? typeof featureIconSchema : typeof featureImageSchema
 >

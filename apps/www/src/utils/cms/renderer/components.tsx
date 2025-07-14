@@ -2,12 +2,15 @@ import {Dictionary} from '@/models/dictionary.model'
 import {Suspense} from 'react'
 import {draftMode} from 'next/headers'
 import ArticleContentSection from '@/components/ui/molecules/article/content-section'
-import Banner, { BannerProps } from '@/components/ui/molecules/banner'
+import Banner, {BannerProps} from '@/components/ui/molecules/banner'
 import BlogMasonry from '@/components/ui/organisms/blog-sections/blog-masonry'
 import BlogThreeColumn from '@/components/ui/organisms/blog-sections/blog-three-column'
+import CTASimpleCentered from '@/components/ui/organisms/cta-sections/cta-simple-centered'
 import CaseStudiesGridCards from '@/components/ui/organisms/case-studies-sections/case-studies-grid-cards'
+import CaseStudiesThreeColumnWithImage from '@/components/ui/organisms/case-studies-sections/case-studies-three-column-with-image'
 import CaseStudyContentSection from '@/components/ui/molecules/case-study/content-section'
 import CertificationsBadgesWithTitle from '@/components/ui/organisms/certifications-sections/certifications-badges-with-title'
+import ChallengeThreeColumn from '@/components/ui/organisms/challenge-sections/challenge-three-column'
 import Contact from '@/components/ui/organisms/contact-sections/contact'
 import ContentAlternatePositionWithImageItem from '@/components/ui/organisms/content-sections/content-alternate-position-with-image-item'
 import ContentAlternatePositionWithImageList from '@/components/ui/organisms/content-sections/content-alternate-position-with-image-list'
@@ -16,6 +19,7 @@ import ContentTwoColumn from '@/components/ui/organisms/content-sections/content
 import CustomerLogosSimpleWithTitle from '@/components/ui/organisms/customer-sections/customer-logos-simple-with-title'
 import DiagramFullWidth from '@/components/ui/organisms/diagram-sections/diagram-full-width'
 import DraftModal from '@/components/ui/organisms/draft-modal'
+import FeatureThreeColumnWithIconsAndCTAs from '@/components/ui/organisms/feature-sections/feature-three-column-with-icons-and-ctas'
 import Footer from '@/components/ui/organisms/footer'
 import Header from '@/components/ui/organisms/header'
 import HeaderWithCardsWithIcon from '@/components/ui/organisms/header-sections/header-with-cards-with-icon'
@@ -28,12 +32,14 @@ import IntroductionWithLogo from '@/components/ui/organisms/content-sections/int
 import JoinOurTeam from '@/components/ui/organisms/cta-sections/join-our-team'
 import MapWithTitle from '@/components/ui/organisms/map-sections/map-with-title'
 import PartnerLogosSimpleWithTitle from '@/components/ui/organisms/partner-sections/partner-logos-simple-with-title'
+import PricingThreeColumns from '@/components/ui/organisms/pricing-sections/pricing-three-columns'
 import ServiceAlternatePositionIcon from '@/components/ui/organisms/service-sections/service-alternate-position-icon'
 import ServiceMasonryCard from '@/components/ui/organisms/service-sections/service-masonry-card'
 import ServiceThreeColumnWithLargeIcons from '@/components/ui/organisms/service-sections/service-three-column-with-large-icons'
 import SolutionOneColumn from '@/components/ui/organisms/solution-sections/solution-one-column'
 import SolutionThreeColumnWithLargeIcons from '@/components/ui/organisms/solution-sections/solution-three-column-with-large-icons'
 import SolutionThreeColumnsWithImage from '@/components/ui/organisms/solution-sections/solution-three-columns-with-image'
+import StepsWithCards from '@/components/ui/organisms/steps-sections/steps-with-cards'
 import TagFilter from '@/components/ui/molecules/tag-filter'
 import TeamMemberCard from '@/components/ui/molecules/cards/team-member'
 import TeamTwoColumn from '@/components/ui/organisms/team-sections/team-two-column'
@@ -80,7 +86,13 @@ export const componentBlueprints: ComponentBlueprints = {
   'certifications-badges-with-title': CertificationsBadgesWithTitle,
   'map-with-title': MapWithTitle,
   'case-studies-grid-cards': CaseStudiesGridCards,
-  'case-study-content': CaseStudyContentSection
+  'case-study-content': CaseStudyContentSection,
+  'steps-with-cards': StepsWithCards,
+  'pricing-three-columns': PricingThreeColumns,
+  'feature-three-column-with-icons-and-ctas': FeatureThreeColumnWithIconsAndCTAs,
+  'challenge-three-column': ChallengeThreeColumn,
+  'cta-simple-centered': CTASimpleCentered,
+  'case-studies-three-column-with-image': CaseStudiesThreeColumnWithImage
 }
 export type ComponentBlueprint = {
   component: keyof ComponentBlueprints
@@ -111,7 +123,10 @@ export function pageRenderer(dictionary: Dictionary, components?: Array<Componen
 
   return (
     <>
-      <Header dictionary={dictionary} bannerProps={banner?.props as BannerProps} />
+      <Header
+        dictionary={dictionary}
+        bannerProps={banner?.props as BannerProps}
+      />
       {isEnabled && <DraftModal />}
       {children}
     </>

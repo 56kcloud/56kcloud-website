@@ -25,7 +25,12 @@ export default function FeatureThreeColumnWithLargeIcons({
               'max-w-2xl mr-auto lg:max-w-3xl lg:mx-0'
             )}
           >
-            <h2 className='text-3xl font-medium text-white sm:text-4xl'>{title}</h2>
+            <h2
+              className='w-fit mx-auto text-center text-3xl sm:text-4xl leading-[1.1875] font-extrabold tracking-tight text-transparent bg-clip-text
+              bg-text-gradient-gray'
+            >
+              {title}
+            </h2>
             <p className='mt-8 text-[20px] leading-8 text-slate-400 font-light'>{subtitle}</p>
           </div>
         </div>
