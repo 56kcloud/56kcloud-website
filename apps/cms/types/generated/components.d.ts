@@ -693,6 +693,17 @@ export interface HeaderSectionsHeaderWithCardsWithIcon extends Schema.Component 
   }
 }
 
+export interface FilterTagsFilter extends Schema.Component {
+  collectionName: 'tag_filter'
+  info: {
+    displayName: 'tag-filter'
+    description: ''
+  }
+  attributes: {
+    tags: Attribute.Relation<'filter.tags-filter', 'oneToMany', 'api::tag.tag'>
+  }
+}
+
 export interface FeatureSectionsFeature extends Schema.Component {
   collectionName: 'components_feature_sections_features'
   info: {
@@ -756,14 +767,14 @@ export interface FeatureSectionsFeatureThreeColumnWithIconsAndCtas extends Schem
   }
 }
 
-export interface FilterTagsFilter extends Schema.Component {
-  collectionName: 'tag_filter'
+export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
+  collectionName: 'diagram_full_width'
   info: {
-    displayName: 'tag-filter'
+    displayName: 'diagram-full-width'
     description: ''
   }
   attributes: {
-    tags: Attribute.Relation<'filter.tags-filter', 'oneToMany', 'api::tag.tag'>
+    image: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -781,17 +792,6 @@ export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Comp
       'oneToMany',
       'api::customer.customer'
     >
-  }
-}
-
-export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
-  collectionName: 'diagram_full_width'
-  info: {
-    displayName: 'diagram-full-width'
-    description: ''
-  }
-  attributes: {
-    image: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -833,6 +833,31 @@ export interface CtaButton extends Schema.Component {
     title: Attribute.String & Attribute.Required
     link: Attribute.String & Attribute.Required
     tone: Attribute.Enumeration<['primary', 'secondary']> & Attribute.Required & Attribute.DefaultTo<'primary'>
+  }
+}
+
+export interface ContactSectionsContact extends Schema.Component {
+  collectionName: 'contacts'
+  info: {
+    displayName: 'contact'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.String & Attribute.Required
+  }
+}
+
+export interface CertificationsSectionsCertificationsBadgesWithTitle extends Schema.Component {
+  collectionName: 'certifications_badges_with_titles'
+  info: {
+    displayName: 'certifications-badges-with-title'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    horizontalBadgesImage: Attribute.Media<'images'> & Attribute.Required
+    verticalBadgesImage: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -879,18 +904,6 @@ export interface ContentSectionContentAlternatePositionWithImageList extends Sch
   }
   attributes: {
     items: Attribute.Component<'cards.content-alternate-position-with-image-item', true> & Attribute.Required
-  }
-}
-
-export interface ContactSectionsContact extends Schema.Component {
-  collectionName: 'contacts'
-  info: {
-    displayName: 'contact'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.String & Attribute.Required
   }
 }
 
@@ -942,19 +955,6 @@ export interface ChallengeSectionsChallengeSolution extends Schema.Component {
     title: Attribute.String & Attribute.Required
     description: Attribute.Text & Attribute.Required
     stat: Attribute.String & Attribute.Required
-  }
-}
-
-export interface CertificationsSectionsCertificationsBadgesWithTitle extends Schema.Component {
-  collectionName: 'certifications_badges_with_titles'
-  info: {
-    displayName: 'certifications-badges-with-title'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    horizontalBadgesImage: Attribute.Media<'images'> & Attribute.Required
-    verticalBadgesImage: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -1098,23 +1098,23 @@ declare module '@strapi/types' {
       'hero-sections.hero-simple-center': HeroSectionsHeroSimpleCenter
       'header-sections.header-with-text-cards': HeaderSectionsHeaderWithTextCards
       'header-sections.header-with-cards-with-icon': HeaderSectionsHeaderWithCardsWithIcon
+      'filter.tags-filter': FilterTagsFilter
       'feature-sections.feature': FeatureSectionsFeature
       'feature-sections.feature-three-column-with-icons-and-ctas': FeatureSectionsFeatureThreeColumnWithIconsAndCtas
-      'filter.tags-filter': FilterTagsFilter
-      'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
       'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
+      'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam
       'cta-sections.cta-simple-centered': CtaSectionsCtaSimpleCentered
       'cta.button': CtaButton
+      'contact-sections.contact': ContactSectionsContact
+      'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
       'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo
       'content-section.content-two-column': ContentSectionContentTwoColumn
       'content-section.content-markdown': ContentSectionContentMarkdown
       'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
-      'contact-sections.contact': ContactSectionsContact
       'challenge-sections.challenge': ChallengeSectionsChallenge
       'challenge-sections.challenge-three-column': ChallengeSectionsChallengeThreeColumn
       'challenge-sections.challenge-solution': ChallengeSectionsChallengeSolution
-      'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
       'case-studies-sections.case-studies-three-column-with-image': CaseStudiesSectionsCaseStudiesThreeColumnWithImage
       'case-studies-sections.case-studies-grid-cards': CaseStudiesSectionsCaseStudiesGridCards
       'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem

@@ -1605,25 +1605,6 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
           translate: 'translate'
         }
       }>
-    body: Attribute.DynamicZone<
-      [
-        'header-sections.header-with-cards-with-icon',
-        'header-sections.header-with-text-cards',
-        'service-sections.service-three-column-with-large-icons',
-        'solution-sections.solution-three-column-with-large-icons',
-        'content-section.content-markdown',
-        'contact-sections.contact',
-        'solution-sections.solution-one-column'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-        translate: {
-          translate: 'translate'
-        }
-      }>
     image: Attribute.Media<'images'> &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1634,6 +1615,35 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
         }
       }>
     cta: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    body: Attribute.DynamicZone<
+      [
+        'header-sections.header-with-cards-with-icon',
+        'header-sections.header-with-text-cards',
+        'service-sections.service-three-column-with-large-icons',
+        'solution-sections.solution-three-column-with-large-icons',
+        'content-section.content-markdown',
+        'contact-sections.contact',
+        'solution-sections.solution-one-column',
+        'hero-sections.hero-with-floating-gradients',
+        'partner-sections.partner-logo-simple-with-title',
+        'case-studies-sections.case-studies-grid-cards',
+        'case-studies-sections.case-studies-three-column-with-image',
+        'solution-sections.solution-three-columns-with-image',
+        'step-sections.steps-with-cards',
+        'pricing-sections.pricing-three-column',
+        'feature-sections.feature-three-column-with-icons-and-ctas',
+        'challenge-sections.challenge-three-column',
+        'cta-sections.cta-simple-centered'
+      ]
+    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true
