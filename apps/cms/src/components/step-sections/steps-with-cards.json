@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_step_sections_steps_with_cards",
+  "info": {
+    "displayName": "steps-with-cards",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "required": true,
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
+    },
+    "steps": {
+      "displayName": "steps",
+      "type": "component",
+      "repeatable": true,
+      "component": "step-sections.step"
+    },
+    "cards": {
+      "displayName": "cards",
+      "type": "component",
+      "repeatable": true,
+      "component": "step-sections.step-card"
+    }
+  }
+}

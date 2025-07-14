@@ -8,7 +8,8 @@ export const caseStudySchema = z.object({
   description: z.string(),
   image: imageSchema,
   attachedText: z.string(),
-  content: z.string()
+  content: z.string(),
+  cta: z.string()
 })
 
 export type CaseStudy = z.infer<typeof caseStudySchema>

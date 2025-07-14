@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_challenge_sections_challenge_solution",
+  "info": {
+    "displayName": "challenge-solution"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "stat": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_steps_sections_step_cards",
+  "info": {
+    "displayName": "step-card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "icon.icon",
+      "required": true
+    }
+  }
+}
