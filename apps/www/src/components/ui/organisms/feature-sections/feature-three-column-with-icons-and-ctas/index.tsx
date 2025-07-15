@@ -1,76 +1,72 @@
+import {ArrowRightIcon} from '@heroicons/react/24/outline'
 import {CTAProps} from '@/models/cta.model'
 import {Feature} from '@/models/feature.model'
-import Badge from '@/components/ui/atoms/badge'
 import Button from '@/components/ui/atoms/button'
+import ComponentLayout from '@/components/ui/atoms/component-layout'
 import Icon from '@/components/ui/atoms/icon'
 import Link from 'next/link'
 
 export type FeatureThreeColumnWithIconsAndCTAsProps = {
-  badge: string
   title: string
   subtitle: string
   features: Array<Feature<'icon'>>
   ctas: Array<CTAProps>
 }
 
-export default function FeatureThreeColumnWithIconsAndCTAs({
-  badge,
-  title,
-  subtitle,
-  features,
-  ctas
-}: FeatureThreeColumnWithIconsAndCTAsProps) {
+export default function FeatureThreeColumnWithIconsAndCTAs(props: FeatureThreeColumnWithIconsAndCTAsProps) {
   return (
-    <div className='py-20 lg:py-[104px]'>
-      <div className='px-6 mx-auto max-w-7xl lg:px-8'>
-        <div className='flex justify-center w-full'>
-          <div className='max-w-2xl mr-auto lg:max-w-3xl lg:mx-0 text-center'>
-            {badge && <Badge className='mb-5'>{badge}</Badge>}
-            <h2
-              className='w-fit mx-auto text-center text-3xl sm:text-4xl leading-[1.1875] font-extrabold tracking-tight text-transparent bg-clip-text
-              bg-text-gradient-gray'
-            >
-              {title}
-            </h2>
-            <p className='mt-8 text-[20px] leading-8 text-slate-400 font-light'>{subtitle}</p>
-          </div>
+    <ComponentLayout gradientVariant='floatingGradient'>
+      <div className='pb-20 pt-9 lg:pb-[104px] lg:pt-[120px] space-y-10 lg:space-y-20'>
+        <div className='mx-auto text-center space-y-4 max-w-4xl'>
+          <h2 className='w-fit mx-auto text-[44px] leading-[48px] font-extrabold tracking-tight text-transparent bg-clip-text bg-text-gradient-gray lg:leading-[58px]'>
+            {props.title}
+          </h2>
+          <p className='text-base leading-7 text-slate-400 font-light'>{props.subtitle}</p>
         </div>
         <div className='mt-11'>
-          <div className='grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-3'>
-            {features?.map((feature, index) => (
+          <div className='grid grid-cols-1 gap-12 lg:gap-6 lg:grid-cols-3'>
+            {props.features?.map((feature, index) => (
               <div
                 key={index}
-                className='flex flex-col p-6 border border-slate-800 rounded-xl'
+                className='flex flex-col lg:p-6 space-y-3'
               >
-                <div className='text-lg font-normal text-white'>
-                  <div className='flex items-center justify-center w-8 h-8 mb-6 rounded-lg'>
-                    <Icon
-                      {...feature.icon}
-                      className='w-auto h-8 fill-sky-300'
-                    />
-                  </div>
-                  {feature.title}
+                <div className='flex items-center gap-x-3'>
+                  <Icon
+                    {...feature.icon}
+                    className='w-6 h-6 text-sky-500'
+                  />
+                  <h3 className='text-xl w-fit font-semibold tracking-tight text-transparent bg-clip-text bg-text-gradient-gray'>
+                    {feature.title}
+                  </h3>
                 </div>
-                <div className='flex flex-col flex-auto mt-1 text-base font-light leading-[26px] text-slate-400'>
-                  <p className='flex-auto'>{feature.description}</p>
-                </div>
+                <p className='text-base leading-7 font-light text-slate-400'>{feature.description}</p>
               </div>
             ))}
           </div>
         </div>
-        <div className='mt-24 mx-auto w-fit flex items-center gap-4'>
-          {ctas.map((cta, index) => (
-            <Button
-              key={index}
-              asChild
-              size='large'
-              tone={cta.tone}
-            >
-              <Link href={cta.link}>{cta.title}</Link>
-            </Button>
-          ))}
-        </div>
+        {props.ctas && props.ctas.length > 0 && (
+          <div className='flex items-center justify-center !mt-12 gap-x-5'>
+            {props.ctas.map((cta, index) => (
+              <Button
+                key={index}
+                asChild
+                size='large'
+                tone={cta.tone}
+                shape='circle'
+                className='text-slate-950 bg-gradient-to-tl from-slate-50/85 via-slate-50 to-slate-50/85 from-10% to-90% px-6 hover:bg-current hover:text-current'
+                trailing={
+                  <ArrowRightIcon
+                    className='w-4 h-4 text-sky-500'
+                    strokeWidth={2}
+                  />
+                }
+              >
+                <Link href={cta.link}>{cta.title}</Link>
+              </Button>
+            ))}
+          </div>
+        )}
       </div>
-    </div>
+    </ComponentLayout>
   )
 }

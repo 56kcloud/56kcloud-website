@@ -9,6 +9,7 @@ export type ComponentLayoutProps = {
   className?: string
   childrenClassName?: string
   gradientVariant?: 'heroGradient' | 'floatingGradient'
+  id?: string
 }
 
 export default function ComponentLayout(props: ComponentLayoutProps) {
@@ -23,7 +24,10 @@ export default function ComponentLayout(props: ComponentLayoutProps) {
     ) : null
 
   return (
-    <div className={cn('flex justify-center w-full relative', props.className)}>
+    <div
+      className={cn('flex justify-center w-full relative', props.className)}
+      id={props.id}
+    >
       <div className={cn('max-w-7xl mx-auto w-full px-6', props.childrenClassName)}>
         {props.children}
         {gradient && <div className={cn('absolute -z-50 inset-0')}>{gradient}</div>}

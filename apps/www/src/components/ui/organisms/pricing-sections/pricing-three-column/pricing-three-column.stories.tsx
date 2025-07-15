@@ -1,5 +1,5 @@
 import {faker} from '@faker-js/faker'
-import PricingThreeColumns, {type PricingThreeColumnsProps} from './index'
+import PricingThreeColumns, {type PricingThreeColumnProps} from './index'
 import type {Meta} from '@storybook/react'
 
 const meta = {
@@ -10,12 +10,11 @@ const meta = {
     title: faker.lorem.slug(),
     subtitle: faker.lorem.sentence(),
     tiers: Array.from({length: 3}, () => ({
-      name: faker.lorem.slug(),
-      price: faker.number.int({min: 100, max: 1000}),
-      features: Array.from({length: 3}, () => ({text: faker.lorem.sentence(5)})),
-      badge: faker.lorem.word(),
+      surtitle: faker.lorem.word(),
+      title: faker.lorem.slug(),
       description: faker.lorem.sentence(),
-      items: Array.from({length: 3}, () => ({text: faker.lorem.sentence(5)}))
+      items: Array.from({length: 3}, () => ({text: faker.lorem.sentence(5)})),
+      featured: faker.datatype.boolean()
     }))
   }
 } satisfies Meta<typeof PricingThreeColumns>
@@ -24,5 +23,5 @@ export default meta
 
 export const Default = {
   name: 'Default',
-  render: (args: PricingThreeColumnsProps) => <PricingThreeColumns {...args} />
+  render: (args: PricingThreeColumnProps) => <PricingThreeColumns {...args} />
 }

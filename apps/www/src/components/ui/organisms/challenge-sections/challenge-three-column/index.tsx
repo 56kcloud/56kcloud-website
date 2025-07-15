@@ -1,17 +1,11 @@
 'use client'
 
 import {CTAProps} from '@/models/cta.model'
-import {Check, TrendingUp} from 'lucide-react'
 import {Dictionary} from '@/models/dictionary.model'
-import {IconType} from '@/models/icon.model'
-import {cn} from '@/utils/toolbox'
-import {useState} from 'react'
+import {TrendingDown, TrendingUp} from 'lucide-react'
 import ComponentLayout from '@/components/ui/atoms/component-layout'
-import Icon from '@/components/ui/atoms/icon'
 
-export type ChallengeCardProps = {
-  dictionary: Dictionary
-  icon: IconType
+type ChallengeItem = {
   title: string
   description: string
   stat: string
@@ -26,110 +20,75 @@ export type ChallengeThreeColumnProps = {
   dictionary: Dictionary
   title: string
   subtitle: string
-  challenges: Array<ChallengeCardProps>
+  challenges: ChallengeItem[]
   cta: CTAProps
-}
-
-const ChallengeCard = (props: ChallengeCardProps) => {
-  const [isFlipped, setIsFlipped] = useState(false)
-  return (
-    <div className='relative h-[350px] perspective-1000'>
-      <div
-        className={cn(
-          'relative w-full h-full transition-transform duration-500',
-          '[transform-style:preserve-3d]',
-          isFlipped ? '[transform:rotateY(180deg)]' : ''
-        )}
-        onClick={() => setIsFlipped(!isFlipped)}
-      >
-        <div
-          className={cn(
-            'p-6 rounded-3xl h-full absolute w-full bg-black/10 border border-slate-800',
-            '[backface-visibility:hidden] hover:shadow-lg transition-all duration-300 cursor-pointer',
-            !isFlipped ? 'z-10' : 'z-0'
-          )}
-        >
-          <Icon
-            {...props.icon}
-            className='flex-none text-sky-300 w-7 h-7 mb-4'
-            aria-hidden='true'
-          />
-          <h3
-            className='text-lg leading-[1.1875] font-extrabold tracking-tight text-transparent \
-            bg-clip-text bg-text-gradient-gray lg:text-xl lg:leading-[1.2] mb-2'
-          >
-            {props.title}
-          </h3>
-          <p className='text-slate-400 mb-4'>{props.description}</p>
-          <div className='mt-auto pt-4 border-t border-slate-700'>
-            <div className='text-red-500 font-semibold text-sm flex items-center'>
-              <TrendingUp
-                className='h-4 w-4 mr-1 rotate-180'
-                strokeWidth={2.5}
-              />
-              {props.stat}
-            </div>
-            <p className='mt-2 text-sm text-gray-500'>{props.dictionary.seeSolution}</p>
-          </div>
-        </div>
-        <div
-          className={`p-6 rounded-3xl h-full absolute w-full bg-black/10 border border-slate-800 rotate-y-180 [transform:rotateY(180deg)] [backface-visibility:hidden] hover:shadow-lg transition-all duration-300 cursor-pointer`}
-        >
-          <Check
-            className='flex-none text-green-300 w-7 h-7 mb-4'
-            aria-hidden='true'
-          />
-          <h3
-            className='text-lg leading-[1.1875] font-extrabold tracking-tight text-transparent \
-            bg-clip-text bg-text-gradient-gray lg:text-xl lg:leading-[1.2] mb-2'
-          >
-            {props.solution.title}
-          </h3>
-          <p className='text-slate-400 mb-4'>{props.solution.description}</p>
-          <div className='mt-auto pt-4 border-t border-slate-700'>
-            <div className='text-green-500 font-semibold text-sm flex items-center'>
-              <TrendingUp
-                className='h-4 w-4 mr-1'
-                strokeWidth={2.5}
-              />
-              {props.solution.stat}
-            </div>
-            <p className='mt-2 text-sm text-gray-500'>{props.dictionary.seeChallenge}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
+  cards: ChallengeItem[]
 }
 
 export default function ChallengeThreeColumn(props: ChallengeThreeColumnProps) {
   return (
     <ComponentLayout gradientVariant='floatingGradient'>
-      <div className='py-16 w-full'>
-        <div className='container mx-auto px-4'>
-          <div className='w-full mx-auto text-center mb-16'>
-            <h2
-              className='w-fit text-[44px] leading-[1.1875] font-extrabold tracking-tight text-transparent bg-clip-text \
-              bg-text-gradient-gray'
+      <div className='pb-20 pt-9 lg:pb-[104px] lg:pt-[120px] space-y-11 lg:space-y-20'>
+        <div className='mx-auto text-center space-y-4 max-w-4xl'>
+          <h2 className='w-fit mx-auto text-[44px] leading-[48px] font-extrabold tracking-tight text-transparent bg-clip-text bg-text-gradient-gray lg:leading-[58px]'>
+            {props.title}
+          </h2>
+          <p className='text-base leading-7 text-slate-400 font-light'>{props.subtitle}</p>
+        </div>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-28 mb-16'>
+          {props.challenges.map((challenge, index) => (
+            <div
+              key={index}
+              className='lg:px-0 lg:py-0 relative'
             >
-              {props.title}
-            </h2>
-            <p className='mt-2 text-[18px] leading-8 text-slate-400 font-light'>{props.subtitle}</p>
-          </div>
-
-          <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16'>
-            {props.challenges.map((point, index) => (
-              <ChallengeCard
-                key={index}
-                dictionary={props.dictionary}
-                icon={point.icon}
-                title={point.title}
-                description={point.description}
-                stat={point.stat}
-                solution={point.solution}
-              />
-            ))}
-          </div>
+              {index < props.challenges.length - 1 && (
+                <>
+                  <div
+                    className='hidden lg:block absolute top-0 -right-14 w-0.5 h-full'
+                    style={{
+                      background:
+                        'linear-gradient(to bottom, rgba(51, 65, 85, 0) 0%, rgba(51, 65, 85, 1) 25%, rgba(51, 65, 85, 1) 75%, rgba(51, 65, 85, 0) 100%)'
+                    }}
+                  />
+                  <div
+                    className='lg:hidden absolute -bottom-10 left-0 right-0 h-0.5'
+                    style={{
+                      background:
+                        'linear-gradient(to right, rgba(51, 65, 85, 0) 0%, rgba(51, 65, 85, 1) 25%, rgba(51, 65, 85, 1) 75%, rgba(51, 65, 85, 0) 100%)'
+                    }}
+                  />
+                </>
+              )}
+              <h3 className='text-2xl leading-7 font-semibold w-fit text-transparent bg-clip-text bg-text-gradient-blue'>
+                {challenge.title}
+              </h3>
+              <div className='flex flex-col space-y-6 mt-4'>
+                <p className='text-base leading-7 font-light text-slate-400'>{challenge.description}</p>
+                <div className='flex flex-row space-x-4'>
+                  <TrendingDown
+                    className='flex-none text-sky-500 w-5 h-5 translate-y-1'
+                    strokeWidth={2}
+                  />
+                  <span className='text-base leading-7 font-light text-sky-500'>{challenge.stat}</span>
+                </div>
+              </div>
+              <div className='flex flex-col space-y-2 mt-8'>
+                <h4 className='text-xl w-fit font-semibold tracking-tight text-transparent bg-clip-text bg-text-gradient-gray'>
+                  {challenge.solution.title}
+                </h4>
+                <div className='flex flex-col space-y-4'>
+                  <p className='text-base leading-7 font-light text-slate-400'>{challenge.solution.description}</p>
+                  <div className='flex flex-row space-x-4'>
+                    <TrendingUp
+                      className='flex-none text-sky-500 w-5 h-5 translate-y-1'
+                      strokeWidth={2}
+                    />
+                    <span className='text-base leading-7 font-light text-sky-500'>{challenge.solution.stat}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </ComponentLayout>

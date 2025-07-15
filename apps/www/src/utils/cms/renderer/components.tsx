@@ -20,6 +20,7 @@ import CustomerLogosSimpleWithTitle from '@/components/ui/organisms/customer-sec
 import DiagramFullWidth from '@/components/ui/organisms/diagram-sections/diagram-full-width'
 import DraftModal from '@/components/ui/organisms/draft-modal'
 import FeatureThreeColumnWithIconsAndCTAs from '@/components/ui/organisms/feature-sections/feature-three-column-with-icons-and-ctas'
+import FeatureWithLargeImage from '@/components/ui/organisms/feature-sections/feature-with-large-image'
 import Footer from '@/components/ui/organisms/footer'
 import Header from '@/components/ui/organisms/header'
 import HeaderWithCardsWithIcon from '@/components/ui/organisms/header-sections/header-with-cards-with-icon'
@@ -32,14 +33,14 @@ import IntroductionWithLogo from '@/components/ui/organisms/content-sections/int
 import JoinOurTeam from '@/components/ui/organisms/cta-sections/join-our-team'
 import MapWithTitle from '@/components/ui/organisms/map-sections/map-with-title'
 import PartnerLogosSimpleWithTitle from '@/components/ui/organisms/partner-sections/partner-logos-simple-with-title'
-import PricingThreeColumns from '@/components/ui/organisms/pricing-sections/pricing-three-columns'
+import PricingThreeColumn from '@/components/ui/organisms/pricing-sections/pricing-three-column'
 import ServiceAlternatePositionIcon from '@/components/ui/organisms/service-sections/service-alternate-position-icon'
 import ServiceMasonryCard from '@/components/ui/organisms/service-sections/service-masonry-card'
 import ServiceThreeColumnWithLargeIcons from '@/components/ui/organisms/service-sections/service-three-column-with-large-icons'
 import SolutionOneColumn from '@/components/ui/organisms/solution-sections/solution-one-column'
 import SolutionThreeColumnWithLargeIcons from '@/components/ui/organisms/solution-sections/solution-three-column-with-large-icons'
 import SolutionThreeColumnsWithImage from '@/components/ui/organisms/solution-sections/solution-three-columns-with-image'
-import StepsWithCards from '@/components/ui/organisms/steps-sections/steps-with-cards'
+import StepRow from '@/components/ui/organisms/step-sections/step-row'
 import TagFilter from '@/components/ui/molecules/tag-filter'
 import TeamMemberCard from '@/components/ui/molecules/cards/team-member'
 import TeamTwoColumn from '@/components/ui/organisms/team-sections/team-two-column'
@@ -87,12 +88,13 @@ export const componentBlueprints: ComponentBlueprints = {
   'map-with-title': MapWithTitle,
   'case-studies-grid-cards': CaseStudiesGridCards,
   'case-study-content': CaseStudyContentSection,
-  'steps-with-cards': StepsWithCards,
-  'pricing-three-columns': PricingThreeColumns,
+  'step-row': StepRow,
+  'pricing-three-column': PricingThreeColumn,
   'feature-three-column-with-icons-and-ctas': FeatureThreeColumnWithIconsAndCTAs,
   'challenge-three-column': ChallengeThreeColumn,
   'cta-simple-centered': CTASimpleCentered,
-  'case-studies-three-column-with-image': CaseStudiesThreeColumnWithImage
+  'case-studies-three-column-with-image': CaseStudiesThreeColumnWithImage,
+  'feature-with-large-image': FeatureWithLargeImage
 }
 export type ComponentBlueprint = {
   component: keyof ComponentBlueprints

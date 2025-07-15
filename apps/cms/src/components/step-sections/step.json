@@ -1,27 +1,17 @@
 {
-  "collectionName": "components_steps_sections_steps",
+  "collectionName": "components_step_sections_steps",
   "info": {
-    "displayName": "step"
+    "displayName": "step",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
+    "number": {
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "text",
-      "required": true
-    },
-    "icon": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "icon.icon",
+    "title": {
+      "type": "string",
       "required": true
     }
   }

@@ -8,7 +8,7 @@
   "attributes": {
     "surtitle": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "title": {
       "type": "string",
@@ -17,6 +17,11 @@
     "subtitle": {
       "type": "text",
       "required": true
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "cta.button"
     }
   }
 }

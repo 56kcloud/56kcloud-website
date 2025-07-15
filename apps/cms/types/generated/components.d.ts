@@ -38,10 +38,22 @@ export interface TeamSectionsTeamTwoColumn extends Schema.Component {
   }
 }
 
-export interface StepSectionsStepsWithCards extends Schema.Component {
-  collectionName: 'components_step_sections_steps_with_cards'
+export interface StepSectionsStep extends Schema.Component {
+  collectionName: 'components_step_sections_steps'
   info: {
-    displayName: 'steps-with-cards'
+    displayName: 'step'
+    description: ''
+  }
+  attributes: {
+    number: Attribute.String & Attribute.Required
+    title: Attribute.String & Attribute.Required
+  }
+}
+
+export interface StepSectionsStepRow extends Schema.Component {
+  collectionName: 'components_step_sections_step_rows'
+  info: {
+    displayName: 'step-row'
     description: ''
   }
   attributes: {
@@ -59,43 +71,7 @@ export interface StepSectionsStepsWithCards extends Schema.Component {
           translate: 'translate'
         }
       }>
-    steps: Attribute.Component<'step-sections.step', true>
-    cards: Attribute.Component<'step-sections.step-card', true>
-  }
-}
-
-export interface StepSectionsStep extends Schema.Component {
-  collectionName: 'components_steps_sections_steps'
-  info: {
-    displayName: 'step'
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    description: Attribute.Text & Attribute.Required
-    icon: Attribute.Component<'icon.icon'> &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
-  }
-}
-
-export interface StepSectionsStepCard extends Schema.Component {
-  collectionName: 'components_steps_sections_step_cards'
-  info: {
-    displayName: 'step-card'
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    icon: Attribute.Component<'icon.icon'> &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true
-        }
-      }>
+    steps: Attribute.Component<'step-sections.step', true> & Attribute.Required
   }
 }
 
@@ -221,14 +197,14 @@ export interface PricingSectionsTier extends Schema.Component {
     description: ''
   }
   attributes: {
-    badge: Attribute.String &
+    surtitle: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         translate: {
           translate: 'translate'
         }
       }>
-    name: Attribute.String &
+    title: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         translate: {
@@ -242,6 +218,7 @@ export interface PricingSectionsTier extends Schema.Component {
         }
       }>
     items: Attribute.Component<'pricing-sections.tier-item', true>
+    featured: Attribute.Boolean & Attribute.Required
   }
 }
 
@@ -638,9 +615,10 @@ export interface HeroSectionsHeroWithGradient extends Schema.Component {
     description: ''
   }
   attributes: {
-    surtitle: Attribute.String & Attribute.Required
+    surtitle: Attribute.String
     title: Attribute.String & Attribute.Required
     subtitle: Attribute.Text & Attribute.Required
+    cta: Attribute.Component<'cta.button'>
   }
 }
 
@@ -742,12 +720,6 @@ export interface FeatureSectionsFeatureThreeColumnWithIconsAndCtas extends Schem
     description: ''
   }
   attributes: {
-    badge: Attribute.String &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate'
-        }
-      }>
     title: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -819,7 +791,7 @@ export interface CtaSectionsCtaSimpleCentered extends Schema.Component {
   attributes: {
     title: Attribute.String & Attribute.Required
     subtitle: Attribute.Text & Attribute.Required
-    cta: Attribute.Component<'cta.button'>
+    cta: Attribute.Component<'cta.button'> & Attribute.Required
   }
 }
 
@@ -833,31 +805,6 @@ export interface CtaButton extends Schema.Component {
     title: Attribute.String & Attribute.Required
     link: Attribute.String & Attribute.Required
     tone: Attribute.Enumeration<['primary', 'secondary']> & Attribute.Required & Attribute.DefaultTo<'primary'>
-  }
-}
-
-export interface ContactSectionsContact extends Schema.Component {
-  collectionName: 'contacts'
-  info: {
-    displayName: 'contact'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.String & Attribute.Required
-  }
-}
-
-export interface CertificationsSectionsCertificationsBadgesWithTitle extends Schema.Component {
-  collectionName: 'certifications_badges_with_titles'
-  info: {
-    displayName: 'certifications-badges-with-title'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    horizontalBadgesImage: Attribute.Media<'images'> & Attribute.Required
-    verticalBadgesImage: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -904,6 +851,18 @@ export interface ContentSectionContentAlternatePositionWithImageList extends Sch
   }
   attributes: {
     items: Attribute.Component<'cards.content-alternate-position-with-image-item', true> & Attribute.Required
+  }
+}
+
+export interface ContactSectionsContact extends Schema.Component {
+  collectionName: 'contacts'
+  info: {
+    displayName: 'contact'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.String & Attribute.Required
   }
 }
 
@@ -955,6 +914,19 @@ export interface ChallengeSectionsChallengeSolution extends Schema.Component {
     title: Attribute.String & Attribute.Required
     description: Attribute.Text & Attribute.Required
     stat: Attribute.String & Attribute.Required
+  }
+}
+
+export interface CertificationsSectionsCertificationsBadgesWithTitle extends Schema.Component {
+  collectionName: 'certifications_badges_with_titles'
+  info: {
+    displayName: 'certifications-badges-with-title'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    horizontalBadgesImage: Attribute.Media<'images'> & Attribute.Required
+    verticalBadgesImage: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -1075,9 +1047,8 @@ declare module '@strapi/types' {
       'value-sections.value': ValueSectionsValue
       'value-sections.value-two-column': ValueSectionsValueTwoColumn
       'team-sections.team-two-column': TeamSectionsTeamTwoColumn
-      'step-sections.steps-with-cards': StepSectionsStepsWithCards
       'step-sections.step': StepSectionsStep
-      'step-sections.step-card': StepSectionsStepCard
+      'step-sections.step-row': StepSectionsStepRow
       'solution-sections.solution-three-columns-with-image': SolutionSectionsSolutionThreeColumnsWithImage
       'solution-sections.solution-three-column-with-large-icons': SolutionSectionsSolutionThreeColumnWithLargeIcons
       'solution-sections.solution-one-column': SolutionSectionsSolutionOneColumn
@@ -1106,15 +1077,15 @@ declare module '@strapi/types' {
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam
       'cta-sections.cta-simple-centered': CtaSectionsCtaSimpleCentered
       'cta.button': CtaButton
-      'contact-sections.contact': ContactSectionsContact
-      'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
       'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo
       'content-section.content-two-column': ContentSectionContentTwoColumn
       'content-section.content-markdown': ContentSectionContentMarkdown
       'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
+      'contact-sections.contact': ContactSectionsContact
       'challenge-sections.challenge': ChallengeSectionsChallenge
       'challenge-sections.challenge-three-column': ChallengeSectionsChallengeThreeColumn
       'challenge-sections.challenge-solution': ChallengeSectionsChallengeSolution
+      'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
       'case-studies-sections.case-studies-three-column-with-image': CaseStudiesSectionsCaseStudiesThreeColumnWithImage
       'case-studies-sections.case-studies-grid-cards': CaseStudiesSectionsCaseStudiesGridCards
       'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem

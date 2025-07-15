@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_step_sections_steps_with_cards",
+  "collectionName": "components_feature_sections_feature_with_large_images",
   "info": {
-    "displayName": "steps-with-cards",
+    "displayName": "feature-with-large-image",
     "description": ""
   },
   "options": {},
@@ -15,7 +15,7 @@
         }
       }
     },
-    "subtitle": {
+    "description": {
       "type": "text",
       "required": true,
       "pluginOptions": {
@@ -24,17 +24,11 @@
         }
       }
     },
-    "steps": {
-      "displayName": "steps",
-      "type": "component",
-      "repeatable": true,
-      "component": "step-sections.step"
-    },
-    "cards": {
-      "displayName": "cards",
-      "type": "component",
-      "repeatable": true,
-      "component": "step-sections.step-card"
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
     }
   }
 }

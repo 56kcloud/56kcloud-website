@@ -115,11 +115,14 @@
         "case-studies-sections.case-studies-grid-cards",
         "case-studies-sections.case-studies-three-column-with-image",
         "solution-sections.solution-three-columns-with-image",
-        "step-sections.steps-with-cards",
+        "step-sections.step-row",
         "pricing-sections.pricing-three-column",
         "feature-sections.feature-three-column-with-icons-and-ctas",
         "challenge-sections.challenge-three-column",
-        "cta-sections.cta-simple-centered"
+        "cta-sections.cta-simple-centered",
+        "hero-sections.hero-with-gradient",
+        "feature-sections.feature-with-large-image",
+        "customer-sections.customer-logo-simple-with-title"
       ]
     }
   }

@@ -26,10 +26,7 @@ export default function HeroWithFloatingGradients(props: HeroWithFloatingGradien
         </div>
       </div>
       <div className='pb-8 pt-52 lg:pt-64 lg:pb-20'>
-        <h1
-          className='w-fit mx-auto text-center text-5xl leading-[1.1875] font-extrabold tracking-tight text-transparent \
-          bg-clip-text bg-text-gradient-gray lg:text-7xl lg:leading-[1.2]'
-        >
+        <h1 className='w-fit mx-auto text-center text-5xl leading-[1.1875] font-extrabold tracking-tight text-transparent bg-clip-text bg-text-gradient-gray lg:text-7xl lg:leading-[1.2]'>
           {props.title}
         </h1>
         <div className='text-lg font-light text-center mt-7 text-slate-400'>
@@ -41,8 +38,7 @@ export default function HeroWithFloatingGradients(props: HeroWithFloatingGradien
             size='large'
             tone={props.cta.tone}
             shape='circle'
-            className='text-slate-950 bg-gradient-to-tl from-slate-50/85 via-slate-50 to-slate-50/85 \
-                from-10% to-90% px-6 hover:bg-current hover:text-current'
+            className='text-slate-950 bg-gradient-to-tl from-slate-50/85 via-slate-50 to-slate-50/85 from-10% to-90% px-6 hover:bg-current hover:text-current'
             trailing={
               <ArrowRightIcon
                 className='w-4 h-4 text-sky-500'

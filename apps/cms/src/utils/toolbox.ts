@@ -44,18 +44,19 @@ export async function bodyHandler(contentType, query) {
   footer['__component'] = footerComponentName
   contentType.body.push(footer)
 
-  try {
-    const bannerComponentName = 'banner.banner'
-    const banner = await strapi.entityService.findMany(`api::${bannerComponentName}`, {
-      populate: '*',
-      locale,
-      publicationState: query.preview === 'true' ? 'preview' : 'live'
-    })
-    banner['__component'] = bannerComponentName
-    contentType.body.unshift(banner)
-  } catch {
-    // no banner
-  }
+  // Banner disabled - uncomment to re-enable
+  // try {
+  //   const bannerComponentName = 'banner.banner'
+  //   const banner = await strapi.entityService.findMany(`api::${bannerComponentName}`, {
+  //     populate: '*',
+  //     locale,
+  //     publicationState: query.preview === 'true' ? 'preview' : 'live'
+  //   })
+  //   banner['__component'] = bannerComponentName
+  //   contentType.body.unshift(banner)
+  // } catch {
+  //   // no banner
+  // }
 }
 
 function generatePaths(keys: Array<string>, options: Array<string>, depth: number) {

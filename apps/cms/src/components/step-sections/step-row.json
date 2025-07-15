@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_feature_three_column_with_icons_and_ctas",
+  "collectionName": "components_step_sections_step_rows",
   "info": {
-    "displayName": "feature-three-column-with-icons-and-ctas",
+    "displayName": "step-row",
     "description": ""
   },
   "options": {},
@@ -24,17 +24,12 @@
         }
       }
     },
-    "features": {
-      "displayName": "features",
+    "steps": {
+      "displayName": "steps",
       "type": "component",
+      "required": true,
       "repeatable": true,
-      "component": "feature-sections.feature"
-    },
-    "ctas": {
-      "displayName": "ctas",
-      "type": "component",
-      "repeatable": true,
-      "component": "cta.button"
+      "component": "step-sections.step"
     }
   }
 }
