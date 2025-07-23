@@ -207,7 +207,7 @@ export default function Contact(props: ContactProps) {
                             {...other}
                             {...legalConsentInputProps}
                             className='sm:col-span-2 mx-auto mt-2 !items-start lg:!items-center'
-                            inputClassName='mt-[2px] lg:mt-0'
+                            inputClassName='mt-[2px] lg:mb-auto'
                           />
                         )}
                       />

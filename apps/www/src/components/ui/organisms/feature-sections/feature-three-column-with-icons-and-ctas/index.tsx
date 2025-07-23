@@ -31,10 +31,12 @@ export default function FeatureThreeColumnWithIconsAndCTAs(props: FeatureThreeCo
                 className='flex flex-col lg:p-6 space-y-3'
               >
                 <div className='flex items-center gap-x-3'>
-                  <Icon
-                    {...feature.icon}
-                    className='w-6 h-6 text-sky-500'
-                  />
+                  <div className='flex items-start h-full translate-y-[2px]'>
+                    <Icon
+                      {...feature.icon}
+                      className='w-6 h-6 text-sky-500'
+                    />
+                  </div>
                   <h3 className='text-xl w-fit font-semibold tracking-tight text-transparent bg-clip-text bg-text-gradient-gray'>
                     {feature.title}
                   </h3>
