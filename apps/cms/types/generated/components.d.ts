@@ -26,18 +26,6 @@ export interface ValueSectionsValueTwoColumn extends Schema.Component {
   }
 }
 
-export interface TeamSectionsTeamTwoColumn extends Schema.Component {
-  collectionName: 'team_two_columns'
-  info: {
-    displayName: 'team-two-column'
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.Text & Attribute.Required
-    teamMembers: Attribute.Relation<'team-sections.team-two-column', 'oneToMany', 'api::team-member.team-member'>
-  }
-}
-
 export interface StepSectionsStep extends Schema.Component {
   collectionName: 'components_step_sections_steps'
   info: {
@@ -72,6 +60,18 @@ export interface StepSectionsStepRow extends Schema.Component {
         }
       }>
     steps: Attribute.Component<'step-sections.step', true> & Attribute.Required
+  }
+}
+
+export interface TeamSectionsTeamTwoColumn extends Schema.Component {
+  collectionName: 'team_two_columns'
+  info: {
+    displayName: 'team-two-column'
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    teamMembers: Attribute.Relation<'team-sections.team-two-column', 'oneToMany', 'api::team-member.team-member'>
   }
 }
 
@@ -713,6 +713,31 @@ export interface FeatureSectionsFeature extends Schema.Component {
   }
 }
 
+export interface FeatureSectionsFeatureWithLargeImage extends Schema.Component {
+  collectionName: 'components_feature_sections_feature_with_large_images'
+  info: {
+    displayName: 'feature-with-large-image'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    image: Attribute.Media<'images'> & Attribute.Required
+  }
+}
+
 export interface FeatureSectionsFeatureThreeColumnWithIconsAndCtas extends Schema.Component {
   collectionName: 'components_feature_three_column_with_icons_and_ctas'
   info: {
@@ -1046,9 +1071,9 @@ declare module '@strapi/types' {
     export interface Components {
       'value-sections.value': ValueSectionsValue
       'value-sections.value-two-column': ValueSectionsValueTwoColumn
-      'team-sections.team-two-column': TeamSectionsTeamTwoColumn
       'step-sections.step': StepSectionsStep
       'step-sections.step-row': StepSectionsStepRow
+      'team-sections.team-two-column': TeamSectionsTeamTwoColumn
       'solution-sections.solution-three-columns-with-image': SolutionSectionsSolutionThreeColumnsWithImage
       'solution-sections.solution-three-column-with-large-icons': SolutionSectionsSolutionThreeColumnWithLargeIcons
       'solution-sections.solution-one-column': SolutionSectionsSolutionOneColumn
@@ -1071,6 +1096,7 @@ declare module '@strapi/types' {
       'header-sections.header-with-cards-with-icon': HeaderSectionsHeaderWithCardsWithIcon
       'filter.tags-filter': FilterTagsFilter
       'feature-sections.feature': FeatureSectionsFeature
+      'feature-sections.feature-with-large-image': FeatureSectionsFeatureWithLargeImage
       'feature-sections.feature-three-column-with-icons-and-ctas': FeatureSectionsFeatureThreeColumnWithIconsAndCtas
       'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
       'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle

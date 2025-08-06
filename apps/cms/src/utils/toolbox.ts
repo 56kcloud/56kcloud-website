@@ -7,8 +7,8 @@ function capitalizeFirstLetter(string: string) {
 }
 
 export async function seoHandler(contentType, uid: string) {
-  const isDynamicPage = ['article', 'solution', 'service', 'case-study']
-  let title = contentType.seo?.title || contentType.title
+  const isDynamicPage = ['article', 'solution', 'service', 'case-study', 'partner']
+  let title = contentType.seo?.title || contentType.title || contentType.name
   if (isDynamicPage.some((id) => uid.endsWith(id))) {
     const needSuffix = ['.solution', '.service'].some((id) => uid.endsWith(id))
     const suffix = needSuffix ? `${capitalizeFirstLetter(uid.slice(uid.lastIndexOf('.') + 1))} - ` : ''

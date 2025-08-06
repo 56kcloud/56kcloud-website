@@ -1313,16 +1313,66 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
   options: {
     draftAndPublish: true
   }
+  pluginOptions: {
+    i18n: {
+      localized: true
+    }
+  }
   attributes: {
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'copy'
+        }
+        i18n: {
+          localized: true
+        }
+      }>
     name: Attribute.String & Attribute.Required
+    description: Attribute.Text & Attribute.Required
     link: Attribute.String
     image: Attribute.Media<'images'> & Attribute.Required
     relatedArticles: Attribute.Relation<'api::partner.partner', 'manyToMany', 'api::article.article'>
+    body: Attribute.DynamicZone<
+      [
+        'header-sections.header-with-cards-with-icon',
+        'header-sections.header-with-text-cards',
+        'service-sections.service-three-column-with-large-icons',
+        'solution-sections.solution-three-column-with-large-icons',
+        'content-section.content-markdown',
+        'contact-sections.contact',
+        'solution-sections.solution-one-column',
+        'hero-sections.hero-with-floating-gradients',
+        'partner-sections.partner-logo-simple-with-title',
+        'case-studies-sections.case-studies-grid-cards',
+        'case-studies-sections.case-studies-three-column-with-image',
+        'solution-sections.solution-three-columns-with-image',
+        'step-sections.step-row',
+        'pricing-sections.pricing-three-column',
+        'feature-sections.feature-three-column-with-icons-and-ctas',
+        'challenge-sections.challenge-three-column',
+        'cta-sections.cta-simple-centered',
+        'hero-sections.hero-with-gradient',
+        'feature-sections.feature-with-large-image',
+        'customer-sections.customer-logo-simple-with-title'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true
+        }
+        translate: {
+          translate: 'translate'
+        }
+      }>
     createdAt: Attribute.DateTime
     updatedAt: Attribute.DateTime
     publishedAt: Attribute.DateTime
     createdBy: Attribute.Relation<'api::partner.partner', 'oneToOne', 'admin::user'> & Attribute.Private
     updatedBy: Attribute.Relation<'api::partner.partner', 'oneToOne', 'admin::user'> & Attribute.Private
+    localizations: Attribute.Relation<'api::partner.partner', 'oneToMany', 'api::partner.partner'>
+    locale: Attribute.String
   }
 }
 
@@ -1585,7 +1635,9 @@ export interface ApiSolutionSolution extends Schema.CollectionType {
         'feature-sections.feature-three-column-with-icons-and-ctas',
         'challenge-sections.challenge-three-column',
         'cta-sections.cta-simple-centered',
-        'hero-sections.hero-with-gradient'
+        'hero-sections.hero-with-gradient',
+        'feature-sections.feature-with-large-image',
+        'customer-sections.customer-logo-simple-with-title'
       ]
     > &
       Attribute.SetPluginOptions<{
