@@ -64,7 +64,7 @@ export default function LanguageSwitcher({mobileMenuOpen}: LanguageSwitcherProps
             asChild
             tone='primary'
             variant='default'
-            className='px-5 text-slate-50 text-sm font-medium bg-transparent hover:text-slate-50 \
+            className='px-5 text-slate-50 text-sm font-medium bg-transparent cursor-default hover:text-slate-50 \
             hover:bg-slate-800'
           >
             <NavigationMenuTrigger className='uppercase gap-1'>{locale}</NavigationMenuTrigger>
