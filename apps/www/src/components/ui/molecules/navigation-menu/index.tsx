@@ -44,8 +44,8 @@ export default function NavigationMenu({
                 asChild
                 tone='primary'
                 variant='default'
-                className='pl-5 pr-[18px] text-slate-50 text-sm font-medium bg-transparent hover:text-slate-50 \
-                hover:bg-slate-800'
+                className='pl-5 pr-[18px] text-slate-50 text-sm font-medium bg-transparent cursor-default \
+                hover:text-slate-50 hover:bg-slate-800'
               >
                 <NavigationMenuTrigger className='gap-1'>{navigationItem.title}</NavigationMenuTrigger>
               </Button>
