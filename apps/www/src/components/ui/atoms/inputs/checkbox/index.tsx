@@ -11,7 +11,7 @@ export type CheckboxProps = {
 const Checkbox = forwardRef<HTMLInputElement, CheckboxProps & Omit<JSX.IntrinsicElements['input'], 'type'>>(
   ({id, label, className, inputClassName, ...other}, ref) => {
     return (
-      <div className={cn(className, 'flex items-center mb-4 sm:mb-9 text-xs min-[1700px]:text-sm gap-x-3')}>
+      <div className={cn(className, 'flex items-center mb-4 sm:mb-9 text-xs min-[1700px]:text-sm gap-x-3 w-full')}>
         <input
           ref={ref}
           {...other}
