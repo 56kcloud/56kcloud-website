@@ -26,6 +26,18 @@ export interface ValueSectionsValueTwoColumn extends Schema.Component {
   }
 }
 
+export interface TeamSectionsTeamTwoColumn extends Schema.Component {
+  collectionName: 'team_two_columns'
+  info: {
+    displayName: 'team-two-column'
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    teamMembers: Attribute.Relation<'team-sections.team-two-column', 'oneToMany', 'api::team-member.team-member'>
+  }
+}
+
 export interface StepSectionsStep extends Schema.Component {
   collectionName: 'components_step_sections_steps'
   info: {
@@ -60,18 +72,6 @@ export interface StepSectionsStepRow extends Schema.Component {
         }
       }>
     steps: Attribute.Component<'step-sections.step', true> & Attribute.Required
-  }
-}
-
-export interface TeamSectionsTeamTwoColumn extends Schema.Component {
-  collectionName: 'team_two_columns'
-  info: {
-    displayName: 'team-two-column'
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.Text & Attribute.Required
-    teamMembers: Attribute.Relation<'team-sections.team-two-column', 'oneToMany', 'api::team-member.team-member'>
   }
 }
 
@@ -120,6 +120,31 @@ export interface SolutionSectionsSolutionOneColumn extends Schema.Component {
   }
 }
 
+export interface SeoSeo extends Schema.Component {
+  collectionName: 'components_seo_seos'
+  info: {
+    displayName: 'seo'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    description: Attribute.Text
+  }
+}
+
+export interface SeoOpenGraph extends Schema.Component {
+  collectionName: 'components_seo_open_graphs'
+  info: {
+    displayName: 'open-graph'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    description: Attribute.Text & Attribute.Required
+    image: Attribute.Media<'images'> & Attribute.Required
+  }
+}
+
 export interface ServiceSectionsServiceThreeColumnWithLargeIcons extends Schema.Component {
   collectionName: 'service_three_column_with_large_icons'
   info: {
@@ -162,31 +187,6 @@ export interface ServiceSectionsServiceAlternatePositionIcon extends Schema.Comp
       'oneToMany',
       'api::service.service'
     >
-  }
-}
-
-export interface SeoSeo extends Schema.Component {
-  collectionName: 'components_seo_seos'
-  info: {
-    displayName: 'seo'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    description: Attribute.Text
-  }
-}
-
-export interface SeoOpenGraph extends Schema.Component {
-  collectionName: 'components_seo_open_graphs'
-  info: {
-    displayName: 'open-graph'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    description: Attribute.Text & Attribute.Required
-    image: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -605,6 +605,22 @@ export interface IconIcon extends Schema.Component {
       ]
     >
     type: Attribute.Enumeration<['outline', 'solid']> & Attribute.Required & Attribute.DefaultTo<'outline'>
+  }
+}
+
+export interface HeroSectionsHeroWithImage extends Schema.Component {
+  collectionName: 'components_hero_sections_hero_with_images'
+  info: {
+    displayName: 'hero-with-image'
+    description: ''
+  }
+  attributes: {
+    surtitle: Attribute.String
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    cta: Attribute.Component<'cta.button'>
+    image: Attribute.Media<'images'> & Attribute.Required
+    image_position: Attribute.Enumeration<['left', 'right']> & Attribute.Required & Attribute.DefaultTo<'right'>
   }
 }
 
@@ -1071,17 +1087,17 @@ declare module '@strapi/types' {
     export interface Components {
       'value-sections.value': ValueSectionsValue
       'value-sections.value-two-column': ValueSectionsValueTwoColumn
+      'team-sections.team-two-column': TeamSectionsTeamTwoColumn
       'step-sections.step': StepSectionsStep
       'step-sections.step-row': StepSectionsStepRow
-      'team-sections.team-two-column': TeamSectionsTeamTwoColumn
       'solution-sections.solution-three-columns-with-image': SolutionSectionsSolutionThreeColumnsWithImage
       'solution-sections.solution-three-column-with-large-icons': SolutionSectionsSolutionThreeColumnWithLargeIcons
       'solution-sections.solution-one-column': SolutionSectionsSolutionOneColumn
+      'seo.seo': SeoSeo
+      'seo.open-graph': SeoOpenGraph
       'service-sections.service-three-column-with-large-icons': ServiceSectionsServiceThreeColumnWithLargeIcons
       'service-sections.service-masonry-card': ServiceSectionsServiceMasonryCard
       'service-sections.service-alternate-position-icon': ServiceSectionsServiceAlternatePositionIcon
-      'seo.seo': SeoSeo
-      'seo.open-graph': SeoOpenGraph
       'pricing-sections.tier': PricingSectionsTier
       'pricing-sections.tier-item': PricingSectionsTierItem
       'pricing-sections.pricing-three-column': PricingSectionsPricingThreeColumn
@@ -1089,6 +1105,7 @@ declare module '@strapi/types' {
       'map-sections.map-with-title': MapSectionsMapWithTitle
       'image-sections.image-simple': ImageSectionsImageSimple
       'icon.icon': IconIcon
+      'hero-sections.hero-with-image': HeroSectionsHeroWithImage
       'hero-sections.hero-with-gradient': HeroSectionsHeroWithGradient
       'hero-sections.hero-with-floating-gradients': HeroSectionsHeroWithFloatingGradients
       'hero-sections.hero-simple-center': HeroSectionsHeroSimpleCenter

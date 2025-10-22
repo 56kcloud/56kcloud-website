@@ -28,6 +28,7 @@ import HeaderWithTextCards from '@/components/ui/organisms/header-sections/heade
 import HeroSimpleCenter from '@/components/ui/organisms/hero-sections/hero-simple-center'
 import HeroWithFloatingGradients from '@/components/ui/organisms/hero-sections/hero-with-floating-gradients'
 import HeroWithGradient from '@/components/ui/organisms/hero-sections/hero-with-gradient'
+import HeroWithImage from '@/components/ui/organisms/hero-sections/hero-with-image'
 import ImageSimple from '@/components/ui/organisms/image-sections/image-simple'
 import IntroductionWithLogo from '@/components/ui/organisms/content-sections/introduction-with-logo'
 import JoinOurTeam from '@/components/ui/organisms/cta-sections/join-our-team'
@@ -94,7 +95,8 @@ export const componentBlueprints: ComponentBlueprints = {
   'challenge-three-column': ChallengeThreeColumn,
   'cta-simple-centered': CTASimpleCentered,
   'case-studies-three-column-with-image': CaseStudiesThreeColumnWithImage,
-  'feature-with-large-image': FeatureWithLargeImage
+  'feature-with-large-image': FeatureWithLargeImage,
+  'hero-with-image': HeroWithImage
 }
 export type ComponentBlueprint = {
   component: keyof ComponentBlueprints
