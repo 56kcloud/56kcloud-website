@@ -12,14 +12,42 @@ const meta = {
     surtitle: faker.lorem.sentence(),
     title: faker.lorem.sentence(),
     subtitle: faker.lorem.sentence(),
-    image: imageFactory(),
-    cta: ctaFactory()
+    image: imageFactory()
   }
 } satisfies Meta<typeof HeroWithImage>
 
 export default meta
 
-export const Default = {
-  name: 'Default',
+export const RightImageWithoutCTA = {
+  name: 'Right Image without CTA',
+  args: {
+    imagePosition: 'right'
+  },
+  render: (args: HeroWithImageProps) => <HeroWithImage {...args} />
+}
+
+export const RightImageWithCTA = {
+  name: 'Right Image with CTA',
+  args: {
+    imagePosition: 'right',
+    cta: ctaFactory()
+  },
+  render: (args: HeroWithImageProps) => <HeroWithImage {...args} />
+}
+
+export const LeftImageWithoutCTA = {
+  name: 'Left Image without CTA',
+  args: {
+    imagePosition: 'left'
+  },
+  render: (args: HeroWithImageProps) => <HeroWithImage {...args} />
+}
+
+export const LeftImageWithCTA = {
+  name: 'Left Image with CTA',
+  args: {
+    imagePosition: 'left',
+    cta: ctaFactory()
+  },
   render: (args: HeroWithImageProps) => <HeroWithImage {...args} />
 }
