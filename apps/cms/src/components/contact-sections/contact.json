@@ -13,6 +13,15 @@
     "subtitle": {
       "type": "string",
       "required": true
+    },
+    "calendar": {
+      "type": "enumeration",
+      "required": false,
+      "enum": ["darragh", "jpgehrig", "kevin", "sandro"]
+    },
+    "withMessage": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

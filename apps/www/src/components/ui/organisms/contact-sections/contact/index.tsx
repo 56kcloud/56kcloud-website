@@ -3,7 +3,7 @@
 import {Dictionary} from '@/models/dictionary.model'
 import {LocationObject} from '@/models/location.model'
 import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/molecules/tabs'
-import Calendar from './calendar'
+import Calendar, {CalendarOptions} from './calendar'
 import ComponentLayout from '@/components/ui/atoms/component-layout'
 import ContactGradient from '@/components/ui/svgs/gradients/contact-gradient'
 import Message from './message'
@@ -13,6 +13,8 @@ export type ContactProps = {
   title: string
   subtitle: string
   locations: Array<LocationObject>
+  withMessage?: boolean
+  calendar?: CalendarOptions
 }
 
 export default function Contact(props: ContactProps) {
@@ -32,28 +34,38 @@ export default function Contact(props: ContactProps) {
             </h2>
             <p className='text-base leading-7 text-slate-400 font-light text-center lg:text-left'>{props.subtitle}</p>
           </div>
-          <Tabs
-            defaultValue='message'
-            className='lg:max-w-xl w-full my-2 h-full'
-          >
-            <TabsList className='w-full '>
-              <TabsTrigger value='message'>Message</TabsTrigger>
-              <TabsTrigger value='calendar'>Calendar</TabsTrigger>
-            </TabsList>
-            <TabsContent
-              value='message'
-              className='overflow-hidden h-[630px] !flex-initial'
+          {props.withMessage && props.calendar ? (
+            <Tabs
+              defaultValue='message'
+              className='lg:max-w-xl w-full overflow-hidden h-[777px]'
             >
-              <Message dictionary={props.dictionary} />
-            </TabsContent>
-            <TabsContent
-              value='calendar'
-              forceMount
-              className='data-[state=active]:block hidden overflow-hidden h-[630px] !flex-initial'
-            >
-              <Calendar />
-            </TabsContent>
-          </Tabs>
+              <TabsList className='w-full '>
+                <TabsTrigger value='message'>Message</TabsTrigger>
+                <TabsTrigger value='calendar'>Calendar</TabsTrigger>
+              </TabsList>
+              <TabsContent
+                value='message'
+                className='data-[state=active]:block hidden overflow-y-auto !flex-initial'
+                forceMount
+              >
+                <Message />
+              </TabsContent>
+              <TabsContent
+                value='calendar'
+                forceMount
+                className='data-[state=active]:block hidden overflow-hidden overflow-y-auto !flex-initial'
+              >
+                <Calendar calendar={props.calendar} />
+              </TabsContent>
+            </Tabs>
+          ) : props.calendar ? (
+            <Calendar
+              className='lg:max-w-xl w-full overflow-y-auto h-[730px]'
+              calendar={props.calendar}
+            />
+          ) : props.withMessage ? (
+            <Message className='lg:max-w-xl w-full overflow-y-auto h-[777px]' />
+          ) : null}
         </div>
       </div>
     </ComponentLayout>
