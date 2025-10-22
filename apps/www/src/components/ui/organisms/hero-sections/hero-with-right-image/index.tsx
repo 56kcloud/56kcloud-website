@@ -30,8 +30,8 @@ export default function HeroWithRightImage(props: HeroWithRightImageProps) {
 
   return (
     <ComponentLayout gradientVariant='heroGradient'>
-      <div className='pb-8 pt-52 lg:pb-20 lg:pt-60'>
-        <div>
+      <div className='flex gap-10 pb-8 pt-52 lg:pb-20 lg:pt-60'>
+        <div className='flex-1'>
           <div className={cn(props.surtitle ? 'space-y-8' : '')}>
             {props.surtitle && (
               <div>
@@ -73,17 +73,19 @@ export default function HeroWithRightImage(props: HeroWithRightImageProps) {
             </div>
           )}
         </div>
-        <div>
-          <Image
-            src={props.image.url}
-            alt={props.image.alternateText || props.image.name}
-            onLoad={() => {
-              setIsLoaded(true)
-            }}
-            width={props.image.width}
-            height={props.image.height}
-            className={cn('object-cover w-full h-full', isLoaded && 'bg-white')}
-          />
+        <div className='flex-1'>
+          <div className='border-gradient p-2 rounded-3xl w-full h-full bg-gradient-to-t from-slate-800 to-slate-900'>
+            <Image
+              src={props.image.url}
+              alt={props.image.alternateText || props.image.name}
+              onLoad={() => {
+                setIsLoaded(true)
+              }}
+              width={props.image.width}
+              height={props.image.height}
+              className={cn('object-cover w-full h-full rounded-2xl', isLoaded && 'bg-white')}
+            />
+          </div>
         </div>
       </div>
     </ComponentLayout>
