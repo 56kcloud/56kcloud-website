@@ -608,35 +608,10 @@ export interface IconIcon extends Schema.Component {
   }
 }
 
-export interface HeaderSectionsHeaderWithTextCards extends Schema.Component {
-  collectionName: 'components_header_sections_header_with_text_cards'
+export interface HeroSectionsHeroWithImage extends Schema.Component {
+  collectionName: 'components_hero_sections_hero_with_images'
   info: {
-    displayName: 'header-with-text-cards'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.Text & Attribute.Required
-    cards: Attribute.Component<'cards.card-text', true> & Attribute.Required
-  }
-}
-
-export interface HeaderSectionsHeaderWithCardsWithIcon extends Schema.Component {
-  collectionName: 'header_with_cards_with_icons'
-  info: {
-    displayName: 'header-with-cards-with-icon'
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.Text & Attribute.Required
-    cards: Attribute.Component<'cards.card-with-icon', true>
-  }
-}
-
-export interface HeroSectionsHeroWithRightImage extends Schema.Component {
-  collectionName: 'components_hero_sections_hero_with_right_images'
-  info: {
-    displayName: 'hero-with-right-image'
+    displayName: 'hero-with-image'
     description: ''
   }
   attributes: {
@@ -645,6 +620,7 @@ export interface HeroSectionsHeroWithRightImage extends Schema.Component {
     subtitle: Attribute.Text & Attribute.Required
     cta: Attribute.Component<'cta.button'>
     image: Attribute.Media<'images'> & Attribute.Required
+    image_position: Attribute.Enumeration<['left', 'right']> & Attribute.Required & Attribute.DefaultTo<'right'>
   }
 }
 
@@ -683,6 +659,53 @@ export interface HeroSectionsHeroSimpleCenter extends Schema.Component {
   attributes: {
     title: Attribute.String & Attribute.Required
     subtitle: Attribute.Text
+  }
+}
+
+export interface HeaderSectionsHeaderWithTextCards extends Schema.Component {
+  collectionName: 'components_header_sections_header_with_text_cards'
+  info: {
+    displayName: 'header-with-text-cards'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    cards: Attribute.Component<'cards.card-text', true> & Attribute.Required
+  }
+}
+
+export interface HeaderSectionsHeaderWithCardsWithIcon extends Schema.Component {
+  collectionName: 'header_with_cards_with_icons'
+  info: {
+    displayName: 'header-with-cards-with-icon'
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    cards: Attribute.Component<'cards.card-with-icon', true>
+  }
+}
+
+export interface FilterTagsFilter extends Schema.Component {
+  collectionName: 'tag_filter'
+  info: {
+    displayName: 'tag-filter'
+    description: ''
+  }
+  attributes: {
+    tags: Attribute.Relation<'filter.tags-filter', 'oneToMany', 'api::tag.tag'>
+  }
+}
+
+export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
+  collectionName: 'diagram_full_width'
+  info: {
+    displayName: 'diagram-full-width'
+    description: ''
+  }
+  attributes: {
+    image: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -768,25 +791,20 @@ export interface FeatureSectionsFeatureThreeColumnWithIconsAndCtas extends Schem
   }
 }
 
-export interface FilterTagsFilter extends Schema.Component {
-  collectionName: 'tag_filter'
+export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Component {
+  collectionName: 'customer_logo_simple_with_titles'
   info: {
-    displayName: 'tag-filter'
+    displayName: 'customer-logo-simple-with-title'
     description: ''
   }
   attributes: {
-    tags: Attribute.Relation<'filter.tags-filter', 'oneToMany', 'api::tag.tag'>
-  }
-}
-
-export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
-  collectionName: 'diagram_full_width'
-  info: {
-    displayName: 'diagram-full-width'
-    description: ''
-  }
-  attributes: {
-    image: Attribute.Media<'images'> & Attribute.Required
+    surtitle: Attribute.String & Attribute.Required
+    title: Attribute.String & Attribute.Required
+    customers: Attribute.Relation<
+      'customer-sections.customer-logo-simple-with-title',
+      'oneToMany',
+      'api::customer.customer'
+    >
   }
 }
 
@@ -815,36 +833,6 @@ export interface CtaSectionsCtaSimpleCentered extends Schema.Component {
     title: Attribute.String & Attribute.Required
     subtitle: Attribute.Text & Attribute.Required
     cta: Attribute.Component<'cta.button'> & Attribute.Required
-  }
-}
-
-export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Component {
-  collectionName: 'customer_logo_simple_with_titles'
-  info: {
-    displayName: 'customer-logo-simple-with-title'
-    description: ''
-  }
-  attributes: {
-    surtitle: Attribute.String & Attribute.Required
-    title: Attribute.String & Attribute.Required
-    customers: Attribute.Relation<
-      'customer-sections.customer-logo-simple-with-title',
-      'oneToMany',
-      'api::customer.customer'
-    >
-  }
-}
-
-export interface CtaButton extends Schema.Component {
-  collectionName: 'components_cta_buttons'
-  info: {
-    displayName: 'button'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    link: Attribute.String & Attribute.Required
-    tone: Attribute.Enumeration<['primary', 'secondary']> & Attribute.Required & Attribute.DefaultTo<'primary'>
   }
 }
 
@@ -891,6 +879,19 @@ export interface ContentSectionContentAlternatePositionWithImageList extends Sch
   }
   attributes: {
     items: Attribute.Component<'cards.content-alternate-position-with-image-item', true> & Attribute.Required
+  }
+}
+
+export interface CtaButton extends Schema.Component {
+  collectionName: 'components_cta_buttons'
+  info: {
+    displayName: 'button'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    link: Attribute.String & Attribute.Required
+    tone: Attribute.Enumeration<['primary', 'secondary']> & Attribute.Required & Attribute.DefaultTo<'primary'>
   }
 }
 
@@ -1104,25 +1105,25 @@ declare module '@strapi/types' {
       'map-sections.map-with-title': MapSectionsMapWithTitle
       'image-sections.image-simple': ImageSectionsImageSimple
       'icon.icon': IconIcon
-      'header-sections.header-with-text-cards': HeaderSectionsHeaderWithTextCards
-      'header-sections.header-with-cards-with-icon': HeaderSectionsHeaderWithCardsWithIcon
-      'hero-sections.hero-with-right-image': HeroSectionsHeroWithRightImage
+      'hero-sections.hero-with-image': HeroSectionsHeroWithImage
       'hero-sections.hero-with-gradient': HeroSectionsHeroWithGradient
       'hero-sections.hero-with-floating-gradients': HeroSectionsHeroWithFloatingGradients
       'hero-sections.hero-simple-center': HeroSectionsHeroSimpleCenter
+      'header-sections.header-with-text-cards': HeaderSectionsHeaderWithTextCards
+      'header-sections.header-with-cards-with-icon': HeaderSectionsHeaderWithCardsWithIcon
+      'filter.tags-filter': FilterTagsFilter
+      'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
       'feature-sections.feature': FeatureSectionsFeature
       'feature-sections.feature-with-large-image': FeatureSectionsFeatureWithLargeImage
       'feature-sections.feature-three-column-with-icons-and-ctas': FeatureSectionsFeatureThreeColumnWithIconsAndCtas
-      'filter.tags-filter': FilterTagsFilter
-      'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
+      'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam
       'cta-sections.cta-simple-centered': CtaSectionsCtaSimpleCentered
-      'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
-      'cta.button': CtaButton
       'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo
       'content-section.content-two-column': ContentSectionContentTwoColumn
       'content-section.content-markdown': ContentSectionContentMarkdown
       'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
+      'cta.button': CtaButton
       'contact-sections.contact': ContactSectionsContact
       'challenge-sections.challenge': ChallengeSectionsChallenge
       'challenge-sections.challenge-three-column': ChallengeSectionsChallengeThreeColumn

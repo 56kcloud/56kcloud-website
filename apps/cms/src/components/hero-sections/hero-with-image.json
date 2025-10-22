@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_hero_sections_hero_with_right_images",
+  "collectionName": "components_hero_sections_hero_with_images",
   "info": {
-    "displayName": "hero-with-right-image",
+    "displayName": "hero-with-image",
     "description": ""
   },
   "options": {},
@@ -26,7 +26,18 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "image_position": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "default": "right",
+      "required": true
     }
   }
 }

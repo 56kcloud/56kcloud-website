@@ -11,7 +11,8 @@ import ComponentLayout from '@/components/ui/atoms/component-layout'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export type HeroWithRightImageProps = {
+export type HeroWithImageProps = {
+  imagePosition: 'left' | 'right'
   surtitle?: string
   title: string
   subtitle: string
@@ -19,7 +20,7 @@ export type HeroWithRightImageProps = {
   image: ImageProps
 }
 
-export default function HeroWithRightImage(props: HeroWithRightImageProps) {
+export default function HeroWithImage(props: HeroWithImageProps) {
   const [isLoaded, setIsLoaded] = useState(false)
   const title = replaceBrTagWithNewline(props.title)
   const subtitle = replaceBrTagWithNewline(props.subtitle)
@@ -30,8 +31,10 @@ export default function HeroWithRightImage(props: HeroWithRightImageProps) {
 
   return (
     <ComponentLayout gradientVariant='heroGradient'>
-      <div className='flex gap-10 pb-8 pt-52 lg:pb-20 lg:pt-60'>
-        <div className='flex-1'>
+      <div
+        className={cn('flex gap-16 pb-8 pt-52 lg:pb-20 lg:pt-60', props.imagePosition === 'left' && 'flex-row-reverse')}
+      >
+        <div className='flex flex-col justify-center flex-1'>
           <div className={cn(props.surtitle ? 'space-y-8' : '')}>
             {props.surtitle && (
               <div>
