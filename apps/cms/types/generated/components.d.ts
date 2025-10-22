@@ -26,6 +26,18 @@ export interface ValueSectionsValueTwoColumn extends Schema.Component {
   }
 }
 
+export interface TeamSectionsTeamTwoColumn extends Schema.Component {
+  collectionName: 'team_two_columns'
+  info: {
+    displayName: 'team-two-column'
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    teamMembers: Attribute.Relation<'team-sections.team-two-column', 'oneToMany', 'api::team-member.team-member'>
+  }
+}
+
 export interface StepSectionsStep extends Schema.Component {
   collectionName: 'components_step_sections_steps'
   info: {
@@ -60,18 +72,6 @@ export interface StepSectionsStepRow extends Schema.Component {
         }
       }>
     steps: Attribute.Component<'step-sections.step', true> & Attribute.Required
-  }
-}
-
-export interface TeamSectionsTeamTwoColumn extends Schema.Component {
-  collectionName: 'team_two_columns'
-  info: {
-    displayName: 'team-two-column'
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.Text & Attribute.Required
-    teamMembers: Attribute.Relation<'team-sections.team-two-column', 'oneToMany', 'api::team-member.team-member'>
   }
 }
 
@@ -298,6 +298,59 @@ export interface ImageSectionsImageSimple extends Schema.Component {
   }
   attributes: {
     image: Attribute.Media<'images'> & Attribute.Required
+  }
+}
+
+export interface HeroSectionsHeroWithRightImage extends Schema.Component {
+  collectionName: 'components_hero_sections_hero_with_right_images'
+  info: {
+    displayName: 'hero-with-right-image'
+    description: ''
+  }
+  attributes: {
+    surtitle: Attribute.String
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    cta: Attribute.Component<'cta.button'>
+    image: Attribute.Media<'images'> & Attribute.Required
+  }
+}
+
+export interface HeroSectionsHeroWithGradient extends Schema.Component {
+  collectionName: 'components_hero_sections_hero_with_gradients'
+  info: {
+    displayName: 'hero-with-gradient'
+    description: ''
+  }
+  attributes: {
+    surtitle: Attribute.String
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    cta: Attribute.Component<'cta.button'>
+  }
+}
+
+export interface HeroSectionsHeroWithFloatingGradients extends Schema.Component {
+  collectionName: 'hero_with_floating_gradients'
+  info: {
+    displayName: 'hero-with-floating-gradients'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    cta: Attribute.Component<'cta.button'> & Attribute.Required
+  }
+}
+
+export interface HeroSectionsHeroSimpleCenter extends Schema.Component {
+  collectionName: 'components_hero_sections_hero_simple_centers'
+  info: {
+    displayName: 'hero-simple-center'
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text
   }
 }
 
@@ -608,41 +661,14 @@ export interface IconIcon extends Schema.Component {
   }
 }
 
-export interface HeroSectionsHeroWithGradient extends Schema.Component {
-  collectionName: 'components_hero_sections_hero_with_gradients'
+export interface FilterTagsFilter extends Schema.Component {
+  collectionName: 'tag_filter'
   info: {
-    displayName: 'hero-with-gradient'
+    displayName: 'tag-filter'
     description: ''
   }
   attributes: {
-    surtitle: Attribute.String
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.Text & Attribute.Required
-    cta: Attribute.Component<'cta.button'>
-  }
-}
-
-export interface HeroSectionsHeroWithFloatingGradients extends Schema.Component {
-  collectionName: 'hero_with_floating_gradients'
-  info: {
-    displayName: 'hero-with-floating-gradients'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.Text & Attribute.Required
-    cta: Attribute.Component<'cta.button'> & Attribute.Required
-  }
-}
-
-export interface HeroSectionsHeroSimpleCenter extends Schema.Component {
-  collectionName: 'components_hero_sections_hero_simple_centers'
-  info: {
-    displayName: 'hero-simple-center'
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.Text
+    tags: Attribute.Relation<'filter.tags-filter', 'oneToMany', 'api::tag.tag'>
   }
 }
 
@@ -668,17 +694,6 @@ export interface HeaderSectionsHeaderWithCardsWithIcon extends Schema.Component 
     title: Attribute.String & Attribute.Required
     subtitle: Attribute.Text & Attribute.Required
     cards: Attribute.Component<'cards.card-with-icon', true>
-  }
-}
-
-export interface FilterTagsFilter extends Schema.Component {
-  collectionName: 'tag_filter'
-  info: {
-    displayName: 'tag-filter'
-    description: ''
-  }
-  attributes: {
-    tags: Attribute.Relation<'filter.tags-filter', 'oneToMany', 'api::tag.tag'>
   }
 }
 
@@ -833,52 +848,6 @@ export interface CtaButton extends Schema.Component {
   }
 }
 
-export interface ContentSectionIntroductionWithLogo extends Schema.Component {
-  collectionName: 'components_content_section_introduction_with_logos'
-  info: {
-    displayName: 'introduction-with-logo'
-    description: ''
-  }
-  attributes: {
-    surtitle: Attribute.String & Attribute.Required
-    title: Attribute.String & Attribute.Required
-    description: Attribute.Text & Attribute.Required
-    logo: Attribute.Media<'images'> & Attribute.Required
-  }
-}
-
-export interface ContentSectionContentTwoColumn extends Schema.Component {
-  collectionName: 'components_content_section_content_two_columns'
-  info: {
-    displayName: 'Content-two-column'
-  }
-  attributes: {
-    contentLeft: Attribute.Text & Attribute.Required
-    contentRight: Attribute.Text & Attribute.Required
-  }
-}
-
-export interface ContentSectionContentMarkdown extends Schema.Component {
-  collectionName: 'components_content_section_content_markdowns'
-  info: {
-    displayName: 'content-markdown'
-  }
-  attributes: {
-    content: Attribute.RichText & Attribute.Required
-  }
-}
-
-export interface ContentSectionContentAlternatePositionWithImageList extends Schema.Component {
-  collectionName: 'components_content_alternate_pos_w_image_lists'
-  info: {
-    displayName: 'content-alternate-position-with-image-list'
-    description: ''
-  }
-  attributes: {
-    items: Attribute.Component<'cards.content-alternate-position-with-image-item', true> & Attribute.Required
-  }
-}
-
 export interface ContactSectionsContact extends Schema.Component {
   collectionName: 'contacts'
   info: {
@@ -939,6 +908,52 @@ export interface ChallengeSectionsChallengeSolution extends Schema.Component {
     title: Attribute.String & Attribute.Required
     description: Attribute.Text & Attribute.Required
     stat: Attribute.String & Attribute.Required
+  }
+}
+
+export interface ContentSectionIntroductionWithLogo extends Schema.Component {
+  collectionName: 'components_content_section_introduction_with_logos'
+  info: {
+    displayName: 'introduction-with-logo'
+    description: ''
+  }
+  attributes: {
+    surtitle: Attribute.String & Attribute.Required
+    title: Attribute.String & Attribute.Required
+    description: Attribute.Text & Attribute.Required
+    logo: Attribute.Media<'images'> & Attribute.Required
+  }
+}
+
+export interface ContentSectionContentTwoColumn extends Schema.Component {
+  collectionName: 'components_content_section_content_two_columns'
+  info: {
+    displayName: 'Content-two-column'
+  }
+  attributes: {
+    contentLeft: Attribute.Text & Attribute.Required
+    contentRight: Attribute.Text & Attribute.Required
+  }
+}
+
+export interface ContentSectionContentMarkdown extends Schema.Component {
+  collectionName: 'components_content_section_content_markdowns'
+  info: {
+    displayName: 'content-markdown'
+  }
+  attributes: {
+    content: Attribute.RichText & Attribute.Required
+  }
+}
+
+export interface ContentSectionContentAlternatePositionWithImageList extends Schema.Component {
+  collectionName: 'components_content_alternate_pos_w_image_lists'
+  info: {
+    displayName: 'content-alternate-position-with-image-list'
+    description: ''
+  }
+  attributes: {
+    items: Attribute.Component<'cards.content-alternate-position-with-image-item', true> & Attribute.Required
   }
 }
 
@@ -1032,6 +1047,16 @@ export interface CardsCardText extends Schema.Component {
   }
 }
 
+export interface BenefitBenefit extends Schema.Component {
+  collectionName: 'components_benefit_benefits'
+  info: {
+    displayName: 'benefit'
+  }
+  attributes: {
+    name: Attribute.String & Attribute.Required
+  }
+}
+
 export interface BlogSectionsBlogThreeColumn extends Schema.Component {
   collectionName: 'components_blog_sections_blog_three_columns'
   info: {
@@ -1056,24 +1081,14 @@ export interface BlogSectionsBlogMasonry extends Schema.Component {
   }
 }
 
-export interface BenefitBenefit extends Schema.Component {
-  collectionName: 'components_benefit_benefits'
-  info: {
-    displayName: 'benefit'
-  }
-  attributes: {
-    name: Attribute.String & Attribute.Required
-  }
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'value-sections.value': ValueSectionsValue
       'value-sections.value-two-column': ValueSectionsValueTwoColumn
+      'team-sections.team-two-column': TeamSectionsTeamTwoColumn
       'step-sections.step': StepSectionsStep
       'step-sections.step-row': StepSectionsStepRow
-      'team-sections.team-two-column': TeamSectionsTeamTwoColumn
       'solution-sections.solution-three-columns-with-image': SolutionSectionsSolutionThreeColumnsWithImage
       'solution-sections.solution-three-column-with-large-icons': SolutionSectionsSolutionThreeColumnWithLargeIcons
       'solution-sections.solution-one-column': SolutionSectionsSolutionOneColumn
@@ -1088,13 +1103,14 @@ declare module '@strapi/types' {
       'partner-sections.partner-logo-simple-with-title': PartnerSectionsPartnerLogoSimpleWithTitle
       'map-sections.map-with-title': MapSectionsMapWithTitle
       'image-sections.image-simple': ImageSectionsImageSimple
-      'icon.icon': IconIcon
+      'hero-sections.hero-with-right-image': HeroSectionsHeroWithRightImage
       'hero-sections.hero-with-gradient': HeroSectionsHeroWithGradient
       'hero-sections.hero-with-floating-gradients': HeroSectionsHeroWithFloatingGradients
       'hero-sections.hero-simple-center': HeroSectionsHeroSimpleCenter
+      'icon.icon': IconIcon
+      'filter.tags-filter': FilterTagsFilter
       'header-sections.header-with-text-cards': HeaderSectionsHeaderWithTextCards
       'header-sections.header-with-cards-with-icon': HeaderSectionsHeaderWithCardsWithIcon
-      'filter.tags-filter': FilterTagsFilter
       'feature-sections.feature': FeatureSectionsFeature
       'feature-sections.feature-with-large-image': FeatureSectionsFeatureWithLargeImage
       'feature-sections.feature-three-column-with-icons-and-ctas': FeatureSectionsFeatureThreeColumnWithIconsAndCtas
@@ -1103,23 +1119,23 @@ declare module '@strapi/types' {
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam
       'cta-sections.cta-simple-centered': CtaSectionsCtaSimpleCentered
       'cta.button': CtaButton
-      'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo
-      'content-section.content-two-column': ContentSectionContentTwoColumn
-      'content-section.content-markdown': ContentSectionContentMarkdown
-      'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
       'contact-sections.contact': ContactSectionsContact
       'challenge-sections.challenge': ChallengeSectionsChallenge
       'challenge-sections.challenge-three-column': ChallengeSectionsChallengeThreeColumn
       'challenge-sections.challenge-solution': ChallengeSectionsChallengeSolution
+      'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo
+      'content-section.content-two-column': ContentSectionContentTwoColumn
+      'content-section.content-markdown': ContentSectionContentMarkdown
+      'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
       'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
       'case-studies-sections.case-studies-three-column-with-image': CaseStudiesSectionsCaseStudiesThreeColumnWithImage
       'case-studies-sections.case-studies-grid-cards': CaseStudiesSectionsCaseStudiesGridCards
       'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem
       'cards.card-with-icon': CardsCardWithIcon
       'cards.card-text': CardsCardText
+      'benefit.benefit': BenefitBenefit
       'blog-sections.blog-three-column': BlogSectionsBlogThreeColumn
       'blog-sections.blog-masonry': BlogSectionsBlogMasonry
-      'benefit.benefit': BenefitBenefit
     }
   }
 }

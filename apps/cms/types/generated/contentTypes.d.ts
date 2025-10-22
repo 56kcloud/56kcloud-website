@@ -1408,9 +1408,9 @@ export interface ApiPartnersPagePartnersPage extends Schema.SingleType {
         'contact-sections.contact',
         'content-section.content-markdown',
         'header-sections.header-with-text-cards',
-        'hero-sections.hero-with-gradient',
         'image-sections.image-simple',
-        'content-section.introduction-with-logo'
+        'content-section.introduction-with-logo',
+        'hero-sections.hero-with-right-image'
       ]
     > &
       Attribute.Required &

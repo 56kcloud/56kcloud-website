@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_hero_sections_hero_with_right_images",
+  "info": {
+    "displayName": "hero-with-right-image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "surtitle": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text",
+      "required": true
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "cta.button"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
