@@ -1,22 +1,21 @@
 import {faker} from '@faker-js/faker'
 import {featureFactory} from '@/tests/factories/feature.factory'
-import FeatureOneColumn, {FeatureOneColumnProps} from './index'
+import FeatureThreeColumnWithIcons, {FeatureThreeColumnWithIconsProps} from './index'
 import type {Meta} from '@storybook/react'
 
 const meta = {
-  title: 'components/Organisms/FeatureSections/FeatureOneColumn',
-  component: FeatureOneColumn,
+  title: 'components/Organisms/FeatureSections/FeatureThreeColumnWithIcons',
+  component: FeatureThreeColumnWithIcons,
   tags: ['autodocs'],
   args: {
     title: faker.lorem.sentence(),
-    subtitle: faker.lorem.sentence(),
     features: Array.from({length: 3}, () => featureFactory<'icon'>({iconType: 'outline'}))
   }
-} satisfies Meta<typeof FeatureOneColumn>
+} satisfies Meta<typeof FeatureThreeColumnWithIcons>
 
 export default meta
 
 export const Default = {
   name: 'Default',
-  render: (args: FeatureOneColumnProps) => <FeatureOneColumn {...args} />
+  render: (args: FeatureThreeColumnWithIconsProps) => <FeatureThreeColumnWithIcons {...args} />
 }

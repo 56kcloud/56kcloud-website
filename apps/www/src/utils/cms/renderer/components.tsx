@@ -19,6 +19,7 @@ import ContentTwoColumn from '@/components/ui/organisms/content-sections/content
 import CustomerLogosSimpleWithTitle from '@/components/ui/organisms/customer-sections/customer-logos-simple-with-title'
 import DiagramFullWidth from '@/components/ui/organisms/diagram-sections/diagram-full-width'
 import DraftModal from '@/components/ui/organisms/draft-modal'
+import FeatureThreeColumnWithIcons from '@/components/ui/organisms/feature-sections/feature-three-column-with-icons'
 import FeatureThreeColumnWithIconsAndCTAs from '@/components/ui/organisms/feature-sections/feature-three-column-with-icons-and-ctas'
 import FeatureWithLargeImage from '@/components/ui/organisms/feature-sections/feature-with-large-image'
 import Footer from '@/components/ui/organisms/footer'
@@ -96,7 +97,8 @@ export const componentBlueprints: ComponentBlueprints = {
   'cta-simple-centered': CTASimpleCentered,
   'case-studies-three-column-with-image': CaseStudiesThreeColumnWithImage,
   'feature-with-large-image': FeatureWithLargeImage,
-  'hero-with-image': HeroWithImage
+  'hero-with-image': HeroWithImage,
+  'feature-three-column-with-icons': FeatureThreeColumnWithIcons
 }
 export type ComponentBlueprint = {
   component: keyof ComponentBlueprints

@@ -5,7 +5,7 @@ import FeatureThreeColumnsWithImage, {FeatureThreeColumnsWithImageProps} from '.
 import type {Meta} from '@storybook/react'
 
 const meta = {
-  title: 'components/Organisms/FeatureSection/FeatureThreeColumnsWithImage',
+  title: 'components/Organisms/FeatureSections/FeatureThreeColumnsWithImage',
   component: FeatureThreeColumnsWithImage,
   tags: ['autodocs'],
   args: {
