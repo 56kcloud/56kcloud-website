@@ -1,4 +1,5 @@
 import {Feature} from '@/models/feature.model'
+import {replaceBrTagWithNewline} from '@/utils/toolbox'
 import ComponentLayout from '@/components/ui/atoms/component-layout'
 import Icon from '@/components/ui/atoms/icon'
 
@@ -9,14 +10,17 @@ export type FeatureThreeColumnWithIconsProps = {
 }
 
 export default function FeatureThreeColumnWithIcons(props: FeatureThreeColumnWithIconsProps) {
+  const title = replaceBrTagWithNewline(props.title)
+  const subtitle = props.subtitle ? replaceBrTagWithNewline(props.subtitle) : ''
+
   return (
     <ComponentLayout gradientVariant='floatingGradient'>
       <div className='pb-20 pt-9 lg:pb-[104px] lg:pt-[120px] space-y-10 lg:space-y-20'>
         <div className='mx-auto text-center space-y-4 max-w-4xl'>
           <h2 className='w-fit mx-auto text-[44px] leading-[48px] font-extrabold tracking-tight text-transparent bg-clip-text bg-text-gradient-gray lg:leading-[58px]'>
-            {props.title}
+            {title}
           </h2>
-          <p className='text-base leading-7 text-slate-400 font-light'>{props.subtitle}</p>
+          <p className='text-base leading-7 text-slate-400 font-light'>{subtitle}</p>
         </div>
         <div className='mt-11'>
           <div className='grid grid-cols-1 gap-12 lg:gap-6 lg:grid-cols-3'>

@@ -120,31 +120,6 @@ export interface SolutionSectionsSolutionOneColumn extends Schema.Component {
   }
 }
 
-export interface SeoSeo extends Schema.Component {
-  collectionName: 'components_seo_seos'
-  info: {
-    displayName: 'seo'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    description: Attribute.Text
-  }
-}
-
-export interface SeoOpenGraph extends Schema.Component {
-  collectionName: 'components_seo_open_graphs'
-  info: {
-    displayName: 'open-graph'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    description: Attribute.Text & Attribute.Required
-    image: Attribute.Media<'images'> & Attribute.Required
-  }
-}
-
 export interface ServiceSectionsServiceThreeColumnWithLargeIcons extends Schema.Component {
   collectionName: 'service_three_column_with_large_icons'
   info: {
@@ -187,6 +162,31 @@ export interface ServiceSectionsServiceAlternatePositionIcon extends Schema.Comp
       'oneToMany',
       'api::service.service'
     >
+  }
+}
+
+export interface SeoSeo extends Schema.Component {
+  collectionName: 'components_seo_seos'
+  info: {
+    displayName: 'seo'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    description: Attribute.Text
+  }
+}
+
+export interface SeoOpenGraph extends Schema.Component {
+  collectionName: 'components_seo_open_graphs'
+  info: {
+    displayName: 'open-graph'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    description: Attribute.Text & Attribute.Required
+    image: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -698,6 +698,17 @@ export interface FilterTagsFilter extends Schema.Component {
   }
 }
 
+export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
+  collectionName: 'diagram_full_width'
+  info: {
+    displayName: 'diagram-full-width'
+    description: ''
+  }
+  attributes: {
+    image: Attribute.Media<'images'> & Attribute.Required
+  }
+}
+
 export interface FeatureSectionsFeature extends Schema.Component {
   collectionName: 'components_feature_sections_features'
   info: {
@@ -754,6 +765,30 @@ export interface FeatureSectionsFeatureWithLargeImage extends Schema.Component {
   }
 }
 
+export interface FeatureSectionsFeatureThreeColumnWithIcons extends Schema.Component {
+  collectionName: 'components_feature_three_column_with_icons'
+  info: {
+    displayName: 'feature-three-column-with-icons'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    subtitle: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    features: Attribute.Component<'feature-sections.feature', true>
+  }
+}
+
 export interface FeatureSectionsFeatureThreeColumnWithIconsAndCtas extends Schema.Component {
   collectionName: 'components_feature_three_column_with_icons_and_ctas'
   info: {
@@ -777,17 +812,6 @@ export interface FeatureSectionsFeatureThreeColumnWithIconsAndCtas extends Schem
       }>
     features: Attribute.Component<'feature-sections.feature', true>
     ctas: Attribute.Component<'cta.button', true>
-  }
-}
-
-export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
-  collectionName: 'diagram_full_width'
-  info: {
-    displayName: 'diagram-full-width'
-    description: ''
-  }
-  attributes: {
-    image: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -1093,11 +1117,11 @@ declare module '@strapi/types' {
       'solution-sections.solution-three-columns-with-image': SolutionSectionsSolutionThreeColumnsWithImage
       'solution-sections.solution-three-column-with-large-icons': SolutionSectionsSolutionThreeColumnWithLargeIcons
       'solution-sections.solution-one-column': SolutionSectionsSolutionOneColumn
-      'seo.seo': SeoSeo
-      'seo.open-graph': SeoOpenGraph
       'service-sections.service-three-column-with-large-icons': ServiceSectionsServiceThreeColumnWithLargeIcons
       'service-sections.service-masonry-card': ServiceSectionsServiceMasonryCard
       'service-sections.service-alternate-position-icon': ServiceSectionsServiceAlternatePositionIcon
+      'seo.seo': SeoSeo
+      'seo.open-graph': SeoOpenGraph
       'pricing-sections.tier': PricingSectionsTier
       'pricing-sections.tier-item': PricingSectionsTierItem
       'pricing-sections.pricing-three-column': PricingSectionsPricingThreeColumn
@@ -1112,10 +1136,11 @@ declare module '@strapi/types' {
       'header-sections.header-with-text-cards': HeaderSectionsHeaderWithTextCards
       'header-sections.header-with-cards-with-icon': HeaderSectionsHeaderWithCardsWithIcon
       'filter.tags-filter': FilterTagsFilter
+      'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
       'feature-sections.feature': FeatureSectionsFeature
       'feature-sections.feature-with-large-image': FeatureSectionsFeatureWithLargeImage
+      'feature-sections.feature-three-column-with-icons': FeatureSectionsFeatureThreeColumnWithIcons
       'feature-sections.feature-three-column-with-icons-and-ctas': FeatureSectionsFeatureThreeColumnWithIconsAndCtas
-      'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
       'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam
       'cta-sections.cta-simple-centered': CtaSectionsCtaSimpleCentered
