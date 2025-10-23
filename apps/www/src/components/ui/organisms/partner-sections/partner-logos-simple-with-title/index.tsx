@@ -1,10 +1,11 @@
 import {Partner} from '@/models/partner.model'
-import LogoCloudsSimpleWithTitle from '../../logo-clouds/logo-clouds-simple-with-title'
+import LogoCloudsSimpleWithTitle, {LogoCloudVariant} from '../../logo-clouds/logo-clouds-simple-with-title'
 
 export type PartnerLogosSimpleWithTitleProps = {
   surtitle: string
   title: string
   partners: Array<Partner>
+  variant: LogoCloudVariant
 }
 
 export default function PartnerLogosSimpleWithTitle(props: PartnerLogosSimpleWithTitleProps) {
@@ -13,6 +14,7 @@ export default function PartnerLogosSimpleWithTitle(props: PartnerLogosSimpleWit
       surtitle={props.surtitle}
       title={props.title}
       logos={props.partners.map((partner) => partner.image)}
+      variant={props.variant}
     />
   )
 }

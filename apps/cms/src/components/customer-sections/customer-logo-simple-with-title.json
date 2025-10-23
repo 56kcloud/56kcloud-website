@@ -7,8 +7,7 @@
   "options": {},
   "attributes": {
     "surtitle": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "title": {
       "type": "string",
