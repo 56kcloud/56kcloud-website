@@ -278,6 +278,16 @@ export interface PartnerSectionsPartnerLogoSimpleWithTitle extends Schema.Compon
   }
 }
 
+export interface ImageSectionsImageSimple extends Schema.Component {
+  collectionName: 'components_image_sections_image_simples'
+  info: {
+    displayName: 'image-simple'
+  }
+  attributes: {
+    image: Attribute.Media<'images'> & Attribute.Required
+  }
+}
+
 export interface MapSectionsMapWithTitle extends Schema.Component {
   collectionName: 'components_map_sections_map_with_titles'
   info: {
@@ -288,16 +298,6 @@ export interface MapSectionsMapWithTitle extends Schema.Component {
     title: Attribute.String
     subtitle: Attribute.Text
     locations: Attribute.Relation<'map-sections.map-with-title', 'oneToMany', 'api::location.location'>
-  }
-}
-
-export interface ImageSectionsImageSimple extends Schema.Component {
-  collectionName: 'components_image_sections_image_simples'
-  info: {
-    displayName: 'image-simple'
-  }
-  attributes: {
-    image: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -687,17 +687,6 @@ export interface HeaderSectionsHeaderWithCardsWithIcon extends Schema.Component 
   }
 }
 
-export interface FilterTagsFilter extends Schema.Component {
-  collectionName: 'tag_filter'
-  info: {
-    displayName: 'tag-filter'
-    description: ''
-  }
-  attributes: {
-    tags: Attribute.Relation<'filter.tags-filter', 'oneToMany', 'api::tag.tag'>
-  }
-}
-
 export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
   collectionName: 'diagram_full_width'
   info: {
@@ -860,6 +849,17 @@ export interface CtaSectionsCtaSimpleCentered extends Schema.Component {
   }
 }
 
+export interface FilterTagsFilter extends Schema.Component {
+  collectionName: 'tag_filter'
+  info: {
+    displayName: 'tag-filter'
+    description: ''
+  }
+  attributes: {
+    tags: Attribute.Relation<'filter.tags-filter', 'oneToMany', 'api::tag.tag'>
+  }
+}
+
 export interface CtaButton extends Schema.Component {
   collectionName: 'components_cta_buttons'
   info: {
@@ -928,70 +928,6 @@ export interface ContactSectionsContact extends Schema.Component {
   attributes: {
     title: Attribute.String & Attribute.Required
     subtitle: Attribute.String & Attribute.Required
-  }
-}
-
-export interface ChallengeSectionsChallenge extends Schema.Component {
-  collectionName: 'components_challenge_sections_challenge'
-  info: {
-    displayName: 'challenge'
-  }
-  attributes: {
-    icon: Attribute.Component<'icon.icon'> & Attribute.Required
-    title: Attribute.String & Attribute.Required
-    description: Attribute.Text & Attribute.Required
-    stat: Attribute.String & Attribute.Required
-    solution: Attribute.Component<'challenge-sections.challenge-solution'>
-  }
-}
-
-export interface ChallengeSectionsChallengeThreeColumn extends Schema.Component {
-  collectionName: 'components_challenge_sections_challenge_three_column'
-  info: {
-    displayName: 'challenge-three-column'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate'
-        }
-      }>
-    subtitle: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate'
-        }
-      }>
-    challenges: Attribute.Component<'challenge-sections.challenge', true>
-  }
-}
-
-export interface ChallengeSectionsChallengeSolution extends Schema.Component {
-  collectionName: 'components_challenge_sections_challenge_solution'
-  info: {
-    displayName: 'challenge-solution'
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    description: Attribute.Text & Attribute.Required
-    stat: Attribute.String & Attribute.Required
-  }
-}
-
-export interface CertificationsSectionsCertificationsBadgesWithTitle extends Schema.Component {
-  collectionName: 'certifications_badges_with_titles'
-  info: {
-    displayName: 'certifications-badges-with-title'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    horizontalBadgesImage: Attribute.Media<'images'> & Attribute.Required
-    verticalBadgesImage: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -1106,6 +1042,76 @@ export interface BenefitBenefit extends Schema.Component {
   }
 }
 
+export interface ChallengeSectionsChallenge extends Schema.Component {
+  collectionName: 'components_challenge_sections_challenge'
+  info: {
+    displayName: 'challenge'
+  }
+  attributes: {
+    icon: Attribute.Component<'icon.icon'> & Attribute.Required
+    title: Attribute.String & Attribute.Required
+    description: Attribute.Text & Attribute.Required
+    stat: Attribute.String & Attribute.Required
+    solution: Attribute.Component<'challenge-sections.challenge-solution'>
+  }
+}
+
+export interface ChallengeSectionsChallengeThreeColumn extends Schema.Component {
+  collectionName: 'components_challenge_sections_challenge_three_column'
+  info: {
+    displayName: 'challenge-three-column'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    subtitle: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    challenges: Attribute.Component<'challenge-sections.challenge', true>
+  }
+}
+
+export interface ChallengeSectionsChallengeSolution extends Schema.Component {
+  collectionName: 'components_challenge_sections_challenge_solution'
+  info: {
+    displayName: 'challenge-solution'
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    description: Attribute.Text & Attribute.Required
+    stat: Attribute.String & Attribute.Required
+  }
+}
+
+export interface CertificationsSectionsCertificationsBadgesWithTitle extends Schema.Component {
+  collectionName: 'certifications_badges_with_titles'
+  info: {
+    displayName: 'certifications-badges-with-title'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    horizontalBadgesImage: Attribute.Media<'images'> & Attribute.Required
+    verticalBadgesImage: Attribute.Media<'images'> & Attribute.Required
+  }
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -1126,8 +1132,8 @@ declare module '@strapi/types' {
       'pricing-sections.tier-item': PricingSectionsTierItem
       'pricing-sections.pricing-three-column': PricingSectionsPricingThreeColumn
       'partner-sections.partner-logo-simple-with-title': PartnerSectionsPartnerLogoSimpleWithTitle
-      'map-sections.map-with-title': MapSectionsMapWithTitle
       'image-sections.image-simple': ImageSectionsImageSimple
+      'map-sections.map-with-title': MapSectionsMapWithTitle
       'icon.icon': IconIcon
       'hero-sections.hero-with-image': HeroSectionsHeroWithImage
       'hero-sections.hero-with-gradient': HeroSectionsHeroWithGradient
@@ -1135,7 +1141,6 @@ declare module '@strapi/types' {
       'hero-sections.hero-simple-center': HeroSectionsHeroSimpleCenter
       'header-sections.header-with-text-cards': HeaderSectionsHeaderWithTextCards
       'header-sections.header-with-cards-with-icon': HeaderSectionsHeaderWithCardsWithIcon
-      'filter.tags-filter': FilterTagsFilter
       'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
       'feature-sections.feature': FeatureSectionsFeature
       'feature-sections.feature-with-large-image': FeatureSectionsFeatureWithLargeImage
@@ -1144,16 +1149,13 @@ declare module '@strapi/types' {
       'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam
       'cta-sections.cta-simple-centered': CtaSectionsCtaSimpleCentered
+      'filter.tags-filter': FilterTagsFilter
       'cta.button': CtaButton
       'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo
       'content-section.content-two-column': ContentSectionContentTwoColumn
       'content-section.content-markdown': ContentSectionContentMarkdown
       'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
       'contact-sections.contact': ContactSectionsContact
-      'challenge-sections.challenge': ChallengeSectionsChallenge
-      'challenge-sections.challenge-three-column': ChallengeSectionsChallengeThreeColumn
-      'challenge-sections.challenge-solution': ChallengeSectionsChallengeSolution
-      'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
       'case-studies-sections.case-studies-three-column-with-image': CaseStudiesSectionsCaseStudiesThreeColumnWithImage
       'case-studies-sections.case-studies-grid-cards': CaseStudiesSectionsCaseStudiesGridCards
       'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem
@@ -1162,6 +1164,10 @@ declare module '@strapi/types' {
       'blog-sections.blog-three-column': BlogSectionsBlogThreeColumn
       'blog-sections.blog-masonry': BlogSectionsBlogMasonry
       'benefit.benefit': BenefitBenefit
+      'challenge-sections.challenge': ChallengeSectionsChallenge
+      'challenge-sections.challenge-three-column': ChallengeSectionsChallengeThreeColumn
+      'challenge-sections.challenge-solution': ChallengeSectionsChallengeSolution
+      'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
     }
   }
 }
