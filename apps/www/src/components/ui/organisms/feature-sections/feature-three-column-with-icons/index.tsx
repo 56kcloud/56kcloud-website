@@ -27,20 +27,20 @@ export default function FeatureThreeColumnWithIcons(props: FeatureThreeColumnWit
             {props.features?.map((feature, index) => (
               <div
                 key={index}
-                className='flex flex-col lg:p-6 space-y-3'
+                className='relative w-full h-full flex flex-col items-start p-6 space-y-3 border border-slate-800 rounded-3xl bg-gradient-to-t from-slate-800 to-slate-900 sm:p-8'
               >
-                <div className='flex items-center gap-x-3'>
-                  <div className='flex items-start h-full translate-y-[2px]'>
-                    <Icon
-                      {...feature.icon}
-                      className='w-6 h-6 text-sky-500'
-                    />
-                  </div>
-                  <h3 className='text-xl w-fit font-semibold tracking-tight text-transparent bg-clip-text bg-text-gradient-gray'>
+                <div className='absolute top-0 left-1/2 -translate-x-1/2'>
+                  <Icon
+                    {...feature.icon}
+                    className='w-6 h-6 text-sky-500'
+                  />
+                </div>
+                <div className='space-y-3 text-center'>
+                  <h3 className='text-2xl leading-7 font-semibold text-transparent bg-clip-text bg-text-gradient-blue'>
                     {feature.title}
                   </h3>
+                  <p className='text-sm leading-6 text-slate-400 font-light'>{feature.description}</p>
                 </div>
-                <p className='text-base leading-7 font-light text-slate-400'>{feature.description}</p>
               </div>
             ))}
           </div>
