@@ -1411,7 +1411,8 @@ export interface ApiPartnersPagePartnersPage extends Schema.SingleType {
         'image-sections.image-simple',
         'content-section.introduction-with-logo',
         'hero-sections.hero-with-image',
-        'feature-sections.feature-three-column-with-icons'
+        'feature-sections.feature-three-column-with-icons',
+        'certifications-sections.certifications-badges-with-title'
       ]
     > &
       Attribute.Required &

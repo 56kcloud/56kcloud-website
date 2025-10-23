@@ -10,6 +10,14 @@
       "type": "string",
       "required": true
     },
+    "subtitle": {
+      "type": "text",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
+    },
     "horizontalBadgesImage": {
       "allowedTypes": ["images"],
       "type": "media",
