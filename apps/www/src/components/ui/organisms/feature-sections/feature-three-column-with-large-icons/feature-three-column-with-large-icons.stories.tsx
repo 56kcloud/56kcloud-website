@@ -4,7 +4,7 @@ import FeatureThreeColumnWithLargeIcons, {FeatureThreeColumnWithLargeIconsProps}
 import type {Meta} from '@storybook/react'
 
 const meta = {
-  title: 'components/Organisms/FeatureSection/FeatureThreeColumnWithLargeIcons',
+  title: 'components/Organisms/FeatureSections/FeatureThreeColumnWithLargeIcons',
   component: FeatureThreeColumnWithLargeIcons,
   tags: ['autodocs'],
   argTypes: {

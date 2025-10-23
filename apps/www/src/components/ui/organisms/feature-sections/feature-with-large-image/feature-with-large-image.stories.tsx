@@ -4,7 +4,7 @@ import FeatureWithLargeImage, {FeatureWithLargeImageProps} from './index'
 import type {Meta} from '@storybook/react'
 
 const meta = {
-  title: 'components/Organisms/FeatureSection/FeatureWithLargeImage',
+  title: 'components/Organisms/FeatureSections/FeatureWithLargeImage',
   component: FeatureWithLargeImage,
   tags: ['autodocs'],
   args: {

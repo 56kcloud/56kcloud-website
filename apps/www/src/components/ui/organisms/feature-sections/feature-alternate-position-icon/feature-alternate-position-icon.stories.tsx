@@ -4,7 +4,7 @@ import FeatureAlternatePositionIcon, {FeatureAlternatePositionIconProps} from '.
 import type {Meta} from '@storybook/react'
 
 const meta = {
-  title: 'components/Organisms/FeatureSection/FeatureAlternatePositionIcon',
+  title: 'components/Organisms/FeatureSections/FeatureAlternatePositionIcon',
   component: FeatureAlternatePositionIcon,
   tags: ['autodocs'],
   args: {
