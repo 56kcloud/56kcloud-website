@@ -15,7 +15,6 @@ export type LogoCloudsSimpleWithTitleProps = {
 }
 
 export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTitleProps) {
-  console.log('PROPS PROPS PROPS', props.link)
   return (
     <ComponentLayout>
       <div className='pt-9 pb-0 lg:pt-[104px] lg:pb-6'>
