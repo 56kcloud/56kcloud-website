@@ -7,8 +7,7 @@
   "options": {},
   "attributes": {
     "surtitle": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "title": {
       "type": "string",
@@ -18,6 +17,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::partner.partner"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["slider", "grid"],
+      "default": "slider"
     }
   }
 }

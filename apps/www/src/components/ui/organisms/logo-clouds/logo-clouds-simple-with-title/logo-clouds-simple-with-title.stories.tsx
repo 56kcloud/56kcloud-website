@@ -1,6 +1,6 @@
 import {faker} from '@faker-js/faker'
-import {imageFactory} from '@/tests/factories/image.factory'
 import LogoCloudsSimpleWithTitle, {LogoCloudsSimpleWithTitleProps} from './index'
+import partnerFactory from '@/tests/factories/partner.factory'
 import type {Meta} from '@storybook/react'
 
 const meta = {
@@ -10,13 +10,30 @@ const meta = {
   args: {
     surtitle: faker.lorem.sentence(),
     title: faker.lorem.sentence(),
-    logos: Array.from({length: 4}, () => imageFactory({category: 'logo'}))
+    items: Array.from({length: 4}, () => partnerFactory())
   }
 } satisfies Meta<typeof LogoCloudsSimpleWithTitle>
 
 export default meta
 
-export const Default = {
-  name: 'Default',
-  render: (args: LogoCloudsSimpleWithTitleProps) => <LogoCloudsSimpleWithTitle {...args} />
+export const Slider = {
+  name: 'Slider',
+  variant: 'slider',
+  render: (args: LogoCloudsSimpleWithTitleProps) => (
+    <LogoCloudsSimpleWithTitle
+      {...args}
+      variant='slider'
+    />
+  )
+}
+
+export const Grid = {
+  name: 'Grid',
+  variant: 'grid',
+  render: (args: LogoCloudsSimpleWithTitleProps) => (
+    <LogoCloudsSimpleWithTitle
+      {...args}
+      variant='grid'
+    />
+  )
 }
