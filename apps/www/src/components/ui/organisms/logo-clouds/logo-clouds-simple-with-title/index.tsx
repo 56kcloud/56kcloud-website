@@ -1,4 +1,5 @@
-import {ImageProps} from '@/models/image.model'
+import {Customer} from '@/models/customer.model'
+import {Partner} from '@/models/partner.model'
 import ComponentLayout from '@/components/ui/atoms/component-layout'
 import Image from 'next/image'
 import InfiniteSliderLogos from '@/components/ui/molecules/infinite-slider-logos'
@@ -9,12 +10,13 @@ export type LogoCloudVariant = 'slider' | 'grid'
 export type LogoCloudsSimpleWithTitleProps = {
   surtitle?: string
   title: string
-  link?: string[]
-  logos: Array<ImageProps>
+  items: Array<Partner | Customer>
   variant?: LogoCloudVariant
 }
 
 export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTitleProps) {
+  const {variant = 'slider'} = props
+
   return (
     <ComponentLayout>
       <div className='pt-9 pb-0 lg:pt-[104px] lg:pb-6'>
@@ -31,22 +33,22 @@ export default function LogoCloudsSimpleWithTitle(props: LogoCloudsSimpleWithTit
                 {props.title}
               </h2>
             </div>
-            {props.variant === 'slider' ? (
-              <InfiniteSliderLogos logos={props.logos} />
+            {variant === 'slider' ? (
+              <InfiniteSliderLogos logos={props.items.map((item) => item.image)} />
             ) : (
               <div className='w-fit mx-auto grid grid-cols-4 gap-y-8 mt-12'>
-                {props.logos.map((logo, index) => (
+                {props.items.map((item, index) => (
                   <Link
-                    href={`/partners/${props.link?.[index] || '#'}`}
+                    href={`/partners/${item.link || '#'}`}
                     key={index}
                     className='flex items-center justify-center mx-4 w-[234px] p-7 sm:p-8 lg:p-10 bg-[#151E31] rounded-2xl border border-slate-800 z-50 hover:bg-[#151E31]/50 hover:border-transparent transition-all duration-200'
                   >
                     <Image
                       className='max-h-6 sm:max-h-8 lg:max-h-10'
-                      src={logo.url}
-                      alt={logo.alternateText || logo.name}
-                      width={logo.width}
-                      height={logo.height}
+                      src={item.image.url}
+                      alt={item.image.alternateText || item.image.name}
+                      width={item.image.width}
+                      height={item.image.height}
                     />
                   </Link>
                 ))}

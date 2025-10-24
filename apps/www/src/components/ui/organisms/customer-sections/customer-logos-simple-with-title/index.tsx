@@ -12,7 +12,7 @@ export default function CustomerLogosSimpleWithTitle(props: CustomerLogosSimpleW
     <LogoCloudsSimpleWithTitle
       surtitle={props.surtitle}
       title={props.title}
-      logos={props.customers.map((customer) => customer.image)}
+      items={props.customers}
     />
   )
 }
