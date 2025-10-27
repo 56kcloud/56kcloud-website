@@ -1406,14 +1406,10 @@ export interface ApiPartnersPagePartnersPage extends Schema.SingleType {
     body: Attribute.DynamicZone<
       [
         'contact-sections.contact',
-        'content-section.content-markdown',
-        'header-sections.header-with-text-cards',
-        'image-sections.image-simple',
-        'content-section.introduction-with-logo',
         'hero-sections.hero-with-image',
         'feature-sections.feature-three-column-with-icons',
-        'certifications-sections.certifications-badges-with-title',
-        'partner-sections.partner-logo-simple-with-title'
+        'partner-sections.partner-logo-simple-with-title',
+        'case-studies-sections.case-studies-three-column-with-image'
       ]
     > &
       Attribute.Required &
