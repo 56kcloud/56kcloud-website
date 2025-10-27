@@ -18,6 +18,7 @@ export type HeroWithImageProps = {
   subtitle: string
   cta?: CTAProps
   image: ImageProps
+  imageFit?: 'fill' | 'center'
 }
 
 export default function HeroWithImage(props: HeroWithImageProps) {
@@ -77,7 +78,7 @@ export default function HeroWithImage(props: HeroWithImageProps) {
           )}
         </div>
         <div className='flex-1'>
-          <div className='border-gradient p-2 rounded-3xl w-full h-full bg-gradient-to-t from-slate-800 to-slate-900'>
+          <div className='w-full h-96 flex items-center justify-center p-2 border-gradient rounded-3xl bg-gradient-to-t from-slate-800 to-slate-900'>
             <Image
               src={props.image.url}
               alt={props.image.alternateText || props.image.name}
@@ -86,7 +87,11 @@ export default function HeroWithImage(props: HeroWithImageProps) {
               }}
               width={props.image.width}
               height={props.image.height}
-              className={cn('object-cover w-full h-full rounded-2xl', isLoaded && 'bg-white')}
+              className={cn(
+                'rounded-2xl w-full h-full',
+                isLoaded && 'bg-transparent',
+                props.imageFit === 'fill' ? 'object-fill' : 'w-[90%] h-auto'
+              )}
             />
           </div>
         </div>

@@ -622,6 +622,7 @@ export interface HeroSectionsHeroWithImage extends Schema.Component {
     cta: Attribute.Component<'cta.button'>
     image: Attribute.Media<'images'> & Attribute.Required
     image_position: Attribute.Enumeration<['left', 'right']> & Attribute.Required & Attribute.DefaultTo<'right'>
+    image_fit: Attribute.Enumeration<['fill', 'center']> & Attribute.DefaultTo<'fill'>
   }
 }
 
@@ -1002,6 +1003,38 @@ export interface CertificationsSectionsCertificationsBadgesWithTitle extends Sch
   }
 }
 
+export interface CaseStudiesSectionsCaseStudiesThreeColumnWithImage extends Schema.Component {
+  collectionName: 'case_studies_three_columns_with_image'
+  info: {
+    displayName: 'case-studies-three-columns-with-image'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    case_studies: Attribute.Relation<
+      'case-studies-sections.case-studies-three-column-with-image',
+      'oneToMany',
+      'api::case-study.case-study'
+    >
+  }
+}
+
+export interface CaseStudiesSectionsCaseStudiesGridCards extends Schema.Component {
+  collectionName: 'case_studies_grid_cards'
+  info: {
+    displayName: 'case-studies-grid-cards'
+    description: ''
+  }
+  attributes: {
+    case_studies: Attribute.Relation<
+      'case-studies-sections.case-studies-grid-cards',
+      'oneToMany',
+      'api::case-study.case-study'
+    >
+  }
+}
+
 export interface CardsContentAlternatePositionWithImageItem extends Schema.Component {
   collectionName: 'components_content_alternate_pos_w_image_items'
   info: {
@@ -1081,38 +1114,6 @@ export interface BenefitBenefit extends Schema.Component {
   }
 }
 
-export interface CaseStudiesSectionsCaseStudiesThreeColumnWithImage extends Schema.Component {
-  collectionName: 'case_studies_three_columns_with_image'
-  info: {
-    displayName: 'case-studies-three-columns-with-image'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.Text & Attribute.Required
-    case_studies: Attribute.Relation<
-      'case-studies-sections.case-studies-three-column-with-image',
-      'oneToMany',
-      'api::case-study.case-study'
-    >
-  }
-}
-
-export interface CaseStudiesSectionsCaseStudiesGridCards extends Schema.Component {
-  collectionName: 'case_studies_grid_cards'
-  info: {
-    displayName: 'case-studies-grid-cards'
-    description: ''
-  }
-  attributes: {
-    case_studies: Attribute.Relation<
-      'case-studies-sections.case-studies-grid-cards',
-      'oneToMany',
-      'api::case-study.case-study'
-    >
-  }
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -1161,14 +1162,14 @@ declare module '@strapi/types' {
       'challenge-sections.challenge-three-column': ChallengeSectionsChallengeThreeColumn
       'challenge-sections.challenge-solution': ChallengeSectionsChallengeSolution
       'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
+      'case-studies-sections.case-studies-three-column-with-image': CaseStudiesSectionsCaseStudiesThreeColumnWithImage
+      'case-studies-sections.case-studies-grid-cards': CaseStudiesSectionsCaseStudiesGridCards
       'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem
       'cards.card-with-icon': CardsCardWithIcon
       'cards.card-text': CardsCardText
       'blog-sections.blog-three-column': BlogSectionsBlogThreeColumn
       'blog-sections.blog-masonry': BlogSectionsBlogMasonry
       'benefit.benefit': BenefitBenefit
-      'case-studies-sections.case-studies-three-column-with-image': CaseStudiesSectionsCaseStudiesThreeColumnWithImage
-      'case-studies-sections.case-studies-grid-cards': CaseStudiesSectionsCaseStudiesGridCards
     }
   }
 }

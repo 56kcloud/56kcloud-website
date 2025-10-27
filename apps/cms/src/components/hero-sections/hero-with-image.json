@@ -26,13 +26,27 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "image_position": {
       "type": "enumeration",
-      "enum": ["left", "right"],
+      "enum": [
+        "left",
+        "right"
+      ],
       "default": "right",
       "required": true
+    },
+    "image_fit": {
+      "type": "enumeration",
+      "enum": [
+        "fill",
+        "center"
+      ],
+      "default": "fill",
+      "required": false
     }
   }
 }
