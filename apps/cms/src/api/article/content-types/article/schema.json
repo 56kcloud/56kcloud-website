@@ -75,7 +75,9 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images"],
+      "allowedTypes": [
+        "images"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -109,12 +111,12 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::partner.partner",
-      "inversedBy": "relatedArticles",
       "pluginOptions": {
         "translate": {
           "translate": "translate"
         }
-      }
+      },
+      "inversedBy": "relatedArticles"
     },
     "relatedArticles": {
       "type": "relation",

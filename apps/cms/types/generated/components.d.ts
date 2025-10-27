@@ -805,23 +805,6 @@ export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
   }
 }
 
-export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Component {
-  collectionName: 'customer_logo_simple_with_titles'
-  info: {
-    displayName: 'customer-logo-simple-with-title'
-    description: ''
-  }
-  attributes: {
-    surtitle: Attribute.String
-    title: Attribute.String & Attribute.Required
-    customers: Attribute.Relation<
-      'customer-sections.customer-logo-simple-with-title',
-      'oneToMany',
-      'api::customer.customer'
-    >
-  }
-}
-
 export interface FilterTagsFilter extends Schema.Component {
   collectionName: 'tag_filter'
   info: {
@@ -858,6 +841,23 @@ export interface CtaSectionsCtaSimpleCentered extends Schema.Component {
     title: Attribute.String & Attribute.Required
     subtitle: Attribute.Text & Attribute.Required
     cta: Attribute.Component<'cta.button'> & Attribute.Required
+  }
+}
+
+export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Component {
+  collectionName: 'customer_logo_simple_with_titles'
+  info: {
+    displayName: 'customer-logo-simple-with-title'
+    description: ''
+  }
+  attributes: {
+    surtitle: Attribute.String
+    title: Attribute.String & Attribute.Required
+    customers: Attribute.Relation<
+      'customer-sections.customer-logo-simple-with-title',
+      'oneToMany',
+      'api::customer.customer'
+    >
   }
 }
 
@@ -932,6 +932,25 @@ export interface ContactSectionsContact extends Schema.Component {
   }
 }
 
+export interface CertificationsSectionsCertificationsBadgesWithTitle extends Schema.Component {
+  collectionName: 'certifications_badges_with_titles'
+  info: {
+    displayName: 'certifications-badges-with-title'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    horizontalBadgesImage: Attribute.Media<'images'> & Attribute.Required
+    verticalBadgesImage: Attribute.Media<'images'> & Attribute.Required
+  }
+}
+
 export interface ChallengeSectionsChallenge extends Schema.Component {
   collectionName: 'components_challenge_sections_challenge'
   info: {
@@ -980,25 +999,6 @@ export interface ChallengeSectionsChallengeSolution extends Schema.Component {
     title: Attribute.String & Attribute.Required
     description: Attribute.Text & Attribute.Required
     stat: Attribute.String & Attribute.Required
-  }
-}
-
-export interface CertificationsSectionsCertificationsBadgesWithTitle extends Schema.Component {
-  collectionName: 'certifications_badges_with_titles'
-  info: {
-    displayName: 'certifications-badges-with-title'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        translate: {
-          translate: 'translate'
-        }
-      }>
-    horizontalBadgesImage: Attribute.Media<'images'> & Attribute.Required
-    verticalBadgesImage: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -1147,20 +1147,20 @@ declare module '@strapi/types' {
       'feature-sections.feature-three-column-with-icons': FeatureSectionsFeatureThreeColumnWithIcons
       'feature-sections.feature-three-column-with-icons-and-ctas': FeatureSectionsFeatureThreeColumnWithIconsAndCtas
       'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
-      'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
       'filter.tags-filter': FilterTagsFilter
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam
       'cta-sections.cta-simple-centered': CtaSectionsCtaSimpleCentered
+      'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
       'cta.button': CtaButton
       'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo
       'content-section.content-two-column': ContentSectionContentTwoColumn
       'content-section.content-markdown': ContentSectionContentMarkdown
       'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
       'contact-sections.contact': ContactSectionsContact
+      'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
       'challenge-sections.challenge': ChallengeSectionsChallenge
       'challenge-sections.challenge-three-column': ChallengeSectionsChallengeThreeColumn
       'challenge-sections.challenge-solution': ChallengeSectionsChallengeSolution
-      'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
       'case-studies-sections.case-studies-three-column-with-image': CaseStudiesSectionsCaseStudiesThreeColumnWithImage
       'case-studies-sections.case-studies-grid-cards': CaseStudiesSectionsCaseStudiesGridCards
       'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem

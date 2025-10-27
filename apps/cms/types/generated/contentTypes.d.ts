@@ -1329,11 +1329,39 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
           localized: true
         }
       }>
-    name: Attribute.String & Attribute.Required
-    description: Attribute.Text & Attribute.Required
-    link: Attribute.String
-    image: Attribute.Media<'images'> & Attribute.Required
-    relatedArticles: Attribute.Relation<'api::partner.partner', 'manyToMany', 'api::article.article'>
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    link: Attribute.String &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    image: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    relatedArticles: Attribute.Relation<'api::partner.partner', 'manyToMany', 'api::article.article'> &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
     body: Attribute.DynamicZone<
       [
         'header-sections.header-with-cards-with-icon',
@@ -1355,7 +1383,10 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
         'cta-sections.cta-simple-centered',
         'hero-sections.hero-with-gradient',
         'feature-sections.feature-with-large-image',
-        'customer-sections.customer-logo-simple-with-title'
+        'customer-sections.customer-logo-simple-with-title',
+        'hero-sections.hero-with-image',
+        'feature-sections.feature-three-column-with-icons',
+        'certifications-sections.certifications-badges-with-title'
       ]
     > &
       Attribute.SetPluginOptions<{

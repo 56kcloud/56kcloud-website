@@ -31,27 +31,54 @@
     },
     "name": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "description": {
       "type": "text",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "link": {
       "type": "string",
-      "required": false
+      "required": false,
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "image": {
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "relatedArticles": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::article.article",
-      "mappedBy": "relatedPartners"
+      "mappedBy": "relatedPartners",
+      "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        }
+      }
     },
     "body": {
       "pluginOptions": {
@@ -83,7 +110,10 @@
         "cta-sections.cta-simple-centered",
         "hero-sections.hero-with-gradient",
         "feature-sections.feature-with-large-image",
-        "customer-sections.customer-logo-simple-with-title"
+        "customer-sections.customer-logo-simple-with-title",
+        "hero-sections.hero-with-image",
+        "feature-sections.feature-three-column-with-icons",
+        "certifications-sections.certifications-badges-with-title"
       ]
     }
   }
