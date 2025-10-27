@@ -1386,7 +1386,9 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
         'customer-sections.customer-logo-simple-with-title',
         'hero-sections.hero-with-image',
         'feature-sections.feature-three-column-with-icons',
-        'certifications-sections.certifications-badges-with-title'
+        'certifications-sections.certifications-badges-with-title',
+        'team-sections.team-two-column',
+        'blog-sections.blog-three-column'
       ]
     > &
       Attribute.SetPluginOptions<{
