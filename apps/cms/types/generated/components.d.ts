@@ -1,5 +1,17 @@
 import type {Schema, Attribute} from '@strapi/strapi'
 
+export interface TeamSectionsTeamTwoColumn extends Schema.Component {
+  collectionName: 'team_two_columns'
+  info: {
+    displayName: 'team-two-column'
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    teamMembers: Attribute.Relation<'team-sections.team-two-column', 'oneToMany', 'api::team-member.team-member'>
+  }
+}
+
 export interface ValueSectionsValue extends Schema.Component {
   collectionName: 'components_value_sections_values'
   info: {
@@ -23,18 +35,6 @@ export interface ValueSectionsValueTwoColumn extends Schema.Component {
     title: Attribute.String & Attribute.Required
     subtitle: Attribute.Text & Attribute.Required
     values: Attribute.Component<'value-sections.value', true>
-  }
-}
-
-export interface TeamSectionsTeamTwoColumn extends Schema.Component {
-  collectionName: 'team_two_columns'
-  info: {
-    displayName: 'team-two-column'
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.Text & Attribute.Required
-    teamMembers: Attribute.Relation<'team-sections.team-two-column', 'oneToMany', 'api::team-member.team-member'>
   }
 }
 
@@ -689,14 +689,31 @@ export interface HeaderSectionsHeaderWithCardsWithIcon extends Schema.Component 
   }
 }
 
-export interface FilterTagsFilter extends Schema.Component {
-  collectionName: 'tag_filter'
+export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
+  collectionName: 'diagram_full_width'
   info: {
-    displayName: 'tag-filter'
+    displayName: 'diagram-full-width'
     description: ''
   }
   attributes: {
-    tags: Attribute.Relation<'filter.tags-filter', 'oneToMany', 'api::tag.tag'>
+    image: Attribute.Media<'images'> & Attribute.Required
+  }
+}
+
+export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Component {
+  collectionName: 'customer_logo_simple_with_titles'
+  info: {
+    displayName: 'customer-logo-simple-with-title'
+    description: ''
+  }
+  attributes: {
+    surtitle: Attribute.String
+    title: Attribute.String & Attribute.Required
+    customers: Attribute.Relation<
+      'customer-sections.customer-logo-simple-with-title',
+      'oneToMany',
+      'api::customer.customer'
+    >
   }
 }
 
@@ -806,31 +823,14 @@ export interface FeatureSectionsFeatureThreeColumnWithIconsAndCtas extends Schem
   }
 }
 
-export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
-  collectionName: 'diagram_full_width'
+export interface FilterTagsFilter extends Schema.Component {
+  collectionName: 'tag_filter'
   info: {
-    displayName: 'diagram-full-width'
+    displayName: 'tag-filter'
     description: ''
   }
   attributes: {
-    image: Attribute.Media<'images'> & Attribute.Required
-  }
-}
-
-export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Component {
-  collectionName: 'customer_logo_simple_with_titles'
-  info: {
-    displayName: 'customer-logo-simple-with-title'
-    description: ''
-  }
-  attributes: {
-    surtitle: Attribute.String
-    title: Attribute.String & Attribute.Required
-    customers: Attribute.Relation<
-      'customer-sections.customer-logo-simple-with-title',
-      'oneToMany',
-      'api::customer.customer'
-    >
+    tags: Attribute.Relation<'filter.tags-filter', 'oneToMany', 'api::tag.tag'>
   }
 }
 
@@ -1117,9 +1117,9 @@ export interface BenefitBenefit extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'team-sections.team-two-column': TeamSectionsTeamTwoColumn
       'value-sections.value': ValueSectionsValue
       'value-sections.value-two-column': ValueSectionsValueTwoColumn
-      'team-sections.team-two-column': TeamSectionsTeamTwoColumn
       'step-sections.step': StepSectionsStep
       'step-sections.step-row': StepSectionsStepRow
       'solution-sections.solution-three-columns-with-image': SolutionSectionsSolutionThreeColumnsWithImage
@@ -1143,13 +1143,13 @@ declare module '@strapi/types' {
       'hero-sections.hero-simple-center': HeroSectionsHeroSimpleCenter
       'header-sections.header-with-text-cards': HeaderSectionsHeaderWithTextCards
       'header-sections.header-with-cards-with-icon': HeaderSectionsHeaderWithCardsWithIcon
-      'filter.tags-filter': FilterTagsFilter
+      'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
+      'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
       'feature-sections.feature': FeatureSectionsFeature
       'feature-sections.feature-with-large-image': FeatureSectionsFeatureWithLargeImage
       'feature-sections.feature-three-column-with-icons': FeatureSectionsFeatureThreeColumnWithIcons
       'feature-sections.feature-three-column-with-icons-and-ctas': FeatureSectionsFeatureThreeColumnWithIconsAndCtas
-      'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
-      'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
+      'filter.tags-filter': FilterTagsFilter
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam
       'cta-sections.cta-simple-centered': CtaSectionsCtaSimpleCentered
       'cta.button': CtaButton
