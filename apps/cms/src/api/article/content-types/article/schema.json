@@ -109,12 +109,12 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::partner.partner",
-      "inversedBy": "relatedArticles",
       "pluginOptions": {
         "translate": {
           "translate": "translate"
         }
-      }
+      },
+      "inversedBy": "relatedArticles"
     },
     "relatedArticles": {
       "type": "relation",
