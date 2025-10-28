@@ -28,13 +28,13 @@
       "required": true,
       "allowedTypes": ["images"]
     },
-    "image_position": {
+    "imagePosition": {
       "type": "enumeration",
       "enum": ["left", "right"],
       "default": "right",
       "required": true
     },
-    "image_fit": {
+    "imageFit": {
       "type": "enumeration",
       "enum": ["fill", "center"],
       "default": "fill",
