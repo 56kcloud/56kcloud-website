@@ -53,14 +53,14 @@ export default function Contact(props: ContactProps) {
               <TabsContent
                 value='calendar'
                 forceMount
-                className='data-[state=active]:block hidden overflow-hidden overflow-y-auto !flex-initial'
+                className='data-[state=active]:block hidden !flex-initial'
               >
                 <Calendar calendar={props.calendar} />
               </TabsContent>
             </Tabs>
           ) : props.calendar ? (
             <Calendar
-              className='lg:max-w-xl w-full overflow-y-auto h-[730px]'
+              className='lg:max-w-xl w-full overflow-hidden h-[700px]'
               calendar={props.calendar}
             />
           ) : props.withMessage ? (

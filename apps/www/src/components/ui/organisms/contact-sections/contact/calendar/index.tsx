@@ -1,6 +1,6 @@
 import Script from 'next/script'
 
-export type CalendarOptions = 'sandro' | 'darragh' | 'jpgehrig' | 'kevin'
+export type CalendarOptions = 'sandro' | 'darragh' | 'jpgehrig' | 'kevin' | 'team'
 
 export default function Calendar(props: {className?: string; calendar?: CalendarOptions}) {
   const calendars = {
@@ -15,6 +15,9 @@ export default function Calendar(props: {className?: string; calendar?: Calendar
     },
     sandro: {
       src: 'https://meetings.hubspot.com/sandro4?embed=true'
+    },
+    team: {
+      src: 'https://events.56k.cloud/meetings/56k/team?embed=true'
     }
   } as const
 

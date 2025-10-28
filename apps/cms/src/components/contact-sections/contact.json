@@ -17,11 +17,11 @@
     "calendar": {
       "type": "enumeration",
       "required": false,
-      "enum": ["darragh", "jpgehrig", "kevin", "sandro"]
+      "enum": ["darragh", "jpgehrig", "kevin", "sandro", "team"]
     },
     "withMessage": {
       "type": "boolean",
-      "default": false
+      "default": true
     }
   }
 }
