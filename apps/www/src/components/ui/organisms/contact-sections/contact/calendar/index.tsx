@@ -2,7 +2,12 @@ import Script from 'next/script'
 
 export type CalendarOptions = 'sandro' | 'darragh' | 'jpgehrig' | 'kevin' | 'team'
 
-export default function Calendar(props: {className?: string; calendar?: CalendarOptions}) {
+export type CalendarProps = {
+  className?: string
+  calendar?: CalendarOptions
+}
+
+export default function Calendar(props: CalendarProps) {
   const calendars = {
     darragh: {
       src: 'https://events.56k.cloud/meetings/56k/darragh?embed=true'

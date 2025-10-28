@@ -1,6 +1,10 @@
 import Script from 'next/script'
 
-export default function Message(props: {className?: string}) {
+export type MessageProps = {
+  className?: string
+}
+
+export default function Message(props: MessageProps) {
   return (
     <div className={props.className}>
       <Script
