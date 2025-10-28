@@ -272,9 +272,10 @@ export interface PartnerSectionsPartnerLogoSimpleWithTitle extends Schema.Compon
     description: ''
   }
   attributes: {
-    surtitle: Attribute.String & Attribute.Required
+    surtitle: Attribute.String
     title: Attribute.String & Attribute.Required
     partners: Attribute.Relation<'partner-sections.partner-logo-simple-with-title', 'oneToMany', 'api::partner.partner'>
+    variant: Attribute.Enumeration<['slider', 'grid']> & Attribute.DefaultTo<'slider'>
   }
 }
 
@@ -608,6 +609,23 @@ export interface IconIcon extends Schema.Component {
   }
 }
 
+export interface HeroSectionsHeroWithImage extends Schema.Component {
+  collectionName: 'components_hero_sections_hero_with_images'
+  info: {
+    displayName: 'hero-with-image'
+    description: ''
+  }
+  attributes: {
+    surtitle: Attribute.String
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    cta: Attribute.Component<'cta.button'>
+    image: Attribute.Media<'images'> & Attribute.Required
+    imagePosition: Attribute.Enumeration<['left', 'right']> & Attribute.Required & Attribute.DefaultTo<'right'>
+    imageFit: Attribute.Enumeration<['fill', 'center']> & Attribute.DefaultTo<'fill'>
+  }
+}
+
 export interface HeroSectionsHeroWithGradient extends Schema.Component {
   collectionName: 'components_hero_sections_hero_with_gradients'
   info: {
@@ -682,34 +700,6 @@ export interface HeaderSectionsHeaderWithCardsWithIcon extends Schema.Component 
   }
 }
 
-export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
-  collectionName: 'diagram_full_width'
-  info: {
-    displayName: 'diagram-full-width'
-    description: ''
-  }
-  attributes: {
-    image: Attribute.Media<'images'> & Attribute.Required
-  }
-}
-
-export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Component {
-  collectionName: 'customer_logo_simple_with_titles'
-  info: {
-    displayName: 'customer-logo-simple-with-title'
-    description: ''
-  }
-  attributes: {
-    surtitle: Attribute.String & Attribute.Required
-    title: Attribute.String & Attribute.Required
-    customers: Attribute.Relation<
-      'customer-sections.customer-logo-simple-with-title',
-      'oneToMany',
-      'api::customer.customer'
-    >
-  }
-}
-
 export interface FeatureSectionsFeature extends Schema.Component {
   collectionName: 'components_feature_sections_features'
   info: {
@@ -766,6 +756,30 @@ export interface FeatureSectionsFeatureWithLargeImage extends Schema.Component {
   }
 }
 
+export interface FeatureSectionsFeatureThreeColumnWithIcons extends Schema.Component {
+  collectionName: 'components_feature_three_column_with_icons'
+  info: {
+    displayName: 'feature-three-column-with-icons'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    subtitle: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    features: Attribute.Component<'feature-sections.feature', true>
+  }
+}
+
 export interface FeatureSectionsFeatureThreeColumnWithIconsAndCtas extends Schema.Component {
   collectionName: 'components_feature_three_column_with_icons_and_ctas'
   info: {
@@ -789,6 +803,34 @@ export interface FeatureSectionsFeatureThreeColumnWithIconsAndCtas extends Schem
       }>
     features: Attribute.Component<'feature-sections.feature', true>
     ctas: Attribute.Component<'cta.button', true>
+  }
+}
+
+export interface DiagramSectionsDiagramFullWidth extends Schema.Component {
+  collectionName: 'diagram_full_width'
+  info: {
+    displayName: 'diagram-full-width'
+    description: ''
+  }
+  attributes: {
+    image: Attribute.Media<'images'> & Attribute.Required
+  }
+}
+
+export interface CustomerSectionsCustomerLogoSimpleWithTitle extends Schema.Component {
+  collectionName: 'customer_logo_simple_with_titles'
+  info: {
+    displayName: 'customer-logo-simple-with-title'
+    description: ''
+  }
+  attributes: {
+    surtitle: Attribute.String
+    title: Attribute.String & Attribute.Required
+    customers: Attribute.Relation<
+      'customer-sections.customer-logo-simple-with-title',
+      'oneToMany',
+      'api::customer.customer'
+    >
   }
 }
 
@@ -820,65 +862,6 @@ export interface CtaSectionsCtaSimpleCentered extends Schema.Component {
   }
 }
 
-export interface CtaButton extends Schema.Component {
-  collectionName: 'components_cta_buttons'
-  info: {
-    displayName: 'button'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    link: Attribute.String & Attribute.Required
-    tone: Attribute.Enumeration<['primary', 'secondary']> & Attribute.Required & Attribute.DefaultTo<'primary'>
-  }
-}
-
-export interface ContentSectionIntroductionWithLogo extends Schema.Component {
-  collectionName: 'components_content_section_introduction_with_logos'
-  info: {
-    displayName: 'introduction-with-logo'
-    description: ''
-  }
-  attributes: {
-    surtitle: Attribute.String & Attribute.Required
-    title: Attribute.String & Attribute.Required
-    description: Attribute.Text & Attribute.Required
-    logo: Attribute.Media<'images'> & Attribute.Required
-  }
-}
-
-export interface ContentSectionContentTwoColumn extends Schema.Component {
-  collectionName: 'components_content_section_content_two_columns'
-  info: {
-    displayName: 'Content-two-column'
-  }
-  attributes: {
-    contentLeft: Attribute.Text & Attribute.Required
-    contentRight: Attribute.Text & Attribute.Required
-  }
-}
-
-export interface ContentSectionContentMarkdown extends Schema.Component {
-  collectionName: 'components_content_section_content_markdowns'
-  info: {
-    displayName: 'content-markdown'
-  }
-  attributes: {
-    content: Attribute.RichText & Attribute.Required
-  }
-}
-
-export interface ContentSectionContentAlternatePositionWithImageList extends Schema.Component {
-  collectionName: 'components_content_alternate_pos_w_image_lists'
-  info: {
-    displayName: 'content-alternate-position-with-image-list'
-    description: ''
-  }
-  attributes: {
-    items: Attribute.Component<'cards.content-alternate-position-with-image-item', true> & Attribute.Required
-  }
-}
-
 export interface ContactSectionsContact extends Schema.Component {
   collectionName: 'contacts'
   info: {
@@ -890,19 +873,6 @@ export interface ContactSectionsContact extends Schema.Component {
     subtitle: Attribute.String & Attribute.Required
     calendar: Attribute.Enumeration<['darragh', 'jpgehrig', 'kevin', 'sandro', 'team']>
     withMessage: Attribute.Boolean & Attribute.DefaultTo<true>
-  }
-}
-
-export interface CertificationsSectionsCertificationsBadgesWithTitle extends Schema.Component {
-  collectionName: 'certifications_badges_with_titles'
-  info: {
-    displayName: 'certifications-badges-with-title'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    horizontalBadgesImage: Attribute.Media<'images'> & Attribute.Required
-    verticalBadgesImage: Attribute.Media<'images'> & Attribute.Required
   }
 }
 
@@ -957,6 +927,103 @@ export interface ChallengeSectionsChallengeSolution extends Schema.Component {
   }
 }
 
+export interface ContentSectionIntroductionWithLogo extends Schema.Component {
+  collectionName: 'components_content_section_introduction_with_logos'
+  info: {
+    displayName: 'introduction-with-logo'
+    description: ''
+  }
+  attributes: {
+    surtitle: Attribute.String & Attribute.Required
+    title: Attribute.String & Attribute.Required
+    description: Attribute.Text & Attribute.Required
+    logo: Attribute.Media<'images'> & Attribute.Required
+  }
+}
+
+export interface ContentSectionContentTwoColumn extends Schema.Component {
+  collectionName: 'components_content_section_content_two_columns'
+  info: {
+    displayName: 'Content-two-column'
+  }
+  attributes: {
+    contentLeft: Attribute.Text & Attribute.Required
+    contentRight: Attribute.Text & Attribute.Required
+  }
+}
+
+export interface ContentSectionContentMarkdown extends Schema.Component {
+  collectionName: 'components_content_section_content_markdowns'
+  info: {
+    displayName: 'content-markdown'
+  }
+  attributes: {
+    content: Attribute.RichText & Attribute.Required
+  }
+}
+
+export interface ContentSectionContentAlternatePositionWithImageList extends Schema.Component {
+  collectionName: 'components_content_alternate_pos_w_image_lists'
+  info: {
+    displayName: 'content-alternate-position-with-image-list'
+    description: ''
+  }
+  attributes: {
+    items: Attribute.Component<'cards.content-alternate-position-with-image-item', true> & Attribute.Required
+  }
+}
+
+export interface CaseStudiesSectionsCaseStudiesThreeColumnWithImage extends Schema.Component {
+  collectionName: 'case_studies_three_columns_with_image'
+  info: {
+    displayName: 'case-studies-three-columns-with-image'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text & Attribute.Required
+    case_studies: Attribute.Relation<
+      'case-studies-sections.case-studies-three-column-with-image',
+      'oneToMany',
+      'api::case-study.case-study'
+    >
+  }
+}
+
+export interface CaseStudiesSectionsCaseStudiesGridCards extends Schema.Component {
+  collectionName: 'case_studies_grid_cards'
+  info: {
+    displayName: 'case-studies-grid-cards'
+    description: ''
+  }
+  attributes: {
+    case_studies: Attribute.Relation<
+      'case-studies-sections.case-studies-grid-cards',
+      'oneToMany',
+      'api::case-study.case-study'
+    >
+  }
+}
+
+export interface CertificationsSectionsCertificationsBadgesWithTitle extends Schema.Component {
+  collectionName: 'certifications_badges_with_titles'
+  info: {
+    displayName: 'certifications-badges-with-title'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    subtitle: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate'
+        }
+      }>
+    horizontalBadgesImage: Attribute.Media<'images'> & Attribute.Required
+    verticalBadgesImage: Attribute.Media<'images'> & Attribute.Required
+  }
+}
+
 export interface CardsContentAlternatePositionWithImageItem extends Schema.Component {
   collectionName: 'components_content_alternate_pos_w_image_items'
   info: {
@@ -1002,6 +1069,19 @@ export interface CardsCardText extends Schema.Component {
   }
 }
 
+export interface CtaButton extends Schema.Component {
+  collectionName: 'components_cta_buttons'
+  info: {
+    displayName: 'button'
+    description: ''
+  }
+  attributes: {
+    title: Attribute.String & Attribute.Required
+    link: Attribute.String & Attribute.Required
+    tone: Attribute.Enumeration<['primary', 'secondary']> & Attribute.Required & Attribute.DefaultTo<'primary'>
+  }
+}
+
 export interface BlogSectionsBlogThreeColumn extends Schema.Component {
   collectionName: 'components_blog_sections_blog_three_columns'
   info: {
@@ -1023,38 +1103,6 @@ export interface BlogSectionsBlogMasonry extends Schema.Component {
   }
   attributes: {
     articles: Attribute.Relation<'blog-sections.blog-masonry', 'oneToMany', 'api::article.article'>
-  }
-}
-
-export interface CaseStudiesSectionsCaseStudiesThreeColumnWithImage extends Schema.Component {
-  collectionName: 'case_studies_three_columns_with_image'
-  info: {
-    displayName: 'case-studies-three-columns-with-image'
-    description: ''
-  }
-  attributes: {
-    title: Attribute.String & Attribute.Required
-    subtitle: Attribute.Text & Attribute.Required
-    case_studies: Attribute.Relation<
-      'case-studies-sections.case-studies-three-column-with-image',
-      'oneToMany',
-      'api::case-study.case-study'
-    >
-  }
-}
-
-export interface CaseStudiesSectionsCaseStudiesGridCards extends Schema.Component {
-  collectionName: 'case_studies_grid_cards'
-  info: {
-    displayName: 'case-studies-grid-cards'
-    description: ''
-  }
-  attributes: {
-    case_studies: Attribute.Relation<
-      'case-studies-sections.case-studies-grid-cards',
-      'oneToMany',
-      'api::case-study.case-study'
-    >
   }
 }
 
@@ -1091,36 +1139,38 @@ declare module '@strapi/types' {
       'map-sections.map-with-title': MapSectionsMapWithTitle
       'image-sections.image-simple': ImageSectionsImageSimple
       'icon.icon': IconIcon
+      'hero-sections.hero-with-image': HeroSectionsHeroWithImage
       'hero-sections.hero-with-gradient': HeroSectionsHeroWithGradient
       'hero-sections.hero-with-floating-gradients': HeroSectionsHeroWithFloatingGradients
       'hero-sections.hero-simple-center': HeroSectionsHeroSimpleCenter
       'filter.tags-filter': FilterTagsFilter
       'header-sections.header-with-text-cards': HeaderSectionsHeaderWithTextCards
       'header-sections.header-with-cards-with-icon': HeaderSectionsHeaderWithCardsWithIcon
-      'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
-      'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
       'feature-sections.feature': FeatureSectionsFeature
       'feature-sections.feature-with-large-image': FeatureSectionsFeatureWithLargeImage
+      'feature-sections.feature-three-column-with-icons': FeatureSectionsFeatureThreeColumnWithIcons
       'feature-sections.feature-three-column-with-icons-and-ctas': FeatureSectionsFeatureThreeColumnWithIconsAndCtas
+      'diagram-sections.diagram-full-width': DiagramSectionsDiagramFullWidth
+      'customer-sections.customer-logo-simple-with-title': CustomerSectionsCustomerLogoSimpleWithTitle
       'cta-sections.join-our-team': CtaSectionsJoinOurTeam
       'cta-sections.cta-simple-centered': CtaSectionsCtaSimpleCentered
-      'cta.button': CtaButton
+      'contact-sections.contact': ContactSectionsContact
+      'challenge-sections.challenge': ChallengeSectionsChallenge
+      'challenge-sections.challenge-three-column': ChallengeSectionsChallengeThreeColumn
+      'challenge-sections.challenge-solution': ChallengeSectionsChallengeSolution
       'content-section.introduction-with-logo': ContentSectionIntroductionWithLogo
       'content-section.content-two-column': ContentSectionContentTwoColumn
       'content-section.content-markdown': ContentSectionContentMarkdown
       'content-section.content-alternate-position-with-image-list': ContentSectionContentAlternatePositionWithImageList
-      'contact-sections.contact': ContactSectionsContact
+      'case-studies-sections.case-studies-three-column-with-image': CaseStudiesSectionsCaseStudiesThreeColumnWithImage
+      'case-studies-sections.case-studies-grid-cards': CaseStudiesSectionsCaseStudiesGridCards
       'certifications-sections.certifications-badges-with-title': CertificationsSectionsCertificationsBadgesWithTitle
-      'challenge-sections.challenge': ChallengeSectionsChallenge
-      'challenge-sections.challenge-three-column': ChallengeSectionsChallengeThreeColumn
-      'challenge-sections.challenge-solution': ChallengeSectionsChallengeSolution
       'cards.content-alternate-position-with-image-item': CardsContentAlternatePositionWithImageItem
       'cards.card-with-icon': CardsCardWithIcon
       'cards.card-text': CardsCardText
+      'cta.button': CtaButton
       'blog-sections.blog-three-column': BlogSectionsBlogThreeColumn
       'blog-sections.blog-masonry': BlogSectionsBlogMasonry
-      'case-studies-sections.case-studies-three-column-with-image': CaseStudiesSectionsCaseStudiesThreeColumnWithImage
-      'case-studies-sections.case-studies-grid-cards': CaseStudiesSectionsCaseStudiesGridCards
       'benefit.benefit': BenefitBenefit
     }
   }
