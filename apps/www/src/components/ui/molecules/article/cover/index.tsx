@@ -31,6 +31,9 @@ export default function ArticleCover({image, className}: ArticleCoverProps) {
           setIsLoaded(true)
         }}
         fill
+        fetchPriority='high'
+        loading='eager'
+        placeholder='empty'
         className={cn('object-cover w-full', isLoaded && 'bg-white')}
       />
     </div>
